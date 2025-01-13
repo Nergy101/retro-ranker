@@ -18,7 +18,7 @@ export default function ContactPage() {
           </p>
           <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
             <a 
-              href="https://ko-fi.com/yourname" 
+              href="https://ko-fi.com/nergy" 
               target="_blank"
               class="small-card"
               style="text-decoration: none;"
@@ -27,13 +27,13 @@ export default function ContactPage() {
               <span>Buy me a coffee</span>
             </a>
             <a 
-              href="https://github.com/yourusername" 
+              href="https://github.com/Nergy101/retro-ranker" 
               target="_blank"
               class="small-card"
               style="text-decoration: none;"
             >
               <i class="ph ph-github-logo text-4xl"></i>
-              <span>GitHub</span>
+              <span>GitHub Repository</span>
             </a>
           </div>
         </section>
@@ -45,31 +45,31 @@ export default function ContactPage() {
               <a href="https://portfolio.nergy.space" target="_blank" class="text-primary">
                 Portfolio
               </a>
-              - My portfolio website
+              &nbsp;- My portfolio website
             </li>
             <li>
               <a href="https://blog.nergy.space" target="_blank" class="text-primary">
                 Blog
               </a>
-              - My blog website
+              &nbsp;- My blog website
             </li>
           </ul>
         </section>
 
-        <section class="mt-6">
+        <section>
           <h2 class="text-2xl font-semibold mb-3">Connect With Me</h2>
-          <div class="flex gap-4">
+          <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
             <a 
-              href="https://twitter.com/yourusername" 
+              href="https://bsky.app/profile/nergy101.bsky.social" 
               target="_blank"
               class="small-card"
               style="text-decoration: none;"
             >
-              <i class="ph ph-twitter-logo text-4xl"></i>
-              <span>Twitter</span>
+              <i class="ph ph-chat-text text-4xl"></i>
+              <span>BlueSky</span>
             </a>
             <a 
-              href="https://linkedin.com/in/yourusername" 
+              href="https://www.linkedin.com/in/christian-van-dijk-657069134/" 
               target="_blank"
               class="small-card"
               style="text-decoration: none;"
@@ -78,12 +78,12 @@ export default function ContactPage() {
               <span>LinkedIn</span>
             </a>
             <a 
-              href="mailto:your@email.com" 
+              href="https://github.com/Nergy101/retro-ranker" 
               class="small-card"
               style="text-decoration: none;"
             >
-              <i class="ph ph-envelope-simple text-4xl"></i>
-              <span>Email</span>
+              <i class="ph ph-github-logo text-4xl"></i>
+              <span>GitHub Profile</span>
             </a>
           </div>
         </section>
