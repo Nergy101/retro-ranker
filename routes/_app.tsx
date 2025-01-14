@@ -1,6 +1,9 @@
-import { type PageProps } from "$fresh/server.ts";
 import { Head } from "$fresh/runtime.ts";
-import Breadcrumb from "../components/Breadcrumb.tsx";
+import { type PageProps } from "$fresh/server.ts";
+import { Breadcrumb } from "../components/Breadcrumb.tsx";
+import { DesktopNav } from "../islands/DesktopNav.tsx";
+import { MobileNav } from "../islands/MobileNav.tsx";
+
 export default function App({ Component, url }: PageProps) {
   return (
     <html>
@@ -28,67 +31,29 @@ export default function App({ Component, url }: PageProps) {
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.pumpkin.min.css"
         />
+        {/* Prevent flash of wrong theme */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            (function() {
+              const savedTheme = localStorage.getItem('theme');
+              if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+              } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+              }
+            })();
+          `,
+          }}
+        />
       </Head>
       <body>
         <header style={{ padding: "0" }}>
-          <nav class="container">
-            <ul>
-              <li>
-                <a href="/">
-                  <img
-                    src="/logo-color.svg"
-                    alt="logo"
-                    style={{ height: "5em" }}
-                  />
-                </a>
-              </li>
-              <li>
-                <a href="/" class={url.pathname === "/" ? "active" : ""}>
-                  <i class="ph ph-house"></i>
-                  &nbsp;Home
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/devices"
-                  class={url.pathname.startsWith("/devices") ? "active" : ""}
-                >
-                  <i class="ph ph-devices"></i>
-                  &nbsp;Devices
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/about"
-                  class={url.pathname === "/about" ? "active" : ""}
-                >
-                  <i class="ph ph-info"></i>
-                  &nbsp;About
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/contact"
-                  class={url.pathname === "/contact" ? "active" : ""}
-                >
-                  <i class="ph ph-user"></i>
-                  &nbsp;Contact
-                </a>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <form action="/devices" method="get">
-                  <input
-                    type="search"
-                    placeholder="Search..."
-                    name="q"
-                    aria-label="Search"
-                  />
-                </form>
-              </li>
-            </ul>
-          </nav>
+          {/* Desktop Navigation */}
+          <DesktopNav pathname={url.pathname} />
+
+          {/* Mobile Navigation */}
+          <MobileNav pathname={url.pathname} />
         </header>
         <main class="container">
           <Breadcrumb url={url} />
@@ -97,14 +62,9 @@ export default function App({ Component, url }: PageProps) {
         <footer>
           <div class="container-fluid">
             <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "space-around",
-                alignItems: "center",
-              }}
+              class="footer-grid"
             >
-              <div>
+              <div class="footer-grid-item rr">
                 <h6>Retro Ranker</h6>
                 <p>
                   Find the perfect device for your gaming needs
@@ -114,7 +74,7 @@ export default function App({ Component, url }: PageProps) {
                   Retro Ranker. All rights reserved.
                 </small>
               </div>
-              <div>
+              <div class="footer-grid-item quick-links">
                 <h6>Quick Links</h6>
                 <ul style={{ listStyle: "none", padding: 0 }}>
                   <li style={{ listStyle: "none" }}>
@@ -137,7 +97,7 @@ export default function App({ Component, url }: PageProps) {
                   </li>
                 </ul>
               </div>
-              <div>
+              <div class="footer-grid-item connect">
                 <h6>Connect</h6>
                 <ul style={{ listStyle: "none", padding: 0 }}>
                   <li style={{ listStyle: "none" }}>

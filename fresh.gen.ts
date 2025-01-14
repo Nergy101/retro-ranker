@@ -12,7 +12,10 @@ import * as $devices_index from "./routes/devices/index.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $privacy from "./routes/privacy.tsx";
 import * as $terms from "./routes/terms.tsx";
+import * as $DesktopNav from "./islands/DesktopNav.tsx";
 import * as $DeviceSearch from "./islands/DeviceSearch.tsx";
+import * as $MobileNav from "./islands/MobileNav.tsx";
+import * as $ThemeSwitcher from "./islands/ThemeSwitcher.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -29,7 +32,10 @@ const manifest = {
     "./routes/terms.tsx": $terms,
   },
   islands: {
+    "./islands/DesktopNav.tsx": $DesktopNav,
     "./islands/DeviceSearch.tsx": $DeviceSearch,
+    "./islands/MobileNav.tsx": $MobileNav,
+    "./islands/ThemeSwitcher.tsx": $ThemeSwitcher,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;

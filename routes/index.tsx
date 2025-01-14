@@ -20,7 +20,7 @@ export default async function Home() {
         {/* New Arrivals Section */}
         <section>
           <h2>New Arrivals</h2>
-          <div style="display: grid; gap: 1rem; grid-template-columns: repeat(5, 1fr);">
+          <div class="device-row-grid">
             {newArrivals.map((device) => <DeviceCardSmall device={device} />)}
             <SeeMoreCard href="/devices" />
           </div>
@@ -29,7 +29,7 @@ export default async function Home() {
         {/* Staff Picks Section */}
         <section style="margin-top: 2rem;">
           <h2>Staff Picks</h2>
-          <div style="display: grid; gap: 1rem; grid-template-columns: repeat(5, 1fr);">
+          <div class="device-row-grid">
             {staffPicks.map((device) => <DeviceCardSmall device={device} />)}
             <SeeMoreCard href="/devices" />
           </div>
@@ -38,7 +38,7 @@ export default async function Home() {
         {/* Highly Rated Section */}
         <section style="margin-top: 2rem;">
           <h2>Highly Rated</h2>
-          <div style="display: grid; gap: 1rem; grid-template-columns: repeat(5, 1fr);">
+          <div class="device-row-grid">
             {highlyRated.map((device) => <DeviceCardSmall device={device} />)}
             <SeeMoreCard href="/devices" />
           </div>

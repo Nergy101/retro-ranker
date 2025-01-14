@@ -9,7 +9,9 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
     <div class="specs-grid">
       {/* Processing */}
       <section class="specs-section">
-        <h3>Processing</h3>
+        <h3 style={{ fontSize: "1.25rem", color: "var(--pico-contrast)" }}>
+          Processing
+        </h3>
         <dl>
           {device.systemOnChip && (
             <>
@@ -48,7 +50,9 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
 
       {/* Display */}
       <section class="specs-section">
-        <h3>Display</h3>
+        <h3 style={{ fontSize: "1.25rem", color: "var(--pico-contrast)" }}>
+          Display
+        </h3>
         <dl>
           {device.screenSize && (
             <>
@@ -85,7 +89,9 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
 
       {/* Physical */}
       <section class="specs-section">
-        <h3>Physical</h3>
+        <h3 style={{ fontSize: "1.25rem", color: "var(--pico-contrast)" }}>
+          Physical
+        </h3>
         <dl>
           {device.dimensions && (
             <>
@@ -116,7 +122,9 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
 
       {/* Audio and Video */}
       <section class="specs-section">
-        <h3>Audio and Video</h3>
+        <h3 style={{ fontSize: "1.25rem", color: "var(--pico-contrast)" }}>
+          Audio and Video
+        </h3>
         <dl>
           {device.audioOutput && (
             <>
@@ -141,7 +149,9 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
 
       {/* Controls */}
       <section class="specs-section">
-        <h3>Controls</h3>
+        <h3 style={{ fontSize: "1.25rem", color: "var(--pico-contrast)" }}>
+          Controls
+        </h3>
         <dl>
           {device.dPad && (
             <>
@@ -184,7 +194,9 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
 
       {/* Miscellaneous */}
       <section class="specs-section">
-        <h3>Miscellaneous</h3>
+        <h3 style={{ fontSize: "1.25rem", color: "var(--pico-contrast)" }}>
+          Miscellaneous
+        </h3>
         <dl>
           {device.colors && (
             <>
@@ -197,7 +209,9 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
 
       {/* Connectivity */}
       <section class="specs-section">
-        <h3>Connectivity</h3>
+        <h3 style={{ fontSize: "1.25rem", color: "var(--pico-contrast)" }}>
+          Connectivity
+        </h3>
         <dl>
           {device.connectivity && (
             <>

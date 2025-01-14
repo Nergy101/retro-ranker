@@ -58,14 +58,7 @@ export default function DeviceSearch({ initialDevices, initialQuery }: DeviceSea
         />
       </header>
 
-      <div
-        style={{
-          display: "grid",
-          gap: "1rem",
-          gridTemplateColumns: "repeat(3, 1fr)",
-          marginTop: "1rem"
-        }}
-      >
+      <div class="device-search-grid">
         {getFilteredDevices().map(renderDeviceCard)}
       </div>
     </div>

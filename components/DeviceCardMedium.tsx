@@ -17,11 +17,12 @@ export default function DeviceCardMedium({ device }: DeviceCardMediumProps) {
           <div style="display: flex; flex-direction: column; gap: 0.5rem;">
             <div style="display: flex; gap: 0.5rem;">
               <p>{device.brand}</p>
-              <span
+              <p
+                data-placement="bottom"
                 data-tooltip={`Rating: ${device.performanceRating.rating}/15, ${device.performanceRating.maxEmulation}`}
               >
                 {device.performanceRating.tier}
-              </span>
+              </p>
             </div>
           </div>
         </hgroup>

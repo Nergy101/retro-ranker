@@ -32,12 +32,12 @@ export default function DeviceDetail(props: PageProps) {
       <article class="device-detail">
         <header style="grid-area: header;">
           <hgroup style="display: flex; flex-direction: column; gap: 0.5rem; justify-content: center; align-items: center;">
-            <h2>{device.name}</h2>
+            <h2 style={{ fontSize: "2rem", color: "var(--pico-primary)" }}>{device.name}</h2>
             <div style="display: flex; gap: 0.25rem; align-items: center;">
-              <span>{device.brand}</span>
-              <span data-tooltip={device.os}>
+              <p>{device.brand}</p>
+              <p data-tooltip={device.os} data-placement="right">
                 {device.osIcons.map((icon) => <i class={`${icon}`} />)}
-              </span>
+              </p>
             </div>
             <div>
               <img
@@ -67,7 +67,7 @@ export default function DeviceDetail(props: PageProps) {
         </header>
 
         <section style="grid-area: specs; display: flex; flex-direction: column; gap: 0.5rem; padding: 1rem;">
-          <h2>Specifications</h2>
+          <h2 style={{ fontSize: "1.5rem", color: "var(--pico-primary)" }}>Specifications</h2>
 
           <DeviceSpecs device={device} />
 

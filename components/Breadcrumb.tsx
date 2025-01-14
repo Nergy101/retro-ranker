@@ -3,7 +3,7 @@ interface BreadcrumbProps {
   items?: { label: string; href?: string }[];
 }
 
-export default function Breadcrumb({ url, items }: BreadcrumbProps) {
+export function Breadcrumb({ url, items }: BreadcrumbProps) {
   // Get path segments and filter out empty strings
   const pathSegments = url.pathname
     .split("/")
