@@ -6,7 +6,7 @@ import {
 import { DeviceCardSmall } from "../../components/DeviceCardSmall.tsx";
 import { SeeMoreCard } from "../../components/SeeMoreCard.tsx";
 import { DeviceSpecs } from "../../components/DeviceSpecs.tsx";
-
+import { StarRating } from "../../components/StarRating.tsx";
 export default function DeviceDetail(props: PageProps) {
   const device = getDeviceByName(props.params?.name);
   const similarDevices = getSimilarDevices(device?.sanitizedName ?? null);
@@ -48,13 +48,8 @@ export default function DeviceDetail(props: PageProps) {
             </div>
             <div style="display: flex; gap: 0.5rem;">
               <p>
-                <strong>Emulation:</strong>
-                &nbsp;
-                <span
-                  data-tooltip={`Rating: ${device.performanceRating.rating}/15, ${device.performanceRating.maxEmulation}`}
-                >
-                  {device.performanceRating.tier}
-                </span>
+                <strong>Emulation:&nbsp;</strong>
+                <StarRating performanceRating={device.performanceRating} />
               </p>
             </div>
             <div style="display: flex; gap: 1rem; align-items: center;">

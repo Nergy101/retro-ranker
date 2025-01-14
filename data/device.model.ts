@@ -10,6 +10,7 @@ export interface Device {
   performanceRating: {
     tier: EmulationTier;
     rating: number;
+    normalizedRating: number;
     maxEmulation: string;
   };
   systemOnChip: string;
@@ -94,7 +95,7 @@ export type EmulationTier =
   | "🔥🔥" // Most Switch, some PS3
   | "🔥🔥🔥" // Full Switch, most PS3
   | "🔥🔥🔥🔥" // Full PS3
-  | "🔥🔥🔥��🔥"; // Beyond!
+  | "🔥🔥🔥🔥🔥"; // Beyond!
 
 // Optional: Add a type for the spec ratings
 export type SpecRating = "🔵" | "🟢" | "🟡" | "🟠" | "🔴"; 

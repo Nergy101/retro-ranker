@@ -163,18 +163,38 @@ html {
   transition: background-color 0.2s ease-in-out;
   transition: transform 0.2s ease-in-out;
 
-  background-color: rgba(254, 182, 112, 0.2);
+  background-color: rgba(254, 182, 112, 0.5);
   transform: scale(1.1);
 }
 
 /* background image from /assets/images/see-more.png */
 .see-more-card {
-  background-color: rgba(0, 0, 0, 0.7);
-  background-image: url("/images/see-more.png");
   background-size: cover;
   background-position: center;
   background-blend-mode: multiply;
+}
+
+/* Dark theme (default) */
+[data-theme="dark"] .see-more-card {
+  background-color: rgba(0, 0, 0, 0.5);
+  background-image: url("/images/see-more.png");
   color: var(--pico-primary);
+}
+[data-theme="dark"] .see-more-card:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+  transform: scale(1.1);
+}
+
+
+/* Light theme */
+[data-theme="light"] .see-more-card {
+  /* background-color: rgba(255, 255, 255, 0.7); */
+  background-image: url("/images/see-more.png");
+  color: white;
+}
+[data-theme="light"] .see-more-card:hover {
+  background-color: rgba(254, 182, 112, 0.5);
+  transform: scale(1.1);
 }
 
 .device-detail {

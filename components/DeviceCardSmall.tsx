@@ -1,4 +1,5 @@
 import { Device } from "../data/device.model.ts";
+import { StarRating } from "./StarRating.tsx";
 
 interface DeviceCardSmallProps {
   device: Device;
@@ -19,6 +20,9 @@ export function DeviceCardSmall({ device }: DeviceCardSmallProps) {
               alt={device.name}
               style="width: 100%; height: 100%; object-fit: contain;"
             />
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <StarRating performanceRating={device.performanceRating} />
           </div>
           <span style="font-size: 0.8rem;">{device.brand}</span>
         </div>

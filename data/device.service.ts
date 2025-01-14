@@ -30,7 +30,7 @@ const parseOsIcons = (os: string): string[] => {
 // Helper function to parse performance rating
 const parsePerformanceRating = (
   text: string,
-): { rating: number; tier: EmulationTier; maxEmulation: string } => {
+): { rating: number; normalizedRating: number; tier: EmulationTier; maxEmulation: string } => {
   const starCount = (text.match(/⭐️/g) || []).length;
   const explosionCount = (text.match(/💥/g) || []).length;
   const fireCount = (text.match(/🔥/g) || []).length;
@@ -40,7 +40,7 @@ const parsePerformanceRating = (
   let maxEmulation = "";
 
   if (starCount) {
-    rating = starCount;
+    rating = starCount; // 1-5
     maxEmulation = [
       "GB/GBC/GG/NES/SMS at full speed",
       "Most GBA & Genesis, some SNES playable",
@@ -49,7 +49,7 @@ const parsePerformanceRating = (
       "Most DS/N64/PSP/DC, some Saturn",
     ][starCount - 1];
   } else if (explosionCount) {
-    rating = 5 + explosionCount;
+    rating = 5 + explosionCount; // 6-10
     maxEmulation = [
       "Full DS/N64/PSP/DC, most Saturn",
       "Full Saturn, some GameCube",
@@ -58,7 +58,7 @@ const parsePerformanceRating = (
       "Full GameCube/Wii, most 3DS/PS2, some Wii U",
     ][explosionCount - 1];
   } else if (fireCount) {
-    rating = 10 + fireCount;
+    rating = 10 + fireCount; // 11-15
     maxEmulation = [
       "Full 3DS/PS2, most Wii U, some Switch",
       "Most Switch, some PS3",
@@ -68,7 +68,15 @@ const parsePerformanceRating = (
     ][fireCount - 1];
   }
 
-  return { rating, tier, maxEmulation };
+  // Normalize rating from 0-15 to 0-10
+  const normalizedRating = (rating / 15) * 10;
+
+  return { 
+    rating, // Original rating (0-15)
+    normalizedRating: Number(normalizedRating.toFixed(1)), // Normalized rating (0-10) with one decimal
+    tier, 
+    maxEmulation 
+  };
 };
 
 export function parseHandheldsHtml(filePath: string): Device[] {
@@ -223,7 +231,7 @@ export function parseHandheldsHtml(filePath: string): Device[] {
         case 56:
           device.sensors = value;
           break;
-        case 56:
+        case 57:
           device.volumeControl = value;
           break;
         case 58:

@@ -1,5 +1,5 @@
 import { Device } from "../data/device.model.ts";
-
+import { StarRating } from "./StarRating.tsx";
 interface DeviceCardMediumProps {
   device: Device;
 }
@@ -14,15 +14,10 @@ export default function DeviceCardMedium({ device }: DeviceCardMediumProps) {
               {device.name}
             </a>
           </h2>
+          <StarRating performanceRating={device.performanceRating} />
           <div style="display: flex; flex-direction: column; gap: 0.5rem;">
             <div style="display: flex; gap: 0.5rem;">
               <p>{device.brand}</p>
-              <p
-                data-placement="bottom"
-                data-tooltip={`Rating: ${device.performanceRating.rating}/15, ${device.performanceRating.maxEmulation}`}
-              >
-                {device.performanceRating.tier}
-              </p>
             </div>
           </div>
         </hgroup>
