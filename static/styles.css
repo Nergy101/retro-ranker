@@ -146,6 +146,25 @@ html {
   font-variant-numeric: tabular-nums;
 }
 
+.bread-crumb {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.5rem;
+  list-style: none;
+  text-decoration: none;
+  padding-left: 0;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.bread-crumb ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
 .small-card {
   padding: 0.25rem;
   border: 1px solid var(--pico-primary);

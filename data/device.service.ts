@@ -344,3 +344,27 @@ export function getSimilarDevices(
     .slice(0, limit)
     .map(({ similarityScore, ...device }) => device);
 }
+
+export function getStaffPicks(): Device[] {
+  const devices = getAllDevices();
+
+  const staffPicks = ["rg-405m", "miyoo-mini-plus", "rg-35xx-sp", "steam-deck-oled"];
+  return devices.filter((device) => staffPicks.includes(device.sanitizedName));
+}
+
+export function getNewArrivals(): Device[] {
+  const devices = getAllDevices().filter((device) => !device.released.toLowerCase().includes("upcoming"));
+  return devices.sort((a, b) => b.released.localeCompare(a.released)).slice(0, 4);
+}
+
+export function getUpcoming(): Device[] {
+  const devices = getAllDevices().filter((device) => device.released.toLowerCase().includes("upcoming"));
+  return devices.sort((a, b) => b.released.localeCompare(a.released)).slice(0, 4);
+}
+
+export function getHighlyRated(): Device[] {
+  const devices = getAllDevices();
+  return devices
+    .sort((a, b) => b.performanceRating.rating - a.performanceRating.rating)
+    .slice(0, 4);
+}

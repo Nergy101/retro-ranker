@@ -1,4 +1,6 @@
 import { ThemeSwitcher } from "./ThemeSwitcher.tsx";
+import { navigationItems } from "../data/navigation.ts";
+
 export function MobileNav({ pathname }: { pathname: string }) {
   return (
     <nav class="mobile-nav">
@@ -34,30 +36,17 @@ export function MobileNav({ pathname }: { pathname: string }) {
               />
             </form>
           </li>
-          <li>
-            <a href="/" class={pathname === "/" ? "active" : ""}>
-              <i class="ph ph-house"></i>
-              &nbsp;Home
-            </a>
-          </li>
-          <li>
-            <a href="/devices" class={pathname.startsWith("/devices") ? "active" : ""}>
-              <i class="ph ph-devices"></i>
-              &nbsp;Devices
-            </a>
-          </li>
-          <li>
-            <a href="/about" class={pathname === "/about" ? "active" : ""}>
-              <i class="ph ph-info"></i>
-              &nbsp;About
-            </a>
-          </li>
-          <li>
-            <a href="/contact" class={pathname === "/contact" ? "active" : ""}>
-              <i class="ph ph-user"></i>
-              &nbsp;Contact
-            </a>
-          </li>
+          {navigationItems.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class={item.isActive(pathname) ? "active" : ""}
+              >
+                <i class={item.icon}></i>
+                &nbsp;{item.label}
+              </a>
+            </li>
+          ))}
           <li>
             <ThemeSwitcher />
           </li>

@@ -29,11 +29,11 @@ export function StarRating({ performanceRating }: StarRatingProps) {
     >
       {/* Full stars */}
       {Array.from({ length: fullStars }).map((_, i) => (
-        <i key={`full-${i}`} class="ph ph-star" />
+        <i key={`full-${i}`} class="ph-fill ph-star" />
       ))}
 
       {/* Half star if needed */}
-      {hasHalfStar && <i class="ph ph-star-half" />}
+      {hasHalfStar && <i class="ph-fill ph-star-half" />}
 
       {/* Empty stars */}
       {Array.from({ length: emptyStars }).map((_, i) => (

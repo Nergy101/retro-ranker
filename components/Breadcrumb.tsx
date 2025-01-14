@@ -1,6 +1,8 @@
+import { navigationItems } from "../data/navigation.ts";
+
 interface BreadcrumbProps {
   url: URL;
-  items?: { label: string; href?: string }[];
+  items?: { label: string; href?: string; icon?: string }[];
 }
 
 export function Breadcrumb({ url, items }: BreadcrumbProps) {
@@ -35,20 +37,39 @@ export function Breadcrumb({ url, items }: BreadcrumbProps) {
           .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
           .join(" ");
 
-        return { label, href };
+        const icon = navigationItems.find((item) => item.href === href)?.icon;
+
+        return { label, href, icon };
       }),
     ];
   }
 
   return (
-    <nav aria-label="breadcrumb">
-      <ul>
-        {items.map((item, index) => (
-          <li key={index}>
-            {item.href ? <a href={item.href}>{item.label}</a> : item.label}
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <div class="bread-crumb">
+      <div>
+        <a href="/" target="_self">
+          <i class="ph ph-game-controller"></i>
+          <span>&nbsp;Home</span>
+        </a>
+      </div>
+      {items.slice(1).map((item, index) => (
+        <div key={index}>
+          <i class="ph ph-caret-right" style={{ marginRight: "0.5rem" }}></i>
+          {item.href
+            ? (
+              <a href={item.href} target="_self">
+                {item.icon && <i class={item.icon}></i>}
+                <span>&nbsp;{item.label}</span>
+              </a>
+            )
+            : (
+              <span>
+                {item.icon && <i class={item.icon}></i>}
+                <span>&nbsp;{item.label}</span>
+              </span>
+            )}
+        </div>
+      ))}
+    </div>
   );
 }

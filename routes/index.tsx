@@ -1,19 +1,13 @@
-import { getAllDevices } from "../data/device.service.ts";
 import { DeviceCardSmall } from "../components/DeviceCardSmall.tsx";
 import { SeeMoreCard } from "../components/SeeMoreCard.tsx";
+import { getHighlyRated, getNewArrivals, getStaffPicks, getUpcoming } from "../data/device.service.ts";
 
-export default async function Home() {
-  const allDevices = await getAllDevices();
+export default function Home() {
   // Filter devices into categories
-  const newArrivals = allDevices.slice(0, 4);
-  const staffPicks = allDevices.slice(4, 8);
-
-  const highlyRated = allDevices.filter((device) =>
-    device.performanceRating.rating === 5
-  )
-    .sort((a, b) => b.released.localeCompare(a.released))
-    .slice(0, 4);
-
+  const newArrivals = getNewArrivals();
+  const staffPicks = getStaffPicks();
+  const highlyRated = getHighlyRated();
+  const upcoming = getUpcoming();
   return (
     <div>
       <main style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
@@ -40,6 +34,15 @@ export default async function Home() {
           <h2>Highly Rated</h2>
           <div class="device-row-grid">
             {highlyRated.map((device) => <DeviceCardSmall device={device} />)}
+            <SeeMoreCard href="/devices" />
+          </div>
+        </section>
+
+        {/* Upcoming Section */}
+        <section style="margin-top: 2rem;">
+          <h2>Upcoming</h2>
+          <div class="device-row-grid">
+            {upcoming.map((device) => <DeviceCardSmall device={device} />)}
             <SeeMoreCard href="/devices" />
           </div>
         </section>

@@ -1,13 +1,15 @@
 import { useSignal } from "@preact/signals";
 import DeviceCardMedium from "../components/DeviceCardMedium.tsx";
 import { Device } from "../data/device.model.ts";
+import { getAllDevices } from "../data/device.service.ts";
 
 interface DeviceSearchProps {
   initialDevices: Device[];
   initialQuery: string;
+  totalDeviceCount: number;
 }
 
-export default function DeviceSearch({ initialDevices, initialQuery }: DeviceSearchProps) {
+export default function DeviceSearch({ initialDevices, initialQuery, totalDeviceCount }: DeviceSearchProps) {
   const devices = useSignal(initialDevices);
   const searchQuery = useSignal(initialQuery);
   const debouncedSearchTimeout = useSignal<number | null>(null);
@@ -48,7 +50,10 @@ export default function DeviceSearch({ initialDevices, initialQuery }: DeviceSea
   return (
     <div>
       <header>
-        <h1>Device Catalog</h1>
+        <hgroup>
+          <h1>Device Catalog</h1>
+          <p>{totalDeviceCount} devices</p>
+        </hgroup>
         <input
           type="search"
           placeholder="Search devices..."
