@@ -376,7 +376,7 @@ html {
 
 .device-search-grid {
   display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   justify-content: center;
   align-items: stretch;
@@ -385,18 +385,20 @@ html {
   max-width: 1200px;
 
   @media (max-width: 1024px) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.25rem;
   }
 
   @media (max-width: 500px) {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.25rem;
   }
 }
 
 .device-search-card {
   width: 100%;
   max-width: 400px;
-  min-width: 300px;
+  /* min-width: 300px; */
   height: 100%;
   margin: 0;
   padding: 0;
@@ -406,6 +408,11 @@ html {
   hgroup {
     margin: 0;
   }
+
+  @media (max-width: 500px) {
+    max-width: 200px;
+  }
+
 }
 
 .device-search-card:hover {

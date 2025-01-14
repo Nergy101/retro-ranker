@@ -54,6 +54,7 @@ export function MobileNav({ pathname }: { pathname: string }) {
       <div
         class="mobile-nav-content"
         style={{
+          paddingTop: "1em",
           borderBottom: "1px solid var(--pico-primary)",
         }}
       >

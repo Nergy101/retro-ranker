@@ -55,7 +55,7 @@ export default function DevicesIndex(props: PageProps) {
           <p>Currently indexed {allDevices.length} devices</p>
         </hgroup>
       </header>
-      
+
       <DeviceSearchForm
         initialSearch={searchQuery}
         initialCategory={searchCategory}
@@ -76,6 +76,16 @@ export default function DevicesIndex(props: PageProps) {
             device={device}
           />
         ))}
+      </div>
+
+      <div style={{ display: "flex", justifyContent: "center", marginTop: "1rem" }}>
+        <PaginationNav
+          pageNumber={pageNumber}
+          pageSize={pageSize}
+          totalResults={amountOfResults}
+          searchQuery={searchQuery}
+          searchCategory={searchCategory}
+        />
       </div>
     </div>
   );

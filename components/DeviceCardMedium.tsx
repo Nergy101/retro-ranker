@@ -13,9 +13,9 @@ export function DeviceCardMedium({ device }: DeviceCardMediumProps) {
         borderRadius: "0.5rem",
       }}
     >
-      <header style={{ margin: "0", borderRadius: "0.5rem" }}>
+      <header style={{ margin: "0", borderRadius: "0.5rem"}}>
         <hgroup style={{ textAlign: "center" }}>
-          <h2
+          <h4
             style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 10em; "
             title={device.name}
           >
@@ -24,7 +24,7 @@ export function DeviceCardMedium({ device }: DeviceCardMediumProps) {
             >
               {device.name}
             </a>
-          </h2>
+          </h4>
           <p style="font-size: 0.5rem;">{device.name}</p>
           <p>{device.brand}</p>
           <StarRating device={device} />
@@ -34,7 +34,7 @@ export function DeviceCardMedium({ device }: DeviceCardMediumProps) {
       <a
         href={`/devices/${device.sanitizedName}`}
       >
-        <div style="width: 12rem; height: 12rem; margin: 0 auto; display: flex; justify-content: center; align-items: center;">
+        <div style="margin: 1em; display: flex; justify-content: center; align-items: center;">
           <img
             src={device.imageUrl}
             alt={device.name}
