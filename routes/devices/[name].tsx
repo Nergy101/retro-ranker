@@ -7,6 +7,7 @@ import { DeviceCardSmall } from "../../components/DeviceCardSmall.tsx";
 import { SeeMoreCard } from "../../components/SeeMoreCard.tsx";
 import { DeviceSpecs } from "../../components/DeviceSpecs.tsx";
 import { StarRating } from "../../components/StarRating.tsx";
+import { EmulationPerformance } from "../../components/EmulationPerformance.tsx";
 export default function DeviceDetail(props: PageProps) {
   const device = getDeviceByName(props.params?.name);
   const similarDevices = getSimilarDevices(device?.sanitizedName ?? null);
@@ -32,7 +33,9 @@ export default function DeviceDetail(props: PageProps) {
       <article class="device-detail">
         <header style="grid-area: header;">
           <hgroup style="display: flex; flex-direction: column; gap: 0.5rem; justify-content: center; align-items: center;">
-            <h2 style={{ fontSize: "2rem", color: "var(--pico-primary)" }}>{device.name}</h2>
+            <h2 style={{ fontSize: "2rem", color: "var(--pico-primary)" }}>
+              {device.name}
+            </h2>
             <div style="display: flex; gap: 0.25rem; align-items: center;">
               <p>{device.brand}</p>
               <p data-tooltip={device.os} data-placement="right">
@@ -49,61 +52,59 @@ export default function DeviceDetail(props: PageProps) {
             <div style="display: flex; gap: 0.5rem;">
               <p>
                 <strong>Emulation:&nbsp;</strong>
-                <StarRating performanceRating={device.performanceRating} />
+                <StarRating device={device} />
               </p>
             </div>
-            <div style="display: flex; gap: 1rem; align-items: center;">
-              <p>
+            <div style="display: flex; align-items: center; flex-direction: column;">
+              <span style={{ color: "var(--pico-color)" }}>
+                {device.pricingCategory} ({device.price})
+              </span>
+              <span style={{ color: "var(--pico-color)" }}>
                 <i class="ph ph-calendar"></i>
                 <span>&nbsp;{device.released}</span>
-              </p>
+              </span>
             </div>
           </hgroup>
         </header>
 
         <section style="grid-area: specs; display: flex; flex-direction: column; gap: 0.5rem; padding: 1rem;">
-          <h2 style={{ fontSize: "1.5rem", color: "var(--pico-primary)" }}>Specifications</h2>
-
-          <DeviceSpecs device={device} />
-
-          {
-            /* <div style="display: grid; gap: 0.5rem; margin: 1rem 0;">
-            {
-              {device.specs.map((spec) => (
-              <div style="display: flex; align-items: center; gap: 0.5rem;">
-                <div
-                  style={{
-                    backgroundColor: {
-                      "A": "#22c55e",
-                      "B": "#86efac",
-                      "C": "#fde047",
-                      "D": "#fb923c",
-                      "E": "#ef4444",
-                    }[spec.rating],
-                    color: spec.rating === "A" || spec.rating === "E"
-                      ? "white"
-                      : "black",
-                    padding: "0.25rem 0.5rem",
-                    borderRadius: "0.25rem",
-                    fontWeight: "bold",
-                    minWidth: "2rem",
-                    textAlign: "center",
-                  }}
-                >
-                  {spec.rating}
-                </div>
-                <strong>{spec.name}:</strong>
-                <span>{spec.value}</span>
-              </div>
-            ))}
-            }
-          </div> */
-          }
+          <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <details open>
+              <summary>
+                Emulation Performance
+              </summary>
+              <EmulationPerformance device={device} />
+            </details>
+            <hr />
+            <details>
+              <summary>
+                <strong style={{ color: "var(--pico-primary)" }}>
+                  Specifications
+                </strong>
+              </summary>
+              <DeviceSpecs device={device} />
+            </details>
+          </div>
         </section>
 
-        <section style={{ gridArea: "similar", display: "flex", flexDirection: "column", gap: "1rem", justifyContent: "center", alignItems: "center" }}>
+        <section
+          style={{
+            gridArea: "similar",
+            display: "flex",
+            flexDirection: "column",
+            gap: "1rem",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <h2>Similar Devices</h2>
-          <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(1, 1fr)" }}>
+          <div
+            style={{
+              display: "grid",
+              gap: "1rem",
+              gridTemplateColumns: "repeat(1, 1fr)",
+            }}
+          >
             {similarDevices.map((device) => (
               <DeviceCardSmall
                 device={device}

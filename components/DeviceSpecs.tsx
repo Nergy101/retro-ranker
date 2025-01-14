@@ -9,7 +9,8 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
     <div class="specs-grid">
       {/* Processing */}
       <section class="specs-section">
-        <h3 style={{ fontSize: "1.25rem", color: "var(--pico-contrast)" }}>
+        <h3 style={{ fontSize: "1.25rem", color: "var(--pico-contrast)", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <i class="ph ph-cpu"></i>
           Processing
         </h3>
         <dl>
@@ -50,7 +51,8 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
 
       {/* Display */}
       <section class="specs-section">
-        <h3 style={{ fontSize: "1.25rem", color: "var(--pico-contrast)" }}>
+        <h3 style={{ fontSize: "1.25rem", color: "var(--pico-contrast)", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <i class="ph ph-monitor"></i>
           Display
         </h3>
         <dl>
@@ -84,12 +86,19 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
               <dd>{device.ppi}</dd>
             </>
           )}
+          {device.videoOutput && (
+            <>
+              <dt>Video Output</dt>
+              <dd>{device.videoOutput}</dd>
+            </>
+          )}
         </dl>
       </section>
 
       {/* Physical */}
       <section class="specs-section">
-        <h3 style={{ fontSize: "1.25rem", color: "var(--pico-contrast)" }}>
+        <h3 style={{ fontSize: "1.25rem", color: "var(--pico-contrast)", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <i class="ph ph-ruler"></i>
           Physical
         </h3>
         <dl>
@@ -122,8 +131,9 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
 
       {/* Audio and Video */}
       <section class="specs-section">
-        <h3 style={{ fontSize: "1.25rem", color: "var(--pico-contrast)" }}>
-          Audio and Video
+        <h3 style={{ fontSize: "1.25rem", color: "var(--pico-contrast)", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <i class="ph ph-speaker-high"></i>
+          Audio
         </h3>
         <dl>
           {device.audioOutput && (
@@ -138,18 +148,13 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
               <dd>{device.speaker}</dd>
             </>
           )}
-          {device.videoOutput && (
-            <>
-              <dt>Video Output</dt>
-              <dd>{device.videoOutput}</dd>
-            </>
-          )}
         </dl>
       </section>
 
       {/* Controls */}
       <section class="specs-section">
-        <h3 style={{ fontSize: "1.25rem", color: "var(--pico-contrast)" }}>
+        <h3 style={{ fontSize: "1.25rem", color: "var(--pico-contrast)", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <i class="ph ph-game-controller"></i>
           Controls
         </h3>
         <dl>
@@ -194,7 +199,8 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
 
       {/* Miscellaneous */}
       <section class="specs-section">
-        <h3 style={{ fontSize: "1.25rem", color: "var(--pico-contrast)" }}>
+        <h3 style={{ fontSize: "1.25rem", color: "var(--pico-contrast)", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <i class="ph ph-gear"></i>
           Miscellaneous
         </h3>
         <dl>
@@ -209,14 +215,29 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
 
       {/* Connectivity */}
       <section class="specs-section">
-        <h3 style={{ fontSize: "1.25rem", color: "var(--pico-contrast)" }}>
+        <h3 style={{ fontSize: "1.25rem", color: "var(--pico-contrast)", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <i class="ph ph-wifi-high"></i>
           Connectivity
         </h3>
         <dl>
           {device.connectivity && (
             <>
-              <dt>Connectivity</dt>
-              <dd>{device.connectivity}</dd>
+              <dt>Wifi</dt>
+              <dd>{device.connectivity.hasWifi ? "✅" : "❌"}</dd>
+              <dt>Bluetooth</dt>
+              <dd>{device.connectivity.hasBluetooth ? "✅" : "❌"}</dd>
+              <dt>NFC</dt>
+              <dd>{device.connectivity.hasNFC ? "✅" : "❌"}</dd>
+              <dt>USB</dt>
+              <dd>{device.connectivity.hasUSB ? "✅" : "❌"}</dd>
+              <dt>HDMI</dt>
+              <dd>{device.connectivity.hasHDMI ? "✅" : "❌"}</dd>
+              <dt>DisplayPort</dt>
+              <dd>{device.connectivity.hasDisplayPort ? "✅" : "❌"}</dd>
+              <dt>VGA</dt>
+              <dd>{device.connectivity.hasVGA ? "✅" : "❌"}</dd>
+              <dt>DVI</dt>
+              <dd>{device.connectivity.hasDVI ? "✅" : "❌"}</dd>
             </>
           )}
         </dl>

@@ -1,3 +1,5 @@
+import { EmulationTier } from "./enums/EmulationTier.ts";
+
 export interface Device {
   name: string;
   sanitizedName: string;
@@ -13,6 +15,10 @@ export interface Device {
     normalizedRating: number;
     maxEmulation: string;
   };
+  systemRatings: {
+    system: string;
+    rating: string;
+  }[];
   systemOnChip: string;
   cpu: string;
   cpuCores: number;
@@ -38,7 +44,17 @@ export interface Device {
   extraButtons: string;
   chargePort: string;
   storage: string;
-  connectivity: string;
+  connectivity: {
+    hasWifi: boolean;
+    hasBluetooth: boolean;
+    hasNFC: boolean;
+    hasUSB: boolean;
+    hasHDMI: boolean;
+    hasDisplayPort: boolean;
+    hasVGA: boolean;
+    hasDVI: boolean;
+    hasHDMI: boolean;
+  };
   videoOutput: string;
   audioOutput: string;
   speaker: string;
@@ -62,40 +78,3 @@ export interface Device {
   notes: string;
 }
 
-// Optional: Add an enum for common form factors
-export enum FormFactor {
-  Horizontal = "Horizontal",
-  Vertical = "Vertical",
-  Clamshell = "Clamshell",
-  Micro = "Micro"
-}
-
-// Optional: Add an enum for common operating systems
-export enum OperatingSystem {
-  Android = "Android",
-  Windows = "Windows",
-  Linux = "Linux",
-  SteamOS = "Linux (Steam OS)",
-  Custom = "Custom"
-}
-
-// Optional: Add a type for the performance rating scale
-export type EmulationTier = 
-  | "⭐️" // GB/GBC/GG/NES/SMS
-  | "⭐️⭐️" // Most GBA & Genesis, some SNES
-  | "⭐️⭐️⭐️" // Full GBA & Genesis, most SNES/PS1
-  | "⭐️⭐️⭐️⭐️" // Full SNES/PS1, most DS, some N64/DC/PSP
-  | "⭐️⭐️⭐️⭐️⭐️" // Most DS/N64/PSP/DC, some Saturn
-  | "💥" // Full DS/N64/PSP/DC, most Saturn
-  | "💥💥" // Full Saturn, some GameCube
-  | "💥💥💥" // Most GameCube, some Wii/3DS
-  | "💥💥💥💥" // Full GameCube, most Wii/3DS, some PS2/Wii U
-  | "💥💥💥💥💥" // Full GameCube/Wii, most 3DS/PS2, some Wii U
-  | "🔥" // Full 3DS/PS2, most Wii U, some Switch
-  | "🔥🔥" // Most Switch, some PS3
-  | "🔥🔥🔥" // Full Switch, most PS3
-  | "🔥🔥🔥🔥" // Full PS3
-  | "🔥🔥🔥🔥🔥"; // Beyond!
-
-// Optional: Add a type for the spec ratings
-export type SpecRating = "🔵" | "🟢" | "🟡" | "🟠" | "🔴"; 

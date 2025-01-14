@@ -222,7 +222,7 @@ html {
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 500px) {
     grid-template-columns: 1fr;
   }
 }
@@ -432,4 +432,11 @@ h5,
 h6,
 ::placeholder {
   font-family: "Azeret Mono", monospace !important;
+}
+
+.device-search-form {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
 }

@@ -52,7 +52,7 @@ export function DeviceCardSmall({ device }: DeviceCardSmallProps) {
               style="width: 100%; height: 100%; object-fit: contain;"
             />
           </div>
-          <StarRating performanceRating={device.performanceRating} />
+          <StarRating device={device} />
         </div>
       </a>
     </div>

@@ -1,9 +1,9 @@
 import {
   Device,
-  EmulationTier,
-  FormFactor,
-  OperatingSystem,
 } from "./device.model.ts";
+import { EmulationTier } from "./enums/EmulationTier.ts";
+import { FormFactor } from "./enums/FormFactor.ts";
+import { OperatingSystem } from "./enums/OperatingSystem.ts";
 // import { DOMParser } from "https://deno.land/x/deno_dom@v0.1.49/deno-dom-wasm.ts";
 
 import * as cheerio from "https://esm.sh/cheerio@1.0.0-rc.12";
@@ -84,6 +84,22 @@ const parsePerformanceRating = (
   };
 };
 
+const parsePrices = (priceText: string): number => {
+  const priceNumber = priceText.match(/\d+/)?.[0];
+  return priceNumber ? parseInt(priceNumber) : 0;
+};
+
+const getPricingCategory = (priceText: string): string => {
+  if (priceText.includes("Discontinued")) return "discontinued";
+
+  const priceNumber = parsePrices(priceText);
+  console.log(priceNumber);
+  if (priceNumber === 0) return "unknown";
+  if (priceNumber < 100) return "budget";
+  if (priceNumber < 200) return "mid-range";
+  return "high-end";
+};
+
 export function parseHandheldsHtml(filePath: string): Device[] {
   const devices: Device[] = [];
   const text = Deno.readTextFileSync(filePath);
@@ -106,9 +122,29 @@ export function parseHandheldsHtml(filePath: string): Device[] {
     }
   });
 
+  const getRating = (value: string) => {
+    if (value.includes("A")) return "A";
+    if (value.includes("B")) return "B";
+    if (value.includes("C")) return "C";
+    if (value.includes("D")) return "D";
+    if (value.includes("F")) return "F";
+    return "N/A";
+  };
+
   // Process data rows (skip first row which contains headers)
   rows.slice(1).each((_, row) => {
     const device: Partial<Device> = {};
+    device.systemRatings = [];
+    device.connectivity = {
+      hasWifi: false,
+      hasBluetooth: false,
+      hasNFC: false,
+      hasUSB: false,
+      hasDisplayPort: false,
+      hasVGA: false,
+      hasDVI: false,
+      hasHDMI: false,
+    };
 
     $(row).find("td").each((colIndex, cell) => {
       let value: string;
@@ -142,6 +178,114 @@ export function parseHandheldsHtml(filePath: string): Device[] {
           break;
         case 7:
           device.performanceRating = parsePerformanceRating(value);
+          break;
+        case 8:
+          device.systemRatings.push({
+            system: "Game Boy",
+            rating: getRating(value),
+          });
+          break;
+        case 9:
+          device.systemRatings.push({
+            system: "NES",
+            rating: getRating(value),
+          });
+          break;
+        case 10:
+          device.systemRatings.push({
+            system: "Genesis",
+            rating: getRating(value),
+          });
+          break;
+        case 11:
+          device.systemRatings.push({
+            system: "Game Boy Advance",
+            rating: getRating(value),
+          });
+          break;
+          case 13:
+            device.systemRatings.push({
+              system: "SNES",
+              rating: getRating(value),
+            });
+            break;
+        case 13:
+          device.systemRatings.push({
+            system: "PS1",
+            rating: getRating(value),
+          });
+          break;
+        case 14:
+          device.systemRatings.push({
+            system: "Nintendo DS",
+            rating: getRating(value),
+          });
+          break;
+        case 15:
+          device.systemRatings.push({
+            system: "Nintendo 64",
+            rating: getRating(value),
+          });
+          break;
+        case 16:
+          device.systemRatings.push({
+            system: "Dreamcast",
+            rating: getRating(value),
+          });
+          break;
+        case 17:
+          device.systemRatings.push({
+            system: "PSP",
+            rating: getRating(value),
+          });
+          break;
+        case 18:
+          device.systemRatings.push({
+            system: "Saturn",
+            rating: getRating(value),
+          });
+          break;
+        case 19:
+          device.systemRatings.push({
+            system: "GameCube",
+            rating: getRating(value),
+          });
+          break;
+        case 20:
+          device.systemRatings.push({
+            system: "Wii",
+            rating: getRating(value),
+          });
+          break;
+        case 21:
+          device.systemRatings.push({
+            system: "3DS",
+            rating: getRating(value),
+          });
+          break;
+        case 22:
+          device.systemRatings.push({
+            system: "PS2",
+            rating: getRating(value),
+          });
+          break;
+        case 23:
+          device.systemRatings.push({
+            system: "Wii U",
+            rating: getRating(value),
+          });
+          break;
+        case 24:
+          device.systemRatings.push({
+            system: "Switch",
+            rating: getRating(value),
+          });
+          break;
+        case 25:
+          device.systemRatings.push({
+            system: "PS3",
+            rating: getRating(value),
+          });
           break;
         case 26:
           device.systemOnChip = value;
@@ -219,9 +363,19 @@ export function parseHandheldsHtml(filePath: string): Device[] {
           device.storage = value;
           break;
         case 51:
-          device.connectivity = value;
+          device.connectivity = {
+            hasWifi: value.includes("WiFi"),
+            hasBluetooth: value.includes("Bluetooth"),
+            hasNFC: value.includes("NFC"),
+            hasUSB: value.includes("USB"),
+            hasDisplayPort: value.includes("DisplayPort"),
+            hasVGA: value.includes("VGA"),
+            hasDVI: value.includes("DVI"),
+            hasHDMI: value.includes("HDMI"),
+          };
           break;
         case 52:
+          device.connectivity.hasHDMI = value.includes("HDMI");
           device.videoOutput = value;
           break;
         case 53:
@@ -259,6 +413,7 @@ export function parseHandheldsHtml(filePath: string): Device[] {
           break;
         case 71:
           device.price = value;
+          device.pricingCategory = getPricingCategory(value);
           break;
           // Add more mappings as needed
       }
@@ -348,18 +503,33 @@ export function getSimilarDevices(
 export function getStaffPicks(): Device[] {
   const devices = getAllDevices();
 
-  const staffPicks = ["rg-405m", "miyoo-mini-plus", "rg-35xx-sp", "steam-deck-oled"];
+  const staffPicks = [
+    "rg-405m",
+    "miyoo-mini-plus",
+    "rg-35xx-sp",
+    "steam-deck-oled",
+  ];
   return devices.filter((device) => staffPicks.includes(device.sanitizedName));
 }
 
 export function getNewArrivals(): Device[] {
-  const devices = getAllDevices().filter((device) => !device.released.toLowerCase().includes("upcoming"));
-  return devices.sort((a, b) => b.released.localeCompare(a.released)).slice(0, 4);
+  const devices = getAllDevices().filter((device) =>
+    !device.released.toLowerCase().includes("upcoming")
+  );
+  return devices.sort((a, b) => b.released.localeCompare(a.released)).slice(
+    0,
+    4,
+  );
 }
 
 export function getUpcoming(): Device[] {
-  const devices = getAllDevices().filter((device) => device.released.toLowerCase().includes("upcoming"));
-  return devices.sort((a, b) => b.released.localeCompare(a.released)).slice(0, 4);
+  const devices = getAllDevices().filter((device) =>
+    device.released.toLowerCase().includes("upcoming")
+  );
+  return devices.sort((a, b) => b.released.localeCompare(a.released)).slice(
+    0,
+    4,
+  );
 }
 
 export function getHighlyRated(): Device[] {

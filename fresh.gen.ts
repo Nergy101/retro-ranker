@@ -13,6 +13,7 @@ import * as $index from "./routes/index.tsx";
 import * as $privacy from "./routes/privacy.tsx";
 import * as $terms from "./routes/terms.tsx";
 import * as $DesktopNav from "./islands/DesktopNav.tsx";
+import * as $DeviceSearchForm from "./islands/DeviceSearchForm.tsx";
 import * as $MobileNav from "./islands/MobileNav.tsx";
 import * as $ThemeSwitcher from "./islands/ThemeSwitcher.tsx";
 import type { Manifest } from "$fresh/server.ts";
@@ -32,6 +33,7 @@ const manifest = {
   },
   islands: {
     "./islands/DesktopNav.tsx": $DesktopNav,
+    "./islands/DeviceSearchForm.tsx": $DeviceSearchForm,
     "./islands/MobileNav.tsx": $MobileNav,
     "./islands/ThemeSwitcher.tsx": $ThemeSwitcher,
   },

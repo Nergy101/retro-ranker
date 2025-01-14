@@ -25,8 +25,9 @@ export function DeviceCardMedium({ device }: DeviceCardMediumProps) {
               {device.name}
             </a>
           </h2>
+          <p style="font-size: 0.5rem;">{device.name}</p>
           <p>{device.brand}</p>
-          <StarRating performanceRating={device.performanceRating} />
+          <StarRating device={device} />
           {" "}
         </hgroup>
       </header>
@@ -37,7 +38,7 @@ export function DeviceCardMedium({ device }: DeviceCardMediumProps) {
           <img
             src={device.imageUrl}
             alt={device.name}
-            style="width: 200px; height: 200px; object-fit: contain;"
+            style="width: 100px; height: 100px; object-fit: contain;"
             loading="lazy"
           />
         </div>
