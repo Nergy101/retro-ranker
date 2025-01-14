@@ -31,7 +31,7 @@ export default function DeviceDetail(props: PageProps) {
   return (
     <div>
       <article class="device-detail">
-        <header style="grid-area: header;">
+        <header style="grid-area: header; padding: 1em; margin: 0;">
           <hgroup style="display: flex; flex-direction: column; gap: 0.5rem; justify-content: center; align-items: center;">
             <h2 style={{ fontSize: "2rem", color: "var(--pico-primary)" }}>
               {device.name}

@@ -93,7 +93,6 @@ const getPricingCategory = (priceText: string): string => {
   if (priceText.includes("Discontinued")) return "discontinued";
 
   const priceNumber = parsePrices(priceText);
-  console.log(priceNumber);
   if (priceNumber === 0) return "unknown";
   if (priceNumber < 100) return "budget";
   if (priceNumber < 200) return "mid-range";

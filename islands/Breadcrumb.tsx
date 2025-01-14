@@ -1,16 +1,37 @@
+import { useSignal } from "@preact/signals";
+import { useEffect } from "preact/hooks";
 import { navigationItems } from "../data/navigation.ts";
 
 interface BreadcrumbProps {
-  url: URL;
   items?: { label: string; href?: string; icon?: string }[];
+  showNames?: boolean;
 }
 
-export function Breadcrumb({ url, items }: BreadcrumbProps) {
-  // Get path segments and filter out empty strings
-  const pathSegments = url.pathname
+export function Breadcrumb({ items, showNames }: BreadcrumbProps) {
+  const viewportWidth = useSignal(globalThis.innerWidth);
+
+  if (!showNames) {
+    showNames = viewportWidth.value > 500;
+  }
+  useEffect(() => {
+    const handleResize = () => {
+      viewportWidth.value = globalThis.innerWidth;
+    };
+
+    // Add event listener
+    globalThis.addEventListener("resize", handleResize);
+
+    // Cleanup
+    return () => {
+      globalThis.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const pathSegments = globalThis.location?.pathname
     .split("/")
     .filter(Boolean)
-    .map((segment) => decodeURIComponent(segment));
+    .map((segment) => decodeURIComponent(segment)) ??
+    [];
 
   // Don't render anything if we're on the home page or only one level deep
   if (pathSegments.length <= 1) {
@@ -49,17 +70,24 @@ export function Breadcrumb({ url, items }: BreadcrumbProps) {
       <div>
         <a href="/" target="_self">
           <i class="ph ph-game-controller"></i>
-          <span>&nbsp;Home</span>
+          {showNames && <span>&nbsp;Home</span>}
         </a>
       </div>
       {items.slice(1).map((item, index) => (
-        <div key={index}>
+        <div
+          key={index}
+          style={{
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            whiteSpace: "nowrap",
+          }}
+        >
           <i class="ph ph-caret-right" style={{ marginRight: "0.5rem" }}></i>
           {item.href
             ? (
               <a href={item.href} target="_self">
                 {item.icon && <i class={item.icon}></i>}
-                <span>&nbsp;{item.label}</span>
+                {showNames && <span>&nbsp;{item.label}</span>}
               </a>
             )
             : (

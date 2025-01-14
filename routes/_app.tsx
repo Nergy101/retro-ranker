@@ -1,6 +1,6 @@
 import { Head } from "$fresh/runtime.ts";
 import { type PageProps } from "$fresh/server.ts";
-import { Breadcrumb } from "../components/Breadcrumb.tsx";
+import { Breadcrumb } from "../islands/Breadcrumb.tsx";
 import { DesktopNav } from "../islands/DesktopNav.tsx";
 import { MobileNav } from "../islands/MobileNav.tsx";
 
@@ -61,14 +61,12 @@ export default function App({ Component, url }: PageProps) {
           <MobileNav pathname={url.pathname} />
         </header>
         <main class="container">
-          <Breadcrumb url={url} />
+          <Breadcrumb />
           <Component />
         </main>
         <footer style={{ borderTop: "1px solid var(--pico-primary)" }}>
           <div class="container-fluid">
-            <div
-              class="footer-grid"
-            >
+            <div class="footer-grid">
               <div class="footer-grid-item rr">
                 <h6>Retro Ranker</h6>
                 <p>

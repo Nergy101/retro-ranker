@@ -12,6 +12,7 @@ import * as $devices_index from "./routes/devices/index.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $privacy from "./routes/privacy.tsx";
 import * as $terms from "./routes/terms.tsx";
+import * as $Breadcrumb from "./islands/Breadcrumb.tsx";
 import * as $DesktopNav from "./islands/DesktopNav.tsx";
 import * as $DeviceSearchForm from "./islands/DeviceSearchForm.tsx";
 import * as $MobileNav from "./islands/MobileNav.tsx";
@@ -32,6 +33,7 @@ const manifest = {
     "./routes/terms.tsx": $terms,
   },
   islands: {
+    "./islands/Breadcrumb.tsx": $Breadcrumb,
     "./islands/DesktopNav.tsx": $DesktopNav,
     "./islands/DeviceSearchForm.tsx": $DeviceSearchForm,
     "./islands/MobileNav.tsx": $MobileNav,
