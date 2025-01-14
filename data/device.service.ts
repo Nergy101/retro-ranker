@@ -2,17 +2,8 @@ import {
   Device,
 } from "./device.model.ts";
 import { EmulationTier } from "./enums/EmulationTier.ts";
-import { FormFactor } from "./enums/FormFactor.ts";
-import { OperatingSystem } from "./enums/OperatingSystem.ts";
-// import { DOMParser } from "https://deno.land/x/deno_dom@v0.1.49/deno-dom-wasm.ts";
 
 import * as cheerio from "https://esm.sh/cheerio@1.0.0-rc.12";
-
-// Helper function to parse arrays from semicolon-separated text
-const parseArrayField = (text: string): string[] => {
-  if (!text) return [];
-  return text.split(";").map((item) => item.trim());
-};
 
 const parseOsIcons = (os: string): string[] => {
   const lowerOs = os.toLowerCase();

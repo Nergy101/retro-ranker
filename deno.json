@@ -8,7 +8,8 @@
     "build": "deno run -A dev.ts build",
     "preview": "deno run -A main.ts",
     "update": "deno run -A -r https://fresh.deno.dev/update .",
-    "scrape": "deno run -A scripts/scrape-images.ts"
+    "scrape": "deno run -A scripts/scrape-images.ts",
+    "sitemap": "deno run -A scripts/generate-sitemap.ts"
   },
   "lint": {
     "rules": {
