@@ -17,20 +17,25 @@ const parseArrayField = (text: string): string[] => {
 const parseOsIcons = (os: string): string[] => {
   const lowerOs = os.toLowerCase();
   const icons: string[] = [];
-  
+
   if (lowerOs.includes("android")) icons.push("ph ph-android-logo");
   if (lowerOs.includes("ios")) icons.push("ph ph-apple-logo");
   if (lowerOs.includes("windows")) icons.push("ph ph-windows-logo");
   if (lowerOs.includes("macos")) icons.push("ph ph-apple-logo");
   if (lowerOs.includes("linux")) icons.push("ph ph-linux-logo");
-  
+
   return icons.length ? icons : ["ph ph-question"];
 };
 
 // Helper function to parse performance rating
 const parsePerformanceRating = (
   text: string,
-): { rating: number; normalizedRating: number; tier: EmulationTier; maxEmulation: string } => {
+): {
+  rating: number;
+  normalizedRating: number;
+  tier: EmulationTier;
+  maxEmulation: string;
+} => {
   const starCount = (text.match(/⭐️/g) || []).length;
   const explosionCount = (text.match(/💥/g) || []).length;
   const fireCount = (text.match(/🔥/g) || []).length;
@@ -71,11 +76,11 @@ const parsePerformanceRating = (
   // Normalize rating from 0-15 to 0-10
   const normalizedRating = (rating / 15) * 10;
 
-  return { 
+  return {
     rating, // Original rating (0-15)
     normalizedRating: Number(normalizedRating.toFixed(1)), // Normalized rating (0-10) with one decimal
-    tier, 
-    maxEmulation 
+    tier,
+    maxEmulation,
   };
 };
 
@@ -115,7 +120,7 @@ export function parseHandheldsHtml(filePath: string): Device[] {
         case 0:
           break;
         case 1: {
-          const sanitizedName = value.toLowerCase().replace(/[^a-z0-9]/g, '-');
+          const sanitizedName = value.toLowerCase().replace(/[^a-z0-9]/g, "-");
 
           device.imageUrl = "/devices/" + sanitizedName + ".png";
           device.sanitizedName = sanitizedName;
@@ -294,13 +299,48 @@ export function getDeviceByName(
   name: string,
 ): Device | undefined {
   const devices = getAllDevices();
-  return devices.find((device) =>
-    device.sanitizedName === name
-  );
+  return devices.find((device) => device.sanitizedName === name);
 }
 
-export function getSimilarDevices(name: string | null, limit: number = 4): Device[] {
-  if (!name) return [];
+export function getSimilarDevices(
+  sanitizedName: string | null,
+  limit: number = 4,
+): Device[] {
+  if (!sanitizedName) return [];
+
   const devices = getAllDevices();
-  return devices.filter((device) => device.name.toLowerCase() !== name.toLowerCase()).slice(0, limit);
+  const targetDevice = devices.find((d) => d.sanitizedName === sanitizedName);
+
+  if (!targetDevice) return [];
+
+  // Calculate similarity score based on performance rating and form factor
+  return devices
+    .filter((device) =>
+      device.sanitizedName.toLowerCase() !== sanitizedName.toLowerCase()
+    )
+    .map((device) => {
+      // Calculate rating difference (0-10 scale)
+      const ratingDiff = Math.abs(
+        device.performanceRating.normalizedRating -
+          targetDevice.performanceRating.normalizedRating,
+      );
+
+      // Form factor match (binary)
+      const formFactorMatch = device.formFactor === targetDevice.formFactor
+        ? 1
+        : 0;
+
+      // Calculate similarity score (higher is better)
+      // Rating difference is inverted (10 - diff) so higher similarity = higher score
+      // Form factor match is weighted more heavily (x3)
+      const similarityScore = (10 - ratingDiff) + (formFactorMatch * 3);
+
+      return {
+        ...device,
+        similarityScore,
+      };
+    })
+    .sort((a, b) => b.similarityScore - a.similarityScore)
+    .slice(0, limit)
+    .map(({ similarityScore, ...device }) => device);
 }
