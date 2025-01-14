@@ -2,14 +2,19 @@ import { Head } from "$fresh/runtime.ts";
 
 export default function AboutPage() {
   return (
-    <div class="p-4 mx-auto max-w-screen-md">
+    <div class="mx-auto max-w-screen-md">
       <Head>
         <title>
           About <span style="color: var(--pico-primary);">Retro Ranker</span>
         </title>
       </Head>
 
-      <h1 class="text-4xl font-bold mb-6">About Retro Ranker</h1>
+      <h1
+        class="text-4xl font-bold mb-6"
+        style={{ color: "var(--pico-primary)" }}
+      >
+        About Retro Ranker
+      </h1>
 
       <div>
         <section>

@@ -2,12 +2,14 @@ import { Head } from "$fresh/runtime.ts";
 
 export default function ContactPage() {
   return (
-    <div class="p-4 mx-auto max-w-screen-md">
+    <div class="mx-auto max-w-screen-md">
       <Head>
         <title>Contact - Retro Ranker</title>
       </Head>
 
-      <h1 class="text-4xl font-bold">Get in Touch</h1>
+      <h1 class="text-4xl font-bold" style={{ color: "var(--pico-primary)" }}>
+        Get in Touch
+      </h1>
 
       <div>
         <section>

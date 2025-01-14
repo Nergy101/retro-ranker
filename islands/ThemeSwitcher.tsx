@@ -29,13 +29,15 @@ export function ThemeSwitcher({ showNames = true }: { showNames?: boolean }) {
     <button
       onClick={toggleTheme}
       style={{
-        backgroundColor: "var(--pico-primary)",
-        border: "1px solid var(--pico-primary)",
-        color: "white",
         padding: "0.5rem",
         borderRadius: "0.5rem",
         cursor: "pointer",
-        transition: "all 0.2s ease-in-out",
+        transition: "all 0.5s ease-in-out",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: "0.25rem",
+        minWidth: showNames ? "5rem" : "2.5rem",
       }}
       aria-label={`Switch to ${
         theme.value === "light" ? "dark" : "light"
@@ -43,19 +45,19 @@ export function ThemeSwitcher({ showNames = true }: { showNames?: boolean }) {
       data-tooltip={`Switch to ${
         theme.value === "light" ? "dark" : "light"
       } theme`}
-      data-placement="bottom"
+      data-placement="left"
     >
       {theme.value === "light"
         ? (
           <>
-            <i class="ph ph-moon"></i>
-            {showNames && <span>&nbsp;Dark</span>}
+            <i class="ph ph-moon" style={{ fontSize: "1.2rem" }}></i>
+            {showNames && <span>Dark</span>}
           </>
         )
         : (
           <>
-            <i class="ph ph-sun"></i>
-            {showNames && <span>&nbsp;Light</span>}
+            <i class="ph ph-sun" style={{ fontSize: "1.2rem" }}></i>
+            {showNames && <span>Light</span>}
           </>
         )}
     </button>

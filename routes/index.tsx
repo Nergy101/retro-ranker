@@ -1,6 +1,11 @@
 import { DeviceCardSmall } from "../components/DeviceCardSmall.tsx";
 import { SeeMoreCard } from "../components/SeeMoreCard.tsx";
-import { getHighlyRated, getNewArrivals, getStaffPicks, getUpcoming } from "../data/device.service.ts";
+import {
+  getHighlyRated,
+  getNewArrivals,
+  getStaffPicks,
+  getUpcoming,
+} from "../data/device.service.ts";
 
 export default function Home() {
   // Filter devices into categories
@@ -10,7 +15,23 @@ export default function Home() {
   const upcoming = getUpcoming();
   return (
     <div>
-      <main style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+      <header>
+        <hgroup style={{ textAlign: "center" }}>
+          <h1>Welcome to Retro Ranker</h1>
+          <p>Your Guide to Retro Gaming Handhelds</p>
+          <p>
+            Find the perfect device for your gaming needs.
+          </p>
+        </hgroup>
+      </header>
+
+      <main
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
         {/* New Arrivals Section */}
         <section>
           <h2>New Arrivals</h2>

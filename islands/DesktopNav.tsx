@@ -27,17 +27,18 @@ export function DesktopNav({ pathname }: { pathname: string }) {
         ))}
         <div style={{ marginLeft: "auto", marginRight: "2em" }}>
           <li>
-            <form action="/devices" method="get">
+            <form action="/devices" method="get" role="search" style={{display: "flex", flexDirection: "row", alignItems: "center"}}>
               <input
                 type="search"
                 placeholder="Search..."
-                name="q"
+                name="search"
                 aria-label="Search"
               />
+              <input type="submit" value="Search" />
             </form>
           </li>
           <li>
-            <ThemeSwitcher showNames={false} />
+          <ThemeSwitcher showNames={false} />
           </li>
         </div>
       </ul>

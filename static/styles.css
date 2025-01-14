@@ -13,15 +13,7 @@ button, [role="button"] {
   cursor: pointer;
 }
 code {
-  font-family:
-    ui-monospace,
-    SFMono-Regular,
-    Menlo,
-    Monaco,
-    Consolas,
-    "Liberation Mono",
-    "Courier New",
-    monospace;
+  font-family: "Azeret Mono", monospace;
   font-size: 1em;
 }
 img,
@@ -37,21 +29,7 @@ video {
 html {
   line-height: 1.5;
   -webkit-text-size-adjust: 100%;
-  font-family:
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    "Helvetica Neue",
-    Arial,
-    "Noto Sans",
-    sans-serif,
-    "Apple Color Emoji",
-    "Segoe UI Emoji",
-    "Segoe UI Symbol",
-    "Noto Color Emoji";
+  font-family: "Azeret Mono", monospace;
 }
 .transition-colors {
   transition-property: background-color, border-color, color, fill, stroke;
@@ -122,7 +100,7 @@ html {
   font-weight: 700;
 }
 .max-w-screen-md {
-  max-width: 768px;
+  max-width: 1024px;
 }
 .flex-col {
   flex-direction: column;
@@ -158,6 +136,10 @@ html {
   a {
     text-decoration: none;
   }
+
+  a:hover {
+    text-decoration: underline;
+  }
 }
 
 .bread-crumb ul {
@@ -182,7 +164,7 @@ html {
   transition: background-color 0.2s ease-in-out;
   transition: transform 0.2s ease-in-out;
 
-  background-color: rgba(254, 182, 112, 0.5);
+  background-color: rgba(254, 182, 112, 0.2);
   transform: scale(1.1);
 }
 
@@ -204,10 +186,9 @@ html {
   transform: scale(1.1);
 }
 
-
 /* Light theme */
 [data-theme="light"] .see-more-card {
-  /* background-color: rgba(255, 255, 255, 0.7); */
+  background-color: rgba(0, 0, 0, 0.3);
   background-image: url("/images/see-more.png");
   color: white;
 }
@@ -227,7 +208,7 @@ html {
 
   grid-template-columns: 1fr 3fr;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     grid-template-areas:
       "header"
       "specs"
@@ -241,7 +222,7 @@ html {
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     grid-template-columns: 1fr;
   }
 }
@@ -286,7 +267,11 @@ html {
   gap: 1rem;
   grid-template-columns: repeat(5, 1fr);
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 500px) {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -321,7 +306,6 @@ html {
   left: 0;
   right: 0;
   z-index: 1000;
-  border-top: 1px solid var(--pico-primary);
 }
 
 .mobile-nav-content.show {
@@ -346,7 +330,7 @@ html {
 }
 
 /* Media Queries */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .desktop-nav {
     display: none;
   }
@@ -362,7 +346,7 @@ html {
   justify-content: space-around;
   align-items: flex-start;
 
-  @media (max-width: 425px) {
+  @media (max-width: 500px) {
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
@@ -377,23 +361,68 @@ html {
       align-items: center;
     }
 
-    @media (max-width: 425px) {
+    @media (max-width: 500px) {
       text-align: center;
     }
   }
 }
 
 .device-search-grid {
-  display: grid;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1rem;
-  grid-template-columns: repeat(3, 1fr);
-  margin-top: 1rem;
+  justify-content: center;
+  align-items: stretch;
+  justify-items: center;
+  margin: 0 auto;
+  max-width: 1200px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: 500px) {
     grid-template-columns: repeat(1, 1fr);
   }
+}
+
+.device-search-card {
+  width: 100%;
+  max-width: 400px;
+  min-width: 300px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+
+  hgroup {
+    margin: 0;
+  }
+}
+
+.device-search-card:hover {
+  /* cursor: pointer; */
+  transition: transform 0.2s ease-in-out;
+
+  transform: scale(1.05);
+}
+
+code,
+pre,
+kbd,
+a,
+input,
+textarea,
+select,
+button,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+::placeholder {
+  font-family: "Azeret Mono", monospace !important;
 }

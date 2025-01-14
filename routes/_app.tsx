@@ -48,7 +48,12 @@ export default function App({ Component, url }: PageProps) {
         />
       </Head>
       <body>
-        <header style={{ padding: "0" }}>
+        <header
+          style={{
+            padding: "0",
+            borderBottom: "1px solid var(--pico-primary)",
+          }}
+        >
           {/* Desktop Navigation */}
           <DesktopNav pathname={url.pathname} />
 
@@ -59,7 +64,7 @@ export default function App({ Component, url }: PageProps) {
           <Breadcrumb url={url} />
           <Component />
         </main>
-        <footer>
+        <footer style={{ borderTop: "1px solid var(--pico-primary)" }}>
           <div class="container-fluid">
             <div
               class="footer-grid"
@@ -67,7 +72,7 @@ export default function App({ Component, url }: PageProps) {
               <div class="footer-grid-item rr">
                 <h6>Retro Ranker</h6>
                 <p>
-                  Find the perfect device for your gaming needs
+                  Find the perfect device for your gaming needs.
                 </p>
                 <small>
                   © {new Date().getFullYear()}{" "}
