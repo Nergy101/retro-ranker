@@ -4,11 +4,12 @@ import { Device } from "../data/device.model.ts";
 
 interface DeviceSearchProps {
   initialDevices: Device[];
+  initialQuery: string;
 }
 
-export default function DeviceSearch({ initialDevices }: DeviceSearchProps) {
+export default function DeviceSearch({ initialDevices, initialQuery }: DeviceSearchProps) {
   const devices = useSignal(initialDevices);
-  const searchQuery = useSignal("");
+  const searchQuery = useSignal(initialQuery);
   const debouncedSearchTimeout = useSignal<number | null>(null);
 
   const getFilteredDevices = () => {
@@ -51,6 +52,7 @@ export default function DeviceSearch({ initialDevices }: DeviceSearchProps) {
         <input
           type="search"
           placeholder="Search devices..."
+          value={searchQuery.value}
           onInput={handleSearch}
           aria-label="Search devices"
         />

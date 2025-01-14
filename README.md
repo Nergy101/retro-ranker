@@ -74,9 +74,8 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 📱 Connect With Us
 
-- [Discord](https://discord.gg/retroranker)
-- [GitHub](https://github.com/retroranker)
-- [BlueSky](https://bluesky.social/retroranker)
+- [GitHub](https://github.com/nergy101)
+- [BlueSky](https://bsky.app/profile/nergy101.bsky.social)
 
 ## 💝 Support the Project
 

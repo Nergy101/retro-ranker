@@ -10,6 +10,8 @@ import * as $contact from "./routes/contact.tsx";
 import * as $devices_name_ from "./routes/devices/[name].tsx";
 import * as $devices_index from "./routes/devices/index.tsx";
 import * as $index from "./routes/index.tsx";
+import * as $privacy from "./routes/privacy.tsx";
+import * as $terms from "./routes/terms.tsx";
 import * as $DeviceSearch from "./islands/DeviceSearch.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
@@ -23,6 +25,8 @@ const manifest = {
     "./routes/devices/[name].tsx": $devices_name_,
     "./routes/devices/index.tsx": $devices_index,
     "./routes/index.tsx": $index,
+    "./routes/privacy.tsx": $privacy,
+    "./routes/terms.tsx": $terms,
   },
   islands: {
     "./islands/DeviceSearch.tsx": $DeviceSearch,

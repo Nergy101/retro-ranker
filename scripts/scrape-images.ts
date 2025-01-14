@@ -12,14 +12,14 @@ async function downloadImage(url: string, deviceName: string) {
     await Deno.mkdir('static/devices', { recursive: true });
     await Deno.writeFile(filePath, imageData);
     
-    console.log(`✅ ${deviceName}`);
+    console.info(`✅ ${deviceName}`);
   } catch (error) {
     console.error(`❌ ${deviceName}: ${error.message}`);
   }
 }
 
 export async function downloadDeviceImages(devices: Device[]) {
-  console.log(`Starting download of ${devices.length} device images...`);
+  console.info(`Starting download of ${devices.length} device images...`);
   
   const downloads = devices.map(device => 
     downloadImage(device.imageUrl, device.name)
@@ -27,7 +27,7 @@ export async function downloadDeviceImages(devices: Device[]) {
   
   await Promise.all(downloads);
   
-  console.log('Finished downloading all images!');
+  console.info('Finished downloading all images!');
 }
 
 // Example usage:.

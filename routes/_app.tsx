@@ -11,6 +11,18 @@ export default function App({ Component, url }: PageProps) {
         <title>Retro Ranker</title>
         <link rel="stylesheet" href="/styles.css" />
         <script src="https://unpkg.com/@phosphor-icons/web"></script>
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
         {/* import Pico CSS classless*/}
         <link
           rel="stylesheet"
@@ -19,39 +31,61 @@ export default function App({ Component, url }: PageProps) {
       </Head>
       <body>
         <header style={{ padding: "0" }}>
-          <nav class="container-fluid">
+          <nav class="container">
             <ul>
               <li>
                 <a href="/">
-                  <img src="/logo.svg" alt="logo" height="32" />
+                  <img
+                    src="/logo-color.svg"
+                    alt="logo"
+                    style={{ height: "5em" }}
+                  />
                 </a>
               </li>
               <li>
-                <a href="/">Home</a>
+                <a href="/" class={url.pathname === "/" ? "active" : ""}>
+                  <i class="ph ph-house"></i>
+                  &nbsp;Home
+                </a>
               </li>
               <li>
-                <a href="/devices">Devices</a>
+                <a
+                  href="/devices"
+                  class={url.pathname.startsWith("/devices") ? "active" : ""}
+                >
+                  <i class="ph ph-devices"></i>
+                  &nbsp;Devices
+                </a>
               </li>
               <li>
-                <a href="/about">About</a>
+                <a
+                  href="/about"
+                  class={url.pathname === "/about" ? "active" : ""}
+                >
+                  <i class="ph ph-info"></i>
+                  &nbsp;About
+                </a>
               </li>
               <li>
-                <a href="/contact">Contact</a>
+                <a
+                  href="/contact"
+                  class={url.pathname === "/contact" ? "active" : ""}
+                >
+                  <i class="ph ph-user"></i>
+                  &nbsp;Contact
+                </a>
               </li>
             </ul>
             <ul>
               <li>
-                <strong>Retro Ranker</strong>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <input
-                  type="search"
-                  placeholder="Search..."
-                  name="search"
-                  aria-label="Search"
-                />
+                <form action="/devices" method="get">
+                  <input
+                    type="search"
+                    placeholder="Search..."
+                    name="q"
+                    aria-label="Search"
+                  />
+                </form>
               </li>
             </ul>
           </nav>
@@ -61,13 +95,19 @@ export default function App({ Component, url }: PageProps) {
           <Component />
         </main>
         <footer>
-          <div class="container">
-            <div class="grid">
+          <div class="container-fluid">
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-around",
+                alignItems: "center",
+              }}
+            >
               <div>
                 <h6>Retro Ranker</h6>
                 <p>
-                  Discover and Rank <br />
-                  your favorite Retro Consoles and Games.
+                  Find the perfect device for your gaming needs
                 </p>
                 <small>
                   © {new Date().getFullYear()}{" "}
@@ -101,19 +141,13 @@ export default function App({ Component, url }: PageProps) {
                 <h6>Connect</h6>
                 <ul style={{ listStyle: "none", padding: 0 }}>
                   <li style={{ listStyle: "none" }}>
-                    <a href="https://bluesky.social/retroranker">
+                    <a href="https://bsky.app/profile/nergy101.bsky.social">
                       <i class="ph ph-chat-text"></i>
                       <span>&nbsp;Bluesky</span>
                     </a>
                   </li>
                   <li style={{ listStyle: "none" }}>
-                    <a href="https://discord.gg/retroranker">
-                      <i class="ph ph-discord-logo"></i>
-                      <span>&nbsp;Discord</span>
-                    </a>
-                  </li>
-                  <li style={{ listStyle: "none" }}>
-                    <a href="https://github.com/retroranker">
+                    <a href="https://github.com/Nergy101/retro-ranker">
                       <i class="ph ph-github-logo"></i>
                       <span>&nbsp;GitHub</span>
                     </a>

@@ -16,7 +16,7 @@ export default async function Home() {
 
   return (
     <div>
-      <main>
+      <main style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
         {/* New Arrivals Section */}
         <section>
           <h2>New Arrivals</h2>

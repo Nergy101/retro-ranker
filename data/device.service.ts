@@ -256,8 +256,6 @@ export function parseHandheldsHtml(filePath: string): Device[] {
     }
   });
 
-  console.log("test", devices[1]);
-
   return devices;
 }
 
