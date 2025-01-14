@@ -173,7 +173,7 @@ html {
   background-size: cover;
   background-position: center;
   background-blend-mode: multiply;
-  
+
   @media (max-width: 1024px) {
     grid-column: span 2;
     width: auto;
@@ -211,7 +211,7 @@ html {
     "similar specs"
     "similar specs";
 
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: minmax(auto, 1fr) 3fr;
 
   @media (max-width: 1024px) {
     grid-template-areas:
@@ -224,8 +224,10 @@ html {
 
 .specs-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: 1rem;
+  width: 100%;
+  max-width: 100%;
 
   @media (max-width: 500px) {
     grid-template-columns: 1fr;
@@ -236,7 +238,20 @@ html {
   border: 1px solid var(--pico-secondary);
   background: var(--pico-card-background-color);
   border-radius: var(--pico-border-radius);
-  padding: 1rem;
+  padding: 1em 0;
+
+  h3 {
+    justify-content: center;
+    font-size: 1.25rem;
+    color: var(--pico-contrast);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  dl {
+    text-align: center;
+  }
 }
 
 .specs-section h3 {
@@ -457,4 +472,10 @@ h6,
   flex-direction: row;
   gap: 0.5rem;
   align-items: center;
+}
+
+.similar-devices-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
 }

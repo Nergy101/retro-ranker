@@ -9,7 +9,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
     <div class="specs-grid">
       {/* Processing */}
       <section class="specs-section">
-        <h3 style={{ fontSize: "1.25rem", color: "var(--pico-contrast)", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+        <h3>
           <i class="ph ph-cpu"></i>
           Processing
         </h3>
@@ -51,7 +51,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
 
       {/* Display */}
       <section class="specs-section">
-        <h3 style={{ fontSize: "1.25rem", color: "var(--pico-contrast)", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+        <h3>
           <i class="ph ph-monitor"></i>
           Display
         </h3>
@@ -97,7 +97,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
 
       {/* Physical */}
       <section class="specs-section">
-        <h3 style={{ fontSize: "1.25rem", color: "var(--pico-contrast)", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+        <h3>
           <i class="ph ph-ruler"></i>
           Physical
         </h3>
@@ -131,7 +131,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
 
       {/* Audio and Video */}
       <section class="specs-section">
-        <h3 style={{ fontSize: "1.25rem", color: "var(--pico-contrast)", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+        <h3>
           <i class="ph ph-speaker-high"></i>
           Audio
         </h3>
@@ -153,7 +153,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
 
       {/* Controls */}
       <section class="specs-section">
-        <h3 style={{ fontSize: "1.25rem", color: "var(--pico-contrast)", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+        <h3>
           <i class="ph ph-game-controller"></i>
           Controls
         </h3>
@@ -199,7 +199,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
 
       {/* Miscellaneous */}
       <section class="specs-section">
-        <h3 style={{ fontSize: "1.25rem", color: "var(--pico-contrast)", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+        <h3>
           <i class="ph ph-gear"></i>
           Miscellaneous
         </h3>
@@ -215,7 +215,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
 
       {/* Connectivity */}
       <section class="specs-section">
-        <h3 style={{ fontSize: "1.25rem", color: "var(--pico-contrast)", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+        <h3>
           <i class="ph ph-wifi-high"></i>
           Connectivity
         </h3>

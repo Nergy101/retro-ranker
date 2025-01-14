@@ -98,13 +98,7 @@ export default function DeviceDetail(props: PageProps) {
           }}
         >
           <h2>Similar Devices</h2>
-          <div
-            style={{
-              display: "grid",
-              gap: "1rem",
-              gridTemplateColumns: "repeat(1, 1fr)",
-            }}
-          >
+          <div class="similar-devices-grid">
             {similarDevices.map((device) => (
               <DeviceCardSmall
                 device={device}
