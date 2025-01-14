@@ -54,11 +54,11 @@ export function MobileNav({ pathname }: { pathname: string }) {
       <div
         class="mobile-nav-content"
         style={{
-          borderBottom: "1px solid var(--pico-primary)"
+          borderBottom: "1px solid var(--pico-primary)",
         }}
       >
         <ul>
-          <li>
+          <li style={{padding: "0"}}>
             <form action="/devices" method="get" role="search">
               <input
                 type="search"
@@ -70,21 +70,23 @@ export function MobileNav({ pathname }: { pathname: string }) {
             </form>
           </li>
           {navigationItems.map((item) => (
-            <li>
+            <li style={{padding: "0"}}>
               <a
                 href={item.href}
-                class={item.isActive(pathname) ? "active" : ""}
+                class={item.isActive(pathname)
+                  ? "active mobile-nav-button"
+                  : "mobile-nav-button"}
               >
                 <i class={item.icon}></i>
                 &nbsp;{item.label}
               </a>
             </li>
           ))}
-          <li>
-            <ThemeSwitcher />
+          <li style={{padding: "0 0 0.5rem 0"}}>
+            <ThemeSwitcher tooltipLocation="bottom" />
           </li>
         </ul>
       </div>
     </nav>
   );
-} 
+}

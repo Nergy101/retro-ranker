@@ -1,7 +1,7 @@
 import { useSignal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
 
-export function ThemeSwitcher({ showNames = true }: { showNames?: boolean }) {
+export function ThemeSwitcher({ showNames = true, tooltipLocation = "bottom" }: { showNames?: boolean, tooltipLocation?: "left" | "bottom" | "right" | "top" }) {
   const theme = useSignal<"light" | "dark">("dark");
 
   // Initialize theme from localStorage or system preference
@@ -45,7 +45,7 @@ export function ThemeSwitcher({ showNames = true }: { showNames?: boolean }) {
       data-tooltip={`Switch to ${
         theme.value === "light" ? "dark" : "light"
       } theme`}
-      data-placement="left"
+      data-placement={tooltipLocation}
     >
       {theme.value === "light"
         ? (
