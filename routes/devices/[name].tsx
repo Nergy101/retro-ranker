@@ -38,7 +38,7 @@ export default function DeviceDetail(props: PageProps) {
             </h2>
             <div style="display: flex; gap: 0.25rem; align-items: center;">
               <p>{device.brand}</p>
-              <p data-tooltip={device.os} data-placement="right">
+              <p data-tooltip={device.os} data-placement="bottom">
                 {device.osIcons.map((icon) => <i class={`${icon}`} />)}
               </p>
             </div>
