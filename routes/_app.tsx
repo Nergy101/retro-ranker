@@ -76,6 +76,19 @@ export default function App({ Component, url }: PageProps) {
                   © {new Date().getFullYear()}{" "}
                   Retro Ranker. All rights reserved.
                 </small>
+                <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginTop: "1rem" }}>
+                  <small>
+                    Made with ❤️ by{" "}
+                    <span style={{ color: "var(--pico-primary)" }}>
+                      Nergy101
+                    </span>
+                  </small>
+                  <img
+                    src="https://portfolio.nergy.space/favicon.ico"
+                    style={{ width: "32px", height: "32px", borderRadius: "50%" }}
+                  >
+                  </img>
+                </div>
               </div>
               <div class="footer-grid-item quick-links">
                 <h6>Quick Links</h6>
@@ -104,13 +117,19 @@ export default function App({ Component, url }: PageProps) {
                 <h6>Connect</h6>
                 <ul style={{ listStyle: "none", padding: 0 }}>
                   <li style={{ listStyle: "none" }}>
-                    <a href="https://bsky.app/profile/nergy101.bsky.social">
+                    <a
+                      href="https://bsky.app/profile/nergy101.bsky.social"
+                      target="_blank"
+                    >
                       <i class="ph ph-chat-text"></i>
                       <span>&nbsp;Bluesky</span>
                     </a>
                   </li>
                   <li style={{ listStyle: "none" }}>
-                    <a href="https://github.com/Nergy101/retro-ranker">
+                    <a
+                      href="https://github.com/Nergy101/retro-ranker"
+                      target="_blank"
+                    >
                       <i class="ph ph-github-logo"></i>
                       <span>&nbsp;GitHub</span>
                     </a>
