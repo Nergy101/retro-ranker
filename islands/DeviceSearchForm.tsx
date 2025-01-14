@@ -7,7 +7,9 @@ interface DeviceSearchFormProps {
   initialPage: number;
 }
 
-export function DeviceSearchForm({ initialSearch, initialCategory, initialPage }: DeviceSearchFormProps) {
+export function DeviceSearchForm(
+  { initialSearch, initialCategory, initialPage }: DeviceSearchFormProps,
+) {
   const searchQuery = useSignal(initialSearch);
   const category = useSignal(initialCategory);
   const page = useSignal(initialPage);
@@ -26,13 +28,13 @@ export function DeviceSearchForm({ initialSearch, initialCategory, initialPage }
     };
 
     // Add event listener
-    window.addEventListener('resize', handleResize);
+    globalThis.addEventListener("resize", handleResize);
 
     // Cleanup
     return () => {
-      window.removeEventListener('resize', handleResize);
+      globalThis.removeEventListener("resize", handleResize);
     };
-  }, []);       
+  }, []);
 
   if (viewportWidth.value < 500) {
     return (
@@ -50,8 +52,8 @@ export function DeviceSearchForm({ initialSearch, initialCategory, initialPage }
           type="number"
           value={page}
         />
-        <select 
-          name="category" 
+        <select
+          name="category"
           aria-label="Filter by category"
           value={category}
           onChange={handleCategoryChange}
@@ -81,8 +83,8 @@ export function DeviceSearchForm({ initialSearch, initialCategory, initialPage }
         type="number"
         value={page}
       />
-      <select 
-        name="category" 
+      <select
+        name="category"
         aria-label="Filter by category"
         value={category}
         onChange={handleCategoryChange}
@@ -95,4 +97,4 @@ export function DeviceSearchForm({ initialSearch, initialCategory, initialPage }
       <input type="submit" value="Search" />
     </form>
   );
-} 
+}
