@@ -2,10 +2,12 @@
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
       <loc>https://retroranker.site/</loc>
+      <priority>1.0</priority>
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
       <loc>https://retroranker.site/devices</loc>
+      <priority>0.9</priority>
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
