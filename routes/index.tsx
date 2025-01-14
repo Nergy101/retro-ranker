@@ -17,8 +17,7 @@ export default function Home() {
     <div>
       <header>
         <hgroup style={{ textAlign: "center" }}>
-          <h1>Welcome to Retro Ranker</h1>
-          <p>Your Guide to Retro Gaming Handhelds</p>
+          <h1>Welcome to <span style={{ color: "var(--pico-primary)" }}>Retro Ranker</span></h1>
           <p>
             Find the perfect device for your gaming needs.
           </p>

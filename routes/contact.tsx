@@ -7,13 +7,13 @@ export default function ContactPage() {
         <title>Contact - Retro Ranker</title>
       </Head>
 
-      <h1 class="text-4xl font-bold" style={{ color: "var(--pico-primary)" }}>
+      <h1 class="text-3xl font-bold">
         Get in Touch
       </h1>
 
       <div>
         <section>
-          <h2 class="text-2xl font-semibold">Support My Work</h2>
+          <h3>Support My Work</h3>
           <p>
             If you find Retro Ranker helpful and want to support its
             development, you can buy me a coffee or contribute to the project.
@@ -43,7 +43,7 @@ export default function ContactPage() {
         </section>
 
         <section>
-          <h2 class="text-2xl font-semibold">My Other Projects</h2>
+          <h3>My Other Projects</h3>
           <ul>
             <li>
               <a
@@ -69,7 +69,7 @@ export default function ContactPage() {
         </section>
 
         <section>
-          <h2 class="text-2xl font-semibold mb-3">Connect With Me</h2>
+          <h3>Connect With Me</h3>
           <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
             <a
               href="https://bsky.app/profile/nergy101.bsky.social"

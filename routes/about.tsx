@@ -9,16 +9,13 @@ export default function AboutPage() {
         </title>
       </Head>
 
-      <h1
-        class="text-4xl font-bold mb-6"
-        style={{ color: "var(--pico-primary)" }}
-      >
-        About Retro Ranker
+      <h1 class="text-3xl font-bold mb-6">
+        About <span style={{ color: "var(--pico-primary)" }}>Retro Ranker</span>
       </h1>
 
       <div>
         <section>
-          <h2 class="text-2xl font-semibold mb-3">What is Retro Ranker?</h2>
+          <h3>What is Retro Ranker?</h3>
           <p>
             Retro Ranker is a comprehensive database and comparison platform
             dedicated to retro handheld gaming devices. Our mission is to help
@@ -28,8 +25,8 @@ export default function AboutPage() {
         </section>
 
         <section>
-          <h2 class="text-2xl font-semibold mb-3">Features</h2>
-          <ul class="list-disc list-inside text-gray-700 space-y-2">
+          <h3>Features</h3>
+          <ul>
             <li>Detailed technical specifications for each device</li>
             <li>Performance ratings for different emulation capabilities</li>
             <li>Side-by-side device comparisons</li>
@@ -39,7 +36,7 @@ export default function AboutPage() {
         </section>
 
         <section>
-          <h2 class="text-2xl font-semibold mb-3">Our Database</h2>
+          <h3>Our Database</h3>
           <p>
             Retro Ranker's database is powered by the incredible work of the
             {" "}
@@ -59,7 +56,7 @@ export default function AboutPage() {
         </section>
 
         <section>
-          <h2 class="text-2xl font-semibold mb-3">Community Contribution</h2>
+          <h3>Community Contribution</h3>
           <p>
             We encourage you to join the Retro Handhelds community to contribute
             to this growing knowledge base. Their collective expertise and
