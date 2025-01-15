@@ -9,11 +9,20 @@ export function DeviceCardMedium({ device }: DeviceCardMediumProps) {
     <article
       class="device-search-card"
       style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-end",
         border: "1px solid var(--pico-primary)",
         borderRadius: "0.5rem",
       }}
     >
-      <header style={{ margin: "0", borderRadius: "0.5rem" }}>
+      <header
+        style={{
+          flex: 1,
+          margin: "0",
+          borderRadius: "0.5rem",
+        }}
+      >
         <hgroup style={{ textAlign: "center" }}>
           <h4
             title={device.name}
