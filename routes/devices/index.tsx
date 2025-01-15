@@ -58,36 +58,14 @@ export default async function DevicesIndex(_req: Request, ctx: FreshContext) {
         </hgroup>
       </header>
 
-      <Partial name="devices">
-        <DeviceSearchForm
-          initialSearch={searchQuery}
-          initialCategory={searchCategory}
-          initialPage={pageNumber}
-        />
+      <DeviceSearchForm
+        initialSearch={searchQuery}
+        initialCategory={searchCategory}
+        initialPage={pageNumber}
+      />
 
-        <PaginationNav
-          pageNumber={pageNumber}
-          pageSize={pageSize}
-          totalResults={amountOfResults}
-          searchQuery={searchQuery}
-          searchCategory={searchCategory}
-        />
-
-        <div class="device-search-grid">
-          {getPagedDevices().map((device) => (
-            <DeviceCardMedium
-              device={device}
-            />
-          ))}
-        </div>
-
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginTop: "1rem",
-          }}
-        >
+      {getPagedDevices().length > 0
+        ? (
           <PaginationNav
             pageNumber={pageNumber}
             pageSize={pageSize}
@@ -95,8 +73,48 @@ export default async function DevicesIndex(_req: Request, ctx: FreshContext) {
             searchQuery={searchQuery}
             searchCategory={searchCategory}
           />
-        </div>
-      </Partial>
+        )
+        : null}
+
+      {getPagedDevices().length === 0
+        ? (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "1rem",
+            }}
+          >
+            <p>No results found for your search criteria.</p>
+          </div>
+        )
+        : (
+          <div class="device-search-grid">
+            {getPagedDevices().map((device) => (
+              <DeviceCardMedium device={device} />
+            ))}
+          </div>
+        )}
+
+      {getPagedDevices().length > 0
+        ? (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "1rem",
+            }}
+          >
+            <PaginationNav
+              pageNumber={pageNumber}
+              pageSize={pageSize}
+              totalResults={amountOfResults}
+              searchQuery={searchQuery}
+              searchCategory={searchCategory}
+            />
+          </div>
+        )
+        : null}
     </div>
   );
 }
