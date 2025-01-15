@@ -1,16 +1,15 @@
-import { Partial } from "$fresh/runtime.ts";
-import { FreshContext } from "$fresh/server.ts";
+import { PageProps } from "$fresh/server.ts";
 import { DeviceCardMedium } from "../../components/DeviceCardMedium.tsx";
 import { PaginationNav } from "../../components/PaginationNav.tsx";
 import { getAllDevices } from "../../data/device.service.ts";
 import { DeviceSearchForm } from "../../islands/DeviceSearchForm.tsx";
 
 //! TODO: make all other routes also work like this
-export default async function DevicesIndex(_req: Request, ctx: FreshContext) {
+export default function DevicesIndex(props: PageProps) {
   const allDevices = getAllDevices();
-  const searchQuery = ctx.url?.searchParams.get("search") || "";
-  const searchCategory = ctx.url?.searchParams.get("category") || "all";
-  const pageNumber = parseInt(ctx.url?.searchParams.get("page") || "1");
+  const searchQuery = props.url?.searchParams.get("search") || "";
+  const searchCategory = props.url?.searchParams.get("category") || "all";
+  const pageNumber = parseInt(props.url?.searchParams.get("page") || "1");
 
   const pageSize = 9;
 
