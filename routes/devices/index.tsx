@@ -1,14 +1,16 @@
-import { PageProps } from "$fresh/server.ts";
-import { getAllDevices } from "../../data/device.service.ts";
+import { Partial } from "$fresh/runtime.ts";
+import { FreshContext } from "$fresh/server.ts";
 import { DeviceCardMedium } from "../../components/DeviceCardMedium.tsx";
-import { DeviceSearchForm } from "../../islands/DeviceSearchForm.tsx";
 import { PaginationNav } from "../../components/PaginationNav.tsx";
+import { getAllDevices } from "../../data/device.service.ts";
+import { DeviceSearchForm } from "../../islands/DeviceSearchForm.tsx";
 
-export default function DevicesIndex(props: PageProps) {
+//! TODO: make all other routes also work like this
+export default async function DevicesIndex(_req: Request, ctx: FreshContext) {
   const allDevices = getAllDevices();
-  const searchQuery = props.url.searchParams.get("search") || "";
-  const searchCategory = props.url.searchParams.get("category") || "all";
-  const pageNumber = parseInt(props.url.searchParams.get("page") || "1");
+  const searchQuery = ctx.url?.searchParams.get("search") || "";
+  const searchCategory = ctx.url?.searchParams.get("category") || "all";
+  const pageNumber = parseInt(ctx.url?.searchParams.get("page") || "1");
 
   const pageSize = 9;
 
@@ -56,29 +58,13 @@ export default function DevicesIndex(props: PageProps) {
         </hgroup>
       </header>
 
-      <DeviceSearchForm
-        initialSearch={searchQuery}
-        initialCategory={searchCategory}
-        initialPage={pageNumber}
-      />
+      <Partial name="devices">
+        <DeviceSearchForm
+          initialSearch={searchQuery}
+          initialCategory={searchCategory}
+          initialPage={pageNumber}
+        />
 
-      <PaginationNav
-        pageNumber={pageNumber}
-        pageSize={pageSize}
-        totalResults={amountOfResults}
-        searchQuery={searchQuery}
-        searchCategory={searchCategory}
-      />
-
-      <div class="device-search-grid">
-        {getPagedDevices().map((device) => (
-          <DeviceCardMedium
-            device={device}
-          />
-        ))}
-      </div>
-
-      <div style={{ display: "flex", justifyContent: "center", marginTop: "1rem" }}>
         <PaginationNav
           pageNumber={pageNumber}
           pageSize={pageSize}
@@ -86,7 +72,31 @@ export default function DevicesIndex(props: PageProps) {
           searchQuery={searchQuery}
           searchCategory={searchCategory}
         />
-      </div>
+
+        <div class="device-search-grid">
+          {getPagedDevices().map((device) => (
+            <DeviceCardMedium
+              device={device}
+            />
+          ))}
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "1rem",
+          }}
+        >
+          <PaginationNav
+            pageNumber={pageNumber}
+            pageSize={pageSize}
+            totalResults={amountOfResults}
+            searchQuery={searchQuery}
+            searchCategory={searchCategory}
+          />
+        </div>
+      </Partial>
     </div>
   );
 }

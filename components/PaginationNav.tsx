@@ -17,13 +17,21 @@ export function PaginationNav({
     <div style="display: flex; justify-content: center;">
       <div style="display: flex; flex-direction: row; gap: 0.5rem; align-items: center;">
         {pageNumber > 1 && (
-          <a
-            href={`/devices?page=${
-              pageNumber - 1
-            }&search=${searchQuery}&category=${searchCategory}`}
-          >
-            <i class="ph-bold ph-caret-left"></i>
-          </a>
+          <div>
+            <a
+              href={`/devices?page=1&search=${searchQuery}&category=${searchCategory}`}
+            >
+              <i class="ph-bold ph-caret-double-left"></i>
+            </a>
+
+            <a
+              href={`/devices?page=${
+                pageNumber - 1
+              }&search=${searchQuery}&category=${searchCategory}`}
+            >
+              <i class="ph-bold ph-caret-left"></i>
+            </a>
+          </div>
         )}
         <span>
           Page: {pageNumber}
@@ -34,18 +42,28 @@ export function PaginationNav({
           {totalResults < pageNumber * pageSize
             ? totalResults
             : pageNumber * pageSize}
-            &nbsp;of {totalResults}
+          &nbsp;of {totalResults}
           )
         </span>
 
         {pageNumber < Math.ceil(totalResults / pageSize) && (
-          <a
-            href={`/devices?page=${
-              pageNumber + 1
-            }&search=${searchQuery}&category=${searchCategory}`}
-          >
-            <i class="ph-bold ph-caret-right"></i>
-          </a>
+          <div>
+            <a
+              href={`/devices?page=${
+                pageNumber + 1
+              }&search=${searchQuery}&category=${searchCategory}`}
+            >
+              <i class="ph-bold ph-caret-right"></i>
+            </a>
+
+            <a
+              href={`/devices?page=${
+                Math.ceil(totalResults / pageSize)
+              }&search=${searchQuery}&category=${searchCategory}`}
+            >
+              <i class="ph-bold ph-caret-double-right"></i>
+            </a>
+          </div>
         )}
       </div>
     </div>

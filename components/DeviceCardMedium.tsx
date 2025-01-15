@@ -13,10 +13,9 @@ export function DeviceCardMedium({ device }: DeviceCardMediumProps) {
         borderRadius: "0.5rem",
       }}
     >
-      <header style={{ margin: "0", borderRadius: "0.5rem"}}>
+      <header style={{ margin: "0", borderRadius: "0.5rem" }}>
         <hgroup style={{ textAlign: "center" }}>
           <h4
-            style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 10em; "
             title={device.name}
           >
             <a

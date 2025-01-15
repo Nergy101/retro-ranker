@@ -16,6 +16,9 @@
       "tags": [
         "fresh",
         "recommended"
+      ],
+      "exclude": [
+        "require-await"
       ]
     }
   },

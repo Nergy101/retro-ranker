@@ -205,7 +205,7 @@ html {
 .device-detail {
   display: grid;
   gap: 1rem;
-  padding:0;
+  padding: 0;
 
   grid-template-areas:
     "header specs"
@@ -286,6 +286,11 @@ html {
   text-align: center;
 }
 
+a[data-current] {
+  color: var(--pico-primary);
+  font-weight: bold;
+  text-decoration: underline !important;
+}
 .active {
   color: var(--pico-primary);
   font-weight: bold;

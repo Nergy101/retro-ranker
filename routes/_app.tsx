@@ -1,4 +1,4 @@
-import { Head } from "$fresh/runtime.ts";
+import { Head, Partial } from "$fresh/runtime.ts";
 import { type PageProps } from "$fresh/server.ts";
 import { Breadcrumb } from "../islands/Breadcrumb.tsx";
 import { DesktopNav } from "../islands/DesktopNav.tsx";
@@ -76,23 +76,28 @@ export default function App({ Component, url }: PageProps) {
           }}
         />
       </Head>
-      <body>
-        <header
-          style={{
-            padding: "0",
-            borderBottom: "1px solid var(--pico-primary)",
-          }}
-        >
-          {/* Desktop Navigation */}
-          <DesktopNav pathname={url.pathname} />
+      <body f-client-nav>
+        <Partial name="header">
+          <header
+            style={{
+              padding: "0",
+              borderBottom: "1px solid var(--pico-primary)",
+            }}
+          >
+            {/* Desktop Navigation */}
+            <DesktopNav pathname={url.pathname} />
 
-          {/* Mobile Navigation */}
-          <MobileNav pathname={url.pathname} />
-        </header>
-        <main class="container">
-          <Breadcrumb />
-          <Component />
-        </main>
+            {/* Mobile Navigation */}
+            <MobileNav pathname={url.pathname} />
+          </header>
+        </Partial>
+        <Partial name="body">
+          <main class="container">
+            <Breadcrumb />
+            <Component />
+          </main>
+        </Partial>
+
         <footer style={{ borderTop: "1px solid var(--pico-primary)" }}>
           <div class="container-fluid">
             <div class="footer-grid">
