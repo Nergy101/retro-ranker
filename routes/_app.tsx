@@ -12,6 +12,23 @@ export default function App({ Component, url }: PageProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="color-scheme" content="light dark" />
         <title>Retro Ranker</title>
+
+        {/* OpenGraph Meta Tags */}
+        <meta property="og:title" content="Retro Ranker" />
+        <meta property="og:description" content="Find the perfect retro handheld gaming device for your needs. Compare specs, features, and performance of various retro gaming handhelds." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://retroranker.site" />
+        <meta property="og:image" content="https://retroranker.site/logo-color.svg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="Retro Ranker" />
+
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Retro Ranker" />
+        <meta name="twitter:description" content="Find the perfect retro handheld gaming device for your needs. Compare specs, features, and performance of various retro gaming handhelds." />
+        <meta name="twitter:image" content="https://retroranker.site/logo-color.svg" />
+
         <link rel="stylesheet" href="/styles.css" />
         <script src="https://unpkg.com/@phosphor-icons/web"></script>
         <link

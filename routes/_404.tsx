@@ -10,16 +10,18 @@ export default function Error404() {
         <div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">
           <img
             
-            src="/logo.svg"
+            src="/logo-color.svg"
             width="128"
             height="128"
             alt="the Fresh logo: a sliced lemon dripping with juice"
           />
           <h1 class="text-4xl font-bold">404 - Page not found</h1>
-          <p >
+          <strong style={{ color: "#000" }}>
             The page you were looking for doesn't exist.
-          </p>
-          <a href="/" >Go back home</a>
+          </strong>
+          <a href="/" >
+          <i class="ph-bold ph-game-controller"></i>
+          &nbsp;Go back home</a>
         </div>
       </div>
     </>
