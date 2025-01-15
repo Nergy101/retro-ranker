@@ -75,7 +75,7 @@ export default function DeviceDetail(props: PageProps) {
               </summary>
               <EmulationPerformance device={device} />
             </details>
-            {/* <hr />
+            <hr />
             <details open>
               <summary>
                 <strong style={{ color: "var(--pico-primary)" }}>
@@ -160,7 +160,7 @@ export default function DeviceDetail(props: PageProps) {
                 </table>
               </section>
             </details>
-            <hr /> */}
+            <hr />
             <details>
               <summary>
                 <strong style={{ color: "var(--pico-primary)" }}>
