@@ -33,6 +33,5 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 }
   </urlset>`;
 
-console.log(sitemap);
 // write to file as byte[]
 await Deno.writeFile("static/sitemap.xml", new TextEncoder().encode(sitemap));

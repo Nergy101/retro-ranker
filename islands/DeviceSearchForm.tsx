@@ -85,6 +85,7 @@ export function DeviceSearchForm(
         aria-label="Search devices"
       />
       <input
+        style="display: none;"
         name="page"
         type="number"
         value={page}
