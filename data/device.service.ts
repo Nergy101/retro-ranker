@@ -280,25 +280,25 @@ export function parseHandheldsHtml(filePath: string): Device[] {
         case 26:
           device.systemOnChip = value;
           break;
-        case 25:
+        case 27:
           device.cpu = value;
           break;
-        case 27:
+        case 28:
           device.cpuCores = parseInt(value) || 0;
           break;
-        case 28:
+        case 29:
           device.cpuThreads = parseInt(value) || 0;
           break;
-        case 29:
+        case 30:
           device.cpuClockSpeed = value;
           break;
-        case 30:
+        case 31:
           device.architecture = value;
           break;
-        case 31:
+        case 32:
           device.gpu = value;
           break;
-        case 32:
+        case 33:
           device.gpuCores = value;
           break;
         case 34:
