@@ -14,18 +14,22 @@ export default function AboutPage() {
       </h1>
 
       <div>
-        <section>
-          <h3>What is Retro Ranker?</h3>
+        <details open>
+          <summary class="flex items-center gap-2">
+            <i class="ph ph-question"></i>&nbsp;What is Retro Ranker?
+          </summary>
           <p>
             Retro Ranker is a comprehensive database and comparison platform
             dedicated to retro handheld gaming devices. Our mission is to help
             enthusiasts discover and compare various retro gaming handhelds,
             making it easier to find the perfect device for your gaming needs.
           </p>
-        </section>
+        </details>
 
-        <section>
-          <h3>Features</h3>
+        <details>
+          <summary class="flex items-center gap-2">
+            <i class="ph ph-list-checks"></i>&nbsp;Features
+          </summary>
           <ul>
             <li>Detailed technical specifications for each device</li>
             <li>Performance ratings for different emulation capabilities</li>
@@ -33,10 +37,57 @@ export default function AboutPage() {
             <li>Real-world performance metrics and benchmarks</li>
             <li>Up-to-date pricing and availability information</li>
           </ul>
-        </section>
+        </details>
 
-        <section>
-          <h3>Our Database</h3>
+        <details>
+          <summary class="flex items-center gap-2">
+            <i class="ph ph-stack"></i>&nbsp;Tech Stack
+          </summary>
+          <ul class="flex flex-col gap-4 p-4">
+            <li class="flex items-center gap-4">
+              <img
+                src="/stack/deno.gif"
+                alt="Deno"
+                width="32"
+                height="32"
+              />
+              <span>&nbsp;Deno - A secure runtime for JavaScript and TypeScript</span>
+            </li>
+            <li class="flex items-center gap-4">
+              <img
+                src="/stack/deno.gif"
+                alt="Deno"
+                width="32"
+                height="32"
+              />
+              <span>&nbsp;Deno Deploy - Global edge deployment platform</span>
+            </li>
+            <li class="flex items-center gap-4">
+              <img
+                src="/stack/fresh.svg"
+                alt="Fresh"
+                width="32"
+                height="32"
+              />
+              <span>&nbsp;Fresh - The next-gen web framework</span>
+            </li>
+
+            <li class="flex items-center gap-4">
+              <img
+                src="/stack/pico.svg"
+                alt="PicoCSS"
+                width="32"
+                height="32"
+              />
+              <span>&nbsp;PicoCSS - Minimal CSS Framework for semantic HTML</span>
+            </li>
+          </ul>
+        </details>
+
+        <details>
+          <summary class="flex items-center gap-2">
+            <i class="ph ph-database"></i>&nbsp;Where does the data come from?
+          </summary>
           <p>
             Retro Ranker's database is powered by the incredible work of the
             {" "}
@@ -53,10 +104,12 @@ export default function AboutPage() {
             our data remains accurate and up-to-date with the latest
             developments in the retro handheld scene.
           </p>
-        </section>
+        </details>
 
-        <section>
-          <h3>Community Contribution</h3>
+        <details>
+          <summary class="flex items-center gap-2">
+            <i class="ph ph-users"></i>&nbsp;Community Contribution
+          </summary>
           <p>
             We encourage you to join the Retro Handhelds community to contribute
             to this growing knowledge base. Their collective expertise and
@@ -67,7 +120,7 @@ export default function AboutPage() {
             </a>{" "}
             to connect with fellow enthusiasts and share your experiences.
           </p>
-        </section>
+        </details>
       </div>
     </div>
   );

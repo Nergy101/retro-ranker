@@ -2,8 +2,9 @@ import { useSignal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
 
 export function ThemeSwitcher(
-  { showNames = true, tooltipLocation = "bottom" }: {
+  { showNames = true, showTooltip = true, tooltipLocation = "bottom" }: {
     showNames?: boolean;
+    showTooltip?: boolean;
     tooltipLocation?: "left" | "bottom" | "right" | "top";
   },
 ) {
@@ -38,31 +39,48 @@ export function ThemeSwitcher(
         padding: "0.5rem",
         borderRadius: "0.5rem",
         cursor: "pointer",
-        transition: "all 0.5s ease-in-out",
+        transition:
+          "all 0.3s ease-in-out, transform 0.5s ease-in-out, background-color 0.3s ease-in-out",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         gap: "0.25rem",
         minWidth: showNames ? "5rem" : "2.5rem",
       }}
-      aria-label={`Switch to ${
-        theme.value === "light" ? "dark" : "light"
-      } theme`}
-      data-tooltip={`Switch to ${
-        theme.value === "light" ? "dark" : "light"
-      } theme`}
+      aria-label={showTooltip
+        ? `Switch to ${theme.value === "light" ? "dark" : "light"} theme`
+        : undefined}
+      data-tooltip={showTooltip
+        ? `Switch to ${theme.value === "light" ? "dark" : "light"} theme`
+        : undefined}
       data-placement={tooltipLocation}
     >
       {theme.value === "light"
         ? (
           <>
-            <i class="ph ph-moon" style={{ fontSize: "1.2rem" }}></i>
+            <i
+              class="ph ph-moon"
+              style={{
+                fontSize: "1.2rem",
+                transition: "transform 500ms ease-in-out",
+                transform: "rotate(0deg)",
+              }}
+            >
+            </i>
             {showNames && <span>Dark</span>}
           </>
         )
         : (
           <>
-            <i class="ph ph-sun" style={{ fontSize: "1.2rem" }}></i>
+            <i
+              class="ph ph-sun"
+              style={{
+                fontSize: "1.2rem",
+                transition: "transform 500ms ease-in-out",
+                transform: "rotate(180deg)",
+              }}
+            >
+            </i>
             {showNames && <span>Light</span>}
           </>
         )}
