@@ -43,6 +43,12 @@ export default function App({ Component, url }: PageProps) {
 
         <link rel="stylesheet" href="/styles.css" />
         <script src="https://unpkg.com/@phosphor-icons/web"></script>
+        <script
+          defer
+          src="https://umami.nergy.space/script.js"
+          data-website-id="34d0e3cb-e9cf-4554-8b1c-27541fb877c0"
+        >
+        </script>
         <link
           rel="icon"
           type="image/png"
