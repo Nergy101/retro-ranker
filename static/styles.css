@@ -492,3 +492,17 @@ h6,
     gap: 0.25rem;
   }
 }
+
+.summary-details {
+  @media (max-width: 500px) {
+    max-width: 360px;
+  }
+
+  @media (max-width: 375px) {
+    max-width: 310px;
+  }
+
+  @media (max-width: 320px) {
+    max-width: 250px;
+  }
+}

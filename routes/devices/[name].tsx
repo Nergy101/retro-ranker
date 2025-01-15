@@ -76,88 +76,100 @@ export default function DeviceDetail(props: PageProps) {
               <EmulationPerformance device={device} />
             </details>
             <hr />
-            <details open>
+
+            <details open class="summary-details">
               <summary>
                 <strong style={{ color: "var(--pico-primary)" }}>
                   Summary
                 </strong>
               </summary>
-              <section style={{ border: "1px solid var(--pico-primary)" }}>
-                <table class="striped" >
-                  <thead>
-                    <tr>
-                      <th>Category</th>
-                      <th>Details</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>OS</td>
-                      <td>{device.os}</td>
-                      <td>
-                        {device.osIcons.map((icon) => <i class={`${icon}`} />)}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>SOC</td>
-                      <td>{device.systemOnChip}</td>
-                      <td>{device.architecture}</td>
-                    </tr>
-                    <tr>
-                      <td>CPU</td>
-                      <td>{device.cpu}</td>
-                      <td>{device.cpuCores} cores @ {device.cpuClockSpeed}</td>
-                    </tr>
-                    <tr>
-                      <td>GPU</td>
-                      <td>{device.gpu}</td>
-                      <td>{device.gpuCores} cores @ {device.gpuClockSpeed}</td>
-                    </tr>
-                    <tr>
-                      <td>RAM</td>
-                      <td>{device.ram}</td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td>Dimensions</td>
-                      <td>{device.dimensions}</td>
-                      <td>{device.weight}</td>
-                    </tr>
-                    <tr>
-                      <td>Screen</td>
-                      <td>{device.screenSize} {device.screenType}</td>
-                      <td>{device.resolution} {device.ppi} PPI</td>
-                    </tr>
-                    <tr>
-                      <td>Battery</td>
-                      <td>{device.battery}</td>
-                      <td>{device.chargePort}</td>
-                    </tr>
-                    <tr>
-                      <td>Connectivity</td>
-                      <td>
-                        WiFi {device.connectivity.hasWifi ? "✅" : "❌"}
-                        &nbsp; NFC {device.connectivity.hasNFC ? "✅" : "❌"}
-                      </td>
-                      <td>
-                        Bluetooth{" "}
-                        {device.connectivity.hasBluetooth ? "✅" : "❌"}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Ports</td>
-                      <td colspan={2}>
-                        USB {device.connectivity.hasUSB ? "✅" : "❌"}
-                        &nbsp; DisplayPort{" "}
-                        {device.connectivity.hasDisplayPort ? "✅" : "❌"}
-                        &nbsp; VGA {device.connectivity.hasVGA ? "✅" : "❌"}
-                        &nbsp; DVI {device.connectivity.hasDVI ? "✅" : "❌"}
-                        &nbsp; HDMI {device.connectivity.hasHDMI ? "✅" : "❌"}
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+              <section>
+                <div class="overflow-auto">
+                  <table class="striped">
+                    <thead>
+                      <tr>
+                        <th>Category</th>
+                        <th>Details</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>OS</td>
+                        <td>{device.os}</td>
+                        <td>
+                          {device.osIcons.map((icon) => (
+                            <i
+                              class={`${icon}`}
+                            />
+                          ))}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>SOC</td>
+                        <td>{device.systemOnChip}</td>
+                        <td>{device.architecture}</td>
+                      </tr>
+                      <tr>
+                        <td>CPU</td>
+                        <td>{device.cpu}</td>
+                        <td>
+                          {device.cpuCores} cores @ {device.cpuClockSpeed}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>GPU</td>
+                        <td>{device.gpu}</td>
+                        <td>
+                          {device.gpuCores} cores @ {device.gpuClockSpeed}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>RAM</td>
+                        <td>{device.ram}</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Dimensions</td>
+                        <td>{device.dimensions}</td>
+                        <td>{device.weight}</td>
+                      </tr>
+                      <tr>
+                        <td>Screen</td>
+                        <td>{device.screenSize} {device.screenType}</td>
+                        <td>{device.resolution} {device.ppi} PPI</td>
+                      </tr>
+                      <tr>
+                        <td>Battery</td>
+                        <td>{device.battery}</td>
+                        <td>{device.chargePort}</td>
+                      </tr>
+                      <tr>
+                        <td>Connectivity</td>
+                        <td>
+                          WiFi {device.connectivity.hasWifi ? "✅" : "❌"}
+                          &nbsp; NFC {device.connectivity.hasNFC ? "✅" : "❌"}
+                        </td>
+                        <td>
+                          Bluetooth{" "}
+                          {device.connectivity.hasBluetooth ? "✅" : "❌"}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Ports</td>
+                        <td colspan={2}>
+                          USB {device.connectivity.hasUSB ? "✅" : "❌"}
+                          &nbsp; DisplayPort{" "}
+                          {device.connectivity.hasDisplayPort ? "✅" : "❌"}
+                          &nbsp; VGA {device.connectivity.hasVGA ? "✅" : "❌"}
+                          &nbsp; DVI {device.connectivity.hasDVI ? "✅" : "❌"}
+                          &nbsp; HDMI{" "}
+                          {device.connectivity.hasHDMI ? "✅" : "❌"}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </section>
             </details>
             <hr />
