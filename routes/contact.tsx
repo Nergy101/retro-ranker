@@ -36,7 +36,7 @@ export default function ContactPage() {
             >
               <i class="ph ph-github-logo text-4xl"></i>
               <span>
-                Retro Ranker <br />GitHub Repository
+                GitHub Repository
               </span>
             </a>
           </div>

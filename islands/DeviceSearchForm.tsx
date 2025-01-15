@@ -49,7 +49,7 @@ export function DeviceSearchForm(
         <input
           name="search"
           type="search"
-          placeholder="Search for Name, Brand or OS..."
+          placeholder="Name, Brand or OS..."
           value={searchQuery}
           aria-label="Search devices"
         />
@@ -80,7 +80,7 @@ export function DeviceSearchForm(
       <input
         name="search"
         type="search"
-        placeholder="Search for Name, Brand or OS..."
+        placeholder="Name, Brand or OS..."
         value={searchQuery}
         aria-label="Search devices"
       />
