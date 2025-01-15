@@ -282,6 +282,8 @@ html {
   border-radius: 0.5rem;
   padding: 0.5rem;
   margin: 0.5rem;
+  min-width: 10rem;
+  text-align: center;
 }
 
 .active {

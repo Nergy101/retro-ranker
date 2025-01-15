@@ -39,17 +39,22 @@ export function MobileNav({ pathname }: { pathname: string }) {
             style={{ height: "3em" }}
           />
         </a>
-        <button
-          class="burger-menu"
-          style={{ marginRight: "2rem" }}
-          onClick={() => {
-            document.querySelector(".mobile-nav-content")?.classList
-              .toggle("show");
-          }}
-          aria-label="Toggle menu"
-        >
-          <i class="ph ph-list"></i>
-        </button>
+        <div style={{display: "flex", alignItems: "center", justifyContent: "flex-end", gap: "0.5rem"}}>
+          <button
+            class="burger-menu"
+            onClick={() => {
+              document.querySelector(".mobile-nav-content")?.classList
+                .toggle("show");
+            }}
+            aria-label="Toggle menu"
+          >
+            <i class="ph ph-list"></i>
+          </button>
+
+          <div style={{ padding: "0 0 0.5rem 0" }}>
+            <ThemeSwitcher tooltipLocation="bottom" />
+          </div>
+        </div>
       </div>
       <div
         class="mobile-nav-content"
@@ -59,7 +64,7 @@ export function MobileNav({ pathname }: { pathname: string }) {
         }}
       >
         <ul>
-          <li style={{padding: "0"}}>
+          <li style={{ padding: "0" }}>
             <form action="/devices" method="get" role="search">
               <input
                 type="search"
@@ -71,7 +76,7 @@ export function MobileNav({ pathname }: { pathname: string }) {
             </form>
           </li>
           {navigationItems.map((item) => (
-            <li style={{padding: "0"}}>
+            <li style={{ padding: "0" }}>
               <a
                 href={item.href}
                 class={item.isActive(pathname)
@@ -83,9 +88,6 @@ export function MobileNav({ pathname }: { pathname: string }) {
               </a>
             </li>
           ))}
-          <li style={{padding: "0 0 0.5rem 0"}}>
-            <ThemeSwitcher tooltipLocation="bottom" />
-          </li>
         </ul>
       </div>
     </nav>
