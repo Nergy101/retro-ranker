@@ -1,4 +1,4 @@
-import { Device } from "../data/device.model.ts";
+import { Device } from "../data/devices/device.model.ts";
 import { StarRating } from "./StarRating.tsx";
 interface DeviceCardMediumProps {
   device: Device;

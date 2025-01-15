@@ -1,11 +1,12 @@
 import { PageProps } from "$fresh/server.ts";
 import { DeviceCardMedium } from "../../components/DeviceCardMedium.tsx";
 import { PaginationNav } from "../../components/PaginationNav.tsx";
-import { getAllDevices } from "../../data/device.service.ts";
 import { DeviceSearchForm } from "../../islands/DeviceSearchForm.tsx";
+import { DeviceService } from "../../data/devices/device.service.ts";
 
 export default function DevicesIndex(props: PageProps) {
-  const allDevices = getAllDevices();
+  const deviceService = DeviceService.getInstance();
+  const allDevices = deviceService.getAllDevices();
   const searchQuery = props.url?.searchParams?.get("search") || "";
   const searchCategory = props.url?.searchParams?.get("category") || "all";
   const pageNumber = parseInt(props.url?.searchParams?.get("page") || "1");

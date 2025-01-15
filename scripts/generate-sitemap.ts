@@ -1,4 +1,4 @@
-import { getAllDevices } from "../data/device.service.ts";
+import { getAllDevices } from "../data/devices/device.service.ts";
 import { navigationItems } from "../data/navigation.ts";
 
 const SITE_URL = "https://retroranker.site";

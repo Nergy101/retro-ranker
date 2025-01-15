@@ -1,11 +1,14 @@
-import { EmulationTier } from "./enums/EmulationTier.ts";
+import { EmulationTier } from "../enums/EmulationTier.ts";
 
 export interface Device {
   name: string;
   sanitizedName: string;
   imageUrl: string;
   brand: string;
-  released: string;
+  released: {
+    raw: string;
+    mentionedDate: Date | null;
+  };
   formFactor: string;
   os: string;
   osIcons: string[];

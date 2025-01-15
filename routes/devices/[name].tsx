@@ -1,16 +1,17 @@
 import { PageProps } from "$fresh/server.ts";
-import {
-  getDeviceByName,
-  getSimilarDevices,
-} from "../../data/device.service.ts";
 import { DeviceCardSmall } from "../../components/DeviceCardSmall.tsx";
-import { SeeMoreCard } from "../../components/SeeMoreCard.tsx";
 import { DeviceSpecs } from "../../components/DeviceSpecs.tsx";
-import { StarRating } from "../../components/StarRating.tsx";
 import { EmulationPerformance } from "../../components/EmulationPerformance.tsx";
+import { SeeMoreCard } from "../../components/SeeMoreCard.tsx";
+import { StarRating } from "../../components/StarRating.tsx";
+import { DeviceService } from "../../data/devices/device.service.ts";
 export default function DeviceDetail(props: PageProps) {
-  const device = getDeviceByName(props.params?.name);
-  const similarDevices = getSimilarDevices(device?.sanitizedName ?? null);
+  
+  const deviceService = DeviceService.getInstance();
+  const device = deviceService.getDeviceByName(props.params?.name);
+  const similarDevices = deviceService.getSimilarDevices(
+    device?.sanitizedName ?? null,
+  );
 
   if (!device) {
     return (

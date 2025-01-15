@@ -1,4 +1,4 @@
-import { Device } from "../data/device.model.ts";
+import { Device } from "../data/devices/device.model.ts";
 
 async function downloadImage(url: string, deviceName: string) {
   try {
@@ -31,6 +31,6 @@ export async function downloadDeviceImages(devices: Device[]) {
 }
 
 // Example usage:.
-import { getAllDevices } from "../data/device.service.ts";
+import { getAllDevices } from "../data/devices/device.service.ts";
 const devices = await getAllDevices();
 await downloadDeviceImages(devices);

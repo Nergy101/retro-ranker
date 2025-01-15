@@ -1,18 +1,14 @@
 import { DeviceCardSmall } from "../components/DeviceCardSmall.tsx";
 import { SeeMoreCard } from "../components/SeeMoreCard.tsx";
-import {
-  getHighlyRated,
-  getNewArrivals,
-  getStaffPicks,
-  getUpcoming,
-} from "../data/device.service.ts";
+import { DeviceService } from "../data/devices/device.service.ts";
 
 export default function Home() {
   // Filter devices into categories
-  const newArrivals = getNewArrivals();
-  const staffPicks = getStaffPicks();
-  const highlyRated = getHighlyRated();
-  const upcoming = getUpcoming();
+  const deviceService = DeviceService.getInstance();
+  const newArrivals = deviceService.getNewArrivals();
+  const staffPicks = deviceService.getStaffPicks();
+  const highlyRated = deviceService.getHighlyRated();
+  const upcoming = deviceService.getUpcoming();
   return (
     <div>
       <header>

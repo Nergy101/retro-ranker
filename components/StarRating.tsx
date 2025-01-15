@@ -1,4 +1,4 @@
-import { Device } from "../data/device.service.ts";
+import { Device } from "../data/devices/device.service.ts";
 
 interface StarRatingProps {
   device: Device;
