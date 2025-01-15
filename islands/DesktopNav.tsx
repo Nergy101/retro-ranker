@@ -46,7 +46,7 @@ export function DesktopNav({ pathname }: { pathname: string }) {
             </form>
           </li>
           <li>
-            <ThemeSwitcher showNames={false} showTooltip={false} />
+            {/* <ThemeSwitcher showNames={false} showTooltip={false} /> */}
           </li>
         </div>
       </ul>

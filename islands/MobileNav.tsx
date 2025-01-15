@@ -52,7 +52,7 @@ export function MobileNav({ pathname }: { pathname: string }) {
           </button>
 
           <div style={{ padding: "0 0 0.5rem 0" }}>
-            <ThemeSwitcher showTooltip={false} />
+            {/* <ThemeSwitcher showTooltip={false} /> */}
           </div>
         </div>
       </div>
