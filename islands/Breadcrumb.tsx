@@ -1,4 +1,4 @@
-import { useSignal } from "@preact/signals";
+import { signal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
 import { navigationItems } from "../data/navigation.ts";
 
@@ -8,7 +8,7 @@ interface BreadcrumbProps {
 }
 
 export function Breadcrumb({ items, showNames }: BreadcrumbProps) {
-  const viewportWidth = useSignal(globalThis.innerWidth);
+  const viewportWidth = signal(globalThis.innerWidth);
 
   if (!showNames) {
     showNames = viewportWidth.value > 500;

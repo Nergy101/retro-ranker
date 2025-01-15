@@ -17,8 +17,15 @@ export function DeviceSearchForm(
 
   const handleCategoryChange = (e: Event) => {
     const select = e.target as HTMLSelectElement;
+    page.value = 1; 
     category.value = select.value;
-    page.value = 1; // Reset to first page when changing category
+    
+    // Update the page input value explicitly
+    const pageInput = select.form?.querySelector('input[name="page"]') as HTMLInputElement;
+    if (pageInput) {
+        pageInput.value = page.value.toString();
+    }
+
     select.form?.submit();
   };
 
@@ -78,7 +85,6 @@ export function DeviceSearchForm(
         aria-label="Search devices"
       />
       <input
-        style="display: none;"
         name="page"
         type="number"
         value={page}

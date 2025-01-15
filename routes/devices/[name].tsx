@@ -75,15 +75,15 @@ export default function DeviceDetail(props: PageProps) {
               </summary>
               <EmulationPerformance device={device} />
             </details>
-            {/* <hr />
+            <hr />
             <details open>
               <summary>
                 <strong style={{ color: "var(--pico-primary)" }}>
                   Summary
                 </strong>
               </summary>
-              <section>
-                <table class="striped" style={{ border: "2px solid var(--pico-primary)" }}>
+              <section style={{ border: "1px solid var(--pico-primary)" }}>
+                <table class="striped" >
                   <thead>
                     <tr>
                       <th>Category</th>
@@ -147,7 +147,7 @@ export default function DeviceDetail(props: PageProps) {
                     </tr>
                     <tr>
                       <td>Ports</td>
-                      <td colspan="2">
+                      <td colspan={2}>
                         USB {device.connectivity.hasUSB ? "✅" : "❌"}
                         &nbsp; DisplayPort{" "}
                         {device.connectivity.hasDisplayPort ? "✅" : "❌"}
@@ -160,7 +160,7 @@ export default function DeviceDetail(props: PageProps) {
                 </table>
               </section>
             </details>
-            <hr /> */}
+            <hr />
             <details>
               <summary>
                 <strong style={{ color: "var(--pico-primary)" }}>
