@@ -4,12 +4,11 @@ import { PaginationNav } from "../../components/PaginationNav.tsx";
 import { getAllDevices } from "../../data/device.service.ts";
 import { DeviceSearchForm } from "../../islands/DeviceSearchForm.tsx";
 
-//! TODO: make all other routes also work like this
 export default function DevicesIndex(props: PageProps) {
   const allDevices = getAllDevices();
-  const searchQuery = props.url?.searchParams.get("search") || "";
-  const searchCategory = props.url?.searchParams.get("category") || "all";
-  const pageNumber = parseInt(props.url?.searchParams.get("page") || "1");
+  const searchQuery = props.url?.searchParams?.get("search") || "";
+  const searchCategory = props.url?.searchParams?.get("category") || "all";
+  const pageNumber = parseInt(props.url?.searchParams?.get("page") || "1");
 
   const pageSize = 9;
 
