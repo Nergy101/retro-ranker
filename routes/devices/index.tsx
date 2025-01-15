@@ -13,40 +13,28 @@ export default function DevicesIndex(props: PageProps) {
 
   const pageSize = 9;
 
-  const totalFilteredDevices = allDevices.filter((device) => {
-    if (searchCategory === "all") {
-      return (
-        device.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        device.brand.toLowerCase().includes(searchQuery.toLowerCase())
-      );
-    }
-
-    return (
-      (device.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        device.brand.toLowerCase().includes(searchQuery.toLowerCase())) &&
-      device.pricingCategory?.toLowerCase().includes(
-        searchCategory.toLowerCase(),
-      )
-    );
-  });
+  const filteredDevices = deviceService.searchDevices(
+    searchQuery,
+    searchCategory as "all" | "budget" | "high-end" | "mid-range",
+  );
 
   const getPagedDevices = () => {
-    if (!totalFilteredDevices) return [];
+    if (!filteredDevices) return [];
 
     const query = searchQuery.toLowerCase().trim();
 
     if (!query) {
-      return totalFilteredDevices.slice(
+      return filteredDevices.slice(
         (pageNumber - 1) * pageSize,
         pageNumber * pageSize,
       ); // Show first devices when no search
     }
 
-    return totalFilteredDevices
+    return filteredDevices
       .slice((pageNumber - 1) * pageSize, pageNumber * pageSize);
   };
 
-  const amountOfResults = totalFilteredDevices.length;
+  const amountOfResults = filteredDevices.length;
 
   return (
     <div>

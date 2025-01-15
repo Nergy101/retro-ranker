@@ -32,13 +32,42 @@ export class DeviceService {
     return this.devices;
   }
 
-  public searchDevices(query: string): Device[] {
+  public searchDevices(
+    query: string,
+    category: "all" | "budget" | "high-end" | "mid-range" = "all",
+  ): Device[] {
     const lowerQuery = query.toLowerCase();
-    return this.devices.filter((device) =>
-      device.name.toLowerCase().includes(lowerQuery) ||
-      device.brand.toLowerCase().includes(lowerQuery) ||
-      device.os.toLowerCase().includes(lowerQuery)
-    );
+
+    return this.devices.filter((device) => {
+      if (category === "budget") {
+        return device.price.pricingCategory === "budget" &&
+            device.name.toLowerCase().includes(lowerQuery) ||
+          device.brand.toLowerCase().includes(lowerQuery) ||
+          device.os.raw.toLowerCase().includes(lowerQuery);
+      }
+
+      if (category === "high-end") {
+        return device.price.pricingCategory === "high-end" &&
+            device.name.toLowerCase().includes(lowerQuery) ||
+          device.brand.toLowerCase().includes(lowerQuery) ||
+          device.os.raw.toLowerCase().includes(lowerQuery);
+      }
+
+      if (category === "mid-range") {
+        return (
+          device.price.pricingCategory === "mid-range" &&
+          (device.name.toLowerCase().includes(lowerQuery) ||
+            device.brand.toLowerCase().includes(lowerQuery) ||
+            device.os.raw.toLowerCase().includes(lowerQuery))
+        );
+      }
+
+      return (
+        device.name.toLowerCase().includes(lowerQuery) ||
+        device.brand.toLowerCase().includes(lowerQuery) ||
+        device.os.raw.toLowerCase().includes(lowerQuery)
+      );
+    });
   }
 
   public getDeviceByName(name: string): Device | undefined {

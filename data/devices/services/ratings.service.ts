@@ -89,7 +89,7 @@ export class RatingsService {
     }
 
     // Similar price category
-    if (device.pricingCategory === targetDevice.pricingCategory) score += 1;
+    if (device.price.pricingCategory === targetDevice.price.pricingCategory) score += 1;
 
     return score;
   }

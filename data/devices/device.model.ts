@@ -10,8 +10,11 @@ export interface Device {
     mentionedDate: Date | null;
   };
   formFactor: string;
-  os: string;
-  osIcons: string[];
+  os: {
+    raw: string;
+    icons: string[];
+    list: string[];
+  };
   performanceRating: {
     tier: EmulationTier;
     rating: number;
@@ -39,7 +42,13 @@ export interface Device {
   aspectRatio: string;
   screenLens: string;
   battery: string;
-  cooling: string;
+  cooling: {
+    raw: string;
+    hasHeatsink: boolean;
+    hasHeatPipe: boolean;
+    hasFan: boolean;
+    hasVentilationCutouts: boolean;
+  };
   dPad: string;
   analogs: string;
   faceButtons: string;
@@ -56,7 +65,6 @@ export interface Device {
     hasDisplayPort: boolean;
     hasVGA: boolean;
     hasDVI: boolean;
-    hasHDMI: boolean;
   };
   videoOutput: string;
   audioOutput: string;
@@ -72,8 +80,12 @@ export interface Device {
   colors: string;
   videoReviews: string[];
   writtenReview: string;
-  price: string;
-  pricingCategory: string;
+  price: {
+    raw: string;
+    priceValue: number;
+    priceCurrency: string;
+    pricingCategory: string;
+  };
   vendorLinks: string[];
   pros: string[];
   cons: string[];

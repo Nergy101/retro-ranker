@@ -59,7 +59,7 @@ export function StarRating({ device }: StarRatingProps) {
       // Performance features (15 points)
       hasGoodCPU: device.cpuCores >= 4 ? 5 : 0,
       hasGoodRAM: parseInt(device.ram) >= 4 ? 5 : 0,
-      hasGoodCooling: device.cooling.toLowerCase().includes('active') ? 5 : 0,
+      hasGoodCooling: device.cooling.raw.toLowerCase().includes('active') ? 5 : 0,
 
       // Connectivity features (10 points)
       hasWifi: device.connectivity.hasWifi ? 3 : 0,

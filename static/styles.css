@@ -203,24 +203,54 @@ html {
 }
 
 .device-detail {
+  background-color: var(--pico-card-background-color);
+  border: 1px solid var(--pico-secondary);
+  border-radius: var(--pico-border-radius);
+
   display: grid;
   gap: 1rem;
-  padding: 0;
 
   grid-template-areas:
-    "header specs"
-    "similar specs"
-    "similar specs";
+    "header performance"
+    "specs specs"
+    "similar similar";
 
-  grid-template-columns: minmax(auto, 1fr) 3fr;
+  grid-template-columns: 1fr 3fr;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 768px) {
     grid-template-areas:
       "header"
+      "performance"
       "specs"
       "similar";
     grid-template-columns: 1fr;
   }
+}
+
+.device-detail-performance {
+  padding: 1rem;
+  grid-area: performance;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.device-detail-header {
+  grid-area: header;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: var(--pico-border-radius);
+}
+
+.device-detail-similar-devices {
+  grid-area: similar;
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .specs-grid {
@@ -236,10 +266,10 @@ html {
 }
 
 .specs-section {
+  padding: 1rem;
   border: 1px solid var(--pico-secondary);
   background: var(--pico-card-background-color);
   border-radius: var(--pico-border-radius);
-  padding: 1em 0;
 
   h3 {
     justify-content: center;
@@ -484,8 +514,16 @@ h6,
 
 .similar-devices-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 500px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
   @media (max-width: 375px) {
     grid-template-columns: repeat(1, 1fr);
@@ -505,4 +543,8 @@ h6,
   @media (max-width: 320px) {
     max-width: 250px;
   }
+}
+
+.divider {
+  border-top: 1px solid var(--pico-muted-border-color);
 }

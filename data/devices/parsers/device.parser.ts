@@ -9,11 +9,27 @@ export class DeviceParser {
     const lowerOs = os.toLowerCase();
     const icons: string[] = [];
 
+    if (lowerOs.includes("proprietary")) icons.push("ph ph-factory");
+
+    if (lowerOs.includes("steam")) icons.push("ph ph-steam-logo");
     if (lowerOs.includes("android")) icons.push("ph ph-android-logo");
     if (lowerOs.includes("ios")) icons.push("ph ph-apple-logo");
-    if (lowerOs.includes("windows")) icons.push("ph ph-windows-logo");
-    if (lowerOs.includes("macos")) icons.push("ph ph-apple-logo");
+
     if (lowerOs.includes("linux")) icons.push("ph ph-linux-logo");
+    if (lowerOs.includes("macos")) icons.push("ph ph-apple-logo");
+    if (lowerOs.includes("windows")) icons.push("ph ph-windows-logo");
+
+    if (lowerOs.includes("garlicos")) icons.push("ph ph-brackets-angle");
+    if (lowerOs.includes("onionsos")) icons.push("ph ph-brackets-square");
+    if (lowerOs.includes("gammaos")) icons.push("ph ph-brackets-curly");
+    if (lowerOs.includes("opendingux")) icons.push("ph ph-brackets-round");
+    if (lowerOs.includes("arkos")) icons.push("ph ph-rainbow");
+    if (lowerOs.includes("minui")) icons.push("ph ph-minus-square");
+
+    if (lowerOs.includes("batocera")) icons.push("ph ph-joystick");
+    if (lowerOs.includes("trimui")) icons.push("ph ph-scissors");
+
+    if (lowerOs.includes("analogue os")) icons.push("ph ph-code");
 
     return icons.length ? icons : ["ph ph-question"];
   }
@@ -23,14 +39,23 @@ export class DeviceParser {
     return priceNumber ? parseInt(priceNumber) : 0;
   }
 
-  private static getPricingCategory(priceText: string): string {
-    if (priceText.includes("Discontinued")) return "discontinued";
-
-    const priceNumber = this.parsePrices(priceText);
+  private static getPricingCategory(priceNumber: number): string {
     if (priceNumber === 0) return "unknown";
     if (priceNumber < 100) return "budget";
     if (priceNumber < 200) return "mid-range";
     return "high-end";
+  }
+
+  private static getPriceCurrency(priceText: string): string {
+    if (priceText.includes("€")) return "EUR";
+    if (priceText.includes("$")) return "USD";
+    if (priceText.includes("£")) return "GBP";
+    if (priceText.includes("¥")) return "JPY";
+    if (priceText.includes("₹")) return "INR";
+    if (priceText.includes("₩")) return "KRW";
+    if (priceText.includes("₽")) return "RUB";
+    if (priceText.includes("₺")) return "TRY";
+    return "?";
   }
 
   public static parseHandheldsHtml(filePath: string): Device[] {
@@ -80,7 +105,7 @@ export class DeviceParser {
     return devices.filter((device) => {
       return (
         device.name !== "" ||
-        device.brand !== "" 
+        device.brand !== ""
       );
     });
   }
@@ -90,6 +115,19 @@ export class DeviceParser {
     value: string,
     device: Partial<Device>,
   ): void {
+    if (!device.connectivity) {
+      device.connectivity = {
+        hasWifi: false,
+        hasBluetooth: false,
+        hasNFC: false,
+        hasUSB: false,
+        hasHDMI: false,
+        hasDisplayPort: false,
+        hasVGA: false,
+        hasDVI: false,
+      };
+    }
+
     switch (colIndex) {
       case 0:
         break;
@@ -105,8 +143,10 @@ export class DeviceParser {
         break;
       case 4:
         {
-          // find any date or year in the string
-          const mentionedDate = value.match(/\d{4}|\d{2}\/\d{2}\/\d{4}/)?.[0];
+          // given the date format is <year> / <month>
+          // we need to convert it to a date
+          const regex = /^(\d{4})\s*\/\s*(\d{1,2})$/;
+          const mentionedDate = value.match(regex)?.[0];
 
           device.released = {
             raw: value,
@@ -118,8 +158,11 @@ export class DeviceParser {
         device.formFactor = value;
         break;
       case 6:
-        device.os = value;
-        device.osIcons = this.parseOsIcons(value);
+        device.os = {
+          raw: value,
+          icons: this.parseOsIcons(value),
+          list: value.split(/, | \/ /),
+        };
         break;
       case 7:
         device.performanceRating = this.ratingsService.parsePerformanceRating(
@@ -287,7 +330,16 @@ export class DeviceParser {
         device.battery = value;
         break;
       case 43:
-        device.cooling = value;
+        {
+          const cooling = value.toLowerCase();
+          device.cooling = {
+            raw: value,
+            hasHeatsink: cooling.includes("heatsink"),
+            hasFan: cooling.includes("fan"),
+            hasHeatPipe: cooling.includes("heat pipe"),
+            hasVentilationCutouts: cooling.includes("ventilation cutouts"),
+          };
+        }
         break;
       case 44:
         device.dPad = value;
@@ -359,10 +411,16 @@ export class DeviceParser {
       case 63:
         device.colors = value;
         break;
-      case 71:
-        device.price = value;
-        device.pricingCategory = this.getPricingCategory(value);
+      case 71: {
+        const priceNumber = this.parsePrices(value);
+        device.price = {
+          raw: value,
+          priceValue: priceNumber,
+          priceCurrency: this.getPriceCurrency(value),
+          pricingCategory: this.getPricingCategory(priceNumber),
+        };
         break;
+      }
     }
   }
 }

@@ -1,12 +1,11 @@
 import { PageProps } from "$fresh/server.ts";
+import { CurrencyIcon } from "../../components/CurrencyIcon.tsx";
 import { DeviceCardSmall } from "../../components/DeviceCardSmall.tsx";
 import { DeviceSpecs } from "../../components/DeviceSpecs.tsx";
 import { EmulationPerformance } from "../../components/EmulationPerformance.tsx";
-import { SeeMoreCard } from "../../components/SeeMoreCard.tsx";
 import { StarRating } from "../../components/StarRating.tsx";
 import { DeviceService } from "../../data/devices/device.service.ts";
 export default function DeviceDetail(props: PageProps) {
-  
   const deviceService = DeviceService.getInstance();
   const device = deviceService.getDeviceByName(props.params?.name);
   const similarDevices = deviceService.getSimilarDevices(
@@ -31,16 +30,19 @@ export default function DeviceDetail(props: PageProps) {
 
   return (
     <div>
-      <article class="device-detail">
-        <header style="grid-area: header; padding: 1em; margin: 0;">
-          <hgroup style="display: flex; flex-direction: column; gap: 0.5rem; justify-content: center; align-items: center;">
+      <div class="device-detail">
+        <div class="device-detail-header">
+          <div style="display: flex; flex-direction: column; gap: 0.5rem; justify-content: center; align-items: center;">
             <h2 style={{ fontSize: "2rem", color: "var(--pico-primary)" }}>
               {device.name}
             </h2>
             <div style="display: flex; gap: 0.25rem; align-items: center;">
               <p>{device.brand}</p>
-              <p data-tooltip={device.os} data-placement="bottom">
-                {device.osIcons.map((icon) => <i class={`${icon}`} />)}
+              <p
+                data-tooltip={device.os.list.join(", ")}
+                data-placement="bottom"
+              >
+                {device.os.icons.map((icon) => <i class={`${icon}`} />)}
               </p>
             </div>
             <div>
@@ -57,31 +59,37 @@ export default function DeviceDetail(props: PageProps) {
               </p>
             </div>
             <div style="display: flex; align-items: center; flex-direction: column;">
-              <span style={{ color: "var(--pico-color)" }}>
-                {device.pricingCategory} ({device.price})
+              <span
+                style={{ color: "var(--pico-color)" }}
+                data-tooltip={`${device.price.pricingCategory}: ${device.price.raw}`}
+                data-placement="bottom"
+              >
+                <CurrencyIcon currencyCode={device.price.priceCurrency} />
+                {device.price.priceValue} {device.price.priceCurrency}
               </span>
               <span style={{ color: "var(--pico-color)" }}>
                 <i class="ph ph-calendar"></i>
-                <span>&nbsp;{device.released}</span>
+                <span>
+                  &nbsp;{device.released.raw}
+                </span>
               </span>
             </div>
-          </hgroup>
-        </header>
+          </div>
+        </div>
 
-        <section style="grid-area: specs; display: flex; flex-direction: column; gap: 0.5rem; padding: 1rem;">
+        <div class="device-detail-performance">
+          <h3>Emulation Performance</h3>
+
+          <EmulationPerformance device={device} />
+        </div>
+
+        <div style="grid-area: specs; display: flex; flex-direction: column; gap: 0.5rem; padding: 1rem;">
           <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-            <details open>
-              <summary>
-                Emulation Performance
-              </summary>
-              <EmulationPerformance device={device} />
-            </details>
-            <hr />
-
-            <details open class="summary-details">
+            <div class="divider" style="padding: 0.5rem 0;"></div>
+            <details class="summary-details">
               <summary>
                 <strong style={{ color: "var(--pico-primary)" }}>
-                  Summary
+                  Specifications Summary
                 </strong>
               </summary>
               <section>
@@ -96,14 +104,19 @@ export default function DeviceDetail(props: PageProps) {
                     </thead>
                     <tbody>
                       <tr>
-                        <td>OS</td>
-                        <td>{device.os}</td>
+                        <td>OS / CFW</td>
+                        <td>{device.os.list.join(", ")}</td>
                         <td>
-                          {device.osIcons.map((icon) => (
-                            <i
-                              class={`${icon}`}
-                            />
-                          ))}
+                          <span
+                            data-tooltip={device.os.list.join(", ")}
+                            data-placement="bottom"
+                          >
+                            {device.os.icons.map((icon) => (
+                              <i
+                                class={`${icon}`}
+                              />
+                            ))}
+                          </span>
                         </td>
                       </tr>
                       <tr>
@@ -173,7 +186,9 @@ export default function DeviceDetail(props: PageProps) {
                 </div>
               </section>
             </details>
-            <hr />
+
+            <div class="divider" style="padding: 0.5rem 0;"></div>
+
             <details>
               <summary>
                 <strong style={{ color: "var(--pico-primary)" }}>
@@ -182,19 +197,11 @@ export default function DeviceDetail(props: PageProps) {
               </summary>
               <DeviceSpecs device={device} />
             </details>
+            <div class="divider" style="padding: 0.5rem 0 0 0;"></div>
           </div>
-        </section>
+        </div>
 
-        <section
-          style={{
-            gridArea: "similar",
-            display: "flex",
-            flexDirection: "column",
-            gap: "1rem",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
+        <div class="device-detail-similar-devices">
           <h2>Similar Devices</h2>
           <div class="similar-devices-grid">
             {similarDevices.map((device) => (
@@ -202,10 +209,9 @@ export default function DeviceDetail(props: PageProps) {
                 device={device}
               />
             ))}
-            <SeeMoreCard href="/devices" />
           </div>
-        </section>
-      </article>
+        </div>
+      </div>
     </div>
   );
 }
