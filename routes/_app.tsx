@@ -15,10 +15,16 @@ export default function App({ Component, url }: PageProps) {
 
         {/* OpenGraph Meta Tags */}
         <meta property="og:title" content="Retro Ranker" />
-        <meta property="og:description" content="Find the perfect retro handheld gaming device for your needs. Compare specs, features, and performance of various retro gaming handhelds." />
+        <meta
+          property="og:description"
+          content="Find the perfect retro handheld gaming device for your needs. Compare specs, features, and performance of various retro gaming handhelds."
+        />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://retroranker.site" />
-        <meta property="og:image" content="https://retroranker.site/logo-color.svg" />
+        <meta
+          property="og:image"
+          content="https://retroranker.site/logo-color.png"
+        />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content="Retro Ranker" />
@@ -26,8 +32,14 @@ export default function App({ Component, url }: PageProps) {
         {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Retro Ranker" />
-        <meta name="twitter:description" content="Find the perfect retro handheld gaming device for your needs. Compare specs, features, and performance of various retro gaming handhelds." />
-        <meta name="twitter:image" content="https://retroranker.site/logo-color.svg" />
+        <meta
+          name="twitter:description"
+          content="Find the perfect retro handheld gaming device for your needs. Compare specs, features, and performance of various retro gaming handhelds."
+        />
+        <meta
+          name="twitter:image"
+          content="https://retroranker.site/logo-color.svg"
+        />
 
         <link rel="stylesheet" href="/styles.css" />
         <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -93,7 +105,14 @@ export default function App({ Component, url }: PageProps) {
                   © {new Date().getFullYear()}{" "}
                   Retro Ranker. All rights reserved.
                 </small>
-                <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginTop: "1rem" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.5rem",
+                    marginTop: "1rem",
+                  }}
+                >
                   <small>
                     Made with ❤️ by{" "}
                     <span style={{ color: "var(--pico-primary)" }}>
@@ -102,7 +121,11 @@ export default function App({ Component, url }: PageProps) {
                   </small>
                   <img
                     src="https://portfolio.nergy.space/favicon.ico"
-                    style={{ width: "32px", height: "32px", borderRadius: "50%" }}
+                    style={{
+                      width: "32px",
+                      height: "32px",
+                      borderRadius: "50%",
+                    }}
                   >
                   </img>
                 </div>
