@@ -84,6 +84,13 @@ export default function DeviceDetail(props: PageProps) {
               </summary>
               <section>
                 <table class="striped" style={{ border: "2px solid var(--pico-primary)" }}>
+                  <thead>
+                    <tr>
+                      <th>Category</th>
+                      <th>Details</th>
+                      <th></th>
+                    </tr>
+                  </thead>
                   <tbody>
                     <tr>
                       <td>OS</td>
