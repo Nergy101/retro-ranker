@@ -91,6 +91,12 @@ export class DeviceParser {
           hasDVI: false,
           hasHDMI: false,
         },
+        price: {
+          raw: "",
+          priceAverage: 0,
+          priceCurrency: "",
+          pricingCategory: "",
+        },
       };
 
       $(row).find("td").each((colIndex, cell) => {
@@ -415,16 +421,43 @@ export class DeviceParser {
       case 63:
         device.colors = value;
         break;
+      case 70: {
+        const priceNumber = this.parsePrices(value);
+        device.price.priceAverage = priceNumber;
+        break;
+      }
       case 71: {
         const priceNumber = this.parsePrices(value);
         device.price = {
+          ...device.price,
           raw: value,
-          priceValue: priceNumber,
           priceCurrency: this.getPriceCurrency(value),
           pricingCategory: this.getPricingCategory(priceNumber),
         };
         break;
       }
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+        device.vendorLinks = [
+          ...(device.vendorLinks || []),
+          value == "-" ? null : value,
+        ].filter((link) => link !== null);
+        break;
+      case 77:
+        device.pros = value;
+        break;
+      case 78:
+        device.cons = value;
+        break;
+      case 79:
+        device.emulationLimit = value;
+        break;
+      case 80:
+        device.notes = value;
+        break;
     }
   }
 }

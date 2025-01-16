@@ -26,6 +26,23 @@ export class DeviceService {
       this.devices = [];
     }
     console.info("Loaded devices:", this.devices.length);
+
+    this.devices.forEach((device) => {
+      if (device.shellMaterial) {
+        console.log(device.shellMaterial);
+      }
+      if (device.notes) {
+        console.log(device.notes);
+      }
+
+      if (device.emulationLimit) {
+        console.log(device.emulationLimit);
+      }
+
+      if (device.writtenReview) {
+        console.log(device.writtenReview);
+      }
+    });
   }
 
   public getAllDevices(): Device[] {

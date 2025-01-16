@@ -65,7 +65,7 @@ export default function DeviceDetail(props: PageProps) {
                 data-placement="bottom"
               >
                 <CurrencyIcon currencyCode={device.price.priceCurrency} />
-                {device.price.priceValue} {device.price.priceCurrency}
+                {device.price.priceAverage} {device.price.priceCurrency}
               </span>
               <span style={{ color: "var(--pico-color)" }}>
                 <i class="ph ph-calendar"></i>

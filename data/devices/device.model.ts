@@ -86,7 +86,7 @@ export interface Device {
   writtenReview: string;
   price: {
     raw: string;
-    priceValue: number;
+    priceAverage: number;
     priceCurrency: string;
     pricingCategory: string;
   };

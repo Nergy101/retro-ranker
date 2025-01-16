@@ -244,6 +244,48 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
                 <td>{device.colors}</td>
               </tr>
             )}
+            {device.notes && (
+              <tr>
+                <th>Notes</th>
+                <td>{device.notes}</td>
+              </tr>
+            )}
+            {device.emulationLimit && (
+              <tr>
+                <th>Emulation Limit</th>
+                <td>{device.emulationLimit}</td>
+              </tr>
+            )}
+            {device.writtenReview && (
+              <tr>
+                <th>Written Review</th>
+                <td>{device.writtenReview}</td>
+              </tr>
+            )}
+            {device.pros && (
+              <tr>
+                <th>Pros</th>
+                <td>{device.pros}</td>
+              </tr>
+            )}
+            {device.cons && (
+              <tr>
+                <th>Cons</th>
+                <td>{device.cons}</td>
+              </tr>
+            )}
+            {device.vendorLinks && (
+              <tr>
+                <th>Vendor Links</th>
+                <td>{device.vendorLinks.join(", ")}</td>
+              </tr>
+            )}
+            {device.shellMaterial && (
+              <tr>
+                <th>Shell Material</th>
+                <td>{device.shellMaterial}</td>
+              </tr>
+            )}
           </tbody>
         </table>
       </section>
