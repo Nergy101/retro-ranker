@@ -40,17 +40,19 @@ export class DeviceService {
 
     return this.devices.filter((device) => {
       if (category === "budget") {
-        return device.price.pricingCategory === "budget" &&
-            device.name.toLowerCase().includes(lowerQuery) ||
+        return device.price.pricingCategory === "budget" && (
+          device.name.toLowerCase().includes(lowerQuery) ||
           device.brand.toLowerCase().includes(lowerQuery) ||
-          device.os.raw.toLowerCase().includes(lowerQuery);
+          device.os.raw.toLowerCase().includes(lowerQuery)
+        );
       }
 
       if (category === "high-end") {
-        return device.price.pricingCategory === "high-end" &&
-            device.name.toLowerCase().includes(lowerQuery) ||
+        return device.price.pricingCategory === "high-end" && (
+          device.name.toLowerCase().includes(lowerQuery) ||
           device.brand.toLowerCase().includes(lowerQuery) ||
-          device.os.raw.toLowerCase().includes(lowerQuery);
+          device.os.raw.toLowerCase().includes(lowerQuery)
+        );
       }
 
       if (category === "mid-range") {
