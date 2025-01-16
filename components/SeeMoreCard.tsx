@@ -3,7 +3,7 @@ interface SeeMoreCardProps {
   text?: string;
 }
 
-export function SeeMoreCard({ href, text = "See more" }: SeeMoreCardProps) {
+export function SeeMoreCard({ href, text = "More devices" }: SeeMoreCardProps) {
   return (
     <a
       href={href}

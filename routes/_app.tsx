@@ -6,11 +6,15 @@ import { MobileNav } from "../islands/MobileNav.tsx";
 
 export default function App({ Component, url }: PageProps) {
   return (
-    <html class="transition-colors">
+    <html class="transition-colors" lang="en">
       <Head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="color-scheme" content="light dark" />
+        <meta
+          name="description"
+          content="Find the perfect retro handheld gaming device for your needs. Compare specs, features, and performance of various retro gaming handhelds."
+        />
         <title>Retro Ranker</title>
 
         {/* OpenGraph Meta Tags */}
@@ -104,7 +108,7 @@ export default function App({ Component, url }: PageProps) {
           <div class="container-fluid">
             <div class="footer-grid">
               <div class="footer-grid-item rr">
-                <h6>Retro Ranker</h6>
+                <strong>Retro Ranker</strong>
                 <p>
                   Find the perfect device for your gaming needs.
                 </p>
@@ -139,7 +143,7 @@ export default function App({ Component, url }: PageProps) {
                 </div>
               </div>
               <div class="footer-grid-item quick-links">
-                <h6>Quick Links</h6>
+                <strong>Quick Links</strong>
                 <ul style={{ listStyle: "none", padding: 0 }}>
                   <li style={{ listStyle: "none" }}>
                     <a href="/about">
@@ -162,7 +166,7 @@ export default function App({ Component, url }: PageProps) {
                 </ul>
               </div>
               <div class="footer-grid-item connect">
-                <h6>Connect</h6>
+                <strong>Connect</strong>
                 <ul style={{ listStyle: "none", padding: 0 }}>
                   <li style={{ listStyle: "none" }}>
                     <a
