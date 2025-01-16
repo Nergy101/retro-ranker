@@ -426,7 +426,7 @@ export class DeviceParser {
       case 70: {
         const priceNumber = this.parsePrices(value);
         device.price.priceAverage = priceNumber;
-        device.price.pricingCategory: this.getPricingCategory(priceNumber),
+        device.price.pricingCategory = this.getPricingCategory(priceNumber);
         break;
       }
       case 71: {
@@ -434,7 +434,7 @@ export class DeviceParser {
         device.price = {
           ...device.price,
           raw: value,
-          priceCurrency: this.getPriceCurrency(value),
+          priceCurrency: this.getPriceCurrency(value)
         };
         break;
       }
