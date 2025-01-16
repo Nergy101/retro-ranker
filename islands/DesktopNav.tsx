@@ -8,6 +8,7 @@ export function DesktopNav({ pathname }: { pathname: string }) {
         <li>
           <a href="/">
             <img
+              loading="lazy"
               src="/logo-no-background.svg"
               alt="logo"
               style={{ height: "5em" }}

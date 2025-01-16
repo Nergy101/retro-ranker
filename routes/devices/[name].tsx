@@ -47,6 +47,7 @@ export default function DeviceDetail(props: PageProps) {
             </div>
             <div>
               <img
+                loading="lazy"
                 src={device.image.url}
                 alt={device.image.alt}
                 style="width: 100px; height: 100px; object-fit: contain;"
@@ -179,8 +180,7 @@ export default function DeviceDetail(props: PageProps) {
                               marginRight: "0.25rem",
                             }}
                           >
-                            NFC{" "}
-                            {device.connectivity.hasNFC ? "✅" : "❌"}
+                            NFC {device.connectivity.hasNFC ? "✅" : "❌"}
                           </span>
                         </td>
                         <td>

@@ -195,6 +195,7 @@ html {
 [data-theme="light"] .see-more-card {
   background-color: rgba(0, 0, 0, 0.3);
   background-image: url("/images/see-more.webp");
+  
   color: white;
 }
 [data-theme="light"] .see-more-card:hover {

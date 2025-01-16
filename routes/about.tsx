@@ -46,15 +46,19 @@ export default function AboutPage() {
           <ul class="flex flex-col gap-4 p-4">
             <li class="flex items-center gap-4">
               <img
+                loading="lazy"
                 src="/stack/deno.gif"
                 alt="Deno"
                 width="32"
                 height="32"
               />
-              <span>&nbsp;Deno - A secure runtime for JavaScript and TypeScript</span>
+              <span>
+                &nbsp;Deno - A secure runtime for JavaScript and TypeScript
+              </span>
             </li>
             <li class="flex items-center gap-4">
               <img
+                loading="lazy"
                 src="/stack/deno.gif"
                 alt="Deno"
                 width="32"
@@ -64,6 +68,7 @@ export default function AboutPage() {
             </li>
             <li class="flex items-center gap-4">
               <img
+                loading="lazy"
                 src="/stack/fresh.svg"
                 alt="Fresh"
                 width="32"
@@ -74,12 +79,15 @@ export default function AboutPage() {
 
             <li class="flex items-center gap-4">
               <img
+                loading="lazy"
                 src="/stack/pico.svg"
                 alt="PicoCSS"
                 width="32"
                 height="32"
               />
-              <span>&nbsp;PicoCSS - Minimal CSS Framework for semantic HTML</span>
+              <span>
+                &nbsp;PicoCSS - Minimal CSS Framework for semantic HTML
+              </span>
             </li>
           </ul>
         </details>

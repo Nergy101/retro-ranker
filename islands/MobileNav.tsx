@@ -34,12 +34,20 @@ export function MobileNav({ pathname }: { pathname: string }) {
       <div class="mobile-nav-header">
         <a href="/">
           <img
+            loading="lazy"
             src="/logo-no-background.svg"
             alt="logo"
             style={{ height: "3em" }}
           />
         </a>
-        <div style={{display: "flex", alignItems: "center", justifyContent: "flex-end", gap: "0.5rem"}}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "flex-end",
+            gap: "0.5rem",
+          }}
+        >
           <button
             class="burger-menu"
             onClick={() => {
