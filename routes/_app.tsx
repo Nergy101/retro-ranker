@@ -132,7 +132,7 @@ export default function App({ Component, url }: PageProps) {
                   </small>
                   <img
                     alt="nergy logo"
-                    src="https://portfolio.nergy.space/favicon.ico"
+                    src="/nergy-logo.png"
                     style={{
                       width: "32px",
                       height: "32px",

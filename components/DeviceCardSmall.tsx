@@ -43,7 +43,9 @@ export function DeviceCardSmall({ device }: DeviceCardSmallProps) {
             >
               <span>{device.name}</span>
             </strong>
-            <p style="font-size: 0.8rem;">{device.brand}</p>
+            <p style={{ fontSize: "0.6rem", color: "var(--pico-contrast)" }}>
+              {device.brand}
+            </p>
           </hgroup>
           <div class="figure" style="width: 4rem; height: 4rem;">
             <img

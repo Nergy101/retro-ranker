@@ -25,8 +25,8 @@ export function DesktopNav({ pathname }: { pathname: string }) {
             </a>
           </li>
         ))}
-        <div style={{ marginLeft: "auto", marginRight: "2em" }}>
-          <li>
+        <li style={{ marginLeft: "auto" }}>
+          <div style={{ display: "flex", flexDirection: "row" }}>
             <form
               action="/devices"
               method="get"
@@ -35,6 +35,7 @@ export function DesktopNav({ pathname }: { pathname: string }) {
                 display: "flex",
                 flexDirection: "row",
                 alignItems: "center",
+                marginRight: "1rem",
               }}
             >
               <input
@@ -44,11 +45,11 @@ export function DesktopNav({ pathname }: { pathname: string }) {
                 aria-label="Search"
               />
             </form>
-          </li>
-          <li>
-            <ThemeSwitcher showNames={false} showTooltip={false} />
-          </li>
-        </div>
+            <div style={{ marginRight: "1rem" }}>
+              <ThemeSwitcher showNames={false} showTooltip={false} />
+            </div>
+          </div>
+        </li>
       </ul>
     </nav>
   );
