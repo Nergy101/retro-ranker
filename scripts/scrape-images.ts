@@ -13,17 +13,22 @@ async function downloadImage(url: string, deviceName: string) {
     await Deno.writeFile(filePath, imageData);
     
     console.info(`✅ ${deviceName}`);
-  } catch (error) {
-    console.error(`❌ ${deviceName}: ${error.message}`);
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error(`❌ ${deviceName}: ${error.message}`);
+    } else {
+      console.error(`❌ ${deviceName}: Unknown error`);
+    }
   }
 }
 
 export async function downloadDeviceImages(devices: Device[]) {
   console.info(`Starting download of ${devices.length} device images...`);
   
-  const downloads = devices.map(device => 
-    downloadImage(device.imageUrl, device.name)
-  );
+
+  const downloads = devices.map(device => {
+    downloadImage(device.image.originalUrl, device.name)
+  });
   
   await Promise.all(downloads);
   
@@ -31,6 +36,6 @@ export async function downloadDeviceImages(devices: Device[]) {
 }
 
 // Example usage:.
-import { getAllDevices } from "../data/devices/device.service.ts";
-const devices = await getAllDevices();
+import { DeviceService } from "../data/devices/device.service.ts";
+const devices = DeviceService.getInstance().getAllDevices();
 await downloadDeviceImages(devices);

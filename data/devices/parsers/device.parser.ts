@@ -94,6 +94,18 @@ export class DeviceParser {
       };
 
       $(row).find("td").each((colIndex, cell) => {
+        if (colIndex === 0) {
+          // get the image url
+          const imageUrl = $(cell).find("img").attr("src");
+          if (imageUrl) {
+            device.image = {
+              originalUrl: imageUrl,
+              url: null, // set later
+              alt: null, // set later
+            };
+          }
+        }
+
         const value = $(cell).text().trim();
         this.mapColumnToDevice(colIndex, value, device);
       });
@@ -115,25 +127,17 @@ export class DeviceParser {
     value: string,
     device: Partial<Device>,
   ): void {
-    if (!device.connectivity) {
-      device.connectivity = {
-        hasWifi: false,
-        hasBluetooth: false,
-        hasNFC: false,
-        hasUSB: false,
-        hasHDMI: false,
-        hasDisplayPort: false,
-        hasVGA: false,
-        hasDVI: false,
-      };
-    }
-
     switch (colIndex) {
-      case 0:
+      case 0: {
         break;
+      }
       case 1: {
         const sanitizedName = value.toLowerCase().replace(/[^a-z0-9]/g, "-");
-        device.imageUrl = "/devices/" + sanitizedName + ".png";
+        device.image = {
+          ...device.image,
+          url: "/devices/" + sanitizedName + ".png",
+          alt: value,
+        };
         device.sanitizedName = sanitizedName;
         device.name = value;
         break;

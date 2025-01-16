@@ -44,8 +44,8 @@ export function DeviceCardMedium({ device }: DeviceCardMediumProps) {
       >
         <div style="margin: 1em; display: flex; justify-content: center; align-items: center;">
           <img
-            src={device.imageUrl}
-            alt={device.name}
+            src={device.image.url}
+            alt={device.image.alt}
             style="width: 100px; height: 100px; object-fit: contain;"
             loading="lazy"
           />

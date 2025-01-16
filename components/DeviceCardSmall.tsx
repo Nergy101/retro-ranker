@@ -47,8 +47,8 @@ export function DeviceCardSmall({ device }: DeviceCardSmallProps) {
           </hgroup>
           <div class="figure" style="width: 4rem; height: 4rem;">
             <img
-              src={device.imageUrl}
-              alt={device.name}
+              src={device.image.url}
+              alt={device.image.alt}
               style="width: 100%; height: 100%; object-fit: contain;"
             />
           </div>

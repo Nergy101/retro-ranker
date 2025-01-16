@@ -47,8 +47,8 @@ export default function DeviceDetail(props: PageProps) {
             </div>
             <div>
               <img
-                src={device.imageUrl}
-                alt={device.name}
+                src={device.image.url}
+                alt={device.image.alt}
                 style="width: 100px; height: 100px; object-fit: contain;"
               />
             </div>

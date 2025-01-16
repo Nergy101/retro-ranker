@@ -3,7 +3,11 @@ import { EmulationTier } from "../enums/EmulationTier.ts";
 export interface Device {
   name: string;
   sanitizedName: string;
-  imageUrl: string;
+  image: {
+    originalUrl: string;
+    url: string | null;
+    alt: string | null;
+  };
   brand: string;
   released: {
     raw: string;
