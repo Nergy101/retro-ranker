@@ -9,7 +9,6 @@ export default function Error404() {
       <div class="px-4 py-8 mx-auto bg-[#86efac]">
         <div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">
           <img
-            
             src="/logo-color.svg"
             width="128"
             height="128"

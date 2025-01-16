@@ -183,7 +183,7 @@ html {
 /* Dark theme (default) */
 [data-theme="dark"] .see-more-card {
   background-color: rgba(0, 0, 0, 0.5);
-  background-image: url("/images/see-more.png");
+  background-image: url("/images/see-more.webp");
   color: var(--pico-primary);
 }
 [data-theme="dark"] .see-more-card:hover {
@@ -194,7 +194,7 @@ html {
 /* Light theme */
 [data-theme="light"] .see-more-card {
   background-color: rgba(0, 0, 0, 0.3);
-  background-image: url("/images/see-more.png");
+  background-image: url("/images/see-more.webp");
   color: white;
 }
 [data-theme="light"] .see-more-card:hover {
