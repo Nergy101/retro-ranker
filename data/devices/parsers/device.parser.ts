@@ -43,8 +43,8 @@ export class DeviceParser {
 
   private static getPricingCategory(priceNumber: number): string {
     if (priceNumber === 0) return "unknown";
-    if (priceNumber < 100) return "budget";
-    if (priceNumber < 200) return "mid-range";
+    if (priceNumber <= 100) return "budget";
+    if (priceNumber <= 250) return "mid-range";
     return "high-end";
   }
 
@@ -426,6 +426,7 @@ export class DeviceParser {
       case 70: {
         const priceNumber = this.parsePrices(value);
         device.price.priceAverage = priceNumber;
+        device.price.pricingCategory: this.getPricingCategory(priceNumber),
         break;
       }
       case 71: {
@@ -434,7 +435,6 @@ export class DeviceParser {
           ...device.price,
           raw: value,
           priceCurrency: this.getPriceCurrency(value),
-          pricingCategory: this.getPricingCategory(priceNumber),
         };
         break;
       }
