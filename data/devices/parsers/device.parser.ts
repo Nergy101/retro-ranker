@@ -19,13 +19,15 @@ export class DeviceParser {
     if (lowerOs.includes("macos")) icons.push("ph ph-apple-logo");
     if (lowerOs.includes("windows")) icons.push("ph ph-windows-logo");
 
-    if (lowerOs.includes("garlicos")) icons.push("ph ph-brackets-angle");
-    if (lowerOs.includes("onionsos")) icons.push("ph ph-brackets-square");
-    if (lowerOs.includes("gammaos")) icons.push("ph ph-brackets-curly");
+    if (lowerOs.includes("garlic")) icons.push("ph ph-brackets-angle");
+    if (lowerOs.includes("onion")) icons.push("ph ph-brackets-square");
+
+    if (lowerOs.includes("gamma")) icons.push("ph ph-brackets-curly");
+
     if (lowerOs.includes("opendingux")) icons.push("ph ph-brackets-round");
     if (lowerOs.includes("arkos")) icons.push("ph ph-rainbow");
-    if (lowerOs.includes("minui")) icons.push("ph ph-minus-square");
 
+    if (lowerOs.includes("minui")) icons.push("ph ph-minus-square");
     if (lowerOs.includes("batocera")) icons.push("ph ph-joystick");
     if (lowerOs.includes("trimui")) icons.push("ph ph-scissors");
 

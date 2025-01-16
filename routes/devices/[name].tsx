@@ -160,25 +160,82 @@ export default function DeviceDetail(props: PageProps) {
                       </tr>
                       <tr>
                         <td>Connectivity</td>
-                        <td>
-                          WiFi {device.connectivity.hasWifi ? "✅" : "❌"}
-                          &nbsp; NFC {device.connectivity.hasNFC ? "✅" : "❌"}
+                        <td
+                          style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            gap: "0.25rem",
+                          }}
+                        >
+                          <span
+                            style={{
+                              backgroundColor: "var(--pico-secondary)",
+                              padding: "0.25rem 0.5rem",
+                              borderRadius: "var(--pico-border-radius)",
+                            }}
+                          >
+                            WiFi {device.connectivity.hasWifi ? "✅" : "❌"}
+                          </span>
+                          <span
+                            style={{
+                              backgroundColor: "var(--pico-secondary)",
+                              padding: "0.25rem 0.5rem",
+                              borderRadius: "var(--pico-border-radius)",
+                            }}
+                          >
+                            &nbsp; NFC{" "}
+                            {device.connectivity.hasNFC ? "✅" : "❌"}
+                          </span>
                         </td>
                         <td>
-                          Bluetooth{" "}
-                          {device.connectivity.hasBluetooth ? "✅" : "❌"}
+                          <span
+                            style={{
+                              backgroundColor: "var(--pico-secondary)",
+                              padding: "0.25rem 0.5rem",
+                              borderRadius: "var(--pico-border-radius)",
+                            }}
+                          >
+                            Bluetooth{" "}
+                            {device.connectivity.hasBluetooth ? "✅" : "❌"}
+                          </span>
                         </td>
+                      </tr>
+                      <tr>
                       </tr>
                       <tr>
                         <td>Ports</td>
                         <td colspan={2}>
-                          USB {device.connectivity.hasUSB ? "✅" : "❌"}
-                          &nbsp; DisplayPort{" "}
-                          {device.connectivity.hasDisplayPort ? "✅" : "❌"}
-                          &nbsp; VGA {device.connectivity.hasVGA ? "✅" : "❌"}
-                          &nbsp; DVI {device.connectivity.hasDVI ? "✅" : "❌"}
-                          &nbsp; HDMI{" "}
-                          {device.connectivity.hasHDMI ? "✅" : "❌"}
+                          <span
+                            style={{
+                              backgroundColor: "var(--pico-secondary)",
+                              padding: "0.25rem 0.5rem",
+                              borderRadius: "var(--pico-border-radius)",
+                              marginRight: "0.25rem",
+                            }}
+                          >
+                            USB {device.connectivity.hasUSB ? "✅" : "❌"}
+                          </span>
+                          <span
+                            style={{
+                              backgroundColor: "var(--pico-secondary)",
+                              padding: "0.25rem 0.5rem",
+                              borderRadius: "var(--pico-border-radius)",
+                              marginRight: "0.25rem",
+                            }}
+                          >
+                            DisplayPort{" "}
+                            {device.connectivity.hasDisplayPort ? "✅" : "❌"}
+                          </span>
+                          <span
+                            style={{
+                              backgroundColor: "var(--pico-secondary)",
+                              padding: "0.25rem 0.5rem",
+                              borderRadius: "var(--pico-border-radius)",
+                              marginRight: "0.25rem",
+                            }}
+                          >
+                            VGA {device.connectivity.hasVGA ? "✅" : "❌"}
+                          </span>
                         </td>
                       </tr>
                     </tbody>
