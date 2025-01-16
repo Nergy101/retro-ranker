@@ -33,8 +33,9 @@ export function DeviceCardMedium({ device }: DeviceCardMediumProps) {
               {device.name}
             </a>
           </h4>
-          <p style="font-size: 0.5rem;">{device.name}</p>
-          <p>{device.brand}</p>
+          <p style={{ fontSize: "0.6rem", color: "var(--pico-contrast)" }}>
+              {device.brand}
+            </p>
           <StarRating device={device} />
           {" "}
         </hgroup>
@@ -42,13 +43,16 @@ export function DeviceCardMedium({ device }: DeviceCardMediumProps) {
       <a
         href={`/devices/${device.sanitizedName}`}
       >
-        <div style="margin: 1em; display: flex; justify-content: center; align-items: center;">
+        <div style="margin: 1em; display: flex; flex-direction: column; justify-content: center; align-items: center;">
           <img
             src={device.image.url}
             alt={device.image.alt}
             style="width: 100px; height: 100px; object-fit: contain;"
             loading="lazy"
           />
+          <p style={{ fontSize: "0.6rem", color: "var(--pico-contrast)" }}>
+            {device.name}
+          </p>
         </div>
 
         <div style="align-self: flex-start; display: flex; flex-flow: row wrap; gap: 0.5rem;">
