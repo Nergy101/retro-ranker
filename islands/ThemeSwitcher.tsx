@@ -45,7 +45,7 @@ export function ThemeSwitcher(
         alignItems: "center",
         justifyContent: "center",
         gap: "0.25rem",
-        minWidth: showNames ? "5rem" : "2.5rem",
+        minWidth: showNames ? "10em" : "2.5rem",
       }}
       aria-label={showTooltip
         ? `Switch to ${theme.value === "light" ? "dark" : "light"} theme`
@@ -67,7 +67,7 @@ export function ThemeSwitcher(
               }}
             >
             </i>
-            {showNames && <span>Dark</span>}
+            {showNames && <span>Dark theme</span>}
           </>
         )
         : (
@@ -81,7 +81,7 @@ export function ThemeSwitcher(
               }}
             >
             </i>
-            {showNames && <span>Light</span>}
+            {showNames && <span>Light theme</span>}
           </>
         )}
     </button>

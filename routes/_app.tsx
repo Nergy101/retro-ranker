@@ -53,25 +53,25 @@ export default function App({ Component, url }: PageProps) {
           data-website-id="34d0e3cb-e9cf-4554-8b1c-27541fb877c0"
         >
         </script>
-        <link
+        <link defer
           rel="icon"
           type="image/png"
           sizes="32x32"
           href="/favicon-32x32.png"
         />
-        <link
+        <link defer
           rel="icon"
           type="image/png"
           sizes="16x16"
           href="/favicon-16x16.png"
         />
         {/* import Pico CSS classless*/}
-        <link
+        <link defer
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.pumpkin.min.css"
         />
         {/* Prevent flash of wrong theme */}
-        <script
+        <script defer
           dangerouslySetInnerHTML={{
             __html: `
             (function() {
