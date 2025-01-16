@@ -160,18 +160,13 @@ export default function DeviceDetail(props: PageProps) {
                       </tr>
                       <tr>
                         <td>Connectivity</td>
-                        <td
-                          style={{
-                            display: "flex",
-                            flexDirection: "row",
-                            gap: "0.25rem",
-                          }}
-                        >
+                        <td>
                           <span
                             style={{
                               backgroundColor: "var(--pico-secondary)",
                               padding: "0.25rem 0.5rem",
                               borderRadius: "var(--pico-border-radius)",
+                              marginRight: "0.25rem",
                             }}
                           >
                             WiFi {device.connectivity.hasWifi ? "✅" : "❌"}
@@ -181,9 +176,10 @@ export default function DeviceDetail(props: PageProps) {
                               backgroundColor: "var(--pico-secondary)",
                               padding: "0.25rem 0.5rem",
                               borderRadius: "var(--pico-border-radius)",
+                              marginRight: "0.25rem",
                             }}
                           >
-                            &nbsp; NFC{" "}
+                            NFC{" "}
                             {device.connectivity.hasNFC ? "✅" : "❌"}
                           </span>
                         </td>
