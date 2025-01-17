@@ -9,7 +9,7 @@ export default function DeviceDetail(props: PageProps) {
   const deviceService = DeviceService.getInstance();
   const device = deviceService.getDeviceByName(props.params?.name);
   const similarDevices = deviceService.getSimilarDevices(
-    device?.sanitizedName ?? null,
+    device?.name.sanitized ?? null,
   );
 
   if (!device) {
@@ -34,12 +34,14 @@ export default function DeviceDetail(props: PageProps) {
         <div class="device-detail-header">
           <div style="display: flex; flex-direction: column; gap: 0.5rem; justify-content: center; align-items: center;">
             <h2 style={{ fontSize: "2rem", color: "var(--pico-primary)" }}>
-              {device.name}
+              {device.name.raw}
             </h2>
             <div style="display: flex; gap: 0.25rem; align-items: center;">
               <p>{device.brand}</p>
               <p
-                data-tooltip={device.os.list.join(", ")}
+                data-tooltip={device.os.list.join(", ") === "?"
+                  ? "No OS information available"
+                  : device.os.list.join(", ")}
                 data-placement="bottom"
               >
                 {device.os.icons.map((icon) => <i class={`${icon}`} />)}
@@ -62,11 +64,11 @@ export default function DeviceDetail(props: PageProps) {
             <div style="display: flex; align-items: center; flex-direction: column;">
               <span
                 style={{ color: "var(--pico-color)" }}
-                data-tooltip={`${device.price.pricingCategory}: ${device.price.raw}`}
+                data-tooltip={`${device.pricing.category}: ${device.pricing.raw}`}
                 data-placement="bottom"
               >
-                <CurrencyIcon currencyCode={device.price.priceCurrency} />
-                {device.price.priceAverage} {device.price.priceCurrency}
+                <CurrencyIcon currencyCode={device.pricing.currency} />
+                {device.pricing.average} {device.pricing.currency}
               </span>
               <span style={{ color: "var(--pico-color)" }}>
                 <i class="ph ph-calendar"></i>
@@ -127,16 +129,16 @@ export default function DeviceDetail(props: PageProps) {
                       </tr>
                       <tr>
                         <td>CPU</td>
-                        <td>{device.cpu}</td>
+                        <td>{device.cpu.name}</td>
                         <td>
-                          {device.cpuCores} cores @ {device.cpuClockSpeed}
+                          {device.cpu.cores} cores ({device.cpu.threads} threads) @ {device.cpu.clockSpeed}
                         </td>
                       </tr>
                       <tr>
                         <td>GPU</td>
-                        <td>{device.gpu}</td>
+                        <td>{device.gpu.name}</td>
                         <td>
-                          {device.gpuCores} cores @ {device.gpuClockSpeed}
+                          {device.gpu.cores} cores @ {device.gpu.clockSpeed}
                         </td>
                       </tr>
                       <tr>
@@ -151,88 +153,15 @@ export default function DeviceDetail(props: PageProps) {
                       </tr>
                       <tr>
                         <td>Screen</td>
-                        <td>{device.screenSize} {device.screenType}</td>
-                        <td>{device.resolution} {device.ppi} PPI</td>
+                        <td>{device.screen.size} {device.screen.type}</td>
+                        <td>
+                          {device.screen.resolution} {device.screen.ppi} PPI
+                        </td>
                       </tr>
                       <tr>
                         <td>Battery</td>
                         <td>{device.battery}</td>
                         <td>{device.chargePort}</td>
-                      </tr>
-                      <tr>
-                        <td>Connectivity</td>
-                        <td>
-                          <span
-                            style={{
-                              backgroundColor: "var(--pico-secondary)",
-                              padding: "0.25rem 0.5rem",
-                              borderRadius: "var(--pico-border-radius)",
-                              marginRight: "0.25rem",
-                            }}
-                          >
-                            WiFi {device.connectivity.hasWifi ? "✅" : "❌"}
-                          </span>
-                          <span
-                            style={{
-                              backgroundColor: "var(--pico-secondary)",
-                              padding: "0.25rem 0.5rem",
-                              borderRadius: "var(--pico-border-radius)",
-                              marginRight: "0.25rem",
-                            }}
-                          >
-                            NFC {device.connectivity.hasNFC ? "✅" : "❌"}
-                          </span>
-                        </td>
-                        <td>
-                          <span
-                            style={{
-                              backgroundColor: "var(--pico-secondary)",
-                              padding: "0.25rem 0.5rem",
-                              borderRadius: "var(--pico-border-radius)",
-                            }}
-                          >
-                            Bluetooth{" "}
-                            {device.connectivity.hasBluetooth ? "✅" : "❌"}
-                          </span>
-                        </td>
-                      </tr>
-                      <tr>
-                      </tr>
-                      <tr>
-                        <td>Ports</td>
-                        <td colspan={2}>
-                          <span
-                            style={{
-                              backgroundColor: "var(--pico-secondary)",
-                              padding: "0.25rem 0.5rem",
-                              borderRadius: "var(--pico-border-radius)",
-                              marginRight: "0.25rem",
-                            }}
-                          >
-                            USB {device.connectivity.hasUSB ? "✅" : "❌"}
-                          </span>
-                          <span
-                            style={{
-                              backgroundColor: "var(--pico-secondary)",
-                              padding: "0.25rem 0.5rem",
-                              borderRadius: "var(--pico-border-radius)",
-                              marginRight: "0.25rem",
-                            }}
-                          >
-                            DisplayPort{" "}
-                            {device.connectivity.hasDisplayPort ? "✅" : "❌"}
-                          </span>
-                          <span
-                            style={{
-                              backgroundColor: "var(--pico-secondary)",
-                              padding: "0.25rem 0.5rem",
-                              borderRadius: "var(--pico-border-radius)",
-                              marginRight: "0.25rem",
-                            }}
-                          >
-                            VGA {device.connectivity.hasVGA ? "✅" : "❌"}
-                          </span>
-                        </td>
                       </tr>
                     </tbody>
                   </table>

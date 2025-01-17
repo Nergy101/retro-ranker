@@ -1,4 +1,4 @@
-import { Device } from "../data/devices/device.service.ts";
+import { Device } from "../data/models/device.model.ts";
 
 interface StarRatingProps {
   device: Device;
@@ -9,9 +9,10 @@ export function StarRating({ device }: StarRatingProps) {
   const calculateScore = () => {
     let emulationScore = 0;
     let featuresScore = 0;
-    
+
     // Calculate emulation score (max 50 points)
-    const ratings = device.systemRatings;
+    const ratings = device.consoleRatings;
+
     const systemWeights = {
       "Game Boy": 1,
       "NES": 1,
@@ -30,11 +31,24 @@ export function StarRating({ device }: StarRatingProps) {
       "PS2": 7,
       "Wii U": 8,
       "Switch": 9,
-      "PS3": 10
+      "PS3": 10,
     };
 
+    // Check if all ratings are "N/A"
+    const allRatingsNA = ratings?.every((rating: {
+      rating: string;
+      system: string;
+    }) => rating.rating === "N/A" || rating.rating === undefined);
+
+    if (allRatingsNA || allRatingsNA === undefined || ratings?.length === 0) {
+      return null; // Return null to indicate no valid score
+    }
+
     // Calculate weighted emulation score
-    ratings.forEach(rating => {
+    ratings?.forEach((rating: {
+      rating: string;
+      system: string;
+    }) => {
       const weight = systemWeights[rating.system] || 1;
       if (rating.rating === "A") {
         emulationScore += weight * 1;
@@ -46,20 +60,27 @@ export function StarRating({ device }: StarRatingProps) {
     });
 
     // Normalize emulation score to max 50 points
-    const maxEmulationScore = Object.values(systemWeights).reduce((a, b) => a + b, 0);
+    const maxEmulationScore = Object.values(systemWeights).reduce(
+      (a, b) => a + b,
+      0,
+    );
     emulationScore = (emulationScore / maxEmulationScore) * 50;
 
     // Calculate features score (max 50 points)
     const features = {
       // Display features (15 points)
-      hasHDScreen: device.ppi >= 200 ? 5 : 0,
+      hasHDScreen: device.screen.ppi >= 200 ? 5 : 0,
       hasGoodScreenSize: parseFloat(device.screenSize) >= 5 ? 5 : 0,
-      hasQualityPanel: device.screenType.toLowerCase().includes('ips') ? 5 : 0,
+      hasQualityPanel: device.screen.type.toLowerCase()?.includes("ips")
+        ? 5
+        : 0,
 
       // Performance features (15 points)
-      hasGoodCPU: device.cpuCores >= 4 ? 5 : 0,
+      hasGoodCPU: device.cpu.cores >= 4 ? 5 : 0,
       hasGoodRAM: parseInt(device.ram) >= 4 ? 5 : 0,
-      hasGoodCooling: device.cooling.raw.toLowerCase().includes('active') ? 5 : 0,
+      hasGoodCooling: device.cooling.raw.toLowerCase().includes("active")
+        ? 5
+        : 0,
 
       // Connectivity features (10 points)
       hasWifi: device.connectivity.hasWifi ? 3 : 0,
@@ -67,8 +88,11 @@ export function StarRating({ device }: StarRatingProps) {
       hasHDMI: device.connectivity.hasHDMI ? 4 : 0,
 
       // Controls (10 points)
-      hasAnalogs: device.analogs.toLowerCase().includes('dual') ? 5 : 0,
-      hasGoodButtons: device.shoulderButtons.toLowerCase().includes('l2') ? 5 : 0,
+      hasAnalogs: device.controls.analogs.toLowerCase().includes("dual")
+        ? 5
+        : 0,
+      hasGoodButtons:
+        device.controls.shoulderButtons.toLowerCase().includes("l2") ? 5 : 0,
     };
 
     featuresScore = Object.values(features).reduce((a, b) => a + b, 0);
@@ -80,6 +104,19 @@ export function StarRating({ device }: StarRatingProps) {
 
   // Get normalized rating (1-10)
   const normalizedRating = calculateScore();
+
+  // If all ratings are "N/A", return a question mark icon
+  if (normalizedRating === null) {
+    return (
+      <span
+        data-placement="bottom"
+        data-tooltip="No emulation ratings available"
+      >
+        <i class="ph ph-question">
+        </i>
+      </span>
+    );
+  }
 
   // Convert to 5-point scale for stars
   const fivePointRating = normalizedRating / 2;

@@ -66,9 +66,9 @@ export function DeviceSearchForm(
           onChange={handleCategoryChange}
         >
           <option value="all">All</option>
-          <option value="budget">Budget</option>
-          <option value="mid-range">Mid-Range</option>
-          <option value="high-end">High-End</option>
+          <option value="low">Budget</option>
+          <option value="mid">Mid-Range</option>
+          <option value="high">High-End</option>
         </select>
         <input type="submit" value="Search" style={{ borderRadius: "2em" }} />
       </form>
@@ -97,9 +97,9 @@ export function DeviceSearchForm(
         onChange={handleCategoryChange}
       >
         <option value="all">All</option>
-        <option value="budget">Budget</option>
-        <option value="mid-range">Mid-Range</option>
-        <option value="high-end">High-End</option>
+        <option value="low">Budget</option>
+        <option value="mid">Mid-Range</option>
+        <option value="high">High-End</option>
       </select>
       <input type="submit" value="Search" />
     </form>

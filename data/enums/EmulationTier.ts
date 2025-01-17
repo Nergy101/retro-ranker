@@ -1,6 +1,7 @@
 // Optional: Add a type for the performance rating scale
 
 export enum EmulationTier {
+  "Unknown" = "Unknown",
   "⭐️" = "GB/GBC/GG/NES/SMS",
   "⭐️⭐️" = "Most GBA & Genesis, some SNES",
   "⭐️⭐️⭐️" = "Full GBA & Genesis, most SNES/PS1",

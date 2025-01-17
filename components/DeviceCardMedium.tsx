@@ -1,4 +1,4 @@
-import { Device } from "../data/devices/device.model.ts";
+import { Device } from "../data/models/device.model.ts";
 import { StarRating } from "./StarRating.tsx";
 interface DeviceCardMediumProps {
   device: Device;
@@ -25,23 +25,23 @@ export function DeviceCardMedium({ device }: DeviceCardMediumProps) {
       >
         <hgroup style={{ textAlign: "center" }}>
           <h4
-            title={device.name}
+            title={device.name.sanitized}
           >
             <a
-              href={`/devices/${device.sanitizedName}`}
+              href={`/devices/${device.name.sanitized}`}
             >
-              {device.name}
+              {device.name.raw}
             </a>
           </h4>
           <p style={{ fontSize: "0.6rem", color: "var(--pico-contrast)" }}>
-              {device.brand}
-            </p>
+            {device.brand}
+          </p>
           <StarRating device={device} />
           {" "}
         </hgroup>
       </header>
       <a
-        href={`/devices/${device.sanitizedName}`}
+        href={`/devices/${device.name.sanitized}`}
       >
         <div style="margin: 1em; display: flex; flex-direction: column; justify-content: center; align-items: center;">
           <img

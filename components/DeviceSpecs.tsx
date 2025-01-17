@@ -1,4 +1,4 @@
-import { Device } from "../data/devices/device.model.ts";
+import { Device } from "../data/models/device.model.ts";
 
 interface DeviceSpecsProps {
   device: Device;
@@ -25,9 +25,9 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
               <tr>
                 <th>CPU</th>
                 <td>
-                  {device.cpu}
-                  {device.cpuCores > 0 && ` (${device.cpuCores} cores)`}
-                  {device.cpuClockSpeed && ` @ ${device.cpuClockSpeed}`}
+                  {device.cpu.name}
+                  {device.cpu.cores > 0 && ` (${device.cpu.cores} cores)`}
+                  {device.cpu.clockSpeed && ` @ ${device.cpu.clockSpeed}`}
                 </td>
               </tr>
             )}
@@ -35,9 +35,9 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
               <tr>
                 <th>GPU</th>
                 <td>
-                  {device.gpu}
-                  {device.gpuCores && ` (${device.gpuCores})`}
-                  {device.gpuClockSpeed && ` @ ${device.gpuClockSpeed}`}
+                  {device.gpu.name}
+                  {device.gpu.cores && ` (${device.gpu.cores})`}
+                  {device.gpu.clockSpeed && ` @ ${device.gpu.clockSpeed}`}
                 </td>
               </tr>
             )}
@@ -59,40 +59,46 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
         </h3>
         <table>
           <tbody>
-            {device.screenSize && (
+            {device.screen.size && (
               <tr>
                 <th>Screen Size</th>
-                <td>{device.screenSize}</td>
+                <td>{device.screen.size}</td>
               </tr>
             )}
-            {device.screenType && (
+            {device.screen.type && (
               <tr>
                 <th>Panel Type</th>
-                <td>{device.screenType}</td>
+                <td>{device.screen.type}</td>
               </tr>
             )}
-            {device.resolution && (
+            {device.screen.resolution && (
               <tr>
                 <th>Resolution</th>
-                <td>{device.resolution}</td>
+                <td>{device.screen.resolution}</td>
               </tr>
             )}
-            {device.aspectRatio && (
+            {device.screen.aspectRatio && (
               <tr>
                 <th>Aspect Ratio</th>
-                <td>{device.aspectRatio}</td>
+                <td>{device.screen.aspectRatio}</td>
               </tr>
             )}
-            {device.ppi && (
+            {device.screen.ppi && (
               <tr>
                 <th>PPI</th>
-                <td>{device.ppi}</td>
+                <td>{device.screen.ppi}</td>
               </tr>
             )}
-            {device.videoOutput && (
+            {device.outputs.videoOutput && (
               <tr>
                 <th>Video Output</th>
-                <td>{device.videoOutput}</td>
+                <td>{device.outputs.videoOutput}</td>
+              </tr>
+            )}
+            {device.outputs.audioOutput && (
+              <tr>
+                <th>Audio Output</th>
+                <td>{device.outputs.audioOutput}</td>
               </tr>
             )}
           </tbody>
@@ -137,13 +143,12 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
         </h3>
         <table>
           <tbody>
-           
-              <tr>
+            <tr>
               <th>Heatsink</th>
               {device.cooling.hasHeatsink ? <td>✅</td> : <td>❌</td>}
             </tr>
-              <tr>
-                <th>Heat Pipe</th>
+            <tr>
+              <th>Heat Pipe</th>
               {device.cooling.hasHeatPipe ? <td>✅</td> : <td>❌</td>}
             </tr>
             <tr>
@@ -166,16 +171,16 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
         </h3>
         <table>
           <tbody>
-            {device.audioOutput && (
+            {device.outputs.audioOutput && (
               <tr>
                 <th>Audio Output</th>
-                <td>{device.audioOutput}</td>
+                <td>{device.outputs.audioOutput}</td>
               </tr>
             )}
-            {device.speaker && (
+            {device.outputs.speaker && (
               <tr>
                 <th>Speakers</th>
-                <td>{device.speaker}</td>
+                <td>{device.outputs.speaker}</td>
               </tr>
             )}
           </tbody>
@@ -190,40 +195,40 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
         </h3>
         <table>
           <tbody>
-            {device.dPad && (
+            {device.controls.dPad && (
               <tr>
                 <th>D-Pad</th>
-                <td>{device.dPad}</td>
+                <td>{device.controls.dPad}</td>
               </tr>
             )}
-            {device.analogs && (
+            {device.controls.analogSticks && (
               <tr>
                 <th>Analog Sticks</th>
-                <td>{device.analogs}</td>
+                <td>{device.controls.analogSticks}</td>
               </tr>
             )}
-            {device.faceButtons && (
+            {device.controls.faceButtons && (
               <tr>
                 <th>Face Buttons</th>
-                <td>{device.faceButtons}</td>
+                <td>{device.controls.faceButtons}</td>
               </tr>
             )}
-            {device.shoulderButtons && (
+            {device.controls.shoulderButtons && (
               <tr>
                 <th>Shoulder Buttons</th>
-                <td>{device.shoulderButtons}</td>
+                <td>{device.controls.shoulderButtons}</td>
               </tr>
             )}
-            {device.rumble && (
+            {device.controls.rumble && (
               <tr>
                 <th>Rumble</th>
-                <td>{device.rumble}</td>
+                <td>{device.controls.rumble}</td>
               </tr>
             )}
-            {device.sensors && (
+            {device.controls.sensors && (
               <tr>
                 <th>Sensors</th>
-                <td>{device.sensors}</td>
+                <td>{device.controls.sensors}</td>
               </tr>
             )}
           </tbody>
@@ -241,25 +246,37 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
             {device.colors && (
               <tr>
                 <th>Colors</th>
-                <td>{device.colors}</td>
+                <td>{device.colors.join(", ")}</td>
               </tr>
             )}
             {device.notes && (
               <tr>
                 <th>Notes</th>
-                <td>{device.notes}</td>
+                <td>{device.notes.join(", ")}</td>
               </tr>
             )}
-            {device.emulationLimit && (
+            {device.performance.emulationLimit && (
               <tr>
                 <th>Emulation Limit</th>
-                <td>{device.emulationLimit}</td>
+                <td>{device.performance.emulationLimit}</td>
               </tr>
             )}
-            {device.writtenReview && (
+            {device.performance.maxEmulation && (
+              <tr>
+                <th>Max Emulation</th>
+                <td>{device.performance.maxEmulation}</td>
+              </tr>
+            )}
+            {device.reviews.writtenReview && (
               <tr>
                 <th>Written Review</th>
-                <td>{device.writtenReview}</td>
+                <td>{device.reviews.writtenReview}</td>
+              </tr>
+            )}
+            {device.reviews.videoReviews && (
+              <tr>
+                <th>Video Reviews</th>
+                <td>{device.reviews.videoReviews.join(", ")}</td>
               </tr>
             )}
             {device.pros && (

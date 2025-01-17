@@ -1,4 +1,4 @@
-import { Device } from "../data/devices/device.model.ts";
+import { Device } from "../data/models/device.model.ts";
 import { StarRating } from "./StarRating.tsx";
 
 interface DeviceCardSmallProps {
@@ -12,7 +12,7 @@ export function DeviceCardSmall({ device }: DeviceCardSmallProps) {
       style="display: flex; justify-content: center; align-items: center;"
     >
       <a
-        href={`/devices/${device.sanitizedName}`}
+        href={`/devices/${device.name.sanitized}`}
         style="font-weight: bold; text-decoration: none;"
       >
         <div
@@ -39,9 +39,9 @@ export function DeviceCardSmall({ device }: DeviceCardSmallProps) {
                 whiteSpace: "nowrap",
                 maxWidth: "8rem",
               }}
-              title={device.name}
+              title={device.name.raw}
             >
-              <span>{device.name}</span>
+              <span>{device.name.raw}</span>
             </strong>
             <p style={{ fontSize: "0.6rem", color: "var(--pico-contrast)" }}>
               {device.brand}

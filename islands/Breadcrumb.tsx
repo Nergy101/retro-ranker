@@ -10,9 +10,25 @@ interface BreadcrumbProps {
 export function Breadcrumb({ items, showNames }: BreadcrumbProps) {
   const viewportWidth = signal(globalThis.innerWidth);
 
+  const replaceTokens = (sanitizedDeviceName: string) => {
+    return sanitizedDeviceName
+      .replaceAll("-", " ")
+      .replaceAll(" Question Mark ", "?")
+      .replaceAll("Exclamation Mark", "!")
+      .replaceAll("Apostrophe", "'")
+      .replaceAll("Open Parenthesis ", "(")
+      .replaceAll(" Close Parenthesis", ")")
+      .replaceAll("Ampersand", "&")
+      .replaceAll("Colon", ":")
+      .replaceAll("Semicolon", ";")
+      .replaceAll("Slash", "/")
+      .replaceAll("Backslash", "\\");
+  };
+
   if (!showNames) {
     showNames = viewportWidth.value > 500;
   }
+
   useEffect(() => {
     const handleResize = () => {
       viewportWidth.value = globalThis.innerWidth;
@@ -93,7 +109,7 @@ export function Breadcrumb({ items, showNames }: BreadcrumbProps) {
             : (
               <span>
                 {item.icon && <i class={item.icon}></i>}
-                <span>&nbsp;{item.label}</span>
+                <span>&nbsp;{replaceTokens(item.label)}</span>
               </span>
             )}
         </div>
