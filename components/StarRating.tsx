@@ -144,8 +144,8 @@ export function StarRating({ device }: StarRatingProps) {
       {hasHalfStar && <i class="ph-fill ph-star-half" />}
 
       {/* Empty stars */}
-      {Array.from({ length: emptyStars }).map((_, i) => (
-        <i key={`empty-${i}`} class="ph ph-star-light" />
+      {Array.from({ length: 5 - fullStars - (hasHalfStar ? 1 : 0) }).map((_, i) => (
+        <i key={`empty-${i}`} class="ph ph-star" />
       ))}
     </p>
   );
