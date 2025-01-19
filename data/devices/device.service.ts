@@ -58,19 +58,6 @@ export class DeviceService {
   ): { page: Device[]; totalAmountOfResults: number } {
     const lowerQuery = query.toLowerCase();
 
-    console.log(
-      "query",
-      query,
-      "category",
-      category,
-      "sortBy",
-      sortBy,
-      "pageNumber",
-      pageNumber,
-      "pageSize",
-      pageSize,
-    );
-
     let filteredDevices = this.devices.filter((device) => {
       if (category === "low") {
         return device.pricing.category === "low" && (
@@ -138,7 +125,6 @@ export class DeviceService {
           return 0;
       }
     });
-    console.log("sortedDevices", sortedDevices.length);
 
     const devicesToReturn = sortedDevices.slice(
       (pageNumber - 1) * pageSize,

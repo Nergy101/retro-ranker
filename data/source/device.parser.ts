@@ -217,7 +217,6 @@ export class DeviceParser {
             const href = $(element).attr("href");
             if (href) {
               hrefList.push(href);
-              console.log(href, device.name.sanitized);
             }
           });
           device.vendorLinks = hrefList;
