@@ -6,35 +6,31 @@ import { DeviceService } from "../../data/devices/device.service.ts";
 
 export default function DevicesIndex(props: PageProps) {
   const deviceService = DeviceService.getInstance();
-  const allDevices = deviceService.getAllDevices();
+
   const searchQuery = props.url?.searchParams?.get("search") || "";
   const searchCategory = props.url?.searchParams?.get("category") || "all";
   const pageNumber = parseInt(props.url?.searchParams?.get("page") || "1");
-
+  const sortBy = props.url?.searchParams?.get("sort") as
+    | "all"
+    | "upcoming"
+    | "highly-rated"
+    | "staff-picks" ||
+    "all";
   const pageSize = 9;
 
-  const filteredDevices = deviceService.searchDevices(
+  const allDevices = deviceService.getAllDevices();
+
+  const pagedFilteredSortedDevices = deviceService.searchDevices(
     searchQuery,
-    searchCategory as "all" | "budget" | "high-end" | "mid-range",
+    searchCategory as "all" | "low" | "mid" | "high",
+    sortBy,
+    pageNumber,
+    pageSize,
   );
 
-  const getPagedDevices = () => {
-    if (!filteredDevices) return [];
-
-    const query = searchQuery.toLowerCase().trim();
-
-    if (!query) {
-      return filteredDevices.slice(
-        (pageNumber - 1) * pageSize,
-        pageNumber * pageSize,
-      ); // Show first devices when no search
-    }
-
-    return filteredDevices
-      .slice((pageNumber - 1) * pageSize, pageNumber * pageSize);
-  };
-
-  const amountOfResults = filteredDevices.length;
+  const hasResults = pagedFilteredSortedDevices.page.length > 0;
+  const pageResults = pagedFilteredSortedDevices.page;
+  const amountOfResults = pagedFilteredSortedDevices.totalAmountOfResults;
 
   return (
     <div>
@@ -51,7 +47,7 @@ export default function DevicesIndex(props: PageProps) {
         initialPage={pageNumber}
       />
 
-      {getPagedDevices().length > 0
+      {hasResults
         ? (
           <PaginationNav
             pageNumber={pageNumber}
@@ -59,11 +55,12 @@ export default function DevicesIndex(props: PageProps) {
             totalResults={amountOfResults}
             searchQuery={searchQuery}
             searchCategory={searchCategory}
+            sortBy={sortBy}
           />
         )
         : null}
 
-      {getPagedDevices().length === 0
+      {!hasResults
         ? (
           <div
             style={{
@@ -77,13 +74,11 @@ export default function DevicesIndex(props: PageProps) {
         )
         : (
           <div class="device-search-grid">
-            {getPagedDevices().map((device) => (
-              <DeviceCardMedium device={device} />
-            ))}
+            {pageResults.map((device) => <DeviceCardMedium device={device} />)}
           </div>
         )}
 
-      {getPagedDevices().length > 0
+      {hasResults
         ? (
           <div
             style={{
@@ -98,6 +93,7 @@ export default function DevicesIndex(props: PageProps) {
               totalResults={amountOfResults}
               searchQuery={searchQuery}
               searchCategory={searchCategory}
+              sortBy={sortBy}
             />
           </div>
         )

@@ -12,6 +12,28 @@ export default function DeviceDetail(props: PageProps) {
     device?.name.sanitized ?? null,
   );
 
+  const getReleaseDate = (
+    deviceReleased: { raw: string; mentionedDate: Date | null },
+  ): { date: string; icon: string } => {
+    if (deviceReleased.mentionedDate) {
+      return {
+        date: new Date(deviceReleased.mentionedDate).toLocaleDateString(
+          "en-US",
+          {
+            month: "short",
+            day: "numeric",
+            year: "numeric",
+          },
+        ),
+        icon: "ph ph-calendar-check",
+      };
+    }
+    return {
+      date: deviceReleased.raw,
+      icon: "ph ph-calendar-slash",
+    };
+  };
+
   if (!device) {
     return (
       <div>
@@ -48,16 +70,17 @@ export default function DeviceDetail(props: PageProps) {
               </p>
             </div>
             <div>
-              <img
-                loading="lazy"
-                src={device.image.url}
-                alt={device.image.alt}
-                style="width: 100px; height: 100px; object-fit: contain;"
-              />
+              {device.image.url && (
+                <img
+                  loading="lazy"
+                  src={device.image.url}
+                  alt={device.image.alt ?? "A device image"}
+                  style="width: 100px; height: 100px; object-fit: contain;"
+                />
+              )}
             </div>
             <div style="display: flex; gap: 0.5rem;">
               <p>
-                <strong>Emulation:&nbsp;</strong>
                 <StarRating device={device} />
               </p>
             </div>
@@ -70,13 +93,19 @@ export default function DeviceDetail(props: PageProps) {
                 data-placement="bottom"
               >
                 <CurrencyIcon currencyCode={device.pricing.currency} />
-                {device.pricing.average} {device.pricing.currency}
+                {device.pricing.average}
               </span>
-              <span style={{ color: "var(--pico-color)" }}>
-                <i class="ph ph-calendar"></i>
-                <span>
-                  &nbsp;{device.released.raw}
-                </span>
+              <span
+                style={{ color: "var(--pico-color)" }}
+                data-tooltip={getReleaseDate(device.released).date}
+                data-placement="bottom"
+              >
+                <i class={getReleaseDate(device.released).icon}></i>
+                &nbsp;
+                {getReleaseDate(device.released).icon ===
+                    "ph ph-calendar-slash"
+                  ? "Expected"
+                  : getReleaseDate(device.released).date}
               </span>
             </div>
           </div>

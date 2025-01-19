@@ -12,22 +12,25 @@ export function PaginationNav({
   totalResults,
   searchQuery,
   searchCategory,
+  sortBy,
 }: PaginationNavProps) {
   return (
-    <div style="display: flex; justify-content: center;">
+    <div style="display: flex; justify-content: center; margin-top: 1rem; margin-bottom: 1rem;">
       <div style="display: flex; flex-direction: row; gap: 0.5rem; align-items: center;">
         {pageNumber > 1 && (
           <div>
             <a
-              href={`/devices?page=1&search=${searchQuery}&category=${searchCategory}`}
+              class="pagination-link"
+              href={`/devices?page=1&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}`}
             >
               <i class="ph-bold ph-caret-double-left"></i>
             </a>
 
             <a
+              class="pagination-link"
               href={`/devices?page=${
                 pageNumber - 1
-              }&search=${searchQuery}&category=${searchCategory}`}
+              }&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}`}
             >
               <i class="ph-bold ph-caret-left"></i>
             </a>
@@ -49,17 +52,19 @@ export function PaginationNav({
         {pageNumber < Math.ceil(totalResults / pageSize) && (
           <div>
             <a
+              class="pagination-link"
               href={`/devices?page=${
                 pageNumber + 1
-              }&search=${searchQuery}&category=${searchCategory}`}
+              }&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}`}
             >
               <i class="ph-bold ph-caret-right"></i>
             </a>
 
             <a
+              class="pagination-link"
               href={`/devices?page=${
                 Math.ceil(totalResults / pageSize)
-              }&search=${searchQuery}&category=${searchCategory}`}
+              }&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}`}
             >
               <i class="ph-bold ph-caret-double-right"></i>
             </a>

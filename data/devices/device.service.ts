@@ -1,11 +1,21 @@
 import { Device } from "../models/device.model.ts";
-import { DeviceParser } from "../source/device.parser.ts";
 import { RatingsService } from "./ratings.service.ts";
 
 export class DeviceService {
   private devices: Device[] = [];
   private static instance: DeviceService;
   private ratingsService = RatingsService.getInstance();
+  private staffPicks: string[] = [
+    "rg-405m",
+    "miyoo-mini-plus",
+    "rg-35xx-sp",
+    "retroid-pocket-5",
+    "retroid-pocket-mini",
+    "steam-deck-oled",
+    "miyoo-flip",
+    "rg-34xx",
+    "trimui-smart-brick",
+  ];
 
   private constructor() {
     this.loadDevices();
@@ -22,7 +32,7 @@ export class DeviceService {
     try {
       this.devices = JSON.parse(
         Deno.readTextFileSync("data/source/results/handhelds.json"),
-      ); // DeviceParser.parseHandheldsHtml("data/handhelds.html");
+      );
     } catch (error) {
       console.error("Failed to load devices:", error);
       this.devices = [];
@@ -37,10 +47,31 @@ export class DeviceService {
   public searchDevices(
     query: string,
     category: "all" | "low" | "mid" | "high" = "all",
-  ): Device[] {
+    sortBy:
+      | "all"
+      | "upcoming"
+      | "highly-rated"
+      | "staff-picks"
+      | "new-arrivals" = "all",
+    pageNumber: number = 1,
+    pageSize: number = 9,
+  ): { page: Device[]; totalAmountOfResults: number } {
     const lowerQuery = query.toLowerCase();
 
-    return this.devices.filter((device) => {
+    console.log(
+      "query",
+      query,
+      "category",
+      category,
+      "sortBy",
+      sortBy,
+      "pageNumber",
+      pageNumber,
+      "pageSize",
+      pageSize,
+    );
+
+    let filteredDevices = this.devices.filter((device) => {
       if (category === "low") {
         return device.pricing.category === "low" && (
           device.name.sanitized.toLowerCase().includes(lowerQuery) ||
@@ -72,6 +103,52 @@ export class DeviceService {
         device.os.raw.toLowerCase().includes(lowerQuery)
       );
     });
+
+    // not rly sorting, just filtering, rename later
+    if (sortBy === "upcoming") {
+      filteredDevices = filteredDevices.filter((device) =>
+        device.released.raw.toLowerCase().includes("upcoming")
+      );
+    } else {
+      filteredDevices = filteredDevices.filter((device) =>
+        !device.released.raw.toLowerCase().includes("upcoming")
+      );
+    }
+
+    // not rly sorting, just filtering, rename later
+    if (sortBy === "staff-picks") {
+      filteredDevices = filteredDevices.filter((device) =>
+        this.staffPicks.includes(device.name.sanitized)
+      );
+    }
+
+    const sortedDevices = filteredDevices.sort((a, b) => {
+      switch (sortBy) {
+        case "new-arrivals":
+          return a.released.mentionedDate - b.released.mentionedDate ?? -1;
+        case "highly-rated":
+          return b.performance?.normalizedRating -
+              a.performance?.normalizedRating ?? -1;
+        case "staff-picks":
+          return (
+            this.staffPicks.indexOf(a.name.sanitized) -
+            this.staffPicks.indexOf(b.name.sanitized)
+          );
+        default:
+          return 0;
+      }
+    });
+    console.log("sortedDevices", sortedDevices.length);
+
+    const devicesToReturn = sortedDevices.slice(
+      (pageNumber - 1) * pageSize,
+      pageNumber * pageSize,
+    );
+
+    return {
+      page: devicesToReturn,
+      totalAmountOfResults: sortedDevices.length,
+    };
   }
 
   public getDeviceByName(sanitizedName: string): Device | undefined {
@@ -100,15 +177,12 @@ export class DeviceService {
   }
 
   public getStaffPicks(): Device[] {
-    const staffPicks = [
-      "rg-405m",
-      "miyoo-mini-plus",
-      "rg-35xx-sp",
-      "steam-deck-oled",
-    ];
-
     return this.devices
-      .filter((device) => staffPicks.includes(device.name.sanitized))
+      .filter((device) => this.staffPicks.includes(device.name.sanitized))
+      .sort((a, b) =>
+        this.staffPicks.indexOf(a.name.sanitized) -
+        this.staffPicks.indexOf(b.name.sanitized)
+      )
       .slice(0, 4);
   }
 
@@ -116,6 +190,7 @@ export class DeviceService {
     const currentYear = new Date().getFullYear();
     return this.devices
       .filter((device) => {
+        if (!device.released.mentionedDate) return false;
         const mentionedDate = new Date(device.released.mentionedDate);
         if (!mentionedDate) return false;
         const year = mentionedDate.getFullYear();

@@ -32,7 +32,7 @@ export default function Home() {
           <h2>New Arrivals</h2>
           <div class="device-row-grid">
             {newArrivals.map((device) => <DeviceCardSmall device={device} />)}
-            <SeeMoreCard href="/devices" />
+            <SeeMoreCard href="/devices?sort=new-arrivals" />
           </div>
         </section>
 
@@ -41,7 +41,7 @@ export default function Home() {
           <h2>Staff Picks</h2>
           <div class="device-row-grid">
             {staffPicks.map((device) => <DeviceCardSmall device={device} />)}
-            <SeeMoreCard href="/devices" />
+            <SeeMoreCard href="/devices?sort=staff-picks" />
           </div>
         </section>
 
@@ -50,7 +50,7 @@ export default function Home() {
           <h2>Highly Rated</h2>
           <div class="device-row-grid">
             {highlyRated.map((device) => <DeviceCardSmall device={device} />)}
-            <SeeMoreCard href="/devices" />
+            <SeeMoreCard href="/devices?sort=highly-rated" />
           </div>
         </section>
 
@@ -59,7 +59,7 @@ export default function Home() {
           <h2>Upcoming</h2>
           <div class="device-row-grid">
             {upcoming.map((device) => <DeviceCardSmall device={device} />)}
-            <SeeMoreCard href="/devices" />
+            <SeeMoreCard href="/devices?sort=upcoming" />
           </div>
         </section>
       </main>

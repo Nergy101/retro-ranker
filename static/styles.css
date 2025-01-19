@@ -330,7 +330,6 @@ html {
   text-align: center;
 }
 
-a[data-current],
 .active {
   color: var(--pico-primary);
   font-weight: bold;
@@ -500,8 +499,10 @@ a[data-current],
 }
 
 .device-search-card:hover {
-  transition: transform 0.2s ease-in-out;
-  transform: scale(1.05);
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+  background-color: rgba(254, 182, 112, 0.2);
+  transform: scale(1.1);
 }
 
 code,
@@ -595,4 +596,14 @@ h6,
   @media (max-width: 320px) {
     max-width: 250px;
   }
+}
+
+.pagination-link {
+  color: var(--pico-contrast) !important;
+  text-decoration: none !important;
+}
+
+.pagination-link:hover {
+  text-decoration: underline !important;
+  color: var(--pico-primary) !important;
 }
