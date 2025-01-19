@@ -582,3 +582,17 @@ h6,
   margin-right: 0.25rem;
   display: inline-block;
 }
+
+.emulation-performance {
+  @media (max-width: 500px) {
+    max-width: 360px;
+  }
+
+  @media (max-width: 375px) {
+    max-width: 310px;
+  }
+
+  @media (max-width: 320px) {
+    max-width: 250px;
+  }
+}

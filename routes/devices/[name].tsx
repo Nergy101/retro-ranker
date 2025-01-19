@@ -64,7 +64,9 @@ export default function DeviceDetail(props: PageProps) {
             <div style="display: flex; align-items: center; flex-direction: column;">
               <span
                 style={{ color: "var(--pico-color)" }}
-                data-tooltip={`${device.pricing.category}: ${device.pricing.raw}`}
+                data-tooltip={`${device.pricing.category}: 
+                ${device.pricing.range?.min}-${device.pricing.range?.max} 
+                ${device.pricing.currency}`}
                 data-placement="bottom"
               >
                 <CurrencyIcon currencyCode={device.pricing.currency} />
@@ -131,7 +133,8 @@ export default function DeviceDetail(props: PageProps) {
                         <td>CPU</td>
                         <td>{device.cpu.name}</td>
                         <td>
-                          {device.cpu.cores} cores ({device.cpu.threads} threads) @ {device.cpu.clockSpeed}
+                          {device.cpu.cores} cores ({device.cpu.threads}{" "}
+                          threads) @ {device.cpu.clockSpeed}
                         </td>
                       </tr>
                       <tr>

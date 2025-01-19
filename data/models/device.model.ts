@@ -124,6 +124,10 @@ export interface Device {
   pricing: {
     raw: string;
     average: number;
+    range: {
+      min: number;
+      max: number;
+    };
     currency: string;
     category: string; // budget, mid, high
   };

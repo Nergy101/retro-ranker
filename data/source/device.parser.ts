@@ -37,9 +37,23 @@ export class DeviceParser {
     return icons.length ? icons : ["ph ph-empty"];
   }
 
-  private static parsePrices(priceText: string): number {
+  private static parseAveragePrice(priceText: string): number {
     const priceNumber = priceText.match(/\d+/)?.[0];
     return priceNumber ? parseInt(priceNumber) : 0;
+  }
+
+  private static parsePriceRange(
+    priceText: string,
+  ): { min: number; max: number } {
+    // prices are in the format of "100-200"
+    // or $050 - $75
+    // or $50 - $150
+    const priceRange = priceText.match(/\d+/g);
+
+    const lastPrice = priceRange?.[priceRange.length - 1];
+    const min = priceRange ? parseInt(priceRange[0]) : 0;
+    const max = lastPrice ? parseInt(lastPrice) : 0;
+    return { min, max };
   }
 
   private static getPricingCategory(priceNumber: number): string {
@@ -167,6 +181,10 @@ export class DeviceParser {
         pricing: {
           raw: "",
           average: 0,
+          range: {
+            min: 0,
+            max: 0,
+          },
           currency: "",
           category: "",
         },
@@ -189,6 +207,20 @@ export class DeviceParser {
               alt: null, // set later
             };
           }
+        }
+
+        if (colIndex === 76) {
+          const hrefList: string[] = [];
+
+          // Select all <a> elements and extract the href attributes
+          $(cell).find("a").each((index, element) => {
+            const href = $(element).attr("href");
+            if (href) {
+              hrefList.push(href);
+              console.log(href, device.name.sanitized);
+            }
+          });
+          device.vendorLinks = hrefList;
         }
 
         const value = $(cell).text().trim();
@@ -518,16 +550,20 @@ export class DeviceParser {
         device.colors = value.split(", ");
         break;
       case 70: {
-        const priceNumber = this.parsePrices(value);
-        device.pricing.average = priceNumber;
-        device.pricing.category = this.getPricingCategory(priceNumber);
+        const averagePrice = this.parseAveragePrice(value);
+        device.pricing.average = averagePrice;
+        device.pricing.category = this.getPricingCategory(averagePrice);
         break;
       }
       case 71: {
-        // const priceNumber = this.parsePrices(value);
+        const priceRange = this.parsePriceRange(value);
         device.pricing = {
           ...device.pricing,
           raw: value,
+          range: {
+            min: priceRange.min,
+            max: priceRange.max,
+          },
           currency: this.getPriceCurrency(value),
         };
         break;
@@ -536,12 +572,12 @@ export class DeviceParser {
       case 73:
       case 74:
       case 75:
-      case 76:
-        device.vendorLinks = [
-          ...(device.vendorLinks || []),
-          value == "-" ? null : value,
-        ].filter((link) => link !== null);
-        break;
+      // case 76:
+      //   device.vendorLinks = [
+      //     ...(device.vendorLinks || []),
+      //     value == "-" ? null : value,
+      //   ].filter((link) => link !== null);
+      //   break;
       case 77:
         device.pros = value;
         break;

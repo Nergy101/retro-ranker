@@ -13,7 +13,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
           <i class="ph ph-cpu"></i>
           Processing
         </h3>
-        <table>
+        <table class="striped">
           <tbody>
             {device.systemOnChip && (
               <tr>
@@ -57,7 +57,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
           <i class="ph ph-monitor"></i>
           Display
         </h3>
-        <table>
+        <table class="striped">
           <tbody>
             {device.screen.size && (
               <tr>
@@ -111,7 +111,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
           <i class="ph ph-ruler"></i>
           Physical
         </h3>
-        <table>
+        <table class="striped">
           <tbody>
             {device.dimensions && (
               <tr>
@@ -141,7 +141,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
           <i class="ph ph-cooler"></i>
           Cooling
         </h3>
-        <table>
+        <table class="striped">
           <tbody>
             <tr>
               <th>Heatsink</th>
@@ -169,7 +169,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
           <i class="ph ph-speaker-high"></i>
           Audio
         </h3>
-        <table>
+        <table class="striped">
           <tbody>
             {device.outputs.audioOutput && (
               <tr>
@@ -193,7 +193,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
           <i class="ph ph-game-controller"></i>
           Controls
         </h3>
-        <table>
+        <table class="striped">
           <tbody>
             {device.controls.dPad && (
               <tr>
@@ -241,7 +241,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
           <i class="ph ph-gear"></i>
           Miscellaneous
         </h3>
-        <table>
+        <table class="striped">
           <tbody>
             {device.colors && (
               <tr>
@@ -294,7 +294,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
             {device.vendorLinks && (
               <tr>
                 <th>Vendor Links</th>
-                <td>{device.vendorLinks.join(", ")}</td>
+                <td>{device.vendorLinks}</td>
               </tr>
             )}
             {device.shellMaterial && (
@@ -313,7 +313,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
           <i class="ph ph-wifi-high"></i>
           Connectivity
         </h3>
-        <table>
+        <table class="striped">
           <tbody>
             {device.connectivity && (
               <>
