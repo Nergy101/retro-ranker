@@ -6,14 +6,17 @@ export default function Home() {
   // Filter devices into categories
   const deviceService = DeviceService.getInstance();
   const newArrivals = deviceService.getNewArrivals();
-  const staffPicks = deviceService.getStaffPicks();
+  const personalPicks = deviceService.getpersonalPicks();
   const highlyRated = deviceService.getHighlyRated();
   const upcoming = deviceService.getUpcoming();
   return (
     <div>
       <header>
         <hgroup style={{ textAlign: "center" }}>
-          <h1>Welcome to <span style={{ color: "var(--pico-primary)" }}>Retro Ranker</span></h1>
+          <h1>
+            Welcome to{" "}
+            <span style={{ color: "var(--pico-primary)" }}>Retro Ranker</span>
+          </h1>
           <p>
             Find the perfect device for your gaming needs.
           </p>
@@ -36,21 +39,21 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Staff Picks Section */}
-        <section style="margin-top: 2rem;">
-          <h2>Staff Picks</h2>
-          <div class="device-row-grid">
-            {staffPicks.map((device) => <DeviceCardSmall device={device} />)}
-            <SeeMoreCard href="/devices?sort=staff-picks" />
-          </div>
-        </section>
-
         {/* Highly Rated Section */}
         <section style="margin-top: 2rem;">
           <h2>Highly Rated</h2>
           <div class="device-row-grid">
             {highlyRated.map((device) => <DeviceCardSmall device={device} />)}
             <SeeMoreCard href="/devices?sort=highly-rated" />
+          </div>
+        </section>
+        
+        {/* personal Picks Section */}
+        <section style="margin-top: 2rem;">
+          <h2>Personal Picks</h2>
+          <div class="device-row-grid">
+            {personalPicks.map((device) => <DeviceCardSmall device={device} />)}
+            <SeeMoreCard href="/devices?sort=personal-picks" />
           </div>
         </section>
 

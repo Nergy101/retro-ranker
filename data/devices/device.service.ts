@@ -5,7 +5,7 @@ export class DeviceService {
   private devices: Device[] = [];
   private static instance: DeviceService;
   private ratingsService = RatingsService.getInstance();
-  private staffPicks: string[] = [
+  private personalPicks: string[] = [
     "rg-405m",
     "miyoo-mini-plus",
     "rg-35xx-sp",
@@ -51,7 +51,7 @@ export class DeviceService {
       | "all"
       | "upcoming"
       | "highly-rated"
-      | "staff-picks"
+      | "personal-picks"
       | "new-arrivals" = "all",
     pageNumber: number = 1,
     pageSize: number = 9,
@@ -116,9 +116,9 @@ export class DeviceService {
     }
 
     // not rly sorting, just filtering, rename later
-    if (sortBy === "staff-picks") {
+    if (sortBy === "personal-picks") {
       filteredDevices = filteredDevices.filter((device) =>
-        this.staffPicks.includes(device.name.sanitized)
+        this.personalPicks.includes(device.name.sanitized)
       );
     }
 
@@ -129,10 +129,10 @@ export class DeviceService {
         case "highly-rated":
           return b.performance?.normalizedRating -
               a.performance?.normalizedRating ?? -1;
-        case "staff-picks":
+        case "personal-picks":
           return (
-            this.staffPicks.indexOf(a.name.sanitized) -
-            this.staffPicks.indexOf(b.name.sanitized)
+            this.personalPicks.indexOf(a.name.sanitized) -
+            this.personalPicks.indexOf(b.name.sanitized)
           );
         default:
           return 0;
@@ -176,12 +176,12 @@ export class DeviceService {
       .slice(0, limit);
   }
 
-  public getStaffPicks(): Device[] {
+  public getpersonalPicks(): Device[] {
     return this.devices
-      .filter((device) => this.staffPicks.includes(device.name.sanitized))
+      .filter((device) => this.personalPicks.includes(device.name.sanitized))
       .sort((a, b) =>
-        this.staffPicks.indexOf(a.name.sanitized) -
-        this.staffPicks.indexOf(b.name.sanitized)
+        this.personalPicks.indexOf(a.name.sanitized) -
+        this.personalPicks.indexOf(b.name.sanitized)
       )
       .slice(0, 4);
   }

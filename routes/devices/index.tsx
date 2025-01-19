@@ -14,7 +14,7 @@ export default function DevicesIndex(props: PageProps) {
     | "all"
     | "upcoming"
     | "highly-rated"
-    | "staff-picks" ||
+    | "personal-picks" ||
     "all";
   const pageSize = 9;
 
