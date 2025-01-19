@@ -5,27 +5,47 @@ interface DeviceSearchFormProps {
   initialSearch: string;
   initialCategory: string;
   initialPage: number;
+  initialSort: string;
+  initialFilter: string;
 }
 
 export function DeviceSearchForm(
-  { initialSearch, initialCategory, initialPage }: DeviceSearchFormProps,
+  { initialSearch, initialCategory, initialPage, initialSort, initialFilter }:
+    DeviceSearchFormProps,
 ) {
   const searchQuery = useSignal(initialSearch);
   const category = useSignal(initialCategory);
+  const sort = useSignal(initialSort);
+  const filter = useSignal(initialFilter);
+
   const page = useSignal(initialPage);
   const viewportWidth = useSignal(globalThis.innerWidth);
 
   const handleCategoryChange = (e: Event) => {
     const select = e.target as HTMLSelectElement;
-    page.value = 1; 
+    page.value = 1;
     category.value = select.value;
-    
+
     // Update the page input value explicitly
-    const pageInput = select.form?.querySelector('input[name="page"]') as HTMLInputElement;
+    const pageInput = select.form?.querySelector(
+      'input[name="page"]',
+    ) as HTMLInputElement;
     if (pageInput) {
-        pageInput.value = page.value.toString();
+      pageInput.value = page.value.toString();
     }
 
+    select.form?.submit();
+  };
+
+  const handleSortChange = (e: Event) => {
+    const select = e.target as HTMLSelectElement;
+    sort.value = select.value;
+    select.form?.submit();
+  };
+
+  const handleFilterChange = (e: Event) => {
+    const select = e.target as HTMLSelectElement;
+    filter.value = select.value;
     select.form?.submit();
   };
 
@@ -65,11 +85,33 @@ export function DeviceSearchForm(
           value={category}
           onChange={handleCategoryChange}
         >
-          <option value="all">All</option>
+          <option value="all">Price</option>
           <option value="low">Budget</option>
           <option value="mid">Mid-Range</option>
           <option value="high">High-End</option>
         </select>
+        <div>
+          <select
+            name="sort"
+            aria-label="Sort by"
+            value={sort}
+            onChange={handleSortChange}
+          >
+            <option value="all">Sort</option>
+            <option value="highly-rated">Highly Rated</option>
+            <option value="new-arrivals">New Arrivals</option>
+          </select>
+          <select
+            name="filter"
+            aria-label="Filter by"
+            value={filter}
+            onChange={handleFilterChange}
+          >
+            <option value="all">Filter</option>
+            <option value="upcoming">Upcoming</option>
+            <option value="personal-picks">Personal Picks</option>
+          </select>
+        </div>
         <input type="submit" value="Search" style={{ borderRadius: "2em" }} />
       </form>
     );
@@ -100,6 +142,26 @@ export function DeviceSearchForm(
         <option value="low">Budget</option>
         <option value="mid">Mid-Range</option>
         <option value="high">High-End</option>
+      </select>
+      <select
+        name="sort"
+        aria-label="Sort by"
+        value={sort}
+        onChange={handleSortChange}
+      >
+        <option value="all">All</option>
+        <option value="highly-rated">Highly Rated</option>
+        <option value="new-arrivals">New Arrivals</option>
+      </select>
+      <select
+        name="filter"
+        aria-label="Filter by"
+        value={filter}
+        onChange={handleFilterChange}
+      >
+        <option value="all">All</option>
+        <option value="upcoming">Upcoming</option>
+        <option value="personal-picks">Personal Picks</option>
       </select>
       <input type="submit" value="Search" />
     </form>

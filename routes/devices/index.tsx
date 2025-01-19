@@ -12,10 +12,16 @@ export default function DevicesIndex(props: PageProps) {
   const pageNumber = parseInt(props.url?.searchParams?.get("page") || "1");
   const sortBy = props.url?.searchParams?.get("sort") as
     | "all"
-    | "upcoming"
     | "highly-rated"
+    | "new-arrivals" ||
+    "all";
+
+  const filter = props.url?.searchParams?.get("filter") as
+    | "all"
+    | "upcoming"
     | "personal-picks" ||
     "all";
+
   const pageSize = 9;
 
   const allDevices = deviceService.getAllDevices();
@@ -24,6 +30,7 @@ export default function DevicesIndex(props: PageProps) {
     searchQuery,
     searchCategory as "all" | "low" | "mid" | "high",
     sortBy,
+    filter,
     pageNumber,
     pageSize,
   );
@@ -44,6 +51,8 @@ export default function DevicesIndex(props: PageProps) {
       <DeviceSearchForm
         initialSearch={searchQuery}
         initialCategory={searchCategory}
+        initialSort={sortBy}
+        initialFilter={filter}
         initialPage={pageNumber}
       />
 
@@ -56,6 +65,7 @@ export default function DevicesIndex(props: PageProps) {
             searchQuery={searchQuery}
             searchCategory={searchCategory}
             sortBy={sortBy}
+            filter={filter}
           />
         )
         : null}
@@ -94,6 +104,7 @@ export default function DevicesIndex(props: PageProps) {
               searchQuery={searchQuery}
               searchCategory={searchCategory}
               sortBy={sortBy}
+              filter={filter}
             />
           </div>
         )

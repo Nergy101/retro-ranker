@@ -49,10 +49,12 @@ export class DeviceService {
     category: "all" | "low" | "mid" | "high" = "all",
     sortBy:
       | "all"
-      | "upcoming"
       | "highly-rated"
-      | "personal-picks"
       | "new-arrivals" = "all",
+    filter:
+      | "all"
+      | "upcoming"
+      | "personal-picks" = "all",
     pageNumber: number = 1,
     pageSize: number = 9,
   ): { page: Device[]; totalAmountOfResults: number } {
@@ -92,7 +94,7 @@ export class DeviceService {
     });
 
     // not rly sorting, just filtering, rename later
-    if (sortBy === "upcoming") {
+    if (filter === "upcoming") {
       filteredDevices = filteredDevices.filter((device) =>
         device.released.raw.toLowerCase().includes("upcoming")
       );
@@ -103,7 +105,7 @@ export class DeviceService {
     }
 
     // not rly sorting, just filtering, rename later
-    if (sortBy === "personal-picks") {
+    if (filter === "personal-picks") {
       filteredDevices = filteredDevices.filter((device) =>
         this.personalPicks.includes(device.name.sanitized)
       );
@@ -200,7 +202,10 @@ export class DeviceService {
 
   public getHighlyRated(): Device[] {
     return this.devices
-      .filter((device) => device.performance?.normalizedRating >= 9.0)
+      .filter((device) =>
+        device.performance?.normalizedRating >= 9.0 &&
+        !device.released.raw.toLowerCase().includes("upcoming")
+      )
       .sort((a, b) =>
         b.performance?.normalizedRating -
         a.performance?.normalizedRating

@@ -4,6 +4,8 @@ interface PaginationNavProps {
   totalResults: number;
   searchQuery: string;
   searchCategory: string;
+  sortBy: string;
+  filter: string;
 }
 
 export function PaginationNav({
@@ -13,6 +15,7 @@ export function PaginationNav({
   searchQuery,
   searchCategory,
   sortBy,
+  filter,
 }: PaginationNavProps) {
   return (
     <div style="display: flex; justify-content: center; margin-top: 1rem; margin-bottom: 1rem;">
@@ -21,7 +24,7 @@ export function PaginationNav({
           <div>
             <a
               class="pagination-link"
-              href={`/devices?page=1&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}`}
+              href={`/devices?page=1&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}`}
             >
               <i class="ph-bold ph-caret-double-left"></i>
             </a>
@@ -30,7 +33,7 @@ export function PaginationNav({
               class="pagination-link"
               href={`/devices?page=${
                 pageNumber - 1
-              }&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}`}
+              }&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}`}
             >
               <i class="ph-bold ph-caret-left"></i>
             </a>
@@ -55,7 +58,7 @@ export function PaginationNav({
               class="pagination-link"
               href={`/devices?page=${
                 pageNumber + 1
-              }&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}`}
+              }&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}`}
             >
               <i class="ph-bold ph-caret-right"></i>
             </a>
@@ -64,7 +67,7 @@ export function PaginationNav({
               class="pagination-link"
               href={`/devices?page=${
                 Math.ceil(totalResults / pageSize)
-              }&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}`}
+              }&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}`}
             >
               <i class="ph-bold ph-caret-double-right"></i>
             </a>

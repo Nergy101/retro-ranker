@@ -53,7 +53,7 @@ export default function Home() {
           <h2>Personal Picks</h2>
           <div class="device-row-grid">
             {personalPicks.map((device) => <DeviceCardSmall device={device} />)}
-            <SeeMoreCard href="/devices?sort=personal-picks" />
+            <SeeMoreCard href="/devices?filter=personal-picks" />
           </div>
         </section>
 
@@ -62,7 +62,7 @@ export default function Home() {
           <h2>Upcoming</h2>
           <div class="device-row-grid">
             {upcoming.map((device) => <DeviceCardSmall device={device} />)}
-            <SeeMoreCard href="/devices?sort=upcoming" />
+            <SeeMoreCard href="/devices?filter=upcoming" />
           </div>
         </section>
       </main>
