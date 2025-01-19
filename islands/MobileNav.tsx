@@ -40,6 +40,7 @@ export function MobileNav({ pathname }: { pathname: string }) {
             style={{ height: "3em" }}
           />
         </a>
+
         <div
           style={{
             display: "flex",
@@ -48,6 +49,16 @@ export function MobileNav({ pathname }: { pathname: string }) {
             gap: "0.5rem",
           }}
         >
+          <a href="/devices">
+            <i class="ph-bold ph-scroll"></i>
+          </a>
+          <a href="/about">
+            <i class="ph-bold ph-info"></i>
+          </a>
+          <a href="/contact">
+            <i class="ph-bold ph-chat-text"></i>
+          </a>
+
           <button
             class="burger-menu"
             onClick={() => {
@@ -56,7 +67,7 @@ export function MobileNav({ pathname }: { pathname: string }) {
             }}
             aria-label="Toggle menu"
           >
-            <i class="ph ph-list"></i>
+            <i class="ph ph-magnifying-glass"></i>
           </button>
 
           <div style={{ padding: "0 0 0.5rem 0" }}>
@@ -83,7 +94,7 @@ export function MobileNav({ pathname }: { pathname: string }) {
               <input type="submit" value="Search" />
             </form>
           </li>
-          {navigationItems.map((item) => (
+          {/* {navigationItems.map((item) => (
             <li style={{ padding: "0" }}>
               <a
                 href={item.href}
@@ -95,7 +106,7 @@ export function MobileNav({ pathname }: { pathname: string }) {
                 &nbsp;{item.label}
               </a>
             </li>
-          ))}
+          ))} */}
         </ul>
       </div>
     </nav>
