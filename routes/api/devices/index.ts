@@ -4,7 +4,6 @@ import { DeviceService } from "../../../services/devices/device.service.ts";
 export const handler = {
   async GET(req: Request, ctx: FreshContext) {
     const params = new URLSearchParams(ctx.url.search);
-    console.log("API", params);
     const searchQuery = params.get("search");
     const category = params.get("category") as
       | "all"

@@ -133,8 +133,6 @@ export class DeviceService {
       pageNumber * pageSize,
     );
 
-    console.log(devicesToReturn);
-
     return {
       page: devicesToReturn,
       totalAmountOfResults: sortedDevices.length,
