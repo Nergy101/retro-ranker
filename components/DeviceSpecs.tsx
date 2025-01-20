@@ -1,7 +1,7 @@
 import { Device } from "../data/models/device.model.ts";
 import {
-  PiFan,
   PiCpu,
+  PiFan,
   PiGameController,
   PiGear,
   PiMonitor,
@@ -277,34 +277,50 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
                 <td>{device.performance.maxEmulation}</td>
               </tr>
             )}
-            {device.reviews.writtenReview && (
+            {device.reviews.writtenReviews.length > 0 && (
               <tr>
-                <th>Written Review</th>
-                <td>{device.reviews.writtenReview}</td>
+                <th>Written Reviews</th>
+                <td>
+                  {device.reviews.writtenReviews.map((review) => (
+                    <a href={review}>{new URL(review).hostname}</a>
+                  ))}
+                </td>
               </tr>
             )}
-            {device.reviews.videoReviews && (
+            {device.reviews.videoReviews.length > 0 && (
               <tr>
                 <th>Video Reviews</th>
-                <td>{device.reviews.videoReviews.join(", ")}</td>
+                <td>
+                  {device.reviews.videoReviews.map((review) => (
+                    <a href={review}>{new URL(review).hostname}</a>
+                  ))}
+                </td>
               </tr>
             )}
-            {device.pros && (
+            {device.pros.length > 0 && (
               <tr>
                 <th>Pros</th>
-                <td>{device.pros}</td>
+                <td>
+                  {device.pros.map((pro) => <span>{pro}</span>)}
+                </td>
               </tr>
             )}
-            {device.cons && (
+            {device.cons.length > 0 && (
               <tr>
                 <th>Cons</th>
-                <td>{device.cons}</td>
+                <td>
+                  {device.cons.map((con) => <span>{con}</span>)}
+                </td>
               </tr>
             )}
-            {device.vendorLinks && (
+            {device.vendorLinks.length > 0 && (
               <tr>
                 <th>Vendor Links</th>
-                <td>{device.vendorLinks}</td>
+                <td>
+                  {device.vendorLinks.map((link) => (
+                    <a href={link}>{new URL(link).hostname}</a>
+                  ))}
+                </td>
               </tr>
             )}
             {device.shellMaterial && (

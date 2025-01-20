@@ -118,7 +118,7 @@ export interface Device {
   // Reviews
   reviews: {
     videoReviews: string[];
-    writtenReview: string;
+    writtenReviews: string[];
   };
 
   pricing: {

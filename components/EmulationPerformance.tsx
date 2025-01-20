@@ -119,7 +119,17 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
                 <td>{device.cooling.raw}</td>
               </tr>
             )}
-            {device.vendorLinks && (
+            {device.reviews.writtenReviews.length > 0 && (
+              <tr>
+                <th>Written Reviews</th>
+                <td colSpan={3}>
+                  {device.reviews.writtenReviews.map((review) => (
+                    <a href={review}>{new URL(review).hostname}</a>
+                  ))}
+                </td>
+              </tr>
+            )}
+            {device.vendorLinks.length > 0 && (
               <tr>
                 <th>Vendor Links</th>
                 <td colSpan={3}>

@@ -176,7 +176,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -188,12 +188,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -372,7 +368,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.amazon.com/dp/B0DLPYC184"
+      ]
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -384,12 +382,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -568,7 +562,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.amazon.com/dp/B0DLQG6NXM"
+      ]
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -580,12 +576,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -767,7 +759,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "?",
@@ -779,12 +771,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -967,7 +955,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$400 - $700",
@@ -979,12 +967,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -1167,7 +1151,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -1179,12 +1163,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -1366,7 +1346,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -1378,12 +1358,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -1562,7 +1538,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://gpd.hk/gpdwinmini2025"
+      ]
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -1574,12 +1552,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -1758,7 +1732,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -1770,12 +1744,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -1956,7 +1926,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "?",
@@ -1968,12 +1938,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -2152,7 +2118,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "?",
@@ -2164,12 +2130,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -2348,7 +2310,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "?",
@@ -2360,12 +2322,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -2544,7 +2502,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "?",
@@ -2556,12 +2514,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -2740,7 +2694,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "?",
@@ -2752,12 +2706,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -2936,7 +2886,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "?",
@@ -2948,12 +2898,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       "Built in stand"
@@ -3132,7 +3078,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "?",
@@ -3144,12 +3090,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -3330,7 +3272,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$300 - $400,$400 - $600",
@@ -3342,12 +3284,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       "Same sticks as other Odin 2 models",
@@ -3530,7 +3468,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -3542,12 +3480,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -3729,7 +3663,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://aliexpress.com/item/1005008262657479.html"
+      ]
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -3741,12 +3677,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -3926,7 +3858,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -3938,12 +3870,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -4122,7 +4050,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -4134,12 +4062,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -4322,7 +4246,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/3256808046536821.html"
+      ]
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -4334,12 +4260,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -4522,7 +4444,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.us/item/3256807885960684.html"
+      ]
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -4534,9 +4458,7 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "\"D-pad's not so good; Looks like a R36S clone; Screen color quality not so vivid and bright\""
     ],
@@ -4722,7 +4644,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://minixpc.com/products/onexplayer-f1-pro-eva-3-in-1-handheld-gaming-pc-amd-ryzen-ai-9-hx-370-32gb-1tb-2tb-ssd?variant=44836699046122"
+      ]
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -4734,12 +4658,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -4920,7 +4840,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$300 - $400,$400 - $700",
@@ -4932,12 +4852,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -5117,7 +5033,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$400 - $700",
@@ -5129,12 +5045,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -5315,7 +5227,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.us/item/3256807908546093.html"
+      ]
     },
     "pricing": {
       "raw": "$150 - $200",
@@ -5327,12 +5241,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -5517,7 +5427,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/1005008284291789.html"
+      ]
     },
     "pricing": {
       "raw": "$200 - $300",
@@ -5529,12 +5441,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       "Full glass front"
@@ -5716,7 +5624,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://mechdiy.com/products/trimui-brick-retro-handheld-game-console"
+      ]
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -5728,12 +5638,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [
       "https://www.litnxt.com/products/litnxt-trimui-brick-3-2-inch-retro-handheld-game-console-presale-oct-20"
     ],
@@ -5916,7 +5822,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -5928,12 +5834,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -6115,7 +6017,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -6127,12 +6029,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -6311,7 +6209,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.overclockers.co.uk/zotac-zone-portable-handheld-gaming-console-lap-ztc-03011.html"
+      ]
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -6323,12 +6223,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [
       "https://www.amazon.de/dp/B0DH2SFGGD?ref=cm_sw_r_cso_wa_apan_dp_J419QXKYVNKBGAEZ2MHW_2&ref_=cm_sw_r_cso_wa_apan_dp_J419QXKYVNKBGAEZ2MHW_2&skipTwisterOG=1&social_share=cm_sw_r_cso_wa_apan_dp_J419QXKYVNKBGAEZ2MHW_2&starsLeft=1"
     ],
@@ -6516,7 +6412,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.gogamegeek.com/Latest-GKD-BUBBLE-Handheld-Game-Console-p2572896.html?variant=15461796"
+      ]
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -6528,12 +6426,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -6719,7 +6613,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$150 - $200",
@@ -6731,12 +6625,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       "Full glass front"
@@ -6917,7 +6807,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.ayaneo.com/product/AYANEO-Pocket-Micro"
+      ]
     },
     "pricing": {
       "raw": "$150 - $200,$200 - $300",
@@ -6929,9 +6821,7 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "No headphone jack"
     ],
@@ -7115,7 +7005,10 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.us/item/3256807541525107.html",
+        "https://www.aliexpress.us/item/3256807549781119.html"
+      ]
     },
     "pricing": {
       "raw": "$150 - $200",
@@ -7129,8 +7022,8 @@
     },
     "pros": [
       "\"High quality hall effect joysticks",
-      "they learned from the mistakes in the rg cube",
-      "software support seems to be stable and with no problems so far\""
+      " they learned from the mistakes in the rg cube",
+      " software support seems to be stable and with no problems so far\""
     ],
     "cons": [
       "\"Early review models show a slightly yellow tint on the screen",
@@ -7317,7 +7210,12 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.us/item/3256807482380197.html",
+        "https://www.aliexpress.us/item/3256807482222750.html",
+        "https://www.aliexpress.us/item/3256807482707837.html",
+        "https://www.aliexpress.us/item/3256807482304956.html"
+      ]
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -7329,12 +7227,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -7516,7 +7410,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -7528,12 +7422,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -7715,7 +7605,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -7727,12 +7617,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -7913,7 +7799,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.us/item/3256807394475211.html"
+      ]
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -7925,12 +7813,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -8112,7 +7996,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$150 - $200,$300 - $400",
@@ -8124,12 +8008,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -8310,7 +8190,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://zpocket-game.cn/product/zpg-a1-unicorn/"
+      ]
     },
     "pricing": {
       "raw": "$100 - $150",
@@ -8322,12 +8204,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -8508,7 +8386,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -8520,12 +8398,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -8708,7 +8582,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$050 - $075",
@@ -8720,12 +8594,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -8906,7 +8776,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.keepretro.com/products/xu-mini-m?aff=29"
+      ]
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -8918,12 +8790,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -9102,7 +8970,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.bestbuy.com/site/asus-rog-ally-x-7-120hz-fhd-1080p-gaming-handheld-amd-ryzen-z1-extreme-processor-1tb-black/6583218.p?loc=asus_rogally_6583218_ROG_PDP&ref=186&skuId=6583218"
+      ]
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -9114,12 +8984,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -9300,7 +9166,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/3256806695891458.html"
+      ]
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -9312,12 +9180,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -9496,7 +9360,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -9508,12 +9372,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -9695,7 +9555,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.us/item/3256807287588339.html"
+      ]
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -9707,12 +9569,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -9892,7 +9750,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$300 - $400",
@@ -9904,12 +9762,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -10092,7 +9946,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.gogamegeek.com/Preloaded-Games-Latest-Powkiddy-V10-Handheld-Game-Console-p2522071.html"
+      ]
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -10104,12 +9960,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -10294,7 +10146,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/3256806874594586.html"
+      ]
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -10306,12 +10160,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -10493,7 +10343,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.us/item/3256806942702270.html"
+      ]
     },
     "pricing": {
       "raw": "$150 - $200",
@@ -10505,9 +10357,7 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Some screens have light bleeding"
     ],
@@ -10691,7 +10541,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://gpd.hk/gpdwinmax2"
+      ]
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -10703,12 +10555,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -10888,7 +10736,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://ayaneo.com/product/AYANEO-Pocket-S.html"
+      ]
     },
     "pricing": {
       "raw": "$400 - $700",
@@ -10900,12 +10750,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -11087,7 +10933,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -11099,9 +10945,7 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Awful feeling controls sunken in too much into shell"
     ],
@@ -11289,7 +11133,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.us/item/3256806437742047.html"
+      ]
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -11301,9 +11147,7 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Firm buttons"
     ],
@@ -11488,7 +11332,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.keepretro.com/products/miyoo-a30"
+      ]
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -11691,7 +11537,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -11703,12 +11549,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -11889,7 +11731,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -11901,12 +11743,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -12088,7 +11926,10 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.us/item/3256806237476248.html",
+        "https://www.aliexpress.us/item/3256806697124454.html"
+      ]
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -12102,8 +11943,8 @@
     },
     "pros": [
       "Good pivot on dpad",
-      "minimal false diagonals",
-      "headphone jack"
+      " minimal false diagonals",
+      " headphone jack"
     ],
     "cons": [
       "Tiny face buttons",
@@ -12294,7 +12135,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.us/item/3256806693318643.html"
+      ]
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -12306,12 +12149,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -12493,7 +12332,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -12505,12 +12344,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -12690,7 +12525,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -12702,12 +12537,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -12887,7 +12718,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -12899,12 +12730,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -13085,7 +12912,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -13097,12 +12924,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -13283,7 +13106,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -13295,12 +13118,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -13479,7 +13298,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -13676,7 +13495,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.us/item/3256806348218009.html"
+      ]
     },
     "pricing": {
       "raw": "$150 - $200",
@@ -13688,9 +13509,7 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Glossy plastic on Blue model"
     ],
@@ -13877,7 +13696,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -13889,12 +13708,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -14073,7 +13888,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://ameridroid.com/products/gameforce-2?variant=46825043067159"
+      ]
     },
     "pricing": {
       "raw": "$200 - $300",
@@ -14085,12 +13902,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       "RK3588 performance test in SBC"
@@ -14273,7 +14086,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://aokzoestore.com/products/aokzoe-a2-7840u-handheld"
+      ]
     },
     "pricing": {
       "raw": "$400 - $700,$700 - $2000",
@@ -14285,12 +14100,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -14473,7 +14284,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://ayaneo-shop.myshopify.com/products/ayaneo-next-lite-4500u?variant=44490380771573"
+      ]
     },
     "pricing": {
       "raw": "$300 - $400",
@@ -14485,9 +14298,7 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "No MicroSD slot"
     ],
@@ -14669,7 +14480,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -14681,12 +14492,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -14870,7 +14677,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$100 - $150",
@@ -14882,12 +14689,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -15068,7 +14871,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.meteorish.com/"
+      ]
     },
     "pricing": {
       "raw": "$400 - $700,$700 - $2000",
@@ -15080,12 +14885,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -15269,7 +15070,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.us/item/3256806449257958.html"
+      ]
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -15281,12 +15084,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [
       "https://item.taobao.com/item.htm?id=758060248370"
     ],
@@ -15472,7 +15271,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$150 - $200",
@@ -15484,9 +15283,7 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Poor battery life"
     ],
@@ -15670,7 +15467,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.us/item/3256806215088559.html"
+      ]
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -15682,12 +15481,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -15867,7 +15662,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.gogamegeek.com/New-R43-PRO-Retro-Handheld-Game-Console-p2455855.html"
+      ]
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -15879,12 +15676,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -16066,7 +15859,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.us/item/3256806383919579.html"
+      ]
     },
     "pricing": {
       "raw": "$0 - $050",
@@ -16078,12 +15873,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -16262,7 +16053,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -16274,12 +16065,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -16461,7 +16248,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -16473,12 +16260,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       "Backlit RGB keyboard lights"
@@ -16660,7 +16443,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.us/item/3256805963187696.html"
+      ]
     },
     "pricing": {
       "raw": "$050 - $075",
@@ -16672,12 +16457,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -16858,7 +16639,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -16870,12 +16651,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       "Has an external GPU docking port",
@@ -17057,7 +16834,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -17069,12 +16846,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -17256,7 +17029,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.ebay.com/itm/314947771622"
+      ]
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -17270,7 +17045,7 @@
     },
     "pros": [
       "6 buttons",
-      "fairly ergonomical"
+      " fairly ergonomical"
     ],
     "cons": [
       "no JELOS support",
@@ -17455,7 +17230,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.ebay.com/itm/314947771622"
+      ]
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -17469,7 +17246,7 @@
     },
     "pros": [
       "6 buttons",
-      "fairly ergonomical"
+      " fairly ergonomical"
     ],
     "cons": [
       "no JELOS support",
@@ -17658,7 +17435,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$400 - $700",
@@ -17670,12 +17447,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       "Dock (sold separately) has: DisplayPort 1.4",
@@ -17860,7 +17633,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.keepretro.com/products/xu10?variant=43772026126498&aff=29"
+      ]
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -17872,12 +17647,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -18058,7 +17829,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://mechdiy.com/collections/trimui/products/trimui-smart-pro-retro-handheld-game-console"
+      ]
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -18070,12 +17843,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [
       "https://powkiddy.com/products/pre-sale-trimui-smart-pro-console"
     ],
@@ -18259,7 +18028,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -18273,7 +18042,7 @@
     },
     "pros": [
       "low price",
-      "ArkOS compatibility"
+      " ArkOS compatibility"
     ],
     "cons": [
       "very stiff d-pad and face buttons"
@@ -18456,7 +18225,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.bestbuy.com/site/lenovo-legion-go-8-8-144hz-wqxga-gaming-handheld-amd-ryzen-z1-extreme-16gb-with-512-gb-ssd-shadow-black/6559605.p?skuId=6559605"
+      ]
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -18468,12 +18239,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -18656,7 +18423,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$300 - $400",
@@ -18668,12 +18435,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -18855,7 +18618,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.bestbuy.com/site/ayaneo-kun-8-4-1600p-gaming-handheld-amd-ryzen-7-7840u-16gb-ram-with-512gb-ssd-black-feather/6584448.p?skuId=6584448"
+      ]
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -18867,12 +18632,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       "Kickstand"
@@ -19053,7 +18814,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.us/item/3256805845546894.html"
+      ]
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -19067,7 +18830,7 @@
     },
     "pros": [
       "low cost",
-      "big 16:9 screen"
+      " big 16:9 screen"
     ],
     "cons": [
       "poor build quality"
@@ -19250,7 +19013,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$300 - $400",
@@ -19262,12 +19025,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -19451,7 +19210,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "-",
@@ -19463,12 +19222,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       "Has 5 RGB lights",
@@ -19652,7 +19407,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -19664,12 +19419,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -19849,7 +19600,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -19863,7 +19614,7 @@
     },
     "pros": [
       "\"Native\" landscape display (portrait screen but hardware rotated",
-      "not software)"
+      " not software)"
     ],
     "cons": [
       "No hall joysticks (ALPS instead)"
@@ -20048,7 +19799,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.us/item/3256805688523320.html"
+      ]
     },
     "pricing": {
       "raw": "$100 - $150",
@@ -20060,12 +19813,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -20250,7 +19999,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -20262,12 +20011,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -20451,7 +20196,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$200 - $300",
@@ -20463,12 +20208,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -20652,7 +20393,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.goretroid.com/products/retroid-pocket-2s-metal-edition-handheld"
+      ]
     },
     "pricing": {
       "raw": "$100 - $150",
@@ -20666,8 +20409,8 @@
     },
     "pros": [
       "price/performance ratio",
-      "touchscreen",
-      "improved controls"
+      " touchscreen",
+      " improved controls"
     ],
     "cons": [
       "4:3 screen",
@@ -20851,7 +20594,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -20863,12 +20606,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -21052,7 +20791,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://ayaneo.com/product/AYANEOAIR1S.html"
+      ]
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -21064,12 +20805,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -21250,7 +20987,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -21262,12 +20999,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -21447,7 +21180,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.kickstarter.com/projects/abxylute/abxylute-cloud-gaming-handheld-console"
+      ]
     },
     "pricing": {
       "raw": "$200 - $300",
@@ -21459,12 +21194,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -21651,7 +21382,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://ktr.la/shop"
+      ]
     },
     "pricing": {
       "raw": "$200 - $300",
@@ -21663,12 +21396,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [
       "https://www.aliexpress.us/item/3256805652242660.html"
     ],
@@ -21853,7 +21582,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.us/item/3256806127264858.html"
+      ]
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -21865,12 +21596,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -22054,7 +21781,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$100 - $150",
@@ -22066,12 +21793,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -22252,7 +21975,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.us/item/3256805564048897.html"
+      ]
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -22266,7 +21991,7 @@
     },
     "pros": [
       "The price. Easy to use with big icon. Screen look good",
-      "good colors (with the good position). Good Speaker. Quick launch ~10/15 seconds. Battery charging with USB C"
+      " good colors (with the good position). Good Speaker. Quick launch ~10/15 seconds. Battery charging with USB C"
     ],
     "cons": [
       "Cross is horrible to use. Shoulder Buttons not configured in game (need passed by the mapping menu for each games). Screen Angle of view not really good. A/B/X/Y buttons with too much depth (unplayable for fighting games). SD card with a special partition",
@@ -22461,7 +22186,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$150 - $200",
@@ -22473,12 +22198,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -22660,7 +22381,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://aokzoestore.com/"
+      ]
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -22672,12 +22395,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       "RGB LEDs",
@@ -22861,7 +22580,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -22873,12 +22592,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -23062,7 +22777,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$400 - $700",
@@ -23074,12 +22789,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -23263,7 +22974,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.us/item/3256805505900209.html"
+      ]
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -23275,12 +22988,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -23459,7 +23168,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-2023/"
+      ]
     },
     "pricing": {
       "raw": "$400 - $700",
@@ -23471,12 +23182,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       "Has an external GPU docking port"
@@ -23660,7 +23367,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.ayntec.com/products/c-loki-256-q4-reservation"
+      ]
     },
     "pricing": {
       "raw": "$400 - $700",
@@ -23672,12 +23381,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       "Has 5 RGB lights",
@@ -23863,7 +23568,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.ayntec.com/products/loki-max-q4-reservation"
+      ]
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -23875,12 +23582,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       "Has 5 RGB lights",
@@ -24061,7 +23764,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -24073,12 +23776,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -24257,7 +23956,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://pimax.com/product/pimax-portal-128g-preorder-fee/"
+      ]
     },
     "pricing": {
       "raw": "$300 - $400",
@@ -24269,12 +23970,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -24453,7 +24150,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -24465,9 +24162,7 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Requires cleaning of dpad/button contacts to eliminate missed inputs"
     ],
@@ -24651,7 +24346,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -24663,12 +24358,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -24847,7 +24538,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.us/item/3256805326099667.html"
+      ]
     },
     "pricing": {
       "raw": "$150 - $200",
@@ -24859,12 +24552,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -25045,7 +24734,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.us/item/3256805346424384.html"
+      ]
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -25057,12 +24748,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -25241,7 +24928,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.us/item/3256805344505380.html"
+      ]
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -25253,12 +24942,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -25442,7 +25127,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -25454,12 +25139,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -25642,7 +25323,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.gogamegeek.com/Latest-Retroid-Pocket-Flip-Android-Handheld-Game-Console-4-7-inch-p2452267.html"
+      ]
     },
     "pricing": {
       "raw": "$150 - $200",
@@ -25654,12 +25337,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       "Magnetic locking screen"
@@ -25842,7 +25521,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -26045,7 +25724,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/1005005378087057.html"
+      ]
     },
     "pricing": {
       "raw": "$150 - $200",
@@ -26057,12 +25738,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -26242,7 +25919,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -26256,7 +25933,7 @@
     },
     "pros": [
       "\"Native\" landscape display (portrait screen but hardware rotated",
-      "not software)"
+      " not software)"
     ],
     "cons": [
       "No hall joysticks (ALPS instead)"
@@ -26439,7 +26116,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.us/item/3256805130226288.html"
+      ]
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -26451,12 +26130,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -26641,7 +26316,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.keepretro.com/products/miyoo-mini-plus"
+      ]
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -26653,12 +26330,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [
       "https://powkiddy.com/products/miyoo-mini-plus-portable-retro-handheld-game-console-mini-ips-screen-linux-system-childrens-gift"
     ],
@@ -26839,7 +26512,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -26851,12 +26524,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -27035,7 +26704,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.verizon.com/tablets/razer-edge-5g/"
+      ]
     },
     "pricing": {
       "raw": "$400 - $700",
@@ -27047,9 +26718,7 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Modular",
       "no back camera"
@@ -27232,7 +26901,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://game-kiddy.com/pages/gkd-plus"
+      ]
     },
     "pricing": {
       "raw": "$100 - $150",
@@ -27244,12 +26915,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -27430,7 +27097,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$100 - $150",
@@ -27442,12 +27109,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -27630,7 +27293,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.banggood.com/GR3000-8GB-2000-Games-Retro-Handheld-Game-Console-for-GG-FC-GBA-GBC-MD-NES-SFC-PS-5_1-Inch-Vintage-Video-Game-Player-Type-C-p-1978842.html?warehouse=CN&ID=6287843&p=XH100472924560202208&custlinkid=2688945&cur_warehouse=CN"
+      ]
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -27642,9 +27307,7 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Bad grindy slidepads"
     ],
@@ -27834,7 +27497,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -27846,12 +27509,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -28039,7 +27698,11 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.us/item/3256804861032797.html",
+        "https://www.aliexpress.us/item/3256804837711466.html",
+        "https://www.aliexpress.us/item/3256804860291905.html"
+      ]
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -28053,8 +27716,8 @@
     },
     "pros": [
       "pocketable",
-      "decent build quality",
-      "cost"
+      " decent build quality",
+      " cost"
     ],
     "cons": [
       "bad stock OS"
@@ -28237,7 +27900,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -28249,12 +27912,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -28439,7 +28098,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.indiegogo.com/projects/pocketstar-keychain-sized-retro-gaming#/"
+      ]
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -28451,12 +28112,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -28637,7 +28294,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.us/item/3256804435074537.html"
+      ]
     },
     "pricing": {
       "raw": "$100 - $150",
@@ -28649,12 +28308,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -28839,7 +28494,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.goretroid.com/collections/frontpage/products/retroid-pocket-3-upgrading-pcb"
+      ]
     },
     "pricing": {
       "raw": "$150 - $200",
@@ -28851,12 +28508,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [
       "https://www.goretroid.com/collections/frontpage/products/retroid-pocket-3-3-metal-shell"
     ],
@@ -29038,7 +28691,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -29050,9 +28703,7 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "No MicroSD slot"
     ],
@@ -29238,7 +28889,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://aliexpress.us/item/3256804730856964.html"
+      ]
     },
     "pricing": {
       "raw": "$100 - $150",
@@ -29250,12 +28903,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -29434,7 +29083,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.microsoft.com/en-us/d/logitech-g-cloud-gaming-handheld/92b6k8p8rzq4"
+      ]
     },
     "pricing": {
       "raw": "$200 - $300",
@@ -29446,9 +29097,7 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "No ventilation holes"
     ],
@@ -29630,7 +29279,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -29642,12 +29291,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -29827,7 +29472,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.hardkernel.com/shop/odroid-go-ultra-dim-gray/"
+      ]
     },
     "pricing": {
       "raw": "$100 - $150",
@@ -29839,9 +29486,7 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "No L3/R3",
       "no built in WiFi"
@@ -30027,7 +29672,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.kickstarter.com/projects/aokzoeofficial/aokzoe-worlds-first-amd-6800u-powered-game-console"
+      ]
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -30039,12 +29686,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       "Has a kickstand"
@@ -30230,7 +29873,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://ayaneo.com/product/AYANEOAIR.html"
+      ]
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -30242,12 +29887,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -30432,7 +30073,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.us/item/3256804574670174.html"
+      ]
     },
     "pricing": {
       "raw": "$100 - $150",
@@ -30444,12 +30087,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -30630,7 +30269,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.us/item/3256804574670174.html"
+      ]
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -30642,12 +30283,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -30826,7 +30463,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$150 - $200",
@@ -30838,12 +30475,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -31030,7 +30663,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://ayaneo.com/product/AYANEOAIR.html"
+      ]
     },
     "pricing": {
       "raw": "$400 - $700",
@@ -31042,12 +30677,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -31232,7 +30863,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://aliexpress.com/item/1005003423286833.html"
+      ]
     },
     "pricing": {
       "raw": "$100 - $150",
@@ -31244,9 +30877,7 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Start/Select on top"
     ],
@@ -31431,7 +31062,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.keepretro.com/products/trimui-smart-game-console"
+      ]
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -31443,12 +31076,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -31627,7 +31256,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$300 - $400",
@@ -31639,12 +31268,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       "Geekbench scores"
@@ -31827,7 +31452,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/3256804294741011.html"
+      ]
     },
     "pricing": {
       "raw": "$300 - $400",
@@ -31839,9 +31466,7 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "No MicroSD slot",
       "single channel RAM"
@@ -32027,7 +31652,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.ayntec.com/collections/odin"
+      ]
     },
     "pricing": {
       "raw": "$200 - $300",
@@ -32039,12 +31666,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       "Dockable (Dock has 2 USB",
@@ -32237,7 +31860,12 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/3256804230652354.html",
+        "https://www.aliexpress.com/item/3256804220908258.html",
+        "https://www.aliexpress.com/item/3256804233956119.html",
+        "https://www.aliexpress.com/item/3256804242369831.html"
+      ]
     },
     "pricing": {
       "raw": "$100 - $150",
@@ -32249,12 +31877,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       "Apparently has a 120Hz refresh rate screen",
@@ -32440,7 +32064,12 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/1005004289720074.html",
+        "https://www.aliexpress.com/item/1005004289809468.html",
+        "https://www.aliexpress.com/item/1005004289695733.html",
+        "https://www.aliexpress.com/item/1005004289886141.html"
+      ]
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -32452,9 +32081,7 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "No internal WiFi despite having WiFi switch"
     ],
@@ -32641,7 +32268,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.keepretro.com/products/rg503"
+      ]
     },
     "pricing": {
       "raw": "$100 - $150",
@@ -32655,7 +32284,7 @@
     },
     "pros": [
       "OLED screen",
-      "good battery life (8 hours)"
+      " good battery life (8 hours)"
     ],
     "cons": [
       "1 GB RAM",
@@ -32847,7 +32476,10 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.ayaneo.com/goods/7640045551861",
+        "https://www.ayaneo.com/goods/7640053252341"
+      ]
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -32859,12 +32491,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -33051,7 +32679,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/1005004001285929.html"
+      ]
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -33063,12 +32693,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -33251,7 +32877,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.amazon.com/Valve-V004281-30-Steam-Deck-64/dp/B0BFC555RF/ref=sr_1_6"
+      ]
     },
     "pricing": {
       "raw": "$400 - $700",
@@ -33263,12 +32891,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       "Dock (sold separately) has: DisplayPort 1.4",
@@ -33451,7 +33075,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/1005003765139111.html"
+      ]
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -33463,12 +33089,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -33651,7 +33273,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.indiegogo.com/projects/thumby-the-tiny-playable-keychain#/"
+      ]
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -33663,12 +33287,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -33850,7 +33470,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.ayntec.com/collections/odin"
+      ]
     },
     "pricing": {
       "raw": "$200 - $300",
@@ -33862,12 +33484,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       "Dockable (Dock has 2 USB",
@@ -34058,7 +33676,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://onexplayerstore.com/products/oxp-amd-mini-ryzen-5800u"
+      ]
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -34070,9 +33690,7 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "No MicroSD slot"
     ],
@@ -34262,7 +33880,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$300 - $400",
@@ -34274,12 +33892,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       "Designed to be modular."
@@ -34465,7 +34079,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$150 - $200",
@@ -34477,12 +34091,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -34661,7 +34271,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -34673,12 +34283,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -34861,7 +34467,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.goretroid.com/collections/retro-game-system/products/retroid-pocket-2-plus-pcb-upgrade"
+      ]
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -34873,12 +34481,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       "Geekbench scores"
@@ -35058,7 +34662,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/1005003666940879.html"
+      ]
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -35070,12 +34676,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -35256,7 +34858,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.analogue.co/editions/pocket-glow-in-the-dark"
+      ]
     },
     "pricing": {
       "raw": "$200 - $300",
@@ -35270,7 +34874,7 @@
     },
     "pros": [
       "Looks to have good build quality",
-      "HDMI out possible with extra dock"
+      " HDMI out possible with extra dock"
     ],
     "cons": [
       "Currently stated that it will not play rom files (flash carts will work though",
@@ -35459,7 +35063,13 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/1005003649567628.html",
+        "https://www.aliexpress.com/item/1005001422929234.html",
+        "https://www.aliexpress.com/item/1005003649204893.html",
+        "https://www.aliexpress.com/item/1005003647256688.html",
+        "https://www.aliexpress.com/item/1005003618517336.html"
+      ]
     },
     "pricing": {
       "raw": "$200 - $300",
@@ -35471,12 +35081,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [
       "https://electroarcade.com.au/collections/retro-arcade-handheld-pocket-consoles/products/anbernic-rg552-5-inch-touchscreen-android-linux-handheld-console"
     ],
@@ -35663,7 +35269,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.keepretro.com/products/miyoo-mini"
+      ]
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -35859,7 +35467,10 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/1005003583517695.html",
+        "https://www.aliexpress.com/item/1005003583604879.html"
+      ]
     },
     "pricing": {
       "raw": "$100 - $150",
@@ -35871,9 +35482,7 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Loud and clicky buttons"
     ],
@@ -36056,7 +35665,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/1005003558572799.html"
+      ]
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -36068,12 +35679,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -36253,7 +35860,11 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://onexplayerstore.com/products/onexplayer-amd-4800u-1tb-handheld-gaming-console",
+        "https://onexplayerstore.com/products/ryzen-7-5700u",
+        "https://onexplayerstore.com/products/oxp-amd5800u"
+      ]
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -36265,12 +35876,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -36449,7 +36056,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://store.ayaneo.com/products/ayaneo-2021-pro"
+      ]
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -36461,9 +36070,7 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "No MicroSD"
     ],
@@ -36648,7 +36255,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://usa.banggood.com/GPD-XP-Media-Tek-G95-Octa-Core-6GB-RAM-128GB-ROM-Android-11-OS-Tablet-p-1903785.html?cur_warehouse=CN"
+      ]
     },
     "pricing": {
       "raw": "$300 - $400",
@@ -36660,12 +36269,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       "Geekbench scores"
@@ -36853,7 +36458,11 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/1005003451219845.html",
+        "https://www.aliexpress.com/item/1005003452095079.html",
+        "https://www.aliexpress.com/item/1005003451327481.html"
+      ]
     },
     "pricing": {
       "raw": "$100 - $150",
@@ -36865,12 +36474,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -37050,7 +36655,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.amazon.com/ONEXPLAYER-Portable-Windows10-Hand-held-i7-1195G7/dp/B09DYGY6B5/"
+      ]
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -37062,9 +36669,7 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Power feed issues at low TDP (comparison to GPD Win 3)",
       "the issue has been fixed though. Needs 7.6 more watts to run at the same TDP of the Win 3",
@@ -37249,7 +36854,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/1005003337289121.html"
+      ]
     },
     "pricing": {
       "raw": "$100 - $150",
@@ -37261,12 +36868,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -37446,7 +37049,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://powkiddy.com/products/new-powkiddy-x18s-android-11-5-5-inch-touch-ips-screen-flip-handheld-game-cosole-t618-chip-mobile-game-players-ram-4gb-rom-64gb"
+      ]
     },
     "pricing": {
       "raw": "$150 - $200",
@@ -37458,9 +37063,7 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "34Hz screen refresh rate with original firmware (fixed)",
       "Other issues",
@@ -37644,7 +37247,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.gpd.hk/gpdwinmax2021"
+      ]
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -37656,12 +37261,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -37850,7 +37451,12 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/1005003292931471.html",
+        "https://www.aliexpress.com/item/1005003293030674.html",
+        "https://www.aliexpress.com/item/1005003292462347.html",
+        "https://www.aliexpress.com/item/1005003291462933.html"
+      ]
     },
     "pricing": {
       "raw": "$100 - $150",
@@ -37862,9 +37468,7 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "No internal WiFi",
       "reported issues of sound distortion over half volume (only on stock OS)"
@@ -38050,7 +37654,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.amazon.com/HJKPM-Handheld-Console-Dual-System-Simulators/dp/B09L68DC1Z/"
+      ]
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -38062,12 +37668,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -38248,7 +37850,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$200 - $300",
@@ -38260,12 +37862,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -38445,7 +38043,11 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/1005003031227769.html",
+        "https://www.aliexpress.com/item/1005003032110104.html",
+        "https://www.aliexpress.com/item/1005003036890742.html"
+      ]
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -38457,12 +38059,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -38644,7 +38242,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -38656,12 +38254,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -38841,7 +38435,11 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.amazon.com/POWKIDDY-Handheld-Portable-2-4-inch-Lamination/dp/B09B4Q2X9Y/",
+        "https://www.amazon.com/iTECHOR-POWKIDDY-Handheld-Console-Portable/dp/B09B74SP8G/",
+        "https://www.amazon.com/Petforu-POWKIDDY-Handheld-Console-2-4-inch/dp/B099ZJF7GZ/"
+      ]
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -38853,9 +38451,7 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Underpowered",
       "\"Screen tearing on loading menu and game (seems not every game happen)",
@@ -39039,7 +38635,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$100 - $150",
@@ -39051,12 +38647,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -39236,7 +38828,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/wholesale?catId=0&initiative_id=SB_20211004053424&origin=y&SearchText=One+XPlayer"
+      ]
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -39248,9 +38842,7 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Power feed issues at low TDP (comparison to GPD Win 3)",
       "the issue has been fixed though. Needs 7.6 more watts to run at the same TDP of the Win 3",
@@ -39437,7 +39029,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.amazon.com/Latest-Update-1-5-Version-512GB-Handheld-Console/dp/B0992D5JM9"
+      ]
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -39449,9 +39043,7 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "No microSD",
       "Screen backlight bleed issues reported"
@@ -39645,7 +39237,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -39657,12 +39249,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -39844,7 +39432,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -39856,9 +39444,7 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "No clickable sticks for L3/R3",
       "but can be mapped to function buttons. No OCA screen (has air gap between LCD and lens)",
@@ -40044,7 +39630,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.amazon.com/GPD-Handheld-GamePlayer-1280x720-Processor/dp/B09315XFPM/ref=sr_1_4?dchild=1&keywords=GPD%2BWin%2B2&qid=1619237140&s=electronics&sr=1-4&th=1"
+      ]
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -40056,12 +39644,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       "eGPU capable through Thunderbolt 4 port",
@@ -40245,7 +39829,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "mailto:usb2.0@163.com"
+      ]
     },
     "pricing": {
       "raw": "$200 - $300",
@@ -40257,12 +39843,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -40443,7 +40025,11 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/1005002731889629.html",
+        "https://www.aliexpress.com/item/1005002365100753.html",
+        "https://www.aliexpress.com/item/1005003193405986.html"
+      ]
     },
     "pricing": {
       "raw": "$100 - $150",
@@ -40455,9 +40041,7 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Screen only held down with double sided tape (Source)",
       "and other issues"
@@ -40645,7 +40229,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.amazon.com/TRDR-Pocket-Blue-Ocean/dp/B08W57SHL9/"
+      ]
     },
     "pricing": {
       "raw": "$150 - $200",
@@ -40657,12 +40243,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       "It's a SouljaBoy ripoff of a Retroid Pocket 1 except with a more powerful Helio P60 chip",
@@ -40849,7 +40431,11 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/1005002270332111.html",
+        "https://www.aliexpress.com/item/4001132240529.html",
+        "https://www.aliexpress.com/item/4000958668960.html"
+      ]
     },
     "pricing": {
       "raw": "$100 - $150",
@@ -40861,12 +40447,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [
       "https://www.ebay.com/itm/Anbernic-RG351V-Retro-Game-Console-Handheld-Video-Game-Player-2400-Games-/313446600966"
     ],
@@ -41048,7 +40630,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.myretrogamecase.com/collections/console/products/gkd-mini-retro-handheld-gaming-console"
+      ]
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -41060,12 +40644,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [
       "https://game-kiddy.com/collections/gkd-mini/products/gkd-mini-retro-game-console2?variant=39526534611044"
     ],
@@ -41246,7 +40826,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.ebay.com/itm/Handmade-RETRO-PIXEL-DMG-3-2inch-IPS-LCD-Android-Video-Game-Consoles/373317353793?hash=item56eb72c141%3Ag%3AJOMAAOSwqBFfoni1"
+      ]
     },
     "pricing": {
       "raw": "$100 - $150",
@@ -41258,12 +40840,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -41446,7 +41024,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.kickstarter.com/projects/squonk/funkey-s-the-worlds-smallest-foldable-handheld-console"
+      ]
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -41458,9 +41038,7 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "50 Hz refresh rate screen"
     ],
@@ -41650,7 +41228,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://ameridroid.com/products/odroid-go-super"
+      ]
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -41662,9 +41242,7 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "No L3/R3 clickable sticks",
       "no WiFi",
@@ -41858,7 +41436,10 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/4000893667817.html",
+        "https://www.aliexpress.com/item/1005001775217093.html"
+      ]
     },
     "pricing": {
       "raw": "$100 - $150",
@@ -41870,9 +41451,7 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "USB based controls",
       "has trouble reconnecting the controller after waking from sleep in non Retroarch emulators",
@@ -42059,7 +41638,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -42071,12 +41650,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -42257,7 +41832,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -42269,12 +41844,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -42453,7 +42024,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$150 - $200",
@@ -42465,12 +42036,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -42649,7 +42216,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.amazon.com/OneGX1-Pro-Generation-i7-1160G7-Backlight/dp/B08QRXW66B/"
+      ]
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -42661,12 +42230,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -42846,7 +42411,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/1005002019371631.html"
+      ]
     },
     "pricing": {
       "raw": "$100 - $150",
@@ -42858,12 +42425,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -43042,7 +42605,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/1005001867718599.html"
+      ]
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -43054,12 +42619,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -43244,7 +42805,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://afond.com/products/trimui-arcade-pocket-games-player-retro-handheld-mini-game-machine"
+      ]
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -43256,9 +42819,7 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Screen tearing",
       "crap OS"
@@ -43442,7 +43003,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://retromimi.com/products/rg280v"
+      ]
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -43454,12 +43017,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [
       "https://whatskogame.com/collections/new-arrivals/products/rg280v-mini-retro-handheld-game-console"
     ],
@@ -43643,7 +43202,11 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/1005001906830055.html",
+        "https://www.aliexpress.com/item/1005001699523621.html",
+        "https://www.aliexpress.com/item/1005001699713501.html"
+      ]
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -43655,12 +43218,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [
       "https://www.arcadia-retrogaming.fr/console-portable-verticale-powkiddy-rgb20.html"
     ],
@@ -43841,7 +43400,10 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/1005001581326565.html",
+        "https://www.aliexpress.com/item/1005001580883568.html"
+      ]
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -43853,12 +43415,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -44039,7 +43597,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/1005002054961786.html"
+      ]
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -44051,9 +43611,7 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "No L3/R3"
     ],
@@ -44245,7 +43803,10 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/4001146181654.html",
+        "https://www.aliexpress.com/item/1005001422929234.html"
+      ]
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -44257,9 +43818,7 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "USB based controls",
       "has trouble reconnecting the controller after waking from sleep in non Retroarch emulators",
@@ -44447,7 +44006,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/4001212118647.html"
+      ]
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -44459,12 +44020,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -44643,7 +44200,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/1005001527245270.html"
+      ]
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -44655,12 +44214,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -44841,7 +44396,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/1005001387009696.html"
+      ]
     },
     "pricing": {
       "raw": "$100 - $150",
@@ -44853,12 +44410,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -45037,7 +44590,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$150 - $200",
@@ -45239,7 +44792,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.experimentalpi.com/PiBoy-DMG--Assembled_p_16.html"
+      ]
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -45251,12 +44806,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -45438,7 +44989,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/4001337582899.html"
+      ]
     },
     "pricing": {
       "raw": "$100 - $150",
@@ -45450,12 +45003,8 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [
       "https://retrogamepi.com/products/pre-sale-2020-new-powerful-raspberry-pi-game-console-rgpi43?variant=32513039269967"
     ],
@@ -45636,7 +45185,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/4001192031370.html"
+      ]
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -45648,12 +45199,8 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       "Detachable 2.4GHz rechargeable controllers with force feedback"
@@ -45840,7 +45387,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -45852,9 +45399,7 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Digital slidepad right analog (not true analog)",
       "some people can feel input lag"
@@ -46040,7 +45585,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$0 - $050",
@@ -46052,12 +45597,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -46239,7 +45780,10 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/1005001735060587.html",
+        "https://www.aliexpress.com/item/1005001735260015.html"
+      ]
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -46251,12 +45795,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -46437,7 +45977,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/4001243937639.html"
+      ]
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -46449,12 +45991,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -46636,7 +46174,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/4001169511369.html"
+      ]
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -46648,12 +46188,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [
       "https://www.amazon.com/MJKJ-Handheld-Console-OpenDingux-Portable/dp/B089YN5QVV"
     ],
@@ -46836,7 +46372,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/4001154079823.html"
+      ]
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -46848,9 +46386,7 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Underpowered",
       "\"Screen tearing on loading menu and game (seems not every game happen)",
@@ -47035,7 +46571,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://item.jd.com/20981207084.html"
+      ]
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -47047,9 +46585,7 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Screen tearing",
       "bad viewing angles"
@@ -47236,7 +46772,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/4001100676409.html"
+      ]
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -47248,9 +46786,7 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "From the first batch of Chinese users' feedback",
       "the main issues are as followed: (1.) Lacking of buttons and having different key layout makes it not fit OGA's firmware well. (2.) Charging current is only 0.6a",
@@ -47438,7 +46974,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/4001109113299.html?"
+      ]
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -47450,9 +46988,7 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Bad viewing angels",
       "screen tearing (on model purchased from Taobao). \"Has really bad ghosting and terrible lag\" - Taki. Bad firmware and small amount of RAM causes it to struggle with systems that shouldn't be a problem."
@@ -47638,7 +47174,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://ameridroid.com/collections/new/products/odroid-go-advance"
+      ]
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -47652,7 +47190,7 @@
     },
     "pros": [
       "DIY",
-      "good price/performance ratio"
+      " good price/performance ratio"
     ],
     "cons": [
       "TFT display (good viewing angles though)"
@@ -47837,7 +47375,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.seeedstudio.com/Arduboy-FX-p-4913.html"
+      ]
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -47849,12 +47389,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -48035,7 +47571,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.ebay.com/sch/i.html?_from=R40&_trksid=m570.l1313&_nkw=powkiddy+X2&_sacat=0&ul_ref=https%253A%252F%252Frover.ebay.com%252Frover%252F1%252F711-53200-19255-0%252F1%253Fff3%253D4%2526pub%253D5575287748%2526toolid%253D10001%2526campid%253D5338068943%2526customid%253D%2526mpre%253Dhttps%253A%252F%252Fwww.ebay.com%252Fsch%252Fi.html%25253F_from%25253DR40%252526_trksid%25253Dm570.l1313%252526_nkw%25253Dpowkiddy%25252BX2%252526_sacat%25253D0%2526srcrot%253D711-53200-19255-0%2526rvr_id%253D2539135732019%2526rvr_ts%253Daf61c99e1730a6e5733115fbfecfc38f"
+      ]
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -48047,12 +47585,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -48236,7 +47770,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://retromimi.com/products/rg350-upgrade-rg350m-aluminum-alloy-shell"
+      ]
     },
     "pricing": {
       "raw": "$100 - $150",
@@ -48250,7 +47786,7 @@
     },
     "pros": [
       "Best control layout",
-      "good build quality"
+      " good build quality"
     ],
     "cons": [
       "Price",
@@ -48437,7 +47973,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -48635,7 +48171,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://ameridroid.com/collections/new/products/odroid-go-advance"
+      ]
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -48649,7 +48187,7 @@
     },
     "pros": [
       "DIY",
-      "good price/performance ratio"
+      " good price/performance ratio"
     ],
     "cons": [
       "No L2/R2 shoulder buttons (can be mapped to front function buttons though)",
@@ -48837,7 +48375,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$100 - $150",
@@ -49042,7 +48580,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.myretrogamecase.com/products/game-kiddy-350h-gkd350h-customize-handheld-console-with-l2r2-buttons"
+      ]
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -49056,8 +48596,8 @@
     },
     "pros": [
       "More powerful than JZ4770",
-      "good d-pad & buttons",
-      "nice screen"
+      " good d-pad & buttons",
+      " nice screen"
     ],
     "cons": [
       "No L2/R2 (can be modded in though)",
@@ -49243,7 +48783,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$200 - $300",
@@ -49257,7 +48797,7 @@
     },
     "pros": [
       "HDMI",
-      "USB OTG"
+      " USB OTG"
     ],
     "cons": [
       "No analogs and L2/R2"
@@ -49444,7 +48984,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/4000445796915.html"
+      ]
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -49458,7 +49000,7 @@
     },
     "pros": [
       "Menu button",
-      "L2/R2"
+      " L2/R2"
     ],
     "cons": [
       "Small stiff slidepad",
@@ -49644,7 +49186,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -49656,9 +49198,7 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Screen tearing (confirmed by Taki Udon)"
     ],
@@ -49841,7 +49381,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.kickstarter.com/projects/583173617/retrostone-2-ultimate-retrogaming-console/description"
+      ]
     },
     "pricing": {
       "raw": "$150 - $200",
@@ -49855,9 +49397,9 @@
     },
     "pros": [
       "Lots of USB ports for local coop",
-      "highly customisable",
-      "HDMI",
-      "IPS screen improved over 1st Retrostone"
+      " highly customisable",
+      " HDMI",
+      " IPS screen improved over 1st Retrostone"
     ],
     "cons": [
       "CPU is outdated compared to 1st Retrostone"
@@ -50041,7 +49583,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "?",
@@ -50240,7 +49782,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$200 - $300",
@@ -50252,9 +49794,7 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Not mass produced",
       "China only"
@@ -50437,7 +49977,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/4000379665556.html"
+      ]
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -50449,9 +49991,7 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Separated d-pad"
     ],
@@ -50633,7 +50173,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -50645,9 +50185,7 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Not true analogs (mapped to face buttons)",
       "bad viewing angles",
@@ -50834,7 +50372,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$150 - $200",
@@ -51041,7 +50579,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/1005002197275923.html"
+      ]
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -51055,10 +50595,10 @@
     },
     "pros": [
       "Dual analogs",
-      "L2/R2",
-      "good build quality",
-      "USB OTG",
-      "can be played vertically (tate mode)"
+      " L2/R2",
+      " good build quality",
+      " USB OTG",
+      " can be played vertically (tate mode)"
     ],
     "cons": [
       "Uncomfortable d-pad placement",
@@ -51245,7 +50785,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/4000093922513.html"
+      ]
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -51442,7 +50984,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/4000094064219.html"
+      ]
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -51454,9 +50998,7 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Bulky"
     ],
@@ -51640,7 +51182,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "Discontinued",
@@ -51654,7 +51196,7 @@
     },
     "pros": [
       "Dual analogs",
-      "L2/R2"
+      " L2/R2"
     ],
     "cons": [
       "Price",
@@ -51838,7 +51380,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.amazon.com/Handheld-Console-GPD-Touchscreen-Graphics/dp/B07FX8M1DZ/"
+      ]
     },
     "pricing": {
       "raw": "$700 - $2000",
@@ -51850,9 +51394,7 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Price"
     ],
@@ -52037,7 +51579,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/af/cm3-handheld.html?SearchText=cm3+handheld"
+      ]
     },
     "pricing": {
       "raw": "$100 - $150",
@@ -52235,7 +51779,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$100 - $150",
@@ -52247,9 +51791,7 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Price",
       "underpowered",
@@ -52435,7 +51977,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.amazon.com/Retroflag-CASE-Raspberry-Zero-Shutdown/dp/B07RT9VGS4"
+      ]
     },
     "pricing": {
       "raw": "$075 - $100",
@@ -52636,7 +52180,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://retromimi.com/search?q=ldk+landscape&aff=18"
+      ]
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -52650,7 +52196,7 @@
     },
     "pros": [
       "Portability",
-      "better ergonomics than vertical LDK"
+      " better ergonomics than vertical LDK"
     ],
     "cons": [
       "Can't overclock as much as LDK Vertical due to non-B JZ4760",
@@ -52836,7 +52382,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://retromimi.com/collections/hanhandhelds/products/pocketgo-retro-gaming-system?aff=18"
+      ]
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -53034,7 +52582,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/4000036177783.html"
+      ]
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -53232,7 +52782,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://retromimi.com/collections/handhelds/products/retro-game-300-rg-300-game-console?variant=30138376585286"
+      ]
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -53428,7 +52980,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.gearbest.com/android-tablets/pp_3001293880712372.html"
+      ]
     },
     "pricing": {
       "raw": "$300 - $400",
@@ -53440,9 +52994,7 @@
       "currency": "USD",
       "category": "high"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Bad d-pad (all one piece and registers multiple directions when you don't want it to)"
     ],
@@ -53624,7 +53176,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/af/gamepi15.html?SearchText=gamepi15"
+      ]
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -53823,7 +53377,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://retromimi.com/products/new-bittboy?aff=18"
+      ]
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -53837,7 +53393,7 @@
     },
     "pros": [
       "CheapGood variety of software",
-      "big fanbase"
+      " big fanbase"
     ],
     "cons": [
       "Screen tearingGhost buttons (v1 and v2)No shoulder buttons"
@@ -54026,7 +53582,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://retromimi.com/products/ldk-game-console-white"
+      ]
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -54222,7 +53780,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://retrogamepi.com/products/1up-pi-boy-3-5-inch-raspberry-pi-3b-handheld-game-player-with-10000-games"
+      ]
     },
     "pricing": {
       "raw": "$150 - $200",
@@ -54236,7 +53796,7 @@
     },
     "pros": [
       "Modular",
-      "pre-assembled"
+      " pre-assembled"
     ],
     "cons": [
       "Bulky",
@@ -54421,7 +53981,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.geekbuying.com/item/POWKIDDY-X18-Handheld-Game-Console-2GB-16GB-Black-414440.html"
+      ]
     },
     "pricing": {
       "raw": "$100 - $150",
@@ -54620,7 +54182,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.us/item/3256805079341889.html"
+      ]
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -54634,7 +54198,7 @@
     },
     "pros": [
       "Cheap price",
-      "decent build quality"
+      " decent build quality"
     ],
     "cons": [
       "Multiple hardware revisions"
@@ -54818,7 +54382,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.amazon.co.uk/GZW-SHOP-Retro-Classic-Console-Retroboy/dp/B07DXKHKH3/"
+      ]
     },
     "pricing": {
       "raw": "$100 - $150",
@@ -55015,7 +54581,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/af/waveshare-game-hat.html?SearchText=waveshare+game+hat"
+      ]
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -55214,7 +54782,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.amazon.com/GameShell-Portable-Console-Developers-Collectors/dp/B07QKS3VJS/"
+      ]
     },
     "pricing": {
       "raw": "$150 - $200",
@@ -55410,7 +54980,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.amazon.com/GPD-Portable-Handheld-Touchscreen-Quad-Core/dp/B01B4ESXT0"
+      ]
     },
     "pricing": {
       "raw": "$200 - $300",
@@ -55607,7 +55179,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://multigamesystem.wixsite.com/home"
+      ]
     },
     "pricing": {
       "raw": "$300 - $400",
@@ -55804,7 +55378,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.ebay.com/sch/i.html?_from=R40&_nkw=Odroid+Go&_sacat=0"
+      ]
     },
     "pricing": {
       "raw": "Discontinued",
@@ -55818,7 +55394,7 @@
     },
     "pros": [
       "Cheap",
-      "DIY"
+      " DIY"
     ],
     "cons": [
       "No headphone jack",
@@ -56003,7 +55579,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.amazon.com/Goolsky-Handheld-Console-Support-Portable/dp/B07M5KGYW7/"
+      ]
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -56202,7 +55780,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/33048708501.html"
+      ]
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -56214,9 +55794,7 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Exposed LCD",
       "not true analog (d-pad mirror)"
@@ -56402,7 +55980,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.kickstarter.com/projects/583173617/retrostone-ultimate-retrogaming-console"
+      ]
     },
     "pricing": {
       "raw": "$150 - $200",
@@ -56414,9 +55994,7 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Bad screen quality"
     ],
@@ -56600,7 +56178,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/32962185967.html"
+      ]
     },
     "pricing": {
       "raw": "$150 - $200",
@@ -56612,9 +56192,7 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Bulky"
     ],
@@ -56797,7 +56375,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.aliexpress.com/item/32921889113.html"
+      ]
     },
     "pricing": {
       "raw": "$150 - $200",
@@ -56809,9 +56389,7 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Bulky"
     ],
@@ -56993,7 +56571,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.retromodding.com/collections/freeplaytechs-freeplay-zero-cm3"
+      ]
     },
     "pricing": {
       "raw": "$150 - $200",
@@ -57007,7 +56587,7 @@
     },
     "pros": [
       "Highly customisable",
-      "DIY design"
+      " DIY design"
     ],
     "cons": [
       "Price"
@@ -57191,7 +56771,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.dns-shop.ru/product/d9703268dde23330/portativnaa-igrovaa-konsol-sega-genesis-gopher-2---500-igr/"
+      ]
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -57203,12 +56785,8 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -57394,7 +56972,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://retrogamepi.com/products/lcl-pi-raspberry-pi-3a-gameboy-with-5000-retro-games"
+      ]
     },
     "pricing": {
       "raw": "$150 - $200",
@@ -57406,9 +56986,7 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Price"
     ],
@@ -57590,7 +57168,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$200 - $300",
@@ -57602,9 +57180,7 @@
       "currency": "USD",
       "category": "mid"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "No MicroSD slot",
       "no L2/R2"
@@ -57790,7 +57366,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -57802,9 +57378,7 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Exposed LCD"
     ],
@@ -57986,7 +57560,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -58182,7 +57756,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "Discontinued",
@@ -58194,12 +57768,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -58380,7 +57950,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "$0 - $50",
@@ -58392,9 +57962,7 @@
       "currency": "USD",
       "category": "low"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Difficult to take apart to access internal SD card",
       "no USB access to internal card"
@@ -58579,7 +58147,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "Discontinued",
@@ -58591,9 +58159,7 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Bad hinge"
     ],
@@ -58775,7 +58341,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://us.gearbest.com/tablet-pcs/pp_229169.html?wid=1433363#goodsDetail"
+      ]
     },
     "pricing": {
       "raw": "Discontinued",
@@ -58787,12 +58355,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -58972,7 +58536,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "Discontinued",
@@ -58984,12 +58548,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -59169,7 +58729,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "Discontinued",
@@ -59181,9 +58741,7 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Squeaky d-padRotating slidepad capStill no HDMI/OTG support"
     ],
@@ -59365,7 +58923,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "Discontinued",
@@ -59377,12 +58935,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -59561,7 +59115,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "Discontinued",
@@ -59573,9 +59127,7 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
+    "pros": [],
     "cons": [
       "Bulky",
       "heavy"
@@ -59759,7 +59311,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "Discontinued",
@@ -59771,12 +59323,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -59961,7 +59509,9 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": [
+        "https://www.ebay.com/sch/i.html?_nkw=Revo%20K101"
+      ]
     },
     "pricing": {
       "raw": "$050 - $75",
@@ -59976,9 +59526,7 @@
     "pros": [
       "Hardware GBA emulation"
     ],
-    "cons": [
-      ""
-    ],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -60159,7 +59707,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "Discontinued",
@@ -60171,12 +59719,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -60355,7 +59899,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "Discontinued",
@@ -60367,12 +59911,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -60551,7 +60091,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "Discontinued",
@@ -60563,12 +60103,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -60748,7 +60284,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "Discontinued",
@@ -60760,12 +60296,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -60945,7 +60477,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "Discontinued",
@@ -61143,7 +60675,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "Discontinued",
@@ -61158,9 +60690,7 @@
     "pros": [
       "\"Fan Service Pack (FSP) - for official firmware Defender MutiMix Magic v3.0 и 3.1\" - Vladimir Human"
     ],
-    "cons": [
-      ""
-    ],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -61340,7 +60870,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "Discontinued",
@@ -61354,11 +60884,9 @@
     },
     "pros": [
       "Loads of homebrew",
-      "homebrew storeFull desktop environment"
+      " homebrew storeFull desktop environment"
     ],
-    "cons": [
-      ""
-    ],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -61538,7 +61066,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "Discontinued",
@@ -61552,7 +61080,7 @@
     },
     "pros": [
       "PortabilityGood variety of software",
-      "big fanbase"
+      " big fanbase"
     ],
     "cons": [
       "Faulty Shoulder buttons"
@@ -61735,7 +61263,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "Discontinued",
@@ -61747,12 +61275,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -61931,7 +61455,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "Discontinued",
@@ -61943,12 +61467,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -62127,7 +61647,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "Discontinued",
@@ -62139,12 +61659,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -62324,7 +61840,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "Discontinued",
@@ -62336,12 +61852,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -62520,7 +62032,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "Discontinued",
@@ -62532,12 +62044,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -62716,7 +62224,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "Discontinued",
@@ -62728,12 +62236,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -62912,7 +62416,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "Discontinued",
@@ -62924,12 +62428,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -63109,7 +62609,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "Discontinued",
@@ -63121,12 +62621,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -63305,7 +62801,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "",
@@ -63317,12 +62813,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -63501,7 +62993,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "",
@@ -63513,12 +63005,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -63697,7 +63185,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "",
@@ -63709,12 +63197,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -63893,7 +63377,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "",
@@ -63905,12 +63389,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -64089,7 +63569,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "",
@@ -64101,12 +63581,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -64285,7 +63761,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "",
@@ -64297,12 +63773,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -64481,7 +63953,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "",
@@ -64493,12 +63965,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -64677,7 +64145,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "",
@@ -64689,12 +64157,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -64873,7 +64337,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "",
@@ -64885,12 +64349,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
@@ -65069,7 +64529,7 @@
     },
     "reviews": {
       "videoReviews": [],
-      "writtenReview": ""
+      "writtenReviews": []
     },
     "pricing": {
       "raw": "",
@@ -65081,12 +64541,8 @@
       "currency": "?",
       "category": "unknown"
     },
-    "pros": [
-      ""
-    ],
-    "cons": [
-      ""
-    ],
+    "pros": [],
+    "cons": [],
     "vendorLinks": [],
     "notes": [
       ""
