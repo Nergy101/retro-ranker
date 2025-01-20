@@ -20,7 +20,7 @@ export default function Home() {
         <hgroup style={{ textAlign: "center" }}>
           <h1>
             Welcome to{" "}
-            <span style={{ color: "var(--pico-primary)" }}>Retro Ranker</span>
+            <span style={{ color: "var(--pico-primary)" }}>Retro Ranker</span>.
           </h1>
           <p>
             Find the perfect device for your gaming needs.

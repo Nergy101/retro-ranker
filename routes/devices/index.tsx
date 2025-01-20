@@ -48,7 +48,13 @@ export default function DevicesIndex(props: PageProps) {
       <header>
         <hgroup style={{ textAlign: "center" }}>
           <h1>Device Catalog</h1>
-          <p>Currently indexed {allDevices.length} devices</p>
+          <p>
+            Currently indexed{" "}
+            <span style={{ color: "var(--pico-primary)" }}>
+              {allDevices.length}
+            </span>{" "}
+            devices
+          </p>
         </hgroup>
       </header>
 

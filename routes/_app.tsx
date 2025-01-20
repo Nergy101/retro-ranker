@@ -113,13 +113,13 @@ export default function App({ Component, url }: PageProps) {
           <div class="container-fluid">
             <div class="footer-grid">
               <div class="footer-grid-item rr">
-                <strong>Retro Ranker</strong>
+                <strong style={{ color: "var(--pico-primary)" }}>Retro Ranker</strong>
                 <p>
                   Find the perfect device for your gaming needs.
                 </p>
                 <small>
                   © {new Date().getFullYear()}{" "}
-                  Retro Ranker. All rights reserved.
+                  <span style={{ color: "var(--pico-primary)" }}>Retro Ranker</span>. All rights reserved.
                 </small>
                 <div
                   style={{
@@ -152,14 +152,6 @@ export default function App({ Component, url }: PageProps) {
                 <strong>Quick Links</strong>
                 <ul style={{ listStyle: "none", padding: 0 }}>
                   <li style={{ listStyle: "none" }}>
-                    <a href="/about">
-                      <div style={{ display: "flex" }}>
-                        <PiInfo />
-                        <span>&nbsp;About</span>
-                      </div>
-                    </a>
-                  </li>
-                  <li style={{ listStyle: "none" }}>
                     <a href="/privacy">
                       <div style={{ display: "flex" }}>
                         <PiShield />
@@ -177,7 +169,7 @@ export default function App({ Component, url }: PageProps) {
                   </li>
                 </ul>
               </div>
-              <div class="footer-grid-item connect">
+              <div class="footer-grid-item connect-links">
                 <strong>Connect</strong>
                 <ul style={{ listStyle: "none", padding: 0 }}>
                   <li style={{ listStyle: "none" }}>

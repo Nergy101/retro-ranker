@@ -613,3 +613,14 @@ h6,
   color: var(--pico-primary) !important;
   text-decoration: none !important;
 }
+
+.connect-links {
+  a {
+    text-decoration: none;
+  }
+}
+.quick-links {
+  a {
+    text-decoration: none;
+  }
+}
