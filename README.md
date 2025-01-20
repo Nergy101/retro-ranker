@@ -1,11 +1,20 @@
 # Retro Ranker 🎮
 
-A comprehensive database and comparison tool for retro handheld gaming devices, built with Fresh framework.
+Live site: [Retro Ranker](https://retroranker.site)
+
+A comprehensive database and comparison tool for retro handheld gaming devices,
+built with Fresh framework.
+
+![Retro Ranker](https://retroranker.site/logo-no-background.svg)
 
 ## Built with Deno and Fresh
 
 - [Deno](https://deno.land/) - A secure runtime for JavaScript and TypeScript.
-- [Fresh](https://fresh.deno.dev/) - A framework for building modern web applications.
+- [Deno Deploy](https://deno.com/deploy) - A platform for deploying Deno applications.
+- [Fresh](https://fresh.deno.dev/) - A framework for building modern web
+  applications.
+- [PicoCSS](https://picocss.com/) - A minimal CSS framework.
+
 ## 🌟 Features
 
 - Detailed technical specifications for retro gaming handhelds
@@ -30,7 +39,7 @@ A comprehensive database and comparison tool for retro handheld gaming devices, 
    - `git clone https://github.com/Nergy101/retro-ranker.git`
    - `cd retro-ranker`
 2. Start the development server:
-   - `deno task start`    
+   - `deno task start`
 3. Format, lint and type-check code
    - `deno task check`
 4. Build for production
@@ -42,7 +51,18 @@ A comprehensive database and comparison tool for retro handheld gaming devices, 
 7. Scrape device images
    - `deno task scrape`
 
+## 📜 Scripts
+
+- `deno task start` - Start the development server
+- `deno task check` - Format, lint and type-check code
+- `deno task build` - Build for production
+- `deno task preview` - Preview production build
+- `deno task update` - Update Fresh framework
+- `deno task scrape` - Scrape device images
+- `deno task sitemap` - Generate sitemap.xml
+
 ## 📁 Project Structure
+
 ```
 retro-ranker/
 ├── components/ # Reusable UI components
@@ -64,7 +84,8 @@ retro-ranker/
 
 ## 📝 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the LICENSE file for
+details.
 
 ## 🙏 Acknowledgments
 
@@ -80,6 +101,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## 💝 Support the Project
 
 If you find Retro Ranker helpful, consider:
+
 - [Buying us a coffee](https://ko-fi.com/nergy)
 - Contributing to the codebase
 - Sharing with fellow retro gaming enthusiasts

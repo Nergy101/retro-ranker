@@ -1,6 +1,5 @@
-import { ThemeSwitcher } from "./ThemeSwitcher.tsx";
-import { navigationItems } from "../data/navigation.ts";
 import { useEffect } from "preact/hooks";
+import { ThemeSwitcher } from "./ThemeSwitcher.tsx";
 
 export function MobileNav({ pathname }: { pathname: string }) {
   useEffect(() => {
