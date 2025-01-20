@@ -41,10 +41,12 @@ export function DeviceCardMedium({ device }: DeviceCardMediumProps) {
             <p style={{ fontSize: "0.6rem", color: "var(--pico-contrast)" }}>
               {device.brand}
             </p>
-            <StarRating device={device} />
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <StarRating device={device} />
+            </div>
           </hgroup>
         </header>
-        <div style="padding-top: 0.5rem; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <div style="padding-top: 0.5rem; padding-bottom: 0.5rem; display: flex; flex-direction: column; justify-content: center; align-items: center;">
           <img
             src={device.image.url ?? "/images/placeholder-100x100.svg"}
             alt={device.image.alt ?? "A placeholder image"}

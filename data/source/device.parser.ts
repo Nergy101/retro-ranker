@@ -38,8 +38,10 @@ export class DeviceParser {
   }
 
   private static parseAveragePrice(priceText: string): number {
-    const priceNumber = priceText.match(/\d+/)?.[0];
-    return priceNumber ? parseInt(priceNumber) : 0;
+    // prices look like $78, $1,100 for thousand-one-hundred, $70 (+ shipping)
+
+    const priceNumber = priceText.match(/\d+(?:,\d{3})*/);
+    return priceNumber ? parseInt(priceNumber[0].replace(/,/g, '')) : 0;
   }
 
   private static parsePriceRange(

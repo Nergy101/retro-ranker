@@ -3835,13 +3835,13 @@
     },
     "pricing": {
       "raw": "$700 - $2000",
-      "average": 1,
+      "average": 1173,
       "range": {
         "min": 700,
         "max": 2000
       },
       "currency": "USD",
-      "category": "low"
+      "category": "high"
     },
     "pros": "",
     "cons": "",
@@ -4028,13 +4028,13 @@
     },
     "pricing": {
       "raw": "$700 - $2000",
-      "average": 1,
+      "average": 1462,
       "range": {
         "min": 700,
         "max": 2000
       },
       "currency": "USD",
-      "category": "low"
+      "category": "high"
     },
     "pros": "",
     "cons": "",
@@ -35663,13 +35663,13 @@
     },
     "pricing": {
       "raw": "$700 - $2000",
-      "average": 1,
+      "average": 1315,
       "range": {
         "min": 700,
         "max": 2000
       },
       "currency": "USD",
-      "category": "low"
+      "category": "high"
     },
     "pros": "",
     "cons": "No MicroSD",
