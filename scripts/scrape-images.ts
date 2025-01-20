@@ -54,6 +54,6 @@ export async function downloadDeviceImages(devices: Device[]) {
 }
 
 // Example usage:.
-import { DeviceService } from "../data/devices/device.service.ts";
+import { DeviceService } from "../services/devices/device.service.ts";
 const devices = DeviceService.getInstance().getAllDevices();
 await downloadDeviceImages(devices);

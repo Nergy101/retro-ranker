@@ -2,7 +2,7 @@ import { PageProps } from "$fresh/server.ts";
 import { DeviceCardMedium } from "../../components/DeviceCardMedium.tsx";
 import { PaginationNav } from "../../components/PaginationNav.tsx";
 import { DeviceSearchForm } from "../../islands/DeviceSearchForm.tsx";
-import { DeviceService } from "../../data/devices/device.service.ts";
+import { DeviceService } from "../../services/devices/device.service.ts";
 
 export default function DevicesIndex(props: PageProps) {
   const deviceService = DeviceService.getInstance();

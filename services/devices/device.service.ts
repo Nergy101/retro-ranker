@@ -1,4 +1,4 @@
-import { Device } from "../models/device.model.ts";
+import { Device } from "../../data/models/device.model.ts";
 import { RatingsService } from "./ratings.service.ts";
 
 export class DeviceService {

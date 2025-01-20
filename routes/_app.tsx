@@ -51,6 +51,7 @@ export default function App({ Component, url }: PageProps) {
           defer
           src="https://umami.nergy.space/script.js"
           data-website-id="34d0e3cb-e9cf-4554-8b1c-27541fb877c0"
+          data-domains="retroranker.site"
         >
         </script>
         <link

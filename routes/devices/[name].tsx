@@ -4,7 +4,7 @@ import { DeviceCardSmall } from "../../components/DeviceCardSmall.tsx";
 import { DeviceSpecs } from "../../components/DeviceSpecs.tsx";
 import { EmulationPerformance } from "../../components/EmulationPerformance.tsx";
 import { StarRating } from "../../components/StarRating.tsx";
-import { DeviceService } from "../../data/devices/device.service.ts";
+import { DeviceService } from "../../services/devices/device.service.ts";
 export default function DeviceDetail(props: PageProps) {
   const deviceService = DeviceService.getInstance();
   const device = deviceService.getDeviceByName(props.params?.name);

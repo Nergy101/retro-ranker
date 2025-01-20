@@ -1,6 +1,6 @@
 import { DeviceCardSmall } from "../components/DeviceCardSmall.tsx";
 import { SeeMoreCard } from "../components/SeeMoreCard.tsx";
-import { DeviceService } from "../data/devices/device.service.ts";
+import { DeviceService } from "../services/devices/device.service.ts";
 
 export default function Home() {
   // Filter devices into categories

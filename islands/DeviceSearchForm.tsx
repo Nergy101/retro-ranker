@@ -1,5 +1,6 @@
 import { useSignal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
+import { UmamiService } from "../services/umami/umami.service.ts";
 
 interface DeviceSearchFormProps {
   initialSearch: string;
@@ -13,12 +14,13 @@ export function DeviceSearchForm(
   { initialSearch, initialCategory, initialPage, initialSort, initialFilter }:
     DeviceSearchFormProps,
 ) {
+  const umamiService = UmamiService.getInstance();
   const searchQuery = useSignal(initialSearch);
   const category = useSignal(initialCategory);
   const sort = useSignal(initialSort);
   const filter = useSignal(initialFilter);
-
   const page = useSignal(initialPage);
+
   const viewportWidth = useSignal(globalThis.innerWidth);
 
   const handleCategoryChange = (e: Event) => {
@@ -34,19 +36,32 @@ export function DeviceSearchForm(
       pageInput.value = page.value.toString();
     }
 
-    select.form?.submit();
+    submitForm();
   };
 
   const handleSortChange = (e: Event) => {
     const select = e.target as HTMLSelectElement;
     sort.value = select.value;
-    select.form?.submit();
+    submitForm();
   };
 
   const handleFilterChange = (e: Event) => {
     const select = e.target as HTMLSelectElement;
     filter.value = select.value;
-    select.form?.submit();
+    submitForm();
+  };
+
+  const submitForm = async () => {
+    await umamiService.sendEvent("search", {
+      search: searchQuery.value,
+      category: category.value,
+      sort: sort.value,
+      filter: filter.value,
+      page: page.value,
+    });
+
+    const form = document.querySelector("form");
+    form?.submit();
   };
 
   useEffect(() => {

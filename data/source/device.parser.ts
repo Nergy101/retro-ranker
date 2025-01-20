@@ -1,6 +1,6 @@
 import * as cheerio from "https://esm.sh/cheerio@1.0.0-rc.12";
 import { Device } from "../models/device.model.ts";
-import { RatingsService } from "../devices/ratings.service.ts";
+import { RatingsService } from "../../services/devices/ratings.service.ts";
 import { EmulationTier } from "../enums/EmulationTier.ts";
 
 export class DeviceParser {

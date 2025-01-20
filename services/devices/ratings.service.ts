@@ -1,5 +1,5 @@
-import { Device } from "../models/device.model.ts";
-import { EmulationTier } from "../enums/EmulationTier.ts";
+import { Device } from "../../data/models/device.model.ts";
+import { EmulationTier } from "../../data/enums/EmulationTier.ts";
 
 export class RatingsService {
   private static instance: RatingsService;
