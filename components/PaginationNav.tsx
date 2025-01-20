@@ -1,3 +1,5 @@
+import { PiCaretDoubleLeftBold, PiCaretDoubleRightBold, PiCaretLeftBold, PiCaretRightBold } from "@preact-icons/pi";
+
 interface PaginationNavProps {
   pageNumber: number;
   pageSize: number;
@@ -21,21 +23,25 @@ export function PaginationNav({
     <div style="display: flex; justify-content: center; margin-top: 1rem; margin-bottom: 1rem;">
       <div style="display: flex; flex-direction: row; gap: 0.5rem; align-items: center;">
         {pageNumber > 1 && (
-          <div>
+          <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
             <a
+              name="first-page"
               class="pagination-link"
               href={`/devices?page=1&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}`}
+              data-tooltip="First page"
             >
-              <i class="ph-bold ph-caret-double-left"></i>
+              <PiCaretDoubleLeftBold />
             </a>
 
             <a
+              name="previous-page"
               class="pagination-link"
               href={`/devices?page=${
                 pageNumber - 1
               }&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}`}
+              data-tooltip="Previous page"
             >
-              <i class="ph-bold ph-caret-left"></i>
+              <PiCaretLeftBold />
             </a>
           </div>
         )}
@@ -53,23 +59,27 @@ export function PaginationNav({
         </span>
 
         {pageNumber < Math.ceil(totalResults / pageSize) && (
-          <div>
+          <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
             <a
+              name="next-page"
               class="pagination-link"
               href={`/devices?page=${
                 pageNumber + 1
               }&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}`}
+              data-tooltip="Next page"
             >
-              <i class="ph-bold ph-caret-right"></i>
+              <PiCaretRightBold />
             </a>
 
             <a
+              name="last-page"
               class="pagination-link"
               href={`/devices?page=${
                 Math.ceil(totalResults / pageSize)
               }&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}`}
+              data-tooltip="Last page"
             >
-              <i class="ph-bold ph-caret-double-right"></i>
+              <PiCaretDoubleRightBold />
             </a>
           </div>
         )}

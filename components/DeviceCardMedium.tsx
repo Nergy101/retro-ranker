@@ -36,13 +36,13 @@ export function DeviceCardMedium({ device }: DeviceCardMediumProps) {
           }}
         >
           <hgroup style={{ textAlign: "center" }}>
-            <h4
+            <strong
               title={device.name.sanitized}
             >
               <span style={{ color: "var(--pico-primary)" }}>
                 {device.name.raw}
               </span>
-            </h4>
+            </strong>
             <p style={{ fontSize: "0.6rem", color: "var(--pico-contrast)" }}>
               {device.brand}
             </p>
