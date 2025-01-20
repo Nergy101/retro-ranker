@@ -138,7 +138,7 @@ export function DeviceSearchForm(
         value={category}
         onChange={handleCategoryChange}
       >
-        <option value="all">All</option>
+        <option value="all">Price</option>
         <option value="low">Budget</option>
         <option value="mid">Mid-Range</option>
         <option value="high">High-End</option>
@@ -149,7 +149,7 @@ export function DeviceSearchForm(
         value={sort}
         onChange={handleSortChange}
       >
-        <option value="all">All</option>
+        <option value="all">Sort</option>
         <option value="highly-rated">Highly Rated</option>
         <option value="new-arrivals">New Arrivals</option>
       </select>
@@ -159,7 +159,7 @@ export function DeviceSearchForm(
         value={filter}
         onChange={handleFilterChange}
       >
-        <option value="all">All</option>
+        <option value="all">Filter</option>
         <option value="upcoming">Upcoming</option>
         <option value="personal-picks">Personal Picks</option>
       </select>
