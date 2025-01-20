@@ -25,6 +25,7 @@ export function PaginationNav({
         {pageNumber > 1 && (
           <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
             <a
+              aria-label="First page"
               name="first-page"
               class="pagination-link"
               href={`/devices?page=1&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}`}
@@ -34,6 +35,7 @@ export function PaginationNav({
             </a>
 
             <a
+              aria-label="Previous page"
               name="previous-page"
               class="pagination-link"
               href={`/devices?page=${
@@ -61,6 +63,7 @@ export function PaginationNav({
         {pageNumber < Math.ceil(totalResults / pageSize) && (
           <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
             <a
+              aria-label="Next page"
               name="next-page"
               class="pagination-link"
               href={`/devices?page=${
@@ -72,6 +75,7 @@ export function PaginationNav({
             </a>
 
             <a
+              aria-label="Last page"
               name="last-page"
               class="pagination-link"
               href={`/devices?page=${
