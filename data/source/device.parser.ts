@@ -1,7 +1,7 @@
 import * as cheerio from "https://esm.sh/cheerio@1.0.0-rc.12";
-import { Device } from "../models/device.model.ts";
 import { RatingsService } from "../../services/devices/ratings.service.ts";
 import { EmulationTier } from "../enums/EmulationTier.ts";
+import { Device } from "../models/device.model.ts";
 
 export class DeviceParser {
   private static ratingsService = RatingsService.getInstance();
@@ -35,13 +35,6 @@ export class DeviceParser {
     if (lowerOs.includes("analogue os")) icons.push("ph-code");
 
     return icons.length ? icons : ["ph-empty"];
-  }
-
-  private static parseAveragePrice(priceText: string): number {
-    // prices look like $78, $1,100 for thousand-one-hundred, $70 (+ shipping)
-
-    const priceNumber = priceText.match(/\d+(?:,\d{3})*/);
-    return priceNumber ? parseInt(priceNumber[0].replace(/,/g, '')) : 0;
   }
 
   private static parsePriceRange(
@@ -103,6 +96,21 @@ export class DeviceParser {
           raw: "",
           sanitized: "",
         },
+        systemOnChip: "",
+        architecture: "",
+        ram: "",
+        rumble: "",
+        sensors: "",
+        volumeControl: "",
+        brightnessControl: "",
+        powerControl: "",
+        battery: "",
+        chargePort: "",
+        storage: "",
+        dimensions: "",
+        weight: "",
+        shellMaterial: "",
+        colors: [],
         brand: "",
         image: {
           originalUrl: "",
@@ -234,7 +242,7 @@ export class DeviceParser {
     // filter out devices that have too much information missing
     return devices.filter((device) => {
       return (
-        device.name !== "" ||
+        device.name.raw !== "" ||
         device.brand !== ""
       );
     });
@@ -551,15 +559,16 @@ export class DeviceParser {
         device.colors = value.split(", ");
         break;
       case 70: {
-        const averagePrice = this.parseAveragePrice(value);
-        device.pricing.average = averagePrice;
-        device.pricing.category = this.getPricingCategory(averagePrice);
         break;
       }
       case 71: {
         const priceRange = this.parsePriceRange(value);
+        const averagePrice = (priceRange.min + priceRange.max) / 2;
         device.pricing = {
           ...device.pricing,
+
+          average: averagePrice,
+          category: this.getPricingCategory(averagePrice),
           raw: value,
           range: {
             min: priceRange.min,
@@ -567,12 +576,14 @@ export class DeviceParser {
           },
           currency: this.getPriceCurrency(value),
         };
+
         break;
       }
       case 72:
       case 73:
       case 74:
       case 75:
+        break;
       // case 76:
       //   device.vendorLinks = [
       //     ...(device.vendorLinks || []),
@@ -580,13 +591,13 @@ export class DeviceParser {
       //   ].filter((link) => link !== null);
       //   break;
       case 77:
-        device.pros = value;
+        device.pros = value.split(", ");
         break;
       case 78:
-        device.cons = value;
+        device.cons = value.split(", ");
         break;
       case 79:
-        device.emulationLimit = value;
+        device.performance.emulationLimit = value;
         break;
       case 80:
         device.notes = value.split(", ");

@@ -42,12 +42,28 @@ export function DeviceSearchForm(
   const handleSortChange = (e: Event) => {
     const select = e.target as HTMLSelectElement;
     sort.value = select.value;
+    // Update the page input value explicitly
+    const pageInput = select.form?.querySelector(
+      'input[name="page"]',
+    ) as HTMLInputElement;
+    if (pageInput) {
+      pageInput.value = page.value.toString();
+    }
+
     submitForm();
   };
 
   const handleFilterChange = (e: Event) => {
     const select = e.target as HTMLSelectElement;
     filter.value = select.value;
+    // Update the page input value explicitly
+    const pageInput = select.form?.querySelector(
+      'input[name="page"]',
+    ) as HTMLInputElement;
+    if (pageInput) {
+      pageInput.value = page.value.toString();
+    }
+
     submitForm();
   };
 
@@ -60,8 +76,15 @@ export function DeviceSearchForm(
       page: page.value,
     });
 
-    const form = document.querySelector("form");
-    form?.submit();
+    if (viewportWidth.value < 500) {
+      const form = document.getElementsByClassName("device-search-form-mobile")[0];
+      console.log(form);
+      form?.submit();
+    } else {
+      const form = document.getElementsByClassName("device-search-form")[0];
+      console.log(form);
+      form?.submit();
+    }
   };
 
   useEffect(() => {

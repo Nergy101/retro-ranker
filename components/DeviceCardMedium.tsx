@@ -1,5 +1,7 @@
 import { Device } from "../data/models/device.model.ts";
 import { StarRating } from "./StarRating.tsx";
+import { CurrencyIcon } from "./CurrencyIcon.tsx";
+
 interface DeviceCardMediumProps {
   device: Device;
 }
@@ -46,13 +48,17 @@ export function DeviceCardMedium({ device }: DeviceCardMediumProps) {
             </div>
           </hgroup>
         </header>
-        <div style="padding-top: 0.5rem; padding-bottom: 0.5rem; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <div style="padding-bottom: 0.5rem; display: flex; flex-direction: column; justify-content: center; align-items: center;">
           <img
             src={device.image.url ?? "/images/placeholder-100x100.svg"}
             alt={device.image.alt ?? "A placeholder image"}
             style="width: 100px; height: 100px; object-fit: contain;"
             loading="lazy"
           />
+          <div style={{ display: "flex", alignItems: "center", gap: "0.25rem" }}>
+            <CurrencyIcon currencyCode={device.pricing.currency} />
+            {device.pricing.average}
+          </div>
         </div>
       </a>
     </article>

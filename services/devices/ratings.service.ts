@@ -27,6 +27,7 @@ export class RatingsService {
     normalizedRating: number;
     tier: EmulationTier;
     maxEmulation: string;
+    emulationLimit: string;
   } {
     const starCount = (text.match(/⭐️/g) || []).length;
     const explosionCount = (text.match(/💥/g) || []).length;
@@ -70,6 +71,7 @@ export class RatingsService {
       normalizedRating: Number(((rating / 15) * 10).toFixed(1)),
       tier,
       maxEmulation,
+      emulationLimit: "",
     };
   }
 
