@@ -1,4 +1,8 @@
+import {
+  PiDotsThreeVertical
+} from "@preact-icons/pi";
 import { useEffect } from "preact/hooks";
+import { navigationItems } from "../data/navigation.ts";
 import { ThemeSwitcher } from "./ThemeSwitcher.tsx";
 
 export function MobileNav({ pathname }: { pathname: string }) {
@@ -48,16 +52,6 @@ export function MobileNav({ pathname }: { pathname: string }) {
             gap: "0.5rem",
           }}
         >
-          <a href="/devices">
-            <i class="ph-bold ph-scroll"></i>
-          </a>
-          <a href="/about">
-            <i class="ph-bold ph-info"></i>
-          </a>
-          <a href="/contact">
-            <i class="ph-bold ph-chat-text"></i>
-          </a>
-
           <button
             class="burger-menu"
             onClick={() => {
@@ -66,11 +60,11 @@ export function MobileNav({ pathname }: { pathname: string }) {
             }}
             aria-label="Toggle menu"
           >
-            <i class="ph ph-magnifying-glass"></i>
+            <PiDotsThreeVertical />
           </button>
 
           <div style={{ padding: "0 0 0.5rem 0" }}>
-            <ThemeSwitcher showTooltip={false} showNames={true} />
+            <ThemeSwitcher showTooltip={false} showNames={false} />
           </div>
         </div>
       </div>
@@ -93,7 +87,7 @@ export function MobileNav({ pathname }: { pathname: string }) {
               <input type="submit" value="Search" />
             </form>
           </li>
-          {/* {navigationItems.map((item) => (
+          {navigationItems.map((item) => (
             <li style={{ padding: "0" }}>
               <a
                 href={item.href}
@@ -101,11 +95,13 @@ export function MobileNav({ pathname }: { pathname: string }) {
                   ? "active mobile-nav-button"
                   : "mobile-nav-button"}
               >
-                <i class={item.icon}></i>
-                &nbsp;{item.label}
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  {item.icon()}
+                  &nbsp;{item.label}
+                </div>
               </a>
             </li>
-          ))} */}
+          ))}
         </ul>
       </div>
     </nav>

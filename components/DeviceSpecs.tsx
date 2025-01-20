@@ -1,4 +1,14 @@
 import { Device } from "../data/models/device.model.ts";
+import {
+  PiFan,
+  PiCpu,
+  PiGameController,
+  PiGear,
+  PiMonitor,
+  PiRuler,
+  PiSpeakerHigh,
+  PiWifiHigh,
+} from "@preact-icons/pi";
 
 interface DeviceSpecsProps {
   device: Device;
@@ -10,7 +20,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
       {/* Processing */}
       <section class="specs-section overflow-auto">
         <h3>
-          <i class="ph ph-cpu"></i>
+          <PiCpu />
           Processing
         </h3>
         <table class="striped">
@@ -54,7 +64,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
       {/* Display */}
       <section class="specs-section overflow-auto">
         <h3>
-          <i class="ph ph-monitor"></i>
+          <PiMonitor />
           Display
         </h3>
         <table class="striped">
@@ -108,7 +118,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
       {/* Physical */}
       <section class="specs-section overflow-auto">
         <h3>
-          <i class="ph ph-ruler"></i>
+          <PiRuler />
           Physical
         </h3>
         <table class="striped">
@@ -138,7 +148,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
       {/* Cooling */}
       <section class="specs-section overflow-auto">
         <h3>
-          <i class="ph ph-cooler"></i>
+          <PiFan />
           Cooling
         </h3>
         <table class="striped">
@@ -166,7 +176,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
       {/* Audio and Video */}
       <section class="specs-section overflow-auto">
         <h3>
-          <i class="ph ph-speaker-high"></i>
+          <PiSpeakerHigh />
           Audio
         </h3>
         <table class="striped">
@@ -190,7 +200,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
       {/* Controls */}
       <section class="specs-section overflow-auto">
         <h3>
-          <i class="ph ph-game-controller"></i>
+          <PiGameController />
           Controls
         </h3>
         <table class="striped">
@@ -238,7 +248,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
       {/* Miscellaneous */}
       <section class="specs-section overflow-auto">
         <h3>
-          <i class="ph ph-gear"></i>
+          <PiGear />
           Miscellaneous
         </h3>
         <table class="striped">
@@ -310,7 +320,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
       {/* Connectivity */}
       <section class="specs-section overflow-auto">
         <h3>
-          <i class="ph ph-wifi-high"></i>
+          <PiWifiHigh />
           Connectivity
         </h3>
         <table class="striped">

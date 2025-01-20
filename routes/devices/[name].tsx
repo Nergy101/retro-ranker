@@ -1,11 +1,13 @@
+import { Head } from "$fresh/runtime.ts";
 import { PageProps } from "$fresh/server.ts";
+import { PiCalendarCheck, PiCalendarSlash } from "@preact-icons/pi";
+import { JSX, VNode } from "preact";
 import { CurrencyIcon } from "../../components/CurrencyIcon.tsx";
 import { DeviceCardSmall } from "../../components/DeviceCardSmall.tsx";
 import { DeviceSpecs } from "../../components/DeviceSpecs.tsx";
 import { EmulationPerformance } from "../../components/EmulationPerformance.tsx";
 import { StarRating } from "../../components/StarRating.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
-import { Head } from "$fresh/runtime.ts";
 
 export default function DeviceDetail(props: PageProps) {
   const deviceService = DeviceService.getInstance();
@@ -16,7 +18,11 @@ export default function DeviceDetail(props: PageProps) {
 
   const getReleaseDate = (
     deviceReleased: { raw: string; mentionedDate: Date | null },
-  ): { date: string; icon: string } => {
+  ): {
+    date: string;
+    icon: () => VNode<JSX.SVGAttributes>;
+    expected: boolean;
+  } => {
     if (deviceReleased.mentionedDate) {
       return {
         date: new Date(deviceReleased.mentionedDate).toLocaleDateString(
@@ -27,12 +33,14 @@ export default function DeviceDetail(props: PageProps) {
             year: "numeric",
           },
         ),
-        icon: "ph ph-calendar-check",
+        icon: () => <PiCalendarCheck />,
+        expected: false,
       };
     }
     return {
       date: deviceReleased.raw,
-      icon: "ph ph-calendar-slash",
+      icon: () => <PiCalendarSlash />,
+      expected: true,
     };
   };
 
@@ -71,7 +79,11 @@ export default function DeviceDetail(props: PageProps) {
                   : device.os.list.join(", ")}
                 data-placement="bottom"
               >
-                {device.os.icons.map((icon) => <i class={`${icon}`} />)}
+                <span style="display: flex; gap: 0.25rem;">
+                  {device.os.icons.map((icon) =>
+                    deviceService.getOsIconComponent(icon)
+                  )}
+                </span>
               </p>
             </div>
             <div>
@@ -91,7 +103,7 @@ export default function DeviceDetail(props: PageProps) {
             </div>
             <div style="display: flex; align-items: center; flex-direction: column;">
               <span
-                style={{ color: "var(--pico-color)" }}
+                style={{ color: "var(--pico-color)", display: "inline-flex" }}
                 data-tooltip={`${device.pricing.category}: 
                 ${device.pricing.range?.min}-${device.pricing.range?.max} 
                 ${device.pricing.currency}`}
@@ -101,14 +113,18 @@ export default function DeviceDetail(props: PageProps) {
                 {device.pricing.average}
               </span>
               <span
-                style={{ color: "var(--pico-color)" }}
+                style={{
+                  color: "var(--pico-color)",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.25rem",
+                }}
                 data-tooltip={getReleaseDate(device.released).date}
                 data-placement="bottom"
               >
-                <i class={getReleaseDate(device.released).icon}></i>
-                &nbsp;
-                {getReleaseDate(device.released).icon ===
-                    "ph ph-calendar-slash"
+                {getReleaseDate(device.released).icon()}
+
+                {getReleaseDate(device.released).expected
                   ? "Expected"
                   : getReleaseDate(device.released).date}
               </span>
@@ -146,16 +162,18 @@ export default function DeviceDetail(props: PageProps) {
                         <td>OS / CFW</td>
                         <td>{device.os.list.join(", ")}</td>
                         <td>
-                          <span
-                            data-tooltip={device.os.list.join(", ")}
-                            data-placement="bottom"
-                          >
-                            {device.os.icons.map((icon) => (
-                              <i
-                                class={`${icon}`}
-                              />
-                            ))}
-                          </span>
+                          <div style="display: flex; gap: 0.25rem;">
+                            <span
+                              data-tooltip={device.os.list.join(", ")}
+                              data-placement="bottom"
+                            >
+                              <div style="display: flex; gap: 0.25rem;">
+                                {device.os.icons.map((icon) => (
+                                  deviceService.getOsIconComponent(icon)
+                                ))}
+                              </div>
+                            </span>
+                          </div>
                         </td>
                       </tr>
                       <tr>

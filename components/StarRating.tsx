@@ -1,5 +1,10 @@
+import {
+  PiQuestion,
+  PiStar,
+  PiStarFill,
+  PiStarHalfFill,
+} from "@preact-icons/pi";
 import { Device } from "../data/models/device.model.ts";
-
 interface StarRatingProps {
   device: Device;
 }
@@ -112,8 +117,7 @@ export function StarRating({ device }: StarRatingProps) {
         data-placement="bottom"
         data-tooltip="No emulation ratings available"
       >
-        <i class="ph ph-question">
-        </i>
+        <PiQuestion />
       </span>
     );
   }
@@ -127,26 +131,24 @@ export function StarRating({ device }: StarRatingProps) {
   // Calculate full and half stars needed
   const fullStars = Math.floor(roundedRating);
   const hasHalfStar = roundedRating % 1 !== 0;
-  const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
 
   return (
     <p
-      style="display: inline-flex; color: var(--pico-primary);"
+      style="display: flex; color: var(--pico-primary);"
       data-placement="bottom"
       data-tooltip={`Emulation Rating: ${fivePointRating.toFixed(1)}/5`}
     >
       {/* Full stars */}
-      {Array.from({ length: fullStars }).map((_, i) => (
-        <i key={`full-${i}`} class="ph-fill ph-star" />
-      ))}
+      {Array.from({ length: fullStars }).map((_, i) => <PiStarFill />)}
 
       {/* Half star if needed */}
-      {hasHalfStar && <i class="ph-fill ph-star-half" />}
+      {hasHalfStar && <PiStarHalfFill />}
 
       {/* Empty stars */}
-      {Array.from({ length: 5 - fullStars - (hasHalfStar ? 1 : 0) }).map((_, i) => (
-        <i key={`empty-${i}`} class="ph ph-star" />
-      ))}
+      {Array.from({ length: 5 - fullStars - (hasHalfStar ? 1 : 0) }).map((
+        _,
+        i,
+      ) => <PiStar />)}
     </p>
   );
 }

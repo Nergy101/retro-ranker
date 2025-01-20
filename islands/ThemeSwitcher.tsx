@@ -1,5 +1,6 @@
 import { useSignal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
+import { PiMoon, PiSun } from "@preact-icons/pi";
 
 export function ThemeSwitcher(
   { showNames = true, showTooltip = true, tooltipLocation = "bottom" }: {
@@ -33,6 +34,10 @@ export function ThemeSwitcher(
 
   return (
     <button
+      id="theme-switcher"
+      aria-label="auto"
+      aria-live="polite"
+      name="theme-switcher"
       class="outline"
       onClick={toggleTheme}
       style={{
@@ -47,42 +52,45 @@ export function ThemeSwitcher(
         gap: "0.25rem",
         minWidth: showNames ? "10em" : "2.5rem",
       }}
-      aria-label={showTooltip
-        ? `Switch to ${theme.value === "light" ? "dark" : "light"} theme`
-        : undefined}
       data-tooltip={showTooltip
         ? `Switch to ${theme.value === "light" ? "dark" : "light"} theme`
         : undefined}
       data-placement={tooltipLocation}
     >
-      {theme.value === "light"
+      {theme.value !== "light"
         ? (
-          <>
-            <i
-              class="ph ph-moon"
+          <div
+            style={{ display: "flex", alignItems: "center", gap: "0.25rem" }}
+          >
+            <span
+              name="theme-switcher-dark"
               style={{
                 fontSize: "1.2rem",
                 transition: "transform 500ms ease-in-out",
                 transform: "rotate(0deg)",
               }}
             >
-            </i>
-            {showNames && <span>Dark theme</span>}
-          </>
+              <PiMoon />
+            </span>
+            {showNames && <span>Dark side</span>}
+          </div>
         )
         : (
-          <>
-            <i
-              class="ph ph-sun"
+          <div
+            style={{ display: "flex", alignItems: "center", gap: "0.25rem" }}
+          >
+            <span
+              name="theme-switcher-light"
               style={{
                 fontSize: "1.2rem",
                 transition: "transform 500ms ease-in-out",
                 transform: "rotate(180deg)",
               }}
             >
-            </i>
-            {showNames && <span>Light theme</span>}
-          </>
+              <PiSun />
+            </span>
+            {showNames && <span>Light side</span>}
+          </div>
         )}
     </button>
   );

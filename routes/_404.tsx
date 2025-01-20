@@ -6,7 +6,7 @@ export default function Error404() {
       <Head>
         <title>Retro Ranker - 404 Page Not Found</title>
       </Head>
-      <div class="px-4 py-8 mx-auto bg-[#86efac]">
+      <div class="px-4 py-8 mx-auto bg-deno-green">
         <div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">
           <img
             loading="lazy"

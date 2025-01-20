@@ -1,9 +1,15 @@
+import { PiCaretRight, PiGameController } from "@preact-icons/pi";
 import { signal } from "@preact/signals";
+import { JSX, VNode } from "preact";
 import { useEffect } from "preact/hooks";
 import { navigationItems } from "../data/navigation.ts";
 
 interface BreadcrumbProps {
-  items?: { label: string; href?: string; icon?: string }[];
+  items?: {
+    label: string;
+    href?: string;
+    icon?: () => VNode<JSX.SVGAttributes>;
+  }[];
   showNames?: boolean;
 }
 
@@ -83,12 +89,12 @@ export function Breadcrumb({ items, showNames }: BreadcrumbProps) {
 
   return (
     <div class="bread-crumb">
-      <div>
-        <a href="/" target="_self">
-          <i class="ph ph-game-controller"></i>
+      <a href="/" target="_self">
+        <div style={{ display: "inline-flex" }}>
+          <PiGameController />
           {showNames && <span>&nbsp;Home</span>}
-        </a>
-      </div>
+        </div>
+      </a>
       {items.slice(1).map((item, index) => (
         <div
           key={index}
@@ -96,21 +102,25 @@ export function Breadcrumb({ items, showNames }: BreadcrumbProps) {
             overflow: "hidden",
             textOverflow: "ellipsis",
             whiteSpace: "nowrap",
+            display: "inline-flex",
           }}
         >
-          <i class="ph ph-caret-right" style={{ marginRight: "0.5rem" }}></i>
           {item.href
             ? (
               <a href={item.href} target="_self">
-                {item.icon && <i class={item.icon}></i>}
-                {showNames && <span>&nbsp;{item.label}</span>}
+                <div style={{ display: "inline-flex" }}>
+                  <PiCaretRight style={{ marginRight: "0.5rem" }} />
+                  {item.icon && item.icon()}
+                  <span>&nbsp;{item.label}</span>
+                </div>
               </a>
             )
             : (
-              <span>
-                {item.icon && <i class={item.icon}></i>}
+              <div style={{ display: "inline-flex" }}>
+                <PiCaretRight />
+                {item.icon && item.icon()}
                 <span>&nbsp;{replaceTokens(item.label)}</span>
-              </span>
+              </div>
             )}
         </div>
       ))}

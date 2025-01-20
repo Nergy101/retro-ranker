@@ -1,5 +1,24 @@
 import { Device } from "../../data/models/device.model.ts";
 import { RatingsService } from "./ratings.service.ts";
+import {
+  PiAndroidLogo,
+  PiAppleLogo,
+  PiBracketsAngle,
+  PiBracketsCurly,
+  PiBracketsRound,
+  PiBracketsSquare,
+  PiCode,
+  PiFactory,
+  PiJoystick,
+  PiLinuxLogo,
+  PiMinusSquare,
+  PiRainbow,
+  PiScissors,
+  PiSteamLogo,
+  PiWindowsLogo,
+  PiEmpty,
+} from "@preact-icons/pi";
+import { JSX, VNode } from "preact";
 
 export class DeviceService {
   private devices: Device[] = [];
@@ -211,5 +230,42 @@ export class DeviceService {
         a.performance?.normalizedRating
       )
       .slice(0, 4);
+  }
+
+  public getOsIconComponent(os: string): () => VNode<JSX.SVGAttributes> {
+    switch (os) {
+      case "ph-factory":
+        return PiFactory({});
+      case "ph-steam-logo":
+        return PiSteamLogo({});
+      case "ph-android-logo":
+        return PiAndroidLogo({});
+      case "ph-apple-logo":
+        return PiAppleLogo({});
+      case "ph-linux-logo":
+        return PiLinuxLogo({});
+      case "ph-windows-logo":
+        return PiWindowsLogo({});
+      case "ph-brackets-angle":
+        return PiBracketsAngle({});
+      case "ph-brackets-square":
+        return PiBracketsSquare({});
+      case "ph-brackets-curly":
+        return PiBracketsCurly({});
+      case "ph-brackets-round":
+        return PiBracketsRound({});
+      case "ph-rainbow":
+        return PiRainbow({});
+      case "ph-minus-square":
+        return PiMinusSquare({});
+      case "ph-joystick":
+        return PiJoystick({});
+      case "ph-scissors":
+        return PiScissors({});
+      case "ph-code":
+        return PiCode({});
+      default:
+        return PiEmpty({});
+    }
   }
 }

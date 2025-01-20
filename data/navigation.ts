@@ -1,7 +1,10 @@
+import { PiChatText, PiGameController, PiInfo, PiScroll } from "@preact-icons/pi";
+import { JSX, VNode } from "preact";
+
 export type NavigationItem = {
   href: string;
   label: string;
-  icon: string;
+  icon: () => VNode<JSX.SVGAttributes>;
   isActive: (pathname: string) => boolean;
 };
 
@@ -9,25 +12,25 @@ export const navigationItems: NavigationItem[] = [
   {
     href: "/",
     label: "Home",
-    icon: "ph ph-game-controller",
+    icon: () => PiGameController({}),
     isActive: (pathname) => pathname === "/",
   },
   {
     href: "/devices",
     label: "Devices",
-    icon: "ph ph-scroll",
+    icon: () => PiScroll({}),
     isActive: (pathname) => pathname.startsWith("/devices"),
   },
   {
     href: "/about",
     label: "About",
-    icon: "ph ph-info",
+    icon: () => PiInfo({}),
     isActive: (pathname) => pathname === "/about",
   },
   {
     href: "/contact",
     label: "Contact",
-    icon: "ph ph-chat-text",
+    icon: () => PiChatText({}),
     isActive: (pathname) => pathname === "/contact",
   },
 ]; 

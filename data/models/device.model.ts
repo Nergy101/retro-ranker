@@ -19,7 +19,7 @@ export interface Device {
   os: {
     raw: string;
     list: string[];
-    icons: string[];
+    icons: string[]; // ph icon class names, can be used with deviceService.getOsIconComponent or <i class={icon} />
   };
   performance: {
     tier: EmulationTier;

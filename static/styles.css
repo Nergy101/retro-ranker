@@ -37,11 +37,12 @@ html {
 }
 
 .transition-colors {
-  transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1),
-              border-color 500ms cubic-bezier(0.4, 0, 0.2, 1),
-              color 500ms cubic-bezier(0.4, 0, 0.2, 1),
-              fill 500ms cubic-bezier(0.4, 0, 0.2, 1),
-              stroke 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    background-color 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .my-6 {
@@ -73,7 +74,7 @@ html {
   padding: 2rem 0;
 }
 
-.bg-[#86efac] {
+.bg-deno-green {
   background-color: #86efac;
 }
 
@@ -326,14 +327,16 @@ html {
   border-radius: 0.5rem;
   padding: 0.5rem;
   margin: 0.5rem;
-  min-width: 10rem;
+  min-width: 50vw;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .active {
-  color: var(--pico-primary);
+  color: var(--pico-contrast);
   font-weight: bold;
-  text-decoration: underline !important;
 }
 
 .device-row-grid {
@@ -574,7 +577,6 @@ h6,
   border-top: 1px solid var(--pico-muted-border-color);
 }
 
-
 .tag {
   background-color: var(--pico-contrast);
   color: black;
@@ -604,6 +606,10 @@ h6,
 }
 
 .pagination-link:hover {
-  text-decoration: underline !important;
   color: var(--pico-primary) !important;
+}
+
+.mobile-nav-button:hover {
+  color: var(--pico-primary) !important;
+  text-decoration: none !important;
 }

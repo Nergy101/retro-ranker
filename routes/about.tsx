@@ -1,4 +1,11 @@
 import { Head } from "$fresh/runtime.ts";
+import {
+  PiDatabase,
+  PiListChecks,
+  PiQuestion,
+  PiStack,
+  PiUsers,
+} from "@preact-icons/pi";
 
 export default function AboutPage() {
   return (
@@ -14,7 +21,10 @@ export default function AboutPage() {
       <div>
         <details open>
           <summary class="flex items-center gap-2">
-            <i class="ph ph-question"></i>&nbsp;What is Retro Ranker?
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <PiQuestion />
+              &nbsp;What is Retro Ranker?
+            </div>
           </summary>
           <p>
             Retro Ranker is a comprehensive database and comparison platform
@@ -26,20 +36,10 @@ export default function AboutPage() {
 
         <details>
           <summary class="flex items-center gap-2">
-            <i class="ph ph-list-checks"></i>&nbsp;Features
-          </summary>
-          <ul>
-            <li>Detailed technical specifications for each device</li>
-            <li>Performance ratings for different emulation capabilities</li>
-            <li>Side-by-side device comparisons</li>
-            <li>Real-world performance metrics and benchmarks</li>
-            <li>Up-to-date pricing and availability information</li>
-          </ul>
-        </details>
-
-        <details>
-          <summary class="flex items-center gap-2">
-            <i class="ph ph-stack"></i>&nbsp;Tech Stack
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <PiStack />
+              &nbsp;Tech Stack
+            </div>
           </summary>
           <ul class="flex flex-col gap-4 p-4">
             <li class="flex items-center gap-4">
@@ -92,7 +92,26 @@ export default function AboutPage() {
 
         <details>
           <summary class="flex items-center gap-2">
-            <i class="ph ph-database"></i>&nbsp;Where does the data come from?
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <PiListChecks />
+              &nbsp;Features
+            </div>
+          </summary>
+          <ul>
+            <li>Detailed technical specifications for each device</li>
+            <li>Performance ratings for different emulation capabilities</li>
+            <li>Side-by-side device comparisons</li>
+            <li>Real-world performance metrics and benchmarks</li>
+            <li>Up-to-date pricing and availability information</li>
+          </ul>
+        </details>
+
+        <details>
+          <summary class="flex items-center gap-2">
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <PiDatabase />
+              &nbsp;Where does the data come from?
+            </div>
           </summary>
           <p>
             Retro Ranker's database is powered by the incredible work of the
@@ -114,7 +133,10 @@ export default function AboutPage() {
 
         <details>
           <summary class="flex items-center gap-2">
-            <i class="ph ph-users"></i>&nbsp;Community Contribution
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <PiUsers />
+              &nbsp;Community Contribution
+            </div>
           </summary>
           <p>
             We encourage you to join the Retro Handhelds community to contribute

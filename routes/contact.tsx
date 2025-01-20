@@ -1,4 +1,5 @@
 import { Head } from "$fresh/runtime.ts";
+import { PiCoffee, PiGithubLogo, PiChatText, PiLinkedinLogo } from "@preact-icons/pi";
 
 export default function ContactPage() {
   return (
@@ -25,7 +26,7 @@ export default function ContactPage() {
               class="small-card"
               style="text-decoration: none; justify-content: center;"
             >
-              <i class="ph ph-coffee text-4xl"></i>
+              <PiCoffee class="text-4xl" />
               <span>Buy me a coffee</span>
             </a>
             <a
@@ -34,7 +35,8 @@ export default function ContactPage() {
               class="small-card"
               style="text-decoration: none; text-align: center; justify-content: center;"
             >
-              <i class="ph ph-github-logo text-4xl"></i>
+
+              <PiGithubLogo class="text-4xl" />
               <span>
                 GitHub Repository
               </span>
@@ -77,7 +79,7 @@ export default function ContactPage() {
               class="small-card"
               style="text-decoration: none; text-align: center; justify-content: center;"
             >
-              <i class="ph ph-chat-text text-4xl"></i>
+              <PiChatText class="text-4xl" />
               <span>BlueSky</span>
             </a>
             <a
@@ -86,7 +88,7 @@ export default function ContactPage() {
               class="small-card"
               style="text-decoration: none; text-align: center; justify-content: center;"
             >
-              <i class="ph ph-linkedin-logo text-4xl"></i>
+              <PiLinkedinLogo class="text-4xl" />
               <span>LinkedIn</span>
             </a>
             <a
@@ -95,7 +97,7 @@ export default function ContactPage() {
               class="small-card"
               style="text-decoration: none; text-align: center; justify-content: center;"
             >
-              <i class="ph ph-github-logo text-4xl"></i>
+              <PiGithubLogo class="text-4xl" />
               <span>GitHub Profile</span>
             </a>
           </div>

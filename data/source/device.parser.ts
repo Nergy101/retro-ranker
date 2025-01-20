@@ -10,31 +10,31 @@ export class DeviceParser {
     const lowerOs = os.toLowerCase();
     const icons: string[] = [];
 
-    if (lowerOs.includes("proprietary")) icons.push("ph ph-factory");
+    if (lowerOs.includes("proprietary")) icons.push("ph-factory");
 
-    if (lowerOs.includes("steam")) icons.push("ph ph-steam-logo");
-    if (lowerOs.includes("android")) icons.push("ph ph-android-logo");
-    if (lowerOs.includes("ios")) icons.push("ph ph-apple-logo");
+    if (lowerOs.includes("steam")) icons.push("ph-steam-logo");
+    if (lowerOs.includes("android")) icons.push("ph-android-logo");
+    if (lowerOs.includes("ios")) icons.push("ph-apple-logo");
 
-    if (lowerOs.includes("linux")) icons.push("ph ph-linux-logo");
-    if (lowerOs.includes("macos")) icons.push("ph ph-apple-logo");
-    if (lowerOs.includes("windows")) icons.push("ph ph-windows-logo");
+    if (lowerOs.includes("linux")) icons.push("ph-linux-logo");
+    if (lowerOs.includes("macos")) icons.push("ph-apple-logo");
+    if (lowerOs.includes("windows")) icons.push("ph-windows-logo");
 
-    if (lowerOs.includes("garlic")) icons.push("ph ph-brackets-angle");
-    if (lowerOs.includes("onion")) icons.push("ph ph-brackets-square");
+    if (lowerOs.includes("garlic")) icons.push("ph-brackets-angle");
+    if (lowerOs.includes("onion")) icons.push("ph-brackets-square");
 
-    if (lowerOs.includes("gamma")) icons.push("ph ph-brackets-curly");
+    if (lowerOs.includes("gamma")) icons.push("ph-brackets-curly");
 
-    if (lowerOs.includes("opendingux")) icons.push("ph ph-brackets-round");
-    if (lowerOs.includes("arkos")) icons.push("ph ph-rainbow");
+    if (lowerOs.includes("opendingux")) icons.push("ph-brackets-round");
+    if (lowerOs.includes("arkos")) icons.push("ph-rainbow");
 
-    if (lowerOs.includes("minui")) icons.push("ph ph-minus-square");
-    if (lowerOs.includes("batocera")) icons.push("ph ph-joystick");
-    if (lowerOs.includes("trimui")) icons.push("ph ph-scissors");
+    if (lowerOs.includes("minui")) icons.push("ph-minus-square");
+    if (lowerOs.includes("batocera")) icons.push("ph-joystick");
+    if (lowerOs.includes("trimui")) icons.push("ph-scissors");
 
-    if (lowerOs.includes("analogue os")) icons.push("ph ph-code");
+    if (lowerOs.includes("analogue os")) icons.push("ph-code");
 
-    return icons.length ? icons : ["ph ph-empty"];
+    return icons.length ? icons : ["ph-empty"];
   }
 
   private static parseAveragePrice(priceText: string): number {
@@ -213,7 +213,7 @@ export class DeviceParser {
           const hrefList: string[] = [];
 
           // Select all <a> elements and extract the href attributes
-          $(cell).find("a").each((index, element) => {
+          $(cell).find("a").each((_, element) => {
             const href = $(element).attr("href");
             if (href) {
               hrefList.push(href);

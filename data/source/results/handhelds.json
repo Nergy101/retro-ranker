@@ -18,8 +18,8 @@
     "os": {
       "raw": "Android 10 / Linux (Tina)",
       "icons": [
-        "ph ph-android-logo",
-        "ph ph-linux-logo"
+        "ph-android-logo",
+        "ph-linux-logo"
       ],
       "list": [
         "Android 10",
@@ -214,7 +214,7 @@
     "os": {
       "raw": "Windows 11",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11"
@@ -406,7 +406,7 @@
     "os": {
       "raw": "Windows 11",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11"
@@ -598,7 +598,7 @@
     "os": {
       "raw": "Linux (Rocknix)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (Rocknix)"
@@ -793,9 +793,9 @@
     "os": {
       "raw": "Linux (Steam OS) / Windows 11",
       "icons": [
-        "ph ph-steam-logo",
-        "ph ph-linux-logo",
-        "ph ph-windows-logo"
+        "ph-steam-logo",
+        "ph-linux-logo",
+        "ph-windows-logo"
       ],
       "list": [
         "Linux (Steam OS)",
@@ -989,8 +989,8 @@
     "os": {
       "raw": "Android 10 / Linux",
       "icons": [
-        "ph ph-android-logo",
-        "ph ph-linux-logo"
+        "ph-android-logo",
+        "ph-linux-logo"
       ],
       "list": [
         "Android 10",
@@ -1185,7 +1185,7 @@
     "os": {
       "raw": "Android 12",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 12"
@@ -1380,7 +1380,7 @@
     "os": {
       "raw": "Windows 11",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11"
@@ -1572,7 +1572,7 @@
     "os": {
       "raw": "Windows 11",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11"
@@ -1764,7 +1764,7 @@
     "os": {
       "raw": "Android 12",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 12"
@@ -1958,7 +1958,7 @@
     "os": {
       "raw": "Android 12",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 12"
@@ -2150,7 +2150,7 @@
     "os": {
       "raw": "Linux (EmuELEC)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (EmuELEC)"
@@ -2342,7 +2342,7 @@
     "os": {
       "raw": "?",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "?"
@@ -2534,7 +2534,7 @@
     "os": {
       "raw": "?",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "?"
@@ -2726,7 +2726,7 @@
     "os": {
       "raw": "Windows 11",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11"
@@ -2918,7 +2918,7 @@
     "os": {
       "raw": "Windows 11",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11"
@@ -3110,7 +3110,7 @@
     "os": {
       "raw": "Android 13",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 13"
@@ -3305,7 +3305,7 @@
     "os": {
       "raw": "Linux",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux"
@@ -3500,7 +3500,7 @@
     "os": {
       "raw": "Linux (Tina)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (Tina)"
@@ -3695,7 +3695,7 @@
     "os": {
       "raw": "Windows 11",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11"
@@ -3888,7 +3888,7 @@
     "os": {
       "raw": "Windows 11",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11"
@@ -4080,7 +4080,7 @@
     "os": {
       "raw": "Linux",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux"
@@ -4276,7 +4276,7 @@
     "os": {
       "raw": "Linux (EmuELEC)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (EmuELEC)"
@@ -4473,8 +4473,8 @@
     "os": {
       "raw": "Windows 11 / Linux (Bazzite)",
       "icons": [
-        "ph ph-linux-logo",
-        "ph ph-windows-logo"
+        "ph-linux-logo",
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11",
@@ -4668,7 +4668,7 @@
     "os": {
       "raw": "Android 13",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 13"
@@ -4862,7 +4862,7 @@
     "os": {
       "raw": "Android 13",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 13"
@@ -5055,7 +5055,7 @@
     "os": {
       "raw": "Android 13",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 13"
@@ -5249,9 +5249,9 @@
     "os": {
       "raw": "Android 13 / Linux (Batocera)",
       "icons": [
-        "ph ph-android-logo",
-        "ph ph-linux-logo",
-        "ph ph-joystick"
+        "ph-android-logo",
+        "ph-linux-logo",
+        "ph-joystick"
       ],
       "list": [
         "Android 13",
@@ -5447,7 +5447,7 @@
     "os": {
       "raw": "Linux (Tina)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (Tina)"
@@ -5644,7 +5644,7 @@
     "os": {
       "raw": "Linux",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux"
@@ -5838,7 +5838,7 @@
     "os": {
       "raw": "Linux",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux"
@@ -6033,7 +6033,7 @@
     "os": {
       "raw": "Windows 11",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11"
@@ -6227,7 +6227,7 @@
     "os": {
       "raw": "Linux",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux"
@@ -6426,9 +6426,9 @@
     "os": {
       "raw": "Android 10 / Linux (Batocera)",
       "icons": [
-        "ph ph-android-logo",
-        "ph ph-linux-logo",
-        "ph ph-joystick"
+        "ph-android-logo",
+        "ph-linux-logo",
+        "ph-joystick"
       ],
       "list": [
         "Android 10",
@@ -6625,7 +6625,7 @@
     "os": {
       "raw": "Android 13",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 13"
@@ -6819,7 +6819,7 @@
     "os": {
       "raw": "Android 13",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 13"
@@ -7013,7 +7013,7 @@
     "os": {
       "raw": "Linux",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux"
@@ -7207,8 +7207,8 @@
     "os": {
       "raw": "Android 11,Linux (?)",
       "icons": [
-        "ph ph-android-logo",
-        "ph ph-linux-logo"
+        "ph-android-logo",
+        "ph-linux-logo"
       ],
       "list": [
         "Android 11,Linux (?)"
@@ -7402,7 +7402,7 @@
     "os": {
       "raw": "Linux",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux"
@@ -7597,7 +7597,7 @@
     "os": {
       "raw": "Linux",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux"
@@ -7791,7 +7791,7 @@
     "os": {
       "raw": "Android 14",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 14"
@@ -7986,7 +7986,7 @@
     "os": {
       "raw": "Android 13",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 13"
@@ -8180,7 +8180,7 @@
     "os": {
       "raw": "Linux (EmuELEC)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (EmuELEC)"
@@ -8374,7 +8374,7 @@
     "os": {
       "raw": "Linux",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux"
@@ -8570,7 +8570,7 @@
     "os": {
       "raw": "Linux",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux"
@@ -8764,7 +8764,7 @@
     "os": {
       "raw": "Windows 11",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11"
@@ -8956,7 +8956,7 @@
     "os": {
       "raw": "Linux",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux"
@@ -9150,7 +9150,7 @@
     "os": {
       "raw": "Windows 11",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11"
@@ -9342,7 +9342,7 @@
     "os": {
       "raw": "Linux(Closed source)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux(Closed source)"
@@ -9537,7 +9537,7 @@
     "os": {
       "raw": "Android 13",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 13"
@@ -9730,7 +9730,7 @@
     "os": {
       "raw": "Linux",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux"
@@ -9926,9 +9926,9 @@
     "os": {
       "raw": "Android 11 / Linux (ArkOS)",
       "icons": [
-        "ph ph-android-logo",
-        "ph ph-linux-logo",
-        "ph ph-rainbow"
+        "ph-android-logo",
+        "ph-linux-logo",
+        "ph-rainbow"
       ],
       "list": [
         "Android 11",
@@ -10124,7 +10124,7 @@
     "os": {
       "raw": "Android 13",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 13"
@@ -10319,8 +10319,8 @@
     "os": {
       "raw": "Windows 11 / SteamOS",
       "icons": [
-        "ph ph-steam-logo",
-        "ph ph-windows-logo"
+        "ph-steam-logo",
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11",
@@ -10513,7 +10513,7 @@
     "os": {
       "raw": "Android 13",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 13"
@@ -10706,7 +10706,7 @@
     "os": {
       "raw": "Linux",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux"
@@ -10901,7 +10901,7 @@
     "os": {
       "raw": "Linux",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux"
@@ -11099,7 +11099,7 @@
     "os": {
       "raw": "Linux (Tina)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (Tina)"
@@ -11294,7 +11294,7 @@
     "os": {
       "raw": "Linux(EmuELEC)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux(EmuELEC)"
@@ -11489,8 +11489,8 @@
     "os": {
       "raw": "Windows 11 / SteamOS",
       "icons": [
-        "ph ph-steam-logo",
-        "ph ph-windows-logo"
+        "ph-steam-logo",
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11",
@@ -11683,7 +11683,7 @@
     "os": {
       "raw": "Linux",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux"
@@ -11878,7 +11878,7 @@
     "os": {
       "raw": "Linux",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux"
@@ -12074,7 +12074,7 @@
     "os": {
       "raw": "Linux(Closed source)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux(Closed source)"
@@ -12269,7 +12269,7 @@
     "os": {
       "raw": "Windows 11",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11"
@@ -12462,7 +12462,7 @@
     "os": {
       "raw": "Windows 11",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11"
@@ -12655,7 +12655,7 @@
     "os": {
       "raw": "Linux",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux"
@@ -12849,7 +12849,7 @@
     "os": {
       "raw": "Linux",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux"
@@ -13043,7 +13043,7 @@
     "os": {
       "raw": "Windows 11",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11"
@@ -13235,7 +13235,7 @@
     "os": {
       "raw": "Android 13",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 13"
@@ -13428,7 +13428,7 @@
     "os": {
       "raw": "Linux (JELOS)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (JELOS)"
@@ -13625,7 +13625,7 @@
     "os": {
       "raw": "Android 13",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 13"
@@ -13817,8 +13817,8 @@
     "os": {
       "raw": "Windows 11 / SteamOS",
       "icons": [
-        "ph ph-steam-logo",
-        "ph ph-windows-logo"
+        "ph-steam-logo",
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11",
@@ -14013,8 +14013,8 @@
     "os": {
       "raw": "Windows 11 / SteamOS (HoloISO)",
       "icons": [
-        "ph ph-steam-logo",
-        "ph ph-windows-logo"
+        "ph-steam-logo",
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11",
@@ -14209,7 +14209,7 @@
     "os": {
       "raw": "Windows 11",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11"
@@ -14401,7 +14401,7 @@
     "os": {
       "raw": "Android 11",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 11"
@@ -14598,7 +14598,7 @@
     "os": {
       "raw": "Windows 11",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11"
@@ -14792,7 +14792,7 @@
     "os": {
       "raw": "IUX",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "IUX"
@@ -14991,7 +14991,7 @@
     "os": {
       "raw": "Android 13",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 13"
@@ -15188,7 +15188,7 @@
     "os": {
       "raw": "Linux",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux"
@@ -15382,7 +15382,7 @@
     "os": {
       "raw": "Linux (EmuELEC)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (EmuELEC)"
@@ -15575,7 +15575,7 @@
     "os": {
       "raw": "Linux (JELOS)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (JELOS)"
@@ -15770,7 +15770,7 @@
     "os": {
       "raw": "Proprietary",
       "icons": [
-        "ph ph-factory"
+        "ph-factory"
       ],
       "list": [
         "Proprietary"
@@ -15962,8 +15962,8 @@
     "os": {
       "raw": "Windows 11 / SteamOS",
       "icons": [
-        "ph ph-steam-logo",
-        "ph ph-windows-logo"
+        "ph-steam-logo",
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11",
@@ -16157,7 +16157,7 @@
     "os": {
       "raw": "Android 8.1",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 8.1"
@@ -16352,8 +16352,8 @@
     "os": {
       "raw": "Windows 11 / SteamOS",
       "icons": [
-        "ph ph-steam-logo",
-        "ph ph-windows-logo"
+        "ph-steam-logo",
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11",
@@ -16547,7 +16547,7 @@
     "os": {
       "raw": "Linux",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux"
@@ -16741,8 +16741,8 @@
     "os": {
       "raw": "Android 11, Linux",
       "icons": [
-        "ph ph-android-logo",
-        "ph ph-linux-logo"
+        "ph-android-logo",
+        "ph-linux-logo"
       ],
       "list": [
         "Android 11",
@@ -16936,7 +16936,7 @@
     "os": {
       "raw": "Linux",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux"
@@ -17129,9 +17129,9 @@
     "os": {
       "raw": "SteamOS 3.0 (Arch Linux), Windows 11, etc",
       "icons": [
-        "ph ph-steam-logo",
-        "ph ph-linux-logo",
-        "ph ph-windows-logo"
+        "ph-steam-logo",
+        "ph-linux-logo",
+        "ph-windows-logo"
       ],
       "list": [
         "SteamOS 3.0 (Arch Linux)",
@@ -17330,7 +17330,7 @@
     "os": {
       "raw": "Linux",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux"
@@ -17524,7 +17524,7 @@
     "os": {
       "raw": "Linux (Tina)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (Tina)"
@@ -17720,8 +17720,8 @@
     "os": {
       "raw": "Linux (ArkOS)",
       "icons": [
-        "ph ph-linux-logo",
-        "ph ph-rainbow"
+        "ph-linux-logo",
+        "ph-rainbow"
       ],
       "list": [
         "Linux (ArkOS)"
@@ -17915,7 +17915,7 @@
     "os": {
       "raw": "Windows 11",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11"
@@ -18107,7 +18107,7 @@
     "os": {
       "raw": "Android 13",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 13"
@@ -18303,8 +18303,8 @@
     "os": {
       "raw": "Windows 11 / SteamOS",
       "icons": [
-        "ph ph-steam-logo",
-        "ph ph-windows-logo"
+        "ph-steam-logo",
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11",
@@ -18498,8 +18498,8 @@
     "os": {
       "raw": "Linux(EmuELEC), MinUI",
       "icons": [
-        "ph ph-linux-logo",
-        "ph ph-minus-square"
+        "ph-linux-logo",
+        "ph-minus-square"
       ],
       "list": [
         "Linux(EmuELEC)",
@@ -18692,7 +18692,7 @@
     "os": {
       "raw": "Android 12",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 12"
@@ -18884,9 +18884,9 @@
     "os": {
       "raw": "Windows 11 / SteamOS / Linux",
       "icons": [
-        "ph ph-steam-logo",
-        "ph ph-linux-logo",
-        "ph ph-windows-logo"
+        "ph-steam-logo",
+        "ph-linux-logo",
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11",
@@ -19083,7 +19083,7 @@
     "os": {
       "raw": "Windows 11",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11"
@@ -19278,7 +19278,7 @@
     "os": {
       "raw": "Windows 11",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11"
@@ -19471,7 +19471,7 @@
     "os": {
       "raw": "Android 12",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 12"
@@ -19665,7 +19665,7 @@
     "os": {
       "raw": "Linux (JELOS)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (JELOS)"
@@ -19863,9 +19863,9 @@
     "os": {
       "raw": "Windows 11 / SteamOS / Linux",
       "icons": [
-        "ph ph-steam-logo",
-        "ph ph-linux-logo",
-        "ph ph-windows-logo"
+        "ph-steam-logo",
+        "ph-linux-logo",
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11",
@@ -20060,7 +20060,7 @@
     "os": {
       "raw": "Android 11",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 11"
@@ -20257,7 +20257,7 @@
     "os": {
       "raw": "Windows 11",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11"
@@ -20449,8 +20449,8 @@
     "os": {
       "raw": "Windows 11 / SteamOS",
       "icons": [
-        "ph ph-steam-logo",
-        "ph ph-windows-logo"
+        "ph-steam-logo",
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11",
@@ -20646,7 +20646,7 @@
     "os": {
       "raw": "Windows 11",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11"
@@ -20840,7 +20840,7 @@
     "os": {
       "raw": "Android 12",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 12"
@@ -21033,7 +21033,7 @@
     "os": {
       "raw": "Android 12(kOS)",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 12(kOS)"
@@ -21235,8 +21235,8 @@
     "os": {
       "raw": "Linux (ArkOS)",
       "icons": [
-        "ph ph-linux-logo",
-        "ph ph-rainbow"
+        "ph-linux-logo",
+        "ph-rainbow"
       ],
       "list": [
         "Linux (ArkOS)"
@@ -21431,8 +21431,8 @@
     "os": {
       "raw": "Linux / Android, PickleOS",
       "icons": [
-        "ph ph-android-logo",
-        "ph ph-linux-logo"
+        "ph-android-logo",
+        "ph-linux-logo"
       ],
       "list": [
         "Linux",
@@ -21628,7 +21628,7 @@
     "os": {
       "raw": "Linux (RTOS)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (RTOS)"
@@ -21828,7 +21828,7 @@
     "os": {
       "raw": "Clockwork OS / Linux",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Clockwork OS",
@@ -22022,8 +22022,8 @@
     "os": {
       "raw": "Windows 11 / SteamOS",
       "icons": [
-        "ph ph-steam-logo",
-        "ph ph-windows-logo"
+        "ph-steam-logo",
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11",
@@ -22218,7 +22218,7 @@
     "os": {
       "raw": "Windows 11",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11"
@@ -22414,8 +22414,8 @@
     "os": {
       "raw": "Windows / SteamOS / AYANEO OS",
       "icons": [
-        "ph ph-steam-logo",
-        "ph ph-windows-logo"
+        "ph-steam-logo",
+        "ph-windows-logo"
       ],
       "list": [
         "Windows",
@@ -22611,8 +22611,8 @@
     "os": {
       "raw": "Linux (OpenDingux / RetroFE / FunKey OS)",
       "icons": [
-        "ph ph-linux-logo",
-        "ph ph-brackets-round"
+        "ph-linux-logo",
+        "ph-brackets-round"
       ],
       "list": [
         "Linux (OpenDingux",
@@ -22808,7 +22808,7 @@
     "os": {
       "raw": "Windows 11",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11"
@@ -23000,9 +23000,9 @@
     "os": {
       "raw": "Windows 11 / SteamOS / Linux",
       "icons": [
-        "ph ph-steam-logo",
-        "ph ph-linux-logo",
-        "ph ph-windows-logo"
+        "ph-steam-logo",
+        "ph-linux-logo",
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11",
@@ -23199,9 +23199,9 @@
     "os": {
       "raw": "Windows 11 / SteamOS / Linux",
       "icons": [
-        "ph ph-steam-logo",
-        "ph ph-linux-logo",
-        "ph ph-windows-logo"
+        "ph-steam-logo",
+        "ph-linux-logo",
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11",
@@ -23398,7 +23398,7 @@
     "os": {
       "raw": "Linux: JELOS (Unofficial)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux: JELOS (Unofficial)"
@@ -23590,7 +23590,7 @@
     "os": {
       "raw": "Android 12",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 12"
@@ -23782,7 +23782,7 @@
     "os": {
       "raw": "Android 7.1",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 7.1"
@@ -23974,7 +23974,7 @@
     "os": {
       "raw": "Android (#?)",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android (#?)"
@@ -24168,7 +24168,7 @@
     "os": {
       "raw": "Android 11",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 11"
@@ -24360,7 +24360,7 @@
     "os": {
       "raw": "Linux",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux"
@@ -24554,7 +24554,7 @@
     "os": {
       "raw": "Linux (JELOS)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (JELOS)"
@@ -24746,8 +24746,8 @@
     "os": {
       "raw": "Windows / SteamOS / AYANEO OS",
       "icons": [
-        "ph ph-steam-logo",
-        "ph ph-windows-logo"
+        "ph-steam-logo",
+        "ph-windows-logo"
       ],
       "list": [
         "Windows",
@@ -24943,7 +24943,7 @@
     "os": {
       "raw": "Android 11",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 11"
@@ -25139,7 +25139,7 @@
     "os": {
       "raw": "Proprietary",
       "icons": [
-        "ph ph-factory"
+        "ph-factory"
       ],
       "list": [
         "Proprietary"
@@ -25337,9 +25337,9 @@
     "os": {
       "raw": "Android 12, GarlicOS, GammaOS",
       "icons": [
-        "ph ph-android-logo",
-        "ph ph-brackets-angle",
-        "ph ph-brackets-curly"
+        "ph-android-logo",
+        "ph-brackets-angle",
+        "ph-brackets-curly"
       ],
       "list": [
         "Android 12",
@@ -25533,7 +25533,7 @@
     "os": {
       "raw": "Windows",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows"
@@ -25726,7 +25726,7 @@
     "os": {
       "raw": "Linux: JELOS (Unofficial)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux: JELOS (Unofficial)"
@@ -25918,9 +25918,9 @@
     "os": {
       "raw": "Linux (OnionOS, MinUI)",
       "icons": [
-        "ph ph-linux-logo",
-        "ph ph-brackets-square",
-        "ph ph-minus-square"
+        "ph-linux-logo",
+        "ph-brackets-square",
+        "ph-minus-square"
       ],
       "list": [
         "Linux (OnionOS",
@@ -26118,7 +26118,7 @@
     "os": {
       "raw": "Windows 11",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11"
@@ -26310,7 +26310,7 @@
     "os": {
       "raw": "Android 12",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 12"
@@ -26502,7 +26502,7 @@
     "os": {
       "raw": "Linux: JELOS (Unofficial)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux: JELOS (Unofficial)"
@@ -26694,7 +26694,7 @@
     "os": {
       "raw": "Linux: JELOS (Unofficial)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux: JELOS (Unofficial)"
@@ -26888,7 +26888,7 @@
     "os": {
       "raw": "Proprietary(No CFW)",
       "icons": [
-        "ph ph-factory"
+        "ph-factory"
       ],
       "list": [
         "Proprietary(No CFW)"
@@ -27084,9 +27084,9 @@
     "os": {
       "raw": "Windows 11 / SteamOS / AYANEO OS (Linux)",
       "icons": [
-        "ph ph-steam-logo",
-        "ph ph-linux-logo",
-        "ph ph-windows-logo"
+        "ph-steam-logo",
+        "ph-linux-logo",
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11",
@@ -27284,11 +27284,11 @@
     "os": {
       "raw": "Proprietary (Linux), GarlicOS, MinUI, Batocera",
       "icons": [
-        "ph ph-factory",
-        "ph ph-linux-logo",
-        "ph ph-brackets-angle",
-        "ph ph-minus-square",
-        "ph ph-joystick"
+        "ph-factory",
+        "ph-linux-logo",
+        "ph-brackets-angle",
+        "ph-minus-square",
+        "ph-joystick"
       ],
       "list": [
         "Proprietary (Linux)",
@@ -27485,7 +27485,7 @@
     "os": {
       "raw": "Linux (RetroPie)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (RetroPie)"
@@ -27677,7 +27677,7 @@
     "os": {
       "raw": "Proprietary",
       "icons": [
-        "ph ph-factory"
+        "ph-factory"
       ],
       "list": [
         "Proprietary"
@@ -27875,7 +27875,7 @@
     "os": {
       "raw": "Android 12",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 12"
@@ -28069,7 +28069,7 @@
     "os": {
       "raw": "Android 11",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 11"
@@ -28269,7 +28269,7 @@
     "os": {
       "raw": "Windows 11",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11"
@@ -28462,9 +28462,9 @@
     "os": {
       "raw": "Android 11 / Linux (ArkOS)",
       "icons": [
-        "ph ph-android-logo",
-        "ph ph-linux-logo",
-        "ph ph-rainbow"
+        "ph-android-logo",
+        "ph-linux-logo",
+        "ph-rainbow"
       ],
       "list": [
         "Android 11",
@@ -28658,7 +28658,7 @@
     "os": {
       "raw": "Android 11",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 11"
@@ -28850,7 +28850,7 @@
     "os": {
       "raw": "Windows 11",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11"
@@ -29042,7 +29042,7 @@
     "os": {
       "raw": "Linux",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux"
@@ -29235,8 +29235,8 @@
     "os": {
       "raw": "Windows 11 / SteamOS",
       "icons": [
-        "ph ph-steam-logo",
-        "ph ph-windows-logo"
+        "ph-steam-logo",
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11",
@@ -29430,9 +29430,9 @@
     "os": {
       "raw": "Windows 11 / SteamOS / AYANEO OS (Linux)",
       "icons": [
-        "ph ph-steam-logo",
-        "ph ph-linux-logo",
-        "ph ph-windows-logo"
+        "ph-steam-logo",
+        "ph-linux-logo",
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11",
@@ -29629,9 +29629,9 @@
     "os": {
       "raw": "Android 11 / Linux (ArkOS)",
       "icons": [
-        "ph ph-android-logo",
-        "ph ph-linux-logo",
-        "ph ph-rainbow"
+        "ph-android-logo",
+        "ph-linux-logo",
+        "ph-rainbow"
       ],
       "list": [
         "Android 11",
@@ -29827,8 +29827,8 @@
     "os": {
       "raw": "Linux (ArkOS)",
       "icons": [
-        "ph ph-linux-logo",
-        "ph ph-rainbow"
+        "ph-linux-logo",
+        "ph-rainbow"
       ],
       "list": [
         "Linux (ArkOS)"
@@ -30021,7 +30021,7 @@
     "os": {
       "raw": "Linux (RetroPie)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (RetroPie)"
@@ -30213,9 +30213,9 @@
     "os": {
       "raw": "Windows 11 / SteamOS / AYANEO OS (Linux)",
       "icons": [
-        "ph ph-steam-logo",
-        "ph ph-linux-logo",
-        "ph ph-windows-logo"
+        "ph-steam-logo",
+        "ph-linux-logo",
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 11",
@@ -30413,7 +30413,7 @@
     "os": {
       "raw": "Android 11",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 11"
@@ -30611,7 +30611,7 @@
     "os": {
       "raw": "Tina Linux,RGH Tomato OS",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Tina Linux,RGH Tomato OS"
@@ -30806,7 +30806,7 @@
     "os": {
       "raw": "Android 11",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 11"
@@ -30998,8 +30998,8 @@
     "os": {
       "raw": "Windows 10 / SteamOS",
       "icons": [
-        "ph ph-steam-logo",
-        "ph ph-windows-logo"
+        "ph-steam-logo",
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 10",
@@ -31194,7 +31194,7 @@
     "os": {
       "raw": "Android 11",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 11"
@@ -31399,8 +31399,8 @@
     "os": {
       "raw": "Android 11Linux (JELOS)",
       "icons": [
-        "ph ph-android-logo",
-        "ph ph-linux-logo"
+        "ph-android-logo",
+        "ph-linux-logo"
       ],
       "list": [
         "Android 11Linux (JELOS)"
@@ -31596,8 +31596,8 @@
     "os": {
       "raw": "Linux351ELEC, AmberELEC, ArkOS",
       "icons": [
-        "ph ph-linux-logo",
-        "ph ph-rainbow"
+        "ph-linux-logo",
+        "ph-rainbow"
       ],
       "list": [
         "Linux351ELEC",
@@ -31794,8 +31794,8 @@
     "os": {
       "raw": "LinuxArkOS, JELOS, Retro Arena",
       "icons": [
-        "ph ph-linux-logo",
-        "ph ph-rainbow"
+        "ph-linux-logo",
+        "ph-rainbow"
       ],
       "list": [
         "LinuxArkOS",
@@ -31991,7 +31991,7 @@
     "os": {
       "raw": "Windows 10/11",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 10/11"
@@ -32187,8 +32187,8 @@
     "os": {
       "raw": "Batocera, EmuELEC, Lineage 18.1/Android 11, RecalBox, RetroArena,RetroOz, RRVL, Ubuntu",
       "icons": [
-        "ph ph-android-logo",
-        "ph ph-joystick"
+        "ph-android-logo",
+        "ph-joystick"
       ],
       "list": [
         "Batocera",
@@ -32387,9 +32387,9 @@
     "os": {
       "raw": "SteamOS 3.0 (Arch Linux), Windows 11, etc",
       "icons": [
-        "ph ph-steam-logo",
-        "ph ph-linux-logo",
-        "ph ph-windows-logo"
+        "ph-steam-logo",
+        "ph-linux-logo",
+        "ph-windows-logo"
       ],
       "list": [
         "SteamOS 3.0 (Arch Linux)",
@@ -32587,7 +32587,7 @@
     "os": {
       "raw": "\"Linux\"",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "\"Linux\""
@@ -32779,7 +32779,7 @@
     "os": {
       "raw": "Open Source Proprietary",
       "icons": [
-        "ph ph-factory"
+        "ph-factory"
       ],
       "list": [
         "Open Source Proprietary"
@@ -32975,8 +32975,8 @@
     "os": {
       "raw": "Android 10, ARM Windows 10/11",
       "icons": [
-        "ph ph-android-logo",
-        "ph ph-windows-logo"
+        "ph-android-logo",
+        "ph-windows-logo"
       ],
       "list": [
         "Android 10",
@@ -33181,7 +33181,7 @@
     "os": {
       "raw": "Windows 10 / 11",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 10",
@@ -33374,9 +33374,9 @@
     "os": {
       "raw": "Android,Linux,Windows",
       "icons": [
-        "ph ph-android-logo",
-        "ph ph-linux-logo",
-        "ph ph-windows-logo"
+        "ph-android-logo",
+        "ph-linux-logo",
+        "ph-windows-logo"
       ],
       "list": [
         "Android,Linux,Windows"
@@ -33574,8 +33574,8 @@
     "os": {
       "raw": "Linux (RetroPie, Batocera, EmuELEC, Lakka, Recalbox, RetroLX)",
       "icons": [
-        "ph ph-linux-logo",
-        "ph ph-joystick"
+        "ph-linux-logo",
+        "ph-joystick"
       ],
       "list": [
         "Linux (RetroPie",
@@ -33773,7 +33773,7 @@
     "os": {
       "raw": "Linux (RetroPie)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (RetroPie)"
@@ -33965,7 +33965,7 @@
     "os": {
       "raw": "Android 9(Source)",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 9(Source)"
@@ -34161,7 +34161,7 @@
     "os": {
       "raw": "RetroFE(Linux)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "RetroFE(Linux)"
@@ -34354,7 +34354,7 @@
     "os": {
       "raw": "Analogue OS",
       "icons": [
-        "ph ph-code"
+        "ph-code"
       ],
       "list": [
         "Analogue OS"
@@ -34549,8 +34549,8 @@
     "os": {
       "raw": "Android 11,Batocera, JELOS, AmberELEC",
       "icons": [
-        "ph ph-android-logo",
-        "ph ph-joystick"
+        "ph-android-logo",
+        "ph-joystick"
       ],
       "list": [
         "Android 11,Batocera",
@@ -34748,8 +34748,8 @@
     "os": {
       "raw": "Onion OS, MinUI",
       "icons": [
-        "ph ph-brackets-square",
-        "ph ph-minus-square"
+        "ph-brackets-square",
+        "ph-minus-square"
       ],
       "list": [
         "Onion OS",
@@ -34945,7 +34945,7 @@
     "os": {
       "raw": "Android 9",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 9"
@@ -35137,7 +35137,7 @@
     "os": {
       "raw": "Trimui OS",
       "icons": [
-        "ph ph-scissors"
+        "ph-scissors"
       ],
       "list": [
         "Trimui OS"
@@ -35330,7 +35330,7 @@
     "os": {
       "raw": "Windows 10 / 11",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 10",
@@ -35523,7 +35523,7 @@
     "os": {
       "raw": "Windows 10",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 10"
@@ -35718,7 +35718,7 @@
     "os": {
       "raw": "Android 11",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 11"
@@ -35910,8 +35910,8 @@
     "os": {
       "raw": "Batocera, EmuELEC, Lineage 18.1/Android 11, RecalBox, RetroArena,RetroOz, RRVL, Ubuntu",
       "icons": [
-        "ph ph-android-logo",
-        "ph ph-joystick"
+        "ph-android-logo",
+        "ph-joystick"
       ],
       "list": [
         "Batocera",
@@ -36111,7 +36111,7 @@
     "os": {
       "raw": "Windows 10 / 11",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 10",
@@ -36305,7 +36305,7 @@
     "os": {
       "raw": "Linux (RetroPie)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (RetroPie)"
@@ -36497,7 +36497,7 @@
     "os": {
       "raw": "Android 11",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 11"
@@ -36690,7 +36690,7 @@
     "os": {
       "raw": "Windows 10",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 10"
@@ -36882,9 +36882,9 @@
     "os": {
       "raw": "EmuELEC, 351ELEC, ArkOS, Batocera, Lakka, 351Droid (Lineage 18.1 / Android 11)",
       "icons": [
-        "ph ph-android-logo",
-        "ph ph-rainbow",
-        "ph ph-joystick"
+        "ph-android-logo",
+        "ph-rainbow",
+        "ph-joystick"
       ],
       "list": [
         "EmuELEC",
@@ -37086,7 +37086,7 @@
     "os": {
       "raw": "Android 6",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 6"
@@ -37279,7 +37279,7 @@
     "os": {
       "raw": "Clockwork OS / Linux",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Clockwork OS",
@@ -37473,7 +37473,7 @@
     "os": {
       "raw": "OpenDingux",
       "icons": [
-        "ph ph-brackets-round"
+        "ph-brackets-round"
       ],
       "list": [
         "OpenDingux"
@@ -37666,7 +37666,7 @@
     "os": {
       "raw": "Open SourceProprietary",
       "icons": [
-        "ph ph-factory"
+        "ph-factory"
       ],
       "list": [
         "Open SourceProprietary"
@@ -37861,7 +37861,7 @@
     "os": {
       "raw": "NxHope",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "NxHope"
@@ -38054,7 +38054,7 @@
     "os": {
       "raw": "Android 7.0",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 7.0"
@@ -38246,7 +38246,7 @@
     "os": {
       "raw": "Windows 10 / 11",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 10",
@@ -38440,7 +38440,7 @@
     "os": {
       "raw": "Windows 10",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 10"
@@ -38639,7 +38639,7 @@
     "os": {
       "raw": "Retro ESP32",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "Retro ESP32"
@@ -38837,7 +38837,7 @@
     "os": {
       "raw": "RetroArch(EmuELEC)",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "RetroArch(EmuELEC)"
@@ -39033,7 +39033,7 @@
     "os": {
       "raw": "Windows 10",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 10"
@@ -39227,8 +39227,8 @@
     "os": {
       "raw": "Linux (RetroPie,RecalBox,Batocera)",
       "icons": [
-        "ph ph-linux-logo",
-        "ph ph-joystick"
+        "ph-linux-logo",
+        "ph-joystick"
       ],
       "list": [
         "Linux (RetroPie,RecalBox,Batocera)"
@@ -39423,7 +39423,7 @@
     "os": {
       "raw": "Linux",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux"
@@ -39619,7 +39619,7 @@
     "os": {
       "raw": "Android 10",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 10"
@@ -39815,8 +39815,8 @@
     "os": {
       "raw": "EmuELEC, 351ELEC, ArkOS, 351Droid (Lineage 18.1 / Android 11)",
       "icons": [
-        "ph ph-android-logo",
-        "ph ph-rainbow"
+        "ph-android-logo",
+        "ph-rainbow"
       ],
       "list": [
         "EmuELEC",
@@ -40016,7 +40016,7 @@
     "os": {
       "raw": "OpenDingux,IUX",
       "icons": [
-        "ph ph-brackets-round"
+        "ph-brackets-round"
       ],
       "list": [
         "OpenDingux,IUX"
@@ -40211,7 +40211,7 @@
     "os": {
       "raw": "Android 7.1",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 7.1"
@@ -40403,7 +40403,7 @@
     "os": {
       "raw": "RetroFE(Linux)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "RetroFE(Linux)"
@@ -40599,7 +40599,7 @@
     "os": {
       "raw": "Batocera, EmuELEC, LineageOS, RecalBox, RetroArena,RetroOz, RRVL, Ubuntu",
       "icons": [
-        "ph ph-joystick"
+        "ph-joystick"
       ],
       "list": [
         "Batocera",
@@ -40799,9 +40799,9 @@
     "os": {
       "raw": "EmuELEC, 351ELEC, ArkOS, Batocera, Lakka, 351Droid (Lineage 18.1 / Android 11)",
       "icons": [
-        "ph ph-android-logo",
-        "ph ph-rainbow",
-        "ph ph-joystick"
+        "ph-android-logo",
+        "ph-rainbow",
+        "ph-joystick"
       ],
       "list": [
         "EmuELEC",
@@ -41002,7 +41002,7 @@
     "os": {
       "raw": "Debian Linux",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Debian Linux"
@@ -41195,7 +41195,7 @@
     "os": {
       "raw": "Retro ESP32",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "Retro ESP32"
@@ -41389,7 +41389,7 @@
     "os": {
       "raw": "Linux (RetroPie)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (RetroPie)"
@@ -41581,7 +41581,7 @@
     "os": {
       "raw": "Windows 10",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 10"
@@ -41773,7 +41773,7 @@
     "os": {
       "raw": "Linux (RetroPie), Recalbox",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (RetroPie)",
@@ -41966,7 +41966,7 @@
     "os": {
       "raw": "Simple30",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "Simple30"
@@ -42158,7 +42158,7 @@
     "os": {
       "raw": "MinUI",
       "icons": [
-        "ph ph-minus-square"
+        "ph-minus-square"
       ],
       "list": [
         "MinUI"
@@ -42356,7 +42356,7 @@
     "os": {
       "raw": "OpenDingux",
       "icons": [
-        "ph ph-brackets-round"
+        "ph-brackets-round"
       ],
       "list": [
         "OpenDingux"
@@ -42551,8 +42551,8 @@
     "os": {
       "raw": "Linux(ArkOS, EmuELEC)",
       "icons": [
-        "ph ph-linux-logo",
-        "ph ph-rainbow"
+        "ph-linux-logo",
+        "ph-rainbow"
       ],
       "list": [
         "Linux(ArkOS",
@@ -42748,7 +42748,7 @@
     "os": {
       "raw": "Linux",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux"
@@ -42940,7 +42940,7 @@
     "os": {
       "raw": "RetroArch",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "RetroArch"
@@ -43134,9 +43134,9 @@
     "os": {
       "raw": "EmuELEC, 351ELEC, ArkOS, Batocera, Lakka, 351Droid (Lineage 18.1 / Android 11)",
       "icons": [
-        "ph ph-android-logo",
-        "ph ph-rainbow",
-        "ph ph-joystick"
+        "ph-android-logo",
+        "ph-rainbow",
+        "ph-joystick"
       ],
       "list": [
         "EmuELEC",
@@ -43340,7 +43340,7 @@
     "os": {
       "raw": "Windows 10",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 10"
@@ -43532,7 +43532,7 @@
     "os": {
       "raw": "Android 5.1(Modified)",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 5.1(Modified)"
@@ -43724,7 +43724,7 @@
     "os": {
       "raw": "TheRA NTFS",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "TheRA NTFS"
@@ -43918,7 +43918,7 @@
     "os": {
       "raw": "Linux (RetroPie)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (RetroPie)"
@@ -44110,7 +44110,7 @@
     "os": {
       "raw": "Linux (RetroPie)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (RetroPie)"
@@ -44307,7 +44307,7 @@
     "os": {
       "raw": "Linux (RetroPie)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (RetroPie)"
@@ -44504,7 +44504,7 @@
     "os": {
       "raw": "Windows 10",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 10"
@@ -44696,7 +44696,7 @@
     "os": {
       "raw": "Android 8.1,LineageOS 15.1, Retroid OS",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 8.1,LineageOS 15.1",
@@ -44897,7 +44897,7 @@
     "os": {
       "raw": "❌",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "❌"
@@ -45091,7 +45091,7 @@
     "os": {
       "raw": "RetroArch(EmuELEC, ArkOS)",
       "icons": [
-        "ph ph-rainbow"
+        "ph-rainbow"
       ],
       "list": [
         "RetroArch(EmuELEC",
@@ -45286,7 +45286,7 @@
     "os": {
       "raw": "OpenDingux",
       "icons": [
-        "ph ph-brackets-round"
+        "ph-brackets-round"
       ],
       "list": [
         "OpenDingux"
@@ -45480,7 +45480,7 @@
     "os": {
       "raw": "OpenDingux",
       "icons": [
-        "ph ph-brackets-round"
+        "ph-brackets-round"
       ],
       "list": [
         "OpenDingux"
@@ -45677,7 +45677,7 @@
     "os": {
       "raw": "NxHope",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "NxHope"
@@ -45871,7 +45871,7 @@
     "os": {
       "raw": "Linux",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux"
@@ -46064,7 +46064,7 @@
     "os": {
       "raw": "RetroArch(EmuELEC)",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "RetroArch(EmuELEC)"
@@ -46261,7 +46261,7 @@
     "os": {
       "raw": "Linux",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux"
@@ -46456,7 +46456,7 @@
     "os": {
       "raw": "Ubuntu,RetroArena",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "Ubuntu,RetroArena"
@@ -46652,7 +46652,7 @@
     "os": {
       "raw": "Arduboy Game Loader",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "Arduboy Game Loader"
@@ -46844,7 +46844,7 @@
     "os": {
       "raw": "RetroArch",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "RetroArch"
@@ -47038,7 +47038,7 @@
     "os": {
       "raw": "OpenDingux, Rogue, RetroArch",
       "icons": [
-        "ph ph-brackets-round"
+        "ph-brackets-round"
       ],
       "list": [
         "OpenDingux",
@@ -47235,7 +47235,7 @@
     "os": {
       "raw": "Android 6,Retroid OS",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 6,Retroid OS"
@@ -47429,7 +47429,7 @@
     "os": {
       "raw": "Ubuntu,RetroArena",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "Ubuntu,RetroArena"
@@ -47622,7 +47622,7 @@
     "os": {
       "raw": "Linux - CartOS(RetroPie based)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux - CartOS(RetroPie based)"
@@ -47818,7 +47818,7 @@
     "os": {
       "raw": "OpenDingux(Closed source),IUX",
       "icons": [
-        "ph ph-brackets-round"
+        "ph-brackets-round"
       ],
       "list": [
         "OpenDingux(Closed source),IUX"
@@ -48018,7 +48018,7 @@
     "os": {
       "raw": "Linux (RetroPie)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (RetroPie)"
@@ -48210,7 +48210,7 @@
     "os": {
       "raw": "OpenDingux, Rogue",
       "icons": [
-        "ph ph-brackets-round"
+        "ph-brackets-round"
       ],
       "list": [
         "OpenDingux",
@@ -48406,7 +48406,7 @@
     "os": {
       "raw": "NxHope",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "NxHope"
@@ -48599,7 +48599,7 @@
     "os": {
       "raw": "Linux - RetrorangePi(RetroPie based)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux - RetrorangePi(RetroPie based)"
@@ -48792,7 +48792,7 @@
     "os": {
       "raw": "Android 4.4",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 4.4"
@@ -48986,9 +48986,9 @@
     "os": {
       "raw": "Android,Linux,Windows",
       "icons": [
-        "ph ph-android-logo",
-        "ph ph-linux-logo",
-        "ph ph-windows-logo"
+        "ph-android-logo",
+        "ph-linux-logo",
+        "ph-windows-logo"
       ],
       "list": [
         "Android,Linux,Windows"
@@ -49180,7 +49180,7 @@
     "os": {
       "raw": "Android 7",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 7"
@@ -49372,7 +49372,7 @@
     "os": {
       "raw": "µC/OS-II",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "µC/OS-II"
@@ -49564,7 +49564,7 @@
     "os": {
       "raw": "Android 7",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 7"
@@ -49761,7 +49761,7 @@
     "os": {
       "raw": "OpenDingux, Rogue, RetroArch",
       "icons": [
-        "ph ph-brackets-round"
+        "ph-brackets-round"
       ],
       "list": [
         "OpenDingux",
@@ -49961,7 +49961,7 @@
     "os": {
       "raw": "Linux (RetroPie)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (RetroPie)"
@@ -50153,7 +50153,7 @@
     "os": {
       "raw": "Linux (RetroPie)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (RetroPie)"
@@ -50345,7 +50345,7 @@
     "os": {
       "raw": "Linux (RetroPie)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (RetroPie)"
@@ -50539,7 +50539,7 @@
     "os": {
       "raw": "Windows 10",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 10"
@@ -50731,7 +50731,7 @@
     "os": {
       "raw": "Linux (RetroPie)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (RetroPie)"
@@ -50926,7 +50926,7 @@
     "os": {
       "raw": "Open source firmware",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "Open source firmware"
@@ -51118,7 +51118,7 @@
     "os": {
       "raw": "Linux (RetroPie)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (RetroPie)"
@@ -51310,7 +51310,7 @@
     "os": {
       "raw": "RetroFW",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "RetroFW"
@@ -51507,7 +51507,7 @@
     "os": {
       "raw": "NxHope",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "NxHope"
@@ -51699,7 +51699,7 @@
     "os": {
       "raw": "RetroFW",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "RetroFW"
@@ -51893,7 +51893,7 @@
     "os": {
       "raw": "RetroFW",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "RetroFW"
@@ -52086,7 +52086,7 @@
     "os": {
       "raw": "Android 8.1",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 8.1"
@@ -52278,7 +52278,7 @@
     "os": {
       "raw": "Linux (RetroPie)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (RetroPie)"
@@ -52470,7 +52470,7 @@
     "os": {
       "raw": "NxHope",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "NxHope"
@@ -52662,7 +52662,7 @@
     "os": {
       "raw": "RetroFW",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "RetroFW"
@@ -52860,7 +52860,7 @@
     "os": {
       "raw": "Linux (RetroPie)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (RetroPie)"
@@ -53052,7 +53052,7 @@
     "os": {
       "raw": "Android 7.0",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 7.0"
@@ -53244,7 +53244,7 @@
     "os": {
       "raw": "MeliOS",
       "icons": [
-        "ph ph-apple-logo"
+        "ph-apple-logo"
       ],
       "list": [
         "MeliOS"
@@ -53438,7 +53438,7 @@
     "os": {
       "raw": "Proprietary",
       "icons": [
-        "ph ph-factory"
+        "ph-factory"
       ],
       "list": [
         "Proprietary"
@@ -53631,7 +53631,7 @@
     "os": {
       "raw": "Linux (RetroPie)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (RetroPie)"
@@ -53823,7 +53823,7 @@
     "os": {
       "raw": "Clockwork OS",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "Clockwork OS"
@@ -54017,7 +54017,7 @@
     "os": {
       "raw": "Android 7.0",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 7.0"
@@ -54209,7 +54209,7 @@
     "os": {
       "raw": "Linux (RetroPie)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (RetroPie)"
@@ -54402,7 +54402,7 @@
     "os": {
       "raw": "Retro ESP32",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "Retro ESP32"
@@ -54594,7 +54594,7 @@
     "os": {
       "raw": "µC/OS-II",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "µC/OS-II"
@@ -54786,7 +54786,7 @@
     "os": {
       "raw": "RetroFW",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "RetroFW"
@@ -54978,7 +54978,7 @@
     "os": {
       "raw": "Linux - RetrorangePi(RetroPie based)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux - RetrorangePi(RetroPie based)"
@@ -55173,7 +55173,7 @@
     "os": {
       "raw": "Linux (RetroPie)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (RetroPie)"
@@ -55367,7 +55367,7 @@
     "os": {
       "raw": "Linux (RetroPie)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (RetroPie)"
@@ -55560,7 +55560,7 @@
     "os": {
       "raw": "Linux (RetroPie)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (RetroPie)"
@@ -55752,7 +55752,7 @@
     "os": {
       "raw": "Useless",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "Useless"
@@ -55945,7 +55945,7 @@
     "os": {
       "raw": "Linux (RetroPie)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (RetroPie)"
@@ -56144,7 +56144,7 @@
     "os": {
       "raw": "Android 7.1",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 7.1"
@@ -56338,7 +56338,7 @@
     "os": {
       "raw": "RetroFW",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "RetroFW"
@@ -56531,7 +56531,7 @@
     "os": {
       "raw": "OpenDingux",
       "icons": [
-        "ph ph-brackets-round"
+        "ph-brackets-round"
       ],
       "list": [
         "OpenDingux"
@@ -56723,7 +56723,7 @@
     "os": {
       "raw": "Windows 10",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows 10"
@@ -56915,7 +56915,7 @@
     "os": {
       "raw": "Useless",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "Useless"
@@ -57109,7 +57109,7 @@
     "os": {
       "raw": "Android 4.4.4",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 4.4.4"
@@ -57303,7 +57303,7 @@
     "os": {
       "raw": "Android 4.4",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 4.4"
@@ -57495,7 +57495,7 @@
     "os": {
       "raw": "Android 4.4",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 4.4"
@@ -57688,7 +57688,7 @@
     "os": {
       "raw": "OpenDingux",
       "icons": [
-        "ph ph-brackets-round"
+        "ph-brackets-round"
       ],
       "list": [
         "OpenDingux"
@@ -57881,7 +57881,7 @@
     "os": {
       "raw": "Android 4.1",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 4.1"
@@ -58073,7 +58073,7 @@
     "os": {
       "raw": "Android 5.1",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 5.1"
@@ -58265,8 +58265,8 @@
     "os": {
       "raw": "GNU/Linux based,OpenDingux",
       "icons": [
-        "ph ph-linux-logo",
-        "ph ph-brackets-round"
+        "ph-linux-logo",
+        "ph-brackets-round"
       ],
       "list": [
         "GNU/Linux based,OpenDingux"
@@ -58458,7 +58458,7 @@
     "os": {
       "raw": "Proprietary",
       "icons": [
-        "ph ph-factory"
+        "ph-factory"
       ],
       "list": [
         "Proprietary"
@@ -58656,7 +58656,7 @@
     "os": {
       "raw": "µC/OS-II,RetroDD",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "µC/OS-II,RetroDD"
@@ -58850,7 +58850,7 @@
     "os": {
       "raw": "OpenDingux",
       "icons": [
-        "ph ph-brackets-round"
+        "ph-brackets-round"
       ],
       "list": [
         "OpenDingux"
@@ -59042,7 +59042,7 @@
     "os": {
       "raw": "µC/OS-II,OpenDingux",
       "icons": [
-        "ph ph-brackets-round"
+        "ph-brackets-round"
       ],
       "list": [
         "µC/OS-II,OpenDingux"
@@ -59234,7 +59234,7 @@
     "os": {
       "raw": "µC/OS-II",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "µC/OS-II"
@@ -59427,7 +59427,7 @@
     "os": {
       "raw": "GNU/Linux based",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "GNU/Linux based"
@@ -59620,7 +59620,7 @@
     "os": {
       "raw": "eCos",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "eCos"
@@ -59813,7 +59813,7 @@
     "os": {
       "raw": "Linux (SuperZaxxon)",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "Linux (SuperZaxxon)"
@@ -60006,7 +60006,7 @@
     "os": {
       "raw": "µC/OS-II,OpenDingux",
       "icons": [
-        "ph ph-brackets-round"
+        "ph-brackets-round"
       ],
       "list": [
         "µC/OS-II,OpenDingux"
@@ -60199,7 +60199,7 @@
     "os": {
       "raw": "µC/OS-II,OpenDingux",
       "icons": [
-        "ph ph-brackets-round"
+        "ph-brackets-round"
       ],
       "list": [
         "µC/OS-II,OpenDingux"
@@ -60391,7 +60391,7 @@
     "os": {
       "raw": "GNU/Linux based",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "GNU/Linux based"
@@ -60583,7 +60583,7 @@
     "os": {
       "raw": "GNU/Linux based",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "GNU/Linux based"
@@ -60775,7 +60775,7 @@
     "os": {
       "raw": "Proprietary",
       "icons": [
-        "ph ph-factory"
+        "ph-factory"
       ],
       "list": [
         "Proprietary"
@@ -60968,7 +60968,7 @@
     "os": {
       "raw": "Windows CE",
       "icons": [
-        "ph ph-windows-logo"
+        "ph-windows-logo"
       ],
       "list": [
         "Windows CE"
@@ -61160,7 +61160,7 @@
     "os": {
       "raw": "GNU/Linux based",
       "icons": [
-        "ph ph-linux-logo"
+        "ph-linux-logo"
       ],
       "list": [
         "GNU/Linux based"
@@ -61352,7 +61352,7 @@
     "os": {
       "raw": "Palm OS",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "Palm OS"
@@ -61544,7 +61544,7 @@
     "os": {
       "raw": "Propietary (Community made open source SDK)",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         "Propietary (Community made open source SDK)"
@@ -61737,7 +61737,7 @@
     "os": {
       "raw": "",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         ""
@@ -61929,7 +61929,7 @@
     "os": {
       "raw": "",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         ""
@@ -62121,7 +62121,7 @@
     "os": {
       "raw": "",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         ""
@@ -62313,7 +62313,7 @@
     "os": {
       "raw": "",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         ""
@@ -62505,7 +62505,7 @@
     "os": {
       "raw": "Open Source Proprietary",
       "icons": [
-        "ph ph-factory"
+        "ph-factory"
       ],
       "list": [
         "Open Source Proprietary"
@@ -62697,7 +62697,7 @@
     "os": {
       "raw": "",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         ""
@@ -62889,7 +62889,7 @@
     "os": {
       "raw": "",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         ""
@@ -63081,7 +63081,7 @@
     "os": {
       "raw": "",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         ""
@@ -63273,7 +63273,7 @@
     "os": {
       "raw": "Android 4.1.1",
       "icons": [
-        "ph ph-android-logo"
+        "ph-android-logo"
       ],
       "list": [
         "Android 4.1.1"
@@ -63465,7 +63465,7 @@
     "os": {
       "raw": "",
       "icons": [
-        "ph ph-empty"
+        "ph-empty"
       ],
       "list": [
         ""

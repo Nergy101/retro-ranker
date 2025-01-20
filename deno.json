@@ -27,8 +27,10 @@
   ],
   "imports": {
     "$fresh/": "https://deno.land/x/fresh@1.7.3/",
-    "preact": "https://esm.sh/preact@10.22.0",
-    "preact/": "https://esm.sh/preact@10.22.0/",
+    "@preact-icons/pi": "jsr:@preact-icons/pi@^1.0.12",
+    "preact": "npm:preact@10.22.1",
+    "preact/jsx-runtime": "npm:preact@10.22.1/jsx-runtime",
+    "preact/hooks": "npm:preact@10.22.1/hooks",
     "@preact/signals": "https://esm.sh/*@preact/signals@2.0.1",
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.8.0",
     "$std/": "https://deno.land/std@0.216.0/"

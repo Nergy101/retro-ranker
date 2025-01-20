@@ -1,3 +1,14 @@
+import {
+  PiCurrencyDollar,
+  PiCurrencyEur,
+  PiCurrencyGbp,
+  PiCurrencyRub,
+  PiCurrencyInr,
+  PiCurrencyKzt,
+  PiCurrencyCny,
+  PiCurrencyJpy,
+} from "@preact-icons/pi";
+
 interface CurrencyIconProps {
   currencyCode: string;
 }
@@ -5,22 +16,22 @@ interface CurrencyIconProps {
 export function CurrencyIcon({ currencyCode }: CurrencyIconProps) {
   switch (currencyCode) {
     case "USD":
-      return <i class="ph ph-currency-dollar"></i>;
+      return <PiCurrencyDollar />;
     case "EUR":
-      return <i class="ph ph-currency-euro"></i>;
+      return <PiCurrencyEur />;
     case "GBP":
-      return <i class="ph ph-currency-pound"></i>;
+      return <PiCurrencyGbp />;
     case "JPY":
-      return <i class="ph ph-currency-yen"></i>;
+      return <PiCurrencyJpy />;
     case "INR":
-      return <i class="ph ph-currency-rupee"></i>;
+      return <PiCurrencyInr />;
     case "KRW":
-      return <i class="ph ph-currency-won"></i>;
+      return <PiCurrencyCny />;
     case "RUB":
-      return <i class="ph ph-currency-ruble"></i>;
+      return <PiCurrencyRub />;
     case "TRY":
-      return <i class="ph ph-currency-turkish-real"></i>;
+      return <PiCurrencyKzt />;
     default:
-      return <i class="ph ph-currency-dollar"></i>;
+      return <PiCurrencyDollar />;
   }
 }

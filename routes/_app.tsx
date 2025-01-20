@@ -3,6 +3,7 @@ import { type PageProps } from "$fresh/server.ts";
 import { Breadcrumb } from "../islands/Breadcrumb.tsx";
 import { DesktopNav } from "../islands/DesktopNav.tsx";
 import { MobileNav } from "../islands/MobileNav.tsx";
+import { PiInfo, PiShield, PiFileText, PiChatText, PiGithubLogo } from "@preact-icons/pi";
 
 export default function App({ Component, url }: PageProps) {
   return (
@@ -46,7 +47,6 @@ export default function App({ Component, url }: PageProps) {
         />
 
         <link rel="stylesheet" href="/styles.css" />
-        <script src="https://unpkg.com/@phosphor-icons/web"></script>
         <script
           defer
           src="https://umami.nergy.space/script.js"
@@ -153,20 +153,26 @@ export default function App({ Component, url }: PageProps) {
                 <ul style={{ listStyle: "none", padding: 0 }}>
                   <li style={{ listStyle: "none" }}>
                     <a href="/about">
-                      <i class="ph ph-info"></i>
-                      <span>&nbsp;About</span>
+                      <div style={{ display: "flex" }}>
+                        <PiInfo />
+                        <span>&nbsp;About</span>
+                      </div>
                     </a>
                   </li>
                   <li style={{ listStyle: "none" }}>
                     <a href="/privacy">
-                      <i class="ph ph-shield"></i>
-                      <span>&nbsp;Privacy Policy</span>
+                      <div style={{ display: "flex" }}>
+                        <PiShield />
+                        <span>&nbsp;Privacy Policy</span>
+                      </div>
                     </a>
                   </li>
                   <li style={{ listStyle: "none" }}>
                     <a href="/terms">
-                      <i class="ph ph-file-text"></i>
-                      <span>&nbsp;Terms of Service</span>
+                      <div style={{ display: "flex" }}>
+                        <PiFileText />
+                        <span>&nbsp;Terms of Service</span>
+                      </div>
                     </a>
                   </li>
                 </ul>
@@ -179,8 +185,10 @@ export default function App({ Component, url }: PageProps) {
                       href="https://bsky.app/profile/nergy101.bsky.social"
                       target="_blank"
                     >
-                      <i class="ph ph-chat-text"></i>
-                      <span>&nbsp;Bluesky</span>
+                      <div style={{ display: "flex" }}>
+                        <PiChatText />
+                        <span>&nbsp;Bluesky</span>
+                      </div>
                     </a>
                   </li>
                   <li style={{ listStyle: "none" }}>
@@ -188,8 +196,10 @@ export default function App({ Component, url }: PageProps) {
                       href="https://github.com/Nergy101/retro-ranker"
                       target="_blank"
                     >
-                      <i class="ph ph-github-logo"></i>
-                      <span>&nbsp;GitHub</span>
+                      <div style={{ display: "flex" }}>
+                        <PiGithubLogo />
+                        <span>&nbsp;GitHub</span>
+                      </div>
                     </a>
                   </li>
                 </ul>

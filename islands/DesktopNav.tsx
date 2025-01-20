@@ -11,7 +11,8 @@ export function DesktopNav({ pathname }: { pathname: string }) {
               loading="lazy"
               src="/logo-no-background.svg"
               alt="logo"
-              style={{ height: "5em" }}
+              height="150px"
+              width="150px"
             />
           </a>
         </li>
@@ -21,8 +22,12 @@ export function DesktopNav({ pathname }: { pathname: string }) {
               href={item.href}
               class={item.isActive(pathname) ? "active" : ""}
             >
-              <i class={item.icon}></i>
-              &nbsp;{item.label}
+              <div
+                style={{ display: "inline-flex" }}
+              >
+                <item.icon />
+                &nbsp;{item.label}
+              </div>
             </a>
           </li>
         ))}
@@ -47,7 +52,7 @@ export function DesktopNav({ pathname }: { pathname: string }) {
               />
             </form>
             <div style={{ marginRight: "1rem" }}>
-              <ThemeSwitcher showNames={true} showTooltip={false} />
+              <ThemeSwitcher showNames={false} showTooltip={false} />
             </div>
           </div>
         </li>
