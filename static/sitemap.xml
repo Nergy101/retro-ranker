@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-      <loc>https://retroranker.site/</loc>
+      <loc>https://retroranker.site/</loc>      
       <priority>1.0</priority>
       <lastmod>2025-01-15</lastmod>
     </url>
@@ -19,19 +19,19 @@
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
-      <loc>https://retroranker.site/devices/odin-2-portal</loc>
-      <lastmod>2025-01-15</lastmod>
-    </url>
-    <url>
       <loc>https://retroranker.site/devices/mini-zero-28</loc>
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
-      <loc>https://retroranker.site/devices/msi-claw-8-ai-</loc>
+      <loc>https://retroranker.site/devices/msi-claw-8-ai+</loc>
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
-      <loc>https://retroranker.site/devices/msi-claw-7-ai-</loc>
+      <loc>https://retroranker.site/devices/msi-claw-7-ai+</loc>
+      <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+      <loc>https://retroranker.site/devices/gkd-pixel-2</loc>
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
@@ -44,6 +44,10 @@
     </url>
     <url>
       <loc>https://retroranker.site/devices/touch-one-35</loc>
+      <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+      <loc>https://retroranker.site/devices/gpd-win-mini-2025</loc>
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
@@ -63,15 +67,11 @@
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
-      <loc>https://retroranker.site/devices/gpd-win-mini-2025</loc>
+      <loc>https://retroranker.site/devices/sp-touch-handheld--open-parenthesis--question-mark--close-parenthesis-</loc>
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
-      <loc>https://retroranker.site/devices/sp-touch-handheld----</loc>
-      <lastmod>2025-01-15</lastmod>
-    </url>
-    <url>
-      <loc>https://retroranker.site/devices/sp-non-touch-handheld----</loc>
+      <loc>https://retroranker.site/devices/sp-non-touch-handheld--open-parenthesis--question-mark--close-parenthesis-</loc>
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
@@ -80,6 +80,10 @@
     </url>
     <url>
       <loc>https://retroranker.site/devices/zotac-zone-2</loc>
+      <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+      <loc>https://retroranker.site/devices/odin-2-portal</loc>
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
@@ -227,7 +231,7 @@
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
-      <loc>https://retroranker.site/devices/gpd-win-max-2--2024-</loc>
+      <loc>https://retroranker.site/devices/gpd-win-max-2--open-parenthesis-2024-close-parenthesis-</loc>
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
@@ -243,7 +247,7 @@
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
-      <loc>https://retroranker.site/devices/miyoo-a30---282</loc>
+      <loc>https://retroranker.site/devices/miyoo-a30--slash--282</loc>
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
@@ -331,7 +335,7 @@
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
-      <loc>https://retroranker.site/devices/m18---r43-pro</loc>
+      <loc>https://retroranker.site/devices/m18--slash--r43-pro</loc>
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
@@ -411,7 +415,7 @@
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
-      <loc>https://retroranker.site/devices/gpd-win-4-7640u---7840u-</loc>
+      <loc>https://retroranker.site/devices/gpd-win-4-open-parenthesis-7640u--slash--7840u-close-parenthesis-</loc>
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
@@ -431,7 +435,7 @@
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
-      <loc>https://retroranker.site/devices/gpd-win-max-2-7640u---7840u-</loc>
+      <loc>https://retroranker.site/devices/gpd-win-max-2-open-parenthesis-7640u--slash--7840u-close-parenthesis-</loc>
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
@@ -495,7 +499,7 @@
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
-      <loc>https://retroranker.site/devices/rk2023-wifi-model-</loc>
+      <loc>https://retroranker.site/devices/rk2023-open-parenthesis-wifi-model-close-parenthesis-</loc>
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
@@ -703,7 +707,7 @@
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
-      <loc>https://retroranker.site/devices/retro-dreamer-game-4-all-cm4-</loc>
+      <loc>https://retroranker.site/devices/retro-dreamer-open-parenthesis-game-4-all-cm4-close-parenthesis-</loc>
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
@@ -711,7 +715,7 @@
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
-      <loc>https://retroranker.site/devices/retroid-pocket-2--rp2-pcb-upgrade-</loc>
+      <loc>https://retroranker.site/devices/retroid-pocket-2+-open-parenthesis-rp2-pcb-upgrade-close-parenthesis-</loc>
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
@@ -743,7 +747,7 @@
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
-      <loc>https://retroranker.site/devices/ayaneo-pro-retro-power-</loc>
+      <loc>https://retroranker.site/devices/ayaneo-pro-open-parenthesis-retro-power-close-parenthesis-</loc>
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
@@ -775,7 +779,7 @@
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
-      <loc>https://retroranker.site/devices/a380---gamemax</loc>
+      <loc>https://retroranker.site/devices/a380--slash--gamemax</loc>
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
@@ -879,7 +883,7 @@
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
-      <loc>https://retroranker.site/devices/trimui-model-s---powkiddy-a66</loc>
+      <loc>https://retroranker.site/devices/trimui-model-s--slash--powkiddy-a66</loc>
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
@@ -895,7 +899,7 @@
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
-      <loc>https://retroranker.site/devices/q500---ps5000---lintian-lt-8203</loc>
+      <loc>https://retroranker.site/devices/q500--slash--ps5000--slash--lintian-lt-8203</loc>
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
@@ -907,7 +911,7 @@
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
-      <loc>https://retroranker.site/devices/coolbaby-rs-63---rs3128</loc>
+      <loc>https://retroranker.site/devices/coolbaby-rs-63--slash--rs3128</loc>
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
@@ -955,7 +959,7 @@
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
-      <loc>https://retroranker.site/devices/q900---ps7000</loc>
+      <loc>https://retroranker.site/devices/q900--slash--ps7000</loc>
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
@@ -1003,7 +1007,7 @@
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
-      <loc>https://retroranker.site/devices/new-pocketgo---playgo---miyoo-max</loc>
+      <loc>https://retroranker.site/devices/new-pocketgo--slash--playgo--slash--miyoo-max</loc>
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
@@ -1051,7 +1055,7 @@
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
-      <loc>https://retroranker.site/devices/gpd-win-2-2019-model-</loc>
+      <loc>https://retroranker.site/devices/gpd-win-2-open-parenthesis-2019-model-close-parenthesis-</loc>
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
@@ -1075,7 +1079,7 @@
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
-      <loc>https://retroranker.site/devices/retrogame-rs-97-anniversary-edition---ips-screen-model-</loc>
+      <loc>https://retroranker.site/devices/retrogame-rs-97-open-parenthesis-anniversary-edition--slash--ips-screen-model-close-parenthesis-</loc>
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
@@ -1123,7 +1127,7 @@
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
-      <loc>https://retroranker.site/devices/gpd-xd-</loc>
+      <loc>https://retroranker.site/devices/gpd-xd+</loc>
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
@@ -1155,7 +1159,7 @@
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
-      <loc>https://retroranker.site/devices/freeplay-cm3---zero</loc>
+      <loc>https://retroranker.site/devices/freeplay-cm3--slash--zero</loc>
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
@@ -1195,7 +1199,7 @@
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
-      <loc>https://retroranker.site/devices/much-w1---78p01</loc>
+      <loc>https://retroranker.site/devices/much-w1--slash--78p01</loc>
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
@@ -1203,7 +1207,7 @@
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
-      <loc>https://retroranker.site/devices/iben-l1---x</loc>
+      <loc>https://retroranker.site/devices/iben-l1--slash--x</loc>
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
@@ -1239,7 +1243,7 @@
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
-      <loc>https://retroranker.site/devices/letcool-n350jp--defender-multimix-magic--mishark64</loc>
+      <loc>https://retroranker.site/devices/letcool-n350jp--slash-defender-multimix-magic--slash-mishark64</loc>
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
@@ -1251,7 +1255,7 @@
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
-      <loc>https://retroranker.site/devices/gemei-x760-</loc>
+      <loc>https://retroranker.site/devices/gemei-x760+</loc>
       <lastmod>2025-01-15</lastmod>
     </url>
     <url>
@@ -1280,6 +1284,46 @@
     </url>
     <url>
       <loc>https://retroranker.site/devices/gp32</loc>
+      <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+      <loc>https://retroranker.site/devices/pap-gameta-ii</loc>
+      <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+      <loc>https://retroranker.site/devices/gpd-q9</loc>
+      <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+      <loc>https://retroranker.site/devices/gpd-g58</loc>
+      <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+      <loc>https://retroranker.site/devices/gpd-q88+</loc>
+      <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+      <loc>https://retroranker.site/devices/pocket-sprite</loc>
+      <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+      <loc>https://retroranker.site/devices/coolbaby-rs-11</loc>
+      <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+      <loc>https://retroranker.site/devices/jxd-300</loc>
+      <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+      <loc>https://retroranker.site/devices/powkiddy-x9</loc>
+      <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+      <loc>https://retroranker.site/devices/tlex-ulike</loc>
+      <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+      <loc>https://retroranker.site/devices/zega-mame-gear</loc>
       <lastmod>2025-01-15</lastmod>
     </url>
   </urlset>

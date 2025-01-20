@@ -1,10 +1,12 @@
-import { getAllDevices } from "../data/devices/device.service.ts";
+
+import { DeviceService } from "../data/devices/device.service.ts";
 import { navigationItems } from "../data/navigation.ts";
 
+const deviceService = DeviceService.getInstance();
 const SITE_URL = "https://retroranker.site";
-const devices = getAllDevices();
+const devices = deviceService.getAllDevices();
 
-const deviceNames = devices.map((device) => device.sanitizedName);
+const deviceNames = devices.map((device) => device.name.sanitized);
 
 const staticUrls = navigationItems.map((item) => ({
   loc: `${SITE_URL}${item.href}`,
