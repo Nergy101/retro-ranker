@@ -4,9 +4,7 @@ export default function AboutPage() {
   return (
     <div class="mx-auto max-w-screen-md">
       <Head>
-        <title>
-          About <span style="color: var(--pico-primary);">Retro Ranker</span>
-        </title>
+        <title>Retro Ranker - About</title>
       </Head>
 
       <h1 class="text-3xl font-bold mb-6">

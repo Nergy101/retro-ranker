@@ -1,6 +1,7 @@
 import { DeviceCardSmall } from "../components/DeviceCardSmall.tsx";
 import { SeeMoreCard } from "../components/SeeMoreCard.tsx";
 import { DeviceService } from "../services/devices/device.service.ts";
+import { Head } from "$fresh/runtime.ts";
 
 export default function Home() {
   // Filter devices into categories
@@ -11,6 +12,10 @@ export default function Home() {
   const upcoming = deviceService.getUpcoming();
   return (
     <div>
+      <Head>
+        <title>Retro Ranker - Home</title>
+      </Head>
+
       <header>
         <hgroup style={{ textAlign: "center" }}>
           <h1>

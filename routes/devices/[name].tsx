@@ -5,6 +5,8 @@ import { DeviceSpecs } from "../../components/DeviceSpecs.tsx";
 import { EmulationPerformance } from "../../components/EmulationPerformance.tsx";
 import { StarRating } from "../../components/StarRating.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
+import { Head } from "$fresh/runtime.ts";
+
 export default function DeviceDetail(props: PageProps) {
   const deviceService = DeviceService.getInstance();
   const device = deviceService.getDeviceByName(props.params?.name);
@@ -52,6 +54,9 @@ export default function DeviceDetail(props: PageProps) {
 
   return (
     <div>
+      <Head>
+        <title>Retro Ranker - {device.name.raw}</title>
+      </Head>
       <div class="device-detail">
         <div class="device-detail-header">
           <div style="display: flex; flex-direction: column; gap: 0.5rem; justify-content: center; align-items: center;">

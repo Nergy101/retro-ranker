@@ -3,6 +3,7 @@ import { DeviceCardMedium } from "../../components/DeviceCardMedium.tsx";
 import { PaginationNav } from "../../components/PaginationNav.tsx";
 import { DeviceSearchForm } from "../../islands/DeviceSearchForm.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
+import { Head } from "$fresh/runtime.ts";
 
 export default function DevicesIndex(props: PageProps) {
   const deviceService = DeviceService.getInstance();
@@ -41,6 +42,9 @@ export default function DevicesIndex(props: PageProps) {
 
   return (
     <div>
+      <Head>
+        <title>Retro Ranker - Device Catalog</title>
+      </Head>
       <header>
         <hgroup style={{ textAlign: "center" }}>
           <h1>Device Catalog</h1>
