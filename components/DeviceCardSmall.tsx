@@ -50,8 +50,8 @@ export function DeviceCardSmall({ device }: DeviceCardSmallProps) {
           <div class="figure" style="width: 4rem; height: 4rem;">
             <img
               loading="lazy"
-              src={device.image.url}
-              alt={device.image.alt}
+              src={device.image.url ?? "/images/placeholder-100x100.svg"}
+              alt={device.image.alt ?? "A placeholder image"}
               style="width: 100%; height: 100%; object-fit: contain;"
             />
           </div>
