@@ -46,10 +46,6 @@ built with Fresh framework.
    - `deno task build`
 5. Preview production build
    - `deno task preview`
-6. Update Fresh framework
-   - `deno task update`
-7. Scrape device images
-   - `deno task scrape`
 
 ## 📜 Scripts
 
