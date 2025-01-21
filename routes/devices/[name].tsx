@@ -30,6 +30,7 @@ export default function DeviceDetail(props: PageProps) {
         expected: false,
       };
     }
+
     if (deviceReleased.mentionedDate) {
       return {
         date: new Date(deviceReleased.mentionedDate).toLocaleDateString(
@@ -44,10 +45,11 @@ export default function DeviceDetail(props: PageProps) {
         expected: false,
       };
     }
+
     return {
       date: deviceReleased.raw,
       icon: () => <PiCalendarSlash />,
-      expected: true,
+      expected: deviceReleased.raw.toLowerCase().includes("upcoming"),
     };
   };
 
@@ -94,14 +96,30 @@ export default function DeviceDetail(props: PageProps) {
               </p>
             </div>
             <div>
-              {device.image.url && (
-                <img
-                  loading="lazy"
-                  src={device.image.url}
-                  alt={device.image.alt ?? "A device image"}
-                  style="width: 100px; height: 100px; object-fit: contain;"
-                />
-              )}
+              {device.image?.originalUrl
+                ? (
+                  <img
+                    loading="lazy"
+                    src={device.image?.url ?? "/images/placeholder-100x100.svg"}
+                    width={100}
+                    height={100}
+                    alt={device.image?.alt ?? "A device image"}
+                    style="width: 100px; height: 100px; object-fit: contain;"
+                  />
+                )
+                : (
+                  <span
+                    data-tooltip="No image available"
+                    data-placement="bottom"
+                  >
+                    <img
+                      src="/images/placeholder-100x100.svg"
+                      width={100}
+                      height={100}
+                      alt="A placeholder image"
+                    />
+                  </span>
+                )}
             </div>
             <div style="display: flex; gap: 0.5rem;">
               <p>

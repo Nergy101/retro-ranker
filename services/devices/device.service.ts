@@ -83,6 +83,7 @@ export class DeviceService {
       if (category === "low") {
         return device.pricing.category === "low" && (
           device.name.sanitized.toLowerCase().includes(lowerQuery) ||
+          device.name.raw.toLowerCase().includes(lowerQuery) ||
           device.brand.toLowerCase().includes(lowerQuery) ||
           device.os.raw.toLowerCase().includes(lowerQuery)
         );
@@ -91,6 +92,7 @@ export class DeviceService {
       if (category === "mid") {
         return device.pricing.category === "mid" && (
           device.name.sanitized.toLowerCase().includes(lowerQuery) ||
+          device.name.raw.toLowerCase().includes(lowerQuery) ||
           device.brand.toLowerCase().includes(lowerQuery) ||
           device.os.raw.toLowerCase().includes(lowerQuery)
         );
@@ -100,6 +102,7 @@ export class DeviceService {
         return (
           device.pricing.category === "high" &&
           (device.name.sanitized.toLowerCase().includes(lowerQuery) ||
+            device.name.raw.toLowerCase().includes(lowerQuery) ||
             device.brand.toLowerCase().includes(lowerQuery) ||
             device.os.raw.toLowerCase().includes(lowerQuery))
         );
@@ -107,6 +110,7 @@ export class DeviceService {
 
       return (
         device.name.sanitized.toLowerCase().includes(lowerQuery) ||
+        device.name.raw.toLowerCase().includes(lowerQuery) ||
         device.brand.toLowerCase().includes(lowerQuery) ||
         device.os.raw.toLowerCase().includes(lowerQuery)
       );
@@ -130,12 +134,24 @@ export class DeviceService {
       );
     }
 
+    const currentYear = new Date().getFullYear();
+    if (sortBy === "new-arrivals") {
+      filteredDevices = filteredDevices.filter((device) => {
+        // where mentionedDate is a valid date
+        if (!device.released.mentionedDate) return false;
+        const mentionedDate = new Date(device.released.mentionedDate);
+        if (!mentionedDate) return false;
+        const year = mentionedDate.getFullYear();
+        return year === currentYear || year === currentYear - 1;
+      });
+    }
+
     const sortedDevices = filteredDevices.sort((a, b) => {
       switch (sortBy) {
         case "new-arrivals":
           return (
-            (a.released.mentionedDate ?? new Date()).getTime() -
-            (b.released.mentionedDate ?? new Date()).getTime()
+            (new Date(b.released.mentionedDate ?? new Date())).getTime() -
+            (new Date(a.released.mentionedDate ?? new Date())).getTime()
           );
         case "highly-rated":
           return (b.performance?.normalizedRating ?? 0) -

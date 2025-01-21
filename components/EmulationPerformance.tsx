@@ -121,82 +121,79 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
               </tr>
             )}
 
-            <tr>
-              <th>Written Reviews</th>
-              <td colSpan={1}>
-                {device.reviews.writtenReviews.length > 0
-                  ? (
+            {(device.reviews.writtenReviews.length > 0 || device.hackingGuides.length > 0) && (
+              <tr>
+                <th>Written Reviews</th>
+                <td colSpan={1}>
+                  {device.reviews.writtenReviews.length > 0 ? (
                     <ul>
                       {device.reviews.writtenReviews.map((review) => (
-                        <li>
-                          <a
-                            href={review.url}
-                            target="_blank"
-                            alt={review.name}
-                          >
+                        <li key={review.url}>
+                          <a href={review.url} target="_blank" alt={review.name}>
                             {review.name}
                           </a>
                         </li>
                       ))}
                     </ul>
-                  )
-                  : <span>No written reviews available.</span>}
-              </td>
-              <th>Hacking Guides</th>
-              <td colSpan={1}>
-                {device.hackingGuides.length > 0
-                  ? (
+                  ) : (
+                    <span>No written reviews available.</span>
+                  )}
+                </td>
+                <th>Hacking Guides</th>
+                <td colSpan={1}>
+                  {device.hackingGuides.length > 0 ? (
                     <ul>
                       {device.hackingGuides.map((guide) => (
-                        <li>
+                        <li key={guide.url}>
                           <a href={guide.url} target="_blank" alt={guide.name}>
                             {guide.name}
                           </a>
                         </li>
                       ))}
                     </ul>
-                  )
-                  : <span>No hacking guides available.</span>}
-              </td>
-            </tr>
-            <tr>
-              <th>Video Reviews</th>
-              <td colSpan={1}>
-                {device.reviews.videoReviews.length > 0
-                  ? (
+                  ) : (
+                    <span>No hacking guides available.</span>
+                  )}
+                </td>
+              </tr>
+            )}
+
+            {(device.reviews.videoReviews.length > 0 || device.vendorLinks.length > 0) && (
+              <tr>
+                <th>Video Reviews</th>
+                <td colSpan={1}>
+                  {device.reviews.videoReviews.length > 0 ? (
                     <ul>
                       {device.reviews.videoReviews.map((review) => (
-                        <li>
-                          <a
-                            href={review.url}
-                            target="_blank"
-                            alt={review.name}
-                          >
+                        <li key={review.url}>
+                          <a href={review.url} target="_blank" alt={review.name}>
                             {review.name}
                           </a>
                         </li>
                       ))}
                     </ul>
-                  )
-                  : <span>No video reviews available.</span>}
-              </td>
-              <th>Vendor Links</th>
-              <td colSpan={1}>
-                {device.vendorLinks.length > 0
-                  ? (
+                  ) : (
+                    <span>No video reviews available.</span>
+                  )}
+                </td>
+                <th>Vendor Links</th>
+                <td colSpan={1}>
+                  {device.vendorLinks.length > 0 ? (
                     <ul>
                       {device.vendorLinks.map((link) => (
-                        <li>
+                        <li key={link.url}>
                           <a href={link.url} target="_blank" alt={link.name}>
                             {link.name}
                           </a>
                         </li>
                       ))}
                     </ul>
-                  )
-                  : <span>No vendor links available.</span>}
-              </td>
-            </tr>
+                  ) : (
+                    <span>No vendor links available.</span>
+                  )}
+                </td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>

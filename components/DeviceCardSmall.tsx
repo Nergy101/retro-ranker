@@ -48,12 +48,30 @@ export function DeviceCardSmall({ device }: DeviceCardSmallProps) {
             </p>
           </hgroup>
           <div class="figure" style="width: 4rem; height: 4rem;">
-            <img
-              loading="lazy"
-              src={device.image.url ?? "/images/placeholder-100x100.svg"}
-              alt={device.image.alt ?? "A placeholder image"}
-              style="width: 100%; height: 100%; object-fit: contain;"
-            />
+            {device.image?.originalUrl
+              ? (
+                <img
+                  loading="lazy"
+                  src={device.image?.url ?? "/images/placeholder-100x100.svg"}
+                  width={100}
+                  height={100}
+                  alt={device.image?.alt ?? "A device image"}
+                  style="width: 100px; height: 100px; object-fit: contain;"
+                />
+              )
+              : (
+                <span
+                  data-tooltip="No image available"
+                  data-placement="bottom"
+                >
+                  <img
+                    src="/images/placeholder-100x100.svg"
+                    width={100}
+                    height={100}
+                    alt="A placeholder image"
+                  />
+                </span>
+              )}
           </div>
           <StarRating device={device} />
         </div>
