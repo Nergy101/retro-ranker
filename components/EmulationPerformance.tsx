@@ -78,7 +78,8 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
                   >
                     {max20Characters(device.cpu.names[0])}
                   </span>
-                  {device.cpu.cores && device.cpu.cores > 0 && ` (${device.cpu.cores} cores)`}
+                  {device.cpu.cores && device.cpu.cores > 0 &&
+                    ` (${device.cpu.cores} cores)`}
                   {device.cpu.clockSpeed && ` @ ${device.cpu.clockSpeed}`}
                 </td>
 
@@ -119,48 +120,75 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
                 <td>{device.cooling.raw}</td>
               </tr>
             )}
-            {device.reviews.writtenReviews.length > 0 && (
-              <tr>
-                <th>Written Reviews</th>
-                <td colSpan={3}>
+
+            <tr>
+              <th>Written Reviews</th>
+              <td colSpan={1}>
+                {device.reviews.writtenReviews.length > 0 ? (
                   <ul>
                     {device.reviews.writtenReviews.map((review) => (
                       <li>
-                        <a href={review.url} target="_blank" alt={review.name}>{review.name}</a>
+                        <a href={review.url} target="_blank" alt={review.name}>
+                          {review.name}
+                        </a>
                       </li>
                     ))}
                   </ul>
-                </td>
-              </tr>
-            )}
-            {device.reviews.videoReviews.length > 0 && (
-              <tr>
-                <th>Video Reviews</th>
-                <td colSpan={3}>
+                ) : (
+                  <span>No written reviews available.</span>
+                )}
+              </td>
+              <th>Hacking Guides</th>
+              <td colSpan={1}>
+                {device.hackingGuides.length > 0 ? (
+                  <ul>
+                    {device.hackingGuides.map((guide) => (
+                      <li>
+                        <a href={guide.url} target="_blank" alt={guide.name}>
+                          {guide.name}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <span>No hacking guides available.</span>
+                )}
+              </td>
+            </tr>
+            <tr>
+              <th>Video Reviews</th>
+              <td colSpan={1}>
+                {device.reviews.videoReviews.length > 0 ? (
                   <ul>
                     {device.reviews.videoReviews.map((review) => (
                       <li>
-                        <a href={review.url} target="_blank" alt={review.name}>{review.name}</a>
+                        <a href={review.url} target="_blank" alt={review.name}>
+                          {review.name}
+                        </a>
                       </li>
                     ))}
                   </ul>
-                </td>
-              </tr>
-            )}
-            {device.vendorLinks.length > 0 && (
-              <tr>
-                <th>Vendor Links</th>
-                <td colSpan={3}>
+                ) : (
+                  <span>No video reviews available.</span>
+                )}
+              </td>
+              <th>Vendor Links</th>
+              <td colSpan={1}>
+                {device.vendorLinks.length > 0 ? (
                   <ul>
                     {device.vendorLinks.map((link) => (
                       <li>
-                        <a href={link.url} target="_blank" alt={link.name}>{link.name}</a>
+                        <a href={link.url} target="_blank" alt={link.name}>
+                          {link.name}
+                        </a>
                       </li>
                     ))}
                   </ul>
-                </td>
-              </tr>
-            )}
+                ) : (
+                  <span>No vendor links available.</span>
+                )}
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
