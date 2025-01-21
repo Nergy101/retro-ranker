@@ -7,15 +7,15 @@ export interface Device {
   };
   brand: string;
   image: {
-    originalUrl: string;
+    originalUrl: string | null;
     url: string | null;
     alt: string | null;
   };
   released: {
-    raw: string;
+    raw: string | null;
     mentionedDate: Date | null;
   };
-  formFactor: string;
+  formFactor: string | null;
   os: {
     raw: string;
     list: string[];
@@ -23,116 +23,118 @@ export interface Device {
     customFirmwares: string[];
   };
   performance: {
-    tier: EmulationTier;
-    rating: number; // 0-15
-    normalizedRating: number; // 0-10
+    tier: EmulationTier | null;
+    rating: number | null; // 0-15
+    normalizedRating: number | null; // 0-10
 
     // samey?
-    maxEmulation: string;
-    emulationLimit: string;
+    maxEmulation: string | null;
+    emulationLimit: string | null;
   };
   consoleRatings: {
     system: string; // console name
     rating: string; // A-F
   }[];
 
-  systemOnChip: string;
-  architecture: string;
+  systemOnChip: string | null;
+  architecture: string | null;
 
   // CPU
   cpu: {
-    raw: string;
+    raw: string | null;
     names: string[];
-    cores: number;
-    threads: number;
-    clockSpeed: string;
+    cores: number | null;
+    threads: number | null;
+    clockSpeed: string | null;
   };
 
   // GPU
   gpu: {
-    name: string;
-    cores: string;
-    clockSpeed: string;
+    name: string | null;
+    cores: string | null;
+    clockSpeed: string | null;
   };
 
-  ram: string;
-  battery: string;
-  chargePort: string;
-  storage: string;
+  ram: string | null;
+  battery: string | null;
+  chargePort: string | null;
+  storage: string | null;
 
   // Screen
   screen: {
-    size: string;
-    type: string;
-    resolution: string;
-    ppi: number;
-    aspectRatio: string;
-    lens: string;
+    size: string | null;
+    type: string | null;
+    resolution: string | null;
+    ppi: number | null;
+    aspectRatio: string | null;
+    lens: string | null;
   };
 
   cooling: {
-    raw: string;
-    hasHeatsink: boolean;
-    hasHeatPipe: boolean;
-    hasFan: boolean;
-    hasVentilationCutouts: boolean;
+    raw: string | null;
+    hasHeatsink: boolean | null;
+    hasHeatPipe: boolean | null;
+    hasFan: boolean | null;
+    hasVentilationCutouts: boolean | null;
   };
 
   // Controls
   controls: {
-    dPad: string;
-    analogs: string;
-    faceButtons: string;
-    shoulderButtons: string;
-    extraButtons: string;
+    dPad: string | null;
+    analogs: string[];
+    faceButtons: string[];
+    shoulderButtons: string[];
+    extraButtons: string[];
   };
 
   connectivity: {
-    hasWifi: boolean;
-    hasBluetooth: boolean;
-    hasNFC: boolean;
-    hasUSB: boolean;
-    hasHDMI: boolean;
-    hasDisplayPort: boolean;
-    hasVGA: boolean;
-    hasDVI: boolean;
+    hasWifi: boolean | null;
+    hasBluetooth: boolean | null;
+    hasNFC: boolean | null;
+    hasUSB: boolean | null;
+    hasUSBC: boolean | null;
+    hasHDMI: boolean | null;
+    hasDisplayPort: boolean | null;
+    hasVGA: boolean | null;
+    hasDVI: boolean | null;
   };
 
   // Outputs
   outputs: {
-    videoOutput: string;
-    audioOutput: string;
-    speaker: string;
+    videoOutput: string | null;
+    audioOutput: string | null;
+    speaker: string | null;
   };
 
-  rumble: string;
-  sensors: string;
-  lowBatteryIndicator: string;
+  rumble: string | null;
+  sensors: string[];
+  lowBatteryIndicator: string | null;
 
-  volumeControl: string;
-  brightnessControl: string;
-  powerControl: string;
+  volumeControl: string | null;
+  brightnessControl: string | null;
+  powerControl: string | null;
 
-  dimensions: string;
-  weight: string;
-  shellMaterial: string;
+  dimensions: string | null;
+  weight: string | null;
+  shellMaterial: string | null;
   colors: string[];
 
   // Reviews
   reviews: {
     videoReviews: string[];
-    writtenReviews: string[];
+    writtenReviews: string[] ;
   };
 
   pricing: {
-    raw: string;
-    average: number;
+    raw: string | null;
+    discontinued: boolean | null;
+    average: number | null;
     range: {
-      min: number;
-      max: number;
+      min: number | null;
+      max: number | null;
     };
-    currency: string;
-    category: string; // budget, mid, high
+    currency: string | null;
+    category: string | null; // budget, mid, high
   };
 
   pros: string[];

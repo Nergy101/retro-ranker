@@ -34,6 +34,13 @@ export class DeviceParser {
 
     if (lowerOs.includes("analogue os")) icons.push("ph-code");
 
+    // OEM
+    if (lowerOs.includes("nintendo")) icons.push("ph-factory");
+    if (lowerOs.includes("psp")) icons.push("ph-factory");
+    if (lowerOs.includes("vita")) icons.push("ph-factory");
+    if (lowerOs.includes("gingerbread")) icons.push("ph-factory");
+    if (lowerOs.includes("proprietary")) icons.push("ph-factory");
+
     return icons.length ? icons : ["ph-empty"];
   }
 
@@ -54,7 +61,7 @@ export class DeviceParser {
   private static getPricingCategory(priceNumber: number): string {
     if (priceNumber === 0) return "unknown";
     if (priceNumber <= 100) return "low";
-    if (priceNumber <= 250) return "mid";
+    if (priceNumber <= 300) return "mid";
     return "high";
   }
 
@@ -96,92 +103,96 @@ export class DeviceParser {
           raw: "",
           sanitized: "",
         },
-        systemOnChip: "",
-        architecture: "",
-        ram: "",
-        rumble: "",
-        sensors: "",
-        volumeControl: "",
-        brightnessControl: "",
-        powerControl: "",
-        battery: "",
-        chargePort: "",
-        storage: "",
-        dimensions: "",
-        weight: "",
-        shellMaterial: "",
-        colors: [],
-        brand: "",
-        image: {
-          originalUrl: "",
-          url: null,
-          alt: null,
-        },
-        released: {
-          raw: "",
-          mentionedDate: null,
-        },
-        formFactor: "",
         os: {
           raw: "",
           list: [],
           icons: [],
+          customFirmwares: [],
         },
+        brand: "",
+        lowBatteryIndicator: null,
+        systemOnChip: null,
+        architecture: null,
+        ram: null,
+        rumble: null,
+        sensors: [],
+        volumeControl: null,
+        brightnessControl: null,
+        powerControl: null,
+        battery: null,
+        chargePort: null,
+        storage: null,
+        dimensions: null,
+        weight: null,
+        shellMaterial: null,
+        colors: [],
+        image: {
+          originalUrl: null,
+          url: null,
+          alt: null,
+        },
+        released: {
+          raw: null,
+          mentionedDate: null,
+        },
+        formFactor: null,
         consoleRatings: [],
         connectivity: {
-          hasWifi: false,
-          hasBluetooth: false,
-          hasNFC: false,
-          hasUSB: false,
-          hasDisplayPort: false,
-          hasVGA: false,
-          hasDVI: false,
-          hasHDMI: false,
+          hasWifi: null,
+          hasBluetooth: null,
+          hasNFC: null,
+          hasUSB: null,
+          hasUSBC: null,
+          hasDisplayPort: null,
+          hasVGA: null,
+          hasDVI: null,
+          hasHDMI: null,
         },
         cpu: {
-          name: "",
-          cores: 0,
-          threads: 0,
-          clockSpeed: "",
+          raw: null,
+          names: [],
+          cores: null,
+          threads: null,
+          clockSpeed: null,
         },
         gpu: {
-          name: "",
-          cores: "",
-          clockSpeed: "",
+          name: null,
+          cores: null,
+          clockSpeed: null,
         },
         performance: {
-          tier: EmulationTier.Unknown,
-          rating: 0,
-          normalizedRating: 0,
-          maxEmulation: "",
-          emulationLimit: "",
+          tier: null,
+          rating: null,
+          normalizedRating: null,
+          maxEmulation: null,
+          emulationLimit: null,
         },
         screen: {
-          size: "",
-          type: "",
-          resolution: "",
-          ppi: 0,
-          aspectRatio: "",
-          lens: "",
+          size: null,
+          type: null,
+          resolution: null,
+          ppi: null,
+          aspectRatio: null,
+          lens: null,
         },
         cooling: {
-          raw: "",
-          hasHeatsink: false,
-          hasHeatPipe: false,
-          hasFan: false,
-          hasVentilationCutouts: false,
+          raw: null,
+          hasHeatsink: null,
+          hasHeatPipe: null,
+          hasFan: null,
+          hasVentilationCutouts: null,
         },
         controls: {
-          dPad: "",
-          analogs: "",
-          faceButtons: "",
-          shoulderButtons: "",
-          extraButtons: "",
+          dPad: null,
+          analogs: [],
+          faceButtons: [],
+          shoulderButtons: [],
+          extraButtons: [],
         },
         outputs: {
-          videoOutput: "",
-          audioOutput: "",
-          speaker: "",
+          videoOutput: null,
+          audioOutput: null,
+          speaker: null,
         },
         reviews: {
           videoReviews: [],
@@ -189,14 +200,14 @@ export class DeviceParser {
         },
 
         pricing: {
-          raw: "",
-          average: 0,
+          raw: null,
+          average: null,
           range: {
-            min: 0,
-            max: 0,
+            min: null,
+            max: null,
           },
-          currency: "",
-          category: "",
+          currency: null,
+          category: null,
         },
 
         pros: [],
@@ -287,92 +298,96 @@ export class DeviceParser {
           raw: "",
           sanitized: "",
         },
-        systemOnChip: "",
-        architecture: "",
-        ram: "",
-        rumble: "",
-        sensors: "",
-        volumeControl: "",
-        brightnessControl: "",
-        powerControl: "",
-        battery: "",
-        chargePort: "",
-        storage: "",
-        dimensions: "",
-        weight: "",
-        shellMaterial: "",
-        colors: [],
-        brand: "",
-        image: {
-          originalUrl: "",
-          url: null,
-          alt: null,
-        },
-        released: {
-          raw: "",
-          mentionedDate: null,
-        },
-        formFactor: "",
         os: {
           raw: "",
           list: [],
           icons: [],
+          customFirmwares: [],
         },
+        brand: "",
+        lowBatteryIndicator: null,
         consoleRatings: [],
+        systemOnChip: null,
+        architecture: null,
+        ram: null,
+        rumble: null,
+        sensors: [],
+        volumeControl: null,
+        brightnessControl: null,
+        powerControl: null,
+        battery: null,
+        chargePort: null,
+        storage: null,
+        dimensions: null,
+        weight: null,
+        shellMaterial: null,
+        colors: [],
+        image: {
+          originalUrl: null,
+          url: null,
+          alt: null,
+        },
+        released: {
+          raw: null,
+          mentionedDate: null,
+        },
+        formFactor: null,
         connectivity: {
           hasWifi: false,
           hasBluetooth: false,
           hasNFC: false,
           hasUSB: false,
+          hasUSBC: false,
           hasDisplayPort: false,
           hasVGA: false,
           hasDVI: false,
           hasHDMI: false,
         },
         cpu: {
-          name: "",
-          cores: 0,
-          threads: 0,
-          clockSpeed: "",
+          raw: null,
+          names: [],
+          cores: null,
+          threads: null,
+          clockSpeed: null,
         },
         gpu: {
-          name: "",
-          cores: "",
-          clockSpeed: "",
+          name: null,
+          cores: null,
+          clockSpeed: null,
         },
         performance: {
-          tier: EmulationTier.Unknown,
-          rating: 0,
-          normalizedRating: 0,
-          maxEmulation: "",
-          emulationLimit: "",
+          tier: null,
+          rating: null,
+          normalizedRating: null,
+          maxEmulation: null,
+          emulationLimit: null,
         },
         screen: {
-          size: "",
-          type: "",
-          resolution: "",
-          ppi: 0,
-          aspectRatio: "",
-          lens: "",
+          size: null,
+          type: null,
+          resolution: null,
+          ppi: null,
+          aspectRatio: null,
+          lens: null,
         },
         cooling: {
-          raw: "",
-          hasHeatsink: false,
-          hasHeatPipe: false,
-          hasFan: false,
-          hasVentilationCutouts: false,
+          raw: null,
+          hasHeatsink: null,
+          hasHeatPipe: null,
+          hasFan: null,
+          hasVentilationCutouts: null,
         },
         controls: {
-          dPad: "",
-          analogs: "",
-          faceButtons: "",
-          shoulderButtons: "",
-          extraButtons: "",
+          dPad: null,
+          analogs: [],
+          faceButtons: [],
+          shoulderButtons: [],
+          extraButtons: [],
         },
         outputs: {
-          videoOutput: "",
-          audioOutput: "",
-          speaker: "",
+          videoOutput: null,
+          audioOutput: null,
+          speaker: null,
         },
         reviews: {
           videoReviews: [],
@@ -380,14 +395,14 @@ export class DeviceParser {
         },
 
         pricing: {
-          raw: "",
-          average: 0,
+          raw: null,
+          average: null,
           range: {
-            min: 0,
-            max: 0,
+            min: null,
+            max: null,
           },
-          currency: "",
-          category: "",
+          currency: null,
+          category: null,
         },
 
         pros: [],
@@ -606,10 +621,10 @@ export class DeviceParser {
         device.cpu.names = value.split(", ");
         break;
       case 28:
-        device.cpu.cores = parseInt(value) || 0;
+        device.cpu.cores = parseInt(value) || null;
         break;
       case 29:
-        device.cpu.threads = parseInt(value) || 0;
+        device.cpu.threads = parseInt(value) || null;
         break;
       case 30:
         device.cpu.clockSpeed = value;
@@ -639,7 +654,7 @@ export class DeviceParser {
         device.screen.resolution = value;
         break;
       case 39:
-        device.screen.ppi = parseInt(value) || 0;
+        device.screen.ppi = parseInt(value) || null;
         break;
       case 40:
         device.screen.aspectRatio = value;
@@ -666,16 +681,16 @@ export class DeviceParser {
         device.controls.dPad = value;
         break;
       case 45:
-        device.controls.analogs = value;
+        device.controls.analogs = value.split(", ");
         break;
       case 46:
-        device.controls.faceButtons = value;
+        device.controls.faceButtons = value.split(", ");
         break;
       case 47:
-        device.controls.shoulderButtons = value;
+        device.controls.shoulderButtons = value.split(", ");
         break;
       case 48:
-        device.controls.extraButtons = value;
+        device.controls.extraButtons = value.split(", ");
         break;
       case 49:
         device.chargePort = value;
@@ -689,6 +704,7 @@ export class DeviceParser {
           hasBluetooth: value.includes("Bluetooth"),
           hasNFC: value.includes("NFC"),
           hasUSB: value.includes("USB"),
+          hasUSBC: value.includes("USBC") || value.includes("USB-C"),
           hasDisplayPort: value.includes("DisplayPort"),
           hasVGA: value.includes("VGA"),
           hasDVI: value.includes("DVI"),
@@ -709,7 +725,7 @@ export class DeviceParser {
         device.rumble = value;
         break;
       case 56:
-        device.sensors = value;
+        device.sensors = value.split(", ");
         break;
       case 57:
         device.volumeControl = value;
@@ -953,51 +969,42 @@ export class DeviceParser {
         device.cpu.names = value.split(", ");
         break;
       case 28:
-        device.cpu.cores = parseInt(value) || 0;
+        device.cpu.cores = parseInt(value) || null;
         break;
       case 29:
-        device.cpu.threads = parseInt(value) || 0;
-        break;
-      case 30:
         device.cpu.clockSpeed = value;
         break;
-      case 31:
+      case 30:
         device.architecture = value;
         break;
-      case 32:
+      case 31:
         device.gpu.name = value;
         break;
-      // case 33:
-      //   device.gpu.cores = value;
-      //   break;
-      case 33:
+      case 32:
         device.gpu.clockSpeed = value;
         break;
-      case 34:
+      case 33:
         device.ram = value;
         break;
-      case 35:
+      case 34:
         device.screen.size = value;
         break;
-      case 36:
+      case 35:
         device.screen.type = value;
         break;
-      case 37:
+      case 36:
         device.screen.resolution = value;
         break;
-      // case 40:
-      //   device.screen.ppi = parseInt(value) || 0;
-      //   break;
-      case 38:
+      case 37:
         device.screen.aspectRatio = value;
         break;
-      case 39:
+      case 38:
         device.screen.lens = value;
         break;
-      case 40:
+      case 39:
         device.battery = value;
         break;
-      case 41:
+      case 40:
         {
           const cooling = value.toLowerCase();
           device.cooling = {
@@ -1009,41 +1016,47 @@ export class DeviceParser {
           };
         }
         break;
-      case 42:
+      case 41:
         device.controls.dPad = value;
         break;
+      case 42:
+        device.controls.analogs = value.split(", ");
+        break;
       case 43:
-        device.controls.analogs = value;
+        device.controls.faceButtons = value.split(", ");
         break;
       case 44:
-        device.controls.faceButtons = value;
+        device.controls.shoulderButtons = value.split(", ");
         break;
       case 45:
-        device.controls.shoulderButtons = value;
+        device.controls.extraButtons = value.split(", ");
         break;
       case 46:
-        device.controls.extraButtons = value;
-        break;
-      case 47:
         device.chargePort = value;
         break;
-      case 48:
+      case 47:
         device.storage = value;
         break;
-      case 49:
-        device.sensors = value;
+      case 48:
+        device.sensors = value.split(", ");
         break;
-      case 50:
+      case 49:
         device.connectivity = {
           hasWifi: value.includes("WiFi"),
           hasBluetooth: value.includes("Bluetooth"),
           hasNFC: value.includes("NFC"),
           hasUSB: value.includes("USB"),
+          hasUSBC: value.includes("USBC") || value.includes("USB-C"),
           hasDisplayPort: value.includes("DisplayPort"),
           hasVGA: value.includes("VGA"),
           hasDVI: value.includes("DVI"),
           hasHDMI: value.includes("HDMI"),
         };
+        break;
+      case 50:
+        device.connectivity.hasHDMI = value.includes("HDMI");
+        device.connectivity.hasUSBC = value.includes("USB");
+        device.outputs.videoOutput = value;
         break;
       case 51:
         device.outputs.audioOutput = value;
@@ -1060,10 +1073,6 @@ export class DeviceParser {
       case 55:
         device.volumeControl = value;
         break;
-      // case 52:
-      //   device.connectivity.hasHDMI = value.includes("HDMI");
-      //   device.outputs.videoOutput = value;
-      //   break;
       case 56:
         device.brightnessControl = value;
         break;
@@ -1083,14 +1092,23 @@ export class DeviceParser {
       //   device.shellMaterial = value;
       //   break;
       case 67: {
+        if (value.toLowerCase().includes("discontinued")) {
+          device.pricing = {
+            ...device.pricing,
+            raw: value,
+            discontinued: true,
+          };
+          break;
+        }
+
         const priceRange = this.parsePriceRange(value);
         const averagePrice = (priceRange.min + priceRange.max) / 2;
         device.pricing = {
           ...device.pricing,
-
           average: averagePrice,
           category: this.getPricingCategory(averagePrice),
           raw: value,
+          discontinued: false,
           range: {
             min: priceRange.min,
             max: priceRange.max,
