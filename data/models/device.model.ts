@@ -20,6 +20,7 @@ export interface Device {
     raw: string;
     list: string[];
     icons: string[]; // ph icon class names, can be used with deviceService.getOsIconComponent or <i class={icon} />
+    customFirmwares: string[];
   };
   performance: {
     tier: EmulationTier;
@@ -40,7 +41,8 @@ export interface Device {
 
   // CPU
   cpu: {
-    name: string;
+    raw: string;
+    names: string[];
     cores: number;
     threads: number;
     clockSpeed: string;
@@ -105,6 +107,7 @@ export interface Device {
 
   rumble: string;
   sensors: string;
+  lowBatteryIndicator: string;
 
   volumeControl: string;
   brightnessControl: string;
