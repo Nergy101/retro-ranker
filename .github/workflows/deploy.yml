@@ -32,5 +32,3 @@ jobs:
           project: "retro-ranker"
           entrypoint: "main.ts"
           root: "."
-          
-          

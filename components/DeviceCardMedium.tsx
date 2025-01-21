@@ -1,8 +1,8 @@
-import { Device } from "../data/models/device.model.ts";
-import { StarRating } from "./StarRating.tsx";
-import { CurrencyIcon } from "./CurrencyIcon.tsx";
-import { DeviceService } from "../services/devices/device.service.ts";
 import { PiQuestion } from "@preact-icons/pi";
+import { Device } from "../data/models/device.model.ts";
+import { DeviceService } from "../services/devices/device.service.ts";
+import { CurrencyIcon } from "./CurrencyIcon.tsx";
+import { StarRating } from "./StarRating.tsx";
 
 interface DeviceCardMediumProps {
   device: Device;
@@ -73,7 +73,10 @@ export function DeviceCardMedium({ device }: DeviceCardMediumProps) {
               </span>
             )
             : (
-              <span style={{ display: "flex", gap: "0.25rem" }} data-tooltip="Discontinued">
+              <span
+                style={{ display: "flex", gap: "0.25rem" }}
+                data-tooltip="Discontinued"
+              >
                 <PiQuestion />
               </span>
             )}

@@ -1,4 +1,3 @@
-import { Device } from "../data/models/device.model.ts";
 import {
   PiCpu,
   PiFan,
@@ -9,6 +8,7 @@ import {
   PiSpeakerHigh,
   PiWifiHigh,
 } from "@preact-icons/pi";
+import { Device } from "../data/models/device.model.ts";
 
 interface DeviceSpecsProps {
   device: Device;
@@ -36,7 +36,8 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
                 <th>CPU</th>
                 <td>
                   {device.cpu.names.join(", ")}
-                  {device.cpu.cores && device.cpu.cores > 0 && ` (${device.cpu.cores} cores)`}
+                  {device.cpu.cores && device.cpu.cores > 0 &&
+                    ` (${device.cpu.cores} cores)`}
                   {device.cpu.clockSpeed && ` @ ${device.cpu.clockSpeed}`}
                 </td>
               </tr>
@@ -284,7 +285,9 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
                   <ul>
                     {device.reviews.writtenReviews.map((review) => (
                       <li>
-                        <a href={review.url} target="_blank" alt={review.name}>{review.name}</a>
+                        <a href={review.url} target="_blank" alt={review.name}>
+                          {review.name}
+                        </a>
                       </li>
                     ))}
                   </ul>
@@ -298,7 +301,9 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
                   <ul>
                     {device.reviews.videoReviews.map((review) => (
                       <li>
-                        <a href={review.url} target="_blank" alt={review.name}>{review.name}</a>
+                        <a href={review.url} target="_blank" alt={review.name}>
+                          {review.name}
+                        </a>
                       </li>
                     ))}
                   </ul>
@@ -328,7 +333,9 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
                   <ul>
                     {device.vendorLinks.map((link) => (
                       <li>
-                        <a href={link.url} target="_blank" alt={link.name}>{link.name}</a>
+                        <a href={link.url} target="_blank" alt={link.name}>
+                          {link.name}
+                        </a>
                       </li>
                     ))}
                   </ul>

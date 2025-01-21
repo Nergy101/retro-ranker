@@ -1,4 +1,9 @@
-import { PiChatText, PiGameController, PiInfo, PiScroll } from "@preact-icons/pi";
+import {
+  PiChatText,
+  PiGameController,
+  PiInfo,
+  PiScroll,
+} from "@preact-icons/pi";
 import { JSX, VNode } from "preact";
 
 export type NavigationItem = {
@@ -33,4 +38,4 @@ export const navigationItems: NavigationItem[] = [
     icon: () => PiChatText({}),
     isActive: (pathname) => pathname === "/contact",
   },
-]; 
+];

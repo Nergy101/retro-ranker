@@ -1,4 +1,9 @@
-import { PiCaretDoubleLeftBold, PiCaretDoubleRightBold, PiCaretLeftBold, PiCaretRightBold } from "@preact-icons/pi";
+import {
+  PiCaretDoubleLeftBold,
+  PiCaretDoubleRightBold,
+  PiCaretLeftBold,
+  PiCaretRightBold,
+} from "@preact-icons/pi";
 
 interface PaginationNavProps {
   pageNumber: number;

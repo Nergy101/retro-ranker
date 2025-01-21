@@ -1,5 +1,10 @@
 import { Head } from "$fresh/runtime.ts";
-import { PiCoffee, PiGithubLogo, PiChatText, PiLinkedinLogo } from "@preact-icons/pi";
+import {
+  PiChatText,
+  PiCoffee,
+  PiGithubLogo,
+  PiLinkedinLogo,
+} from "@preact-icons/pi";
 
 export default function ContactPage() {
   return (
@@ -35,7 +40,6 @@ export default function ContactPage() {
               class="small-card"
               style="text-decoration: none; text-align: center; justify-content: center;"
             >
-
               <PiGithubLogo class="text-4xl" />
               <span>
                 GitHub Repository

@@ -17,12 +17,19 @@ export default function DeviceDetail(props: PageProps) {
   );
 
   const getReleaseDate = (
-    deviceReleased: { raw: string; mentionedDate: Date | null },
+    deviceReleased: { raw: string | null; mentionedDate: Date | null },
   ): {
     date: string;
     icon: () => VNode<JSX.SVGAttributes>;
     expected: boolean;
   } => {
+    if (!deviceReleased.raw) {
+      return {
+        date: "Unknown",
+        icon: () => <PiQuestion />,
+        expected: false,
+      };
+    }
     if (deviceReleased.mentionedDate) {
       return {
         date: new Date(deviceReleased.mentionedDate).toLocaleDateString(

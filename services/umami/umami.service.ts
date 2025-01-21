@@ -9,11 +9,14 @@ export class UmamiService {
     return UmamiService.instance;
   }
 
-  public async sendEvent(eventName: string, eventData: unknown) {
+  public async sendEvent(
+    eventName: string,
+    eventData: Record<string, unknown>,
+  ) {
     if (globalThis.location.hostname !== "retroranker.site") {
       return;
     }
-    
+
     const payload = {
       payload: {
         hostname: globalThis.location.hostname,

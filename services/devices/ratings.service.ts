@@ -1,5 +1,5 @@
-import { Device } from "../../data/models/device.model.ts";
 import { EmulationTier } from "../../data/enums/EmulationTier.ts";
+import { Device } from "../../data/models/device.model.ts";
 
 export class RatingsService {
   private static instance: RatingsService;
@@ -75,7 +75,6 @@ export class RatingsService {
     };
   }
 
-
   public getSimilarityScore(device: Device, targetDevice: Device): number {
     let score = 0;
 
@@ -95,4 +94,4 @@ export class RatingsService {
 
     return score;
   }
-} 
+}

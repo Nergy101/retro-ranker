@@ -1,9 +1,14 @@
 import { Head } from "$fresh/runtime.ts";
 import { type PageProps } from "$fresh/server.ts";
+import {
+  PiChatText,
+  PiFileText,
+  PiGithubLogo,
+  PiShield,
+} from "@preact-icons/pi";
 import { Breadcrumb } from "../islands/Breadcrumb.tsx";
 import { DesktopNav } from "../islands/DesktopNav.tsx";
 import { MobileNav } from "../islands/MobileNav.tsx";
-import { PiInfo, PiShield, PiFileText, PiChatText, PiGithubLogo } from "@preact-icons/pi";
 
 export default function App({ Component, url }: PageProps) {
   return (
@@ -113,13 +118,17 @@ export default function App({ Component, url }: PageProps) {
           <div class="container-fluid">
             <div class="footer-grid">
               <div class="footer-grid-item rr">
-                <strong style={{ color: "var(--pico-primary)" }}>Retro Ranker</strong>
+                <strong style={{ color: "var(--pico-primary)" }}>
+                  Retro Ranker
+                </strong>
                 <p>
                   Find the perfect device for your gaming needs.
                 </p>
                 <small>
                   © {new Date().getFullYear()}{" "}
-                  <span style={{ color: "var(--pico-primary)" }}>Retro Ranker</span>. All rights reserved.
+                  <span style={{ color: "var(--pico-primary)" }}>
+                    Retro Ranker
+                  </span>. All rights reserved.
                 </small>
                 <div
                   style={{

@@ -1,5 +1,3 @@
-import { Device } from "../../data/models/device.model.ts";
-import { RatingsService } from "./ratings.service.ts";
 import {
   PiAndroidLogo,
   PiAppleLogo,
@@ -8,6 +6,7 @@ import {
   PiBracketsRound,
   PiBracketsSquare,
   PiCode,
+  PiEmpty,
   PiFactory,
   PiJoystick,
   PiLinuxLogo,
@@ -16,9 +15,10 @@ import {
   PiScissors,
   PiSteamLogo,
   PiWindowsLogo,
-  PiEmpty,
 } from "@preact-icons/pi";
 import { JSX, VNode } from "preact";
+import { Device } from "../../data/models/device.model.ts";
+import { RatingsService } from "./ratings.service.ts";
 
 export class DeviceService {
   private devices: Device[] = [];
@@ -115,11 +115,11 @@ export class DeviceService {
     // not rly sorting, just filtering, rename later
     if (filter === "upcoming") {
       filteredDevices = filteredDevices.filter((device) =>
-        device.released.raw.toLowerCase().includes("upcoming")
+        device.released.raw?.toLowerCase().includes("upcoming")
       );
     } else {
       filteredDevices = filteredDevices.filter((device) =>
-        !device.released.raw.toLowerCase().includes("upcoming")
+        !device.released.raw?.toLowerCase().includes("upcoming")
       );
     }
 
@@ -133,15 +133,13 @@ export class DeviceService {
     const sortedDevices = filteredDevices.sort((a, b) => {
       switch (sortBy) {
         case "new-arrivals":
-          return a.released.mentionedDate - b.released.mentionedDate ?? -1;
-        case "highly-rated":
-          return b.performance?.normalizedRating -
-              a.performance?.normalizedRating ?? -1;
-        case "personal-picks":
           return (
-            this.personalPicks.indexOf(a.name.sanitized) -
-            this.personalPicks.indexOf(b.name.sanitized)
+            (a.released.mentionedDate ?? new Date()).getTime() -
+            (b.released.mentionedDate ?? new Date()).getTime()
           );
+        case "highly-rated":
+          return (b.performance?.normalizedRating ?? 0) -
+            (a.performance?.normalizedRating ?? 0);
         default:
           return 0;
       }
@@ -214,7 +212,7 @@ export class DeviceService {
   public getUpcoming(): Device[] {
     return this.devices
       .filter((device) =>
-        device.released.raw.toLowerCase().includes("upcoming")
+        device.released.raw?.toLowerCase().includes("upcoming")
       )
       .slice(0, 4);
   }
@@ -222,17 +220,18 @@ export class DeviceService {
   public getHighlyRated(): Device[] {
     return this.devices
       .filter((device) =>
+        device.performance?.normalizedRating &&
         device.performance?.normalizedRating >= 9.0 &&
-        !device.released.raw.toLowerCase().includes("upcoming")
+        !device.released.raw?.toLowerCase().includes("upcoming")
       )
       .sort((a, b) =>
-        b.performance?.normalizedRating -
-        a.performance?.normalizedRating
+        (b.performance?.normalizedRating ?? 0) -
+        (a.performance?.normalizedRating ?? 0)
       )
       .slice(0, 4);
   }
 
-  public getOsIconComponent(os: string): () => VNode<JSX.SVGAttributes> {
+  public getOsIconComponent(os: string): VNode<JSX.SVGAttributes> {
     switch (os) {
       case "ph-factory":
         return PiFactory({});

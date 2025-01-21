@@ -2,7 +2,7 @@ import { FreshContext } from "$fresh/server.ts";
 import { DeviceService } from "../../../services/devices/device.service.ts";
 
 export const handler = {
-  async GET(req: Request, ctx: FreshContext) {
+  async GET(_: Request, ctx: FreshContext) {
     const params = new URLSearchParams(ctx.url.search);
     const searchQuery = params.get("search");
     const category = params.get("category") as

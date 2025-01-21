@@ -45,7 +45,9 @@ export async function downloadDeviceImages(devices: Device[]) {
   console.info(`Starting download of ${devices.length} device images...`);
 
   const downloads = devices.map((device) => {
-    downloadImage(device.image.originalUrl, device.name.sanitized);
+    if (device.image.originalUrl) {
+      downloadImage(device.image.originalUrl, device.name.sanitized);
+    }
   });
 
   await Promise.all(downloads);

@@ -6,15 +6,16 @@ export default function PrivacyPolicyPage() {
       <Head>
         <title>Retro Ranker - Privacy Policy</title>
       </Head>
-      
+
       <h1 class="text-4xl font-bold mb-6">Privacy Policy</h1>
-      
+
       <div>
         <section>
           <h2 class="text-2xl font-semibold mb-3">Introduction</h2>
           <p class="mb-4">
-            At Retro Ranker, we take your privacy seriously. This Privacy Policy explains how we collect,
-            use, and protect your personal information when you use our website.
+            At Retro Ranker, we take your privacy seriously. This Privacy Policy
+            explains how we collect, use, and protect your personal information
+            when you use our website.
           </p>
         </section>
 
@@ -29,7 +30,9 @@ export default function PrivacyPolicyPage() {
         </section>
 
         <section>
-          <h2 class="text-2xl font-semibold mb-3">How We Use Your Information</h2>
+          <h2 class="text-2xl font-semibold mb-3">
+            How We Use Your Information
+          </h2>
           <p class="mb-2">We use the collected information to:</p>
           <ul class="list-disc list-inside mb-4">
             <li>Improve our website and services</li>
@@ -42,16 +45,18 @@ export default function PrivacyPolicyPage() {
         <section>
           <h2 class="text-2xl font-semibold mb-3">Cookies</h2>
           <p class="mb-4">
-            We use cookies to enhance your browsing experience. These cookies help us understand
-            how you use our website and allow us to remember your preferences.
+            We use cookies to enhance your browsing experience. These cookies
+            help us understand how you use our website and allow us to remember
+            your preferences.
           </p>
         </section>
 
         <section>
           <h2 class="text-2xl font-semibold mb-3">Third-Party Services</h2>
           <p class="mb-4">
-            We use third-party services for analytics and functionality. These services may collect
-            information as specified in their respective privacy policies:
+            We use third-party services for analytics and functionality. These
+            services may collect information as specified in their respective
+            privacy policies:
           </p>
           <ul class="list-disc list-inside mb-4">
             <li>Google Analytics</li>
@@ -62,23 +67,25 @@ export default function PrivacyPolicyPage() {
         <section>
           <h2 class="text-2xl font-semibold mb-3">Data Security</h2>
           <p class="mb-4">
-            We implement appropriate security measures to protect your information against unauthorized
-            access, alteration, disclosure, or destruction.
+            We implement appropriate security measures to protect your
+            information against unauthorized access, alteration, disclosure, or
+            destruction.
           </p>
         </section>
 
         <section>
           <h2 class="text-2xl font-semibold mb-3">Changes to This Policy</h2>
           <p class="mb-4">
-            We may update this Privacy Policy from time to time. We will notify you of any changes by
-            posting the new Privacy Policy on this page.
+            We may update this Privacy Policy from time to time. We will notify
+            you of any changes by posting the new Privacy Policy on this page.
           </p>
         </section>
 
         <section>
           <h2 class="text-2xl font-semibold mb-3">Contact Us</h2>
           <p class="mb-4">
-            If you have any questions about this Privacy Policy, please contact us at{" "}
+            If you have any questions about this Privacy Policy, please contact
+            us at{" "}
             <a href="mailto:privacy@retroranker.com" class="text-primary">
               privacy@retroranker.com
             </a>

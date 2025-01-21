@@ -1,4 +1,3 @@
-
 export enum EmulationSystem {
   GameBoy = "Game Boy",
   NES = "NES",
@@ -17,5 +16,5 @@ export enum EmulationSystem {
   PS2 = "PS2",
   WiiU = "Wii U",
   Switch = "Switch",
-  PS3 = "PS3"
+  PS3 = "PS3",
 }

@@ -1,6 +1,4 @@
-import {
-  PiDotsThreeVertical
-} from "@preact-icons/pi";
+import { PiDotsThreeVertical } from "@preact-icons/pi";
 import { useEffect } from "preact/hooks";
 import { navigationItems } from "../data/navigation.ts";
 import { ThemeSwitcher } from "./ThemeSwitcher.tsx";

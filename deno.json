@@ -12,18 +12,13 @@
     "sitemap": "deno run -A scripts/generate-sitemap.ts"
   },
   "lint": {
-    "rules": {
-      "tags": [
-        "fresh",
-        "recommended"
-      ],
-      "exclude": [
-        "require-await"
-      ]
-    }
+    "rules": { "tags": ["fresh", "recommended"], "exclude": ["require-await"] }
   },
   "exclude": [
-    "**/_fresh/*"
+    "**/_fresh/*",
+    "data/source/results/*",
+    "data/source/*.html",
+    "data/source/data-source.ipynb"
   ],
   "imports": {
     "$fresh/": "https://deno.land/x/fresh@1.7.3/",
@@ -35,8 +30,5 @@
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.8.0",
     "$std/": "https://deno.land/std@0.216.0/"
   },
-  "compilerOptions": {
-    "jsx": "react-jsx",
-    "jsxImportSource": "preact"
-  }
+  "compilerOptions": { "jsx": "react-jsx", "jsxImportSource": "preact" }
 }

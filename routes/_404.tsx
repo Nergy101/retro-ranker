@@ -1,5 +1,6 @@
 import { Head } from "$fresh/runtime.ts";
 import { PiGameControllerBold } from "@preact-icons/pi";
+
 export default function Error404() {
   return (
     <>
@@ -19,7 +20,10 @@ export default function Error404() {
           <strong style={{ color: "#000" }}>
             The page you were looking for doesn't exist.
           </strong>
-          <a href="/" style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
+          <a
+            href="/"
+            style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}
+          >
             <PiGameControllerBold />
             &nbsp;Go back home
           </a>

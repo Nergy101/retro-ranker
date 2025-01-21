@@ -1,7 +1,7 @@
+import { Head } from "$fresh/runtime.ts";
 import { DeviceCardSmall } from "../components/DeviceCardSmall.tsx";
 import { SeeMoreCard } from "../components/SeeMoreCard.tsx";
 import { DeviceService } from "../services/devices/device.service.ts";
-import { Head } from "$fresh/runtime.ts";
 
 export default function Home() {
   // Filter devices into categories
@@ -52,7 +52,7 @@ export default function Home() {
             <SeeMoreCard href="/devices?sort=highly-rated" />
           </div>
         </section>
-        
+
         {/* personal Picks Section */}
         <section style="margin-top: 2rem;">
           <h2>Personal Picks</h2>

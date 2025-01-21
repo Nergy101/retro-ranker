@@ -1,12 +1,12 @@
 import {
+  PiCurrencyCny,
   PiCurrencyDollar,
   PiCurrencyEur,
   PiCurrencyGbp,
-  PiCurrencyRub,
   PiCurrencyInr,
-  PiCurrencyKzt,
-  PiCurrencyCny,
   PiCurrencyJpy,
+  PiCurrencyKzt,
+  PiCurrencyRub,
   PiQuestion,
 } from "@preact-icons/pi";
 

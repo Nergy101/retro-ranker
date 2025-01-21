@@ -2,11 +2,14 @@ import { FreshContext } from "$fresh/server.ts";
 import { DeviceService } from "../../../services/devices/device.service.ts";
 
 export const handler = {
-  async GET(req: Request, ctx: FreshContext) {
+  async GET(_: Request, ctx: FreshContext) {
     const name = ctx.params.name;
 
     if (!name) {
-      console.warn("API call failed, name is required: devices/[name] ", ctx.params.name);
+      console.warn(
+        "API call failed, name is required: devices/[name] ",
+        ctx.params.name,
+      );
       return Response.json({ error: "Name is required" }, { status: 400 });
     }
 
@@ -14,7 +17,10 @@ export const handler = {
     const device = deviceService.getDeviceByName(name);
 
     if (!device) {
-      console.warn("API call failed, device not found: devices/[name] ", ctx.params.name);
+      console.warn(
+        "API call failed, device not found: devices/[name] ",
+        ctx.params.name,
+      );
       return Response.json({ error: "Device not found" }, { status: 404 });
     }
 

@@ -77,12 +77,15 @@ export function DeviceSearchForm(
     });
 
     if (viewportWidth.value < 500) {
-      const form = document.getElementsByClassName("device-search-form-mobile")[0];
-      console.log(form);
+      const form = document.getElementsByClassName(
+        "device-search-form-mobile",
+      )[0] as HTMLFormElement;
       form?.submit();
     } else {
-      const form = document.getElementsByClassName("device-search-form")[0];
-      console.log(form);
+      const form = document.getElementsByClassName(
+        "device-search-form",
+      )[0] as HTMLFormElement;
+
       form?.submit();
     }
   };

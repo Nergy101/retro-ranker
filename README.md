@@ -10,7 +10,8 @@ built with Fresh framework.
 ## Built with Deno and Fresh
 
 - [Deno](https://deno.land/) - A secure runtime for JavaScript and TypeScript.
-- [Deno Deploy](https://deno.com/deploy) - A platform for deploying Deno applications.
+- [Deno Deploy](https://deno.com/deploy) - A platform for deploying Deno
+  applications.
 - [Fresh](https://fresh.deno.dev/) - A framework for building modern web
   applications.
 - [PicoCSS](https://picocss.com/) - A minimal CSS framework.

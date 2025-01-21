@@ -50,7 +50,8 @@ export function StarRating({ device }: StarRatingProps) {
 
     // Calculate weighted emulation score
     ratings?.forEach((rating) => {
-      const weight = systemWeights[rating.system] || 1;
+      const weight =
+        systemWeights[rating.system as keyof typeof systemWeights] || 1;
       switch (rating.rating) {
         case "A":
           emulationScore += weight * 1;
@@ -79,16 +80,19 @@ export function StarRating({ device }: StarRatingProps) {
     // Calculate features score (max 50 points)
     const features = {
       // Display features (15 points)
-      hasHDScreen: device.screen.ppi >= 200 ? 5 : 0,
-      hasGoodScreenSize: parseFloat(device.screenSize) >= 5 ? 5 : 0,
-      hasQualityPanel: device.screen.type.toLowerCase()?.includes("ips")
-        ? 5
-        : 0,
+      hasHDScreen: device.screen.ppi && device.screen.ppi >= 200 ? 5 : 0,
+      hasGoodScreenSize:
+        device.screen.size && parseFloat(device.screen.size) >= 5 ? 5 : 0,
+      hasQualityPanel:
+        device.screen.type && device.screen.type.toLowerCase()?.includes("ips")
+          ? 5
+          : 0,
 
       // Performance features (15 points)
-      hasGoodCPU: device.cpu.cores >= 4 ? 5 : 0,
-      hasGoodRAM: parseInt(device.ram) >= 4 ? 5 : 0,
-      hasGoodCooling: device.cooling.raw.toLowerCase().includes("active")
+      hasGoodCPU: device.cpu.cores && device.cpu.cores >= 4 ? 5 : 0,
+      hasGoodRAM: device.ram && parseInt(device.ram) >= 4 ? 5 : 0,
+      hasGoodCooling: device.cooling.raw &&
+          device.cooling.raw.toLowerCase().includes("active")
         ? 5
         : 0,
 
@@ -151,16 +155,15 @@ export function StarRating({ device }: StarRatingProps) {
       data-tooltip={`Emulation Rating: ${fivePointRating.toFixed(1)}/5`}
     >
       {/* Full stars */}
-      {Array.from({ length: fullStars }).map((_, i) => <PiStarFill />)}
+      {Array.from({ length: fullStars }).map(() => <PiStarFill />)}
 
       {/* Half star if needed */}
       {hasHalfStar && <PiStarHalfFill />}
 
       {/* Empty stars */}
-      {Array.from({ length: 5 - fullStars - (hasHalfStar ? 1 : 0) }).map((
-        _,
-        i,
-      ) => <PiStar />)}
+      {Array.from({ length: 5 - fullStars - (hasHalfStar ? 1 : 0) }).map(() => (
+        <PiStar />
+      ))}
     </p>
   );
 }

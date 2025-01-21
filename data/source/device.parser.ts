@@ -1,6 +1,5 @@
 import * as cheerio from "https://esm.sh/cheerio@1.0.0-rc.12";
 import { RatingsService } from "../../services/devices/ratings.service.ts";
-import { EmulationTier } from "../enums/EmulationTier.ts";
 import { Device } from "../models/device.model.ts";
 
 export class DeviceParser {
@@ -238,7 +237,8 @@ export class DeviceParser {
           // Select all <a> elements and extract the href attributes
           $(cell).find("a").each((_, element) => {
             const href = $(element).attr("href");
-            const name = $(element).text().trim() ?? new URL(href).hostname ?? "Vendor";
+            const name = $(element).text().trim() ??
+              (href === undefined ? "Vendor" : new URL(href).hostname);
             if (href) {
               hrefList.push({ url: href, name });
             }
@@ -252,10 +252,11 @@ export class DeviceParser {
           // Select all <a> elements and extract the href attributes
           $(cell).find("a").each((_, element) => {
             const href = $(element).attr("href");
-            const name = $(element).text().trim() ?? new URL(href).hostname ?? "Review";
+            const name = $(element).text().trim() ??
+              (href === undefined ? "Review" : new URL(href).hostname);
 
             if (href) {
-                hrefList.push({ url: href, name });
+              hrefList.push({ url: href, name });
             }
           });
           device.reviews.writtenReviews = [
@@ -441,7 +442,8 @@ export class DeviceParser {
           // Select all <a> elements and extract the href attributes
           $(cell).find("a").each((_, element) => {
             const href = $(element).attr("href");
-            const name = $(element).text().trim() ?? new URL(href).hostname ?? "Hacking guide";
+            const name = $(element).text().trim() ??
+              (href === undefined ? "Hacking guide" : new URL(href).hostname);
             if (href) {
               hrefList.push({ url: href, name });
             }
@@ -449,14 +451,15 @@ export class DeviceParser {
           device.hackingGuides = [...device.hackingGuides, ...hrefList];
         }
 
-        const videoReviewLinksColumns = [62,63,64, 65];
+        const videoReviewLinksColumns = [62, 63, 64, 65];
         if (videoReviewLinksColumns.includes(colIndex)) {
           const hrefList: { url: string; name: string }[] = [];
 
           // Select all <a> elements and extract the href attributes
           $(cell).find("a").each((_, element) => {
             const href = $(element).attr("href");
-            const name = $(element).text().trim() ?? new URL(href).hostname ?? "Review";
+            const name = $(element).text().trim() ??
+              (href === undefined ? "Review" : new URL(href).hostname);
             if (href) {
               hrefList.push({ url: href, name });
             }
@@ -473,7 +476,8 @@ export class DeviceParser {
           // Select all <a> elements and extract the href attributes
           $(cell).find("a").each((_, element) => {
             const href = $(element).attr("href");
-            const name = $(element).text().trim() ?? new URL(href).hostname ?? "Review";
+            const name = $(element).text().trim() ??
+              (href === undefined ? "Review" : new URL(href).hostname);
             if (href) {
               hrefList.push({ url: href, name });
             }
@@ -491,14 +495,14 @@ export class DeviceParser {
           // Select all <a> elements and extract the href attributes
           $(cell).find("a").each((_, element) => {
             const href = $(element).attr("href");
-            const name = $(element).text().trim() ?? new URL(href).hostname ?? "Vendor";
+            const name = $(element).text().trim() ??
+              (href === undefined ? "Vendor" : new URL(href).hostname);
             if (href) {
               hrefList.push({ url: href, name });
             }
           });
           device.vendorLinks = [...device.vendorLinks, ...hrefList];
         }
-
 
         const value = $(cell).text().trim();
         this.mapOEMsColumnToDevice(colIndex, value, device);
