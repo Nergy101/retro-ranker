@@ -25,14 +25,15 @@ export class DeviceService {
   private static instance: DeviceService;
   private ratingsService = RatingsService.getInstance();
   private personalPicks: string[] = [
+    "miyoo-flip",
+    "gkd-pixel-2",
+    "rg-34xx",
+    "switch",
+    "rg-35xx-sp",
     "rg-405m",
     "miyoo-mini-plus",
-    "rg-35xx-sp",
-    "retroid-pocket-5",
-    "retroid-pocket-mini",
     "steam-deck-oled",
-    "miyoo-flip",
-    "rg-34xx",
+    "retroid-pocket-mini",
     "trimui-smart-brick",
   ];
 
