@@ -7,14 +7,17 @@ import {
   PiCurrencyKzt,
   PiCurrencyCny,
   PiCurrencyJpy,
+  PiQuestion,
 } from "@preact-icons/pi";
 
 interface CurrencyIconProps {
-  currencyCode: string;
+  currencyCode: string | null;
 }
 
 export function CurrencyIcon({ currencyCode }: CurrencyIconProps) {
   switch (currencyCode) {
+    case null:
+      return <PiQuestion />;
     case "USD":
       return <PiCurrencyDollar />;
     case "EUR":

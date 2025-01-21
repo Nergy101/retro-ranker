@@ -35,8 +35,8 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
               <tr>
                 <th>CPU</th>
                 <td>
-                  {device.cpu.name}
-                  {device.cpu.cores > 0 && ` (${device.cpu.cores} cores)`}
+                  {device.cpu.names.join(", ")}
+                  {device.cpu.cores && device.cpu.cores > 0 && ` (${device.cpu.cores} cores)`}
                   {device.cpu.clockSpeed && ` @ ${device.cpu.clockSpeed}`}
                 </td>
               </tr>
@@ -211,10 +211,10 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
                 <td>{device.controls.dPad}</td>
               </tr>
             )}
-            {device.controls.analogSticks && (
+            {device.controls.analogs?.length > 0 && (
               <tr>
                 <th>Analog Sticks</th>
-                <td>{device.controls.analogSticks}</td>
+                <td>{device.controls.analogs.join(", ")}</td>
               </tr>
             )}
             {device.controls.faceButtons && (
@@ -229,16 +229,16 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
                 <td>{device.controls.shoulderButtons}</td>
               </tr>
             )}
-            {device.controls.rumble && (
+            {device.rumble && (
               <tr>
                 <th>Rumble</th>
-                <td>{device.controls.rumble}</td>
+                <td>{device.rumble}</td>
               </tr>
             )}
-            {device.controls.sensors && (
+            {device.sensors?.length > 0 && (
               <tr>
                 <th>Sensors</th>
-                <td>{device.controls.sensors}</td>
+                <td>{device.sensors.join(", ")}</td>
               </tr>
             )}
           </tbody>
@@ -281,9 +281,13 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
               <tr>
                 <th>Written Reviews</th>
                 <td>
-                  {device.reviews.writtenReviews.map((review) => (
-                    <a href={review}>{new URL(review).hostname}</a>
-                  ))}
+                  <ul>
+                    {device.reviews.writtenReviews.map((review) => (
+                      <li>
+                        <a href={review.url} target="_blank" alt={review.name}>{review.name}</a>
+                      </li>
+                    ))}
+                  </ul>
                 </td>
               </tr>
             )}
@@ -291,9 +295,13 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
               <tr>
                 <th>Video Reviews</th>
                 <td>
-                  {device.reviews.videoReviews.map((review) => (
-                    <a href={review}>{new URL(review).hostname}</a>
-                  ))}
+                  <ul>
+                    {device.reviews.videoReviews.map((review) => (
+                      <li>
+                        <a href={review.url} target="_blank" alt={review.name}>{review.name}</a>
+                      </li>
+                    ))}
+                  </ul>
                 </td>
               </tr>
             )}
@@ -317,9 +325,13 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
               <tr>
                 <th>Vendor Links</th>
                 <td>
-                  {device.vendorLinks.map((link) => (
-                    <a href={link}>{new URL(link).hostname}</a>
-                  ))}
+                  <ul>
+                    {device.vendorLinks.map((link) => (
+                      <li>
+                        <a href={link.url} target="_blank" alt={link.name}>{link.name}</a>
+                      </li>
+                    ))}
+                  </ul>
                 </td>
               </tr>
             )}

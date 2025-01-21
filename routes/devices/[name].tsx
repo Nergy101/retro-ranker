@@ -1,6 +1,6 @@
 import { Head } from "$fresh/runtime.ts";
 import { PageProps } from "$fresh/server.ts";
-import { PiCalendarCheck, PiCalendarSlash } from "@preact-icons/pi";
+import { PiCalendarCheck, PiCalendarSlash, PiQuestion } from "@preact-icons/pi";
 import { JSX, VNode } from "preact";
 import { CurrencyIcon } from "../../components/CurrencyIcon.tsx";
 import { DeviceCardSmall } from "../../components/DeviceCardSmall.tsx";
@@ -102,16 +102,31 @@ export default function DeviceDetail(props: PageProps) {
               </p>
             </div>
             <div style="display: flex; align-items: center; flex-direction: column;">
-              <span
-                style={{ color: "var(--pico-color)", display: "inline-flex" }}
-                data-tooltip={`${device.pricing.category}: 
+              {!device.pricing.discontinued
+                ? (
+                  <span
+                    style={{
+                      color: "var(--pico-color)",
+                      display: "inline-flex",
+                    }}
+                    data-tooltip={`${device.pricing.category}: 
                 ${device.pricing.range?.min}-${device.pricing.range?.max} 
                 ${device.pricing.currency}`}
-                data-placement="bottom"
-              >
-                <CurrencyIcon currencyCode={device.pricing.currency} />
-                {device.pricing.average}
-              </span>
+                    data-placement="bottom"
+                  >
+                    <CurrencyIcon currencyCode={device.pricing.currency} />
+                    {device.pricing.average}
+                  </span>
+                )
+                : (
+                  <span
+                    style={{ display: "flex", gap: "0.25rem" }}
+                    data-tooltip="Discontinued"
+                  >
+                    <PiQuestion />
+                  </span>
+                )}
+
               <span
                 style={{
                   color: "var(--pico-color)",
@@ -160,7 +175,11 @@ export default function DeviceDetail(props: PageProps) {
                     <tbody>
                       <tr>
                         <td>OS / CFW</td>
-                        <td>{device.os.list.join(", ")}</td>
+                        <td>
+                          {device.os.list.join(", ")} {device.os.customFirmwares
+                            ? `(${device.os.customFirmwares})`
+                            : ""}
+                        </td>
                         <td>
                           <div style="display: flex; gap: 0.25rem;">
                             <span
@@ -183,7 +202,12 @@ export default function DeviceDetail(props: PageProps) {
                       </tr>
                       <tr>
                         <td>CPU</td>
-                        <td>{device.cpu.name}</td>
+                        <td>
+                          <span style="display: flex; gap: 0.25rem;">
+                            {device.cpu.names.map((name) => <span>{name}
+                            </span>)}
+                          </span>
+                        </td>
                         <td>
                           {device.cpu.cores} cores ({device.cpu.threads}{" "}
                           threads) @ {device.cpu.clockSpeed}

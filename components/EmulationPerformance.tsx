@@ -7,8 +7,8 @@ interface EmulationPerformanceProps {
 export function EmulationPerformance({ device }: EmulationPerformanceProps) {
   const ratings = device.consoleRatings;
 
-  const max20Characters = (text: string) => {
-    if (text.length > 20) {
+  const max20Characters = (text: string | null) => {
+    if (text && text.length > 20) {
       return text.substring(0, 20) + "...";
     }
     return text;
@@ -73,12 +73,12 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
                 <th>CPU</th>
                 <td>
                   <span
-                    data-tooltip={device.cpu.name}
+                    data-tooltip={device.cpu.names.join(", ")}
                     data-placement="bottom"
                   >
-                    {max20Characters(device.cpu.name)}
+                    {max20Characters(device.cpu.names[0])}
                   </span>
-                  {device.cpu.cores > 0 && ` (${device.cpu.cores} cores)`}
+                  {device.cpu.cores && device.cpu.cores > 0 && ` (${device.cpu.cores} cores)`}
                   {device.cpu.clockSpeed && ` @ ${device.cpu.clockSpeed}`}
                 </td>
 
@@ -123,9 +123,27 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
               <tr>
                 <th>Written Reviews</th>
                 <td colSpan={3}>
-                  {device.reviews.writtenReviews.map((review) => (
-                    <a href={review}>{new URL(review).hostname}</a>
-                  ))}
+                  <ul>
+                    {device.reviews.writtenReviews.map((review) => (
+                      <li>
+                        <a href={review.url} target="_blank" alt={review.name}>{review.name}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </td>
+              </tr>
+            )}
+            {device.reviews.videoReviews.length > 0 && (
+              <tr>
+                <th>Video Reviews</th>
+                <td colSpan={3}>
+                  <ul>
+                    {device.reviews.videoReviews.map((review) => (
+                      <li>
+                        <a href={review.url} target="_blank" alt={review.name}>{review.name}</a>
+                      </li>
+                    ))}
+                  </ul>
                 </td>
               </tr>
             )}
@@ -133,9 +151,13 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
               <tr>
                 <th>Vendor Links</th>
                 <td colSpan={3}>
-                  {device.vendorLinks.map((link) => (
-                    <a href={link}>{new URL(link).hostname}</a>
-                  ))}
+                  <ul>
+                    {device.vendorLinks.map((link) => (
+                      <li>
+                        <a href={link.url} target="_blank" alt={link.name}>{link.name}</a>
+                      </li>
+                    ))}
+                  </ul>
                 </td>
               </tr>
             )}

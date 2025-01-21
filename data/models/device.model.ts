@@ -121,8 +121,14 @@ export interface Device {
 
   // Reviews
   reviews: {
-    videoReviews: string[];
-    writtenReviews: string[] ;
+    videoReviews: {
+      url: string;
+      name: string;
+    }[];
+    writtenReviews: {
+      url: string;
+      name: string;
+    }[];
   };
 
   pricing: {
@@ -140,6 +146,13 @@ export interface Device {
   pros: string[];
   cons: string[];
 
-  vendorLinks: string[];
+  vendorLinks: {
+    url: string;
+    name: string;
+  }[];
+  hackingGuides: {
+    url: string;
+    name: string;
+  }[];
   notes: string[];
 }

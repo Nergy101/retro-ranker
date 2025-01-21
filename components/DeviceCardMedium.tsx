@@ -2,6 +2,7 @@ import { Device } from "../data/models/device.model.ts";
 import { StarRating } from "./StarRating.tsx";
 import { CurrencyIcon } from "./CurrencyIcon.tsx";
 import { DeviceService } from "../services/devices/device.service.ts";
+import { PiQuestion } from "@preact-icons/pi";
 
 interface DeviceCardMediumProps {
   device: Device;
@@ -58,16 +59,25 @@ export function DeviceCardMedium({ device }: DeviceCardMediumProps) {
         </div>
 
         <div style={{ display: "flex", justifyContent: "center" }}>
-              <StarRating device={device} />
-            </div>
+          <StarRating device={device} />
+        </div>
         <div style="margin-bottom: .5rem; display: flex; flex-direction: row; justify-content: center; gap: .5rem;">
-          <span
-            style={{ display: "flex", gap: "0.25rem" }}
-            data-tooltip={`${device.pricing.range.min}-${device.pricing.range.max} ${device.pricing.currency}`}
-          >
-            <CurrencyIcon currencyCode={device.pricing.currency} />
-            {device.pricing.average}
-          </span>
+          {!device.pricing.discontinued
+            ? (
+              <span
+                style={{ display: "flex", gap: "0.25rem" }}
+                data-tooltip={`${device.pricing.range.min}-${device.pricing.range.max} ${device.pricing.currency}`}
+              >
+                <CurrencyIcon currencyCode={device.pricing.currency} />
+                {device.pricing.average}
+              </span>
+            )
+            : (
+              <span style={{ display: "flex", gap: "0.25rem" }} data-tooltip="Discontinued">
+                <PiQuestion />
+              </span>
+            )}
+
           <span
             style={{ display: "flex", gap: "0.25rem" }}
             data-tooltip={device.os.list.join(", ") === "?"

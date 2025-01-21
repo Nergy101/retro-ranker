@@ -30,37 +30,42 @@ export function StarRating({ device }: StarRatingProps) {
       "Dreamcast": 4,
       "PSP": 4,
       "Saturn": 5,
-      "GameCube": 6,
+      "GameCube": 7,
       "Wii": 7,
       "3DS": 7,
       "PS2": 7,
       "Wii U": 8,
-      "Switch": 9,
+      "Switch": 10,
       "PS3": 10,
     };
 
     // Check if all ratings are "N/A"
-    const allRatingsNA = ratings?.every((rating: {
-      rating: string;
-      system: string;
-    }) => rating.rating === "N/A" || rating.rating === undefined);
+    const allRatingsNA = ratings?.every((rating) =>
+      rating.rating === "N/A" || rating.rating === undefined
+    );
 
     if (allRatingsNA || allRatingsNA === undefined || ratings?.length === 0) {
       return null; // Return null to indicate no valid score
     }
 
     // Calculate weighted emulation score
-    ratings?.forEach((rating: {
-      rating: string;
-      system: string;
-    }) => {
+    ratings?.forEach((rating) => {
       const weight = systemWeights[rating.system] || 1;
-      if (rating.rating === "A") {
-        emulationScore += weight * 1;
-      } else if (rating.rating === "B") {
-        emulationScore += weight * 0.75;
-      } else if (rating.rating === "C") {
-        emulationScore += weight * 0.5;
+      switch (rating.rating) {
+        case "A":
+          emulationScore += weight * 1;
+          break;
+        case "B":
+          emulationScore += weight * 0.75;
+          break;
+        case "C":
+          emulationScore += weight * 0.5;
+          break;
+        case "D":
+          emulationScore += weight * 0.25;
+          break;
+        default:
+          break;
       }
     });
 
@@ -93,11 +98,18 @@ export function StarRating({ device }: StarRatingProps) {
       hasHDMI: device.connectivity.hasHDMI ? 4 : 0,
 
       // Controls (10 points)
-      hasAnalogs: device.controls.analogs.toLowerCase().includes("dual")
-        ? 5
-        : 0,
+      hasAnalogs:
+        device.controls.analogs.some((analog) =>
+            analog.toLowerCase().includes("dual")
+          )
+          ? 5
+          : 0,
       hasGoodButtons:
-        device.controls.shoulderButtons.toLowerCase().includes("l2") ? 5 : 0,
+        device.controls.shoulderButtons.some((button) =>
+            button.toLowerCase().includes("l2")
+          )
+          ? 5
+          : 0,
     };
 
     featuresScore = Object.values(features).reduce((a, b) => a + b, 0);

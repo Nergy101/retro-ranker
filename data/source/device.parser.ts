@@ -111,6 +111,7 @@ export class DeviceParser {
         },
         brand: "",
         lowBatteryIndicator: null,
+        hackingGuides: [],
         systemOnChip: null,
         architecture: null,
         ram: null,
@@ -208,6 +209,7 @@ export class DeviceParser {
           },
           currency: null,
           category: null,
+          discontinued: null,
         },
 
         pros: [],
@@ -231,29 +233,35 @@ export class DeviceParser {
         }
 
         if (colIndex === 76) {
-          const hrefList: string[] = [];
+          const hrefList: { url: string; name: string }[] = [];
 
           // Select all <a> elements and extract the href attributes
           $(cell).find("a").each((_, element) => {
             const href = $(element).attr("href");
+            const name = $(element).text().trim() ?? new URL(href).hostname ?? "Vendor";
             if (href) {
-              hrefList.push(href);
+              hrefList.push({ url: href, name });
             }
           });
-          device.vendorLinks = hrefList;
+          device.vendorLinks = [...device.vendorLinks, ...hrefList];
         }
 
         if (colIndex === 73) {
-          const hrefList: string[] = [];
+          const hrefList: { url: string; name: string }[] = [];
 
           // Select all <a> elements and extract the href attributes
           $(cell).find("a").each((_, element) => {
             const href = $(element).attr("href");
+            const name = $(element).text().trim() ?? new URL(href).hostname ?? "Review";
+
             if (href) {
-              hrefList.push(href);
+                hrefList.push({ url: href, name });
             }
           });
-          device.reviews.writtenReviews = hrefList;
+          device.reviews.writtenReviews = [
+            ...device.reviews.writtenReviews,
+            ...hrefList,
+          ];
         }
 
         const value = $(cell).text().trim();
@@ -306,6 +314,7 @@ export class DeviceParser {
         },
         brand: "",
         lowBatteryIndicator: null,
+        hackingGuides: [],
         consoleRatings: [],
         systemOnChip: null,
         architecture: null,
@@ -403,6 +412,7 @@ export class DeviceParser {
           },
           currency: null,
           category: null,
+          discontinued: null,
         },
 
         pros: [],
@@ -424,6 +434,71 @@ export class DeviceParser {
             };
           }
         }
+
+        if (colIndex === 61) {
+          const hrefList: { url: string; name: string }[] = [];
+
+          // Select all <a> elements and extract the href attributes
+          $(cell).find("a").each((_, element) => {
+            const href = $(element).attr("href");
+            const name = $(element).text().trim() ?? new URL(href).hostname ?? "Hacking guide";
+            if (href) {
+              hrefList.push({ url: href, name });
+            }
+          });
+          device.hackingGuides = [...device.hackingGuides, ...hrefList];
+        }
+
+        const videoReviewLinksColumns = [62,63,64, 65];
+        if (videoReviewLinksColumns.includes(colIndex)) {
+          const hrefList: { url: string; name: string }[] = [];
+
+          // Select all <a> elements and extract the href attributes
+          $(cell).find("a").each((_, element) => {
+            const href = $(element).attr("href");
+            const name = $(element).text().trim() ?? new URL(href).hostname ?? "Review";
+            if (href) {
+              hrefList.push({ url: href, name });
+            }
+          });
+          device.reviews.videoReviews = [
+            ...device.reviews.videoReviews,
+            ...hrefList,
+          ];
+        }
+
+        if (colIndex === 66) {
+          const hrefList: { url: string; name: string }[] = [];
+
+          // Select all <a> elements and extract the href attributes
+          $(cell).find("a").each((_, element) => {
+            const href = $(element).attr("href");
+            const name = $(element).text().trim() ?? new URL(href).hostname ?? "Review";
+            if (href) {
+              hrefList.push({ url: href, name });
+            }
+          });
+          device.reviews.writtenReviews = [
+            ...device.reviews.writtenReviews,
+            ...hrefList,
+          ];
+        }
+
+        const vendorLinksColumns = [68, 69, 70, 71, 72];
+        if (vendorLinksColumns.includes(colIndex)) {
+          const hrefList: { url: string; name: string }[] = [];
+
+          // Select all <a> elements and extract the href attributes
+          $(cell).find("a").each((_, element) => {
+            const href = $(element).attr("href");
+            const name = $(element).text().trim() ?? new URL(href).hostname ?? "Vendor";
+            if (href) {
+              hrefList.push({ url: href, name });
+            }
+          });
+          device.vendorLinks = [...device.vendorLinks, ...hrefList];
+        }
+
 
         const value = $(cell).text().trim();
         this.mapOEMsColumnToDevice(colIndex, value, device);
@@ -1088,9 +1163,7 @@ export class DeviceParser {
       case 60:
         device.colors = value.split(", ");
         break;
-      // case 63:
-      //   device.shellMaterial = value;
-      //   break;
+
       case 67: {
         if (value.toLowerCase().includes("discontinued")) {
           device.pricing = {
@@ -1118,16 +1191,17 @@ export class DeviceParser {
 
         break;
       }
-      case 78:
+
+      case 73:
         device.pros = value.split(", ").filter((pro) => pro.trim() !== "");
         break;
-      case 79:
+      case 74:
         device.cons = value.split(", ").filter((con) => con.trim() !== "");
         break;
-      case 80:
+      case 75:
         device.performance.emulationLimit = value;
         break;
-      case 81:
+      case 76:
         device.notes = value.split(", ");
         break;
     }
