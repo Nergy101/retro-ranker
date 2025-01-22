@@ -171,10 +171,9 @@ html {
 }
 
 .small-card {
-  padding: 0.25rem;
+  padding: 1rem;
   border: 1px solid var(--pico-primary);
   border-radius: 1rem;
-  width: 10rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -255,6 +254,10 @@ html {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+
+  /* @media (max-width: 500px) {
+    padding: 0.5rem;
+  } */
 }
 
 .device-detail-header {
@@ -587,6 +590,15 @@ h6,
 }
 
 .emulation-performance {
+
+  @media (max-width: 1024px) {
+    max-width: 400px;
+  }
+
+  @media (max-width: 768px) {
+    max-width: 450px;
+  }
+
   @media (max-width: 500px) {
     max-width: 360px;
   }

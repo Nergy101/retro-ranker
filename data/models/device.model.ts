@@ -21,6 +21,10 @@ export interface Device {
     list: string[];
     icons: string[]; // ph icon class names, can be used with deviceService.getOsIconComponent or <i class={icon} />
     customFirmwares: string[];
+    links: {
+      url: string;
+      name: string;
+    }[];
   };
   performance: {
     tier: EmulationTier | null;

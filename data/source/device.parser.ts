@@ -43,6 +43,31 @@ export class DeviceParser {
     return icons.length ? icons : ["ph-empty"];
   }
 
+  private static getOsLinks(os: string): { url: string; name: string }[] {
+    const lowerOs = os.toLowerCase();
+    const links: { url: string; name: string }[] = [];
+    if (lowerOs.includes("steam")) links.push({ url: "https://store.steampowered.com/steamos", name: "SteamOS" });
+    if (lowerOs.includes("android")) links.push({ url: "https://www.android.com/", name: "Android" });
+    if (lowerOs.includes("ios")) links.push({ url: "https://www.apple.com/ios/", name: "iOS" });
+    if (lowerOs.includes("linux")) links.push({ url: "https://www.linux.org/", name: "Linux" });
+    if (lowerOs.includes("macos")) links.push({ url: "https://www.apple.com/macos", name: "macOS" });
+    if (lowerOs.includes("windows")) links.push({ url: "https://www.microsoft.com/en-us/windows", name: "Windows" });
+    if (lowerOs.includes("garlic")) links.push({ url: "https://github.com/GarlicOS", name: "GarlicOS" });
+    if (lowerOs.includes("onion")) links.push({ url: "https://onionui.github.io/", name: "OnionOS" });
+    if (lowerOs.includes("gamma")) links.push({ url: "https://github.com/TheGammaSqueeze/GammaOS", name: "GammaOS" });
+    if (lowerOs.includes("opendingux")) links.push({ url: "https://github.com/OpenDingux", name: "OpenDingux" });
+    if (lowerOs.includes("arkos")) links.push({ url: "https://github.com/christianhaitian/arkos/wiki", name: "ArkOS" });
+    if (lowerOs.includes("minui")) links.push({ url: "https://github.com/shauninman/MinUI", name: "MiniUI" });
+    if (lowerOs.includes("batocera")) links.push({ url: "https://batocera.org/", name: "Batocera" });
+    if (lowerOs.includes("trimui")) links.push({ url: "http://www.trimui.com/", name: "TrimUI" });
+    if (lowerOs.includes("analogue os")) links.push({ url: "https://www.analogue.co/announcements/analogue-os-is-now-product-specific", name: "AnalogueOS" });
+    if (lowerOs.includes("nintendo")) links.push({ url: "https://nintendo.com/", name: "Nintendo" });
+    if (lowerOs.includes("psp")) links.push({ url: "https://en.wikipedia.org/wiki/PlayStation_Portable", name: "PSP" });
+    if (lowerOs.includes("vita")) links.push({ url: "https://en.wikipedia.org/wiki/PlayStation_Vita", name: "Vita" });
+
+    return links;
+  }
+
   private static parsePriceRange(
     priceText: string,
   ): { min: number; max: number } {
@@ -107,6 +132,7 @@ export class DeviceParser {
           list: [],
           icons: [],
           customFirmwares: [],
+          links: [],
         },
         brand: "",
         lowBatteryIndicator: null,
@@ -312,6 +338,7 @@ export class DeviceParser {
           list: [],
           icons: [],
           customFirmwares: [],
+          links: [],
         },
         brand: "",
         lowBatteryIndicator: null,
@@ -573,6 +600,7 @@ export class DeviceParser {
           raw: value,
           icons: this.parseOsIcons(value),
           list: value.split(/, | \/ /),
+          links: this.getOsLinks(value),
           customFirmwares: [],
         };
         break;

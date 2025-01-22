@@ -20,8 +20,7 @@ export function DeviceCardSmall({ device }: DeviceCardSmallProps) {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            minHeight: "auto",
-            gap: ".5rem",
+            gap: "1em",
           }}
         >
           <hgroup
@@ -47,7 +46,7 @@ export function DeviceCardSmall({ device }: DeviceCardSmallProps) {
               {device.brand}
             </p>
           </hgroup>
-          <div class="figure" style="width: 4rem; height: 4rem;">
+          <div class="figure">
             {device.image?.originalUrl
               ? (
                 <img
