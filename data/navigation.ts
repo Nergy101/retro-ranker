@@ -1,6 +1,8 @@
 import {
+PiArrowsClockwise,
   PiChatText,
   PiGameController,
+  PiGitDiff,
   PiInfo,
   PiScroll,
 } from "@preact-icons/pi";
@@ -25,6 +27,12 @@ export const navigationItems: NavigationItem[] = [
     label: "Devices",
     icon: () => PiScroll({}),
     isActive: (pathname) => pathname.startsWith("/devices"),
+  },
+  {
+    href: "/compare",
+    label: "Compare",
+    icon: () => PiGitDiff({}),
+    isActive: (pathname) => pathname.startsWith("/compare"),
   },
   {
     href: "/about",

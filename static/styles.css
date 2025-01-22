@@ -354,7 +354,7 @@ html {
   border-radius: 0.5rem;
   padding: 0.5rem;
   margin: 0.5rem;
-  min-width: 50vw;
+  min-width: 70vw;
   text-align: center;
   display: flex;
   align-items: center;
@@ -688,7 +688,7 @@ h6,
 .compare-result-header,
 .compare-result-summary,
 .compare-result-performance {
-  height: 14em; /* Set a fixed height for each grid area */
+  height: 20em; /* Set a fixed height for each grid area */
 }
 
 .compare-result-screen,
@@ -707,6 +707,8 @@ h6,
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  background-color: var(--pico-card-background-color);
 }
 
 .compare-result-summary {
@@ -762,6 +764,7 @@ h6,
   grid-area: screen;
   padding: 0.5rem;
   overflow-y: auto;
+  height: 18em;
 
   border: 1px solid var(--pico-primary);
   border-radius: var(--pico-border-radius);
@@ -780,7 +783,7 @@ h6,
   grid-area: ergonomics;
   padding: 0.5rem;
 
-  height: 27em;
+  height: 15em;
 
   overflow-y: auto;
 
@@ -804,7 +807,7 @@ h6,
 .compare-result-connectivity {
   grid-area: connectivity;
   padding: 0.5rem;
-  height: 34em;
+  height: 25em;
 
   overflow-y: auto;
 
@@ -824,7 +827,7 @@ h6,
 .compare-result-controls {
   grid-area: controls;
   padding: 0.5rem;
-  height: 29em;
+  height: 24em;
 
   overflow-y: auto;
 
@@ -839,7 +842,6 @@ h6,
     height: 26em;
   }
 
-
   @media (max-width: 425px) {
     font-size: 0.75rem;
     height: 29em;
@@ -849,7 +851,7 @@ h6,
 .compare-result-misc {
   grid-area: misc;
   padding: 0.5rem;
-  height: 52em;
+  height: 42em;
 
   overflow-y: auto;
 
@@ -868,4 +870,17 @@ h6,
     font-size: 0.75rem;
     height: 52em;
   }
+}
+
+.suggestions-list {
+  cursor: pointer;
+  border: 1px solid var(--pico-primary);
+  border-radius: var(--pico-border-radius);
+}
+
+.suggestions-list-item {
+  padding: 0.5rem;
+  list-style: none;
+  background-color: var(--pico-card-background-color);
+  width: fit-content;
 }

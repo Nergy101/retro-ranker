@@ -16,6 +16,7 @@ import * as $privacy from "./routes/privacy.tsx";
 import * as $terms from "./routes/terms.tsx";
 import * as $Breadcrumb from "./islands/Breadcrumb.tsx";
 import * as $DesktopNav from "./islands/DesktopNav.tsx";
+import * as $DeviceComparisonForm from "./islands/DeviceComparisonForm.tsx";
 import * as $DeviceSearchForm from "./islands/DeviceSearchForm.tsx";
 import * as $MobileNav from "./islands/MobileNav.tsx";
 import * as $ThemeSwitcher from "./islands/ThemeSwitcher.tsx";
@@ -39,6 +40,7 @@ const manifest = {
   islands: {
     "./islands/Breadcrumb.tsx": $Breadcrumb,
     "./islands/DesktopNav.tsx": $DesktopNav,
+    "./islands/DeviceComparisonForm.tsx": $DeviceComparisonForm,
     "./islands/DeviceSearchForm.tsx": $DeviceSearchForm,
     "./islands/MobileNav.tsx": $MobileNav,
     "./islands/ThemeSwitcher.tsx": $ThemeSwitcher,

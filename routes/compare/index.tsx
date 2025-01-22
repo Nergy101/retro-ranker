@@ -1,6 +1,8 @@
 import { Head } from "$fresh/runtime.ts";
 import { PageProps } from "$fresh/server.ts";
+import { useSignal } from "@preact/signals";
 import { DeviceComparisonResult } from "../../components/DeviceComparisonResult.tsx";
+import { DeviceComparisonForm } from "../../islands/DeviceComparisonForm.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
 
 export default function DevicesIndex(props: PageProps) {
@@ -13,6 +15,8 @@ export default function DevicesIndex(props: PageProps) {
   ).filter((device) => device !== null);
 
   const deviceNames = devicesToCompare.map((device) => device.name.raw);
+
+  const allDevices = deviceService.getAllDevices();
 
   return (
     <div>
@@ -28,6 +32,10 @@ export default function DevicesIndex(props: PageProps) {
           </p>
         </hgroup>
       </header>
+
+      <div class="compare-form">
+        <DeviceComparisonForm allDevices={allDevices} />
+      </div>
 
       <div class="compare-container">
         {devicesToCompare.map((device) => (
