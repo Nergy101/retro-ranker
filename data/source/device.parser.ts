@@ -777,9 +777,9 @@ export class DeviceParser {
           const cooling = value.toLowerCase();
           device.cooling = {
             raw: value,
-            hasHeatsink: cooling.includes("heatsink"),
+            hasHeatsink: cooling.includes("heatsink") || cooling.includes("heat sink"),
             hasFan: cooling.includes("fan"),
-            hasHeatPipe: cooling.includes("heat pipe"),
+            hasHeatPipe: cooling.includes("heatpipe") || cooling.includes("heat pipe"),
             hasVentilationCutouts: cooling.includes("ventilation cutouts"),
           };
         }
@@ -805,19 +805,21 @@ export class DeviceParser {
       case 50:
         device.storage = value;
         break;
-      case 51:
+      case 51: {
+        const connectivity = value.toLowerCase();
         device.connectivity = {
-          hasWifi: value.includes("WiFi"),
-          hasBluetooth: value.includes("Bluetooth"),
-          hasNFC: value.includes("NFC"),
-          hasUSB: value.includes("USB"),
-          hasUSBC: value.includes("USBC") || value.includes("USB-C"),
-          hasDisplayPort: value.includes("DisplayPort"),
-          hasVGA: value.includes("VGA"),
-          hasDVI: value.includes("DVI"),
-          hasHDMI: value.includes("HDMI"),
+          hasWifi: connectivity.includes("wifi") || connectivity.includes("wi-fi"),
+          hasBluetooth: connectivity.includes("bluetooth"),
+          hasNFC: connectivity.includes("nfc"),
+          hasUSB: connectivity.includes("usb"),
+          hasUSBC: connectivity.includes("usbc") || connectivity.includes("usb-c"),
+          hasDisplayPort: connectivity.includes("displayport"),
+          hasVGA: connectivity.includes("vga"),
+          hasDVI: connectivity.includes("dvi"),
+          hasHDMI: connectivity.includes("hdmi"),
         };
         break;
+      }
       case 52:
         device.connectivity.hasHDMI = value.includes("HDMI");
         device.outputs.videoOutput = value;
@@ -1116,9 +1118,9 @@ export class DeviceParser {
           const cooling = value.toLowerCase();
           device.cooling = {
             raw: value,
-            hasHeatsink: cooling.includes("heatsink"),
+            hasHeatsink: cooling.includes("heatsink") || cooling.includes("heat sink"),
             hasFan: cooling.includes("fan"),
-            hasHeatPipe: cooling.includes("heat pipe"),
+            hasHeatPipe: cooling.includes("heat pipe") || cooling.includes("heat pipe"),
             hasVentilationCutouts: cooling.includes("ventilation cutouts"),
           };
         }
@@ -1147,19 +1149,21 @@ export class DeviceParser {
       case 48:
         device.sensors = value.split(", ");
         break;
-      case 49:
+      case 49: {
+        const connectivity = value.toLowerCase();
         device.connectivity = {
-          hasWifi: value.includes("WiFi"),
-          hasBluetooth: value.includes("Bluetooth"),
-          hasNFC: value.includes("NFC"),
-          hasUSB: value.includes("USB"),
-          hasUSBC: value.includes("USBC") || value.includes("USB-C"),
-          hasDisplayPort: value.includes("DisplayPort"),
-          hasVGA: value.includes("VGA"),
-          hasDVI: value.includes("DVI"),
-          hasHDMI: value.includes("HDMI"),
+          hasWifi: connectivity.includes("wifi") || connectivity.includes("wi-fi"),
+          hasBluetooth: connectivity.includes("bluetooth"),
+          hasNFC: connectivity.includes("nfc"),
+          hasUSB: connectivity.includes("usb"),
+          hasUSBC: connectivity.includes("usb-c") || connectivity.includes("usbc"),
+          hasDisplayPort: connectivity.includes("displayport"),
+          hasVGA: connectivity.includes("vga"),
+          hasDVI: connectivity.includes("dvi"),
+          hasHDMI: connectivity.includes("hdmi"),
         };
         break;
+      }
       case 50:
         device.connectivity.hasHDMI = value.includes("HDMI");
         device.connectivity.hasUSBC = value.includes("USB");

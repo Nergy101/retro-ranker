@@ -1538,7 +1538,7 @@
       "raw": "HeatpipeFanVentilation cutouts",
       "hasHeatsink": false,
       "hasFan": true,
-      "hasHeatPipe": false,
+      "hasHeatPipe": true,
       "hasVentilationCutouts": true
     },
     "controls": {
@@ -1771,7 +1771,7 @@
       "raw": "HeatsinkDual HeatpipesDual FansVentilation cutouts",
       "hasHeatsink": true,
       "hasFan": true,
-      "hasHeatPipe": false,
+      "hasHeatPipe": true,
       "hasVentilationCutouts": true
     },
     "controls": {
@@ -3098,7 +3098,7 @@
       "raw": "HeatpipeHeatsinkFanVentilation cutouts",
       "hasHeatsink": true,
       "hasFan": true,
-      "hasHeatPipe": false,
+      "hasHeatPipe": true,
       "hasVentilationCutouts": true
     },
     "controls": {
@@ -6075,7 +6075,7 @@
       "raw": "HeatpipeFanVentilation cutouts",
       "hasHeatsink": false,
       "hasFan": true,
-      "hasHeatPipe": false,
+      "hasHeatPipe": true,
       "hasVentilationCutouts": true
     },
     "controls": {
@@ -8176,7 +8176,7 @@
       "raw": "HeatpipeFanVentilation cutouts",
       "hasHeatsink": false,
       "hasFan": true,
-      "hasHeatPipe": false,
+      "hasHeatPipe": true,
       "hasVentilationCutouts": true
     },
     "controls": {
@@ -8846,7 +8846,7 @@
       }
     ],
     "connectivity": {
-      "hasWifi": false,
+      "hasWifi": true,
       "hasBluetooth": true,
       "hasNFC": false,
       "hasUSB": true,
@@ -10479,7 +10479,7 @@
       "raw": "HeatpipeDual FansVentilation cutouts",
       "hasHeatsink": false,
       "hasFan": true,
-      "hasHeatPipe": false,
+      "hasHeatPipe": true,
       "hasVentilationCutouts": true
     },
     "controls": {
@@ -13719,7 +13719,7 @@
       "raw": "HeatpipeFanVentilation cutouts",
       "hasHeatsink": false,
       "hasFan": true,
-      "hasHeatPipe": false,
+      "hasHeatPipe": true,
       "hasVentilationCutouts": true
     },
     "controls": {
@@ -15551,7 +15551,7 @@
       "raw": "HeatpipesDual FansVentilation cutouts",
       "hasHeatsink": false,
       "hasFan": true,
-      "hasHeatPipe": false,
+      "hasHeatPipe": true,
       "hasVentilationCutouts": true
     },
     "controls": {
@@ -15783,7 +15783,7 @@
       "raw": "Heatpipe, Fan, Ventilation cutouts",
       "hasHeatsink": false,
       "hasFan": true,
-      "hasHeatPipe": false,
+      "hasHeatPipe": true,
       "hasVentilationCutouts": true
     },
     "controls": {
@@ -17394,7 +17394,7 @@
       "raw": "Dual HeatpipeFanVentilation cutouts",
       "hasHeatsink": false,
       "hasFan": true,
-      "hasHeatPipe": false,
+      "hasHeatPipe": true,
       "hasVentilationCutouts": true
     },
     "controls": {
@@ -19449,7 +19449,7 @@
       "raw": "HeatpipeFanVentilation cutouts",
       "hasHeatsink": false,
       "hasFan": true,
-      "hasHeatPipe": false,
+      "hasHeatPipe": true,
       "hasVentilationCutouts": true
     },
     "controls": {
@@ -22246,7 +22246,7 @@
       "raw": "HeatpipeHeatsinkFanVentilation cutouts",
       "hasHeatsink": true,
       "hasFan": true,
-      "hasHeatPipe": false,
+      "hasHeatPipe": true,
       "hasVentilationCutouts": true
     },
     "controls": {
@@ -22486,7 +22486,7 @@
       "raw": "HeatpipeHeatsinkFanVentilation cutouts",
       "hasHeatsink": true,
       "hasFan": true,
-      "hasHeatPipe": false,
+      "hasHeatPipe": true,
       "hasVentilationCutouts": true
     },
     "controls": {
@@ -23645,7 +23645,7 @@
       "raw": "HeatpipeHeatsinkFanVentilation cutouts",
       "hasHeatsink": true,
       "hasFan": true,
-      "hasHeatPipe": false,
+      "hasHeatPipe": true,
       "hasVentilationCutouts": true
     },
     "controls": {
@@ -24587,7 +24587,7 @@
       "raw": "HeatpipeHeatsinkFanVentilation cutouts",
       "hasHeatsink": true,
       "hasFan": true,
-      "hasHeatPipe": false,
+      "hasHeatPipe": true,
       "hasVentilationCutouts": true
     },
     "controls": {
@@ -26219,7 +26219,7 @@
       "raw": "HeatpipeHeatsinkFanVentilation cutouts",
       "hasHeatsink": true,
       "hasFan": true,
-      "hasHeatPipe": false,
+      "hasHeatPipe": true,
       "hasVentilationCutouts": true
     },
     "controls": {
@@ -26457,7 +26457,7 @@
       "raw": "HeatpipeHeatsinkFanVentilation cutouts",
       "hasHeatsink": true,
       "hasFan": true,
-      "hasHeatPipe": false,
+      "hasHeatPipe": true,
       "hasVentilationCutouts": true
     },
     "controls": {
@@ -27148,7 +27148,7 @@
       "raw": "HeatpipeDual FansVentilation cutouts",
       "hasHeatsink": false,
       "hasFan": true,
-      "hasHeatPipe": false,
+      "hasHeatPipe": true,
       "hasVentilationCutouts": true
     },
     "controls": {
@@ -27393,7 +27393,7 @@
       "raw": "HeatpipeHeatsinkFanVentilation cutouts",
       "hasHeatsink": true,
       "hasFan": true,
-      "hasHeatPipe": false,
+      "hasHeatPipe": true,
       "hasVentilationCutouts": true
     },
     "controls": {
@@ -27640,7 +27640,7 @@
       "raw": "HeatpipeHeatsinkFanVentilation cutouts",
       "hasHeatsink": true,
       "hasFan": true,
-      "hasHeatPipe": false,
+      "hasHeatPipe": true,
       "hasVentilationCutouts": true
     },
     "controls": {
@@ -31084,7 +31084,7 @@
       "raw": "HeatpipeHeatsinkFanVentilation cutouts",
       "hasHeatsink": true,
       "hasFan": true,
-      "hasHeatPipe": false,
+      "hasHeatPipe": true,
       "hasVentilationCutouts": true
     },
     "controls": {
@@ -37150,7 +37150,7 @@
       "raw": "HeatpipeHeatsinkFanVentilation cutouts",
       "hasHeatsink": true,
       "hasFan": true,
-      "hasHeatPipe": false,
+      "hasHeatPipe": true,
       "hasVentilationCutouts": true
     },
     "controls": {
@@ -39314,7 +39314,7 @@
       "raw": "HeatpipeHeatsinkFanVentilation cutouts",
       "hasHeatsink": true,
       "hasFan": true,
-      "hasHeatPipe": false,
+      "hasHeatPipe": true,
       "hasVentilationCutouts": true
     },
     "controls": {
@@ -45354,7 +45354,7 @@
       }
     ],
     "connectivity": {
-      "hasWifi": false,
+      "hasWifi": true,
       "hasBluetooth": true,
       "hasNFC": false,
       "hasUSB": true,
@@ -101266,7 +101266,7 @@
     },
     "formFactor": "Landscape(Detachable Controllers)",
     "connectivity": {
-      "hasWifi": false,
+      "hasWifi": true,
       "hasBluetooth": true,
       "hasNFC": true,
       "hasUSB": false,
@@ -101308,7 +101308,7 @@
     },
     "cooling": {
       "raw": "FanHeat pipeHeat sink",
-      "hasHeatsink": false,
+      "hasHeatsink": true,
       "hasFan": true,
       "hasHeatPipe": true,
       "hasVentilationCutouts": false
@@ -101536,7 +101536,7 @@
     },
     "formFactor": "Landscape",
     "connectivity": {
-      "hasWifi": false,
+      "hasWifi": true,
       "hasBluetooth": true,
       "hasNFC": true,
       "hasUSB": false,
@@ -101578,7 +101578,7 @@
     },
     "cooling": {
       "raw": "FanHeat pipeHeat sink",
-      "hasHeatsink": false,
+      "hasHeatsink": true,
       "hasFan": true,
       "hasHeatPipe": true,
       "hasVentilationCutouts": false
@@ -101799,7 +101799,7 @@
     },
     "formFactor": "Landscape(Detachable Controllers)",
     "connectivity": {
-      "hasWifi": false,
+      "hasWifi": true,
       "hasBluetooth": true,
       "hasNFC": true,
       "hasUSB": false,
@@ -101841,7 +101841,7 @@
     },
     "cooling": {
       "raw": "FanHeat pipeHeat sink",
-      "hasHeatsink": false,
+      "hasHeatsink": true,
       "hasFan": true,
       "hasHeatPipe": true,
       "hasVentilationCutouts": false

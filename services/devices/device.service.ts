@@ -347,16 +347,23 @@ export class DeviceService {
     hasVentilationCutouts: boolean;
   }): { icon: VNode<JSX.SVGAttributes>; tooltip: string }[] {
     const icons: { icon: VNode<JSX.SVGAttributes>; tooltip: string }[] = [];
+
     if (cooling.hasHeatsink) {
-      icons.push({ icon: PiTabs({}), tooltip: "Heatsink" });
+      icons.push({ icon: PiTabs({}), tooltip: "Heat sink" });
     }
-    if (cooling.hasFan) icons.push({ icon: PiFan({}), tooltip: "Fan" });
+
+    if (cooling.hasFan) {
+      icons.push({ icon: PiFan({}), tooltip: "Fan" });
+    }
+
     if (cooling.hasHeatPipe) {
       icons.push({ icon: PiPipe({}), tooltip: "Heat Pipe" });
     }
+
     if (cooling.hasVentilationCutouts) {
       icons.push({ icon: PiList({}), tooltip: "Ventilation Cutouts" });
     }
+
     return icons;
   }
 }
