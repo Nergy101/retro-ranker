@@ -78,7 +78,7 @@ export function MobileNav({ pathname }: { pathname: string }) {
             <form action="/devices" method="get" role="search">
               <input
                 type="search"
-                placeholder="Search..."
+                placeholder="Name, Brand, or OS"
                 name="search"
                 aria-label="Search"
               />

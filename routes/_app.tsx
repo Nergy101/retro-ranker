@@ -117,46 +117,6 @@ export default function App({ Component, url }: PageProps) {
         <footer style={{ borderTop: "1px solid var(--pico-primary)" }}>
           <div class="container-fluid">
             <div class="footer-grid">
-              <div class="footer-grid-item rr">
-                <strong style={{ color: "var(--pico-primary)" }}>
-                  Retro Ranker
-                </strong>
-                <p>
-                  Find the perfect device for your gaming needs.
-                </p>
-                <small>
-                  © {new Date().getFullYear()}{" "}
-                  <span style={{ color: "var(--pico-primary)" }}>
-                    Retro Ranker
-                  </span>. All rights reserved.
-                </small>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "0.5rem",
-                    marginTop: "1rem",
-                  }}
-                >
-                  <small>
-                    Made with ❤️ by{" "}
-                    <span style={{ color: "var(--pico-primary)" }}>
-                      Nergy101
-                    </span>
-                  </small>
-                  <img
-                    loading="lazy"
-                    alt="nergy logo"
-                    src="/nergy-logo.png"
-                    style={{
-                      width: "32px",
-                      height: "32px",
-                      borderRadius: "50%",
-                    }}
-                  >
-                  </img>
-                </div>
-              </div>
               <div class="footer-grid-item quick-links">
                 <strong>Quick Links</strong>
                 <ul style={{ listStyle: "none", padding: 0 }}>
@@ -168,6 +128,7 @@ export default function App({ Component, url }: PageProps) {
                       </div>
                     </a>
                   </li>
+
                   <li style={{ listStyle: "none" }}>
                     <a href="/terms">
                       <div style={{ display: "flex" }}>
@@ -178,6 +139,7 @@ export default function App({ Component, url }: PageProps) {
                   </li>
                 </ul>
               </div>
+
               <div class="footer-grid-item connect-links">
                 <strong>Connect</strong>
                 <ul style={{ listStyle: "none", padding: 0 }}>
@@ -204,6 +166,49 @@ export default function App({ Component, url }: PageProps) {
                     </a>
                   </li>
                 </ul>
+              </div>
+
+              <div class="footer-grid-item rr">
+                <strong style={{ color: "var(--pico-primary)" }}>
+                  Retro Ranker
+                </strong>
+                <p>
+                  Find the perfect device for your gaming needs.
+                </p>
+                <small>
+                  © {new Date().getFullYear()}{" "}
+                  <span style={{ color: "var(--pico-primary)" }}>
+                    Retro Ranker
+                  </span>. All rights reserved.
+                </small>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.5rem",
+                    marginTop: "1rem",
+                  }}
+                >
+                  <small>
+                    Made with ❤️ by{" "}
+                    <span style={{ color: "var(--pico-primary)" }}>
+                      <a href="https://portfolio.nergy.space" target="_blank">
+                        Nergy101
+                      </a>
+                    </span>
+                  </small>
+                  <img
+                    loading="lazy"
+                    alt="nergy logo"
+                    src="/nergy-logo.png"
+                    style={{
+                      width: "32px",
+                      height: "32px",
+                      borderRadius: "50%",
+                    }}
+                  >
+                  </img>
+                </div>
               </div>
             </div>
           </div>

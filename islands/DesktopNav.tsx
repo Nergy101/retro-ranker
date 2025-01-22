@@ -46,7 +46,7 @@ export function DesktopNav({ pathname }: { pathname: string }) {
             >
               <input
                 type="search"
-                placeholder="Search..."
+                placeholder="Name, Brand, or OS"
                 name="search"
                 aria-label="Search"
               />

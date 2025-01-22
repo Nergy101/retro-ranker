@@ -1,5 +1,6 @@
 import { Head } from "$fresh/runtime.ts";
 import {
+  PiCookie,
   PiDatabase,
   PiListChecks,
   PiQuestion,
@@ -22,7 +23,7 @@ export default function AboutPage() {
         <details open>
           <summary class="flex items-center gap-2">
             <div style={{ display: "flex", alignItems: "center" }}>
-              <PiQuestion />
+              <PiQuestion class="text-3xl" />
               &nbsp;What is Retro Ranker?
             </div>
           </summary>
@@ -37,7 +38,7 @@ export default function AboutPage() {
         <details>
           <summary class="flex items-center gap-2">
             <div style={{ display: "flex", alignItems: "center" }}>
-              <PiStack />
+              <PiStack class="text-3xl" />
               &nbsp;Tech Stack
             </div>
           </summary>
@@ -93,7 +94,7 @@ export default function AboutPage() {
         <details>
           <summary class="flex items-center gap-2">
             <div style={{ display: "flex", alignItems: "center" }}>
-              <PiListChecks />
+              <PiListChecks class="text-3xl" />
               &nbsp;Features
             </div>
           </summary>
@@ -109,7 +110,7 @@ export default function AboutPage() {
         <details>
           <summary class="flex items-center gap-2">
             <div style={{ display: "flex", alignItems: "center" }}>
-              <PiDatabase />
+              <PiDatabase class="text-3xl" />
               &nbsp;Where does the data come from?
             </div>
           </summary>
@@ -134,7 +135,7 @@ export default function AboutPage() {
         <details>
           <summary class="flex items-center gap-2">
             <div style={{ display: "flex", alignItems: "center" }}>
-              <PiUsers />
+              <PiUsers class="text-3xl" />
               &nbsp;Community Contribution
             </div>
           </summary>
@@ -147,6 +148,24 @@ export default function AboutPage() {
               Discord
             </a>{" "}
             to connect with fellow enthusiasts and share your experiences.
+          </p>
+        </details>
+
+        <details>
+          <summary class="flex items-center gap-2">
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <PiCookie class="text-3xl" />
+              &nbsp;Cookies
+            </div>
+          </summary>
+          <p>
+            Retro Ranker uses{" "}
+            <a href="https://umami.is" target="_blank">
+              Umami
+            </a>
+            , a privacy-focused analytics tool, to track usage.{" "}
+            <br />It's open source and self-hosted, all data collection is anonymous and GDPR
+            compliant. Hence why we don't need a cookie banner!
           </p>
         </details>
       </div>
