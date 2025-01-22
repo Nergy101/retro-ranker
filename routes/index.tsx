@@ -1,9 +1,9 @@
 import { Head } from "$fresh/runtime.ts";
 import {
-  PiCalendarDots,
   PiCalendarHeart,
   PiRanking,
-  PiUserCheck,
+  PiSparkle,
+  PiUserCheck
 } from "@preact-icons/pi";
 import { DeviceCardSmall } from "../components/DeviceCardSmall.tsx";
 import { SeeMoreCard } from "../components/SeeMoreCard.tsx";
@@ -45,8 +45,8 @@ export default function Home() {
       >
         {/* New Arrivals Section */}
         <section style="margin-top: 2rem;">
-          <h2 style={{ display: "flex", alignItems: "center", gap: "0.25rem" }}>
-            <PiCalendarDots /> New Arrivals
+          <h2 class="home-section-title">
+            <PiSparkle /> New Arrivals
           </h2>
           <div class="device-row-grid">
             {newArrivals.map((device) => <DeviceCardSmall device={device} />)}
@@ -56,7 +56,7 @@ export default function Home() {
 
         {/* Highly Rated Section */}
         <section style="margin-top: 2rem;">
-          <h2 style={{ display: "flex", alignItems: "center", gap: "0.25rem" }}>
+          <h2 class="home-section-title">
             <PiRanking /> Highly Rated
           </h2>
           <div class="device-row-grid">
@@ -67,7 +67,7 @@ export default function Home() {
 
         {/* personal Picks Section */}
         <section style="margin-top: 2rem;">
-          <h2 style={{ display: "flex", alignItems: "center", gap: "0.25rem" }}>
+          <h2 class="home-section-title">
             <PiUserCheck /> Personal Picks
           </h2>
           <div class="device-row-grid">
@@ -78,7 +78,7 @@ export default function Home() {
 
         {/* Upcoming Section */}
         <section style="margin-top: 2rem;">
-          <h2 style={{ display: "flex", alignItems: "center", gap: "0.25rem" }}>
+          <h2 class="home-section-title">
             <PiCalendarHeart /> Upcoming
           </h2>
           <div class="device-row-grid">

@@ -639,3 +639,16 @@ h6,
     text-decoration: none;
   }
 }
+
+.home-section-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+
+  @media (max-width: 425px) {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+}

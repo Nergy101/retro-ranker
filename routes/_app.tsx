@@ -117,14 +117,14 @@ export default function App({ Component, url }: PageProps) {
         <footer style={{ borderTop: "1px solid var(--pico-primary)" }}>
           <div class="container-fluid">
             <div class="footer-grid">
-              <div class="footer-grid-item quick-links">
-                <strong>Quick Links</strong>
+              <div class="footer-grid-item quick-links" style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                <strong>Other</strong>
                 <ul style={{ listStyle: "none", padding: 0 }}>
                   <li style={{ listStyle: "none" }}>
                     <a href="/privacy">
                       <div style={{ display: "flex" }}>
                         <PiShield />
-                        <span>&nbsp;Privacy Policy</span>
+                        <span>&nbsp;Privacy</span>
                       </div>
                     </a>
                   </li>
@@ -133,16 +133,16 @@ export default function App({ Component, url }: PageProps) {
                     <a href="/terms">
                       <div style={{ display: "flex" }}>
                         <PiFileText />
-                        <span>&nbsp;Terms of Service</span>
+                        <span>&nbsp;ToS</span>
                       </div>
                     </a>
                   </li>
                 </ul>
               </div>
 
-              <div class="footer-grid-item connect-links">
+              <div class="footer-grid-item connect-links" style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                 <strong>Connect</strong>
-                <ul style={{ listStyle: "none", padding: 0 }}>
+                <ul style={{ listStyle: "none", padding: 0, }}>
                   <li style={{ listStyle: "none" }}>
                     <a
                       href="https://bsky.app/profile/nergy101.bsky.social"
@@ -172,9 +172,6 @@ export default function App({ Component, url }: PageProps) {
                 <strong style={{ color: "var(--pico-primary)" }}>
                   Retro Ranker
                 </strong>
-                <p>
-                  Find the perfect device for your gaming needs.
-                </p>
                 <small>
                   © {new Date().getFullYear()}{" "}
                   <span style={{ color: "var(--pico-primary)" }}>
