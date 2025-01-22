@@ -3,14 +3,14 @@ import {
   PiFan,
   PiGameController,
   PiGear,
-  PiList,
+  PiListThin,
   PiMonitor,
   PiPipe,
   PiQuestionFill,
   PiRuler,
   PiSpeakerHigh,
   PiTabs,
-  PiWifiHigh,
+  PiWifiHigh
 } from "@preact-icons/pi";
 import { Device } from "../data/models/device.model.ts";
 import { DeviceService } from "../services/devices/device.service.ts";
@@ -196,7 +196,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
             <tr>
               <th>
                 <span style={{ display: "flex", gap: "0.25rem" }}>
-                  <PiList /> Ventilation Cutouts
+                  <PiListThin /> Ventilation Cutouts
                 </span>
               </th>
               <td>

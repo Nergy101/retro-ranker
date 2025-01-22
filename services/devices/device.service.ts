@@ -12,7 +12,7 @@ import {
   PiFan,
   PiJoystick,
   PiLinuxLogo,
-  PiList,
+  PiListThin,
   PiMinusSquare,
   PiPipe,
   PiQuestionFill,
@@ -21,7 +21,7 @@ import {
   PiSteamLogo,
   PiTabs,
   PiWindowsLogo,
-  PiXCircle,
+  PiXCircle
 } from "@preact-icons/pi";
 import { JSX, VNode } from "preact";
 import { Device } from "../../data/models/device.model.ts";
@@ -361,7 +361,7 @@ export class DeviceService {
     }
 
     if (cooling.hasVentilationCutouts) {
-      icons.push({ icon: PiList({}), tooltip: "Ventilation Cutouts" });
+      icons.push({ icon: PiListThin({}), tooltip: "Ventilation Cutouts" });
     }
 
     return icons;

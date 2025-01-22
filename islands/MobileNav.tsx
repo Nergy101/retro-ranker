@@ -1,4 +1,4 @@
-import { PiDotsThreeVertical } from "@preact-icons/pi";
+import { PiDotsThreeCircle, PiDotsThreeOutlineVertical, PiDotsThreeVertical, PiList, PiListBold } from "@preact-icons/pi";
 import { useEffect } from "preact/hooks";
 import { navigationItems } from "../data/navigation.ts";
 import { ThemeSwitcher } from "./ThemeSwitcher.tsx";
@@ -58,7 +58,7 @@ export function MobileNav({ pathname }: { pathname: string }) {
             }}
             aria-label="Toggle menu"
           >
-            <PiDotsThreeVertical />
+            <PiListBold />
           </button>
 
           <div>
