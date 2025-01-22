@@ -1,10 +1,12 @@
 import { Device } from "../data/models/device.model.ts";
+import { DeviceService } from "../services/devices/device.service.ts";
 
 interface EmulationPerformanceProps {
   device: Device;
 }
 
 export function EmulationPerformance({ device }: EmulationPerformanceProps) {
+  const deviceService = DeviceService.getInstance();
   const ratings = device.consoleRatings;
 
   const max20Characters = (text: string | null) => {
@@ -53,9 +55,10 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
                 padding: "0.25rem",
                 borderRadius: "0.5em",
                 textAlign: "center",
-                color: ["A", "B", "D", "F"].includes(rating.rating.toUpperCase())
-                  ? "white"
-                  : "black",
+                color:
+                  ["A", "B", "D", "F"].includes(rating.rating.toUpperCase())
+                    ? "white"
+                    : "black",
                 fontSize: "0.75rem",
               }}
             >
@@ -101,7 +104,11 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
                 <th>RAM</th>
                 <td>{device.ram}</td>
                 <th>WiFi</th>
-                <td>{device.connectivity.hasWifi ? "✅" : "❌"}</td>
+                <td>
+                  {deviceService.getPropertyIconByBool(
+                    device.connectivity.hasWifi,
+                  )}
+                </td>
               </tr>
             )}
             {device.screen.size && device.screen.aspectRatio && (
@@ -117,80 +124,100 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
                 <th>Battery</th>
                 <td>{device.battery}</td>
                 <th>Cooling</th>
-                <td>{device.cooling.raw}</td>
+                <td>
+                  <span style={{ display: "flex", gap: "0.25rem" }}>
+                    {deviceService.getCoolingIcons(device.cooling).map(({icon, tooltip}) =>
+                      <span data-tooltip={tooltip}>{icon}</span>
+                    )}
+                  </span>
+                </td>
               </tr>
             )}
 
-            {(device.reviews.writtenReviews.length > 0 || device.hackingGuides.length > 0) && (
+            {(device.reviews.writtenReviews.length > 0 ||
+              device.hackingGuides.length > 0) && (
               <tr>
                 <th>Written Reviews</th>
                 <td colSpan={1}>
-                  {device.reviews.writtenReviews.length > 0 ? (
-                    <ul>
-                      {device.reviews.writtenReviews.map((review) => (
-                        <li key={review.url}>
-                          <a href={review.url} target="_blank" alt={review.name}>
-                            {review.name}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <span>No written reviews available.</span>
-                  )}
+                  {device.reviews.writtenReviews.length > 0
+                    ? (
+                      <ul>
+                        {device.reviews.writtenReviews.map((review) => (
+                          <li key={review.url}>
+                            <a
+                              href={review.url}
+                              target="_blank"
+                              alt={review.name}
+                            >
+                              {review.name}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    )
+                    : <span>No written reviews available.</span>}
                 </td>
                 <th>Hacking Guides</th>
                 <td colSpan={1}>
-                  {device.hackingGuides.length > 0 ? (
-                    <ul>
-                      {device.hackingGuides.map((guide) => (
-                        <li key={guide.url}>
-                          <a href={guide.url} target="_blank" alt={guide.name}>
-                            {guide.name}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <span>No hacking guides available.</span>
-                  )}
+                  {device.hackingGuides.length > 0
+                    ? (
+                      <ul>
+                        {device.hackingGuides.map((guide) => (
+                          <li key={guide.url}>
+                            <a
+                              href={guide.url}
+                              target="_blank"
+                              alt={guide.name}
+                            >
+                              {guide.name}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    )
+                    : <span>No hacking guides available.</span>}
                 </td>
               </tr>
             )}
 
-            {(device.reviews.videoReviews.length > 0 || device.vendorLinks.length > 0) && (
+            {(device.reviews.videoReviews.length > 0 ||
+              device.vendorLinks.length > 0) && (
               <tr>
                 <th>Video Reviews</th>
                 <td colSpan={1}>
-                  {device.reviews.videoReviews.length > 0 ? (
-                    <ul>
-                      {device.reviews.videoReviews.map((review) => (
-                        <li key={review.url}>
-                          <a href={review.url} target="_blank" alt={review.name}>
-                            {review.name}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <span>No video reviews available.</span>
-                  )}
+                  {device.reviews.videoReviews.length > 0
+                    ? (
+                      <ul>
+                        {device.reviews.videoReviews.map((review) => (
+                          <li key={review.url}>
+                            <a
+                              href={review.url}
+                              target="_blank"
+                              alt={review.name}
+                            >
+                              {review.name}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    )
+                    : <span>No video reviews available.</span>}
                 </td>
                 <th>Vendor Links</th>
                 <td colSpan={1}>
-                  {device.vendorLinks.length > 0 ? (
-                    <ul>
-                      {device.vendorLinks.map((link) => (
-                        <li key={link.url}>
-                          <a href={link.url} target="_blank" alt={link.name}>
-                            {link.name}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <span>No vendor links available.</span>
-                  )}
+                  {device.vendorLinks.length > 0
+                    ? (
+                      <ul>
+                        {device.vendorLinks.map((link) => (
+                          <li key={link.url}>
+                            <a href={link.url} target="_blank" alt={link.name}>
+                              {link.name}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    )
+                    : <span>No vendor links available.</span>}
                 </td>
               </tr>
             )}

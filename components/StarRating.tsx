@@ -92,7 +92,7 @@ export function StarRating({ device }: StarRatingProps) {
       hasGoodCPU: device.cpu.cores && device.cpu.cores >= 4 ? 5 : 0,
       hasGoodRAM: device.ram && parseInt(device.ram) >= 4 ? 5 : 0,
       hasGoodCooling: device.cooling.raw &&
-          device.cooling.raw.toLowerCase().includes("active")
+          device.cooling.raw.toLowerCase().includes("fan")
         ? 5
         : 0,
 

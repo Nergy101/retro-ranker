@@ -5,16 +5,23 @@ import {
   PiBracketsCurly,
   PiBracketsRound,
   PiBracketsSquare,
+  PiCheckCircleFill,
   PiCode,
   PiEmpty,
   PiFactory,
+  PiFan,
   PiJoystick,
   PiLinuxLogo,
+  PiList,
   PiMinusSquare,
+  PiPipe,
+  PiQuestionFill,
   PiRainbow,
   PiScissors,
   PiSteamLogo,
+  PiTabs,
   PiWindowsLogo,
+  PiXCircle,
 } from "@preact-icons/pi";
 import { JSX, VNode } from "preact";
 import { Device } from "../../data/models/device.model.ts";
@@ -283,5 +290,73 @@ export class DeviceService {
       default:
         return PiEmpty({});
     }
+  }
+
+  getPropertyIconByBool(bool: boolean | null): VNode<JSX.SVGAttributes> {
+    return bool
+      ? PiCheckCircleFill({
+        style: {
+          color: "#22c55e",
+          fontSize: "1.5rem",
+        },
+      })
+      : PiXCircle({
+        style: {
+          color: "#ef4444",
+          fontSize: "1.5rem",
+        },
+      });
+  }
+
+  getPropertyIconByCharacter(
+    char: "✅" | "❌" | "?" | string | null,
+  ): VNode<JSX.SVGAttributes> {
+    console.log(char);
+    if (char === "✅") {
+      return PiCheckCircleFill({
+        style: {
+          color: "#22c55e",
+          fontSize: "1.5rem",
+        },
+      });
+    }
+    if (char === "❌") {
+      return PiXCircle({
+        style: {
+          color: "#ef4444",
+          fontSize: "1.5rem",
+        },
+      });
+    }
+    if (char === "?") {
+      return PiQuestionFill({
+        style: {
+          color: "#3155bc",
+          fontSize: "1.5rem",
+        },
+      });
+    }
+
+    return PiEmpty({});
+  }
+
+  getCoolingIcons(cooling: {
+    hasHeatsink: boolean;
+    hasFan: boolean;
+    hasHeatPipe: boolean;
+    hasVentilationCutouts: boolean;
+  }): { icon: VNode<JSX.SVGAttributes>; tooltip: string }[] {
+    const icons: { icon: VNode<JSX.SVGAttributes>; tooltip: string }[] = [];
+    if (cooling.hasHeatsink) {
+      icons.push({ icon: PiTabs({}), tooltip: "Heatsink" });
+    }
+    if (cooling.hasFan) icons.push({ icon: PiFan({}), tooltip: "Fan" });
+    if (cooling.hasHeatPipe) {
+      icons.push({ icon: PiPipe({}), tooltip: "Heat Pipe" });
+    }
+    if (cooling.hasVentilationCutouts) {
+      icons.push({ icon: PiList({}), tooltip: "Ventilation Cutouts" });
+    }
+    return icons;
   }
 }

@@ -3,18 +3,23 @@ import {
   PiFan,
   PiGameController,
   PiGear,
+  PiList,
   PiMonitor,
+  PiPipe,
+  PiQuestionFill,
   PiRuler,
   PiSpeakerHigh,
+  PiTabs,
   PiWifiHigh,
 } from "@preact-icons/pi";
 import { Device } from "../data/models/device.model.ts";
-
+import { DeviceService } from "../services/devices/device.service.ts";
 interface DeviceSpecsProps {
   device: Device;
 }
 
 export function DeviceSpecs({ device }: DeviceSpecsProps) {
+  const deviceService = DeviceService.getInstance();
   return (
     <div class="specs-grid">
       {/* Processing */}
@@ -155,20 +160,50 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
         <table class="striped">
           <tbody>
             <tr>
-              <th>Heatsink</th>
-              {device.cooling.hasHeatsink ? <td>✅</td> : <td>❌</td>}
+              <th>
+                <span style={{ display: "flex", gap: "0.25rem" }}>
+                  <PiTabs /> Heatsink
+                </span>
+              </th>
+              <td>
+                {deviceService.getPropertyIconByBool(
+                  device.cooling.hasHeatsink,
+                )}
+              </td>
             </tr>
             <tr>
-              <th>Heat Pipe</th>
-              {device.cooling.hasHeatPipe ? <td>✅</td> : <td>❌</td>}
+              <th>
+                <span style={{ display: "flex", gap: "0.25rem" }}>
+                  <PiPipe /> Heat Pipe
+                </span>
+              </th>
+              <td>
+                {deviceService.getPropertyIconByBool(
+                  device.cooling.hasHeatPipe,
+                )}
+              </td>
             </tr>
             <tr>
-              <th>Fan</th>
-              {device.cooling.hasFan ? <td>✅</td> : <td>❌</td>}
+              <th>
+                <span style={{ display: "flex", gap: "0.25rem" }}>
+                  <PiFan /> Fan
+                </span>
+              </th>
+              <td>
+                {deviceService.getPropertyIconByBool(device.cooling.hasFan)}
+              </td>
             </tr>
             <tr>
-              <th>Ventilation Cutouts</th>
-              {device.cooling.hasVentilationCutouts ? <td>✅</td> : <td>❌</td>}
+              <th>
+                <span style={{ display: "flex", gap: "0.25rem" }}>
+                  <PiList /> Ventilation Cutouts
+                </span>
+              </th>
+              <td>
+                {deviceService.getPropertyIconByBool(
+                  device.cooling.hasVentilationCutouts,
+                )}
+              </td>
             </tr>
           </tbody>
         </table>
@@ -233,7 +268,15 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
             {device.rumble && (
               <tr>
                 <th>Rumble</th>
-                <td>{device.rumble}</td>
+                <td>
+                  {device.rumble === "?"
+                    ? (
+                      <PiQuestionFill
+                        style={{ color: "#3155bc", fontSize: "1.5rem" }}
+                      />
+                    )
+                    : device.rumble}
+                </td>
               </tr>
             )}
             {device.sensors?.length > 0 && (
@@ -364,35 +407,67 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
               <>
                 <tr>
                   <th>Wifi</th>
-                  <td>{device.connectivity.hasWifi ? "✅" : "❌"}</td>
+                  <td>
+                    {deviceService.getPropertyIconByBool(
+                      device.connectivity.hasWifi,
+                    )}
+                  </td>
                 </tr>
                 <tr>
                   <th>Bluetooth</th>
-                  <td>{device.connectivity.hasBluetooth ? "✅" : "❌"}</td>
+                  <td>
+                    {deviceService.getPropertyIconByBool(
+                      device.connectivity.hasBluetooth,
+                    )}
+                  </td>
                 </tr>
                 <tr>
                   <th>NFC</th>
-                  <td>{device.connectivity.hasNFC ? "✅" : "❌"}</td>
+                  <td>
+                    {deviceService.getPropertyIconByBool(
+                      device.connectivity.hasNFC,
+                    )}
+                  </td>
                 </tr>
                 <tr>
                   <th>USB</th>
-                  <td>{device.connectivity.hasUSB ? "✅" : "❌"}</td>
+                  <td>
+                    {deviceService.getPropertyIconByBool(
+                      device.connectivity.hasUSB,
+                    )}
+                  </td>
                 </tr>
                 <tr>
                   <th>HDMI</th>
-                  <td>{device.connectivity.hasHDMI ? "✅" : "❌"}</td>
+                  <td>
+                    {deviceService.getPropertyIconByBool(
+                      device.connectivity.hasHDMI,
+                    )}
+                  </td>
                 </tr>
                 <tr>
                   <th>DisplayPort</th>
-                  <td>{device.connectivity.hasDisplayPort ? "✅" : "❌"}</td>
+                  <td>
+                    {deviceService.getPropertyIconByBool(
+                      device.connectivity.hasDisplayPort,
+                    )}
+                  </td>
                 </tr>
                 <tr>
                   <th>VGA</th>
-                  <td>{device.connectivity.hasVGA ? "✅" : "❌"}</td>
+                  <td>
+                    {deviceService.getPropertyIconByBool(
+                      device.connectivity.hasVGA,
+                    )}
+                  </td>
                 </tr>
                 <tr>
                   <th>DVI</th>
-                  <td>{device.connectivity.hasDVI ? "✅" : "❌"}</td>
+                  <td>
+                    {deviceService.getPropertyIconByBool(
+                      device.connectivity.hasDVI,
+                    )}
+                  </td>
                 </tr>
               </>
             )}
