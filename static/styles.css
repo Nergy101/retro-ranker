@@ -13,7 +13,8 @@ button {
   cursor: pointer;
 }
 
-button, [role="button"] {
+button,
+[role="button"] {
   cursor: pointer;
 }
 
@@ -37,8 +38,7 @@ html {
 }
 
 .transition-colors {
-  transition:
-    background-color 500ms cubic-bezier(0.4, 0, 0.2, 1),
+  transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1),
     border-color 500ms cubic-bezier(0.4, 0, 0.2, 1),
     color 500ms cubic-bezier(0.4, 0, 0.2, 1),
     fill 500ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -272,7 +272,8 @@ html {
   max-width: 100cqw;
   grid-area: specs;
 
-  summary, section {
+  summary,
+  section {
     margin: 1rem;
   }
 }
@@ -749,6 +750,14 @@ h6,
 
   @media (max-width: 425px) {
     height: 20em;
+  }
+
+  @media (max-width: 375px) {
+    height: 25em;
+  }
+
+  @media (max-width: 320px) {
+    height: 31em;
   }
 
   .compare-result-performance-chips {
