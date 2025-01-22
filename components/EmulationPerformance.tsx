@@ -19,15 +19,15 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
   const getRatingInfo = (rating: string) => {
     switch (rating.toUpperCase()) {
       case "A":
-        return { color: "#22c55e", text: "Excellent 5/5" };
+        return { color: "#16833E", text: "Excellent 5/5" };
       case "B":
-        return { color: "#4dc1bb", text: "Playable 4/5" };
+        return { color: "#3952A2", text: "Playable 4/5" };
       case "C":
-        return { color: "#fde047", text: "Playable with tweaks 3/5" };
+        return { color: "#EEB61B", text: "Playable with tweaks 3/5" };
       case "D":
         return { color: "#fb923c", text: "Barely works 2/5" };
       case "F":
-        return { color: "#ef4444", text: "Doesn't work 1/5" };
+        return { color: "#AB0D0D", text: "Doesn't work 1/5" };
       default:
         return { color: "var(--pico-contrast)", text: "Unknown" };
     }
@@ -56,7 +56,7 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
                 borderRadius: "0.5em",
                 textAlign: "center",
                 color:
-                  ["A", "B", "D", "F"].includes(rating.rating.toUpperCase())
+                  ["A", "B", "F"].includes(rating.rating.toUpperCase())
                     ? "white"
                     : "black",
                 fontSize: "0.75rem",
