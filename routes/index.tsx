@@ -18,8 +18,10 @@ export default function Home() {
 
       <header>
         <hgroup style={{ textAlign: "center" }}>
-          <h1>
+          <p>
             Welcome to{" "}
+          </p>
+          <h1>
             <span style={{ color: "var(--pico-primary)" }}>Retro Ranker</span>.
           </h1>
           <p>

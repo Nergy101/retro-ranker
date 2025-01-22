@@ -179,6 +179,12 @@ html {
   align-items: center;
   gap: 0.5rem;
   background-color: rgba(255, 255, 255, 0.05);
+
+  min-width: 13em;
+  
+  @media (max-width: 500px) {
+    min-width: 10em;
+  }
 }
 
 .small-card:hover {
