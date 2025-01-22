@@ -9,7 +9,7 @@ export function ThemeSwitcher(
     tooltipLocation?: "left" | "bottom" | "right" | "top";
   },
 ) {
-  const theme = useSignal<"light" | "dark">("dark");
+  const theme = useSignal<"light" | "dark" | null>(null);
 
   // Initialize theme from localStorage or system preference
   useEffect(() => {
@@ -57,41 +57,51 @@ export function ThemeSwitcher(
         : undefined}
       data-placement={tooltipLocation}
     >
-      {theme.value !== "light"
-        ? (
-          <div
-            style={{ display: "flex", alignItems: "center", gap: "0.25rem" }}
+      {theme.value === null && (
+        <div
+          style={{ display: "flex", alignItems: "center", gap: "0.25rem" }}
+        >
+          <span name="theme-switcher-loader">
+            <span aria-busy="true"></span>
+          </span>
+        </div>
+      )}
+
+      {theme.value === "dark" && (
+        <div
+          style={{ display: "flex", alignItems: "center", gap: "0.25rem" }}
+        >
+          <span
+            name="theme-switcher-dark"
+            style={{
+              fontSize: "1.2rem",
+              transition: "transform 500ms ease-in-out",
+              transform: "rotate(0deg)",
+            }}
           >
-            <span
-              name="theme-switcher-dark"
-              style={{
-                fontSize: "1.2rem",
-                transition: "transform 500ms ease-in-out",
-                transform: "rotate(0deg)",
-              }}
-            >
-              <PiMoon />
-            </span>
-            {showNames && <span>Dark side</span>}
-          </div>
-        )
-        : (
-          <div
-            style={{ display: "flex", alignItems: "center", gap: "0.25rem" }}
+            <PiMoon />
+          </span>
+          {showNames && <span>Dark side</span>}
+        </div>
+      )}
+
+      {theme.value === "light" && (
+        <div
+          style={{ display: "flex", alignItems: "center", gap: "0.25rem" }}
+        >
+          <span
+            name="theme-switcher-light"
+            style={{
+              fontSize: "1.2rem",
+              transition: "transform 500ms ease-in-out",
+              transform: "rotate(180deg)",
+            }}
           >
-            <span
-              name="theme-switcher-light"
-              style={{
-                fontSize: "1.2rem",
-                transition: "transform 500ms ease-in-out",
-                transform: "rotate(180deg)",
-              }}
-            >
-              <PiSun />
-            </span>
-            {showNames && <span>Light side</span>}
-          </div>
-        )}
+            <PiSun />
+          </span>
+          {showNames && <span>Light side</span>}
+        </div>
+      )}
     </button>
   );
 }
