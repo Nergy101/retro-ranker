@@ -38,7 +38,7 @@ export function MobileNav({ pathname }: { pathname: string }) {
             loading="lazy"
             src="/logo-no-background.svg"
             alt="logo"
-            style={{ height: "3em" }}
+            width="120"
           />
         </a>
 

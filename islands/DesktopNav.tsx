@@ -11,8 +11,7 @@ export function DesktopNav({ pathname }: { pathname: string }) {
               loading="lazy"
               src="/logo-no-background.svg"
               alt="logo"
-              height="150px"
-              width="150px"
+              width="120"
             />
           </a>
         </li>
