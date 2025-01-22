@@ -36,7 +36,6 @@ export function DesktopNav({ pathname }: { pathname: string }) {
             <form
               action="/devices"
               method="get"
-              role="search"
               style={{
                 display: "flex",
                 flexDirection: "row",
