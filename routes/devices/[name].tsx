@@ -76,7 +76,7 @@ export default function DeviceDetail(props: PageProps) {
       </Head>
       <div class="device-detail-header">
         <div style="display: flex; flex-direction: column; gap: 0.5rem; justify-content: center; align-items: center;">
-          <h2 style={{ fontSize: "2rem", color: "var(--pico-primary)" }}>
+          <h2 style={{ fontSize: "2rem", color: "var(--pico-primary)", textAlign: "center" }}>
             {device.name.raw}
           </h2>
           <div style="display: flex; gap: 0.25rem; align-items: center;">
@@ -172,7 +172,7 @@ export default function DeviceDetail(props: PageProps) {
       </div>
 
       <div class="device-detail-performance">
-        <h3>Emulation Performance</h3>
+        <h3 style={{ textAlign: "center" }}>Emulation Performance</h3>
 
         <EmulationPerformance device={device} />
       </div>
