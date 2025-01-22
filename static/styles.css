@@ -191,7 +191,7 @@ html {
   cursor: pointer;
   transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
   background-color: rgba(254, 182, 112, 0.2);
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .see-more-card {
@@ -215,7 +215,7 @@ html {
 
 [data-theme="dark"] .see-more-card:hover {
   background-color: rgba(0, 0, 0, 0.3);
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 [data-theme="light"] .see-more-card {
@@ -226,7 +226,7 @@ html {
 
 [data-theme="light"] .see-more-card:hover {
   background-color: rgba(254, 182, 112, 0.5);
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .device-detail {
@@ -532,7 +532,7 @@ html {
   cursor: pointer;
   transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
   background-color: rgba(254, 182, 112, 0.2);
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 code,

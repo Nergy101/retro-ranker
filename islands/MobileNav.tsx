@@ -61,7 +61,7 @@ export function MobileNav({ pathname }: { pathname: string }) {
             <PiDotsThreeVertical />
           </button>
 
-          <div style={{ padding: "0 0 0.5rem 0" }}>
+          <div>
             <ThemeSwitcher showTooltip={false} showNames={false} />
           </div>
         </div>

@@ -19,7 +19,7 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
       case "A":
         return { color: "#22c55e", text: "Excellent 5/5" };
       case "B":
-        return { color: "#79c34c", text: "Playable 4/5" };
+        return { color: "#4dc1bb", text: "Playable 4/5" };
       case "C":
         return { color: "#fde047", text: "Playable with tweaks 3/5" };
       case "D":
@@ -53,7 +53,7 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
                 padding: "0.25rem",
                 borderRadius: "0.5em",
                 textAlign: "center",
-                color: ["A", "B", "F"].includes(rating.rating.toUpperCase())
+                color: ["A", "B", "D", "F"].includes(rating.rating.toUpperCase())
                   ? "white"
                   : "black",
                 fontSize: "0.75rem",
