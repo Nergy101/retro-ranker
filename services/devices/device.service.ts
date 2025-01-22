@@ -180,10 +180,10 @@ export class DeviceService {
     };
   }
 
-  public getDeviceByName(sanitizedName: string): Device | undefined {
+  public getDeviceByName(sanitizedName: string): Device | null {
     return this.devices.find((device) =>
       device.name.sanitized === sanitizedName
-    );
+    ) ?? null;
   }
 
   public getSimilarDevices(
@@ -255,7 +255,7 @@ export class DeviceService {
       .slice(0, 4);
   }
 
-  public getOsIconComponent(os: string): VNode<JSX.SVGAttributes> {
+  static getOsIconComponent(os: string): VNode<JSX.SVGAttributes> {
     switch (os) {
       case "ph-factory":
         return PiFactory({});
@@ -292,7 +292,7 @@ export class DeviceService {
     }
   }
 
-  getPropertyIconByBool(bool: boolean | null): VNode<JSX.SVGAttributes> {
+  static getPropertyIconByBool(bool: boolean | null): VNode<JSX.SVGAttributes> {
     return bool
       ? PiCheckCircleFill({
         style: {
@@ -308,7 +308,7 @@ export class DeviceService {
       });
   }
 
-  getPropertyIconByCharacter(
+  static getPropertyIconByCharacter(
     char: "✅" | "❌" | "?" | string | null,
   ): VNode<JSX.SVGAttributes> {
     console.log(char);
@@ -340,7 +340,7 @@ export class DeviceService {
     return PiEmpty({});
   }
 
-  getCoolingIcons(cooling: {
+  static getCoolingIcons(cooling: {
     hasHeatsink: boolean;
     hasFan: boolean;
     hasHeatPipe: boolean;
@@ -365,5 +365,14 @@ export class DeviceService {
     }
 
     return icons;
+  }
+
+  static getReleaseDate(device: Device): string {
+    if (!device.released.mentionedDate) return "";
+    return new Date(device.released.mentionedDate).toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    });
   }
 }

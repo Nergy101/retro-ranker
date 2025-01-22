@@ -166,7 +166,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
                 </span>
               </th>
               <td>
-                {deviceService.getPropertyIconByBool(
+                {DeviceService.getPropertyIconByBool(
                   device.cooling.hasHeatsink,
                 )}
               </td>
@@ -178,7 +178,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
                 </span>
               </th>
               <td>
-                {deviceService.getPropertyIconByBool(
+                {DeviceService.getPropertyIconByBool(
                   device.cooling.hasHeatPipe,
                 )}
               </td>
@@ -190,7 +190,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
                 </span>
               </th>
               <td>
-                {deviceService.getPropertyIconByBool(device.cooling.hasFan)}
+                {DeviceService.getPropertyIconByBool(device.cooling.hasFan)}
               </td>
             </tr>
             <tr>
@@ -200,7 +200,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
                 </span>
               </th>
               <td>
-                {deviceService.getPropertyIconByBool(
+                {DeviceService.getPropertyIconByBool(
                   device.cooling.hasVentilationCutouts,
                 )}
               </td>
@@ -408,7 +408,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
                 <tr>
                   <th>Wifi</th>
                   <td>
-                    {deviceService.getPropertyIconByBool(
+                    {DeviceService.getPropertyIconByBool(
                       device.connectivity.hasWifi,
                     )}
                   </td>
@@ -416,7 +416,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
                 <tr>
                   <th>Bluetooth</th>
                   <td>
-                    {deviceService.getPropertyIconByBool(
+                    {DeviceService.getPropertyIconByBool(
                       device.connectivity.hasBluetooth,
                     )}
                   </td>
@@ -424,7 +424,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
                 <tr>
                   <th>NFC</th>
                   <td>
-                    {deviceService.getPropertyIconByBool(
+                    {DeviceService.getPropertyIconByBool(
                       device.connectivity.hasNFC,
                     )}
                   </td>
@@ -432,7 +432,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
                 <tr>
                   <th>USB</th>
                   <td>
-                    {deviceService.getPropertyIconByBool(
+                    {DeviceService.getPropertyIconByBool(
                       device.connectivity.hasUSB,
                     )}
                   </td>
@@ -440,7 +440,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
                 <tr>
                   <th>HDMI</th>
                   <td>
-                    {deviceService.getPropertyIconByBool(
+                    {DeviceService.getPropertyIconByBool(
                       device.connectivity.hasHDMI,
                     )}
                   </td>
@@ -448,7 +448,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
                 <tr>
                   <th>DisplayPort</th>
                   <td>
-                    {deviceService.getPropertyIconByBool(
+                    {DeviceService.getPropertyIconByBool(
                       device.connectivity.hasDisplayPort,
                     )}
                   </td>
@@ -456,7 +456,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
                 <tr>
                   <th>VGA</th>
                   <td>
-                    {deviceService.getPropertyIconByBool(
+                    {DeviceService.getPropertyIconByBool(
                       device.connectivity.hasVGA,
                     )}
                   </td>
@@ -464,7 +464,7 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
                 <tr>
                   <th>DVI</th>
                   <td>
-                    {deviceService.getPropertyIconByBool(
+                    {DeviceService.getPropertyIconByBool(
                       device.connectivity.hasDVI,
                     )}
                   </td>

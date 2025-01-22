@@ -846,7 +846,11 @@ export class DeviceParser {
         device.powerControl = value;
         break;
       case 60:
-        device.dimensions = value;
+        device.dimensions = {
+          length: value.split(" x ")[0],
+          width: value.split(" x ")[1],
+          height: value.split(" x ")[2],
+        };
         break;
       case 61:
         device.weight = value;
@@ -1191,7 +1195,11 @@ export class DeviceParser {
         device.powerControl = value;
         break;
       case 58:
-        device.dimensions = value;
+        device.dimensions = {
+          length: value.split(" x ")[0],
+          width: value.split(" x ")[1],
+          height: value.split(" x ")[2],
+        };
         break;
       case 59:
         device.weight = value;

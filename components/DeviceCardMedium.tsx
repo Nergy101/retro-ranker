@@ -9,7 +9,6 @@ interface DeviceCardMediumProps {
 }
 
 export function DeviceCardMedium({ device }: DeviceCardMediumProps) {
-  const deviceService = DeviceService.getInstance();
 
   return (
     <article
@@ -17,7 +16,6 @@ export function DeviceCardMedium({ device }: DeviceCardMediumProps) {
       style={{
         display: "flex",
         flexDirection: "column",
-        justifyContent: "flex-end",
         border: "1px solid var(--pico-primary)",
         borderRadius: "0.5rem",
       }}
@@ -106,7 +104,7 @@ export function DeviceCardMedium({ device }: DeviceCardMediumProps) {
               : device.os.list.join(", ")}
           >
             {device.os.icons.map((icon) =>
-              deviceService.getOsIconComponent(icon)
+              DeviceService.getOsIconComponent(icon)
             )}
           </span>
         </div>

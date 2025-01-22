@@ -1,12 +1,12 @@
 import { Device } from "../data/models/device.model.ts";
 import { DeviceService } from "../services/devices/device.service.ts";
+import { RatingInfo } from "./RatingInfo.tsx";
 
 interface EmulationPerformanceProps {
   device: Device;
 }
 
 export function EmulationPerformance({ device }: EmulationPerformanceProps) {
-  const deviceService = DeviceService.getInstance();
   const ratings = device.consoleRatings;
 
   const max20Characters = (text: string | null) => {
@@ -14,23 +14,6 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
       return text.substring(0, 20) + "...";
     }
     return text;
-  };
-
-  const getRatingInfo = (rating: string) => {
-    switch (rating.toUpperCase()) {
-      case "A":
-        return { color: "#16833E", text: "Excellent 5/5" };
-      case "B":
-        return { color: "#3952A2", text: "Playable 4/5" };
-      case "C":
-        return { color: "#EEB61B", text: "Playable with tweaks 3/5" };
-      case "D":
-        return { color: "#fb923c", text: "Barely works 2/5" };
-      case "F":
-        return { color: "#AB0D0D", text: "Doesn't work 1/5" };
-      default:
-        return { color: "var(--pico-contrast)", text: "Unknown" };
-    }
   };
 
   return (
@@ -46,26 +29,9 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
           gap: "0.5rem",
         }}
       >
-        {ratings.map((rating) => {
-          const { color, text } = getRatingInfo(rating.rating);
-          return (
-            <div
-              style={{
-                backgroundColor: color,
-                padding: "0.25rem",
-                borderRadius: "0.5em",
-                textAlign: "center",
-                color:
-                  ["A", "B", "F"].includes(rating.rating.toUpperCase())
-                    ? "white"
-                    : "black",
-                fontSize: "0.75rem",
-              }}
-            >
-              <span data-tooltip={text}>{rating.system}</span>
-            </div>
-          );
-        })}
+        {ratings.map((rating) => (
+          <RatingInfo key={rating.system} rating={rating} />
+        ))}
       </div>
 
       <div class="overflow-auto">
@@ -105,7 +71,7 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
                 <td>{device.ram}</td>
                 <th>WiFi</th>
                 <td>
-                  {deviceService.getPropertyIconByBool(
+                  {DeviceService.getPropertyIconByBool(
                     device.connectivity.hasWifi,
                   )}
                 </td>
@@ -126,7 +92,7 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
                 <th>Cooling</th>
                 <td>
                   <span style={{ display: "flex", gap: "0.25rem" }}>
-                    {deviceService.getCoolingIcons(device.cooling).map(({icon, tooltip}) =>
+                    {DeviceService.getCoolingIcons(device.cooling).map(({icon, tooltip}) =>
                       <span data-tooltip={tooltip}>{icon}</span>
                     )}
                   </span>

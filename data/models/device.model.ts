@@ -118,7 +118,11 @@ export interface Device {
   brightnessControl: string | null;
   powerControl: string | null;
 
-  dimensions: string | null;
+  dimensions: {
+    length: string | null;
+    width: string | null;
+    height: string | null;
+  } | null;
   weight: string | null;
   shellMaterial: string | null;
   colors: string[];

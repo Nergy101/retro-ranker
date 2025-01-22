@@ -181,7 +181,7 @@ html {
   background-color: rgba(255, 255, 255, 0.05);
 
   min-width: 13em;
-  
+
   @media (max-width: 500px) {
     min-width: 10em;
   }
@@ -644,11 +644,228 @@ h6,
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: .5rem;
+  gap: 0.5rem;
 
   @media (max-width: 425px) {
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
+  }
+}
+
+.compare-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.compare-result {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-areas:
+    "header summary summary"
+    "performance performance performance"
+    "screen screen screen"
+    "ergonomics ergonomics ergonomics"
+    "connectivity connectivity connectivity"
+    "controls controls controls"
+    "misc misc misc";
+  grid-template-columns: repeat(3, 1fr);
+
+  @media (max-width: 768px) {
+    grid-template-areas:
+      "header header header"
+      "summary summary summary"
+      "performance performance performance"
+      "screen screen screen"
+      "ergonomics ergonomics ergonomics"
+      "connectivity connectivity connectivity"
+      "controls controls controls"
+      "misc misc misc";
+  }
+}
+
+.compare-result-header,
+.compare-result-summary,
+.compare-result-performance {
+  height: 14em; /* Set a fixed height for each grid area */
+}
+
+.compare-result-screen,
+.compare-result-ergonomics,
+.compare-result-connectivity,
+.compare-result-controls,
+.compare-result-misc {
+  height: 30em;
+}
+
+.compare-result-header {
+  grid-area: header;
+  padding: 0.5rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.compare-result-summary {
+  grid-area: summary;
+
+  border: 1px solid var(--pico-primary);
+  border-radius: var(--pico-border-radius);
+
+  @media (max-width: 768px) {
+    height: 18em;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 0.75rem;
+    height: 24em;
+  }
+}
+
+.compare-result-performance {
+  grid-area: performance;
+  padding: 0.5rem;
+  height: 10em;
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  border: 1px solid var(--pico-primary);
+  border-radius: var(--pico-border-radius);
+
+  @media (max-width: 1024px) {
+    height: 12em;
+  }
+
+  @media (max-width: 768px) {
+    height: 16em;
+  }
+
+  @media (max-width: 425px) {
+    height: 20em;
+  }
+
+  .compare-result-performance-chips {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+}
+
+.compare-result-screen {
+  grid-area: screen;
+  padding: 0.5rem;
+  overflow-y: auto;
+
+  border: 1px solid var(--pico-primary);
+  border-radius: var(--pico-border-radius);
+
+  @media (max-width: 1024px) {
+    height: 18em;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 0.75rem;
+    height: 30em;
+  }
+}
+
+.compare-result-ergonomics {
+  grid-area: ergonomics;
+  padding: 0.5rem;
+
+  height: 27em;
+
+  overflow-y: auto;
+
+  border: 1px solid var(--pico-primary);
+  border-radius: var(--pico-border-radius);
+
+  @media (max-width: 1024px) {
+    height: 16em;
+  }
+
+  @media (max-width: 768px) {
+    height: 18em;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 0.75rem;
+    height: 24em;
+  }
+}
+
+.compare-result-connectivity {
+  grid-area: connectivity;
+  padding: 0.5rem;
+  height: 34em;
+
+  overflow-y: auto;
+
+  border: 1px solid var(--pico-primary);
+  border-radius: var(--pico-border-radius);
+
+  @media (max-width: 1024px) {
+    height: 26em;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 0.75rem;
+    height: 34em;
+  }
+}
+
+.compare-result-controls {
+  grid-area: controls;
+  padding: 0.5rem;
+  height: 29em;
+
+  overflow-y: auto;
+
+  border: 1px solid var(--pico-primary);
+  border-radius: var(--pico-border-radius);
+
+  @media (max-width: 1024px) {
+    height: 24em;
+  }
+
+  @media (max-width: 768px) {
+    height: 26em;
+  }
+
+
+  @media (max-width: 425px) {
+    font-size: 0.75rem;
+    height: 29em;
+  }
+}
+
+.compare-result-misc {
+  grid-area: misc;
+  padding: 0.5rem;
+  height: 52em;
+
+  overflow-y: auto;
+
+  border: 1px solid var(--pico-primary);
+  border-radius: var(--pico-border-radius);
+
+  @media (max-width: 1024px) {
+    height: 40em;
+  }
+
+  @media (max-width: 768px) {
+    height: 45em;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 0.75rem;
+    height: 52em;
   }
 }

@@ -89,7 +89,7 @@ export default function DeviceDetail(props: PageProps) {
             >
               <span style="display: flex; gap: 0.25rem;">
                 {device.os.icons.map((icon) =>
-                  deviceService.getOsIconComponent(icon)
+                  DeviceService.getOsIconComponent(icon)
                 )}
               </span>
             </p>
@@ -213,7 +213,7 @@ export default function DeviceDetail(props: PageProps) {
                               style={{ display: "flex", gap: "0.25rem" }}
                             >
                               {device.os.icons.map((icon) => (
-                                deviceService.getOsIconComponent(icon)
+                                DeviceService.getOsIconComponent(icon)
                               ))}
                             </div>
                           </div>

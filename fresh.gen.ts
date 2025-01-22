@@ -7,6 +7,7 @@ import * as $_app from "./routes/_app.tsx";
 import * as $about from "./routes/about.tsx";
 import * as $api_devices_name_ from "./routes/api/devices/[name].ts";
 import * as $api_devices_index from "./routes/api/devices/index.ts";
+import * as $compare_index from "./routes/compare/index.tsx";
 import * as $contact from "./routes/contact.tsx";
 import * as $devices_name_ from "./routes/devices/[name].tsx";
 import * as $devices_index from "./routes/devices/index.tsx";
@@ -27,6 +28,7 @@ const manifest = {
     "./routes/about.tsx": $about,
     "./routes/api/devices/[name].ts": $api_devices_name_,
     "./routes/api/devices/index.ts": $api_devices_index,
+    "./routes/compare/index.tsx": $compare_index,
     "./routes/contact.tsx": $contact,
     "./routes/devices/[name].tsx": $devices_name_,
     "./routes/devices/index.tsx": $devices_index,

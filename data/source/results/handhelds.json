@@ -37,7 +37,11 @@
     "battery": "80 Wh",
     "chargePort": "USB-C x2Top facing",
     "storage": "Internal 1 TB M.2 NVMe 4.0 SSD, External MicroSD",
-    "dimensions": "299 mm x 126 mm x 24 mm",
+    "dimensions": {
+      "length": "299 mm",
+      "width": "126 mm",
+      "height": "24 mm"
+    },
     "weight": "795 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -268,7 +272,11 @@
     "battery": "53 Wh",
     "chargePort": "USB-C x2Top facing",
     "storage": "Internal 512 GB M.2 NVMe 4.0 SSD, External MicroSD",
-    "dimensions": "290 mm x 117 mm x 21.2 mm",
+    "dimensions": {
+      "length": "290 mm",
+      "width": "117 mm",
+      "height": "21.2 mm"
+    },
     "weight": "675 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -509,7 +517,11 @@
     "battery": "55 Wh",
     "chargePort": "USB-C x2Top facing",
     "storage": "Internal 512 GB / 1 TB M.2 2242 SSD (Support for 2280), External MicroSD",
-    "dimensions": "299 mm x 127 mm x 23 mm",
+    "dimensions": {
+      "length": "299 mm",
+      "width": "127 mm",
+      "height": "23 mm"
+    },
     "weight": "727 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -733,7 +745,11 @@
     "battery": "1800 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "External MicroSD",
-    "dimensions": "62 mm x 81 mm x 17 mm",
+    "dimensions": {
+      "length": "62 mm",
+      "width": "81 mm",
+      "height": "17 mm"
+    },
     "weight": "?",
     "shellMaterial": "Metal (Aluminum)",
     "colors": [
@@ -961,7 +977,11 @@
     "battery": "5000 mAh",
     "chargePort": "?",
     "storage": "Dual External MicroSD",
-    "dimensions": "85.3 mm x 133 mm x 23 - 27 mm",
+    "dimensions": {
+      "length": "85.3 mm",
+      "width": "133 mm",
+      "height": "23 - 27 mm"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -1177,7 +1197,11 @@
     "battery": "3000 mAh(Estimate)",
     "chargePort": "USB-C x2Top facing",
     "storage": "Internal 64 GB (eMMC 5.1 or UFS 2.1?), Dual External MicroSD",
-    "dimensions": "153 mm x 70 mm x 19 mm",
+    "dimensions": {
+      "length": "153 mm",
+      "width": "70 mm",
+      "height": "19 mm"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -1404,7 +1428,11 @@
     "battery": "44.24 Wh",
     "chargePort": "USB-C x2Top facing",
     "storage": "Internal 1 TB / 2 TB M.2 2280 SSD,External MicroSD",
-    "dimensions": "172 mm x 109 mm x 26.8 - 31.7 mm",
+    "dimensions": {
+      "length": "172 mm",
+      "width": "109 mm",
+      "height": "26.8 - 31.7 mm"
+    },
     "weight": "555 grams",
     "shellMaterial": "Plastic, Aluminum & Magnesium Alloy combination",
     "colors": [
@@ -1637,7 +1665,11 @@
     "battery": "51.97 Wh",
     "chargePort": "USB-C x2Top facing",
     "storage": "Internal 1 TB / 2 TB 2280 M.2 SSD, External MicroSD",
-    "dimensions": "208 mm x 146.5 mm x 32 mm",
+    "dimensions": {
+      "length": "208 mm",
+      "width": "146.5 mm",
+      "height": "32 mm"
+    },
     "weight": "Body: 880 gramsExtra keyboard: 140 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -1864,7 +1896,11 @@
     "battery": "?",
     "chargePort": "USB-C x2Top facing",
     "storage": "Dual External MicroSD",
-    "dimensions": "136 mm x 110 mm x 17 mm",
+    "dimensions": {
+      "length": "136 mm",
+      "width": "110 mm",
+      "height": "17 mm"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -2087,7 +2123,9 @@
     "battery": "3500 mAh",
     "chargePort": "USB-CTop facing",
     "storage": "?",
-    "dimensions": "?",
+    "dimensions": {
+      "length": "?"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -2311,7 +2349,11 @@
     "battery": "4000 mAh",
     "chargePort": "USB-CTop facing",
     "storage": "Internal ?, External MicroSD",
-    "dimensions": "166 mm x 66 mm x 15.6 mm",
+    "dimensions": {
+      "length": "166 mm",
+      "width": "66 mm",
+      "height": "15.6 mm"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -2528,7 +2570,9 @@
     "battery": "?",
     "chargePort": "USB-CTop facing",
     "storage": "Internal ?, External MicroSD",
-    "dimensions": "?",
+    "dimensions": {
+      "length": "?"
+    },
     "weight": "?",
     "shellMaterial": "?",
     "colors": [
@@ -2742,7 +2786,9 @@
     "battery": "?",
     "chargePort": "USB-CTop facing",
     "storage": "Internal ?, External MicroSD",
-    "dimensions": "?",
+    "dimensions": {
+      "length": "?"
+    },
     "weight": "?",
     "shellMaterial": "?",
     "colors": [
@@ -2964,7 +3010,9 @@
     "battery": "74 Wh",
     "chargePort": "USB-C",
     "storage": "Internal 2 TB, External MicroSD",
-    "dimensions": "?",
+    "dimensions": {
+      "length": "?"
+    },
     "weight": "~940 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -3189,7 +3237,11 @@
     "battery": "48.5 Wh",
     "chargePort": "USB-C x2Top & Bottom facing",
     "storage": "Internal 1 TB M.2 2280 SSD, External MicroSD",
-    "dimensions": "310 mm x 135 mm x 40 mm",
+    "dimensions": {
+      "length": "310 mm",
+      "width": "135 mm",
+      "height": "40 mm"
+    },
     "weight": "<700 grams(Source)",
     "shellMaterial": "Plastic",
     "colors": [
@@ -3421,7 +3473,11 @@
     "battery": "2900 mAh",
     "chargePort": "USB-C x2Top facing",
     "storage": "Dual External MicroSD",
-    "dimensions": "130.5 mm x 65.1 mm x 19 mm",
+    "dimensions": {
+      "length": "130.5 mm",
+      "width": "65.1 mm",
+      "height": "19 mm"
+    },
     "weight": "120 grams(Source)",
     "shellMaterial": "Plastic",
     "colors": [
@@ -3646,7 +3702,11 @@
     "battery": "8000 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Internal 128 GB / 512 GB / 1 TB, External MicroSD",
-    "dimensions": "257 mm x 98.6 mm x 17.2 mm",
+    "dimensions": {
+      "length": "257 mm",
+      "width": "98.6 mm",
+      "height": "17.2 mm"
+    },
     "weight": "430 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -3873,7 +3933,11 @@
     "battery": "3000 mAh",
     "chargePort": "USB-C x2Top & Bottom facing",
     "storage": "Dual External MicroSD",
-    "dimensions": "150 mm x 77 mm x 24 mm",
+    "dimensions": {
+      "length": "150 mm",
+      "width": "77 mm",
+      "height": "24 mm"
+    },
     "weight": "181 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -4097,7 +4161,11 @@
     "battery": "3000 mAh",
     "chargePort": "USB-C x2Top & Bottom facing",
     "storage": "Internal 128 MB, Dual External MicroSD",
-    "dimensions": "82 mm x 80 mm x 20 mm(Source)",
+    "dimensions": {
+      "length": "82 mm",
+      "width": "80 mm",
+      "height": "20 mm(Source)"
+    },
     "weight": "165 grams(Source)",
     "shellMaterial": "Plastic",
     "colors": [
@@ -4330,7 +4398,11 @@
     "battery": "45.62 Wh",
     "chargePort": "USB-C x2Top & Bottom facing",
     "storage": "Internal 1 TB / 2 TB M.2 2280 NVMe SSD, External MicroSD",
-    "dimensions": "220 mm x 92 mm x ? mm(Source)",
+    "dimensions": {
+      "length": "220 mm",
+      "width": "92 mm",
+      "height": "? mm(Source)"
+    },
     "weight": "566 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -4560,7 +4632,11 @@
     "battery": "67 Wh",
     "chargePort": "USB-C x2Top facing",
     "storage": "Dual Internal NVMe SSD slots (2280/2232)(1 TB / 2 TB standard but are user upgradeable)External SD & MicroSD",
-    "dimensions": "227 mm x 160 mm x 23 mm",
+    "dimensions": {
+      "length": "227 mm",
+      "width": "160 mm",
+      "height": "23 mm"
+    },
     "weight": "1005 grams",
     "shellMaterial": "Metal (Magnesium Aluminum Alloy)",
     "colors": [
@@ -4786,7 +4862,11 @@
     "battery": "3500 mAh(Swappable)",
     "chargePort": "USB-CTop facing",
     "storage": "Dual External MicroSD",
-    "dimensions": "144.6 mm x 81.8 mm x 24.8 mm",
+    "dimensions": {
+      "length": "144.6 mm",
+      "width": "81.8 mm",
+      "height": "24.8 mm"
+    },
     "weight": "188 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -5017,7 +5097,11 @@
     "battery": "4000 mAh",
     "chargePort": "USB-C x2Bottom facing",
     "storage": "Dual External MicroSD",
-    "dimensions": "83 mm x 153 mm x 35 mm",
+    "dimensions": {
+      "length": "83 mm",
+      "width": "153 mm",
+      "height": "35 mm"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -5258,7 +5342,11 @@
     "battery": "48.5 Wh",
     "chargePort": "USB-C x2Top & Bottom facing",
     "storage": "Internal M.2 2280 SSD, External MicroSD",
-    "dimensions": "263.6 mm x 98.2 mm x 22.6 mm",
+    "dimensions": {
+      "length": "263.6 mm",
+      "width": "98.2 mm",
+      "height": "22.6 mm"
+    },
     "weight": "599 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -5490,7 +5578,11 @@
     "battery": "6000 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Internal 128 GB (UFS 3.1)256 GB / 512 GB / 1 TB (UFS 4.0)External MicroSD",
-    "dimensions": "91.5 mm x 151 mm x 15 - 22.3 mm",
+    "dimensions": {
+      "length": "91.5 mm",
+      "width": "151 mm",
+      "height": "15 - 22.3 mm"
+    },
     "weight": "278 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -5715,7 +5807,11 @@
     "battery": "8600 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Internal 128 GB / 256 GB / 512 GB / 1 TB, External MicroSD",
-    "dimensions": "260.5 mm x 100 mm x 17 - 33.9 mm",
+    "dimensions": {
+      "length": "260.5 mm",
+      "width": "100 mm",
+      "height": "17 - 33.9 mm"
+    },
     "weight": "478 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -5939,7 +6035,11 @@
     "battery": "5000 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Internal 128 GB UFS 2.2, External MicroSD",
-    "dimensions": "174 mm x 81 mm x 17.9 mm",
+    "dimensions": {
+      "length": "174 mm",
+      "width": "81 mm",
+      "height": "17.9 mm"
+    },
     "weight": "265 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -6181,7 +6281,11 @@
     "battery": "5000 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Internal 128 GB UFS 3.1, External MicroSD",
-    "dimensions": "199.2 mm x 78.5 mm x 15.6 - ? mm",
+    "dimensions": {
+      "length": "199.2 mm",
+      "width": "78.5 mm",
+      "height": "15.6 - ? mm"
+    },
     "weight": "280 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -6412,7 +6516,11 @@
     "battery": "3000 mAh",
     "chargePort": "USB-C x2Top & Bottom facing",
     "storage": "Internal 8 GB eMMC, External MicroSD",
-    "dimensions": "73.2 mm x 109.9 mm x 11.8 - 19.9 mm",
+    "dimensions": {
+      "length": "73.2 mm",
+      "width": "109.9 mm",
+      "height": "11.8 - 19.9 mm"
+    },
     "weight": "159 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -6648,7 +6756,11 @@
     "battery": "3800 mAh",
     "chargePort": "USB-CTop facing",
     "storage": "Dual External MicroSD",
-    "dimensions": "157.2 mm x 89.6 mm x 17.9 - ? mm",
+    "dimensions": {
+      "length": "157.2 mm",
+      "width": "89.6 mm",
+      "height": "17.9 - ? mm"
+    },
     "weight": "246 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -6872,7 +6984,11 @@
     "battery": "5000 mAh",
     "chargePort": "USB-C x2Top facing",
     "storage": "Dual External MicroSD",
-    "dimensions": "83.3 mm x 150.2 mm x 23.3 - 32 mm",
+    "dimensions": {
+      "length": "83.3 mm",
+      "width": "150.2 mm",
+      "height": "23.3 - 32 mm"
+    },
     "weight": "159 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -7098,7 +7214,11 @@
     "battery": "48.5 Wh",
     "chargePort": "USB-C x2Top & Bottom facing",
     "storage": "Internal 512 GB M.2 2280 SSD, External MicroSD",
-    "dimensions": "310 mm x 135 mm x 40 mm",
+    "dimensions": {
+      "length": "310 mm",
+      "width": "135 mm",
+      "height": "40 mm"
+    },
     "weight": "<700 grams(Source)",
     "shellMaterial": "Plastic",
     "colors": [
@@ -7334,7 +7454,11 @@
     "battery": "4000 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Dual External MicroSD",
-    "dimensions": "166.8 mm x 82 mm x 24 mm",
+    "dimensions": {
+      "length": "166.8 mm",
+      "width": "82 mm",
+      "height": "24 mm"
+    },
     "weight": "227 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -7579,7 +7703,11 @@
     "battery": "4000 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Internal 128 GB UFS 3.1, External MicroSD",
-    "dimensions": "165.28 mm x 77.62 mm x 16.5 - 29.3 mm",
+    "dimensions": {
+      "length": "165.28 mm",
+      "width": "77.62 mm",
+      "height": "16.5 - 29.3 mm"
+    },
     "weight": "215 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -7808,7 +7936,11 @@
     "battery": "2600 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Internal 128 GB / 256 GB UFS 2.2, External MicroSD",
-    "dimensions": "156 mm x 63 mm x 18 mm",
+    "dimensions": {
+      "length": "156 mm",
+      "width": "63 mm",
+      "height": "18 mm"
+    },
     "weight": "233 grams",
     "shellMaterial": "Metal (Aluminum)",
     "colors": [
@@ -8040,7 +8172,11 @@
     "battery": "5500 mAh",
     "chargePort": "USB-CTop facing",
     "storage": "Internal 128 GB UFS 2.2, External MicroSD",
-    "dimensions": "105 mm x 145 mm x 29 mm",
+    "dimensions": {
+      "length": "105 mm",
+      "width": "145 mm",
+      "height": "29 mm"
+    },
     "weight": "289 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -8281,7 +8417,11 @@
     "battery": "2800 mAh",
     "chargePort": "USB-C x2Top & Bottom facing",
     "storage": "Dual External MicroSD",
-    "dimensions": "145 mm x 73.2 mm x 17 mm",
+    "dimensions": {
+      "length": "145 mm",
+      "width": "73.2 mm",
+      "height": "17 mm"
+    },
     "weight": "207 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -8526,7 +8666,11 @@
     "battery": "4000 mAh",
     "chargePort": "USB-C x2Top facing",
     "storage": "Internal 16/32 GB eMMC + External MicroSD",
-    "dimensions": "216 mm x 106 mm x 44 mm",
+    "dimensions": {
+      "length": "216 mm",
+      "width": "106 mm",
+      "height": "44 mm"
+    },
     "weight": "450 grams",
     "shellMaterial": "Metal (Aluminum)",
     "colors": [
@@ -8752,7 +8896,11 @@
     "battery": "4000 mAh",
     "chargePort": "USB-C x2Bottom facing",
     "storage": "Dual External MicroSD card",
-    "dimensions": "185 mm x 80 mm x 20 mm",
+    "dimensions": {
+      "length": "185 mm",
+      "width": "80 mm",
+      "height": "20 mm"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -8976,7 +9124,11 @@
     "battery": "3200 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Dual External MicroSD",
-    "dimensions": "92 mm x 139 mm x 13 - 22 mm",
+    "dimensions": {
+      "length": "92 mm",
+      "width": "139 mm",
+      "height": "13 - 22 mm"
+    },
     "weight": "217 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -9206,7 +9358,11 @@
     "battery": "10000 mAh",
     "chargePort": "USB-C x2Top & Bottom facing",
     "storage": "Internal 128 GB / 256 GB eMMC, External MicroSD",
-    "dimensions": "272.5 mm x 144.5 mm x 58 mm",
+    "dimensions": {
+      "length": "272.5 mm",
+      "width": "144.5 mm",
+      "height": "58 mm"
+    },
     "weight": "630 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -9435,7 +9591,11 @@
     "battery": "4500 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Internal 128 GB (eMMC?), External MicroSD",
-    "dimensions": "160 mm x 92 mm x 22 mm",
+    "dimensions": {
+      "length": "160 mm",
+      "width": "92 mm",
+      "height": "22 mm"
+    },
     "weight": "252 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -9661,7 +9821,11 @@
     "battery": "3500 mAh",
     "chargePort": "USB-CTop facing",
     "storage": "External MicroSD card",
-    "dimensions": "82 mm x 130 mm x ? mm",
+    "dimensions": {
+      "length": "82 mm",
+      "width": "130 mm",
+      "height": "? mm"
+    },
     "weight": "188 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -9887,7 +10051,11 @@
     "battery": "3000 mAh",
     "chargePort": "USB-CTop facing",
     "storage": "Internal & External MicroSD card",
-    "dimensions": "81 mm x 126 mm x 22 mm",
+    "dimensions": {
+      "length": "81 mm",
+      "width": "126 mm",
+      "height": "22 mm"
+    },
     "weight": "177 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -10112,7 +10280,11 @@
     "battery": "2600 mAh",
     "chargePort": "USB-C x2Top facing",
     "storage": "Dual External MicroSD",
-    "dimensions": "129 mm x 64 mm x 19 mm(Source)",
+    "dimensions": {
+      "length": "129 mm",
+      "width": "64 mm",
+      "height": "19 mm(Source)"
+    },
     "weight": "120 grams(Source)",
     "shellMaterial": "Plastic",
     "colors": [
@@ -10345,7 +10517,11 @@
     "battery": "80 Wh",
     "chargePort": "USB-C x2Top facing",
     "storage": "Internal 1 TB M.2 2280 NVMe SSD, External MicroSD",
-    "dimensions": "280.2 mm x 114 mm x 36.9 mm",
+    "dimensions": {
+      "length": "280.2 mm",
+      "width": "114 mm",
+      "height": "36.9 mm"
+    },
     "weight": "678 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -10575,7 +10751,11 @@
     "battery": "3200 mAh",
     "chargePort": "USB-CTop facing",
     "storage": "Dual External MicroSD",
-    "dimensions": "163 mm x 79 mm x 16 mm",
+    "dimensions": {
+      "length": "163 mm",
+      "width": "79 mm",
+      "height": "16 mm"
+    },
     "weight": "208 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -10806,7 +10986,11 @@
     "battery": "65.02 Wh(16890 mAh)",
     "chargePort": "USB-C x2Top & Bottom facing",
     "storage": "Internal Swappable M.2 2230 NVMe SSD, External MicroSD",
-    "dimensions": "210.6 mm x 129.2 mm x 20 mm",
+    "dimensions": {
+      "length": "210.6 mm",
+      "width": "129.2 mm",
+      "height": "20 mm"
+    },
     "weight": "710 grams(Main body only)960 grams(Controllers attached)",
     "shellMaterial": "Plastic",
     "colors": [
@@ -11028,7 +11212,9 @@
     "battery": "5000 mAh",
     "chargePort": "USB-C x2Top facing",
     "storage": "External MicroSD",
-    "dimensions": "?",
+    "dimensions": {
+      "length": "?"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -11258,7 +11444,11 @@
     "battery": "5000 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Internal 128 GB / 256 GB UFS 4.0, External MicroSD",
-    "dimensions": "198 mm x 85.8 mm x 19.5 mm(Size comparison)",
+    "dimensions": {
+      "length": "198 mm",
+      "width": "85.8 mm",
+      "height": "19.5 mm(Size comparison)"
+    },
     "weight": "320 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -11481,7 +11671,11 @@
     "battery": "3000 mAh(Swappable)",
     "chargePort": "USB-C x2Top facing",
     "storage": "External MicroSD",
-    "dimensions": "94 mm x 103.2 mm x 22.5 mm",
+    "dimensions": {
+      "length": "94 mm",
+      "width": "103.2 mm",
+      "height": "22.5 mm"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -11723,7 +11917,11 @@
     "battery": "5000 mAh",
     "chargePort": "USB-C x2Top facing",
     "storage": "Internal 32 GB eMMC, Dual External MicroSD",
-    "dimensions": "163 mm x 79 mm x 16 mm",
+    "dimensions": {
+      "length": "163 mm",
+      "width": "79 mm",
+      "height": "16 mm"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -11954,7 +12152,11 @@
     "battery": "5200 mAh",
     "chargePort": "USB-CTop facing",
     "storage": "Internal 128 GB UFS 2.2, External MicroSD",
-    "dimensions": "153 mm x 86.3 mm x 18 - ? mm(Source)",
+    "dimensions": {
+      "length": "153 mm",
+      "width": "86.3 mm",
+      "height": "18 - ? mm(Source)"
+    },
     "weight": "256 grams(Source)",
     "shellMaterial": "Plastic",
     "colors": [
@@ -12196,7 +12398,11 @@
     "battery": "67 Wh",
     "chargePort": "USB-C x2Top facing",
     "storage": "Dual Internal NVMe SSD slots (2280/2232)(1 TB / 2 TB standard but are user upgradeable)External SD & MicroSD",
-    "dimensions": "227 mm x 160 mm x 23 mm",
+    "dimensions": {
+      "length": "227 mm",
+      "width": "160 mm",
+      "height": "23 mm"
+    },
     "weight": "1005 grams",
     "shellMaterial": "Metal (Magnesium Aluminum Alloy)",
     "colors": [
@@ -12430,7 +12636,11 @@
     "battery": "6000 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Internal 128 GB UFS 3.1 or 512 GB / 1 TB UFS 4.0, External MicroSD",
-    "dimensions": "213.9 mm x 85 mm x 14 - ? mm",
+    "dimensions": {
+      "length": "213.9 mm",
+      "width": "85 mm",
+      "height": "14 - ? mm"
+    },
     "weight": "350 grams",
     "shellMaterial": "Metal (Aluminum)",
     "colors": [
@@ -12658,7 +12868,11 @@
     "battery": "4000 mAh",
     "chargePort": "USB-C x2Bottom facing",
     "storage": "Dual External MicroSD",
-    "dimensions": "145 mm x 86.5 mm x 10* mm",
+    "dimensions": {
+      "length": "145 mm",
+      "width": "86.5 mm",
+      "height": "10* mm"
+    },
     "weight": "211 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -12884,7 +13098,11 @@
     "battery": "3300 mAh(Swappable)",
     "chargePort": "USB-CTop facing",
     "storage": "Dual External MicroSD",
-    "dimensions": "89 mm x 85 mm x 27.3 mm(Closed)",
+    "dimensions": {
+      "length": "89 mm",
+      "width": "85 mm",
+      "height": "27.3 mm(Closed)"
+    },
     "weight": "197 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -13119,7 +13337,11 @@
     "battery": "2600 mAh(Source)",
     "chargePort": "USB-CTop facing",
     "storage": "External MicroSD",
-    "dimensions": "127.5 mm x 57 mm x 16 mm(Source)",
+    "dimensions": {
+      "length": "127.5 mm",
+      "width": "57 mm",
+      "height": "16 mm(Source)"
+    },
     "weight": "115 grams(Source)",
     "shellMaterial": "Plastic",
     "colors": [
@@ -13356,7 +13578,9 @@
     "battery": "3000 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "External MicroSD",
-    "dimensions": "?",
+    "dimensions": {
+      "length": "?"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -13585,7 +13809,11 @@
     "battery": "44.24 Wh",
     "chargePort": "USB-C x2Top facing",
     "storage": "Internal 512 GB / 2 TB M.2 2230 SSD,External MicroSD",
-    "dimensions": "168 mm x 109 mm x 26.8 - 31.7 mm",
+    "dimensions": {
+      "length": "168 mm",
+      "width": "109 mm",
+      "height": "26.8 - 31.7 mm"
+    },
     "weight": "520 grams",
     "shellMaterial": "Plastic, Aluminum & Magnesium Alloy combination",
     "colors": [
@@ -13810,7 +14038,11 @@
     "battery": "3100 mAh",
     "chargePort": "USB-CTop facing",
     "storage": "Dual External MicroSD",
-    "dimensions": "125 mm x 56.5 mm x 16.5 mm",
+    "dimensions": {
+      "length": "125 mm",
+      "width": "56.5 mm",
+      "height": "16.5 mm"
+    },
     "weight": "123 grams(Source)",
     "shellMaterial": "Plastic",
     "colors": [
@@ -14054,7 +14286,11 @@
     "battery": "5000 mAh",
     "chargePort": "USB-C x2Bottom facing",
     "storage": "Dual External MicroSD",
-    "dimensions": "87 mm x 143 mm x 22 mm",
+    "dimensions": {
+      "length": "87 mm",
+      "width": "143 mm",
+      "height": "22 mm"
+    },
     "weight": "240 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -14286,7 +14522,9 @@
     "battery": "3000 mAh(Swappable)",
     "chargePort": "USB-CBottom facing",
     "storage": "External MicroSD",
-    "dimensions": "?",
+    "dimensions": {
+      "length": "?"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -14514,7 +14752,11 @@
     "battery": "45 Wh",
     "chargePort": "USB-C x2Top facing",
     "storage": "Internal 512 GB / 2 TB M.2 2230 SSD, External MicroSD",
-    "dimensions": "180 mm x 102 mm x 29.8 - 37.5 mm",
+    "dimensions": {
+      "length": "180 mm",
+      "width": "102 mm",
+      "height": "29.8 - 37.5 mm"
+    },
     "weight": "650 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -14740,7 +14982,11 @@
     "battery": "45 Wh",
     "chargePort": "USB-C x2Top facing",
     "storage": "Internal 512 GB / 2 TB M.2 2230 SSD, External MicroSD",
-    "dimensions": "180 mm x 102 mm x 29.8 - 37.5 mm",
+    "dimensions": {
+      "length": "180 mm",
+      "width": "102 mm",
+      "height": "29.8 - 37.5 mm"
+    },
     "weight": "650 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -14963,7 +15209,11 @@
     "battery": "2600 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Dual External MicroSD",
-    "dimensions": "81 mm x 117 mm x 20 mm",
+    "dimensions": {
+      "length": "81 mm",
+      "width": "117 mm",
+      "height": "20 mm"
+    },
     "weight": "175 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -15187,7 +15437,11 @@
     "battery": "4200 mAh",
     "chargePort": "USB-CTop facing",
     "storage": "Dual External MicroSD",
-    "dimensions": "210 mm x 90 mm x 22 mm",
+    "dimensions": {
+      "length": "210 mm",
+      "width": "90 mm",
+      "height": "22 mm"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -15413,7 +15667,11 @@
     "battery": "53 Wh",
     "chargePort": "USB-CTop facing",
     "storage": "Internal 512 GB / 1 TB (NVMe?), External MicroSD",
-    "dimensions": "294 mm x 117 mm x 21.2 mm",
+    "dimensions": {
+      "length": "294 mm",
+      "width": "117 mm",
+      "height": "21.2 mm"
+    },
     "weight": "675 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -15648,7 +15906,11 @@
     "battery": "5500 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Internal 128 GB UFS 2.2, External MicroSD",
-    "dimensions": "223 mm x 90 mm x 15-25 mm",
+    "dimensions": {
+      "length": "223 mm",
+      "width": "90 mm",
+      "height": "15-25 mm"
+    },
     "weight": "331 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -15878,7 +16140,11 @@
     "battery": "4000 mAh",
     "chargePort": "USB-C x2 Bottom facing",
     "storage": "Dual External MicroSD",
-    "dimensions": "189.5 mm x 76.5 mm x 18-30 mm",
+    "dimensions": {
+      "length": "189.5 mm",
+      "width": "76.5 mm",
+      "height": "18-30 mm"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -16104,7 +16370,11 @@
     "battery": "7200 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Internal 256 GB eMMC, M.2 2242 SSD slot, External MicroSD",
-    "dimensions": "212 mm x 91 mm x 16 mm",
+    "dimensions": {
+      "length": "212 mm",
+      "width": "91 mm",
+      "height": "16 mm"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -16338,7 +16608,11 @@
     "battery": "48.5 Wh(12600 mAh)",
     "chargePort": "USB-C x2Top & Bottom facing",
     "storage": "Internal 512 GB / 1 TB / 2 TB / 4 TB M.2 2280 SSD, External MicroSD",
-    "dimensions": "265 mm x 105 mm x 22 mm - ? mm",
+    "dimensions": {
+      "length": "265 mm",
+      "width": "105 mm",
+      "height": "22 mm - ? mm"
+    },
     "weight": "649 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -16573,7 +16847,11 @@
     "battery": "4100 mAh(47 Wh)",
     "chargePort": "USB-C x3Top & Bottom facing",
     "storage": "Internal 128GB / 512 GB M.2 2280 SSD (up to 8TB)",
-    "dimensions": "267 mm x 112 mm x 22 - 30 mm",
+    "dimensions": {
+      "length": "267 mm",
+      "width": "112 mm",
+      "height": "22 - 30 mm"
+    },
     "weight": "720 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -16806,7 +17084,11 @@
     "battery": "65 Wh(16890 mAh)",
     "chargePort": "USB-CTop facing",
     "storage": "Internal 1 TB / 2 TB / 4 TB SSD, External MicroSD",
-    "dimensions": "252 mm x 163 mm x 13 - ? mm",
+    "dimensions": {
+      "length": "252 mm",
+      "width": "163 mm",
+      "height": "13 - ? mm"
+    },
     "weight": "789 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -17029,7 +17311,11 @@
     "battery": "5000 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Internal 128 GB UFS 3.1, External MicroSD",
-    "dimensions": "184.8 mm x 82.6 mm x 15.8 mm",
+    "dimensions": {
+      "length": "184.8 mm",
+      "width": "82.6 mm",
+      "height": "15.8 mm"
+    },
     "weight": "261 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -17258,7 +17544,11 @@
     "battery": "60 Wh",
     "chargePort": "USB-C x2Top facing",
     "storage": "Internal 512 GB - 4 TB M.2 2280 SSD, External MicroSD",
-    "dimensions": "343 mm x 155 mm x 19.9 - ? mm",
+    "dimensions": {
+      "length": "343 mm",
+      "width": "155 mm",
+      "height": "19.9 - ? mm"
+    },
     "weight": "890 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -17485,7 +17775,11 @@
     "battery": "1300 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "External MicroSD",
-    "dimensions": "56 mm x 80 mm x 18 mm(Source)",
+    "dimensions": {
+      "length": "56 mm",
+      "width": "80 mm",
+      "height": "18 mm(Source)"
+    },
     "weight": "107 grams",
     "shellMaterial": "Metal (Aluminum)",
     "colors": [
@@ -17721,7 +18015,11 @@
     "battery": "5000 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Internal 128 GB UFS 3.1, External MicroSD",
-    "dimensions": "184.8 mm x 82.6 mm x 15.8 mm",
+    "dimensions": {
+      "length": "184.8 mm",
+      "width": "82.6 mm",
+      "height": "15.8 mm"
+    },
     "weight": "261 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -17950,7 +18248,11 @@
     "battery": "3300 mAh",
     "chargePort": "USB-C x2Top facing",
     "storage": "Dual External MicroSD",
-    "dimensions": "145 mm x 69 mm x 16 mm",
+    "dimensions": {
+      "length": "145 mm",
+      "width": "69 mm",
+      "height": "16 mm"
+    },
     "weight": "180 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -18178,7 +18480,11 @@
     "battery": "4000 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Internal 4 GB eMMC & External MicroSD",
-    "dimensions": "100 mm x 145 mm x 35 mm",
+    "dimensions": {
+      "length": "100 mm",
+      "width": "145 mm",
+      "height": "35 mm"
+    },
     "weight": "450 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -18405,7 +18711,11 @@
     "battery": "3200 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Internal 32GB, External MicroSD",
-    "dimensions": "78.5 mm x 108 mm x 22 mm",
+    "dimensions": {
+      "length": "78.5 mm",
+      "width": "108 mm",
+      "height": "22 mm"
+    },
     "weight": "162 Grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -18630,7 +18940,11 @@
     "battery": "800 mAh(18650)(Swappable)",
     "chargePort": "USB-CTop facing",
     "storage": "External MicroSD",
-    "dimensions": "81 mm x 128 mm x 26 mm",
+    "dimensions": {
+      "length": "81 mm",
+      "width": "128 mm",
+      "height": "26 mm"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -18854,7 +19168,11 @@
     "battery": "46.2 Wh",
     "chargePort": "USB-C x2Top & Bottom facing",
     "storage": "Internal 512 GB / 2 TB / 4 TB M.2 2280 SSD, External MicroSD",
-    "dimensions": "226 mm x 90 mm x 28.5 - 37.5 mm",
+    "dimensions": {
+      "length": "226 mm",
+      "width": "90 mm",
+      "height": "28.5 - 37.5 mm"
+    },
     "weight": "650 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -19079,7 +19397,9 @@
     "battery": "5000 mAh",
     "chargePort": "USB-CTop facing",
     "storage": "External MicroSD",
-    "dimensions": "?",
+    "dimensions": {
+      "length": "?"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -19315,7 +19635,11 @@
     "battery": "44.24 Wh",
     "chargePort": "USB-C x2Top facing",
     "storage": "Internal 512 GB / 1 TB / 2 TB M.2 2230 SSD,External MicroSD",
-    "dimensions": "168 mm x 109 mm x 26.8 - 31.7 mm",
+    "dimensions": {
+      "length": "168 mm",
+      "width": "109 mm",
+      "height": "26.8 - 31.7 mm"
+    },
     "weight": "520 grams",
     "shellMaterial": "Plastic, Aluminum & Magnesium Alloy combination",
     "colors": [
@@ -19541,7 +19865,11 @@
     "battery": "3300 mAh(Swappable)",
     "chargePort": "USB-CBottom facing",
     "storage": "Dual External MicroSD",
-    "dimensions": "81 mm x 117 mm x 22 mm",
+    "dimensions": {
+      "length": "81 mm",
+      "width": "117 mm",
+      "height": "22 mm"
+    },
     "weight": "186 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -19771,7 +20099,11 @@
     "battery": "3500 mAh",
     "chargePort": "USB-C x2Top facing",
     "storage": "Internal 32 GB MicroSD, Dual External MicroSD",
-    "dimensions": "191 mm x 80 mm x 22 mm",
+    "dimensions": {
+      "length": "191 mm",
+      "width": "80 mm",
+      "height": "22 mm"
+    },
     "weight": "~240 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -20005,7 +20337,11 @@
     "battery": "3500 mAh",
     "chargePort": "USB-C x2Top facing",
     "storage": "Dual External MicroSD",
-    "dimensions": "191 mm x 80 mm x 22 mm",
+    "dimensions": {
+      "length": "191 mm",
+      "width": "80 mm",
+      "height": "22 mm"
+    },
     "weight": "~240 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -20253,7 +20589,11 @@
     "battery": "50 Wh",
     "chargePort": "USB-CTop facing",
     "storage": "Internal 512 GB / 1 TB NVMe SSD, External MicroSD",
-    "dimensions": "298 mm x 117 mm x 50 mm",
+    "dimensions": {
+      "length": "298 mm",
+      "width": "117 mm",
+      "height": "50 mm"
+    },
     "weight": "640 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -20483,7 +20823,9 @@
     "battery": "3000 mAh",
     "chargePort": "USB-C x2Top facing",
     "storage": "Dual External MicroSD",
-    "dimensions": "?",
+    "dimensions": {
+      "length": "?"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -20713,7 +21055,11 @@
     "battery": "5000 mAh",
     "chargePort": "USB-C x2Top & Bottom facing",
     "storage": "Internal 8 GB eMMC, External MicroSD",
-    "dimensions": "188 mm x 80 mm x 17 mm",
+    "dimensions": {
+      "length": "188 mm",
+      "width": "80 mm",
+      "height": "17 mm"
+    },
     "weight": "231 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -20952,7 +21298,11 @@
     "battery": "3500 mAh(Swappable)",
     "chargePort": "USB-C x2Bottom facing",
     "storage": "Dual External MicroSD(Compatible cards list)",
-    "dimensions": "82 mm x 130 mm x ? mm",
+    "dimensions": {
+      "length": "82 mm",
+      "width": "130 mm",
+      "height": "? mm"
+    },
     "weight": "187 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -21183,7 +21533,11 @@
     "battery": "49.2 Wh",
     "chargePort": "USB-C x2Top & Bottom facing",
     "storage": "Internal 256 GB / 512 GB / 1 TB M.2 2242 NVMe SSD, External MicroSD",
-    "dimensions": "299 mm x 131 mm x 41 mm",
+    "dimensions": {
+      "length": "299 mm",
+      "width": "131 mm",
+      "height": "41 mm"
+    },
     "weight": "854 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -21411,7 +21765,11 @@
     "battery": "8000 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Internal 128 GB / 256 GB / 512 GB UFS4.0, External MicroSD",
-    "dimensions": "225 mm x 98 mm x 17 mm",
+    "dimensions": {
+      "length": "225 mm",
+      "width": "98 mm",
+      "height": "17 mm"
+    },
     "weight": "420 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -21646,7 +22004,11 @@
     "battery": "75 Wh(19500 mAh)",
     "chargePort": "USB-C x2Top & Bottom facing",
     "storage": "Internal 512 GB / 1 TB / 2 TB M.2 2280 SSD, External MicroSD",
-    "dimensions": "312.4 mm x 132.5 mm x 21.9 mm",
+    "dimensions": {
+      "length": "312.4 mm",
+      "width": "132.5 mm",
+      "height": "21.9 mm"
+    },
     "weight": "950 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -21880,7 +22242,9 @@
     "battery": "1500 mAh",
     "chargePort": "USB-CTop facing",
     "storage": "Internal 4 GB eMMC & External MicroSD",
-    "dimensions": "?",
+    "dimensions": {
+      "length": "?"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -22112,7 +22476,11 @@
     "battery": "7350 mAh",
     "chargePort": "USB-C x2Top: 1Bottom: 1",
     "storage": "Internal 128 GB / 256 GB / 512 GB & External MicroSD",
-    "dimensions": "224 mm x 89.5 mm x 18 - 26.7 mm",
+    "dimensions": {
+      "length": "224 mm",
+      "width": "89.5 mm",
+      "height": "18 - 26.7 mm"
+    },
     "weight": "380 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -22351,7 +22719,11 @@
     "battery": "46.2 Wh",
     "chargePort": "USB-CBottom facing",
     "storage": "External MicroSD, Internal 128 GB M.2 2230 NVMe SSD",
-    "dimensions": "248 mm x 98 mm x 20 - 23.7 mm",
+    "dimensions": {
+      "length": "248 mm",
+      "width": "98 mm",
+      "height": "20 - 23.7 mm"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -22579,7 +22951,9 @@
     "battery": "48 Wh",
     "chargePort": "USB-C x2Top & Bottom facing",
     "storage": "Internal M.2 2280 SSD, External MicroSD",
-    "dimensions": "?",
+    "dimensions": {
+      "length": "?"
+    },
     "weight": "580 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -22808,7 +23182,11 @@
     "battery": "45.62 Wh",
     "chargePort": "USB-C x2Top & Bottom facing",
     "storage": "Internal 512 GB / 2 TB / 4 TB M.2 2280 NVMe SSD, External MicroSD",
-    "dimensions": "220 mm x 92 mm x ? mm(Source)",
+    "dimensions": {
+      "length": "220 mm",
+      "width": "92 mm",
+      "height": "? mm(Source)"
+    },
     "weight": "566 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -23040,7 +23418,11 @@
     "battery": "5500 mAh",
     "chargePort": "USB-CTop facing",
     "storage": "Internal 128 GB eMMC, External MicroSD",
-    "dimensions": "105 mm x 145 mm x 35 mm",
+    "dimensions": {
+      "length": "105 mm",
+      "width": "145 mm",
+      "height": "35 mm"
+    },
     "weight": "282 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -23269,7 +23651,11 @@
     "battery": "4100 mAh",
     "chargePort": "USB-C x2Bottom facing",
     "storage": "Dual External MicroSD",
-    "dimensions": "145 mm x 86.5 mm x 18 mm",
+    "dimensions": {
+      "length": "145 mm",
+      "width": "86.5 mm",
+      "height": "18 mm"
+    },
     "weight": "207 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -23510,7 +23896,11 @@
     "battery": "40.5 Wh",
     "chargePort": "USB-CBottom facing",
     "storage": "External MicroSD, Internal 64 GB eMMC, M.2 2230 NVMe SSD Slot",
-    "dimensions": "248 mm x 98 mm x 20 - 23.7 mm",
+    "dimensions": {
+      "length": "248 mm",
+      "width": "98 mm",
+      "height": "20 - 23.7 mm"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -23736,7 +24126,11 @@
     "battery": "4000 mAh",
     "chargePort": "USB-CTop facing",
     "storage": "Internal 32 GB / 128 GB eMMC, External MicroSD",
-    "dimensions": "155 mm x 80.6 mm x 16-28 mm",
+    "dimensions": {
+      "length": "155 mm",
+      "width": "80.6 mm",
+      "height": "16-28 mm"
+    },
     "weight": "200 grams",
     "shellMaterial": "PlasticorMetal (Aluminum)",
     "colors": [
@@ -23981,7 +24375,11 @@
     "battery": "67 Wh",
     "chargePort": "USB-C x2Top facing",
     "storage": "Dual Internal NVMe SSD slots (2280/2232)(1 TB / 2 TB standard but are user upgradeable)External SD & MicroSD",
-    "dimensions": "227 mm x 160 mm x 23 mm",
+    "dimensions": {
+      "length": "227 mm",
+      "width": "160 mm",
+      "height": "23 mm"
+    },
     "weight": "1005 grams",
     "shellMaterial": "Metal (Magnesium Aluminum Alloy)",
     "colors": [
@@ -24215,7 +24613,11 @@
     "battery": "Thin: 28 Wh(7350 mAh)Standard: 38 Wh(10050 mAh)",
     "chargePort": "USB-C x2Top & Bottom facing",
     "storage": "External MicroSD, Internal Replaceable M.2 2280 SSD (512 GB / 1 TB / 2 TB / 4 TB)",
-    "dimensions": "224 mm x 89.5 mm x 18 mm (Thin)224 mm x 89.5 mm x 21.6 mm (Standard)",
+    "dimensions": {
+      "length": "224 mm",
+      "width": "89.5 mm",
+      "height": "18 mm (Thin)224 mm"
+    },
     "weight": "405 grams(Thin)450 grams(Standard)",
     "shellMaterial": "Plastic",
     "colors": [
@@ -24451,7 +24853,11 @@
     "battery": "50.25 Wh(13050 mAh)",
     "chargePort": "USB-C x3Bottom facing",
     "storage": "Internal 512 GB / 2 TB M.2 2280 SSD, External MicroSD",
-    "dimensions": "264.5 mm x 105.5 mm x 22.3 - 36.9 mm",
+    "dimensions": {
+      "length": "264.5 mm",
+      "width": "105.5 mm",
+      "height": "22.3 - 36.9 mm"
+    },
     "weight": "672 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -24678,7 +25084,11 @@
     "battery": "5200 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Internal 64 GB, External MicroSD",
-    "dimensions": "250mm x 115mm x 30mm",
+    "dimensions": {
+      "length": "250mm",
+      "width": "115mm",
+      "height": "30mm"
+    },
     "weight": "410 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -24911,7 +25321,11 @@
     "battery": "7000 mAh",
     "chargePort": "USB-CTop facing",
     "storage": "Internal 64, 128, or 256 GB UFS2.1, External MicroSD",
-    "dimensions": "169.8 mm x 79.5 mm x 18.3 mm",
+    "dimensions": {
+      "length": "169.8 mm",
+      "width": "79.5 mm",
+      "height": "18.3 mm"
+    },
     "weight": "260 grams (Plastic), 320 grams (Metal)",
     "shellMaterial": "PlasticorMetal (Aluminum)",
     "colors": [
@@ -25156,7 +25570,11 @@
     "battery": "3500 mAh",
     "chargePort": "USB-C x2Bottom facing",
     "storage": "Dual External MicroSD(Compatible cards list)",
-    "dimensions": "83 mm x 120 mm x 20.8 mm",
+    "dimensions": {
+      "length": "83 mm",
+      "width": "120 mm",
+      "height": "20.8 mm"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -25393,7 +25811,11 @@
     "battery": "4000 mAh",
     "chargePort": "USB-C x2Top facing",
     "storage": "Internal 16 GB eMMC, External MicroSD",
-    "dimensions": "183 mm x 84.5 mm x 18 mm",
+    "dimensions": {
+      "length": "183 mm",
+      "width": "84.5 mm",
+      "height": "18 mm"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -25615,7 +26037,9 @@
     "battery": "2000 mAh",
     "chargePort": "USB-CTop facing",
     "storage": "External MicroSD",
-    "dimensions": "?",
+    "dimensions": {
+      "length": "?"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -25858,7 +26282,11 @@
     "battery": "18650 x2",
     "chargePort": "USB-CSide facing",
     "storage": "Internal MicroSD",
-    "dimensions": "~125 mm x 180 mm x 20 mm(Estimate)",
+    "dimensions": {
+      "length": "~125 mm",
+      "width": "180 mm",
+      "height": "20 mm(Estimate)"
+    },
     "weight": "?",
     "shellMaterial": "Metal (Aluminum)",
     "colors": [
@@ -26084,7 +26512,11 @@
     "battery": "65 Wh(17100 mAh)",
     "chargePort": "USB-CTop facing",
     "storage": "Internal 512 GB / 1 TB / 2 TB M.2 2280 SSD, External MicroSD",
-    "dimensions": "285 mm x 125 mm x 21 mm",
+    "dimensions": {
+      "length": "285 mm",
+      "width": "125 mm",
+      "height": "21 mm"
+    },
     "weight": "729 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -26319,7 +26751,11 @@
     "battery": "50.25 Wh(13050 mAh)",
     "chargePort": "USB-C x3Bottom facing",
     "storage": "Internal 512 GB / 2 TB / 4 TB M.2 2280 SSD, External MicroSD",
-    "dimensions": "264.5 mm x 105.5 mm x 21.5 - 36.1 mm",
+    "dimensions": {
+      "length": "264.5 mm",
+      "width": "105.5 mm",
+      "height": "21.5 - 36.1 mm"
+    },
     "weight": "667 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -26555,7 +26991,11 @@
     "battery": "46.2 Wh",
     "chargePort": "USB-C x2Top & Bottom facing",
     "storage": "Internal 128 GB / 512 GB M.2 2280 SSD, External MicroSD",
-    "dimensions": "237 mm x 91.4 mm x 23.1mm",
+    "dimensions": {
+      "length": "237 mm",
+      "width": "91.4 mm",
+      "height": "23.1mm"
+    },
     "weight": "510 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -26787,7 +27227,11 @@
     "battery": "1050 mAh",
     "chargePort": "USB-CTop facing",
     "storage": "External MicroSD",
-    "dimensions": "43 mm x 71 mm x 17 mm",
+    "dimensions": {
+      "length": "43 mm",
+      "width": "71 mm",
+      "height": "17 mm"
+    },
     "weight": "75 grams",
     "shellMaterial": "Metal (Aluminum)",
     "colors": [
@@ -27014,7 +27458,11 @@
     "battery": "40 Wh",
     "chargePort": "USB-CTop facing",
     "storage": "Internal 512 GB M.2 2230 NVMe SSD, External MicroSD",
-    "dimensions": "280 mm x 113 mm x 39 mm",
+    "dimensions": {
+      "length": "280 mm",
+      "width": "113 mm",
+      "height": "39 mm"
+    },
     "weight": "608 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -27258,7 +27706,11 @@
     "battery": "40.5 Wh",
     "chargePort": "USB-CBottom facing",
     "storage": "External MicroSD, Internal 256 GB / 512 GB M.2 2230 NVMe SSD",
-    "dimensions": "248 mm x 98 mm x 20 - 23.7 mm",
+    "dimensions": {
+      "length": "248 mm",
+      "width": "98 mm",
+      "height": "20 - 23.7 mm"
+    },
     "weight": "568 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -27505,7 +27957,11 @@
     "battery": "46.2 Wh",
     "chargePort": "USB-CBottom facing",
     "storage": "External MicroSD, Internal 512 GB M.2 2230 NVMe SSD",
-    "dimensions": "248 mm x 98 mm x 20 - 23.7 mm",
+    "dimensions": {
+      "length": "248 mm",
+      "width": "98 mm",
+      "height": "20 - 23.7 mm"
+    },
     "weight": "568 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -27738,7 +28194,11 @@
     "battery": "3500 mAh",
     "chargePort": "USB-C x2Bottom facing",
     "storage": "Dual External MicroSD",
-    "dimensions": "151.5 mm x 78 mm x 17.5 mm",
+    "dimensions": {
+      "length": "151.5 mm",
+      "width": "78 mm",
+      "height": "17.5 mm"
+    },
     "weight": "175 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -27963,7 +28423,9 @@
     "battery": "4000 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Internal 128 GB / 256 GB, External MicroSD",
-    "dimensions": "?",
+    "dimensions": {
+      "length": "?"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -28187,7 +28649,9 @@
     "battery": "3000 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Internal 8 GB eMMC & External MicroSD",
-    "dimensions": "?",
+    "dimensions": {
+      "length": "?"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -28406,7 +28870,11 @@
     "battery": "3500 mAh",
     "chargePort": "USB-C x2Bottom facing",
     "storage": "Internal 8 GB eMMC, External MicroSD",
-    "dimensions": "120 mm x 180 mm x 50 mm",
+    "dimensions": {
+      "length": "120 mm",
+      "width": "180 mm",
+      "height": "50 mm"
+    },
     "weight": "400 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -28633,7 +29101,11 @@
     "battery": "5000 mAh",
     "chargePort": "USB-C x2Top facing",
     "storage": "Internal 64 GB eMMC, External MicroSD",
-    "dimensions": "207.6 mm x 80.7 mm x 26.9 mm",
+    "dimensions": {
+      "length": "207.6 mm",
+      "width": "80.7 mm",
+      "height": "26.9 mm"
+    },
     "weight": "296 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -28862,7 +29334,11 @@
     "battery": "3500 mAh",
     "chargePort": "USB-C x2Top facing",
     "storage": "Dual External MicroSD",
-    "dimensions": "190 mm x 84 mm x 20 - 22.5 mm",
+    "dimensions": {
+      "length": "190 mm",
+      "width": "84 mm",
+      "height": "20 - 22.5 mm"
+    },
     "weight": "210 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -29091,7 +29567,11 @@
     "battery": "4000 mAh",
     "chargePort": "USB-C x2Top facing",
     "storage": "Internal 16 GB (eMMC?), Dual External MicroSD",
-    "dimensions": "212.5 mm x 94.5 mm x 19 mm",
+    "dimensions": {
+      "length": "212.5 mm",
+      "width": "94.5 mm",
+      "height": "19 mm"
+    },
     "weight": "293 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -29326,7 +29806,11 @@
     "battery": "46.2 Wh",
     "chargePort": "USB-C x2Top & Bottom facing",
     "storage": "Internal 512 GB / 1 TB / 2 TB M.2 2280 SSD, External MicroSD",
-    "dimensions": "237 mm x 91.4 mm x 23.1mm",
+    "dimensions": {
+      "length": "237 mm",
+      "width": "91.4 mm",
+      "height": "23.1mm"
+    },
     "weight": "525 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -29551,7 +30035,11 @@
     "battery": "5000 mAh",
     "chargePort": "USB-CTop facing",
     "storage": "Internal 128 GB eMMC 5.1, External MicroSD",
-    "dimensions": "139 mm x 82 mm x 25.4 mm",
+    "dimensions": {
+      "length": "139 mm",
+      "width": "82 mm",
+      "height": "25.4 mm"
+    },
     "weight": "270 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -29777,7 +30265,11 @@
     "battery": "1500 mAh 18650(Swappable)",
     "chargePort": "USB-CBottom facing",
     "storage": "External MicroSD",
-    "dimensions": "166 mm x 69 mm x 32 mm",
+    "dimensions": {
+      "length": "166 mm",
+      "width": "69 mm",
+      "height": "32 mm"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -30018,7 +30510,11 @@
     "battery": "4500 mAh(Source)",
     "chargePort": "USB-CTop facing",
     "storage": "Internal 128 GB eMMC, External MicroSD",
-    "dimensions": "162 mm x 73.6 mm x 15.8 mm(Source)",
+    "dimensions": {
+      "length": "162 mm",
+      "width": "73.6 mm",
+      "height": "15.8 mm(Source)"
+    },
     "weight": "265 grams(Source)",
     "shellMaterial": "Metal (Aluminum)",
     "colors": [
@@ -30247,7 +30743,11 @@
     "battery": "45.62 Wh(Source)",
     "chargePort": "USB-C x2Top & Bottom facing",
     "storage": "Internal 512 GB / 1 TB / 2 TB NVMe SSD, External MicroSD",
-    "dimensions": "220 mm x 92 mm x ? mm(Source)",
+    "dimensions": {
+      "length": "220 mm",
+      "width": "92 mm",
+      "height": "? mm(Source)"
+    },
     "weight": "566 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -30478,7 +30978,11 @@
     "battery": "3500 mAh",
     "chargePort": "USB-C x2Bottom facing",
     "storage": "Dual External MicroSD",
-    "dimensions": "151.5 mm x 78 mm x 17.5 mm(Source)",
+    "dimensions": {
+      "length": "151.5 mm",
+      "width": "78 mm",
+      "height": "17.5 mm(Source)"
+    },
     "weight": "175 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -30715,7 +31219,11 @@
     "battery": "3000 mAh(Swappable)",
     "chargePort": "USB-CBottom facing",
     "storage": "External MicroSD",
-    "dimensions": "78.5 mm x 108 mm x 22.3 mmSize comparison pic",
+    "dimensions": {
+      "length": "78.5 mm",
+      "width": "108 mm",
+      "height": "22.3 mmSize comparison pic"
+    },
     "weight": "162 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -30950,7 +31458,11 @@
     "battery": "17100 mAh(65.8 Wh)",
     "chargePort": "USB-C",
     "storage": "Internal ? GB M.2 2280 SSD, External MicroSD",
-    "dimensions": "310 mm x 127 mm x 22.5 - 39.8 mm",
+    "dimensions": {
+      "length": "310 mm",
+      "width": "127 mm",
+      "height": "22.5 - 39.8 mm"
+    },
     "weight": "862 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -31170,7 +31682,11 @@
     "battery": "5000 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Internal 128 GB UFS 3.1, External MicroSD",
-    "dimensions": "260 mm x 85 mm x 11 mm",
+    "dimensions": {
+      "length": "260 mm",
+      "width": "85 mm",
+      "height": "11 mm"
+    },
     "weight": "401 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -31399,7 +31915,9 @@
     "battery": "3000 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Dual External MicroSD",
-    "dimensions": "?",
+    "dimensions": {
+      "length": "?"
+    },
     "weight": "?",
     "shellMaterial": "Metal (Aluminum)",
     "colors": [
@@ -31627,7 +32145,11 @@
     "battery": "3000 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Dual External MicroSD",
-    "dimensions": "Without mini dock:111 mm x 86 mm x 19 mm",
+    "dimensions": {
+      "length": "Without mini dock:111 mm",
+      "width": "86 mm",
+      "height": "19 mm"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -31848,7 +32370,11 @@
     "battery": "1500 mAh",
     "chargePort": "USB-CTop facing",
     "storage": "External MicroSD",
-    "dimensions": "195 mm x 86 mm x 16.6 mm",
+    "dimensions": {
+      "length": "195 mm",
+      "width": "86 mm",
+      "height": "16.6 mm"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -32095,7 +32621,11 @@
     "battery": "50.25 Wh",
     "chargePort": "USB-C x3Bottom facing",
     "storage": "Internal 512 GB / 1 TB / 2 TB M.2 2280 SSD, External MicroSD",
-    "dimensions": "264.5 mm x 105.5 mm x 21.5 - 36.1 mm",
+    "dimensions": {
+      "length": "264.5 mm",
+      "width": "105.5 mm",
+      "height": "21.5 - 36.1 mm"
+    },
     "weight": "647 grams(Source)",
     "shellMaterial": "Plastic",
     "colors": [
@@ -32340,7 +32870,11 @@
     "battery": "2100 mAh / 2600 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Dual External MicroSD",
-    "dimensions": "81 mm x 117 mm x 20 mm",
+    "dimensions": {
+      "length": "81 mm",
+      "width": "117 mm",
+      "height": "20 mm"
+    },
     "weight": "175 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -32583,7 +33117,11 @@
     "battery": "2800 mAh",
     "chargePort": "DC Power(Barrel Connector)",
     "storage": "External MicroSD",
-    "dimensions": "135 mm x 81 mm x 32 mm",
+    "dimensions": {
+      "length": "135 mm",
+      "width": "81 mm",
+      "height": "32 mm"
+    },
     "weight": "224 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -32798,7 +33336,11 @@
     "battery": "220 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Internal 4 MB, External MicroSD",
-    "dimensions": "30 mm x 50 mm x 10 mm",
+    "dimensions": {
+      "length": "30 mm",
+      "width": "50 mm",
+      "height": "10 mm"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -33027,7 +33569,11 @@
     "battery": "5000 mAh",
     "chargePort": "USB-CTop facing",
     "storage": "Internal 128 GB eMMC 5.1, External MicroSD",
-    "dimensions": "189 mm x 87 mm x 18 mm",
+    "dimensions": {
+      "length": "189 mm",
+      "width": "87 mm",
+      "height": "18 mm"
+    },
     "weight": "286 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -33258,7 +33804,11 @@
     "battery": "4500 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Internal 128 GB eMMC,External MicroSD",
-    "dimensions": "184.65 mm x 81.38 mm x 24.23 mm",
+    "dimensions": {
+      "length": "184.65 mm",
+      "width": "81.38 mm",
+      "height": "24.23 mm"
+    },
     "weight": "230 grams",
     "shellMaterial": "Plastic,Metal (Aluminum)",
     "colors": [
@@ -33496,7 +34046,11 @@
     "battery": "12450 mAh(48 Wh)",
     "chargePort": "USB-C x2",
     "storage": "Internal 512GB/1TB/2TB PCIE3 NVMe M.2 2280 SSD",
-    "dimensions": "260 mm x 106 mm x 23 mm",
+    "dimensions": {
+      "length": "260 mm",
+      "width": "106 mm",
+      "height": "23 mm"
+    },
     "weight": "599 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -33735,7 +34289,11 @@
     "battery": "3500 mAh",
     "chargePort": "USB-C x2",
     "storage": "Internal 32 GB eMMC 5.1, Dual External MicroSD",
-    "dimensions": "145 mm x 70.5 mm x 15.9 mm",
+    "dimensions": {
+      "length": "145 mm",
+      "width": "70.5 mm",
+      "height": "15.9 mm"
+    },
     "weight": "232 grams(Source)",
     "shellMaterial": "Metal (Aluminum)",
     "colors": [
@@ -33964,7 +34522,11 @@
     "battery": "6000 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Internal 64 GB UFS, External MicroSD",
-    "dimensions": "256.8 mm x 117.2 mm x 32.9 mm",
+    "dimensions": {
+      "length": "256.8 mm",
+      "width": "117.2 mm",
+      "height": "32.9 mm"
+    },
     "weight": "463 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -34197,7 +34759,11 @@
     "battery": "65 Wh",
     "chargePort": "USB-C x2Top facing",
     "storage": "Dual Internal NVMe SSD slots (2280/2232)(1 TB / 2 TB standard but are user upgradeable)External SD & MicroSD",
-    "dimensions": "227 mm x 160 mm x 23 mm",
+    "dimensions": {
+      "length": "227 mm",
+      "width": "160 mm",
+      "height": "23 mm"
+    },
     "weight": "1005 grams",
     "shellMaterial": "Metal (Magnesium Aluminum Alloy)",
     "colors": [
@@ -34423,7 +34989,11 @@
     "battery": "4000 mAh",
     "chargePort": "USB-CTop facing",
     "storage": "Internal 16 GB eMMC, External MicroSD",
-    "dimensions": "204 mm x 86 mm x 25 mm",
+    "dimensions": {
+      "length": "204 mm",
+      "width": "86 mm",
+      "height": "25 mm"
+    },
     "weight": "299 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -34660,7 +35230,11 @@
     "battery": "48 Whor65 Wh",
     "chargePort": "USB-CTop facing",
     "storage": "Internal M.2 2280 SSD, External MicroSD",
-    "dimensions": "285 mm x 125 mm x 21 mm",
+    "dimensions": {
+      "length": "285 mm",
+      "width": "125 mm",
+      "height": "21 mm"
+    },
     "weight": "669 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -34904,7 +35478,11 @@
     "battery": "10050 mAh (38Wh)",
     "chargePort": "USB-C x2Top: 1Bottom: 1",
     "storage": "External MicroSD, Internal Replaceable M.2 2280 SSD (512 GB / 1 TB / 2 TB)",
-    "dimensions": "224 mm x 89.5 mm x 21.6 - 29.6 mm",
+    "dimensions": {
+      "length": "224 mm",
+      "width": "89.5 mm",
+      "height": "21.6 - 29.6 mm"
+    },
     "weight": "450 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -35148,7 +35726,11 @@
     "battery": "3200 mAh",
     "chargePort": "USB-CTop & Bottom facing",
     "storage": "Internal 32 GB eMMC 5.1, Dual External MicroSD",
-    "dimensions": "83 mm x 126 mm x 21 mm",
+    "dimensions": {
+      "length": "83 mm",
+      "width": "126 mm",
+      "height": "21 mm"
+    },
     "weight": "180 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -35383,7 +35965,11 @@
     "battery": "3200 mAh",
     "chargePort": "USB-CTop & Bottom facing",
     "storage": "Dual External MicroSD",
-    "dimensions": "83 mm x 126 mm x 21 mm",
+    "dimensions": {
+      "length": "83 mm",
+      "width": "126 mm",
+      "height": "21 mm"
+    },
     "weight": "180 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -35611,7 +36197,11 @@
     "battery": "5600 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "External MicroSD",
-    "dimensions": "162 mm x 93 mm x 36 mm",
+    "dimensions": {
+      "length": "162 mm",
+      "width": "93 mm",
+      "height": "36 mm"
+    },
     "weight": "330 grams(Estimate)",
     "shellMaterial": "Plastic",
     "colors": [
@@ -35844,7 +36434,11 @@
     "battery": "7350 mAh (28Wh)",
     "chargePort": "USB-C x2Top: 1Bottom: 1",
     "storage": "External MicroSD, Internal Replaceable M.2 2280 SSD (128 GB / 256 GB / 512 GB)",
-    "dimensions": "224 mm x 89.5 mm x 17 - 26.7 mm (Air Youth)224 mm x 89.5 mm x 18 - 26.7 mm (Air)",
+    "dimensions": {
+      "length": "224 mm",
+      "width": "89.5 mm",
+      "height": "17 - 26.7 mm (Air Youth)224 mm"
+    },
     "weight": "395 grams (Air Youth)410 grams (Air)",
     "shellMaterial": "Plastic",
     "colors": [
@@ -36080,7 +36674,11 @@
     "battery": "4000 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Internal 32 GB eMCP,External MicroSD",
-    "dimensions": "184.65 mm x 81.38 mm x 24.23 mm",
+    "dimensions": {
+      "length": "184.65 mm",
+      "width": "81.38 mm",
+      "height": "24.23 mm"
+    },
     "weight": "230 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -36314,7 +36912,11 @@
     "battery": "1200 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Internal 8 GB eMMC, External MicroSD",
-    "dimensions": "110 mm x 58 mm x 15 mm",
+    "dimensions": {
+      "length": "110 mm",
+      "width": "58 mm",
+      "height": "15 mm"
+    },
     "weight": "100 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -36545,7 +37147,11 @@
     "battery": "7000 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Internal 128 GB UFS 3.1, External MicroSD",
-    "dimensions": "233 mm x 83 mm x 18 - 41 mm(Size comparison)",
+    "dimensions": {
+      "length": "233 mm",
+      "width": "83 mm",
+      "height": "18 - 41 mm(Size comparison)"
+    },
     "weight": "375 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -36776,7 +37382,11 @@
     "battery": "9000 mAh(39 Wh)",
     "chargePort": "USB-CTop facing",
     "storage": "Internal replaceable M.2 2242 SATA SSD (128 GB / 256 GB)",
-    "dimensions": "236 mm x 103 mm x 22 mm",
+    "dimensions": {
+      "length": "236 mm",
+      "width": "103 mm",
+      "height": "22 mm"
+    },
     "weight": "493 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -37013,7 +37623,11 @@
     "battery": "6600 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Internal 64 GB / 128 GB UFS 2.1, External MicroSD",
-    "dimensions": "224 mm x 95.2 mm x 15 - 23.7 mm(Size comparison)",
+    "dimensions": {
+      "length": "224 mm",
+      "width": "95.2 mm",
+      "height": "15 - 23.7 mm(Size comparison)"
+    },
     "weight": "~280 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -37258,7 +37872,11 @@
     "battery": "3500 mAh",
     "chargePort": "USB-C x2Top facing",
     "storage": "Internal 32 GB eMMC 5.1, Dual External MicroSD",
-    "dimensions": "190 mm x 84 mm x 20 - 22.5 mm",
+    "dimensions": {
+      "length": "190 mm",
+      "width": "84 mm",
+      "height": "20 - 22.5 mm"
+    },
     "weight": "210 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -37508,7 +38126,11 @@
     "battery": "3500 mAh",
     "chargePort": "USB-C x2 Bottom facing",
     "storage": "Dual External MicroSD(Compatible cards list)",
-    "dimensions": "83 mm x 120 mm x 20.8 mm",
+    "dimensions": {
+      "length": "83 mm",
+      "width": "120 mm",
+      "height": "20.8 mm"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -37761,7 +38383,11 @@
     "battery": "3500 mAh",
     "chargePort": "USB-C x2Top facing",
     "storage": "Dual External MicroSD",
-    "dimensions": "190 mm x 84 mm x 21 mm",
+    "dimensions": {
+      "length": "190 mm",
+      "width": "84 mm",
+      "height": "21 mm"
+    },
     "weight": "236 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -38000,7 +38626,11 @@
     "battery": "4100 mAh(47 Wh)",
     "chargePort": "USB-C x2",
     "storage": "Internal 1 - 2 TB NVMe SSD",
-    "dimensions": "267 mm x 112 mm x 30 mm",
+    "dimensions": {
+      "length": "267 mm",
+      "width": "112 mm",
+      "height": "30 mm"
+    },
     "weight": "750 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -38248,7 +38878,11 @@
     "battery": "3000 mAh",
     "chargePort": "USB-C x2",
     "storage": "External MicroSD",
-    "dimensions": "144 mm x 63.8 mm x 16 - 19 mm",
+    "dimensions": {
+      "length": "144 mm",
+      "width": "63.8 mm",
+      "height": "16 - 19 mm"
+    },
     "weight": "143 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -38489,7 +39123,11 @@
     "battery": "40 Wh",
     "chargePort": "USB-CTop facing",
     "storage": "Internal 64 GB eMMC or 256/512 GB NVMe SSD, External MicroSD",
-    "dimensions": "298 mm x 117 mm x 49 mm",
+    "dimensions": {
+      "length": "298 mm",
+      "width": "117 mm",
+      "height": "49 mm"
+    },
     "weight": "674 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -38723,7 +39361,11 @@
     "battery": "2500 mAh",
     "chargePort": "USB-C",
     "storage": "External MicroSD",
-    "dimensions": "170 mm x 80 mm x 18 - 24 mm",
+    "dimensions": {
+      "length": "170 mm",
+      "width": "80 mm",
+      "height": "18 - 24 mm"
+    },
     "weight": "190 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -38946,7 +39588,11 @@
     "battery": "40 mAh",
     "chargePort": "Micro USB",
     "storage": "Internal 2 MB",
-    "dimensions": "18 mm x 29.5 mm x 8.5 mm",
+    "dimensions": {
+      "length": "18 mm",
+      "width": "29.5 mm",
+      "height": "8.5 mm"
+    },
     "weight": "4.7 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -39179,7 +39825,11 @@
     "battery": "6600 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Internal 64 GB UFS 2.1, 128 GB (Pro),  External MicroSD",
-    "dimensions": "224 mm x 95.2 mm x 15 - 23.7 mm(Size comparison)",
+    "dimensions": {
+      "length": "224 mm",
+      "width": "95.2 mm",
+      "height": "15 - 23.7 mm(Size comparison)"
+    },
     "weight": "368 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -39419,7 +40069,11 @@
     "battery": "10455 mAh",
     "chargePort": "USB-C x2",
     "storage": "Internal 512GB/1TB/2TB PCIE3 NVMe M.2 SSD",
-    "dimensions": "262 mm x 108 mm x 23 mm",
+    "dimensions": {
+      "length": "262 mm",
+      "width": "108 mm",
+      "height": "23 mm"
+    },
     "weight": "589 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -39661,7 +40315,11 @@
     "battery": "10000 mAh",
     "chargePort": "Micro USB / USB-C",
     "storage": "External MicroSD, (Internal storage is core dependent)",
-    "dimensions": "206 mm x 100 mm x 38mm(External dimensions)126 mm x 95 mm x 15 mm(Internal dimensions)",
+    "dimensions": {
+      "length": "206 mm",
+      "width": "100 mm",
+      "height": "38mm(External dimensions)126 mm"
+    },
     "weight": "?",
     "shellMaterial": "Metal (Aluminum)",
     "colors": [
@@ -39897,7 +40555,11 @@
     "battery": "14500 x2(800 mAh)(Swappable)",
     "chargePort": "EXT Port",
     "storage": "External MicroSD (Game Cartridge)",
-    "dimensions": "145 mm x 82 mm x 24 mm",
+    "dimensions": {
+      "length": "145 mm",
+      "width": "82 mm",
+      "height": "24 mm"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -40117,7 +40779,11 @@
     "battery": "4000 mAh",
     "chargePort": "USB-C",
     "storage": "Internal MicroSD",
-    "dimensions": "135 mm x 81 mm x 32 mm",
+    "dimensions": {
+      "length": "135 mm",
+      "width": "81 mm",
+      "height": "32 mm"
+    },
     "weight": "224 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -40336,7 +41002,11 @@
     "battery": "4000 mAh",
     "chargePort": "USB-CTop facing",
     "storage": "Internal 32 GB eMMC,External MicroSD",
-    "dimensions": "150 mm x 81 mm x 17-30 mm(Size comparison)",
+    "dimensions": {
+      "length": "150 mm",
+      "width": "81 mm",
+      "height": "17-30 mm(Size comparison)"
+    },
     "weight": "196 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -40566,7 +41236,11 @@
     "battery": "1000 mAh",
     "chargePort": "USB-C",
     "storage": "External MicroSD",
-    "dimensions": "94 mm x 43 mm x 16 mm",
+    "dimensions": {
+      "length": "94 mm",
+      "width": "43 mm",
+      "height": "16 mm"
+    },
     "weight": "54 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -40789,7 +41463,11 @@
     "battery": "4300 mAh",
     "chargePort": "USB-C",
     "storage": "External MicroSD",
-    "dimensions": "88 mm x 149 mm x 22 mm",
+    "dimensions": {
+      "length": "88 mm",
+      "width": "149 mm",
+      "height": "22 mm"
+    },
     "weight": "276 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -41029,7 +41707,11 @@
     "battery": "6400 mAh(2x 3200, 24Wh)",
     "chargePort": "USB-C x2",
     "storage": "Internal 64 GB eMMC, Dual External MicroSD",
-    "dimensions": "198.1 mm x 85.6 mm x 20 mm",
+    "dimensions": {
+      "length": "198.1 mm",
+      "width": "85.6 mm",
+      "height": "20 mm"
+    },
     "weight": "362 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -41286,7 +41968,11 @@
     "battery": "2000 mAh(Swappable)",
     "chargePort": "USB-C",
     "storage": "External MicroSD",
-    "dimensions": "65 mm x 93.5 mm x 18 mm",
+    "dimensions": {
+      "length": "65 mm",
+      "width": "93.5 mm",
+      "height": "18 mm"
+    },
     "weight": "106 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -41518,7 +42204,11 @@
     "battery": "3000 mAh",
     "chargePort": "USB-C",
     "storage": "Internal 8 GB, External MicroSD",
-    "dimensions": "87 mm x 140 mm x 19 mm",
+    "dimensions": {
+      "length": "87 mm",
+      "width": "140 mm",
+      "height": "19 mm"
+    },
     "weight": "185 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -41749,7 +42439,11 @@
     "battery": "1200 mAh",
     "chargePort": "USB-C",
     "storage": "External MicroSD",
-    "dimensions": "136 mm x 72 mm x 19 mm",
+    "dimensions": {
+      "length": "136 mm",
+      "width": "72 mm",
+      "height": "19 mm"
+    },
     "weight": "120 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -41977,7 +42671,11 @@
     "battery": "15,300 mAh (59Wh)",
     "chargePort": "USB-C x2",
     "storage": "Internal 1 TB PCIE3 NVMe (or SATA) M.2 SSD, External MicroSD",
-    "dimensions": "288 mm x 130 mm x 21.7 - 25 mm",
+    "dimensions": {
+      "length": "288 mm",
+      "width": "130 mm",
+      "height": "21.7 - 25 mm"
+    },
     "weight": "819 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -42217,7 +42915,11 @@
     "battery": "3x 4100 mAh(47 Wh)",
     "chargePort": "USB-C x3",
     "storage": "Internal 1 TB / 2 TB M.2 NVMe SSD(External SD/MicroSD on dock only)",
-    "dimensions": "255 mm x 106 mm x 20 mm(Size comparison)",
+    "dimensions": {
+      "length": "255 mm",
+      "width": "106 mm",
+      "height": "20 mm(Size comparison)"
+    },
     "weight": "652 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -42458,7 +43160,11 @@
     "battery": "7000 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Internal 128 GB UFS 2.1, External MicroSD",
-    "dimensions": "233 mm x 83 mm x 18 - 41 mm(Size comparison)",
+    "dimensions": {
+      "length": "233 mm",
+      "width": "83 mm",
+      "height": "18 - 41 mm(Size comparison)"
+    },
     "weight": "375 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -42699,7 +43405,11 @@
     "battery": "4200 mAh",
     "chargePort": "USB-C x2",
     "storage": "External MicroSD",
-    "dimensions": "195 mm x 76 mm x 18 mm",
+    "dimensions": {
+      "length": "195 mm",
+      "width": "76 mm",
+      "height": "18 mm"
+    },
     "weight": "219 grams(Estimate, Unconfirmed)",
     "shellMaterial": "Plastic",
     "colors": [
@@ -42939,7 +43649,11 @@
     "battery": "15,300 mAh (59Wh)",
     "chargePort": "USB-C x2",
     "storage": "Internal 512 GB - 2 TB PCIE3 NVMe (or SATA) M.2 SSD, External MicroSD",
-    "dimensions": "288 mm x 130 mm x 21.7 - 25 mm",
+    "dimensions": {
+      "length": "288 mm",
+      "width": "130 mm",
+      "height": "21.7 - 25 mm"
+    },
     "weight": "827 grams,156 grams (keyboard attachment)",
     "shellMaterial": "Plastic",
     "colors": [
@@ -43175,7 +43889,11 @@
     "battery": "3500 mAh",
     "chargePort": "Micro USB",
     "storage": "External MicroSD",
-    "dimensions": "136.4 mm x 67.5 mm x 16.8 mm",
+    "dimensions": {
+      "length": "136.4 mm",
+      "width": "67.5 mm",
+      "height": "16.8 mm"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -43403,7 +44121,11 @@
     "battery": "5000 mAh",
     "chargePort": "USB-C",
     "storage": "Internal 64 GB eMMC, External MicroSD",
-    "dimensions": "152 mm x 92 mm x 22.5 mm(Closed)",
+    "dimensions": {
+      "length": "152 mm",
+      "width": "92 mm",
+      "height": "22.5 mm(Closed)"
+    },
     "weight": "308 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -43639,7 +44361,11 @@
     "battery": "3x 5000 mAh(57 Wh)",
     "chargePort": "USB-C x2",
     "storage": "Internal 1 TB / 2 TB PCIE4 NVMe M.2 SSD & External MicroSD",
-    "dimensions": "207 mm x 145 mm x 26 mm",
+    "dimensions": {
+      "length": "207 mm",
+      "width": "145 mm",
+      "height": "26 mm"
+    },
     "weight": "790 grams",
     "shellMaterial": "Metal (Magnesium Aluminum Alloy)",
     "colors": [
@@ -43884,7 +44610,11 @@
     "battery": "3500 mAh",
     "chargePort": "USB-C x2",
     "storage": "Dual External MicroSD",
-    "dimensions": "145 mm x 73 mm x 18 mm",
+    "dimensions": {
+      "length": "145 mm",
+      "width": "73 mm",
+      "height": "18 mm"
+    },
     "weight": "271 grams",
     "shellMaterial": "Metal (Aluminum)",
     "colors": [
@@ -44132,7 +44862,11 @@
     "battery": "3000 mAh",
     "chargePort": "USB-C",
     "storage": "External MicroSD",
-    "dimensions": "161 mm x 74 mm x 21 mm",
+    "dimensions": {
+      "length": "161 mm",
+      "width": "74 mm",
+      "height": "21 mm"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -44360,7 +45094,11 @@
     "battery": "18650 x2(Swappable)",
     "chargePort": "USB-C",
     "storage": "External MicroSD",
-    "dimensions": "195 mm x 150 mm x 30 mm(Estimate)",
+    "dimensions": {
+      "length": "195 mm",
+      "width": "150 mm",
+      "height": "30 mm(Estimate)"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -44580,7 +45318,11 @@
     "battery": "2500 mAh",
     "chargePort": "USB-C x2",
     "storage": "Dual External MicroSD",
-    "dimensions": "137 mm x 69 mm x 20 mm",
+    "dimensions": {
+      "length": "137 mm",
+      "width": "69 mm",
+      "height": "20 mm"
+    },
     "weight": "154 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -44811,7 +45553,11 @@
     "battery": "500 mAh",
     "chargePort": "USB-C",
     "storage": "Internal 16 MB & External MicroSD",
-    "dimensions": "78 mm x 40 mm x 17 mm",
+    "dimensions": {
+      "length": "78 mm",
+      "width": "40 mm",
+      "height": "17 mm"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -45026,7 +45772,11 @@
     "battery": "1200 mAh",
     "chargePort": "USB-C",
     "storage": "Internal 16 GB & External MicroSD",
-    "dimensions": "118 mm x 55 mm x 15 mm",
+    "dimensions": {
+      "length": "118 mm",
+      "width": "55 mm",
+      "height": "15 mm"
+    },
     "weight": "82 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -45263,7 +46013,11 @@
     "battery": "4000 mAh",
     "chargePort": "USB-C",
     "storage": "Internal 32 GB eMMC, External MicroSD",
-    "dimensions": "255 mm x 130 mm x 45 mm",
+    "dimensions": {
+      "length": "255 mm",
+      "width": "130 mm",
+      "height": "45 mm"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -45487,7 +46241,11 @@
     "battery": "15,300 mAh (59Wh)",
     "chargePort": "USB-C x2",
     "storage": "Internal 512 GB - 2 TB PCIE3 NVMe (or SATA) M.2 SSD, External MicroSD",
-    "dimensions": "288 mm x 130 mm x 25 mm",
+    "dimensions": {
+      "length": "288 mm",
+      "width": "130 mm",
+      "height": "25 mm"
+    },
     "weight": "827 grams,156 grams (keyboard attachment)",
     "shellMaterial": "Plastic",
     "colors": [
@@ -45723,7 +46481,11 @@
     "battery": "3x 4100 mAh(47 Wh)",
     "chargePort": "USB-C x3",
     "storage": "Internal 512 GB / 1 TB M.2 NVMe SSD(External SD/MicroSD on dock only)",
-    "dimensions": "255 mm x 106 mm x 20 mm(Size comparison)",
+    "dimensions": {
+      "length": "255 mm",
+      "width": "106 mm",
+      "height": "20 mm(Size comparison)"
+    },
     "weight": "621 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -45962,7 +46724,11 @@
     "battery": "2x 900 mAh (14500/AA) (Swappable)",
     "chargePort": "DC Power(Barrel Connector)",
     "storage": "Internal MicroSD(In cartridge)",
-    "dimensions": "78 mm x 133.5 mm x 27.4 mm",
+    "dimensions": {
+      "length": "78 mm",
+      "width": "133.5 mm",
+      "height": "27.4 mm"
+    },
     "weight": "138 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -46179,7 +46945,11 @@
     "battery": "3000 mAh",
     "chargePort": "USB-C",
     "storage": "External MicroSD(Card not included)",
-    "dimensions": "154 mm x 86 mm x 19-28 mm",
+    "dimensions": {
+      "length": "154 mm",
+      "width": "86 mm",
+      "height": "19-28 mm"
+    },
     "weight": "212 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -46410,7 +47180,11 @@
     "battery": "3x 4000 mAh(46 Wh)",
     "chargePort": "USB-C",
     "storage": "Internal 1 TB M.2 NVMe / AHCI 2280 SSD, External MicroSDXC",
-    "dimensions": "198 mm x 92 mm x 27 mm",
+    "dimensions": {
+      "length": "198 mm",
+      "width": "92 mm",
+      "height": "27 mm"
+    },
     "weight": "560 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -46647,7 +47421,11 @@
     "battery": "6200 mAh(Swappable)",
     "chargePort": "USB-C",
     "storage": "Internal 0, 8, 16, or 32 GB eMMC(CM4 dependent)Internal MicroSD (In cartridge)",
-    "dimensions": "90 mm x 148 mm x 30mm",
+    "dimensions": {
+      "length": "90 mm",
+      "width": "148 mm",
+      "height": "30mm"
+    },
     "weight": "328 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -46872,7 +47650,11 @@
     "battery": "4200 mAh",
     "chargePort": "USB-C x2",
     "storage": "External MicroSD",
-    "dimensions": "185 mm x 76 mm x 17 mm(Size comparison)",
+    "dimensions": {
+      "length": "185 mm",
+      "width": "76 mm",
+      "height": "17 mm(Size comparison)"
+    },
     "weight": "219 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -47118,7 +47900,11 @@
     "battery": "4000 mAh",
     "chargePort": "Micro USB",
     "storage": "External MicroSD",
-    "dimensions": "87 mm x 140 mm x 19 mm",
+    "dimensions": {
+      "length": "87 mm",
+      "width": "140 mm",
+      "height": "19 mm"
+    },
     "weight": "250 grams(Estimate)",
     "shellMaterial": "Plastic",
     "colors": [
@@ -47354,7 +48140,11 @@
     "battery": "3900 mAh",
     "chargePort": "USB-C x2",
     "storage": "Dual External MicroSD",
-    "dimensions": "94 mm x 140 mm x 26.8 mm",
+    "dimensions": {
+      "length": "94 mm",
+      "width": "140 mm",
+      "height": "26.8 mm"
+    },
     "weight": "230 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -47597,7 +48387,11 @@
     "battery": "2500 mAh",
     "chargePort": "USB-C",
     "storage": "Dual External MicroSD",
-    "dimensions": "111 mm x 86 mm x 19 mm",
+    "dimensions": {
+      "length": "111 mm",
+      "width": "86 mm",
+      "height": "19 mm"
+    },
     "weight": "162 grams(Plastic)227 grams(Metal)",
     "shellMaterial": "PlasticorMetal (Aluminum)",
     "colors": [
@@ -47832,7 +48626,11 @@
     "battery": "4000 mAh(Swappable)",
     "chargePort": "DC Power(Barrel Connector)",
     "storage": "External MicroSD (8 GB - 64 GB)",
-    "dimensions": "90 mm x 148 mm x 30 mm",
+    "dimensions": {
+      "length": "90 mm",
+      "width": "148 mm",
+      "height": "30 mm"
+    },
     "weight": "294 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -48054,7 +48852,11 @@
     "battery": "410 mAh",
     "chargePort": "Micro USB",
     "storage": "Internal MicroSD",
-    "dimensions": "42.5 mm x 44.5 mm x 13.8 mm(Closed)",
+    "dimensions": {
+      "length": "42.5 mm",
+      "width": "44.5 mm",
+      "height": "13.8 mm(Closed)"
+    },
     "weight": "30 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -48288,7 +49090,11 @@
     "battery": "4000 mAh",
     "chargePort": "USB-C",
     "storage": "External MicroSD",
-    "dimensions": "204 mm x 86 mm x 25 mm",
+    "dimensions": {
+      "length": "204 mm",
+      "width": "86 mm",
+      "height": "25 mm"
+    },
     "weight": "279 grams(Plastic)407 grams(Metal)",
     "shellMaterial": "PlasticorMetal (Aluminum)",
     "colors": [
@@ -48538,7 +49344,11 @@
     "battery": "3500 mAh",
     "chargePort": "USB-C x2",
     "storage": "External MicroSD",
-    "dimensions": "151.5 mm x 70 mm x 18 mm",
+    "dimensions": {
+      "length": "151.5 mm",
+      "width": "70 mm",
+      "height": "18 mm"
+    },
     "weight": "271 grams",
     "shellMaterial": "Metal (Aluminum)(Plastic side panels)",
     "colors": [
@@ -48784,7 +49594,11 @@
     "battery": "6000 mAh(Swappable)",
     "chargePort": "Micro USB",
     "storage": "Internal 32 GB eMMC, Internal MicroSD, 2x External SDXC",
-    "dimensions": "139 mm x 87 mm x 32 mm",
+    "dimensions": {
+      "length": "139 mm",
+      "width": "87 mm",
+      "height": "32 mm"
+    },
     "weight": "384 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -49001,7 +49815,11 @@
     "battery": "500 mAh",
     "chargePort": "Micro USB",
     "storage": "Internal MicroSD",
-    "dimensions": "65 mm x 45 mm x 14 mm",
+    "dimensions": {
+      "length": "65 mm",
+      "width": "45 mm",
+      "height": "14 mm"
+    },
     "weight": "29.6 grams(Plastic)47.2 grams(Metal)",
     "shellMaterial": "Plastic",
     "colors": [
@@ -49221,7 +50039,11 @@
     "battery": "2x 1100 mAh(14500)(Swappable)",
     "chargePort": "Micro USB",
     "storage": "External MicroSD",
-    "dimensions": "145 mm x 82 mm x 24 mm",
+    "dimensions": {
+      "length": "145 mm",
+      "width": "82 mm",
+      "height": "24 mm"
+    },
     "weight": "189 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -49441,7 +50263,11 @@
     "battery": "6000 mAh x2(46.2 Wh)",
     "chargePort": "USB-C x2",
     "storage": "Internal 256 / 512 GB M.2 SSD & External MicroSD",
-    "dimensions": "173 mm x 136 mm x 21 mm",
+    "dimensions": {
+      "length": "173 mm",
+      "width": "136 mm",
+      "height": "21 mm"
+    },
     "weight": "623 grams(749 grams w/ controllers)",
     "shellMaterial": "Metal (Aluminum)",
     "colors": [
@@ -49666,7 +50492,11 @@
     "battery": "1500 mAh",
     "chargePort": "Micro USB",
     "storage": "External MicroSD",
-    "dimensions": "136.4 mm x 67.5 mm x 16.8 mm",
+    "dimensions": {
+      "length": "136.4 mm",
+      "width": "67.5 mm",
+      "height": "16.8 mm"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -49883,7 +50713,11 @@
     "battery": "2600 mAh",
     "chargePort": "USB-C",
     "storage": "External MicroSD",
-    "dimensions": "160 mm x 70 mm x 22 mm",
+    "dimensions": {
+      "length": "160 mm",
+      "width": "70 mm",
+      "height": "22 mm"
+    },
     "weight": "162 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -50108,7 +50942,11 @@
     "battery": "600 mAh",
     "chargePort": "USB-C",
     "storage": "Internal 64 MB / 4 GB / 8 GB, External MicroSD",
-    "dimensions": "106.5 mm x 56.5 mm x 10 mm",
+    "dimensions": {
+      "length": "106.5 mm",
+      "width": "56.5 mm",
+      "height": "10 mm"
+    },
     "weight": "65 grams",
     "shellMaterial": "Plastic & Aluminum combo",
     "colors": [
@@ -50340,7 +51178,11 @@
     "battery": "2100 mAh",
     "chargePort": "USB-C",
     "storage": "Dual External MicroSD",
-    "dimensions": "78 mm x 89 mm x 18 mm",
+    "dimensions": {
+      "length": "78 mm",
+      "width": "89 mm",
+      "height": "18 mm"
+    },
     "weight": "125 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -50578,7 +51420,11 @@
     "battery": "3000 mAh",
     "chargePort": "USB-C x2",
     "storage": "External MicroSD",
-    "dimensions": "93 mm x 108 mm x 20 mm",
+    "dimensions": {
+      "length": "93 mm",
+      "width": "108 mm",
+      "height": "20 mm"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -50823,7 +51669,11 @@
     "battery": "2800 mAh",
     "chargePort": "Micro USB x2",
     "storage": "Internal 128 MB & External MicroSD",
-    "dimensions": "193 mm x 85 mm x 18 mm",
+    "dimensions": {
+      "length": "193 mm",
+      "width": "85 mm",
+      "height": "18 mm"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -51044,7 +51894,11 @@
     "battery": "3000 mAh",
     "chargePort": "Micro USB x2",
     "storage": "Internal 128 MB & External MicroSD",
-    "dimensions": "195 mm x 82 mm x 15 mm",
+    "dimensions": {
+      "length": "195 mm",
+      "width": "82 mm",
+      "height": "15 mm"
+    },
     "weight": "211 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -51288,7 +52142,11 @@
     "battery": "3500 mAh",
     "chargePort": "USB-C x2",
     "storage": "External MicroSD",
-    "dimensions": "151.5 mm x 70 mm x 18 mm",
+    "dimensions": {
+      "length": "151.5 mm",
+      "width": "70 mm",
+      "height": "18 mm"
+    },
     "weight": "189 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -51531,7 +52389,11 @@
     "battery": "3x 5000 mAh(57 Wh)",
     "chargePort": "USB-C x2",
     "storage": "Internal 512 GB M.2 NVMe SSD & External MicroSD",
-    "dimensions": "205 mm x 140 mm x 24.5 mm",
+    "dimensions": {
+      "length": "205 mm",
+      "width": "140 mm",
+      "height": "24.5 mm"
+    },
     "weight": "823 grams",
     "shellMaterial": "Metal (Magnesium Aluminum Alloy)",
     "colors": [
@@ -51758,7 +52620,11 @@
     "battery": "2500 mAh(Swappable)",
     "chargePort": "Micro USB",
     "storage": "Internal 8 GB & External MicroSD",
-    "dimensions": "170 mm x 80 mm x 18 mm",
+    "dimensions": {
+      "length": "170 mm",
+      "width": "80 mm",
+      "height": "18 mm"
+    },
     "weight": "210 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -51977,7 +52843,11 @@
     "battery": "2830 mAh",
     "chargePort": "USB-C",
     "storage": "External MicroSD",
-    "dimensions": "151 mm x 66 mm x 17 mm",
+    "dimensions": {
+      "length": "151 mm",
+      "width": "66 mm",
+      "height": "17 mm"
+    },
     "weight": "214 grams(Metal)",
     "shellMaterial": "PlasticorMetal (Aluminum)",
     "colors": [
@@ -52206,7 +53076,11 @@
     "battery": "1000 mAh",
     "chargePort": "Micro USB",
     "storage": "External MicroSD",
-    "dimensions": "125 mm x 55 mm x 15 mm",
+    "dimensions": {
+      "length": "125 mm",
+      "width": "55 mm",
+      "height": "15 mm"
+    },
     "weight": "94 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -52428,7 +53302,11 @@
     "battery": "4500 mAh(Swappable)",
     "chargePort": "Micro USB",
     "storage": "External MicroSD",
-    "dimensions": "148 mm x 90 mm x 30mm",
+    "dimensions": {
+      "length": "148 mm",
+      "width": "90 mm",
+      "height": "30mm"
+    },
     "weight": "330 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -52655,7 +53533,11 @@
     "battery": "5000 mAh",
     "chargePort": "USB-C x2",
     "storage": "External MicroSD",
-    "dimensions": "185 mm x 80 mm x 20 mm",
+    "dimensions": {
+      "length": "185 mm",
+      "width": "80 mm",
+      "height": "20 mm"
+    },
     "weight": "250 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -52887,7 +53769,11 @@
     "battery": "12,000 mAh",
     "chargePort": "USB-C x2",
     "storage": "Internal 256 / 512 GB M.2 SSD & External MicroSD",
-    "dimensions": "173 mm x 136 mm x 21 mm",
+    "dimensions": {
+      "length": "173 mm",
+      "width": "136 mm",
+      "height": "21 mm"
+    },
     "weight": "623 grams(749 grams w/ controllers)",
     "shellMaterial": "Metal (Aluminum)",
     "colors": [
@@ -53112,7 +53998,11 @@
     "battery": "4000 mAh",
     "chargePort": "USB-C",
     "storage": "Internal 8 GB EMMC & External MicroSD",
-    "dimensions": "150 mm x 81 mm x 17-30 mm(Size comparison)",
+    "dimensions": {
+      "length": "150 mm",
+      "width": "81 mm",
+      "height": "17-30 mm(Size comparison)"
+    },
     "weight": "196 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -53339,7 +54229,11 @@
     "battery": "600 mAh",
     "chargePort": "USB-CTop facing",
     "storage": "Internal Flash ROM",
-    "dimensions": "83 mm x 98.5 mm x 17 mm",
+    "dimensions": {
+      "length": "83 mm",
+      "width": "98.5 mm",
+      "height": "17 mm"
+    },
     "weight": "200 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -53559,7 +54453,11 @@
     "battery": "2800 mAh / 3500 mAh (Metal / Pro)",
     "chargePort": "USB-C",
     "storage": "External MicroSD",
-    "dimensions": "144 mm x 63 mm x 16 mm",
+    "dimensions": {
+      "length": "144 mm",
+      "width": "63 mm",
+      "height": "16 mm"
+    },
     "weight": "144 grams",
     "shellMaterial": "PlasticorMetal (Aluminum)",
     "colors": [
@@ -53791,7 +54689,11 @@
     "battery": "2500 mAh",
     "chargePort": "USB-C x2",
     "storage": "Dual External MicroSD",
-    "dimensions": "145 mm x 73 mm x 18 mm",
+    "dimensions": {
+      "length": "145 mm",
+      "width": "73 mm",
+      "height": "18 mm"
+    },
     "weight": "177 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -54019,7 +54921,11 @@
     "battery": "2500 mAh",
     "chargePort": "USB-C x2",
     "storage": "Dual External MicroSD",
-    "dimensions": "136 mm x 61 mm x 18 mm",
+    "dimensions": {
+      "length": "136 mm",
+      "width": "61 mm",
+      "height": "18 mm"
+    },
     "weight": "204 grams",
     "shellMaterial": "Metal (Aluminum)",
     "colors": [
@@ -54249,7 +55155,11 @@
     "battery": "1020 mAh BL-5C(Swappable)",
     "chargePort": "USB-C",
     "storage": "External MicroSD",
-    "dimensions": "82 mm x 80 mm x 24 mm(Estimate, Closed)",
+    "dimensions": {
+      "length": "82 mm",
+      "width": "80 mm",
+      "height": "24 mm(Estimate, Closed)"
+    },
     "weight": "115 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -54479,7 +55389,11 @@
     "battery": "4000 mAh",
     "chargePort": "USB-C",
     "storage": "Internal 32 GB & External MicroSD",
-    "dimensions": "235 mm x 110 mm x 15 mm",
+    "dimensions": {
+      "length": "235 mm",
+      "width": "110 mm",
+      "height": "15 mm"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -54702,7 +55616,11 @@
     "battery": "2600 mAh",
     "chargePort": "USB-C",
     "storage": "External MicroSD",
-    "dimensions": "144 mm x 63 mm x 17 mm",
+    "dimensions": {
+      "length": "144 mm",
+      "width": "63 mm",
+      "height": "17 mm"
+    },
     "weight": "154 grams",
     "shellMaterial": "PlasticorMetal (Aluminum)",
     "colors": [
@@ -54937,7 +55855,11 @@
     "battery": "2400 mAh",
     "chargePort": "Micro USB",
     "storage": "Internal 64 GB & External MicroSD",
-    "dimensions": "174 mm x 70 mm x 13 mm",
+    "dimensions": {
+      "length": "174 mm",
+      "width": "70 mm",
+      "height": "13 mm"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -55163,7 +56085,11 @@
     "battery": "3000 mAh",
     "chargePort": "USB-C",
     "storage": "External MicroSD",
-    "dimensions": "155 mm x 72 mm x 20 mm",
+    "dimensions": {
+      "length": "155 mm",
+      "width": "72 mm",
+      "height": "20 mm"
+    },
     "weight": "170 grams",
     "shellMaterial": "PlasticorMetal (Aluminum)",
     "colors": [
@@ -55397,7 +56323,11 @@
     "battery": "180 mAh",
     "chargePort": "Micro USB",
     "storage": "Internal 32 KB Flash, 1 KB EEPROM",
-    "dimensions": "54 mm x 86 mm x 5 mm",
+    "dimensions": {
+      "length": "54 mm",
+      "width": "86 mm",
+      "height": "5 mm"
+    },
     "weight": "85 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -55613,7 +56543,9 @@
     "battery": "3000 mAh",
     "chargePort": "Micro USB x2",
     "storage": "External MicroSD",
-    "dimensions": "?",
+    "dimensions": {
+      "length": "?"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -55842,7 +56774,11 @@
     "battery": "2500 mAh",
     "chargePort": "USB-C x2",
     "storage": "Dual External MicroSD",
-    "dimensions": "145 mm x 73 mm x 18 mm",
+    "dimensions": {
+      "length": "145 mm",
+      "width": "73 mm",
+      "height": "18 mm"
+    },
     "weight": "263 grams",
     "shellMaterial": "Metal (Aluminum)",
     "colors": [
@@ -56079,7 +57015,11 @@
     "battery": "4000 mAh",
     "chargePort": "Micro USB",
     "storage": "Internal 32 GB & External MicroSD",
-    "dimensions": "87 mm x 140 mm x 19 mm",
+    "dimensions": {
+      "length": "87 mm",
+      "width": "140 mm",
+      "height": "19 mm"
+    },
     "weight": "200 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -56299,7 +57239,11 @@
     "battery": "3000 mAh",
     "chargePort": "DC Power(Barrel Connector)",
     "storage": "External MicroSD",
-    "dimensions": "155 mm x 72 mm x 20 mm",
+    "dimensions": {
+      "length": "155 mm",
+      "width": "72 mm",
+      "height": "20 mm"
+    },
     "weight": "170 grams",
     "shellMaterial": "PlasticorMetal (Aluminum)",
     "colors": [
@@ -56534,7 +57478,11 @@
     "battery": "1200 mAh",
     "chargePort": "Micro USB x2",
     "storage": "External MicroSD",
-    "dimensions": "65.5 mm x 57 mm x 15 mm",
+    "dimensions": {
+      "length": "65.5 mm",
+      "width": "57 mm",
+      "height": "15 mm"
+    },
     "weight": "80 grams(Estimate)",
     "shellMaterial": "Plastic",
     "colors": [
@@ -56760,7 +57708,11 @@
     "battery": "2300 mAh(Swappable)",
     "chargePort": "Micro USB",
     "storage": "Internal & External MicroSD",
-    "dimensions": "150 mm x 75 mm x 18 mm",
+    "dimensions": {
+      "length": "150 mm",
+      "width": "75 mm",
+      "height": "18 mm"
+    },
     "weight": "155 grams",
     "shellMaterial": "PlasticorMetal (Aluminum)",
     "colors": [
@@ -56999,7 +57951,11 @@
     "battery": "3000 mAh",
     "chargePort": "Micro USB x2",
     "storage": "External MicroSD",
-    "dimensions": "186 mm x 80 mm x 19 mm(Estimate)",
+    "dimensions": {
+      "length": "186 mm",
+      "width": "80 mm",
+      "height": "19 mm(Estimate)"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -57222,7 +58178,11 @@
     "battery": "2000 mAh BM20(Swappable)",
     "chargePort": "USB-C",
     "storage": "Dual External MicroSD",
-    "dimensions": "138 mm x 75 mm x 15 mm",
+    "dimensions": {
+      "length": "138 mm",
+      "width": "75 mm",
+      "height": "15 mm"
+    },
     "weight": "160 grams",
     "shellMaterial": "PlasticorMetal (Aluminum)",
     "colors": [
@@ -57453,7 +58413,11 @@
     "battery": "1500 mAh BP-4L(Swappable)",
     "chargePort": "USB-C",
     "storage": "Internal & External MicroSD",
-    "dimensions": "135 mm x 61 mm x 15 mm",
+    "dimensions": {
+      "length": "135 mm",
+      "width": "61 mm",
+      "height": "15 mm"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -57674,7 +58638,11 @@
     "battery": "4000 mAh(Swappable)",
     "chargePort": "Micro USB",
     "storage": "External MicroSDInternal NAND (pro model)",
-    "dimensions": "130 mm x 90 mm x 25 mm",
+    "dimensions": {
+      "length": "130 mm",
+      "width": "90 mm",
+      "height": "25 mm"
+    },
     "weight": "300 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -57907,7 +58875,11 @@
     "battery": "3000 mAh",
     "chargePort": "Micro USB",
     "storage": "Internal MicroSD",
-    "dimensions": "125 mm x 52.5 mm x 17 mm",
+    "dimensions": {
+      "length": "125 mm",
+      "width": "52.5 mm",
+      "height": "17 mm"
+    },
     "weight": "?",
     "shellMaterial": "Metal (Aluminum)",
     "colors": [
@@ -58146,7 +59118,11 @@
     "battery": "8010 mAh",
     "chargePort": "Micro USB,USB-C",
     "storage": "External MicroSD",
-    "dimensions": "205 mm x 99 mm x 23 mm",
+    "dimensions": {
+      "length": "205 mm",
+      "width": "99 mm",
+      "height": "23 mm"
+    },
     "weight": "667 grams",
     "shellMaterial": "Metal (Aluminum)",
     "colors": [
@@ -58371,7 +59347,11 @@
     "battery": "3000 mAh",
     "chargePort": "Micro USB,DC Power",
     "storage": "Internal 32 GB & External MicroSD",
-    "dimensions": "208 mm x 100 mm x 28.4 mm",
+    "dimensions": {
+      "length": "208 mm",
+      "width": "100 mm",
+      "height": "28.4 mm"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -58595,7 +59575,11 @@
     "battery": "1800 mAh",
     "chargePort": "Mini USB",
     "storage": "Internal & External MicroSD",
-    "dimensions": "239 mm x 113 mm x 15 mm(Estimate)",
+    "dimensions": {
+      "length": "239 mm",
+      "width": "113 mm",
+      "height": "15 mm(Estimate)"
+    },
     "weight": "290 grams(Estimate)",
     "shellMaterial": "Plastic",
     "colors": [
@@ -58823,7 +59807,11 @@
     "battery": "3635 mAh",
     "chargePort": "Micro USB",
     "storage": "Internal 64/128 GB & External MicroSD",
-    "dimensions": "165 mm x 65 mm x 16 mm",
+    "dimensions": {
+      "length": "165 mm",
+      "width": "65 mm",
+      "height": "16 mm"
+    },
     "weight": "196 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -59058,7 +60046,11 @@
     "battery": "2500 mAh",
     "chargePort": "USB-C x2",
     "storage": "Internal & External MicroSD",
-    "dimensions": "145 mm x 73 mm x 20 mm",
+    "dimensions": {
+      "length": "145 mm",
+      "width": "73 mm",
+      "height": "20 mm"
+    },
     "weight": "181 grams",
     "shellMaterial": "PlasticorMetal (Aluminum)",
     "colors": [
@@ -59304,7 +60296,11 @@
     "battery": "14500",
     "chargePort": "Micro USB x2",
     "storage": "Internal MicroSD",
-    "dimensions": "108 mm x 50 mm x 20 mm",
+    "dimensions": {
+      "length": "108 mm",
+      "width": "50 mm",
+      "height": "20 mm"
+    },
     "weight": "150 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -59531,7 +60527,11 @@
     "battery": "18650 x2",
     "chargePort": "Micro USB",
     "storage": "External MicroSD",
-    "dimensions": "171 mm x 111 mm x 34 mm",
+    "dimensions": {
+      "length": "171 mm",
+      "width": "111 mm",
+      "height": "34 mm"
+    },
     "weight": "500 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -59757,7 +60757,11 @@
     "battery": "2920 mAh",
     "chargePort": "Micro USB",
     "storage": "External MicroSD",
-    "dimensions": "149 mm x 60 mm x 17.5mm",
+    "dimensions": {
+      "length": "149 mm",
+      "width": "60 mm",
+      "height": "17.5mm"
+    },
     "weight": "303 grams",
     "shellMaterial": "Metal (Aluminum)",
     "colors": [
@@ -59985,7 +60989,11 @@
     "battery": "2x 4900 mAh",
     "chargePort": "USB-C",
     "storage": "Internal 256 GB SSD & External MicroSD",
-    "dimensions": "162 mm x 99 mm x 25 mm",
+    "dimensions": {
+      "length": "162 mm",
+      "width": "99 mm",
+      "height": "25 mm"
+    },
     "weight": "460 grams",
     "shellMaterial": "Plastic & Aluminum combo",
     "colors": [
@@ -60215,7 +61223,11 @@
     "battery": "3700 mAh",
     "chargePort": "Micro USB",
     "storage": "External MicroSD",
-    "dimensions": "150 mm x 68 mm x 21 mm",
+    "dimensions": {
+      "length": "150 mm",
+      "width": "68 mm",
+      "height": "21 mm"
+    },
     "weight": "150 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -60441,7 +61453,11 @@
     "battery": "1200 mAh",
     "chargePort": "Micro USB",
     "storage": "Internal 32 MB",
-    "dimensions": "150 mm x 65 mm x 14 mm",
+    "dimensions": {
+      "length": "150 mm",
+      "width": "65 mm",
+      "height": "14 mm"
+    },
     "weight": "250 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -60663,7 +61679,11 @@
     "battery": "AA x3(Swappable)",
     "chargePort": "Micro USB,DC Input",
     "storage": "External MicroSD",
-    "dimensions": "135 mm x 81 mm x 32 mm",
+    "dimensions": {
+      "length": "135 mm",
+      "width": "81 mm",
+      "height": "32 mm"
+    },
     "weight": "183 grams280 grams(with batteries)",
     "shellMaterial": "Plastic",
     "colors": [
@@ -60884,7 +61904,11 @@
     "battery": "1020 mAh BL-5C(Swappable)",
     "chargePort": "Micro USB",
     "storage": "Internal & External MicroSD",
-    "dimensions": "129 mm x 57 mm x 17 mm",
+    "dimensions": {
+      "length": "129 mm",
+      "width": "57 mm",
+      "height": "17 mm"
+    },
     "weight": "122 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -61115,7 +62139,11 @@
     "battery": "1000 mAh",
     "chargePort": "Micro USB",
     "storage": "External MicroSD",
-    "dimensions": "123 mm x 56 mm x 14 mm",
+    "dimensions": {
+      "length": "123 mm",
+      "width": "56 mm",
+      "height": "14 mm"
+    },
     "weight": "89 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -61336,7 +62364,11 @@
     "battery": "1800 mAh BP-5L(Swappable)",
     "chargePort": "Mini USB",
     "storage": "Internal & External MicroSD",
-    "dimensions": "144 mm x 64 mm x 19 mm",
+    "dimensions": {
+      "length": "144 mm",
+      "width": "64 mm",
+      "height": "19 mm"
+    },
     "weight": "142 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -61562,7 +62594,11 @@
     "battery": "1800 mAh BP-5L(Swappable)",
     "chargePort": "USB-C",
     "storage": "Internal & External MicroSD",
-    "dimensions": "119 mm x 82 mm x 25 mm",
+    "dimensions": {
+      "length": "119 mm",
+      "width": "82 mm",
+      "height": "25 mm"
+    },
     "weight": "220 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -61795,7 +62831,11 @@
     "battery": "6000 mAh(Swappable)",
     "chargePort": "USB-C",
     "storage": "Internal 64 GB & Internal MicroSD",
-    "dimensions": "205 mm x 98 mm x 25 mm",
+    "dimensions": {
+      "length": "205 mm",
+      "width": "98 mm",
+      "height": "25 mm"
+    },
     "weight": "300 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -62021,7 +63061,11 @@
     "battery": "14500",
     "chargePort": "Micro USB",
     "storage": "External MicroSD",
-    "dimensions": "65 mm x 35 mm x 23 mm",
+    "dimensions": {
+      "length": "65 mm",
+      "width": "35 mm",
+      "height": "23 mm"
+    },
     "weight": "60 grams",
     "shellMaterial": "Bare PCB",
     "colors": [
@@ -62245,7 +63289,11 @@
     "battery": "700 mAh",
     "chargePort": "Micro USB",
     "storage": "External MicroSD",
-    "dimensions": "99 mm x 68 mm x 13 mm",
+    "dimensions": {
+      "length": "99 mm",
+      "width": "68 mm",
+      "height": "13 mm"
+    },
     "weight": "80 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -62466,7 +63514,11 @@
     "battery": "1020 mAh BL-5C(Swappable)",
     "chargePort": "Micro USB",
     "storage": "Internal & External MicroSD",
-    "dimensions": "88 mm x 76 mm x 17 mm",
+    "dimensions": {
+      "length": "88 mm",
+      "width": "76 mm",
+      "height": "17 mm"
+    },
     "weight": "100 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -62699,7 +63751,11 @@
     "battery": "9000 mAh",
     "chargePort": "Micro USB",
     "storage": "External MicroSD",
-    "dimensions": "157 mm x 99 mm x 35 mm",
+    "dimensions": {
+      "length": "157 mm",
+      "width": "99 mm",
+      "height": "35 mm"
+    },
     "weight": "500 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -62932,7 +63988,11 @@
     "battery": "5000 mAh",
     "chargePort": "Micro USB",
     "storage": "Internal 16 GB & External MicroSD",
-    "dimensions": "145 mm x 87 mm x 27 mm",
+    "dimensions": {
+      "length": "145 mm",
+      "width": "87 mm",
+      "height": "27 mm"
+    },
     "weight": "296 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -63167,7 +64227,11 @@
     "battery": "1020 mAh BL-5C(Swappable)",
     "chargePort": "Micro USB",
     "storage": "Internal MicroSD",
-    "dimensions": "135 mm x 65 mm x 17 mm",
+    "dimensions": {
+      "length": "135 mm",
+      "width": "65 mm",
+      "height": "17 mm"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -63392,7 +64456,11 @@
     "battery": "1000 mAh",
     "chargePort": "Micro USB",
     "storage": "External MicroSD",
-    "dimensions": "130 mm x 65 mm x 19 mm",
+    "dimensions": {
+      "length": "130 mm",
+      "width": "65 mm",
+      "height": "19 mm"
+    },
     "weight": "110 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -63622,7 +64690,11 @@
     "battery": "18650",
     "chargePort": "Micro USB",
     "storage": "Internal MicroSD",
-    "dimensions": "180 mm x 86 mm x 30 mm",
+    "dimensions": {
+      "length": "180 mm",
+      "width": "86 mm",
+      "height": "30 mm"
+    },
     "weight": "300 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -63845,7 +64917,11 @@
     "battery": "1020 mAh BL-5C(Swappable)",
     "chargePort": "Micro USB",
     "storage": "Internal MicroSD",
-    "dimensions": "136 mm x 85 mm x 24 mm",
+    "dimensions": {
+      "length": "136 mm",
+      "width": "85 mm",
+      "height": "24 mm"
+    },
     "weight": "195 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -64083,7 +65159,11 @@
     "battery": "6000 mAh",
     "chargePort": "Micro USB",
     "storage": "Internal 16/32/64 GB & External MicroSD",
-    "dimensions": "155 mm x 89 mm x 24 mm",
+    "dimensions": {
+      "length": "155 mm",
+      "width": "89 mm",
+      "height": "24 mm"
+    },
     "weight": "300 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -64320,7 +65400,11 @@
     "battery": "2400 mAh(Swappable)",
     "chargePort": "Micro USB",
     "storage": "Internal MicroSD",
-    "dimensions": "179 mm x 80 mm x 32 mm",
+    "dimensions": {
+      "length": "179 mm",
+      "width": "80 mm",
+      "height": "32 mm"
+    },
     "weight": "300 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -64543,7 +65627,11 @@
     "battery": "1200 mAh",
     "chargePort": "Micro USB",
     "storage": "Internal 16 MB & External MicroSD",
-    "dimensions": "105 mm x 65 mm x 16 mm",
+    "dimensions": {
+      "length": "105 mm",
+      "width": "65 mm",
+      "height": "16 mm"
+    },
     "weight": "115 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -64767,7 +65855,11 @@
     "battery": "1800 mAh",
     "chargePort": "Micro USB",
     "storage": "Internal 4/8/16 GB & External MicroSD",
-    "dimensions": "240 mm x 112 mm x 15mm",
+    "dimensions": {
+      "length": "240 mm",
+      "width": "112 mm",
+      "height": "15mm"
+    },
     "weight": "286 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -64994,7 +66086,11 @@
     "battery": "1800 mAh BP-5L(Swappable)",
     "chargePort": "Mini USB",
     "storage": "Internal & External MicroSD",
-    "dimensions": "144 mm x 64 mm x 19 mm",
+    "dimensions": {
+      "length": "144 mm",
+      "width": "64 mm",
+      "height": "19 mm"
+    },
     "weight": "142 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -65221,7 +66317,11 @@
     "battery": "3000 mAh",
     "chargePort": "Micro USB",
     "storage": "External MicroSD",
-    "dimensions": "130 mm x 90 mm x 25 mm",
+    "dimensions": {
+      "length": "130 mm",
+      "width": "90 mm",
+      "height": "25 mm"
+    },
     "weight": "300 grams",
     "shellMaterial": "PlasticorMetal (Aluminum)",
     "colors": [
@@ -65451,7 +66551,11 @@
     "battery": "3000 mAh",
     "chargePort": "Micro USB x2",
     "storage": "External MicroSD",
-    "dimensions": "98 mm x 66 mm x 32 mm",
+    "dimensions": {
+      "length": "98 mm",
+      "width": "66 mm",
+      "height": "32 mm"
+    },
     "weight": "300 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -65677,7 +66781,11 @@
     "battery": "4000 mAh",
     "chargePort": "Micro USB x2",
     "storage": "Internal MicroSD",
-    "dimensions": "130 mm x 65 mm x 32 mm",
+    "dimensions": {
+      "length": "130 mm",
+      "width": "65 mm",
+      "height": "32 mm"
+    },
     "weight": "350 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -65904,7 +67012,11 @@
     "battery": "2000 mAh",
     "chargePort": "Micro USB",
     "storage": "External MicroSD",
-    "dimensions": "145 mm x 82 mm x 25 mm",
+    "dimensions": {
+      "length": "145 mm",
+      "width": "82 mm",
+      "height": "25 mm"
+    },
     "weight": "155 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -66127,7 +67239,11 @@
     "battery": "2000 mAh(Swappable)",
     "chargePort": "Mini USB",
     "storage": "Internal 4 GB & External MicroSD",
-    "dimensions": "175 mm x 85 mm x 15 mm",
+    "dimensions": {
+      "length": "175 mm",
+      "width": "85 mm",
+      "height": "15 mm"
+    },
     "weight": "170 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -66350,7 +67466,11 @@
     "battery": "7000 mAh(Swappable)",
     "chargePort": "Micro USB",
     "storage": "External MicroSD",
-    "dimensions": "146 mm x 89 mm x 31 mm",
+    "dimensions": {
+      "length": "146 mm",
+      "width": "89 mm",
+      "height": "31 mm"
+    },
     "weight": "363 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -66587,7 +67707,11 @@
     "battery": "5800 mAh(Swappable)",
     "chargePort": "USB-C",
     "storage": "Internal 64 GB",
-    "dimensions": "207 mm x 96 mm x 15 mm",
+    "dimensions": {
+      "length": "207 mm",
+      "width": "96 mm",
+      "height": "15 mm"
+    },
     "weight": "330 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -66805,7 +67929,11 @@
     "battery": "700 mAh(Swappable)",
     "chargePort": "Mini USB",
     "storage": "Internal & External MicroSD",
-    "dimensions": "144 mm x 64 mm x 19 mm",
+    "dimensions": {
+      "length": "144 mm",
+      "width": "64 mm",
+      "height": "19 mm"
+    },
     "weight": "142 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -67027,7 +68155,11 @@
     "battery": "1020 mAh BL-5C(Swappable)",
     "chargePort": "Micro USB",
     "storage": "External MicroSD",
-    "dimensions": "105 mm x 70 mm x 22 mm",
+    "dimensions": {
+      "length": "105 mm",
+      "width": "70 mm",
+      "height": "22 mm"
+    },
     "weight": "103 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -67249,7 +68381,11 @@
     "battery": "6900 mAh",
     "chargePort": "USB-C",
     "storage": "Internal 64 GB eMMC & External MicroSD",
-    "dimensions": "155 mm x 97 mm x 22 mm",
+    "dimensions": {
+      "length": "155 mm",
+      "width": "97 mm",
+      "height": "22 mm"
+    },
     "weight": "300 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -67467,7 +68603,11 @@
     "battery": "1200 mAh BP-4L(Swappable)",
     "chargePort": "Mini USB",
     "storage": "Internal & External MicroSD",
-    "dimensions": "170 mm x 78 mm x 18 mm",
+    "dimensions": {
+      "length": "170 mm",
+      "width": "78 mm",
+      "height": "18 mm"
+    },
     "weight": "162 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -67696,7 +68836,11 @@
     "battery": "6000 mAh",
     "chargePort": "Micro USB",
     "storage": "Internal 16/32/64 GB & External MicroSD",
-    "dimensions": "155 mm x 89 mm x 24 mm",
+    "dimensions": {
+      "length": "155 mm",
+      "width": "89 mm",
+      "height": "24 mm"
+    },
     "weight": "300 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -67929,7 +69073,11 @@
     "battery": "3500 mAh",
     "chargePort": "Micro USB,DC Power",
     "storage": "Internal 8 GB & External MicroSD",
-    "dimensions": "195 mm x 105 mm x 37 mm",
+    "dimensions": {
+      "length": "195 mm",
+      "width": "105 mm",
+      "height": "37 mm"
+    },
     "weight": "307 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -68160,7 +69308,11 @@
     "battery": "3000 mAh(Swappable)",
     "chargePort": "Micro USB",
     "storage": "Internal 16 GB & External MicroSD",
-    "dimensions": "176 mm x 74 mm x 13 mm",
+    "dimensions": {
+      "length": "176 mm",
+      "width": "74 mm",
+      "height": "13 mm"
+    },
     "weight": "155 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -68381,7 +69533,11 @@
     "battery": "2200 mAh",
     "chargePort": "Mini USB",
     "storage": "Internal & External MicroSD",
-    "dimensions": "143 mm x 70 mm x 18 mm",
+    "dimensions": {
+      "length": "143 mm",
+      "width": "70 mm",
+      "height": "18 mm"
+    },
     "weight": "225 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -68602,7 +69758,11 @@
     "battery": "5500 mAh",
     "chargePort": "Micro USB",
     "storage": "Internal 16 GB & External MicroSD",
-    "dimensions": "250 mm x 121.5 mm x 19 mm",
+    "dimensions": {
+      "length": "250 mm",
+      "width": "121.5 mm",
+      "height": "19 mm"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -68825,7 +69985,11 @@
     "battery": "7350 mAh(28.8 Wh)",
     "chargePort": "Micro USB",
     "storage": "Internal 16 GB & External MicroSD",
-    "dimensions": "158 mm x 135 mm x 57 mm",
+    "dimensions": {
+      "length": "158 mm",
+      "width": "135 mm",
+      "height": "57 mm"
+    },
     "weight": "579 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -69055,7 +70219,11 @@
     "battery": "1320 mAh",
     "chargePort": "Micro USB",
     "storage": "Internal 2 GB & External SD",
-    "dimensions": "140 mm x 75 mm x 16 mm",
+    "dimensions": {
+      "length": "140 mm",
+      "width": "75 mm",
+      "height": "16 mm"
+    },
     "weight": "120 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -69268,7 +70436,11 @@
     "battery": "890 mAh BL-5B(Swappable)",
     "chargePort": "Mini USB",
     "storage": "External MicroSD",
-    "dimensions": "144 mm x 64 mm x 19 mm",
+    "dimensions": {
+      "length": "144 mm",
+      "width": "64 mm",
+      "height": "19 mm"
+    },
     "weight": "142 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -69495,7 +70667,11 @@
     "battery": "1700 mAh",
     "chargePort": "Mini USB",
     "storage": "Internal 4 GB & External MicroSD",
-    "dimensions": "132 mm x 57 mm x 15 mm",
+    "dimensions": {
+      "length": "132 mm",
+      "width": "57 mm",
+      "height": "15 mm"
+    },
     "weight": "120 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -69715,7 +70891,11 @@
     "battery": "1800 mAh",
     "chargePort": "Mini USB",
     "storage": "Internal 4 GB & External MicroSD",
-    "dimensions": "182 mm x 80 mm x 15 mm",
+    "dimensions": {
+      "length": "182 mm",
+      "width": "80 mm",
+      "height": "15 mm"
+    },
     "weight": "192 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -69933,7 +71113,11 @@
     "battery": "1700 mAh",
     "chargePort": "Mini USB",
     "storage": "Internal 4 GB & External MiniSD",
-    "dimensions": "132 mm x 57 mm x 15 mm",
+    "dimensions": {
+      "length": "132 mm",
+      "width": "57 mm",
+      "height": "15 mm"
+    },
     "weight": "120 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -70146,7 +71330,11 @@
     "battery": "1800 mAh",
     "chargePort": "Mini USB",
     "storage": "Internal 4 GB & External MiniSD",
-    "dimensions": "135 mm x 61 mm x 16 mm",
+    "dimensions": {
+      "length": "135 mm",
+      "width": "61 mm",
+      "height": "16 mm"
+    },
     "weight": "118 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -70365,7 +71553,11 @@
     "battery": "1850 mAh",
     "chargePort": "Proprietary",
     "storage": "External SD",
-    "dimensions": "146 mm x 70 mm x 18.5 mm",
+    "dimensions": {
+      "length": "146 mm",
+      "width": "70 mm",
+      "height": "18.5 mm"
+    },
     "weight": "136 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -70583,7 +71775,11 @@
     "battery": "1050 mAh BL-5B(Swappable)",
     "chargePort": "Mini USB",
     "storage": "Internal 4GB & External MicroSD",
-    "dimensions": "137 mm x 73 mm x 14 mm",
+    "dimensions": {
+      "length": "137 mm",
+      "width": "73 mm",
+      "height": "14 mm"
+    },
     "weight": "152 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -70806,7 +72002,11 @@
     "battery": "4000 mAh(Swappable)",
     "chargePort": "Mini USB",
     "storage": "2 External SD slots",
-    "dimensions": "140 mm x 83.5 mm x 29 mm",
+    "dimensions": {
+      "length": "140 mm",
+      "width": "83.5 mm",
+      "height": "29 mm"
+    },
     "weight": "320 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -71028,7 +72228,11 @@
     "battery": "1700 mAh",
     "chargePort": "Mini USB",
     "storage": "Internal 1/2/4 GB & External MiniSD",
-    "dimensions": "125 mm x 55.5 mm x 14 mm",
+    "dimensions": {
+      "length": "125 mm",
+      "width": "55.5 mm",
+      "height": "14 mm"
+    },
     "weight": "110 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -71252,7 +72456,9 @@
     "battery": "800 mAh",
     "chargePort": "Mini USB,DC Power",
     "storage": "Internal 4 GB & External SD",
-    "dimensions": "115 mm × 59 mm × 17mm",
+    "dimensions": {
+      "length": "115 mm × 59 mm × 17mm"
+    },
     "weight": "100 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -71469,7 +72675,11 @@
     "battery": "2000 mAh",
     "chargePort": "24 pin USB(Proprietary)",
     "storage": "Internal 1 GB NAND Flash & External SD",
-    "dimensions": "121 mm x 61 mm x 18 mm",
+    "dimensions": {
+      "length": "121 mm",
+      "width": "61 mm",
+      "height": "18 mm"
+    },
     "weight": "136 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -71688,7 +72898,11 @@
     "battery": "AA x2(Swappable)",
     "chargePort": "Mini USB,DC Power",
     "storage": "Internal 64 MB NAND Flash & External SD",
-    "dimensions": "143.6 mm x 82.9 mm x 34 mm",
+    "dimensions": {
+      "length": "143.6 mm",
+      "width": "82.9 mm",
+      "height": "34 mm"
+    },
     "weight": "161 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -71901,7 +73115,11 @@
     "battery": "1000 mAh(Swappable)",
     "chargePort": "Mini USB",
     "storage": "Internal 5 MB & External SD",
-    "dimensions": "149 mm x 62 mm x 19 mm",
+    "dimensions": {
+      "length": "149 mm",
+      "width": "62 mm",
+      "height": "19 mm"
+    },
     "weight": "130 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -72118,7 +73336,11 @@
     "battery": "Li-ion(Swappable)",
     "chargePort": "Mini USB, DC Power",
     "storage": "Internal 128 MB NAND & External SD",
-    "dimensions": "138 mm x 82 mm x 32 mm",
+    "dimensions": {
+      "length": "138 mm",
+      "width": "82 mm",
+      "height": "32 mm"
+    },
     "weight": "155 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -72339,7 +73561,11 @@
     "battery": "AA x2(Swappable)",
     "chargePort": "Mini USB,DC Power",
     "storage": "Internal 64 MB NAND Flash & External SD",
-    "dimensions": "143.6 mm x 82.9 mm x 34 mm",
+    "dimensions": {
+      "length": "143.6 mm",
+      "width": "82.9 mm",
+      "height": "34 mm"
+    },
     "weight": "161 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -72551,7 +73777,9 @@
     "battery": "1540 mAh",
     "chargePort": "Proprietary",
     "storage": "32 MB (Zodiac 1)128 MB (Zodiac 2)",
-    "dimensions": "142 mm × 79 mm ×14 mm",
+    "dimensions": {
+      "length": "142 mm × 79 mm ×14 mm"
+    },
     "weight": "180 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -72767,7 +73995,11 @@
     "battery": "AA x2(Swappable)",
     "chargePort": "Mini USB,DC Power",
     "storage": "Internal 512 KB & External SmartMedia",
-    "dimensions": "147 mm x 88 mm x 34 mm",
+    "dimensions": {
+      "length": "147 mm",
+      "width": "88 mm",
+      "height": "34 mm"
+    },
     "weight": "163 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -72980,7 +74212,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -73191,7 +74425,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -73402,7 +74638,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -73613,7 +74851,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -73825,7 +75065,11 @@
     "battery": "",
     "chargePort": "Micro USB",
     "storage": "16 MB SPI Flash",
-    "dimensions": "55 mm x 32 mm x 14 mm",
+    "dimensions": {
+      "length": "55 mm",
+      "width": "32 mm",
+      "height": "14 mm"
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -74036,7 +75280,11 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "200 mm x 86 mm x 16 mm",
+    "dimensions": {
+      "length": "200 mm",
+      "width": "86 mm",
+      "height": "16 mm"
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -74247,7 +75495,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -74458,7 +75708,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -74674,7 +75926,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -74885,7 +76139,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -75096,7 +76352,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -75307,7 +76565,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -75518,7 +76778,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -75729,7 +76991,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -75940,7 +77204,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -76151,7 +77417,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -76362,7 +77630,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -76573,7 +77843,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -76784,7 +78056,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -76995,7 +78269,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -77206,7 +78482,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -77417,7 +78695,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -77628,7 +78908,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -77839,7 +79121,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -78050,7 +79334,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -78261,7 +79547,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -78472,7 +79760,10 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "171 mm x 73 mm",
+    "dimensions": {
+      "length": "171 mm",
+      "width": "73 mm"
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -78683,7 +79974,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -78894,7 +80187,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -79105,7 +80400,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -79316,7 +80613,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -79527,7 +80826,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -79738,7 +81039,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -79949,7 +81252,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -80160,7 +81465,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -80371,7 +81678,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -80582,7 +81891,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -80793,7 +82104,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -81004,7 +82317,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -81215,7 +82530,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -81426,7 +82743,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -81637,7 +82956,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -81848,7 +83169,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -82059,7 +83382,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -82270,7 +83595,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -82481,7 +83808,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -82692,7 +84021,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -82903,7 +84234,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -83114,7 +84447,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -83325,7 +84660,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -83536,7 +84873,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -83747,7 +85086,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -83958,7 +85299,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -84169,7 +85512,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -84380,7 +85725,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -84591,7 +85938,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -84802,7 +86151,11 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "141 mm x 134 mm x 27 mm",
+    "dimensions": {
+      "length": "141 mm",
+      "width": "134 mm",
+      "height": "27 mm"
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -85013,7 +86366,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -85224,7 +86579,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -85435,7 +86792,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -85646,7 +87005,11 @@
     "battery": "3000 mAh",
     "chargePort": "Mini USB",
     "storage": "Internal & External MicroSD",
-    "dimensions": "260 mm x 115 mm x 20 mm",
+    "dimensions": {
+      "length": "260 mm",
+      "width": "115 mm",
+      "height": "20 mm"
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -85858,7 +87221,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -86069,7 +87434,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -86280,7 +87647,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -86491,7 +87860,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -86702,7 +88073,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -86913,7 +88286,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -87124,7 +88499,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -87335,7 +88712,9 @@
     "battery": "8000 mAh",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -87546,7 +88925,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -87757,7 +89138,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -87968,7 +89351,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -88179,7 +89564,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "297 grams",
     "shellMaterial": "",
     "colors": [
@@ -88390,7 +89777,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -88601,7 +89990,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -88812,7 +90203,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -89028,7 +90421,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -89239,7 +90634,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -89450,7 +90847,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -89661,7 +91060,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -89872,7 +91273,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -90083,7 +91486,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -90294,7 +91699,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -90505,7 +91912,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -90716,7 +92125,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -90927,7 +92338,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -91138,7 +92551,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -91349,7 +92764,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -91560,7 +92977,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -91771,7 +93190,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -91982,7 +93403,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -92193,7 +93616,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -92409,7 +93834,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -92620,7 +94047,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "257 grams",
     "shellMaterial": "",
     "colors": [
@@ -92831,7 +94260,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -93042,7 +94473,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -93253,7 +94686,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -93464,7 +94899,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -93675,7 +95112,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -93886,7 +95325,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -94097,7 +95538,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -94308,7 +95751,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -94519,7 +95964,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -94730,7 +96177,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -94941,7 +96390,9 @@
     "battery": "?",
     "chargePort": "USB-C",
     "storage": "Internal & External MicroSD",
-    "dimensions": "?",
+    "dimensions": {
+      "length": "?"
+    },
     "weight": "?",
     "shellMaterial": "Plastic",
     "colors": [
@@ -95165,7 +96616,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -95376,7 +96829,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -95587,7 +97042,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -95798,7 +97255,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -96009,7 +97468,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -96220,7 +97681,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -96431,7 +97894,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -96642,7 +98107,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -96853,7 +98320,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -97069,7 +98538,11 @@
     "battery": "3200 mAh",
     "chargePort": "USB-C",
     "storage": "Internal & External MicroSD",
-    "dimensions": "4.4 x 1 x 5.1 inches",
+    "dimensions": {
+      "length": "4.4",
+      "width": "1",
+      "height": "5.1 inches"
+    },
     "weight": "13.6 ounces",
     "shellMaterial": "Plastic",
     "colors": [
@@ -97300,7 +98773,11 @@
     "battery": "3000mAh",
     "chargePort": "USB-C",
     "storage": "Internal & External MicroSD",
-    "dimensions": "9.1 x 13.13 x 3.84 cm",
+    "dimensions": {
+      "length": "9.1",
+      "width": "13.13",
+      "height": "3.84 cm"
+    },
     "weight": "",
     "shellMaterial": "Plastic",
     "colors": [
@@ -97514,7 +98991,9 @@
     "battery": "55 Wh",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "720 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -97725,7 +99204,9 @@
     "battery": "55 Wh",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "1050 grams",
     "shellMaterial": "Plastic",
     "colors": [
@@ -97936,7 +99417,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -98147,7 +99630,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -98363,7 +99848,9 @@
     "battery": "3800 mAh",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": "",
     "colors": [
@@ -98650,7 +100137,11 @@
     "battery": "850 mAh",
     "chargePort": "Proprietary Port",
     "storage": "Internal 256 KB serial flash memory",
-    "dimensions": "148.7 mm x 84.7 mm x 28.9 mm",
+    "dimensions": {
+      "length": "148.7 mm",
+      "width": "84.7 mm",
+      "height": "28.9 mm"
+    },
     "weight": "275 grams",
     "shellMaterial": null,
     "colors": [
@@ -98904,7 +100395,11 @@
     "battery": "1000 mAh",
     "chargePort": "Proprietary Port",
     "storage": "Internal 256 KB serial flash memory",
-    "dimensions": "133 mm x 73.9 mm x 21.5 mm",
+    "dimensions": {
+      "length": "133 mm",
+      "width": "73.9 mm",
+      "height": "21.5 mm"
+    },
     "weight": "218 grams",
     "shellMaterial": null,
     "colors": [
@@ -99168,7 +100663,11 @@
     "battery": "840 mAh",
     "chargePort": "Proprietary Port",
     "storage": "Internal 256 MB NAND flash memory,External SD/SDHC card slot",
-    "dimensions": "137 mm x 74.9 mm x 18.9 mm",
+    "dimensions": {
+      "length": "137 mm",
+      "width": "74.9 mm",
+      "height": "18.9 mm"
+    },
     "weight": "214 grams",
     "shellMaterial": null,
     "colors": [
@@ -99424,7 +100923,11 @@
     "battery": "1050 mAh",
     "chargePort": "Proprietary Port",
     "storage": "Internal 256 MB NAND flash memory,External SD/SDHC card slot",
-    "dimensions": "161 mm x 91.4 mm x 21.2 mm",
+    "dimensions": {
+      "length": "161 mm",
+      "width": "91.4 mm",
+      "height": "21.2 mm"
+    },
     "weight": "314 grams",
     "shellMaterial": null,
     "colors": [
@@ -99681,7 +101184,11 @@
     "battery": "1300 mAh",
     "chargePort": "Proprietary Port",
     "storage": "Internal 1 GB & External SD/SDHC",
-    "dimensions": "134 mm x 74 mm x 22 mm",
+    "dimensions": {
+      "length": "134 mm",
+      "width": "74 mm",
+      "height": "22 mm"
+    },
     "weight": "235 grams",
     "shellMaterial": null,
     "colors": [
@@ -99945,7 +101452,11 @@
     "battery": "1750 mAh",
     "chargePort": "Proprietary Port",
     "storage": "Internal 1 GB & External SD/SDHC",
-    "dimensions": "156 mm x 93 mm x 22 mm",
+    "dimensions": {
+      "length": "156 mm",
+      "width": "93 mm",
+      "height": "22 mm"
+    },
     "weight": "336 grams",
     "shellMaterial": null,
     "colors": [
@@ -100207,7 +101718,11 @@
     "battery": "1300 mAh",
     "chargePort": "Proprietary Port",
     "storage": "Internal 1 GB & External SD/SDHC",
-    "dimensions": "144 mm x 127 mm x 20.3 mm",
+    "dimensions": {
+      "length": "144 mm",
+      "width": "127 mm",
+      "height": "20.3 mm"
+    },
     "weight": "260 grams",
     "shellMaterial": null,
     "colors": [
@@ -100472,7 +101987,11 @@
     "battery": "1400 mAh",
     "chargePort": "Proprietary Port",
     "storage": "Internal 1 GB & External MicroSD",
-    "dimensions": "142 mm x 80.6 mm x 21.6 mm",
+    "dimensions": {
+      "length": "142 mm",
+      "width": "80.6 mm",
+      "height": "21.6 mm"
+    },
     "weight": "253 grams",
     "shellMaterial": null,
     "colors": [
@@ -100726,7 +102245,11 @@
     "battery": "1750 mAh",
     "chargePort": "Proprietary Port",
     "storage": "Internal 1 GB & External MicroSD",
-    "dimensions": "160 mm x 93.5 mm x 21.5 mm",
+    "dimensions": {
+      "length": "160 mm",
+      "width": "93.5 mm",
+      "height": "21.5 mm"
+    },
     "weight": "329 grams",
     "shellMaterial": null,
     "colors": [
@@ -100985,7 +102508,11 @@
     "battery": "1400 mAh",
     "chargePort": "Proprietary Port",
     "storage": "Internal 1 GB & External MicroSD",
-    "dimensions": "159.36 mm x 86.36 mm x 20.8 mm",
+    "dimensions": {
+      "length": "159.36 mm",
+      "width": "86.36 mm",
+      "height": "20.8 mm"
+    },
     "weight": "260 grams",
     "shellMaterial": null,
     "colors": [
@@ -101241,7 +102768,11 @@
     "battery": "4310 mAh(15.95 Wh)",
     "chargePort": "USB-C",
     "storage": "Internal 32 GB eMMC & External MicroSD",
-    "dimensions": "173 mm x 102 mm x 14 mm,238 mm x 102 mm x 14 - 28.5 mm(Joycons attached)",
+    "dimensions": {
+      "length": "173 mm",
+      "width": "102 mm",
+      "height": "14 mm,238 mm"
+    },
     "weight": "297 grams,398 grams (Joycons attached)",
     "shellMaterial": null,
     "colors": [
@@ -101514,7 +103045,11 @@
     "battery": "3570 mAh(13.6 Wh)",
     "chargePort": "USB-C",
     "storage": "Internal 32 GB eMMC & External MicroSD",
-    "dimensions": "208 mm x 91 mm x 14 mm",
+    "dimensions": {
+      "length": "208 mm",
+      "width": "91 mm",
+      "height": "14 mm"
+    },
     "weight": "277 grams",
     "shellMaterial": null,
     "colors": [
@@ -101780,7 +103315,11 @@
     "battery": "4310 mAh(15.95 Wh)",
     "chargePort": "USB-C",
     "storage": "Internal 64 GB eMMC & External MicroSD",
-    "dimensions": "173 mm x 102 mm x 14 mm,238 mm x 102 mm x 14 - 28.5 mm(Joycons attached)",
+    "dimensions": {
+      "length": "173 mm",
+      "width": "102 mm",
+      "height": "14 mm,238 mm"
+    },
     "weight": "322 grams,422 grams(Joycons attached)",
     "shellMaterial": null,
     "colors": [
@@ -102033,7 +103572,11 @@
     "battery": "1800 mAh(2200 mAh Upgrade)(Swappable)",
     "chargePort": "DC Power(Barrel Connector)",
     "storage": "External Memory Stick PRO Duo",
-    "dimensions": "170 mm x 74 mm x 23 mm",
+    "dimensions": {
+      "length": "170 mm",
+      "width": "74 mm",
+      "height": "23 mm"
+    },
     "weight": "280 grams",
     "shellMaterial": null,
     "colors": [
@@ -102291,7 +103834,11 @@
     "battery": "1200 mAh(2200 mAh Upgrade)(Swappable)",
     "chargePort": "DC Power(Barrel Connector)",
     "storage": "External Memory Stick PRO Duo",
-    "dimensions": "169 mm x 71 mm x 19 mm",
+    "dimensions": {
+      "length": "169 mm",
+      "width": "71 mm",
+      "height": "19 mm"
+    },
     "weight": "189 grams",
     "shellMaterial": null,
     "colors": [
@@ -102563,7 +104110,11 @@
     "battery": "1200 mAh(2200 mAh Upgrade)(Swappable)",
     "chargePort": "DC Power(Barrel Connector)",
     "storage": "External Memory Stick PRO Duo",
-    "dimensions": "169 mm x 71 mm x 19 mm",
+    "dimensions": {
+      "length": "169 mm",
+      "width": "71 mm",
+      "height": "19 mm"
+    },
     "weight": "189 grams",
     "shellMaterial": null,
     "colors": [
@@ -102837,7 +104388,11 @@
     "battery": "925 mAh",
     "chargePort": "DC Power(Barrel Connector)",
     "storage": "External Memory Stick PRO Duo",
-    "dimensions": "172 mm x 73 mm x 21.5 mm",
+    "dimensions": {
+      "length": "172 mm",
+      "width": "73 mm",
+      "height": "21.5 mm"
+    },
     "weight": "223 grams",
     "shellMaterial": null,
     "colors": [
@@ -103088,7 +104643,11 @@
     "battery": "930 mAh",
     "chargePort": "Proprietary Port",
     "storage": "Internal 16 GB, External Memory Stick Micro (M2)",
-    "dimensions": "128 mm x 69 mm x 16.5 mm",
+    "dimensions": {
+      "length": "128 mm",
+      "width": "69 mm",
+      "height": "16.5 mm"
+    },
     "weight": "158 grams",
     "shellMaterial": null,
     "colors": [
@@ -103345,7 +104904,11 @@
     "battery": "2210 mAh",
     "chargePort": "Proprietary Port",
     "storage": "External PS Vita Memory Card, External MicroSD with SD2Vita adapter",
-    "dimensions": "182 mm x 83.5 mm x 18.6 mm",
+    "dimensions": {
+      "length": "182 mm",
+      "width": "83.5 mm",
+      "height": "18.6 mm"
+    },
     "weight": "260 grams279 grams (3G)",
     "shellMaterial": null,
     "colors": [
@@ -103643,7 +105206,11 @@
     "battery": "2210 mAh",
     "chargePort": "Micro USB",
     "storage": "Internal 1 GB & External PS Vita Memory Card, External MicroSD with SD2Vita adapter",
-    "dimensions": "183.6 mm x 85.1 mm x 15 mm",
+    "dimensions": {
+      "length": "183.6 mm",
+      "width": "85.1 mm",
+      "height": "15 mm"
+    },
     "weight": "219 grams",
     "shellMaterial": null,
     "colors": [
@@ -103948,7 +105515,11 @@
     "battery": "1500 mAh",
     "chargePort": "Micro USB",
     "storage": "Internal 400 MB & External MicroSD",
-    "dimensions": "119 mm x 62 mm x 16 mm",
+    "dimensions": {
+      "length": "119 mm",
+      "width": "62 mm",
+      "height": "16 mm"
+    },
     "weight": "175 grams",
     "shellMaterial": null,
     "colors": [
@@ -104198,7 +105769,11 @@
     "battery": "650 mAh",
     "chargePort": "USB-CBottom facing",
     "storage": "Internal 4 GB eMMC",
-    "dimensions": "76 mm x 74 mm x 9 mm",
+    "dimensions": {
+      "length": "76 mm",
+      "width": "74 mm",
+      "height": "9 mm"
+    },
     "weight": "86 grams",
     "shellMaterial": null,
     "colors": [
@@ -104440,7 +106015,9 @@
     "battery": "",
     "chargePort": "",
     "storage": "",
-    "dimensions": "",
+    "dimensions": {
+      "length": ""
+    },
     "weight": "",
     "shellMaterial": null,
     "colors": [

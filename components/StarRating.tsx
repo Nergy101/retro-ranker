@@ -149,7 +149,7 @@ export function StarRating({ device }: StarRatingProps) {
   const hasHalfStar = roundedRating % 1 !== 0;
 
   return (
-    <p
+    <span
       style="display: flex; color: var(--pico-primary);"
       data-placement="bottom"
       data-tooltip={`Emulation Rating: ${fivePointRating.toFixed(1)}/5`}
@@ -164,6 +164,6 @@ export function StarRating({ device }: StarRatingProps) {
       {Array.from({ length: 5 - fullStars - (hasHalfStar ? 1 : 0) }).map(() => (
         <PiStar />
       ))}
-    </p>
+    </span>
   );
 }
