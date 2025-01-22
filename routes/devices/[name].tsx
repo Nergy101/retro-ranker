@@ -70,244 +70,241 @@ export default function DeviceDetail(props: PageProps) {
   }
 
   return (
-    <div>
+    <div class="device-detail">
       <Head>
         <title>Retro Ranker - {device.name.raw}</title>
       </Head>
-      <div class="device-detail">
-        <div class="device-detail-header">
-          <div style="display: flex; flex-direction: column; gap: 0.5rem; justify-content: center; align-items: center;">
-            <h2 style={{ fontSize: "2rem", color: "var(--pico-primary)" }}>
-              {device.name.raw}
-            </h2>
-            <div style="display: flex; gap: 0.25rem; align-items: center;">
-              <p>{device.brand}</p>
-              <p
-                data-tooltip={device.os.list.join(", ") === "?"
-                  ? "No OS information available"
-                  : device.os.list.join(", ")}
-                data-placement="bottom"
-              >
-                <span style="display: flex; gap: 0.25rem;">
-                  {device.os.icons.map((icon) =>
-                    deviceService.getOsIconComponent(icon)
-                  )}
-                </span>
-              </p>
-            </div>
-            <div>
-              {device.image?.originalUrl
-                ? (
+      <div class="device-detail-header">
+        <div style="display: flex; flex-direction: column; gap: 0.5rem; justify-content: center; align-items: center;">
+          <h2 style={{ fontSize: "2rem", color: "var(--pico-primary)" }}>
+            {device.name.raw}
+          </h2>
+          <div style="display: flex; gap: 0.25rem; align-items: center;">
+            <p>{device.brand}</p>
+            <p
+              data-tooltip={device.os.list.join(", ") === "?"
+                ? "No OS information available"
+                : device.os.list.join(", ")}
+              data-placement="bottom"
+            >
+              <span style="display: flex; gap: 0.25rem;">
+                {device.os.icons.map((icon) =>
+                  deviceService.getOsIconComponent(icon)
+                )}
+              </span>
+            </p>
+          </div>
+          <div>
+            {device.image?.originalUrl
+              ? (
+                <img
+                  loading="lazy"
+                  src={device.image?.url ?? "/images/placeholder-100x100.svg"}
+                  width={100}
+                  height={100}
+                  alt={device.image?.alt ?? "A device image"}
+                  style="width: 100px; height: 100px; object-fit: contain;"
+                />
+              )
+              : (
+                <span
+                  data-tooltip="No image available"
+                  data-placement="bottom"
+                >
                   <img
-                    loading="lazy"
-                    src={device.image?.url ?? "/images/placeholder-100x100.svg"}
+                    src="/images/placeholder-100x100.svg"
                     width={100}
                     height={100}
-                    alt={device.image?.alt ?? "A device image"}
-                    style="width: 100px; height: 100px; object-fit: contain;"
+                    alt="A placeholder image"
                   />
-                )
-                : (
-                  <span
-                    data-tooltip="No image available"
-                    data-placement="bottom"
-                  >
-                    <img
-                      src="/images/placeholder-100x100.svg"
-                      width={100}
-                      height={100}
-                      alt="A placeholder image"
-                    />
-                  </span>
-                )}
-            </div>
-            <div style="display: flex; gap: 0.5rem;">
-              <p>
-                <StarRating device={device} />
-              </p>
-            </div>
-            <div style="display: flex; align-items: center; flex-direction: column;">
-              {!device.pricing.discontinued
-                ? (
-                  <span
-                    style={{
-                      color: "var(--pico-color)",
-                      display: "inline-flex",
-                    }}
-                    data-tooltip={`${device.pricing.category}: 
+                </span>
+              )}
+          </div>
+          <div style="display: flex; gap: 0.5rem;">
+            <p>
+              <StarRating device={device} />
+            </p>
+          </div>
+          <div style="display: flex; align-items: center; flex-direction: column;">
+            {!device.pricing.discontinued
+              ? (
+                <span
+                  style={{
+                    color: "var(--pico-color)",
+                    display: "inline-flex",
+                  }}
+                  data-tooltip={`${device.pricing.category}: 
                 ${device.pricing.range?.min}-${device.pricing.range?.max} 
                 ${device.pricing.currency}`}
-                    data-placement="bottom"
-                  >
-                    <CurrencyIcon currencyCode={device.pricing.currency} />
-                    {device.pricing.average}
-                  </span>
-                )
-                : (
-                  <span
-                    style={{ display: "flex", gap: "0.25rem" }}
-                    data-tooltip="Discontinued"
-                  >
-                    <PiQuestion />
-                  </span>
-                )}
+                  data-placement="bottom"
+                >
+                  <CurrencyIcon currencyCode={device.pricing.currency} />
+                  {device.pricing.average}
+                </span>
+              )
+              : (
+                <span
+                  style={{ display: "flex", gap: "0.25rem" }}
+                  data-tooltip="Discontinued"
+                >
+                  <PiQuestion />
+                </span>
+              )}
 
-              <span
-                style={{
-                  color: "var(--pico-color)",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "0.25rem",
-                }}
-                data-tooltip={getReleaseDate(device.released).date}
-                data-placement="bottom"
-              >
-                {getReleaseDate(device.released).icon()}
+            <span
+              style={{
+                color: "var(--pico-color)",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.25rem",
+              }}
+              data-tooltip={getReleaseDate(device.released).date}
+              data-placement="bottom"
+            >
+              {getReleaseDate(device.released).icon()}
 
-                {getReleaseDate(device.released).expected
-                  ? "Expected"
-                  : getReleaseDate(device.released).date}
-              </span>
-            </div>
+              {getReleaseDate(device.released).expected
+                ? "Expected"
+                : getReleaseDate(device.released).date}
+            </span>
           </div>
         </div>
+      </div>
 
-        <div class="device-detail-performance">
-          <h3>Emulation Performance</h3>
+      <div class="device-detail-performance">
+        <h3>Emulation Performance</h3>
 
-          <EmulationPerformance device={device} />
-        </div>
+        <EmulationPerformance device={device} />
+      </div>
 
-        <div style="grid-area: specs; display: flex; flex-direction: column; gap: 0.5rem; padding: 1rem;">
-          <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-            <div class="divider" style="padding: 0.5rem 0;"></div>
-            <details class="summary-details">
-              <summary>
-                <strong style={{ color: "var(--pico-primary)" }}>
-                  Specifications Summary
-                </strong>
-              </summary>
-              <section>
-                <div class="overflow-auto">
-                  <table class="striped">
-                    <thead>
-                      <tr>
-                        <th>Category</th>
-                        <th>Details</th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>OS / CFW</td>
-                        <td>
-                          {device.os.list.join(", ")} {device.os.customFirmwares
-                            ? `(${device.os.customFirmwares})`
-                            : ""}
-                        </td>
-                        <td>
-                          <div style="display: flex; gap: 0.25rem;">
-                            <div>
-                              <div
-                                data-tooltip={device.os.list.join(", ")}
-                                data-placement="bottom"
-                                style={{ display: "flex", gap: "0.25rem" }}
-                              >
-                                {device.os.icons.map((icon) => (
-                                  deviceService.getOsIconComponent(icon)
-                                ))}
-                              </div>
-                            </div>
-                            <div>
-                              <ul>
-                                {device.os.links.map((link) => (
-                                  <li>
-                                    <a href={link.url} target="_blank">
-                                      {link.name}
-                                    </a>
-                                  </li>
-                                ))}
-                              </ul>
+      <div class="device-detail-specs">
+        <div style="display: flex; flex-direction: column;">
+          <div class="divider" style="padding: 0.5rem 0;"></div>
+          <details>
+            <summary>
+              <strong style={{ color: "var(--pico-primary)" }}>
+                Specifications Summary
+              </strong>
+            </summary>
+            <section>
+              <div class="overflow-auto">
+                <table class="striped">
+                  <thead>
+                    <tr>
+                      <th>Category</th>
+                      <th>Details</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>OS / CFW</td>
+                      <td>
+                        {device.os.list.join(", ")} {device.os.customFirmwares
+                          ? `(${device.os.customFirmwares})`
+                          : ""}
+                      </td>
+                      <td>
+                        <div style="display: flex; gap: 0.25rem;">
+                          <div>
+                            <div
+                              data-tooltip={device.os.list.join(", ")}
+                              data-placement="bottom"
+                              style={{ display: "flex", gap: "0.25rem" }}
+                            >
+                              {device.os.icons.map((icon) => (
+                                deviceService.getOsIconComponent(icon)
+                              ))}
                             </div>
                           </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>SOC</td>
-                        <td>{device.systemOnChip}</td>
-                        <td>{device.architecture}</td>
-                      </tr>
-                      <tr>
-                        <td>CPU</td>
-                        <td>
-                          <span style="display: flex; gap: 0.25rem;">
-                            {device.cpu.names.map((name) => <span>{name}
-                            </span>)}
-                          </span>
-                        </td>
-                        <td>
-                          {device.cpu.cores} cores ({device.cpu.threads}{" "}
-                          threads) @ {device.cpu.clockSpeed}
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>GPU</td>
-                        <td>{device.gpu.name}</td>
-                        <td>
-                          {device.gpu.cores} cores @ {device.gpu.clockSpeed}
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>RAM</td>
-                        <td>{device.ram}</td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Dimensions</td>
-                        <td>{device.dimensions}</td>
-                        <td>{device.weight}</td>
-                      </tr>
-                      <tr>
-                        <td>Screen</td>
-                        <td>{device.screen.size} {device.screen.type}</td>
-                        <td>
-                          {device.screen.resolution} {device.screen.ppi} PPI
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Battery</td>
-                        <td>{device.battery}</td>
-                        <td>{device.chargePort}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </section>
-            </details>
+                          <div>
+                            <ul>
+                              {device.os.links.map((link) => (
+                                <li>
+                                  <a href={link.url} target="_blank">
+                                    {link.name}
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>SOC</td>
+                      <td>{device.systemOnChip}</td>
+                      <td>{device.architecture}</td>
+                    </tr>
+                    <tr>
+                      <td>CPU</td>
+                      <td>
+                        <span style="display: flex; gap: 0.25rem;">
+                          {device.cpu.names.map((name) => <span>{name}</span>)}
+                        </span>
+                      </td>
+                      <td>
+                        {device.cpu.cores} cores ({device.cpu.threads}{" "}
+                        threads) @ {device.cpu.clockSpeed}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>GPU</td>
+                      <td>{device.gpu.name}</td>
+                      <td>
+                        {device.gpu.cores} cores @ {device.gpu.clockSpeed}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>RAM</td>
+                      <td>{device.ram}</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Dimensions</td>
+                      <td>{device.dimensions}</td>
+                      <td>{device.weight}</td>
+                    </tr>
+                    <tr>
+                      <td>Screen</td>
+                      <td>{device.screen.size} {device.screen.type}</td>
+                      <td>
+                        {device.screen.resolution} {device.screen.ppi} PPI
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Battery</td>
+                      <td>{device.battery}</td>
+                      <td>{device.chargePort}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </details>
 
-            <div class="divider" style="padding: 0.5rem 0;"></div>
+          <div class="divider" style="padding: 0.5rem 0;"></div>
 
-            <details>
-              <summary>
-                <strong style={{ color: "var(--pico-primary)" }}>
-                  Full Specifications
-                </strong>
-              </summary>
-              <DeviceSpecs device={device} />
-            </details>
-            <div class="divider" style="padding: 0.5rem 0 0 0;"></div>
-          </div>
+          <details>
+            <summary>
+              <strong style={{ color: "var(--pico-primary)" }}>
+                Full Specifications
+              </strong>
+            </summary>
+            <DeviceSpecs device={device} />
+          </details>
+          <div class="divider" style="padding: 0.5rem 0 0 0;"></div>
         </div>
+      </div>
 
-        <div class="device-detail-similar-devices">
-          <h2>Similar Devices</h2>
-          <div class="similar-devices-grid">
-            {similarDevices.map((device) => (
-              <DeviceCardSmall
-                device={device}
-              />
-            ))}
-          </div>
+      <div class="device-detail-similar-devices">
+        <h2>Similar Devices</h2>
+        <div class="similar-devices-grid">
+          {similarDevices.map((device) => (
+            <DeviceCardSmall
+              device={device}
+            />
+          ))}
         </div>
       </div>
     </div>

@@ -234,6 +234,8 @@ html {
     "specs specs"
     "similar similar";
   grid-template-columns: 1fr 3fr;
+
+  container-type: inline-size;
 }
 
 @media (max-width: 768px) {
@@ -248,32 +250,48 @@ html {
 }
 
 .device-detail-performance {
-  padding: 1rem;
+  width: 75cqw;
   grid-area: performance;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  padding: 1rem;
 
-  /* @media (max-width: 500px) {
-    padding: 0.5rem;
-  } */
+  @media (max-width: 768px) {
+    width: 100cqw;
+  }
+}
+
+.device-detail-specs {
+  max-width: 100cqw;
+  grid-area: specs;
+
+  summary, section {
+    margin: 1rem;
+  }
 }
 
 .device-detail-header {
+  width: 25cqw;
+  height: fit-content;
   grid-area: header;
-  padding: 1rem;
+  padding: 1rem 0;
   background-color: rgba(255, 255, 255, 0.05);
   border-radius: var(--pico-border-radius);
+
+  @media (max-width: 768px) {
+    width: 100cqw;
+  }
 }
 
 .device-detail-similar-devices {
+  width: 100cqw;
   grid-area: similar;
-  padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 1rem 0;
 }
 
 .specs-grid {
@@ -545,7 +563,7 @@ h6,
 
 @media (max-width: 1024px) {
   .similar-devices-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -559,20 +577,6 @@ h6,
   .similar-devices-grid {
     grid-template-columns: repeat(1, 1fr);
     gap: 0.25rem;
-  }
-}
-
-.summary-details {
-  @media (max-width: 500px) {
-    max-width: 360px;
-  }
-
-  @media (max-width: 375px) {
-    max-width: 310px;
-  }
-
-  @media (max-width: 320px) {
-    max-width: 250px;
   }
 }
 
@@ -590,14 +594,7 @@ h6,
 }
 
 .emulation-performance {
-
-  @media (max-width: 1024px) {
-    max-width: 400px;
-  }
-
-  @media (max-width: 768px) {
-    max-width: 450px;
-  }
+  margin: 1rem;
 
   @media (max-width: 500px) {
     max-width: 360px;
