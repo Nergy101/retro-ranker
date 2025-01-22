@@ -77,7 +77,7 @@ export default function App({ Component, url }: PageProps) {
         <link
           defer
           rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.pumpkin.min.css"
+          href="/pico.pumpkin.min.css"
         />
         {/* Prevent flash of wrong theme */}
         <script
