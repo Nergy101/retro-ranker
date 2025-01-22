@@ -219,7 +219,7 @@ export default function DeviceDetail(props: PageProps) {
                           </div>
                           <div>
                             <ul>
-                              {device.os.links.map((link) => (
+                              {device.os.links?.map((link) => (
                                 <li>
                                   <a href={link.url} target="_blank">
                                     {link.name}
