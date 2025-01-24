@@ -951,9 +951,10 @@ h6,
   gap: 0.5rem;
 
   overflow-x: auto;
+  overflow-y: hidden;
+
 
   .device-search-card {
     min-width: 15em;
-    height: fit-content;
   }
 }
