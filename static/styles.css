@@ -535,6 +535,10 @@ html {
   transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
   background-color: rgba(254, 182, 112, 0.2);
   transform: scale(1.05);
+
+  header {
+    background-color: rgba(254, 182, 112, 0.2);
+  }
 }
 
 code,
@@ -900,7 +904,6 @@ h6,
   position: absolute;
   background-color: var(--pico-card-background-color);
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
-
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
