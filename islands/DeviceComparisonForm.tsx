@@ -62,7 +62,6 @@ export function DeviceComparisonForm({
   const setQueryASuggestion = (value: string) => {
     queryA.value = value;
     suggestionsA.value = [];
-    handleSubmit();
   };
 
   const setQueryB = (value: string) => {
@@ -76,7 +75,6 @@ export function DeviceComparisonForm({
   const setQueryBSuggestion = (value: string) => {
     queryB.value = value;
     suggestionsB.value = [];
-    handleSubmit();
   };
 
   const handleSubmit = (event: Event) => {

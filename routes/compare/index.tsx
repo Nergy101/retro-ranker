@@ -1,21 +1,17 @@
 import { Head } from "$fresh/runtime.ts";
 import { PageProps } from "$fresh/server.ts";
-import { useSignal } from "@preact/signals";
 import { DeviceComparisonResult } from "../../components/DeviceComparisonResult.tsx";
 import { DeviceComparisonForm } from "../../islands/DeviceComparisonForm.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
 
 export default function DevicesIndex(props: PageProps) {
   const deviceService = DeviceService.getInstance();
+  const devices = props.url?.search.split("=")[1].split(",") || [];
 
-  const devices = props.url?.searchParams?.get("devices") || "";
-  const devicesArray = devices.split(",");
-  const devicesToCompare = devicesArray.map((device) =>
-    deviceService.getDeviceByName(device)
-  ).filter((device) => device !== null);
+  const devicesToCompare = devices.map((d) => deviceService.getDeviceByName(d))
+    .filter((device) => device !== null);
 
   const deviceNames = devicesToCompare.map((device) => device.name.raw);
-
   const allDevices = deviceService.getAllDevices();
 
   return (
