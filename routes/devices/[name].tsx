@@ -7,8 +7,8 @@ import { DeviceCardSmall } from "../../components/DeviceCardSmall.tsx";
 import { DeviceSpecs } from "../../components/DeviceSpecs.tsx";
 import { EmulationPerformance } from "../../components/EmulationPerformance.tsx";
 import { StarRating } from "../../components/StarRating.tsx";
-import { DeviceService } from "../../services/devices/device.service.ts";
 import { Device } from "../../data/models/device.model.ts";
+import { DeviceService } from "../../services/devices/device.service.ts";
 
 export default function DeviceDetail(props: PageProps) {
   const deviceService = DeviceService.getInstance();
@@ -54,46 +54,49 @@ export default function DeviceDetail(props: PageProps) {
     };
   };
 
-  const jsonLdForDevice = (device: Device) => {
-    return JSON.stringify({
+  const jsonLdForDevice = (device: Device | null) => {
+    if (!device) return "";
+
+    return ({
       "@context": "https://schema.org/",
       "@type": "Product",
       "name": device.name.raw,
       "brand": {
         "@type": "Brand",
-        "name": device.brand
+        "name": device.brand,
       },
       "image": device.image?.url ?? "/images/placeholder-100x100.svg",
-      "description": "The Miyoo Flip is a compact and versatile handheld gaming device.",
-      "sku": "MIYOO-FLIP-001",  // Assuming SKU is not available in the data
+      "description": device.name.raw,
       "offers": {
         "@type": "Offer",
         "url": `https://retroranker.site/devices/${device.name.sanitized}`,
-        "priceCurrency": device.pricing.currency ?? "USD",
-        "price": device.pricing.average ?? "99.99",  // Default price if not available
-        "itemCondition": "https://schema.org/NewCondition",
-        "availability": device.pricing.discontinued ? "https://schema.org/OutOfStock" : "https://schema.org/InStock"
+        "priceCurrency": device.pricing.currency,
+        "price": device.pricing.average,
       },
-      "releaseDate": device.released.mentionedDate ? new Date(device.released.mentionedDate).toISOString().split('T')[0] : "2023-10-01",
+      "releaseDate": device.released.mentionedDate
+        ? new Date(device.released.mentionedDate).toISOString().split("T")[0]
+        : "Unknown",
       "additionalProperty": [
         {
           "@type": "PropertyValue",
           "name": "RAM",
-          "value": device.ram ?? "2GB"
+          "value": device.ram,
         },
         {
           "@type": "PropertyValue",
           "name": "Storage",
-          "value": device.storage ?? "32GB"
+          "value": device.storage,
         },
         {
           "@type": "PropertyValue",
           "name": "Battery",
-          "value": device.battery ?? "3000mAh"
-        }
-      ]
+          "value": device.battery,
+        },
+      ],
     });
-  }
+  };
+
+  console.log(jsonLdForDevice(device));
 
   if (!device) {
     return (
@@ -115,13 +118,22 @@ export default function DeviceDetail(props: PageProps) {
     <div class="device-detail">
       <Head>
         <title>Retro Ranker - {device.name.raw}</title>
-        <script type="application/ld+json">
-          {jsonLdForDevice(device)}
-        </script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLdForDevice(device)),
+          }}
+        />
       </Head>
       <div class="device-detail-header">
         <div style="display: flex; flex-direction: column; gap: 0.5rem; justify-content: center; align-items: center;">
-          <h2 style={{ fontSize: "2rem", color: "var(--pico-primary)", textAlign: "center" }}>
+          <h2
+            style={{
+              fontSize: "2rem",
+              color: "var(--pico-primary)",
+              textAlign: "center",
+            }}
+          >
             {device.name.raw}
           </h2>
           <div style="display: flex; gap: 0.25rem; align-items: center;">
