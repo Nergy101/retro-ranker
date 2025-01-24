@@ -15,10 +15,13 @@ import * as $index from "./routes/index.tsx";
 import * as $privacy from "./routes/privacy.tsx";
 import * as $terms from "./routes/terms.tsx";
 import * as $Breadcrumb from "./islands/Breadcrumb.tsx";
+import * as $ClipboardButton from "./islands/ClipboardButton.tsx";
+import * as $CompareButton from "./islands/CompareButton.tsx";
 import * as $DesktopNav from "./islands/DesktopNav.tsx";
 import * as $DeviceComparisonForm from "./islands/DeviceComparisonForm.tsx";
 import * as $DeviceSearchForm from "./islands/DeviceSearchForm.tsx";
 import * as $MobileNav from "./islands/MobileNav.tsx";
+import * as $ShareButton from "./islands/ShareButton.tsx";
 import * as $ThemeSwitcher from "./islands/ThemeSwitcher.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
@@ -39,10 +42,13 @@ const manifest = {
   },
   islands: {
     "./islands/Breadcrumb.tsx": $Breadcrumb,
+    "./islands/ClipboardButton.tsx": $ClipboardButton,
+    "./islands/CompareButton.tsx": $CompareButton,
     "./islands/DesktopNav.tsx": $DesktopNav,
     "./islands/DeviceComparisonForm.tsx": $DeviceComparisonForm,
     "./islands/DeviceSearchForm.tsx": $DeviceSearchForm,
     "./islands/MobileNav.tsx": $MobileNav,
+    "./islands/ShareButton.tsx": $ShareButton,
     "./islands/ThemeSwitcher.tsx": $ThemeSwitcher,
   },
   baseUrl: import.meta.url,

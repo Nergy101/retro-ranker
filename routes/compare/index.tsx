@@ -34,7 +34,10 @@ export default function DevicesIndex(props: PageProps) {
       </header>
 
       <div class="compare-form">
-        <DeviceComparisonForm allDevices={allDevices} />
+        <DeviceComparisonForm
+          allDevices={allDevices}
+          devicesToCompare={devicesToCompare}
+        />
       </div>
 
       <div class="compare-container">

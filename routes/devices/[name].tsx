@@ -1,6 +1,10 @@
 import { Head } from "$fresh/runtime.ts";
 import { PageProps } from "$fresh/server.ts";
-import { PiCalendarCheck, PiCalendarSlash, PiQuestion } from "@preact-icons/pi";
+import {
+  PiCalendarCheck,
+  PiCalendarSlash,
+  PiQuestion
+} from "@preact-icons/pi";
 import { JSX, VNode } from "preact";
 import { CurrencyIcon } from "../../components/CurrencyIcon.tsx";
 import { DeviceCardSmall } from "../../components/DeviceCardSmall.tsx";
@@ -8,6 +12,9 @@ import { DeviceSpecs } from "../../components/DeviceSpecs.tsx";
 import { EmulationPerformance } from "../../components/EmulationPerformance.tsx";
 import { StarRating } from "../../components/StarRating.tsx";
 import { Device } from "../../data/models/device.model.ts";
+import { ClipboardButton } from "../../islands/ClipboardButton.tsx";
+import { ShareButton } from "../../islands/ShareButton.tsx";
+import { CompareButton } from "../../islands/CompareButton.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
 
 export default function DeviceDetail(props: PageProps) {
@@ -66,7 +73,8 @@ export default function DeviceDetail(props: PageProps) {
         "name": device.brand,
       },
       "image": device.image?.url ?? "/images/placeholder-100x100.svg",
-      "description": `${device.name.raw} is a ${device.brand} device. The device is ${device.pricing.category} and costs on average ${device.pricing.average} ${device.pricing.currency}.`,
+      "description":
+        `${device.name.raw} is a ${device.brand} device. The device is ${device.pricing.category} and costs on average ${device.pricing.average} ${device.pricing.currency}.`,
       "offers": {
         "@type": "Offer",
         "url": `https://retroranker.site/devices/${device.name.sanitized}`,
@@ -124,7 +132,7 @@ export default function DeviceDetail(props: PageProps) {
         />
       </Head>
       <div class="device-detail-header">
-        <div style="display: flex; flex-direction: column; gap: 0.5rem; justify-content: center; align-items: center;">
+        <div style="display: flex; flex-direction: column; gap: 0.5rem; justify-content: center; align-items: center; padding-bottom: 0.5rem;">
           <h2
             style={{
               fontSize: "2rem",
@@ -134,7 +142,7 @@ export default function DeviceDetail(props: PageProps) {
           >
             {device.name.raw}
           </h2>
-          <div style="display: flex; gap: 0.25rem; align-items: center;">
+          <div style="display: flex; gap: 0.5rem; align-items: center;">
             <p>{device.brand}</p>
             <p
               data-tooltip={device.os.list.join(", ") === "?"
@@ -205,7 +213,6 @@ export default function DeviceDetail(props: PageProps) {
                   <PiQuestion />
                 </span>
               )}
-
             <span
               style={{
                 color: "var(--pico-color)",
@@ -222,6 +229,21 @@ export default function DeviceDetail(props: PageProps) {
                 ? "Expected"
                 : getReleaseDate(device.released).date}
             </span>
+          </div>
+        </div>
+        <div>
+          <div
+            style="display: flex; justify-content: center; margin:0;"
+            role="group"
+          >
+            <ClipboardButton
+              url={`https://retroranker.site/devices/${device.name.sanitized}`}
+            />
+            <ShareButton
+              title={device.name.raw}
+              url={`https://retroranker.site/devices/${device.name.sanitized}`}
+            />
+            <CompareButton deviceName={device.name.sanitized} />
           </div>
         </div>
       </div>

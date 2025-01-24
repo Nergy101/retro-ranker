@@ -24,10 +24,6 @@ export function DeviceComparisonResult(
     <div class="compare-result">
       <div
         class="compare-result-header"
-        style={{
-          border: "1px solid var(--pico-primary)",
-          borderRadius: "var(--pico-border-radius)",
-        }}
       >
         <a
           href={`/devices/${device.name.sanitized}`}

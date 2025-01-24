@@ -1,4 +1,4 @@
-import { PiDotsThreeCircle, PiDotsThreeOutlineVertical, PiDotsThreeVertical, PiList, PiListBold } from "@preact-icons/pi";
+import { PiListBold } from "@preact-icons/pi";
 import { useEffect } from "preact/hooks";
 import { navigationItems } from "../data/navigation.ts";
 import { ThemeSwitcher } from "./ThemeSwitcher.tsx";
