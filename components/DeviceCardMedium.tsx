@@ -6,12 +6,13 @@ import { StarRating } from "./StarRating.tsx";
 
 interface DeviceCardMediumProps {
   device: Device;
+  isActive: boolean;
 }
 
-export function DeviceCardMedium({ device }: DeviceCardMediumProps) {
+export function DeviceCardMedium({ device, isActive }: DeviceCardMediumProps) {
   return (
     <article
-      class="device-search-card"
+      class={`device-search-card ${isActive ? "active" : ""}`}
       style={{
         display: "flex",
         flexDirection: "column",

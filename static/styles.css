@@ -508,6 +508,15 @@ html {
   flex-direction: column;
 }
 
+.device-search-card.active {
+  background-color: rgba(254, 182, 112, 0.2);
+  border-radius: var(--pico-border-radius);
+
+  header {
+    background-color: rgba(254, 182, 112, 0.2);
+  }
+}
+
 .device-search-card hgroup {
   margin: 0;
 }

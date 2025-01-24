@@ -233,7 +233,7 @@ export default function DeviceDetail(props: PageProps) {
         </div>
         <div>
           <div
-            style="display: flex; justify-content: center; margin:0;"
+            style="display: flex; justify-content: center; flex-flow: row wrap; margin:0;"
             role="group"
           >
             <ClipboardButton

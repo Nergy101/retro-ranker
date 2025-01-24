@@ -105,6 +105,10 @@ export function DeviceComparisonForm({
     globalThis.location.href = "/compare";
   };
 
+  const isActive = (deviceName: string) => {
+    return deviceName === queryA.value || deviceName === queryB.value;
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       <div
@@ -142,11 +146,14 @@ export function DeviceComparisonForm({
             <ul class="suggestions-list" ref={suggestionsARef}>
               {suggestionsA.value.map((device) => (
                 <li
-                  key={device.id}
+                  key={device.name.sanitized}
                   onClick={() => setQueryASuggestion(device.name.raw)}
                   class="suggestions-list-item"
                 >
-                  <DeviceCardMedium device={device} />
+                  <DeviceCardMedium
+                    device={device}
+                    isActive={isActive(device.name.raw)}
+                  />
                 </li>
               ))}
             </ul>
@@ -155,11 +162,14 @@ export function DeviceComparisonForm({
             <ul class="suggestions-list" ref={suggestionsBRef}>
               {suggestionsB.value.map((device) => (
                 <li
-                  key={device.id}
+                  key={device.name.sanitized}
                   onClick={() => setQueryBSuggestion(device.name.raw)}
                   class="suggestions-list-item"
                 >
-                  <DeviceCardMedium device={device} />
+                  <DeviceCardMedium
+                    device={device}
+                    isActive={isActive(device.name.raw)}
+                  />
                 </li>
               ))}
             </ul>
@@ -174,10 +184,17 @@ export function DeviceComparisonForm({
             <div class="similar-devices-compare-grid">
               {similarDevices.slice(0, 8).map((device) => (
                 <div
-                  style={{ cursor: "pointer" }}
+                  key={device.name.sanitized}
+                  style={{
+                    cursor: "pointer",
+                    borderRadius: "0.5rem",
+                  }}
                   onClick={() => setQueryASuggestion(device.name.raw)}
                 >
-                  <DeviceCardMedium device={device} />
+                  <DeviceCardMedium
+                    device={device}
+                    isActive={isActive(device.name.raw)}
+                  />
                 </div>
               ))}
             </div>
@@ -192,10 +209,16 @@ export function DeviceComparisonForm({
             <div class="similar-devices-compare-grid">
               {similarDevices.slice(8, 16).map((device) => (
                 <div
-                  style={{ cursor: "pointer" }}
+                  key={device.name.sanitized}
                   onClick={() => setQueryBSuggestion(device.name.raw)}
+                  style={{
+                    cursor: "pointer",
+                    backgroundColor: device.name.raw === queryB.value
+                      ? "var(--color-primary)"
+                      : "transparent",
+                  }}
                 >
-                  <DeviceCardMedium device={device} />
+                  <DeviceCardMedium device={device} isActive={isActive(device.name.raw)} />
                 </div>
               ))}
             </div>

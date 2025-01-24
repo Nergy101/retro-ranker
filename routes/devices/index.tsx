@@ -103,7 +103,7 @@ export default function DevicesIndex(props: PageProps) {
                     width: "100%",
                   }}
                 >
-                  <DeviceCardMedium device={device} />
+                  <DeviceCardMedium device={device} isActive={false} />
                 </a>
               </>
             ))}
