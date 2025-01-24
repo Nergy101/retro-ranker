@@ -166,37 +166,41 @@ export function DeviceComparisonForm({
           )}
         </div>
 
-        <details>
-          <summary>
-            <strong>Similar Devices to {originalDeviceA.name.raw}</strong>
-          </summary>
-          <div class="similar-devices-compare-grid">
-            {similarDevices.slice(0, 8).map((device) => (
-              <div
-                style={{ cursor: "pointer" }}
-                onClick={() => setQueryASuggestion(device.name.raw)}
-              >
-                <DeviceCardMedium device={device} />
-              </div>
-            ))}
-          </div>
-        </details>
+        {originalDeviceA && (
+          <details>
+            <summary>
+              <strong>Similar Devices to {originalDeviceA.name.raw}</strong>
+            </summary>
+            <div class="similar-devices-compare-grid">
+              {similarDevices.slice(0, 8).map((device) => (
+                <div
+                  style={{ cursor: "pointer" }}
+                  onClick={() => setQueryASuggestion(device.name.raw)}
+                >
+                  <DeviceCardMedium device={device} />
+                </div>
+              ))}
+            </div>
+          </details>
+        )}
 
-        <details>
-          <summary>
-            <strong>Similar Devices to {originalDeviceB?.name.raw}</strong>
-          </summary>
-          <div class="similar-devices-compare-grid">
-            {similarDevices.slice(8, 16).map((device) => (
-              <div
-                style={{ cursor: "pointer" }}
-                onClick={() => setQueryBSuggestion(device.name.raw)}
-              >
-                <DeviceCardMedium device={device} />
-              </div>
-            ))}
-          </div>
-        </details>
+        {originalDeviceB && (
+          <details>
+            <summary>
+              <strong>Similar Devices to {originalDeviceB?.name.raw}</strong>
+            </summary>
+            <div class="similar-devices-compare-grid">
+              {similarDevices.slice(8, 16).map((device) => (
+                <div
+                  style={{ cursor: "pointer" }}
+                  onClick={() => setQueryBSuggestion(device.name.raw)}
+                >
+                  <DeviceCardMedium device={device} />
+                </div>
+              ))}
+            </div>
+          </details>
+        )}
       </div>
       <div style={{ display: "flex", gap: "1rem" }}>
         <button type="reset" onClick={handleReset}>Reset</button>
