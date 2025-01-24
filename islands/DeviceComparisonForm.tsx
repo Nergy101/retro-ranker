@@ -1,19 +1,23 @@
 import { PiGitDiff } from "@preact-icons/pi";
 import { useSignal } from "@preact/signals";
 import { useEffect, useRef } from "preact/hooks";
-import { Device } from "../data/models/device.model.ts";
-import { DeviceCardSmall } from "../components/DeviceCardSmall.tsx";
 import { DeviceCardMedium } from "../components/DeviceCardMedium.tsx";
+import { Device } from "../data/models/device.model.ts";
 
 export function DeviceComparisonForm({
   allDevices,
   devicesToCompare,
+  similarDevices,
 }: {
   allDevices: Device[];
   devicesToCompare: Device[];
+  similarDevices: Device[];
 }) {
-  const queryA = useSignal(devicesToCompare?.[0]?.name.raw || "");
-  const queryB = useSignal(devicesToCompare?.[1]?.name.raw || "");
+  const originalDeviceA = devicesToCompare?.[0];
+  const originalDeviceB = devicesToCompare?.[1];
+
+  const queryA = useSignal(originalDeviceA?.name.raw || "");
+  const queryB = useSignal(originalDeviceB?.name.raw || "");
   const suggestionsA = useSignal<Device[]>([]);
   const suggestionsB = useSignal<Device[]>([]);
   const suggestionsARef = useRef<HTMLUListElement>(null);
@@ -133,7 +137,7 @@ export function DeviceComparisonForm({
             />
           </div>
         </div>
-        <div>
+        <div id="suggestions-container">
           {suggestionsA.value.length > 0 && (
             <ul class="suggestions-list" ref={suggestionsARef}>
               {suggestionsA.value.map((device) => (
@@ -161,6 +165,38 @@ export function DeviceComparisonForm({
             </ul>
           )}
         </div>
+
+        <details>
+          <summary>
+            <strong>Similar Devices to {originalDeviceA.name.raw}</strong>
+          </summary>
+          <div class="similar-devices-compare-grid">
+            {similarDevices.slice(0, 8).map((device) => (
+              <div
+                style={{ cursor: "pointer" }}
+                onClick={() => setQueryASuggestion(device.name.raw)}
+              >
+                <DeviceCardMedium device={device} />
+              </div>
+            ))}
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            <strong>Similar Devices to {originalDeviceB?.name.raw}</strong>
+          </summary>
+          <div class="similar-devices-compare-grid">
+            {similarDevices.slice(8, 16).map((device) => (
+              <div
+                style={{ cursor: "pointer" }}
+                onClick={() => setQueryBSuggestion(device.name.raw)}
+              >
+                <DeviceCardMedium device={device} />
+              </div>
+            ))}
+          </div>
+        </details>
       </div>
       <div style={{ display: "flex", gap: "1rem" }}>
         <button type="reset" onClick={handleReset}>Reset</button>

@@ -14,6 +14,10 @@ export default function DevicesIndex(props: PageProps) {
   const deviceNames = devicesToCompare.map((device) => device.name.raw);
   const allDevices = deviceService.getAllDevices();
 
+  const similarDevices = devicesToCompare.flatMap((device) =>
+    deviceService.getSimilarDevices(device.name.sanitized, 8)
+  );
+
   return (
     <div>
       <Head>
@@ -33,6 +37,7 @@ export default function DevicesIndex(props: PageProps) {
         <DeviceComparisonForm
           allDevices={allDevices}
           devicesToCompare={devicesToCompare}
+          similarDevices={similarDevices}
         />
       </div>
 
