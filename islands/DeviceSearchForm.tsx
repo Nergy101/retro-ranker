@@ -104,7 +104,7 @@ export function DeviceSearchForm(
     };
   }, []);
 
-  if (viewportWidth.value < 500) {
+  if (viewportWidth.value < 800) {
     return (
       <form method="get" class="device-search-form-mobile">
         <input
