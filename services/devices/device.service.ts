@@ -311,7 +311,6 @@ export class DeviceService {
   static getPropertyIconByCharacter(
     char: "✅" | "❌" | "?" | string | null,
   ): VNode<JSX.SVGAttributes> {
-    console.log(char);
     if (char === "✅") {
       return PiCheckCircleFill({
         style: {

@@ -57,7 +57,7 @@ export default function DeviceDetail(props: PageProps) {
   const jsonLdForDevice = (device: Device | null) => {
     if (!device) return "";
 
-    return ({
+    return JSON.stringify({
       "@context": "https://schema.org/",
       "@type": "Product",
       "name": device.name.raw,
@@ -66,7 +66,7 @@ export default function DeviceDetail(props: PageProps) {
         "name": device.brand,
       },
       "image": device.image?.url ?? "/images/placeholder-100x100.svg",
-      "description": device.name.raw,
+      "description": `${device.name.raw} is a ${device.brand} device. The device is ${device.pricing.category} and costs on average ${device.pricing.average} ${device.pricing.currency}.`,
       "offers": {
         "@type": "Offer",
         "url": `https://retroranker.site/devices/${device.name.sanitized}`,
@@ -96,8 +96,6 @@ export default function DeviceDetail(props: PageProps) {
     });
   };
 
-  console.log(jsonLdForDevice(device));
-
   if (!device) {
     return (
       <div>
@@ -121,7 +119,7 @@ export default function DeviceDetail(props: PageProps) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLdForDevice(device)),
+            __html: jsonLdForDevice(device),
           }}
         />
       </Head>
