@@ -2,6 +2,8 @@ import { PiGitDiff } from "@preact-icons/pi";
 import { useSignal } from "@preact/signals";
 import { useEffect, useRef } from "preact/hooks";
 import { Device } from "../data/models/device.model.ts";
+import { DeviceCardSmall } from "../components/DeviceCardSmall.tsx";
+import { DeviceCardMedium } from "../components/DeviceCardMedium.tsx";
 
 export function DeviceComparisonForm({
   allDevices,
@@ -135,19 +137,13 @@ export function DeviceComparisonForm({
           {suggestionsA.value.length > 0 && (
             <ul class="suggestions-list" ref={suggestionsARef}>
               {suggestionsA.value.map((device) => (
-                <div>
-                  <li
-                    key={device.id}
-                    onClick={() => setQueryASuggestion(device.name.raw)}
-                    class="suggestions-list-item"
-                  >
-                    {device.brand} - {device.name.raw}
-                  </li>
-                  <div
-                    style={{ borderBottom: "1px solid var(--pico-primary)" }}
-                  >
-                  </div>
-                </div>
+                <li
+                  key={device.id}
+                  onClick={() => setQueryASuggestion(device.name.raw)}
+                  class="suggestions-list-item"
+                >
+                  <DeviceCardMedium device={device} />
+                </li>
               ))}
             </ul>
           )}
@@ -159,7 +155,7 @@ export function DeviceComparisonForm({
                   onClick={() => setQueryBSuggestion(device.name.raw)}
                   class="suggestions-list-item"
                 >
-                  {device.brand} - {device.name.raw}
+                  <DeviceCardMedium device={device} />
                 </li>
               ))}
             </ul>

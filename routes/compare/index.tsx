@@ -6,7 +6,7 @@ import { DeviceService } from "../../services/devices/device.service.ts";
 
 export default function DevicesIndex(props: PageProps) {
   const deviceService = DeviceService.getInstance();
-  const devices = props.url?.search.split("=")[1].split(",") || [];
+  const devices = props.url?.search.split("=")?.[1]?.split(",") || [];
 
   const devicesToCompare = devices.map((d) => deviceService.getDeviceByName(d))
     .filter((device) => device !== null);

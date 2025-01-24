@@ -94,7 +94,19 @@ export default function DevicesIndex(props: PageProps) {
         )
         : (
           <div class="device-search-grid">
-            {pageResults.map((device) => <DeviceCardMedium device={device} />)}
+            {pageResults.map((device) => (
+              <>
+                <a
+                  href={`/devices/${device.name.sanitized}`}
+                  style={{
+                    textDecoration: "none",
+                    width: "100%",
+                  }}
+                >
+                  <DeviceCardMedium device={device} />
+                </a>
+              </>
+            ))}
           </div>
         )}
 

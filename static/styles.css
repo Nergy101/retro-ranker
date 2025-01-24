@@ -889,21 +889,41 @@ h6,
 
 .suggestions-list {
   width: 100cqw;
-  padding: 0;
-  max-height: 10em;
+  padding: 1em;
+  max-height: 80vh;
 
-  cursor: pointer;
   border: 3px solid var(--pico-primary);
   border-radius: var(--pico-border-radius);
+  z-index: 1000;
+  overflow-y: auto;
 
   position: absolute;
   background-color: var(--pico-card-background-color);
-  z-index: 1000;
-  overflow-y: auto;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 400px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 .suggestions-list-item {
-  padding: 0.5rem;
+  width: 100% !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+
+  cursor: pointer;
   list-style: none;
   background-color: var(--pico-card-background-color);
   width: fit-content;
