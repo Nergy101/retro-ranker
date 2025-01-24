@@ -8,6 +8,7 @@ import { DeviceSpecs } from "../../components/DeviceSpecs.tsx";
 import { EmulationPerformance } from "../../components/EmulationPerformance.tsx";
 import { StarRating } from "../../components/StarRating.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
+import { Device } from "../../data/models/device.model.ts";
 
 export default function DeviceDetail(props: PageProps) {
   const deviceService = DeviceService.getInstance();
@@ -53,6 +54,47 @@ export default function DeviceDetail(props: PageProps) {
     };
   };
 
+  const jsonLdForDevice = (device: Device) => {
+    return JSON.stringify({
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": device.name.raw,
+      "brand": {
+        "@type": "Brand",
+        "name": device.brand
+      },
+      "image": device.image?.url ?? "/images/placeholder-100x100.svg",
+      "description": "The Miyoo Flip is a compact and versatile handheld gaming device.",
+      "sku": "MIYOO-FLIP-001",  // Assuming SKU is not available in the data
+      "offers": {
+        "@type": "Offer",
+        "url": `https://retroranker.site/devices/${device.name.sanitized}`,
+        "priceCurrency": device.pricing.currency ?? "USD",
+        "price": device.pricing.average ?? "99.99",  // Default price if not available
+        "itemCondition": "https://schema.org/NewCondition",
+        "availability": device.pricing.discontinued ? "https://schema.org/OutOfStock" : "https://schema.org/InStock"
+      },
+      "releaseDate": device.released.mentionedDate ? new Date(device.released.mentionedDate).toISOString().split('T')[0] : "2023-10-01",
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "RAM",
+          "value": device.ram ?? "2GB"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Storage",
+          "value": device.storage ?? "32GB"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Battery",
+          "value": device.battery ?? "3000mAh"
+        }
+      ]
+    });
+  }
+
   if (!device) {
     return (
       <div>
@@ -73,6 +115,9 @@ export default function DeviceDetail(props: PageProps) {
     <div class="device-detail">
       <Head>
         <title>Retro Ranker - {device.name.raw}</title>
+        <script type="application/ld+json">
+          {jsonLdForDevice(device)}
+        </script>
       </Head>
       <div class="device-detail-header">
         <div style="display: flex; flex-direction: column; gap: 0.5rem; justify-content: center; align-items: center;">
