@@ -160,7 +160,9 @@ export function DeviceComparisonResult(
       </div>
 
       <div class="compare-result-performance">
-        <h3 style={{ textAlign: "center" }}>Emulation Performance</h3>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <strong>Emulation Performance</strong>
+        </div>
 
         <div class="compare-result-performance-chips">
           {device.consoleRatings.map((rating) => (
