@@ -53,10 +53,12 @@ export default function Home() {
             </h2>
             <div class="device-row-grid">
               {newArrivals.map((device) => (
-                <DeviceCardMedium
-                  device={device}
-                  isActive={false}
-                />
+                <a href={`/devices/${device.name.sanitized}`}>
+                  <DeviceCardMedium
+                    device={device}
+                    isActive={false}
+                  />
+                </a>
               ))}
               <SeeMoreCard
                 href="/devices?sort=new-arrivals"
@@ -72,10 +74,12 @@ export default function Home() {
             </h2>
             <div class="device-row-grid">
               {highlyRated.map((device) => (
-                <DeviceCardMedium
-                  device={device}
-                  isActive={false}
-                />
+                <a href={`/devices/${device.name.sanitized}`}>
+                  <DeviceCardMedium
+                    device={device}
+                    isActive={false}
+                  />
+                </a>
               ))}
               <SeeMoreCard
                 href="/devices?sort=highly-rated"
@@ -91,10 +95,12 @@ export default function Home() {
             </h2>
             <div class="device-row-grid">
               {personalPicks.map((device) => (
-                <DeviceCardMedium
-                  device={device}
-                  isActive={false}
-                />
+                <a href={`/devices/${device.name.sanitized}`}>
+                  <DeviceCardMedium
+                    device={device}
+                    isActive={false}
+                  />
+                </a>
               ))}
               <SeeMoreCard
                 href="/devices?filter=personal-picks"
@@ -110,7 +116,9 @@ export default function Home() {
             </h2>
             <div class="device-row-grid">
               {upcoming.map((device) => (
-                <DeviceCardMedium device={device} isActive={false} />
+                <a href={`/devices/${device.name.sanitized}`}>
+                  <DeviceCardMedium device={device} isActive={false} />
+                </a>
               ))}
               <SeeMoreCard
                 href="/devices?filter=upcoming"
