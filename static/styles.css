@@ -198,10 +198,9 @@ html {
   background-size: cover;
   background-position: center;
   background-blend-mode: multiply;
-}
+  grid-column: span 4;
 
-@media (max-width: 1024px) {
-  .see-more-card {
+  @media (max-width: 425px) {
     grid-column: span 2;
     width: auto;
   }
@@ -370,18 +369,14 @@ html {
 
 .device-row-grid {
   display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(5, 1fr);
-}
+  gap: 0.5rem;
+  grid-template-columns: repeat(4, 1fr);
 
-@media (max-width: 1024px) {
-  .device-row-grid {
+  /* @media (max-width: 768px) {
     grid-template-columns: repeat(3, 1fr);
-  }
-}
+  } */
 
-@media (max-width: 500px) {
-  .device-row-grid {
+  @media (max-width: 425px) {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -961,7 +956,6 @@ h6,
 
   overflow-x: auto;
   overflow-y: hidden;
-
 
   .device-search-card {
     min-width: 15em;
