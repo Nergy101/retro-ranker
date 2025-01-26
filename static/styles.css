@@ -763,19 +763,19 @@ h6,
     height: 12em;
   }
 
-  @media (max-width: 768px) {
-    height: 16em;
+  @media (max-width: 1023px) and (min-width: 768px) {
+    height: 14em;
   }
 
-  @media (max-width: 425px) {
-    height: 20em;
+  @media (max-width: 767px) and (min-width: 425px) {
+    height: 19em;
   }
 
-  @media (max-width: 375px) {
+  @media (max-width: 424px) and (min-width: 375px) {
     height: 25em;
   }
 
-  @media (max-width: 320px) {
+  @media (max-width: 374px) {
     height: 31em;
   }
 
