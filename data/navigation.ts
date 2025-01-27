@@ -12,6 +12,7 @@ export interface NavigationItem {
   href: string;
   icon?: (props: { style?: JSX.CSSProperties }) => VNode<JSX.SVGAttributes>;
   isActive: (pathname: string) => boolean;
+  priority?: number;
 }
 
 export const navigationItems: NavigationItem[] = [
@@ -20,29 +21,34 @@ export const navigationItems: NavigationItem[] = [
     label: "Home",
     icon: (props) => PiGameController({ ...props }),
     isActive: (pathname) => pathname === "/",
+    priority: 1,
   },
   {
     href: "/devices",
     label: "Devices",
     icon: (props) => PiScroll({ ...props }),
     isActive: (pathname) => pathname.startsWith("/devices"),
+    priority: 0.9
   },
   {
     href: "/compare",
     label: "Compare",
     icon: (props) => PiGitDiff({ ...props }),
     isActive: (pathname) => pathname.startsWith("/compare"),
+    priority: 0.9,
   },
   {
     href: "/about",
     label: "About",
     icon: (props) => PiInfo({ ...props }),
     isActive: (pathname) => pathname === "/about",
+    priority: 0.5,
   },
   {
     href: "/contact",
     label: "Contact",
     icon: (props) => PiChatText({ ...props }),
     isActive: (pathname) => pathname === "/contact",
+    priority: 0.5,
   },
 ];

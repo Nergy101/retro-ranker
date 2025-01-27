@@ -9,12 +9,11 @@ const deviceNames = devices.map((device) => device.name.sanitized);
 
 const staticUrls = navigationItems.map((item) => ({
   loc: `${SITE_URL}${item.href}`,
-  lastmod: "2025-01-15", // Replace with actual last modification date if available
+  priority: item.priority,
 }));
 
 const dynamicUrls = deviceNames.map((device) => ({
   loc: `${SITE_URL}/devices/${device}`,
-  lastmod: "2025-01-15", // Replace with actual last modification date if available
 }));
 
 const urls = [...staticUrls, ...dynamicUrls];
@@ -24,11 +23,21 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     ${
   urls
     .map(
-      (url) => `
-    <url>
-      <loc>${url.loc}</loc>
-      <lastmod>${url.lastmod}</lastmod>
-    </url>`,
+      (url) => {
+        if (url.priority) {
+          return `
+        <url>
+            <loc>${url.loc}</loc>
+            <priority>${url.priority}</priority>
+        </url>
+        `;
+        }
+        return `
+        <url>
+            <loc>${url.loc}</loc>
+        </url>
+        `;
+      },
     )
     .join("")
 }
