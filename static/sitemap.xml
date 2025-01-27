@@ -4,10 +4,17 @@
     <url>
       <loc>https://retroranker.site/</loc>
       <lastmod>2025-01-15</lastmod>
+      <priority>1.0</priority>
     </url>
     <url>
       <loc>https://retroranker.site/devices</loc>
       <lastmod>2025-01-15</lastmod>
+      <priority>0.8</priority>
+    </url>
+    <url>
+      <loc>https://retroranker.site/compare</loc>
+      <lastmod>2025-01-15</lastmod>
+      <priority>0.8</priority>
     </url>
     <url>
       <loc>https://retroranker.site/about</loc>
