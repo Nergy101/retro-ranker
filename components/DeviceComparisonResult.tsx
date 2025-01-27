@@ -27,7 +27,6 @@ export function DeviceComparisonResult(
     const worseClass = "worse";
     const equalClass = "equal";
 
-    console.log(ranking.all.length);
     if (ranking.all.length <= 1) {
       return "";
     }

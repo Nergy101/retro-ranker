@@ -53,7 +53,6 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
   };
 
   const getRumbleColor = (rumble: string) => {
-    console.log(rumble);
     if (rumble === "✅") {
       return { color: "#16833E", textColor: "white", tooltip: "Present" };
     }
