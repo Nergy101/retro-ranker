@@ -120,47 +120,6 @@ export default function DeviceDetail(props: PageProps) {
     <div class="device-detail">
       <Head>
         <title>Retro Ranker - {device.name.raw}</title>
-
-        {/* OpenGraph Meta Tags */}
-        <meta
-          property="og:title"
-          content={`Retro Ranker - ${device.name.raw}`}
-        />
-        <meta
-          property="og:description"
-          content="Find the perfect retro handheld gaming device for your needs. Compare specs, features, and performance of various retro gaming handhelds."
-        />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:url"
-          content={`https://retroranker.site/devices/${device.name.sanitized}`}
-        />
-        <meta
-          property="og:image"
-          content={`https://retroranker.site/devices/${device.name.sanitized}.png`}
-        />
-        <meta property="og:image:width" content="100" />
-        <meta property="og:image:height" content="100" />
-        <meta
-          property="og:site_name"
-          content={`Retro Ranker - ${device.name.raw}`}
-        />
-
-        {/* Twitter Card Meta Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content={`Retro Ranker - ${device.name.raw}`}
-        />
-        <meta
-          name="twitter:description"
-          content="Find the perfect retro handheld gaming device for your needs. Compare specs, features, and performance of various retro gaming handhelds."
-        />
-        <meta
-          name="twitter:image"
-          content={`https://retroranker.site/devices/${device.name.sanitized}.png`}
-        />
-
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
