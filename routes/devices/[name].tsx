@@ -139,8 +139,8 @@ export default function DeviceDetail(props: PageProps) {
           property="og:image"
           content={`https://retroranker.site/devices/${device.name.sanitized}.png`}
         />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
+        <meta property="og:image:width" content="100" />
+        <meta property="og:image:height" content="100" />
         <meta
           property="og:site_name"
           content={`Retro Ranker - ${device.name.raw}`}
