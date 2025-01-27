@@ -276,7 +276,7 @@ export class RatingsService {
       rankedDevices.length > 1 &&
       rankedDevices[0].score === rankedDevices[1].score
     ) {
-      return ["equal"];
+      return ["equal", "equal"];
     }
 
     return rankedDevices.map((device) => device.name);

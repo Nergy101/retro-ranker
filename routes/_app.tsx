@@ -6,9 +6,9 @@ import {
   PiGithubLogo,
   PiShield,
 } from "@preact-icons/pi";
-import { Breadcrumb } from "../islands/Breadcrumb.tsx";
-import { DesktopNav } from "../islands/DesktopNav.tsx";
-import { MobileNav } from "../islands/MobileNav.tsx";
+import { Breadcrumb } from "../islands/navigation/Breadcrumb.tsx";
+import { DesktopNav } from "../islands/navigation/DesktopNav.tsx";
+import { MobileNav } from "../islands/navigation/MobileNav.tsx";
 
 export default function App({ Component, url }: PageProps) {
   return (

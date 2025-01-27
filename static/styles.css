@@ -282,7 +282,7 @@ html {
   height: fit-content;
   grid-area: header;
   padding: 1rem 0 0 0;
-  background-color: rgba(254, 182, 112, 0.2);
+  /* background-color: rgba(254, 182, 112, 0.2); */
   border-radius: var(--pico-border-radius);
   border-top-right-radius: 0;
 
@@ -389,10 +389,11 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0;
 }
 
 .burger-menu {
+  min-width: 2.5rem;
   background: none;
   border: none;
   font-size: 1.5rem;
@@ -430,7 +431,7 @@ html {
   display: block;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .desktop-nav {
     display: none;
   }

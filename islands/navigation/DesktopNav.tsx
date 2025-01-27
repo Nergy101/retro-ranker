@@ -1,5 +1,5 @@
 import { ThemeSwitcher } from "./ThemeSwitcher.tsx";
-import { navigationItems } from "../data/navigation.ts";
+import { navigationItems } from "../../data/navigation.ts";
 
 export function DesktopNav({ pathname }: { pathname: string }) {
   return (
@@ -24,7 +24,7 @@ export function DesktopNav({ pathname }: { pathname: string }) {
               <div
                 style={{ display: "inline-flex" }}
               >
-                <item.icon />
+                {item.icon({style: {minWidth: "1rem"}})}
                 &nbsp;{item.label}
               </div>
             </a>
@@ -44,7 +44,7 @@ export function DesktopNav({ pathname }: { pathname: string }) {
             >
               <input
                 type="search"
-                placeholder="Name, Brand, or OS"
+                placeholder="Search"
                 name="search"
                 aria-label="Search"
               />

@@ -27,6 +27,7 @@ export function DeviceComparisonResult(
     const worseClass = "worse";
     const equalClass = "equal";
 
+    console.log(ranking.all.length);
     if (ranking.all.length <= 1) {
       return "";
     }
@@ -196,7 +197,7 @@ export function DeviceComparisonResult(
         </a>
       </div>
 
-      <div class="compare-result-summary overflow-auto">
+      <div class={`compare-result-summary overflow-auto ${isBest("all")}`}>
         <table class="striped">
           <tbody>
             <tr>

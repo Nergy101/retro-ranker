@@ -5,26 +5,43 @@ export function ClipboardButton({ url }: { url: string }) {
   const success = useSignal(false);
 
   return (
-    <button
+    <div
       aria-label="Copy URL of current page"
-      class={success.value ? "secondary" : "secondary"}
       style={{
         display: "flex",
         justifyContent: "center",
         borderRadius: 0,
       }}
-      data-tooltip="Copy URL"
-      data-placement="bottom"
       onClick={async () => {
         await navigator.clipboard.writeText(url);
         success.value = true;
         setTimeout(() => {
           success.value = false;
-        }, 1000);
+        }, 2000);
       }}
     >
-      {!success.value && <PiClipboard />}
-      {success.value && <PiCheck />}
-    </button>
+      <span
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "0.25rem",
+          borderBottom: "none",
+          cursor: "pointer",
+        }}
+        data-tooltip="Copy URL"
+        data-placement="bottom"
+      >
+        {!success.value && (
+          <>
+            <PiClipboard /> Copy URL
+          </>
+        )}
+        {success.value && (
+          <>
+            <PiCheck /> Copied!
+          </>
+        )}
+      </span>
+    </div>
   );
 }

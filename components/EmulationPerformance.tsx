@@ -27,6 +27,7 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
           flexDirection: "row",
           flexWrap: "wrap",
           gap: "0.5rem",
+          justifyContent: "center",
         }}
       >
         {ratings.map((rating) => (

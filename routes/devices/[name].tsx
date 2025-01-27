@@ -7,16 +7,15 @@ import {
 } from "@preact-icons/pi";
 import { JSX, VNode } from "preact";
 import { CurrencyIcon } from "../../components/CurrencyIcon.tsx";
-import { DeviceCardSmall } from "../../components/DeviceCardSmall.tsx";
+import { DeviceCardMedium } from "../../components/DeviceCardMedium.tsx";
 import { DeviceSpecs } from "../../components/DeviceSpecs.tsx";
 import { EmulationPerformance } from "../../components/EmulationPerformance.tsx";
 import { StarRating } from "../../components/StarRating.tsx";
 import { Device } from "../../data/models/device.model.ts";
-import { ClipboardButton } from "../../islands/ClipboardButton.tsx";
-import { ShareButton } from "../../islands/ShareButton.tsx";
-import { CompareButton } from "../../islands/CompareButton.tsx";
+import { ClipboardButton } from "../../islands/buttons/ClipboardButton.tsx";
+import { CompareButton } from "../../islands/buttons/CompareButton.tsx";
+import { ShareButton } from "../../islands/buttons/ShareButton.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
-import { DeviceCardMedium } from "../../components/DeviceCardMedium.tsx";
 
 export default function DeviceDetail(props: PageProps) {
   const deviceService = DeviceService.getInstance();
@@ -164,10 +163,10 @@ export default function DeviceDetail(props: PageProps) {
                 <img
                   loading="lazy"
                   src={device.image?.url ?? "/images/placeholder-100x100.svg"}
-                  width={100}
-                  height={100}
+                  // width={100}
+                  // height={100}
                   alt={device.image?.alt ?? "A device image"}
-                  style="width: 100px; height: 100px; object-fit: contain;"
+                  style="width: 100%; height: 100%; object-fit: contain;"
                 />
               )
               : (
@@ -232,7 +231,7 @@ export default function DeviceDetail(props: PageProps) {
             </span>
           </div>
         </div>
-        <div>
+        <div style={{ borderBottom: "1px solid var(--pico-color)" }}>
           <div
             style="display: flex; justify-content: center; flex-flow: row wrap; margin:0;"
             role="group"

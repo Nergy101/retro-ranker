@@ -1,6 +1,6 @@
 import { PiListBold } from "@preact-icons/pi";
 import { useEffect } from "preact/hooks";
-import { navigationItems } from "../data/navigation.ts";
+import { navigationItems } from "../../data/navigation.ts";
 import { ThemeSwitcher } from "./ThemeSwitcher.tsx";
 
 export function MobileNav({ pathname }: { pathname: string }) {
@@ -42,12 +42,24 @@ export function MobileNav({ pathname }: { pathname: string }) {
           />
         </a>
 
+        <div style={{display: "flex", justifyContent: "center"}}>
+          <form action="/devices" method="get" style={{margin: 0}}>
+            <input
+              type="search"
+              placeholder="Search"
+              name="search"
+              aria-label="Search"
+            />
+          </form>
+        </div>
+
         <div
           style={{
             display: "flex",
-            alignItems: "center",
-            justifyContent: "flex-end",
-            gap: "0.5rem",
+            flexDirection: "row",
+            // alignItems: "center",
+            // justifyContent: "flex-end",
+            // gap: "0.5rem",
           }}
         >
           <button
@@ -74,17 +86,6 @@ export function MobileNav({ pathname }: { pathname: string }) {
         }}
       >
         <ul>
-          <li style={{ padding: "0" }}>
-            <form action="/devices" method="get" role="search">
-              <input
-                type="search"
-                placeholder="Name, Brand, or OS"
-                name="search"
-                aria-label="Search"
-              />
-              <input type="submit" value="Search" />
-            </form>
-          </li>
           {navigationItems.map((item) => (
             <li style={{ padding: "0" }}>
               <a

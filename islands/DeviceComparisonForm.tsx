@@ -120,8 +120,8 @@ export function DeviceComparisonForm({
         }}
       >
         <div class="compare-form-inputs">
-          <div style={{ width: "100%" }}>
-            <span>Device A</span>
+          <div style={{ width: "100%"}}>
+            <span style={{display: "flex", justifyContent: "center", gap: "0.5rem"}}>Compare</span>
             <input
               type="search"
               value={queryA.value}
@@ -131,7 +131,7 @@ export function DeviceComparisonForm({
             />
           </div>
           <div style={{ width: "100%" }}>
-            <span>Device B</span>
+            <span style={{display: "flex", justifyContent: "center", gap: "0.5rem"}}>Against</span>
             <input
               type="search"
               value={queryB.value}
