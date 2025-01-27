@@ -19,7 +19,6 @@ interface DeviceSpecsProps {
 }
 
 export function DeviceSpecs({ device }: DeviceSpecsProps) {
-  const deviceService = DeviceService.getInstance();
   return (
     <div class="specs-grid">
       {/* Processing */}

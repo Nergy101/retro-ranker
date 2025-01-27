@@ -4,6 +4,7 @@ export interface Device {
   name: {
     raw: string;
     sanitized: string;
+    normalized: string;
   };
   brand: string;
   image: {

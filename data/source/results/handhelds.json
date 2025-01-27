@@ -2,7 +2,8 @@
   {
     "name": {
       "raw": "MSI Claw 8 AI+",
-      "sanitized": "msi-claw-8-ai+"
+      "sanitized": "msi-claw-8-ai+",
+      "normalized": "MSI Claw 8 AI+"
     },
     "os": {
       "raw": "Windows 11",
@@ -237,7 +238,8 @@
   {
     "name": {
       "raw": "MSI Claw 7 AI+",
-      "sanitized": "msi-claw-7-ai+"
+      "sanitized": "msi-claw-7-ai+",
+      "normalized": "MSI Claw 7 AI+"
     },
     "os": {
       "raw": "Windows 11",
@@ -472,7 +474,8 @@
   {
     "name": {
       "raw": "Legion Go S",
-      "sanitized": "legion-go-s"
+      "sanitized": "legion-go-s",
+      "normalized": "Legion Go S"
     },
     "os": {
       "raw": "Linux (Steam OS) / Windows 11",
@@ -711,7 +714,8 @@
   {
     "name": {
       "raw": "GKD Pixel 2",
-      "sanitized": "gkd-pixel-2"
+      "sanitized": "gkd-pixel-2",
+      "normalized": "GKD Pixel 2"
     },
     "os": {
       "raw": "Linux (IUX 2.5/Rocknix)",
@@ -943,7 +947,8 @@
   {
     "name": {
       "raw": "V20",
-      "sanitized": "v20"
+      "sanitized": "v20",
+      "normalized": "V20"
     },
     "os": {
       "raw": "Linux (EmuELEC)",
@@ -1163,7 +1168,8 @@
   {
     "name": {
       "raw": "Touch One 35",
-      "sanitized": "touch-one-35"
+      "sanitized": "touch-one-35",
+      "normalized": "Touch One 35"
     },
     "os": {
       "raw": "Android 12",
@@ -1393,7 +1399,8 @@
   {
     "name": {
       "raw": "GPD Win Mini 2025",
-      "sanitized": "gpd-win-mini-2025"
+      "sanitized": "gpd-win-mini-2025",
+      "normalized": "GPD Win Mini 2025"
     },
     "os": {
       "raw": "Windows 11",
@@ -1628,7 +1635,8 @@
   {
     "name": {
       "raw": "OneXPlayer G1",
-      "sanitized": "onexplayer-g1"
+      "sanitized": "onexplayer-g1",
+      "normalized": "OneXPlayer G1"
     },
     "os": {
       "raw": "Windows 11",
@@ -1856,7 +1864,8 @@
   {
     "name": {
       "raw": "Touch Zero 40",
-      "sanitized": "touch-zero-40"
+      "sanitized": "touch-zero-40",
+      "normalized": "Touch Zero 40"
     },
     "os": {
       "raw": "Android 10 / Linux",
@@ -2089,7 +2098,8 @@
   {
     "name": {
       "raw": "Mini One 34",
-      "sanitized": "mini-one-34"
+      "sanitized": "mini-one-34",
+      "normalized": "Mini One 34"
     },
     "os": {
       "raw": "Android 12",
@@ -2315,7 +2325,8 @@
   {
     "name": {
       "raw": "Mini One 41",
-      "sanitized": "mini-one-41"
+      "sanitized": "mini-one-41",
+      "normalized": "Mini One 41"
     },
     "os": {
       "raw": "Android 12",
@@ -2541,7 +2552,8 @@
   {
     "name": {
       "raw": "SP Touch Handheld (?)",
-      "sanitized": "sp-touch-handheld--open-parenthesis--question-mark--close-parenthesis-"
+      "sanitized": "sp-touch-handheld--open-parenthesis--question-mark--close-parenthesis-",
+      "normalized": "SP Touch Handheld"
     },
     "os": {
       "raw": "?",
@@ -2757,7 +2769,8 @@
   {
     "name": {
       "raw": "SP Non-touch Handheld (?)",
-      "sanitized": "sp-non-touch-handheld--open-parenthesis--question-mark--close-parenthesis-"
+      "sanitized": "sp-non-touch-handheld--open-parenthesis--question-mark--close-parenthesis-",
+      "normalized": "SP Non-touch Handheld"
     },
     "os": {
       "raw": "?",
@@ -2973,7 +2986,8 @@
   {
     "name": {
       "raw": "Legion Go Gen 2",
-      "sanitized": "legion-go-gen-2"
+      "sanitized": "legion-go-gen-2",
+      "normalized": "Legion Go Gen 2"
     },
     "os": {
       "raw": "Windows 11",
@@ -3201,7 +3215,8 @@
   {
     "name": {
       "raw": "Zotac Zone 2",
-      "sanitized": "zotac-zone-2"
+      "sanitized": "zotac-zone-2",
+      "normalized": "Zotac Zone 2"
     },
     "os": {
       "raw": "Windows 11",
@@ -3433,7 +3448,8 @@
   {
     "name": {
       "raw": "Mini Zero 28",
-      "sanitized": "mini-zero-28"
+      "sanitized": "mini-zero-28",
+      "normalized": "Mini Zero 28"
     },
     "os": {
       "raw": "Android 10 / Linux (Tina)",
@@ -3668,7 +3684,8 @@
   {
     "name": {
       "raw": "Odin 2 Portal",
-      "sanitized": "odin-2-portal"
+      "sanitized": "odin-2-portal",
+      "normalized": "Odin 2 Portal"
     },
     "os": {
       "raw": "Android 13",
@@ -3899,7 +3916,8 @@
   {
     "name": {
       "raw": "X35H",
-      "sanitized": "x35h"
+      "sanitized": "x35h",
+      "normalized": "X35H"
     },
     "os": {
       "raw": "Linux",
@@ -4127,7 +4145,8 @@
   {
     "name": {
       "raw": "Miyoo Flip",
-      "sanitized": "miyoo-flip"
+      "sanitized": "miyoo-flip",
+      "normalized": "Miyoo Flip"
     },
     "os": {
       "raw": "Linux (Tina)",
@@ -4361,7 +4380,8 @@
   {
     "name": {
       "raw": "GPD Win 4 2025",
-      "sanitized": "gpd-win-4-2025"
+      "sanitized": "gpd-win-4-2025",
+      "normalized": "GPD Win 4 2025"
     },
     "os": {
       "raw": "Windows 11",
@@ -4594,7 +4614,8 @@
   {
     "name": {
       "raw": "GPD Win Max 2 2025",
-      "sanitized": "gpd-win-max-2-2025"
+      "sanitized": "gpd-win-max-2-2025",
+      "normalized": "GPD Win Max 2 2025"
     },
     "os": {
       "raw": "Windows 11",
@@ -4828,7 +4849,8 @@
   {
     "name": {
       "raw": "RG-34XX",
-      "sanitized": "rg-34xx"
+      "sanitized": "rg-34xx",
+      "normalized": "RG-34XX"
     },
     "os": {
       "raw": "Linux",
@@ -5063,7 +5085,8 @@
   {
     "name": {
       "raw": "R36 Max",
-      "sanitized": "r36-max"
+      "sanitized": "r36-max",
+      "normalized": "R36 Max"
     },
     "os": {
       "raw": "Linux (EmuELEC)",
@@ -5302,7 +5325,8 @@
   {
     "name": {
       "raw": "OneXFly F1 Pro",
-      "sanitized": "onexfly-f1-pro"
+      "sanitized": "onexfly-f1-pro",
+      "normalized": "OneXFly F1 Pro"
     },
     "os": {
       "raw": "Windows 11 / Linux (Bazzite)",
@@ -5541,7 +5565,8 @@
   {
     "name": {
       "raw": "AYANEO Pocket DMG",
-      "sanitized": "ayaneo-pocket-dmg"
+      "sanitized": "ayaneo-pocket-dmg",
+      "normalized": "AYANEO Pocket DMG"
     },
     "os": {
       "raw": "Android 13",
@@ -5773,7 +5798,8 @@
   {
     "name": {
       "raw": "AYANEO Pocket EVO",
-      "sanitized": "ayaneo-pocket-evo"
+      "sanitized": "ayaneo-pocket-evo",
+      "normalized": "AYANEO Pocket EVO"
     },
     "os": {
       "raw": "Android 13",
@@ -6000,7 +6026,8 @@
   {
     "name": {
       "raw": "RG-406H",
-      "sanitized": "rg-406h"
+      "sanitized": "rg-406h",
+      "normalized": "RG-406H"
     },
     "os": {
       "raw": "Android 13",
@@ -6235,7 +6262,8 @@
   {
     "name": {
       "raw": "Retroid Pocket 5",
-      "sanitized": "retroid-pocket-5"
+      "sanitized": "retroid-pocket-5",
+      "normalized": "Retroid Pocket 5"
     },
     "os": {
       "raw": "Android 13 / Linux (Batocera)",
@@ -6482,7 +6510,8 @@
   {
     "name": {
       "raw": "TRIMUI Smart Brick",
-      "sanitized": "trimui-smart-brick"
+      "sanitized": "trimui-smart-brick",
+      "normalized": "TRIMUI Smart Brick"
     },
     "os": {
       "raw": "Linux (Tina)",
@@ -6722,7 +6751,8 @@
   {
     "name": {
       "raw": "RG Cube XX",
-      "sanitized": "rg-cube-xx"
+      "sanitized": "rg-cube-xx",
+      "normalized": "RG Cube XX"
     },
     "os": {
       "raw": "Linux",
@@ -6950,7 +6980,8 @@
   {
     "name": {
       "raw": "RGB20 Pro",
-      "sanitized": "rgb20-pro"
+      "sanitized": "rgb20-pro",
+      "normalized": "RGB20 Pro"
     },
     "os": {
       "raw": "Linux",
@@ -7178,7 +7209,8 @@
   {
     "name": {
       "raw": "Zotac Zone",
-      "sanitized": "zotac-zone"
+      "sanitized": "zotac-zone",
+      "normalized": "Zotac Zone"
     },
     "os": {
       "raw": "Windows 11",
@@ -7420,7 +7452,8 @@
   {
     "name": {
       "raw": "GKD Bubble",
-      "sanitized": "gkd-bubble"
+      "sanitized": "gkd-bubble",
+      "normalized": "GKD Bubble"
     },
     "os": {
       "raw": "Linux",
@@ -7658,7 +7691,8 @@
   {
     "name": {
       "raw": "Retroid Pocket Mini",
-      "sanitized": "retroid-pocket-mini"
+      "sanitized": "retroid-pocket-mini",
+      "normalized": "Retroid Pocket Mini"
     },
     "os": {
       "raw": "Android 10 / Linux (Batocera)",
@@ -7900,7 +7934,8 @@
   {
     "name": {
       "raw": "AYANEO Pocket Micro",
-      "sanitized": "ayaneo-pocket-micro"
+      "sanitized": "ayaneo-pocket-micro",
+      "normalized": "AYANEO Pocket Micro"
     },
     "os": {
       "raw": "Android 13",
@@ -8137,7 +8172,8 @@
   {
     "name": {
       "raw": "RG-406V",
-      "sanitized": "rg-406v"
+      "sanitized": "rg-406v",
+      "normalized": "RG-406V"
     },
     "os": {
       "raw": "Android 13",
@@ -8383,7 +8419,8 @@
   {
     "name": {
       "raw": "RGB10X",
-      "sanitized": "rgb10x"
+      "sanitized": "rgb10x",
+      "normalized": "RGB10X"
     },
     "os": {
       "raw": "Linux",
@@ -8627,7 +8664,8 @@
   {
     "name": {
       "raw": "CB408",
-      "sanitized": "cb408"
+      "sanitized": "cb408",
+      "normalized": "CB408"
     },
     "os": {
       "raw": "Android 11,Linux (?)",
@@ -8861,7 +8899,8 @@
   {
     "name": {
       "raw": "R46S",
-      "sanitized": "r46s"
+      "sanitized": "r46s",
+      "normalized": "R46S"
     },
     "os": {
       "raw": "Linux",
@@ -9090,7 +9129,8 @@
   {
     "name": {
       "raw": "RG-40XXV",
-      "sanitized": "rg-40xxv"
+      "sanitized": "rg-40xxv",
+      "normalized": "RG-40XXV"
     },
     "os": {
       "raw": "Linux",
@@ -9323,7 +9363,8 @@
   {
     "name": {
       "raw": "TJD T80",
-      "sanitized": "tjd-t80"
+      "sanitized": "tjd-t80",
+      "normalized": "TJD T80"
     },
     "os": {
       "raw": "Android 14",
@@ -9555,7 +9596,8 @@
   {
     "name": {
       "raw": "ZPG A1 Unicorn",
-      "sanitized": "zpg-a1-unicorn"
+      "sanitized": "zpg-a1-unicorn",
+      "normalized": "ZPG A1 Unicorn"
     },
     "os": {
       "raw": "Android 13",
@@ -9787,7 +9829,8 @@
   {
     "name": {
       "raw": "K36",
-      "sanitized": "k36"
+      "sanitized": "k36",
+      "normalized": "K36"
     },
     "os": {
       "raw": "Linux (EmuELEC)",
@@ -10017,7 +10060,8 @@
   {
     "name": {
       "raw": "X35S",
-      "sanitized": "x35s"
+      "sanitized": "x35s",
+      "normalized": "X35S"
     },
     "os": {
       "raw": "Linux",
@@ -10246,7 +10290,8 @@
   {
     "name": {
       "raw": "XU Mini M",
-      "sanitized": "xu-mini-m"
+      "sanitized": "xu-mini-m",
+      "normalized": "XU Mini M"
     },
     "os": {
       "raw": "Linux",
@@ -10480,7 +10525,8 @@
   {
     "name": {
       "raw": "ROG Ally X",
-      "sanitized": "rog-ally-x"
+      "sanitized": "rog-ally-x",
+      "normalized": "ROG Ally X"
     },
     "os": {
       "raw": "Windows 11",
@@ -10717,7 +10763,8 @@
   {
     "name": {
       "raw": "RG-40XXH",
-      "sanitized": "rg-40xxh"
+      "sanitized": "rg-40xxh",
+      "normalized": "RG-40XXH"
     },
     "os": {
       "raw": "Linux",
@@ -10950,7 +10997,8 @@
   {
     "name": {
       "raw": "OneXPlayer X1 Mini",
-      "sanitized": "onexplayer-x1-mini"
+      "sanitized": "onexplayer-x1-mini",
+      "normalized": "OneXPlayer X1 Mini"
     },
     "os": {
       "raw": "Windows 11",
@@ -11178,7 +11226,8 @@
   {
     "name": {
       "raw": "GAMEMT E5",
-      "sanitized": "gamemt-e5"
+      "sanitized": "gamemt-e5",
+      "normalized": "GAMEMT E5"
     },
     "os": {
       "raw": "Linux(Closed source)",
@@ -11409,7 +11458,8 @@
   {
     "name": {
       "raw": "Odin 2 Mini",
-      "sanitized": "odin-2-mini"
+      "sanitized": "odin-2-mini",
+      "normalized": "Odin 2 Mini"
     },
     "os": {
       "raw": "Android 13",
@@ -11637,7 +11687,8 @@
   {
     "name": {
       "raw": "V10",
-      "sanitized": "v10"
+      "sanitized": "v10",
+      "normalized": "V10"
     },
     "os": {
       "raw": "Linux",
@@ -11872,7 +11923,8 @@
   {
     "name": {
       "raw": "GAMEMT E6 Plus",
-      "sanitized": "gamemt-e6-plus"
+      "sanitized": "gamemt-e6-plus",
+      "normalized": "GAMEMT E6 Plus"
     },
     "os": {
       "raw": "Android 11 / Linux (ArkOS)",
@@ -12117,7 +12169,8 @@
   {
     "name": {
       "raw": "RG Cube",
-      "sanitized": "rg-cube"
+      "sanitized": "rg-cube",
+      "normalized": "RG Cube"
     },
     "os": {
       "raw": "Android 13",
@@ -12354,7 +12407,8 @@
   {
     "name": {
       "raw": "GPD Win Max 2 (2024)",
-      "sanitized": "gpd-win-max-2--open-parenthesis-2024-close-parenthesis-"
+      "sanitized": "gpd-win-max-2--open-parenthesis-2024-close-parenthesis-",
+      "normalized": "GPD Win Max 2"
     },
     "os": {
       "raw": "Windows 11 / SteamOS",
@@ -12599,7 +12653,8 @@
   {
     "name": {
       "raw": "AYANEO Pocket S",
-      "sanitized": "ayaneo-pocket-s"
+      "sanitized": "ayaneo-pocket-s",
+      "normalized": "AYANEO Pocket S"
     },
     "os": {
       "raw": "Android 13",
@@ -12834,7 +12889,8 @@
   {
     "name": {
       "raw": "R40S",
-      "sanitized": "r40s"
+      "sanitized": "r40s",
+      "normalized": "R40S"
     },
     "os": {
       "raw": "Linux",
@@ -13064,7 +13120,8 @@
   {
     "name": {
       "raw": "RG-35XX SP",
-      "sanitized": "rg-35xx-sp"
+      "sanitized": "rg-35xx-sp",
+      "normalized": "RG-35XX SP"
     },
     "os": {
       "raw": "Linux",
@@ -13303,7 +13360,8 @@
   {
     "name": {
       "raw": "Miyoo A30 / 282",
-      "sanitized": "miyoo-a30--slash--282"
+      "sanitized": "miyoo-a30--slash--282",
+      "normalized": "Miyoo A30 / 282"
     },
     "os": {
       "raw": "Linux (Tina)",
@@ -13544,7 +13602,8 @@
   {
     "name": {
       "raw": "M19",
-      "sanitized": "m19"
+      "sanitized": "m19",
+      "normalized": "M19"
     },
     "os": {
       "raw": "Linux(EmuELEC)",
@@ -13768,7 +13827,8 @@
   {
     "name": {
       "raw": "GPD Win Mini 2024",
-      "sanitized": "gpd-win-mini-2024"
+      "sanitized": "gpd-win-mini-2024",
+      "normalized": "GPD Win Mini 2024"
     },
     "os": {
       "raw": "Windows 11 / SteamOS",
@@ -14004,7 +14064,8 @@
   {
     "name": {
       "raw": "RG-28XX",
-      "sanitized": "rg-28xx"
+      "sanitized": "rg-28xx",
+      "normalized": "RG-28XX"
     },
     "os": {
       "raw": "Linux",
@@ -14252,7 +14313,8 @@
   {
     "name": {
       "raw": "RGB20SX",
-      "sanitized": "rgb20sx"
+      "sanitized": "rgb20sx",
+      "normalized": "RGB20SX"
     },
     "os": {
       "raw": "Linux",
@@ -14488,7 +14550,8 @@
   {
     "name": {
       "raw": "D-R35S Plus",
-      "sanitized": "d-r35s-plus"
+      "sanitized": "d-r35s-plus",
+      "normalized": "D-R35S Plus"
     },
     "os": {
       "raw": "Linux(Closed source)",
@@ -14715,7 +14778,8 @@
   {
     "name": {
       "raw": "AYANEO Flip DS",
-      "sanitized": "ayaneo-flip-ds"
+      "sanitized": "ayaneo-flip-ds",
+      "normalized": "AYANEO Flip DS"
     },
     "os": {
       "raw": "Windows 11",
@@ -14945,7 +15009,8 @@
   {
     "name": {
       "raw": "AYANEO Flip KB",
-      "sanitized": "ayaneo-flip-kb"
+      "sanitized": "ayaneo-flip-kb",
+      "normalized": "AYANEO Flip KB"
     },
     "os": {
       "raw": "Windows 11",
@@ -15175,7 +15240,8 @@
   {
     "name": {
       "raw": "RG-35XX 2024",
-      "sanitized": "rg-35xx-2024"
+      "sanitized": "rg-35xx-2024",
+      "normalized": "RG-35XX 2024"
     },
     "os": {
       "raw": "Linux",
@@ -15403,7 +15469,8 @@
   {
     "name": {
       "raw": "R50S",
-      "sanitized": "r50s"
+      "sanitized": "r50s",
+      "normalized": "R50S"
     },
     "os": {
       "raw": "Linux",
@@ -15631,7 +15698,8 @@
   {
     "name": {
       "raw": "MSI Claw A1M",
-      "sanitized": "msi-claw-a1m"
+      "sanitized": "msi-claw-a1m",
+      "normalized": "MSI Claw A1M"
     },
     "os": {
       "raw": "Windows 11",
@@ -15871,7 +15939,8 @@
   {
     "name": {
       "raw": "RG-556",
-      "sanitized": "rg-556"
+      "sanitized": "rg-556",
+      "normalized": "RG-556"
     },
     "os": {
       "raw": "Android 13",
@@ -16106,7 +16175,8 @@
   {
     "name": {
       "raw": "RGB10MAX3",
-      "sanitized": "rgb10max3"
+      "sanitized": "rgb10max3",
+      "normalized": "RGB10MAX3"
     },
     "os": {
       "raw": "Linux (JELOS)",
@@ -16336,7 +16406,8 @@
   {
     "name": {
       "raw": "Gameforce ACE",
-      "sanitized": "gameforce-ace"
+      "sanitized": "gameforce-ace",
+      "normalized": "Gameforce ACE"
     },
     "os": {
       "raw": "Android 13",
@@ -16567,7 +16638,8 @@
   {
     "name": {
       "raw": "AOKZOE A2",
-      "sanitized": "aokzoe-a2"
+      "sanitized": "aokzoe-a2",
+      "normalized": "AOKZOE A2"
     },
     "os": {
       "raw": "Windows 11 / SteamOS",
@@ -16806,7 +16878,8 @@
   {
     "name": {
       "raw": "AYANEO Next Lite",
-      "sanitized": "ayaneo-next-lite"
+      "sanitized": "ayaneo-next-lite",
+      "normalized": "AYANEO Next Lite"
     },
     "os": {
       "raw": "Windows 11 / SteamOS (HoloISO)",
@@ -17050,7 +17123,8 @@
   {
     "name": {
       "raw": "OneXPlayer X1",
-      "sanitized": "onexplayer-x1"
+      "sanitized": "onexplayer-x1",
+      "normalized": "OneXPlayer X1"
     },
     "os": {
       "raw": "Windows 11",
@@ -17277,7 +17351,8 @@
   {
     "name": {
       "raw": "Retroid Pocket 4",
-      "sanitized": "retroid-pocket-4"
+      "sanitized": "retroid-pocket-4",
+      "normalized": "Retroid Pocket 4"
     },
     "os": {
       "raw": "Android 11",
@@ -17508,7 +17583,8 @@
   {
     "name": {
       "raw": "TJD T101",
-      "sanitized": "tjd-t101"
+      "sanitized": "tjd-t101",
+      "normalized": "TJD T101"
     },
     "os": {
       "raw": "Windows 11",
@@ -17746,7 +17822,8 @@
   {
     "name": {
       "raw": "GKD Pixel",
-      "sanitized": "gkd-pixel"
+      "sanitized": "gkd-pixel",
+      "normalized": "GKD Pixel"
     },
     "os": {
       "raw": "IUX",
@@ -17981,7 +18058,8 @@
   {
     "name": {
       "raw": "Retroid Pocket 4 Pro",
-      "sanitized": "retroid-pocket-4-pro"
+      "sanitized": "retroid-pocket-4-pro",
+      "normalized": "Retroid Pocket 4 Pro"
     },
     "os": {
       "raw": "Android 13",
@@ -18214,7 +18292,8 @@
   {
     "name": {
       "raw": "RG-35XX H",
-      "sanitized": "rg-35xx-h"
+      "sanitized": "rg-35xx-h",
+      "normalized": "RG-35XX H"
     },
     "os": {
       "raw": "Linux",
@@ -18446,7 +18525,8 @@
   {
     "name": {
       "raw": "M18 / R43 Pro",
-      "sanitized": "m18--slash--r43-pro"
+      "sanitized": "m18--slash--r43-pro",
+      "normalized": "M18 / R43 Pro"
     },
     "os": {
       "raw": "Linux (EmuELEC)",
@@ -18677,7 +18757,8 @@
   {
     "name": {
       "raw": "R33S",
-      "sanitized": "r33s"
+      "sanitized": "r33s",
+      "normalized": "R33S"
     },
     "os": {
       "raw": "Linux (JELOS)",
@@ -18910,7 +18991,8 @@
   {
     "name": {
       "raw": "GB300",
-      "sanitized": "gb300"
+      "sanitized": "gb300",
+      "normalized": "GB300"
     },
     "os": {
       "raw": "Proprietary",
@@ -19127,7 +19209,8 @@
   {
     "name": {
       "raw": "AYANEO Slide",
-      "sanitized": "ayaneo-slide"
+      "sanitized": "ayaneo-slide",
+      "normalized": "AYANEO Slide"
     },
     "os": {
       "raw": "Windows 11 / SteamOS",
@@ -19363,7 +19446,8 @@
   {
     "name": {
       "raw": "GAMEMT E6",
-      "sanitized": "gamemt-e6"
+      "sanitized": "gamemt-e6",
+      "normalized": "GAMEMT E6"
     },
     "os": {
       "raw": "Android 8.1",
@@ -19594,7 +19678,8 @@
   {
     "name": {
       "raw": "GPD Win Mini",
-      "sanitized": "gpd-win-mini"
+      "sanitized": "gpd-win-mini",
+      "normalized": "GPD Win Mini"
     },
     "os": {
       "raw": "Windows 11 / SteamOS",
@@ -19831,7 +19916,8 @@
   {
     "name": {
       "raw": "RG-35XX Plus",
-      "sanitized": "rg-35xx-plus"
+      "sanitized": "rg-35xx-plus",
+      "normalized": "RG-35XX Plus"
     },
     "os": {
       "raw": "Linux",
@@ -20059,7 +20145,8 @@
   {
     "name": {
       "raw": "RG ARC-D",
-      "sanitized": "rg-arc-d"
+      "sanitized": "rg-arc-d",
+      "normalized": "RG ARC-D"
     },
     "os": {
       "raw": "Android 11, Linux",
@@ -20303,7 +20390,8 @@
   {
     "name": {
       "raw": "RG ARC-S",
-      "sanitized": "rg-arc-s"
+      "sanitized": "rg-arc-s",
+      "normalized": "RG ARC-S"
     },
     "os": {
       "raw": "Linux",
@@ -20541,7 +20629,8 @@
   {
     "name": {
       "raw": "Steam Deck OLED",
-      "sanitized": "steam-deck-oled"
+      "sanitized": "steam-deck-oled",
+      "normalized": "Steam Deck OLED"
     },
     "os": {
       "raw": "SteamOS 3.0 (Arch Linux), Windows 11, etc",
@@ -20789,7 +20878,8 @@
   {
     "name": {
       "raw": "XU10",
-      "sanitized": "xu10"
+      "sanitized": "xu10",
+      "normalized": "XU10"
     },
     "os": {
       "raw": "Linux",
@@ -21021,7 +21111,8 @@
   {
     "name": {
       "raw": "TRIMUI Smart Pro",
-      "sanitized": "trimui-smart-pro"
+      "sanitized": "trimui-smart-pro",
+      "normalized": "TRIMUI Smart Pro"
     },
     "os": {
       "raw": "Linux (Tina)",
@@ -21259,7 +21350,8 @@
   {
     "name": {
       "raw": "R36S",
-      "sanitized": "r36s"
+      "sanitized": "r36s",
+      "normalized": "R36S"
     },
     "os": {
       "raw": "Linux (ArkOS)",
@@ -21498,7 +21590,8 @@
   {
     "name": {
       "raw": "Lenovo Legion Go",
-      "sanitized": "lenovo-legion-go"
+      "sanitized": "lenovo-legion-go",
+      "normalized": "Lenovo Legion Go"
     },
     "os": {
       "raw": "Windows 11",
@@ -21729,7 +21822,8 @@
   {
     "name": {
       "raw": "Odin 2",
-      "sanitized": "odin-2"
+      "sanitized": "odin-2",
+      "normalized": "Odin 2"
     },
     "os": {
       "raw": "Android 13",
@@ -21962,7 +22056,8 @@
   {
     "name": {
       "raw": "AYANEO Kun",
-      "sanitized": "ayaneo-kun"
+      "sanitized": "ayaneo-kun",
+      "normalized": "AYANEO Kun"
     },
     "os": {
       "raw": "Windows 11 / SteamOS",
@@ -22202,7 +22297,8 @@
   {
     "name": {
       "raw": "M17",
-      "sanitized": "m17"
+      "sanitized": "m17",
+      "normalized": "M17"
     },
     "os": {
       "raw": "Linux(EmuELEC), MinUI",
@@ -22439,7 +22535,8 @@
   {
     "name": {
       "raw": "AYANEO Pocket Air",
-      "sanitized": "ayaneo-pocket-air"
+      "sanitized": "ayaneo-pocket-air",
+      "normalized": "AYANEO Pocket Air"
     },
     "os": {
       "raw": "Android 12",
@@ -22671,7 +22768,8 @@
   {
     "name": {
       "raw": "Loki Mini Pro",
-      "sanitized": "loki-mini-pro"
+      "sanitized": "loki-mini-pro",
+      "normalized": "Loki Mini Pro"
     },
     "os": {
       "raw": "Windows 11 / SteamOS / Linux",
@@ -22917,7 +23015,8 @@
   {
     "name": {
       "raw": "OneXFly",
-      "sanitized": "onexfly"
+      "sanitized": "onexfly",
+      "normalized": "OneXFly"
     },
     "os": {
       "raw": "Windows 11",
@@ -23145,7 +23244,8 @@
   {
     "name": {
       "raw": "GPD Win 4(7640U / 7840U)",
-      "sanitized": "gpd-win-4-open-parenthesis-7640u--slash--7840u-close-parenthesis-"
+      "sanitized": "gpd-win-4-open-parenthesis-7640u--slash--7840u-close-parenthesis-",
+      "normalized": "GPD Win 4"
     },
     "os": {
       "raw": "Windows 11",
@@ -23383,7 +23483,8 @@
   {
     "name": {
       "raw": "RG-405V",
-      "sanitized": "rg-405v"
+      "sanitized": "rg-405v",
+      "normalized": "RG-405V"
     },
     "os": {
       "raw": "Android 12",
@@ -23617,7 +23718,8 @@
   {
     "name": {
       "raw": "PowKiddy RGB30",
-      "sanitized": "powkiddy-rgb30"
+      "sanitized": "powkiddy-rgb30",
+      "normalized": "PowKiddy RGB30"
     },
     "os": {
       "raw": "Linux (JELOS)",
@@ -23848,7 +23950,8 @@
   {
     "name": {
       "raw": "Loki Zero",
-      "sanitized": "loki-zero"
+      "sanitized": "loki-zero",
+      "normalized": "Loki Zero"
     },
     "os": {
       "raw": "Windows 11 / SteamOS / Linux",
@@ -24092,7 +24195,8 @@
   {
     "name": {
       "raw": "Retroid Pocket 2S",
-      "sanitized": "retroid-pocket-2s"
+      "sanitized": "retroid-pocket-2s",
+      "normalized": "Retroid Pocket 2S"
     },
     "os": {
       "raw": "Android 11",
@@ -24337,7 +24441,8 @@
   {
     "name": {
       "raw": "GPD Win Max 2(7640U / 7840U)",
-      "sanitized": "gpd-win-max-2-open-parenthesis-7640u--slash--7840u-close-parenthesis-"
+      "sanitized": "gpd-win-max-2-open-parenthesis-7640u--slash--7840u-close-parenthesis-",
+      "normalized": "GPD Win Max 2"
     },
     "os": {
       "raw": "Windows 11",
@@ -24571,7 +24676,8 @@
   {
     "name": {
       "raw": "AYANEO Air 1S",
-      "sanitized": "ayaneo-air-1s"
+      "sanitized": "ayaneo-air-1s",
+      "normalized": "AYANEO Air 1S"
     },
     "os": {
       "raw": "Windows 11 / SteamOS",
@@ -24816,7 +24922,8 @@
   {
     "name": {
       "raw": "AYANEO Geek 1S",
-      "sanitized": "ayaneo-geek-1s"
+      "sanitized": "ayaneo-geek-1s",
+      "normalized": "AYANEO Geek 1S"
     },
     "os": {
       "raw": "Windows 11",
@@ -25047,7 +25154,8 @@
   {
     "name": {
       "raw": "Abxylute Cloud Gaming Handheld",
-      "sanitized": "abxylute-cloud-gaming-handheld"
+      "sanitized": "abxylute-cloud-gaming-handheld",
+      "normalized": "Abxylute Cloud Gaming Handheld"
     },
     "os": {
       "raw": "Android 12",
@@ -25279,7 +25387,8 @@
   {
     "name": {
       "raw": "KT-R1",
-      "sanitized": "kt-r1"
+      "sanitized": "kt-r1",
+      "normalized": "KT-R1"
     },
     "os": {
       "raw": "Android 12(kOS)",
@@ -25531,7 +25640,8 @@
   {
     "name": {
       "raw": "R35S",
-      "sanitized": "r35s"
+      "sanitized": "r35s",
+      "normalized": "R35S"
     },
     "os": {
       "raw": "Linux (ArkOS)",
@@ -25770,7 +25880,8 @@
   {
     "name": {
       "raw": "PowKiddy RGB10 Max 3 Pro",
-      "sanitized": "powkiddy-rgb10-max-3-pro"
+      "sanitized": "powkiddy-rgb10-max-3-pro",
+      "normalized": "PowKiddy RGB10 Max 3 Pro"
     },
     "os": {
       "raw": "Linux / Android, PickleOS",
@@ -26003,7 +26114,8 @@
   {
     "name": {
       "raw": "X6",
-      "sanitized": "x6"
+      "sanitized": "x6",
+      "normalized": "X6"
     },
     "os": {
       "raw": "Linux (RTOS)",
@@ -26247,7 +26359,8 @@
   {
     "name": {
       "raw": "uConsole",
-      "sanitized": "uconsole"
+      "sanitized": "uconsole",
+      "normalized": "uConsole"
     },
     "os": {
       "raw": "Clockwork OS / Linux",
@@ -26471,7 +26584,8 @@
   {
     "name": {
       "raw": "AOKZOE A1 PRO",
-      "sanitized": "aokzoe-a1-pro"
+      "sanitized": "aokzoe-a1-pro",
+      "normalized": "AOKZOE A1 PRO"
     },
     "os": {
       "raw": "Windows 11 / SteamOS",
@@ -26714,7 +26828,8 @@
   {
     "name": {
       "raw": "AYANEO 2S",
-      "sanitized": "ayaneo-2s"
+      "sanitized": "ayaneo-2s",
+      "normalized": "AYANEO 2S"
     },
     "os": {
       "raw": "Windows 11",
@@ -26947,7 +27062,8 @@
   {
     "name": {
       "raw": "AYANEO Air Plus",
-      "sanitized": "ayaneo-air-plus"
+      "sanitized": "ayaneo-air-plus",
+      "normalized": "AYANEO Air Plus"
     },
     "os": {
       "raw": "Windows / SteamOS / AYANEO OS",
@@ -27186,7 +27302,8 @@
   {
     "name": {
       "raw": "RG-NANO",
-      "sanitized": "rg-nano"
+      "sanitized": "rg-nano",
+      "normalized": "RG-NANO"
     },
     "os": {
       "raw": "Linux (OpenDingux / RetroFE / FunKey OS)",
@@ -27421,7 +27538,8 @@
   {
     "name": {
       "raw": "ROG Ally",
-      "sanitized": "rog-ally"
+      "sanitized": "rog-ally",
+      "normalized": "ROG Ally"
     },
     "os": {
       "raw": "Windows 11",
@@ -27658,7 +27776,8 @@
   {
     "name": {
       "raw": "Loki",
-      "sanitized": "loki"
+      "sanitized": "loki",
+      "normalized": "Loki"
     },
     "os": {
       "raw": "Windows 11 / SteamOS / Linux",
@@ -27909,7 +28028,8 @@
   {
     "name": {
       "raw": "Loki Max",
-      "sanitized": "loki-max"
+      "sanitized": "loki-max",
+      "normalized": "Loki Max"
     },
     "os": {
       "raw": "Windows 11 / SteamOS / Linux",
@@ -28160,7 +28280,8 @@
   {
     "name": {
       "raw": "RK2023(WiFi model)",
-      "sanitized": "rk2023-open-parenthesis-wifi-model-close-parenthesis-"
+      "sanitized": "rk2023-open-parenthesis-wifi-model-close-parenthesis-",
+      "normalized": "RK2023"
     },
     "os": {
       "raw": "Linux: JELOS (Unofficial)",
@@ -28385,7 +28506,8 @@
   {
     "name": {
       "raw": "Pimax Portal",
-      "sanitized": "pimax-portal"
+      "sanitized": "pimax-portal",
+      "normalized": "Pimax Portal"
     },
     "os": {
       "raw": "Android 12",
@@ -28615,7 +28737,8 @@
   {
     "name": {
       "raw": "Retro Pixel Pocket",
-      "sanitized": "retro-pixel-pocket"
+      "sanitized": "retro-pixel-pocket",
+      "normalized": "Retro Pixel Pocket"
     },
     "os": {
       "raw": "Android 7.1",
@@ -28836,7 +28959,8 @@
   {
     "name": {
       "raw": "D-007",
-      "sanitized": "d-007"
+      "sanitized": "d-007",
+      "normalized": "D-007"
     },
     "os": {
       "raw": "Android (#?)",
@@ -29064,7 +29188,8 @@
   {
     "name": {
       "raw": "PowKiddy X28",
-      "sanitized": "powkiddy-x28"
+      "sanitized": "powkiddy-x28",
+      "normalized": "PowKiddy X28"
     },
     "os": {
       "raw": "Android 11",
@@ -29300,7 +29425,8 @@
   {
     "name": {
       "raw": "RG-353PS",
-      "sanitized": "rg-353ps"
+      "sanitized": "rg-353ps",
+      "normalized": "RG-353PS"
     },
     "os": {
       "raw": "Linux",
@@ -29533,7 +29659,8 @@
   {
     "name": {
       "raw": "PowKiddy X55",
-      "sanitized": "powkiddy-x55"
+      "sanitized": "powkiddy-x55",
+      "normalized": "PowKiddy X55"
     },
     "os": {
       "raw": "Linux (JELOS)",
@@ -29762,7 +29889,8 @@
   {
     "name": {
       "raw": "AYANEO Air Plus AMD 6800U",
-      "sanitized": "ayaneo-air-plus-amd-6800u"
+      "sanitized": "ayaneo-air-plus-amd-6800u",
+      "normalized": "AYANEO Air Plus AMD 6800U"
     },
     "os": {
       "raw": "Windows / SteamOS / AYANEO OS",
@@ -30000,7 +30128,8 @@
   {
     "name": {
       "raw": "Retroid Pocket Flip",
-      "sanitized": "retroid-pocket-flip"
+      "sanitized": "retroid-pocket-flip",
+      "normalized": "Retroid Pocket Flip"
     },
     "os": {
       "raw": "Android 11",
@@ -30235,7 +30364,8 @@
   {
     "name": {
       "raw": "Data Frog SF2000",
-      "sanitized": "data-frog-sf2000"
+      "sanitized": "data-frog-sf2000",
+      "normalized": "Data Frog SF2000"
     },
     "os": {
       "raw": "Proprietary",
@@ -30463,7 +30593,8 @@
   {
     "name": {
       "raw": "RG-405M",
-      "sanitized": "rg-405m"
+      "sanitized": "rg-405m",
+      "normalized": "RG-405M"
     },
     "os": {
       "raw": "Android 12, GarlicOS, GammaOS",
@@ -30706,7 +30837,8 @@
   {
     "name": {
       "raw": "GPD Win 4",
-      "sanitized": "gpd-win-4"
+      "sanitized": "gpd-win-4",
+      "normalized": "GPD Win 4"
     },
     "os": {
       "raw": "Windows",
@@ -30944,7 +31076,8 @@
   {
     "name": {
       "raw": "RK2023",
-      "sanitized": "rk2023"
+      "sanitized": "rk2023",
+      "normalized": "RK2023"
     },
     "os": {
       "raw": "Linux: JELOS (Unofficial)",
@@ -31174,7 +31307,8 @@
   {
     "name": {
       "raw": "Miyoo Mini Plus",
-      "sanitized": "miyoo-mini-plus"
+      "sanitized": "miyoo-mini-plus",
+      "normalized": "Miyoo Mini Plus"
     },
     "os": {
       "raw": "Linux (OnionOS, MinUI)",
@@ -31423,7 +31557,8 @@
   {
     "name": {
       "raw": "OneXPlayer 2",
-      "sanitized": "onexplayer-2"
+      "sanitized": "onexplayer-2",
+      "normalized": "OneXPlayer 2"
     },
     "os": {
       "raw": "Windows 11",
@@ -31647,7 +31782,8 @@
   {
     "name": {
       "raw": "Razer Edge 5G",
-      "sanitized": "razer-edge-5g"
+      "sanitized": "razer-edge-5g",
+      "normalized": "Razer Edge 5G"
     },
     "os": {
       "raw": "Android 12",
@@ -31881,7 +32017,8 @@
   {
     "name": {
       "raw": "GKD Mini Plus Classic",
-      "sanitized": "gkd-mini-plus-classic"
+      "sanitized": "gkd-mini-plus-classic",
+      "normalized": "GKD Mini Plus Classic"
     },
     "os": {
       "raw": "Linux: JELOS (Unofficial)",
@@ -32111,7 +32248,8 @@
   {
     "name": {
       "raw": "GKD Mini Plus",
-      "sanitized": "gkd-mini-plus"
+      "sanitized": "gkd-mini-plus",
+      "normalized": "GKD Mini Plus"
     },
     "os": {
       "raw": "Linux: JELOS (Unofficial)",
@@ -32340,7 +32478,8 @@
   {
     "name": {
       "raw": "GR3000",
-      "sanitized": "gr3000"
+      "sanitized": "gr3000",
+      "normalized": "GR3000"
     },
     "os": {
       "raw": "Proprietary(No CFW)",
@@ -32572,7 +32711,8 @@
   {
     "name": {
       "raw": "AYANEO 2",
-      "sanitized": "ayaneo-2"
+      "sanitized": "ayaneo-2",
+      "normalized": "AYANEO 2"
     },
     "os": {
       "raw": "Windows 11 / SteamOS / AYANEO OS (Linux)",
@@ -32816,7 +32956,8 @@
   {
     "name": {
       "raw": "RG-35XX",
-      "sanitized": "rg-35xx"
+      "sanitized": "rg-35xx",
+      "normalized": "RG-35XX"
     },
     "os": {
       "raw": "Proprietary (Linux), GarlicOS, MinUI, Batocera",
@@ -33083,7 +33224,8 @@
   {
     "name": {
       "raw": "GPi Case 2W",
-      "sanitized": "gpi-case-2w"
+      "sanitized": "gpi-case-2w",
+      "normalized": "GPi Case 2W"
     },
     "os": {
       "raw": "Linux (RetroPie)",
@@ -33306,7 +33448,8 @@
   {
     "name": {
       "raw": "PocketStar",
-      "sanitized": "pocketstar"
+      "sanitized": "pocketstar",
+      "normalized": "PocketStar"
     },
     "os": {
       "raw": "Proprietary",
@@ -33533,7 +33676,8 @@
   {
     "name": {
       "raw": "RG-505",
-      "sanitized": "rg-505"
+      "sanitized": "rg-505",
+      "normalized": "RG-505"
     },
     "os": {
       "raw": "Android 12",
@@ -33768,7 +33912,8 @@
   {
     "name": {
       "raw": "Retroid Pocket 3 Plus",
-      "sanitized": "retroid-pocket-3-plus"
+      "sanitized": "retroid-pocket-3-plus",
+      "normalized": "Retroid Pocket 3 Plus"
     },
     "os": {
       "raw": "Android 11",
@@ -34011,7 +34156,8 @@
   {
     "name": {
       "raw": "One XPlayer Mini Pro",
-      "sanitized": "one-xplayer-mini-pro"
+      "sanitized": "one-xplayer-mini-pro",
+      "normalized": "One XPlayer Mini Pro"
     },
     "os": {
       "raw": "Windows 11",
@@ -34244,7 +34390,8 @@
   {
     "name": {
       "raw": "RG-353M",
-      "sanitized": "rg-353m"
+      "sanitized": "rg-353m",
+      "normalized": "RG-353M"
     },
     "os": {
       "raw": "Android 11 / Linux (ArkOS)",
@@ -34487,7 +34634,8 @@
   {
     "name": {
       "raw": "Logitech G CLOUD",
-      "sanitized": "logitech-g-cloud"
+      "sanitized": "logitech-g-cloud",
+      "normalized": "Logitech G CLOUD"
     },
     "os": {
       "raw": "Android 11",
@@ -34721,7 +34869,8 @@
   {
     "name": {
       "raw": "GPD Win Max 2",
-      "sanitized": "gpd-win-max-2"
+      "sanitized": "gpd-win-max-2",
+      "normalized": "GPD Win Max 2"
     },
     "os": {
       "raw": "Windows 11",
@@ -34955,7 +35104,8 @@
   {
     "name": {
       "raw": "Odroid Go Ultra",
-      "sanitized": "odroid-go-ultra"
+      "sanitized": "odroid-go-ultra",
+      "normalized": "Odroid Go Ultra"
     },
     "os": {
       "raw": "Linux",
@@ -35190,7 +35340,8 @@
   {
     "name": {
       "raw": "AOKZOE A1",
-      "sanitized": "aokzoe-a1"
+      "sanitized": "aokzoe-a1",
+      "normalized": "AOKZOE A1"
     },
     "os": {
       "raw": "Windows 11 / SteamOS",
@@ -35430,7 +35581,8 @@
   {
     "name": {
       "raw": "AYANEO Air Pro",
-      "sanitized": "ayaneo-air-pro"
+      "sanitized": "ayaneo-air-pro",
+      "normalized": "AYANEO Air Pro"
     },
     "os": {
       "raw": "Windows 11 / SteamOS / AYANEO OS (Linux)",
@@ -35681,7 +35833,8 @@
   {
     "name": {
       "raw": "RG-353V",
-      "sanitized": "rg-353v"
+      "sanitized": "rg-353v",
+      "normalized": "RG-353V"
     },
     "os": {
       "raw": "Android 11 / Linux (ArkOS)",
@@ -35926,7 +36079,8 @@
   {
     "name": {
       "raw": "RG-353VS",
-      "sanitized": "rg-353vs"
+      "sanitized": "rg-353vs",
+      "normalized": "RG-353VS"
     },
     "os": {
       "raw": "Linux (ArkOS)",
@@ -36163,7 +36317,8 @@
   {
     "name": {
       "raw": "PiBoy XRS",
-      "sanitized": "piboy-xrs"
+      "sanitized": "piboy-xrs",
+      "normalized": "PiBoy XRS"
     },
     "os": {
       "raw": "Linux (RetroPie)",
@@ -36386,7 +36541,8 @@
   {
     "name": {
       "raw": "AYANEO Air",
-      "sanitized": "ayaneo-air"
+      "sanitized": "ayaneo-air",
+      "normalized": "AYANEO Air"
     },
     "os": {
       "raw": "Windows 11 / SteamOS / AYANEO OS (Linux)",
@@ -36638,7 +36794,8 @@
   {
     "name": {
       "raw": "Retroid Pocket 3",
-      "sanitized": "retroid-pocket-3"
+      "sanitized": "retroid-pocket-3",
+      "normalized": "Retroid Pocket 3"
     },
     "os": {
       "raw": "Android 11",
@@ -36878,7 +37035,8 @@
   {
     "name": {
       "raw": "TRIMUI Smart",
-      "sanitized": "trimui-smart"
+      "sanitized": "trimui-smart",
+      "normalized": "TRIMUI Smart"
     },
     "os": {
       "raw": "Tina Linux,RGH Tomato OS",
@@ -37107,7 +37265,8 @@
   {
     "name": {
       "raw": "GPD XP Plus",
-      "sanitized": "gpd-xp-plus"
+      "sanitized": "gpd-xp-plus",
+      "normalized": "GPD XP Plus"
     },
     "os": {
       "raw": "Android 11",
@@ -37342,7 +37501,8 @@
   {
     "name": {
       "raw": "Win600",
-      "sanitized": "win600"
+      "sanitized": "win600",
+      "normalized": "Win600"
     },
     "os": {
       "raw": "Windows 10 / SteamOS",
@@ -37588,7 +37748,8 @@
   {
     "name": {
       "raw": "Odin Lite",
-      "sanitized": "odin-lite"
+      "sanitized": "odin-lite",
+      "normalized": "Odin Lite"
     },
     "os": {
       "raw": "Android 11",
@@ -37833,7 +37994,8 @@
   {
     "name": {
       "raw": "RG-353P",
-      "sanitized": "rg-353p"
+      "sanitized": "rg-353p",
+      "normalized": "RG-353P"
     },
     "os": {
       "raw": "Android 11Linux (JELOS)",
@@ -38085,7 +38247,8 @@
   {
     "name": {
       "raw": "PowKiddy RGB20S",
-      "sanitized": "powkiddy-rgb20s"
+      "sanitized": "powkiddy-rgb20s",
+      "normalized": "PowKiddy RGB20S"
     },
     "os": {
       "raw": "Linux351ELEC, AmberELEC, ArkOS",
@@ -38342,7 +38505,8 @@
   {
     "name": {
       "raw": "RG-503",
-      "sanitized": "rg-503"
+      "sanitized": "rg-503",
+      "normalized": "RG-503"
     },
     "os": {
       "raw": "LinuxArkOS, JELOS, Retro Arena",
@@ -38592,7 +38756,8 @@
   {
     "name": {
       "raw": "AYANEO Next",
-      "sanitized": "ayaneo-next"
+      "sanitized": "ayaneo-next",
+      "normalized": "AYANEO Next"
     },
     "os": {
       "raw": "Windows 10/11",
@@ -38833,7 +38998,8 @@
   {
     "name": {
       "raw": "PowKiddy RGB10S",
-      "sanitized": "powkiddy-rgb10s"
+      "sanitized": "powkiddy-rgb10s",
+      "normalized": "PowKiddy RGB10S"
     },
     "os": {
       "raw": "Batocera, EmuELEC, Lineage 18.1/Android 11, RecalBox, RetroArena,RetroOz, RRVL, Ubuntu",
@@ -39075,7 +39241,8 @@
   {
     "name": {
       "raw": "Steam Deck",
-      "sanitized": "steam-deck"
+      "sanitized": "steam-deck",
+      "normalized": "Steam Deck"
     },
     "os": {
       "raw": "SteamOS 3.0 (Arch Linux), Windows 11, etc",
@@ -39327,7 +39494,8 @@
   {
     "name": {
       "raw": "PowKiddy X39",
-      "sanitized": "powkiddy-x39"
+      "sanitized": "powkiddy-x39",
+      "normalized": "PowKiddy X39"
     },
     "os": {
       "raw": "\"Linux\"",
@@ -39558,7 +39726,8 @@
   {
     "name": {
       "raw": "Thumby",
-      "sanitized": "thumby"
+      "sanitized": "thumby",
+      "normalized": "Thumby"
     },
     "os": {
       "raw": "Open Source Proprietary",
@@ -39783,7 +39952,8 @@
   {
     "name": {
       "raw": "Odin",
-      "sanitized": "odin"
+      "sanitized": "odin",
+      "normalized": "Odin"
     },
     "os": {
       "raw": "Android 10, ARM Windows 10/11",
@@ -40034,7 +40204,8 @@
   {
     "name": {
       "raw": "One XPlayer Mini",
-      "sanitized": "one-xplayer-mini"
+      "sanitized": "one-xplayer-mini",
+      "normalized": "One XPlayer Mini"
     },
     "os": {
       "raw": "Windows 10 / 11",
@@ -40271,7 +40442,8 @@
   {
     "name": {
       "raw": "Digi Dock 2",
-      "sanitized": "digi-dock-2"
+      "sanitized": "digi-dock-2",
+      "normalized": "Digi Dock 2"
     },
     "os": {
       "raw": "Android,Linux,Windows",
@@ -40511,7 +40683,8 @@
   {
     "name": {
       "raw": "Retro Dreamer(Game 4 All CM4)",
-      "sanitized": "retro-dreamer-open-parenthesis-game-4-all-cm4-close-parenthesis-"
+      "sanitized": "retro-dreamer-open-parenthesis-game-4-all-cm4-close-parenthesis-",
+      "normalized": "Retro Dreamer"
     },
     "os": {
       "raw": "Linux (RetroPie, Batocera, EmuELEC, Lakka, Recalbox, RetroLX)",
@@ -40745,7 +40918,8 @@
   {
     "name": {
       "raw": "GPi Case 2",
-      "sanitized": "gpi-case-2"
+      "sanitized": "gpi-case-2",
+      "normalized": "GPi Case 2"
     },
     "os": {
       "raw": "Linux (RetroPie)",
@@ -40968,7 +41142,8 @@
   {
     "name": {
       "raw": "Retroid Pocket 2+(RP2 PCB Upgrade)",
-      "sanitized": "retroid-pocket-2+-open-parenthesis-rp2-pcb-upgrade-close-parenthesis-"
+      "sanitized": "retroid-pocket-2+-open-parenthesis-rp2-pcb-upgrade-close-parenthesis-",
+      "normalized": "Retroid Pocket 2+"
     },
     "os": {
       "raw": "Android 9(Source)",
@@ -41202,7 +41377,8 @@
   {
     "name": {
       "raw": "PowKiddy Q36 Mini",
-      "sanitized": "powkiddy-q36-mini"
+      "sanitized": "powkiddy-q36-mini",
+      "normalized": "PowKiddy Q36 Mini"
     },
     "os": {
       "raw": "RetroFE(Linux)",
@@ -41429,7 +41605,8 @@
   {
     "name": {
       "raw": "Analogue Pocket",
-      "sanitized": "analogue-pocket"
+      "sanitized": "analogue-pocket",
+      "normalized": "Analogue Pocket"
     },
     "os": {
       "raw": "Analogue OS",
@@ -41666,7 +41843,8 @@
   {
     "name": {
       "raw": "RG-552",
-      "sanitized": "rg-552"
+      "sanitized": "rg-552",
+      "normalized": "RG-552"
     },
     "os": {
       "raw": "Android 11,Batocera, JELOS, AmberELEC",
@@ -41928,7 +42106,8 @@
   {
     "name": {
       "raw": "Miyoo Mini",
-      "sanitized": "miyoo-mini"
+      "sanitized": "miyoo-mini",
+      "normalized": "Miyoo Mini"
     },
     "os": {
       "raw": "Onion OS, MinUI",
@@ -42170,7 +42349,8 @@
   {
     "name": {
       "raw": "PowKiddy A20",
-      "sanitized": "powkiddy-a20"
+      "sanitized": "powkiddy-a20",
+      "normalized": "PowKiddy A20"
     },
     "os": {
       "raw": "Android 9",
@@ -42405,7 +42585,8 @@
   {
     "name": {
       "raw": "PowKiddy A30",
-      "sanitized": "powkiddy-a30"
+      "sanitized": "powkiddy-a30",
+      "normalized": "PowKiddy A30"
     },
     "os": {
       "raw": "Trimui OS",
@@ -42635,7 +42816,8 @@
   {
     "name": {
       "raw": "One XPlayer AMD",
-      "sanitized": "one-xplayer-amd"
+      "sanitized": "one-xplayer-amd",
+      "normalized": "One XPlayer AMD"
     },
     "os": {
       "raw": "Windows 10 / 11",
@@ -42881,7 +43063,8 @@
   {
     "name": {
       "raw": "AYANEO Pro(Retro Power)",
-      "sanitized": "ayaneo-pro-open-parenthesis-retro-power-close-parenthesis-"
+      "sanitized": "ayaneo-pro-open-parenthesis-retro-power-close-parenthesis-",
+      "normalized": "AYANEO Pro"
     },
     "os": {
       "raw": "Windows 10",
@@ -43121,7 +43304,8 @@
   {
     "name": {
       "raw": "GPD XP",
-      "sanitized": "gpd-xp"
+      "sanitized": "gpd-xp",
+      "normalized": "GPD XP"
     },
     "os": {
       "raw": "Android 11",
@@ -43360,7 +43544,8 @@
   {
     "name": {
       "raw": "PowKiddy RGB10 Max 2",
-      "sanitized": "powkiddy-rgb10-max-2"
+      "sanitized": "powkiddy-rgb10-max-2",
+      "normalized": "PowKiddy RGB10 Max 2"
     },
     "os": {
       "raw": "Batocera, EmuELEC, Lineage 18.1/Android 11, RecalBox, RetroArena,RetroOz, RRVL, Ubuntu",
@@ -43613,7 +43798,8 @@
   {
     "name": {
       "raw": "One XPlayer 1S",
-      "sanitized": "one-xplayer-1s"
+      "sanitized": "one-xplayer-1s",
+      "normalized": "One XPlayer 1S"
     },
     "os": {
       "raw": "Windows 10 / 11",
@@ -43855,7 +44041,8 @@
   {
     "name": {
       "raw": "GPM280 CM4",
-      "sanitized": "gpm280-cm4"
+      "sanitized": "gpm280-cm4",
+      "normalized": "GPM280 CM4"
     },
     "os": {
       "raw": "Linux (RetroPie)",
@@ -44081,7 +44268,8 @@
   {
     "name": {
       "raw": "PowKiddy X18S",
-      "sanitized": "powkiddy-x18s"
+      "sanitized": "powkiddy-x18s",
+      "normalized": "PowKiddy X18S"
     },
     "os": {
       "raw": "Android 11",
@@ -44326,7 +44514,8 @@
   {
     "name": {
       "raw": "GPD Win Max 2021",
-      "sanitized": "gpd-win-max-2021"
+      "sanitized": "gpd-win-max-2021",
+      "normalized": "GPD Win Max 2021"
     },
     "os": {
       "raw": "Windows 10",
@@ -44560,7 +44749,8 @@
   {
     "name": {
       "raw": "RG-351MP",
-      "sanitized": "rg-351mp"
+      "sanitized": "rg-351mp",
+      "normalized": "RG-351MP"
     },
     "os": {
       "raw": "EmuELEC, 351ELEC, ArkOS, Batocera, Lakka, 351Droid (Lineage 18.1 / Android 11)",
@@ -44828,7 +45018,8 @@
   {
     "name": {
       "raw": "A380 / GameMax",
-      "sanitized": "a380--slash--gamemax"
+      "sanitized": "a380--slash--gamemax",
+      "normalized": "A380 / GameMax"
     },
     "os": {
       "raw": "Android 6",
@@ -45059,7 +45250,8 @@
   {
     "name": {
       "raw": "DevTerm",
-      "sanitized": "devterm"
+      "sanitized": "devterm",
+      "normalized": "DevTerm"
     },
     "os": {
       "raw": "Clockwork OS / Linux",
@@ -45284,7 +45476,8 @@
   {
     "name": {
       "raw": "RG-300X",
-      "sanitized": "rg-300x"
+      "sanitized": "rg-300x",
+      "normalized": "RG-300X"
     },
     "os": {
       "raw": "OpenDingux",
@@ -45523,7 +45716,8 @@
   {
     "name": {
       "raw": "microByte",
-      "sanitized": "microbyte"
+      "sanitized": "microbyte",
+      "normalized": "microByte"
     },
     "os": {
       "raw": "Open SourceProprietary",
@@ -45743,7 +45937,8 @@
   {
     "name": {
       "raw": "PowKiddy Q20 Mini",
-      "sanitized": "powkiddy-q20-mini"
+      "sanitized": "powkiddy-q20-mini",
+      "normalized": "PowKiddy Q20 Mini"
     },
     "os": {
       "raw": "NxHope",
@@ -45979,7 +46174,8 @@
   {
     "name": {
       "raw": "PowKiddy X17",
-      "sanitized": "powkiddy-x17"
+      "sanitized": "powkiddy-x17",
+      "normalized": "PowKiddy X17"
     },
     "os": {
       "raw": "Android 7.0",
@@ -46205,7 +46401,8 @@
   {
     "name": {
       "raw": "One XPlayer",
-      "sanitized": "one-xplayer"
+      "sanitized": "one-xplayer",
+      "normalized": "One XPlayer"
     },
     "os": {
       "raw": "Windows 10 / 11",
@@ -46447,7 +46644,8 @@
   {
     "name": {
       "raw": "AYANEO",
-      "sanitized": "ayaneo"
+      "sanitized": "ayaneo",
+      "normalized": "AYANEO"
     },
     "os": {
       "raw": "Windows 10",
@@ -46695,7 +46893,8 @@
   {
     "name": {
       "raw": "GameBoy ESP32",
-      "sanitized": "gameboy-esp32"
+      "sanitized": "gameboy-esp32",
+      "normalized": "GameBoy ESP32"
     },
     "os": {
       "raw": "Retro ESP32",
@@ -46916,7 +47115,8 @@
   {
     "name": {
       "raw": "GameForce",
-      "sanitized": "gameforce"
+      "sanitized": "gameforce",
+      "normalized": "GameForce"
     },
     "os": {
       "raw": "RetroArch(EmuELEC)",
@@ -47145,7 +47345,8 @@
   {
     "name": {
       "raw": "GPD Win 3",
-      "sanitized": "gpd-win-3"
+      "sanitized": "gpd-win-3",
+      "normalized": "GPD Win 3"
     },
     "os": {
       "raw": "Windows 10",
@@ -47382,7 +47583,8 @@
   {
     "name": {
       "raw": "LCL CM4 Boy",
-      "sanitized": "lcl-cm4-boy"
+      "sanitized": "lcl-cm4-boy",
+      "normalized": "LCL CM4 Boy"
     },
     "os": {
       "raw": "Linux (RetroPie,RecalBox,Batocera)",
@@ -47616,7 +47818,8 @@
   {
     "name": {
       "raw": "PowKiddy RGB10 Max",
-      "sanitized": "powkiddy-rgb10-max"
+      "sanitized": "powkiddy-rgb10-max",
+      "normalized": "PowKiddy RGB10 Max"
     },
     "os": {
       "raw": "Linux",
@@ -47866,7 +48069,8 @@
   {
     "name": {
       "raw": "TRDR Pocket",
-      "sanitized": "trdr-pocket"
+      "sanitized": "trdr-pocket",
+      "normalized": "TRDR Pocket"
     },
     "os": {
       "raw": "Android 10",
@@ -48097,7 +48301,8 @@
   {
     "name": {
       "raw": "RG-351V",
-      "sanitized": "rg-351v"
+      "sanitized": "rg-351v",
+      "normalized": "RG-351V"
     },
     "os": {
       "raw": "EmuELEC, 351ELEC, ArkOS, 351Droid (Lineage 18.1 / Android 11)",
@@ -48353,7 +48558,8 @@
   {
     "name": {
       "raw": "GKD Mini",
-      "sanitized": "gkd-mini"
+      "sanitized": "gkd-mini",
+      "normalized": "GKD Mini"
     },
     "os": {
       "raw": "OpenDingux,IUX",
@@ -48592,7 +48798,8 @@
   {
     "name": {
       "raw": "Retro Pixel DMG",
-      "sanitized": "retro-pixel-dmg"
+      "sanitized": "retro-pixel-dmg",
+      "normalized": "Retro Pixel DMG"
     },
     "os": {
       "raw": "Android 7.1",
@@ -48818,7 +49025,8 @@
   {
     "name": {
       "raw": "FunKey S",
-      "sanitized": "funkey-s"
+      "sanitized": "funkey-s",
+      "normalized": "FunKey S"
     },
     "os": {
       "raw": "RetroFE(Linux)",
@@ -49050,7 +49258,8 @@
   {
     "name": {
       "raw": "Odroid Go Super",
-      "sanitized": "odroid-go-super"
+      "sanitized": "odroid-go-super",
+      "normalized": "Odroid Go Super"
     },
     "os": {
       "raw": "Batocera, EmuELEC, LineageOS, RecalBox, RetroArena,RetroOz, RRVL, Ubuntu",
@@ -49294,7 +49503,8 @@
   {
     "name": {
       "raw": "RG-351M",
-      "sanitized": "rg-351m"
+      "sanitized": "rg-351m",
+      "normalized": "RG-351M"
     },
     "os": {
       "raw": "EmuELEC, 351ELEC, ArkOS, Batocera, Lakka, 351Droid (Lineage 18.1 / Android 11)",
@@ -49553,7 +49763,8 @@
   {
     "name": {
       "raw": "DragonBox Pyra",
-      "sanitized": "dragonbox-pyra"
+      "sanitized": "dragonbox-pyra",
+      "normalized": "DragonBox Pyra"
     },
     "os": {
       "raw": "Debian Linux",
@@ -49786,7 +49997,8 @@
   {
     "name": {
       "raw": "GameBox Mini",
-      "sanitized": "gamebox-mini"
+      "sanitized": "gamebox-mini",
+      "normalized": "GameBox Mini"
     },
     "os": {
       "raw": "Retro ESP32",
@@ -50005,7 +50217,8 @@
   {
     "name": {
       "raw": "Game Case GBA CM3",
-      "sanitized": "game-case-gba-cm3"
+      "sanitized": "game-case-gba-cm3",
+      "normalized": "Game Case GBA CM3"
     },
     "os": {
       "raw": "Linux (RetroPie)",
@@ -50229,7 +50442,8 @@
   {
     "name": {
       "raw": "OneGx1 Pro",
-      "sanitized": "onegx1-pro"
+      "sanitized": "onegx1-pro",
+      "normalized": "OneGx1 Pro"
     },
     "os": {
       "raw": "Windows 10",
@@ -50457,7 +50671,8 @@
   {
     "name": {
       "raw": "GPM280 CM3",
-      "sanitized": "gpm280-cm3"
+      "sanitized": "gpm280-cm3",
+      "normalized": "GPM280 CM3"
     },
     "os": {
       "raw": "Linux (RetroPie), Recalbox",
@@ -50684,7 +50899,8 @@
   {
     "name": {
       "raw": "Pocket Go S30",
-      "sanitized": "pocket-go-s30"
+      "sanitized": "pocket-go-s30",
+      "normalized": "Pocket Go S30"
     },
     "os": {
       "raw": "Simple30",
@@ -50908,7 +51124,8 @@
   {
     "name": {
       "raw": "TRIMUI Model S / PowKiddy A66",
-      "sanitized": "trimui-model-s--slash--powkiddy-a66"
+      "sanitized": "trimui-model-s--slash--powkiddy-a66",
+      "normalized": "TRIMUI Model S / PowKiddy A66"
     },
     "os": {
       "raw": "MinUI",
@@ -51144,7 +51361,8 @@
   {
     "name": {
       "raw": "RG-280V",
-      "sanitized": "rg-280v"
+      "sanitized": "rg-280v",
+      "normalized": "RG-280V"
     },
     "os": {
       "raw": "OpenDingux",
@@ -51380,7 +51598,8 @@
   {
     "name": {
       "raw": "PowKiddy RGB20",
-      "sanitized": "powkiddy-rgb20"
+      "sanitized": "powkiddy-rgb20",
+      "normalized": "PowKiddy RGB20"
     },
     "os": {
       "raw": "Linux(ArkOS, EmuELEC)",
@@ -51635,7 +51854,8 @@
   {
     "name": {
       "raw": "PowKiddy X20",
-      "sanitized": "powkiddy-x20"
+      "sanitized": "powkiddy-x20",
+      "normalized": "PowKiddy X20"
     },
     "os": {
       "raw": "Linux",
@@ -51865,7 +52085,8 @@
   {
     "name": {
       "raw": "Q500 / PS5000 / Lintian LT-8203",
-      "sanitized": "q500--slash--ps5000--slash--lintian-lt-8203"
+      "sanitized": "q500--slash--ps5000--slash--lintian-lt-8203",
+      "normalized": "Q500 / PS5000 / Lintian LT-8203"
     },
     "os": {
       "raw": "RetroArch",
@@ -52092,7 +52313,8 @@
   {
     "name": {
       "raw": "RG-351P",
-      "sanitized": "rg-351p"
+      "sanitized": "rg-351p",
+      "normalized": "RG-351P"
     },
     "os": {
       "raw": "EmuELEC, 351ELEC, ArkOS, Batocera, Lakka, 351Droid (Lineage 18.1 / Android 11)",
@@ -52354,7 +52576,8 @@
   {
     "name": {
       "raw": "GPD Win Max",
-      "sanitized": "gpd-win-max"
+      "sanitized": "gpd-win-max",
+      "normalized": "GPD Win Max"
     },
     "os": {
       "raw": "Windows 10",
@@ -52586,7 +52809,8 @@
   {
     "name": {
       "raw": "CoolBaby RS-63 / RS3128",
-      "sanitized": "coolbaby-rs-63--slash--rs3128"
+      "sanitized": "coolbaby-rs-63--slash--rs3128",
+      "normalized": "CoolBaby RS-63 / RS3128"
     },
     "os": {
       "raw": "Android 5.1(Modified)",
@@ -52814,7 +53038,8 @@
   {
     "name": {
       "raw": "Z-Pocket Game Pro",
-      "sanitized": "z-pocket-game-pro"
+      "sanitized": "z-pocket-game-pro",
+      "normalized": "Z-Pocket Game Pro"
     },
     "os": {
       "raw": "TheRA NTFS",
@@ -53042,7 +53267,8 @@
   {
     "name": {
       "raw": "Super PocketGo CM3",
-      "sanitized": "super-pocketgo-cm3"
+      "sanitized": "super-pocketgo-cm3",
+      "normalized": "Super PocketGo CM3"
     },
     "os": {
       "raw": "Linux (RetroPie)",
@@ -53268,7 +53494,8 @@
   {
     "name": {
       "raw": "PiBoy DMG",
-      "sanitized": "piboy-dmg"
+      "sanitized": "piboy-dmg",
+      "normalized": "PiBoy DMG"
     },
     "os": {
       "raw": "Linux (RetroPie)",
@@ -53499,7 +53726,8 @@
   {
     "name": {
       "raw": "Retro GP430",
-      "sanitized": "retro-gp430"
+      "sanitized": "retro-gp430",
+      "normalized": "Retro GP430"
     },
     "os": {
       "raw": "Linux (RetroPie)",
@@ -53735,7 +53963,8 @@
   {
     "name": {
       "raw": "OneGx1",
-      "sanitized": "onegx1"
+      "sanitized": "onegx1",
+      "normalized": "OneGx1"
     },
     "os": {
       "raw": "Windows 10",
@@ -53963,7 +54192,8 @@
   {
     "name": {
       "raw": "Retroid Pocket 2",
-      "sanitized": "retroid-pocket-2"
+      "sanitized": "retroid-pocket-2",
+      "normalized": "Retroid Pocket 2"
     },
     "os": {
       "raw": "Android 8.1,LineageOS 15.1, Retroid OS",
@@ -54200,7 +54430,8 @@
   {
     "name": {
       "raw": "RG-FC520",
-      "sanitized": "rg-fc520"
+      "sanitized": "rg-fc520",
+      "normalized": "RG-FC520"
     },
     "os": {
       "raw": "❌",
@@ -54418,7 +54649,8 @@
   {
     "name": {
       "raw": "PowKiddy RGB10",
-      "sanitized": "powkiddy-rgb10"
+      "sanitized": "powkiddy-rgb10",
+      "normalized": "PowKiddy RGB10"
     },
     "os": {
       "raw": "RetroArch(EmuELEC, ArkOS)",
@@ -54655,7 +54887,8 @@
   {
     "name": {
       "raw": "RG-350P",
-      "sanitized": "rg-350p"
+      "sanitized": "rg-350p",
+      "normalized": "RG-350P"
     },
     "os": {
       "raw": "OpenDingux",
@@ -54887,7 +55120,8 @@
   {
     "name": {
       "raw": "RG-280M",
-      "sanitized": "rg-280m"
+      "sanitized": "rg-280m",
+      "normalized": "RG-280M"
     },
     "os": {
       "raw": "OpenDingux",
@@ -55126,7 +55360,8 @@
   {
     "name": {
       "raw": "PowKiddy V90",
-      "sanitized": "powkiddy-v90"
+      "sanitized": "powkiddy-v90",
+      "normalized": "PowKiddy V90"
     },
     "os": {
       "raw": "NxHope",
@@ -55355,7 +55590,8 @@
   {
     "name": {
       "raw": "Q900 / PS7000",
-      "sanitized": "q900--slash--ps7000"
+      "sanitized": "q900--slash--ps7000",
+      "normalized": "Q900 / PS7000"
     },
     "os": {
       "raw": "Linux",
@@ -55587,7 +55823,8 @@
   {
     "name": {
       "raw": "RK2020",
-      "sanitized": "rk2020"
+      "sanitized": "rk2020",
+      "normalized": "RK2020"
     },
     "os": {
       "raw": "RetroArch(EmuELEC)",
@@ -55821,7 +56058,8 @@
   {
     "name": {
       "raw": "Q400",
-      "sanitized": "q400"
+      "sanitized": "q400",
+      "normalized": "Q400"
     },
     "os": {
       "raw": "Linux",
@@ -56056,7 +56294,8 @@
   {
     "name": {
       "raw": "Odroid Go Advance - Black Edition",
-      "sanitized": "odroid-go-advance---black-edition"
+      "sanitized": "odroid-go-advance---black-edition",
+      "normalized": "Odroid Go Advance - Black Edition"
     },
     "os": {
       "raw": "Ubuntu,RetroArena",
@@ -56294,7 +56533,8 @@
   {
     "name": {
       "raw": "Arduboy FX",
-      "sanitized": "arduboy-fx"
+      "sanitized": "arduboy-fx",
+      "normalized": "Arduboy FX"
     },
     "os": {
       "raw": "Arduboy Game Loader",
@@ -56514,7 +56754,8 @@
   {
     "name": {
       "raw": "PowKiddy X2",
-      "sanitized": "powkiddy-x2"
+      "sanitized": "powkiddy-x2",
+      "normalized": "PowKiddy X2"
     },
     "os": {
       "raw": "RetroArch",
@@ -56738,7 +56979,8 @@
   {
     "name": {
       "raw": "RG-350M",
-      "sanitized": "rg-350m"
+      "sanitized": "rg-350m",
+      "normalized": "RG-350M"
     },
     "os": {
       "raw": "OpenDingux, Rogue, RetroArch",
@@ -56981,7 +57223,8 @@
   {
     "name": {
       "raw": "Retroid Pocket",
-      "sanitized": "retroid-pocket"
+      "sanitized": "retroid-pocket",
+      "normalized": "Retroid Pocket"
     },
     "os": {
       "raw": "Android 6,Retroid OS",
@@ -57210,7 +57453,8 @@
   {
     "name": {
       "raw": "Odroid Go Advance",
-      "sanitized": "odroid-go-advance"
+      "sanitized": "odroid-go-advance",
+      "normalized": "Odroid Go Advance"
     },
     "os": {
       "raw": "Ubuntu,RetroArena",
@@ -57444,7 +57688,8 @@
   {
     "name": {
       "raw": "Cartboy",
-      "sanitized": "cartboy"
+      "sanitized": "cartboy",
+      "normalized": "Cartboy"
     },
     "os": {
       "raw": "Linux - CartOS(RetroPie based)",
@@ -57674,7 +57919,8 @@
   {
     "name": {
       "raw": "GKD-350H",
-      "sanitized": "gkd-350h"
+      "sanitized": "gkd-350h",
+      "normalized": "GKD-350H"
     },
     "os": {
       "raw": "OpenDingux(Closed source),IUX",
@@ -57917,7 +58163,8 @@
   {
     "name": {
       "raw": "Lyra",
-      "sanitized": "lyra"
+      "sanitized": "lyra",
+      "normalized": "Lyra"
     },
     "os": {
       "raw": "Linux (RetroPie)",
@@ -58143,7 +58390,8 @@
   {
     "name": {
       "raw": "New PocketGo / PlayGo / Miyoo Max",
-      "sanitized": "new-pocketgo--slash--playgo--slash--miyoo-max"
+      "sanitized": "new-pocketgo--slash--playgo--slash--miyoo-max",
+      "normalized": "New PocketGo / PlayGo / Miyoo Max"
     },
     "os": {
       "raw": "OpenDingux, Rogue",
@@ -58384,7 +58632,8 @@
   {
     "name": {
       "raw": "PowKiddy Q90",
-      "sanitized": "powkiddy-q90"
+      "sanitized": "powkiddy-q90",
+      "normalized": "PowKiddy Q90"
     },
     "os": {
       "raw": "NxHope",
@@ -58604,7 +58853,8 @@
   {
     "name": {
       "raw": "Retrostone 2",
-      "sanitized": "retrostone-2"
+      "sanitized": "retrostone-2",
+      "normalized": "Retrostone 2"
     },
     "os": {
       "raw": "Linux - RetrorangePi(RetroPie based)",
@@ -58841,7 +59091,8 @@
   {
     "name": {
       "raw": "17Pocket System",
-      "sanitized": "17pocket-system"
+      "sanitized": "17pocket-system",
+      "normalized": "17Pocket System"
     },
     "os": {
       "raw": "Android 4.4",
@@ -59074,7 +59325,8 @@
   {
     "name": {
       "raw": "Digi Dock",
-      "sanitized": "digi-dock"
+      "sanitized": "digi-dock",
+      "normalized": "Digi Dock"
     },
     "os": {
       "raw": "Android,Linux,Windows",
@@ -59312,7 +59564,8 @@
   {
     "name": {
       "raw": "PowKiddy X15",
-      "sanitized": "powkiddy-x15"
+      "sanitized": "powkiddy-x15",
+      "normalized": "PowKiddy X15"
     },
     "os": {
       "raw": "Android 7",
@@ -59546,7 +59799,8 @@
   {
     "name": {
       "raw": "PowKiddy X19",
-      "sanitized": "powkiddy-x19"
+      "sanitized": "powkiddy-x19",
+      "normalized": "PowKiddy X19"
     },
     "os": {
       "raw": "µC/OS-II",
@@ -59768,7 +60022,8 @@
   {
     "name": {
       "raw": "Z-Pocket Game",
-      "sanitized": "z-pocket-game"
+      "sanitized": "z-pocket-game",
+      "normalized": "Z-Pocket Game"
     },
     "os": {
       "raw": "Android 7",
@@ -60010,7 +60265,8 @@
   {
     "name": {
       "raw": "RG-350",
-      "sanitized": "rg-350"
+      "sanitized": "rg-350",
+      "normalized": "RG-350"
     },
     "os": {
       "raw": "OpenDingux, Rogue, RetroArch",
@@ -60262,7 +60518,8 @@
   {
     "name": {
       "raw": "GamePi20",
-      "sanitized": "gamepi20"
+      "sanitized": "gamepi20",
+      "normalized": "GamePi20"
     },
     "os": {
       "raw": "Linux (RetroPie)",
@@ -60493,7 +60750,8 @@
   {
     "name": {
       "raw": "GamePi43",
-      "sanitized": "gamepi43"
+      "sanitized": "gamepi43",
+      "normalized": "GamePi43"
     },
     "os": {
       "raw": "Linux (RetroPie)",
@@ -60723,7 +60981,8 @@
   {
     "name": {
       "raw": "Retro Carnival CM3",
-      "sanitized": "retro-carnival-cm3"
+      "sanitized": "retro-carnival-cm3",
+      "normalized": "Retro Carnival CM3"
     },
     "os": {
       "raw": "Linux (RetroPie)",
@@ -60954,7 +61213,8 @@
   {
     "name": {
       "raw": "GPD Win 2(2019 Model)",
-      "sanitized": "gpd-win-2-open-parenthesis-2019-model-close-parenthesis-"
+      "sanitized": "gpd-win-2-open-parenthesis-2019-model-close-parenthesis-",
+      "normalized": "GPD Win 2"
     },
     "os": {
       "raw": "Windows 10",
@@ -61189,7 +61449,8 @@
   {
     "name": {
       "raw": "Retro CM3",
-      "sanitized": "retro-cm3"
+      "sanitized": "retro-cm3",
+      "normalized": "Retro CM3"
     },
     "os": {
       "raw": "Linux (RetroPie)",
@@ -61424,7 +61685,8 @@
   {
     "name": {
       "raw": "32blit",
-      "sanitized": "32blit"
+      "sanitized": "32blit",
+      "normalized": "32blit"
     },
     "os": {
       "raw": "Open source firmware",
@@ -61645,7 +61907,8 @@
   {
     "name": {
       "raw": "GPi Case",
-      "sanitized": "gpi-case"
+      "sanitized": "gpi-case",
+      "normalized": "GPi Case"
     },
     "os": {
       "raw": "Linux (RetroPie)",
@@ -61875,7 +62138,8 @@
   {
     "name": {
       "raw": "LDK Landscape",
-      "sanitized": "ldk-landscape"
+      "sanitized": "ldk-landscape",
+      "normalized": "LDK Landscape"
     },
     "os": {
       "raw": "RetroFW",
@@ -62110,7 +62374,8 @@
   {
     "name": {
       "raw": "PocketGo",
-      "sanitized": "pocketgo"
+      "sanitized": "pocketgo",
+      "normalized": "PocketGo"
     },
     "os": {
       "raw": "NxHope",
@@ -62335,7 +62600,8 @@
   {
     "name": {
       "raw": "RetroGame RS-97(Anniversary Edition / IPS Screen Model)",
-      "sanitized": "retrogame-rs-97-open-parenthesis-anniversary-edition--slash--ips-screen-model-close-parenthesis-"
+      "sanitized": "retrogame-rs-97-open-parenthesis-anniversary-edition--slash--ips-screen-model-close-parenthesis-",
+      "normalized": "RetroGame RS-97"
     },
     "os": {
       "raw": "RetroFW",
@@ -62565,7 +62831,8 @@
   {
     "name": {
       "raw": "RG-300",
-      "sanitized": "rg-300"
+      "sanitized": "rg-300",
+      "normalized": "RG-300"
     },
     "os": {
       "raw": "RetroFW",
@@ -62792,7 +63059,8 @@
   {
     "name": {
       "raw": "MOQI i7S",
-      "sanitized": "moqi-i7s"
+      "sanitized": "moqi-i7s",
+      "normalized": "MOQI i7S"
     },
     "os": {
       "raw": "Android 8.1",
@@ -63027,7 +63295,8 @@
   {
     "name": {
       "raw": "Tiny GamePi15",
-      "sanitized": "tiny-gamepi15"
+      "sanitized": "tiny-gamepi15",
+      "normalized": "Tiny GamePi15"
     },
     "os": {
       "raw": "Linux (RetroPie)",
@@ -63260,7 +63529,8 @@
   {
     "name": {
       "raw": "Bittboy V3",
-      "sanitized": "bittboy-v3"
+      "sanitized": "bittboy-v3",
+      "normalized": "Bittboy V3"
     },
     "os": {
       "raw": "NxHope",
@@ -63485,7 +63755,8 @@
   {
     "name": {
       "raw": "LDK Game",
-      "sanitized": "ldk-game"
+      "sanitized": "ldk-game",
+      "normalized": "LDK Game"
     },
     "os": {
       "raw": "RetroFW",
@@ -63717,7 +63988,8 @@
   {
     "name": {
       "raw": "1UP Pi-Boy XL",
-      "sanitized": "1up-pi-boy-xl"
+      "sanitized": "1up-pi-boy-xl",
+      "normalized": "1UP Pi-Boy XL"
     },
     "os": {
       "raw": "Linux (RetroPie)",
@@ -63953,7 +64225,8 @@
   {
     "name": {
       "raw": "PowKiddy X18",
-      "sanitized": "powkiddy-x18"
+      "sanitized": "powkiddy-x18",
+      "normalized": "PowKiddy X18"
     },
     "os": {
       "raw": "Android 7.0",
@@ -64193,7 +64466,8 @@
   {
     "name": {
       "raw": "Family Pocket FC3000 V2",
-      "sanitized": "family-pocket-fc3000-v2"
+      "sanitized": "family-pocket-fc3000-v2",
+      "normalized": "Family Pocket FC3000 V2"
     },
     "os": {
       "raw": "MeliOS",
@@ -64426,7 +64700,8 @@
   {
     "name": {
       "raw": "Digi RetroBoy",
-      "sanitized": "digi-retroboy"
+      "sanitized": "digi-retroboy",
+      "normalized": "Digi RetroBoy"
     },
     "os": {
       "raw": "Proprietary",
@@ -64656,7 +64931,8 @@
   {
     "name": {
       "raw": "Game Hat",
-      "sanitized": "game-hat"
+      "sanitized": "game-hat",
+      "normalized": "Game Hat"
     },
     "os": {
       "raw": "Linux (RetroPie)",
@@ -64888,7 +65164,8 @@
   {
     "name": {
       "raw": "GameShell",
-      "sanitized": "gameshell"
+      "sanitized": "gameshell",
+      "normalized": "GameShell"
     },
     "os": {
       "raw": "Clockwork OS",
@@ -65120,7 +65397,8 @@
   {
     "name": {
       "raw": "GPD XD+",
-      "sanitized": "gpd-xd+"
+      "sanitized": "gpd-xd+",
+      "normalized": "GPD XD+"
     },
     "os": {
       "raw": "Android 7.0",
@@ -65366,7 +65644,8 @@
   {
     "name": {
       "raw": "MGSP",
-      "sanitized": "mgsp"
+      "sanitized": "mgsp",
+      "normalized": "MGSP"
     },
     "os": {
       "raw": "Linux (RetroPie)",
@@ -65598,7 +65877,8 @@
   {
     "name": {
       "raw": "Odroid Go",
-      "sanitized": "odroid-go"
+      "sanitized": "odroid-go",
+      "normalized": "Odroid Go"
     },
     "os": {
       "raw": "Retro ESP32",
@@ -65826,7 +66106,8 @@
   {
     "name": {
       "raw": "PowKiddy X16",
-      "sanitized": "powkiddy-x16"
+      "sanitized": "powkiddy-x16",
+      "normalized": "PowKiddy X16"
     },
     "os": {
       "raw": "µC/OS-II",
@@ -66057,7 +66338,8 @@
   {
     "name": {
       "raw": "RetroGame RS-97 Plus",
-      "sanitized": "retrogame-rs-97-plus"
+      "sanitized": "retrogame-rs-97-plus",
+      "normalized": "RetroGame RS-97 Plus"
     },
     "os": {
       "raw": "RetroFW",
@@ -66283,7 +66565,8 @@
   {
     "name": {
       "raw": "Retrostone 1",
-      "sanitized": "retrostone-1"
+      "sanitized": "retrostone-1",
+      "normalized": "Retrostone 1"
     },
     "os": {
       "raw": "Linux - RetrorangePi(RetroPie based)",
@@ -66517,7 +66800,8 @@
   {
     "name": {
       "raw": "1UP Pi-Boy Micro",
-      "sanitized": "1up-pi-boy-micro"
+      "sanitized": "1up-pi-boy-micro",
+      "normalized": "1UP Pi-Boy Micro"
     },
     "os": {
       "raw": "Linux (RetroPie)",
@@ -66747,7 +67031,8 @@
   {
     "name": {
       "raw": "1UP PiX Portable",
-      "sanitized": "1up-pix-portable"
+      "sanitized": "1up-pix-portable",
+      "normalized": "1UP PiX Portable"
     },
     "os": {
       "raw": "Linux (RetroPie)",
@@ -66978,7 +67263,8 @@
   {
     "name": {
       "raw": "Freeplay CM3 / Zero",
-      "sanitized": "freeplay-cm3--slash--zero"
+      "sanitized": "freeplay-cm3--slash--zero",
+      "normalized": "Freeplay CM3 / Zero"
     },
     "os": {
       "raw": "Linux (RetroPie)",
@@ -67210,7 +67496,8 @@
   {
     "name": {
       "raw": "Gopher 2",
-      "sanitized": "gopher-2"
+      "sanitized": "gopher-2",
+      "normalized": "Gopher 2"
     },
     "os": {
       "raw": "Useless",
@@ -67432,7 +67719,8 @@
   {
     "name": {
       "raw": "LCL Pi Gameboy",
-      "sanitized": "lcl-pi-gameboy"
+      "sanitized": "lcl-pi-gameboy",
+      "normalized": "LCL Pi Gameboy"
     },
     "os": {
       "raw": "Linux (RetroPie)",
@@ -67668,7 +67956,8 @@
   {
     "name": {
       "raw": "MOQI i7",
-      "sanitized": "moqi-i7"
+      "sanitized": "moqi-i7",
+      "normalized": "MOQI i7"
     },
     "os": {
       "raw": "Android 7.1",
@@ -67900,7 +68189,8 @@
   {
     "name": {
       "raw": "RetroGame RS-97",
-      "sanitized": "retrogame-rs-97"
+      "sanitized": "retrogame-rs-97",
+      "normalized": "RetroGame RS-97"
     },
     "os": {
       "raw": "RetroFW",
@@ -68121,7 +68411,8 @@
   {
     "name": {
       "raw": "RetroMini RS-90",
-      "sanitized": "retromini-rs-90"
+      "sanitized": "retromini-rs-90",
+      "normalized": "RetroMini RS-90"
     },
     "os": {
       "raw": "OpenDingux",
@@ -68346,7 +68637,8 @@
   {
     "name": {
       "raw": "GPD Win",
-      "sanitized": "gpd-win"
+      "sanitized": "gpd-win",
+      "normalized": "GPD Win"
     },
     "os": {
       "raw": "Windows 10",
@@ -68574,7 +68866,8 @@
   {
     "name": {
       "raw": "PAP KIII Plus",
-      "sanitized": "pap-kiii-plus"
+      "sanitized": "pap-kiii-plus",
+      "normalized": "PAP KIII Plus"
     },
     "os": {
       "raw": "Useless",
@@ -68797,7 +69090,8 @@
   {
     "name": {
       "raw": "GPD XD",
-      "sanitized": "gpd-xd"
+      "sanitized": "gpd-xd",
+      "normalized": "GPD XD"
     },
     "os": {
       "raw": "Android 4.4.4",
@@ -69037,7 +69331,8 @@
   {
     "name": {
       "raw": "GPD G5A",
-      "sanitized": "gpd-g5a"
+      "sanitized": "gpd-g5a",
+      "normalized": "GPD G5A"
     },
     "os": {
       "raw": "Android 4.4",
@@ -69269,7 +69564,8 @@
   {
     "name": {
       "raw": "Much W1 / 78P01",
-      "sanitized": "much-w1--slash--78p01"
+      "sanitized": "much-w1--slash--78p01",
+      "normalized": "Much W1 / 78P01"
     },
     "os": {
       "raw": "Android 4.4",
@@ -69499,7 +69795,8 @@
   {
     "name": {
       "raw": "GCW Zero",
-      "sanitized": "gcw-zero"
+      "sanitized": "gcw-zero",
+      "normalized": "GCW Zero"
     },
     "os": {
       "raw": "OpenDingux",
@@ -69724,7 +70021,8 @@
   {
     "name": {
       "raw": "iBen L1 / X",
-      "sanitized": "iben-l1--slash--x"
+      "sanitized": "iben-l1--slash--x",
+      "normalized": "iBen L1 / X"
     },
     "os": {
       "raw": "Android 4.1",
@@ -69949,7 +70247,8 @@
   {
     "name": {
       "raw": "Shield Portable",
-      "sanitized": "shield-portable"
+      "sanitized": "shield-portable",
+      "normalized": "Shield Portable"
     },
     "os": {
       "raw": "Android 5.1",
@@ -70180,7 +70479,8 @@
   {
     "name": {
       "raw": "GameGadget",
-      "sanitized": "gamegadget"
+      "sanitized": "gamegadget",
+      "normalized": "GameGadget"
     },
     "os": {
       "raw": "GNU/Linux based,OpenDingux",
@@ -70406,7 +70706,8 @@
   {
     "name": {
       "raw": "K101 Plus",
-      "sanitized": "k101-plus"
+      "sanitized": "k101-plus",
+      "normalized": "K101 Plus"
     },
     "os": {
       "raw": "Proprietary",
@@ -70638,7 +70939,8 @@
   {
     "name": {
       "raw": "Dingoo A380",
-      "sanitized": "dingoo-a380"
+      "sanitized": "dingoo-a380",
+      "normalized": "Dingoo A380"
     },
     "os": {
       "raw": "µC/OS-II,RetroDD",
@@ -70857,7 +71159,8 @@
   {
     "name": {
       "raw": "Ritmix RZX-50",
-      "sanitized": "ritmix-rzx-50"
+      "sanitized": "ritmix-rzx-50",
+      "normalized": "Ritmix RZX-50"
     },
     "os": {
       "raw": "OpenDingux",
@@ -71079,7 +71382,8 @@
   {
     "name": {
       "raw": "Dingoo A330",
-      "sanitized": "dingoo-a330"
+      "sanitized": "dingoo-a330",
+      "normalized": "Dingoo A330"
     },
     "os": {
       "raw": "µC/OS-II,OpenDingux",
@@ -71301,7 +71605,8 @@
   {
     "name": {
       "raw": "Gemei A330",
-      "sanitized": "gemei-a330"
+      "sanitized": "gemei-a330",
+      "normalized": "Gemei A330"
     },
     "os": {
       "raw": "µC/OS-II",
@@ -71519,7 +71824,8 @@
   {
     "name": {
       "raw": "GP2X Caanoo",
-      "sanitized": "gp2x-caanoo"
+      "sanitized": "gp2x-caanoo",
+      "normalized": "GP2X Caanoo"
     },
     "os": {
       "raw": "GNU/Linux based",
@@ -71746,7 +72052,8 @@
   {
     "name": {
       "raw": "Letcool N350JP /Defender MultiMix Magic /MiShark64",
-      "sanitized": "letcool-n350jp--slash-defender-multimix-magic--slash-mishark64"
+      "sanitized": "letcool-n350jp--slash-defender-multimix-magic--slash-mishark64",
+      "normalized": "Letcool N350JP /Defender MultiMix Magic /MiShark64"
     },
     "os": {
       "raw": "eCos",
@@ -71968,7 +72275,8 @@
   {
     "name": {
       "raw": "OpenPandora",
-      "sanitized": "openpandora"
+      "sanitized": "openpandora",
+      "normalized": "OpenPandora"
     },
     "os": {
       "raw": "Linux (SuperZaxxon)",
@@ -72194,7 +72502,8 @@
   {
     "name": {
       "raw": "Dingoo A320",
-      "sanitized": "dingoo-a320"
+      "sanitized": "dingoo-a320",
+      "normalized": "Dingoo A320"
     },
     "os": {
       "raw": "µC/OS-II,OpenDingux",
@@ -72422,7 +72731,8 @@
   {
     "name": {
       "raw": "Gemei X760+",
-      "sanitized": "gemei-x760+"
+      "sanitized": "gemei-x760+",
+      "normalized": "Gemei X760+"
     },
     "os": {
       "raw": "µC/OS-II,OpenDingux",
@@ -72641,7 +72951,8 @@
   {
     "name": {
       "raw": "GP2X Wiz",
-      "sanitized": "gp2x-wiz"
+      "sanitized": "gp2x-wiz",
+      "normalized": "GP2X Wiz"
     },
     "os": {
       "raw": "GNU/Linux based",
@@ -72864,7 +73175,8 @@
   {
     "name": {
       "raw": "GP2X F-200",
-      "sanitized": "gp2x-f-200"
+      "sanitized": "gp2x-f-200",
+      "normalized": "GP2X F-200"
     },
     "os": {
       "raw": "GNU/Linux based",
@@ -73085,7 +73397,8 @@
   {
     "name": {
       "raw": "Sega Gopher",
-      "sanitized": "sega-gopher"
+      "sanitized": "sega-gopher",
+      "normalized": "Sega Gopher"
     },
     "os": {
       "raw": "Proprietary",
@@ -73302,7 +73615,8 @@
   {
     "name": {
       "raw": "Gizmondo",
-      "sanitized": "gizmondo"
+      "sanitized": "gizmondo",
+      "normalized": "Gizmondo"
     },
     "os": {
       "raw": "Windows CE",
@@ -73527,7 +73841,8 @@
   {
     "name": {
       "raw": "GP2X",
-      "sanitized": "gp2x"
+      "sanitized": "gp2x",
+      "normalized": "GP2X"
     },
     "os": {
       "raw": "GNU/Linux based",
@@ -73748,7 +74063,8 @@
   {
     "name": {
       "raw": "Tapwave Zodiac",
-      "sanitized": "tapwave-zodiac"
+      "sanitized": "tapwave-zodiac",
+      "normalized": "Tapwave Zodiac"
     },
     "os": {
       "raw": "Palm OS",
@@ -73966,7 +74282,8 @@
   {
     "name": {
       "raw": "GP32",
-      "sanitized": "gp32"
+      "sanitized": "gp32",
+      "normalized": "GP32"
     },
     "os": {
       "raw": "Propietary (Community made open source SDK)",
@@ -74183,7 +74500,8 @@
   {
     "name": {
       "raw": "PAP Gameta II",
-      "sanitized": "pap-gameta-ii"
+      "sanitized": "pap-gameta-ii",
+      "normalized": "PAP Gameta II"
     },
     "os": {
       "raw": "",
@@ -74396,7 +74714,8 @@
   {
     "name": {
       "raw": "GPD Q9",
-      "sanitized": "gpd-q9"
+      "sanitized": "gpd-q9",
+      "normalized": "GPD Q9"
     },
     "os": {
       "raw": "",
@@ -74609,7 +74928,8 @@
   {
     "name": {
       "raw": "GPD G58",
-      "sanitized": "gpd-g58"
+      "sanitized": "gpd-g58",
+      "normalized": "GPD G58"
     },
     "os": {
       "raw": "",
@@ -74822,7 +75142,8 @@
   {
     "name": {
       "raw": "GPD Q88+",
-      "sanitized": "gpd-q88+"
+      "sanitized": "gpd-q88+",
+      "normalized": "GPD Q88+"
     },
     "os": {
       "raw": "",
@@ -75035,7 +75356,8 @@
   {
     "name": {
       "raw": "Pocket Sprite",
-      "sanitized": "pocket-sprite"
+      "sanitized": "pocket-sprite",
+      "normalized": "Pocket Sprite"
     },
     "os": {
       "raw": "Open Source Proprietary",
@@ -75251,7 +75573,8 @@
   {
     "name": {
       "raw": "CoolBaby RS-11",
-      "sanitized": "coolbaby-rs-11"
+      "sanitized": "coolbaby-rs-11",
+      "normalized": "CoolBaby RS-11"
     },
     "os": {
       "raw": "",
@@ -75466,7 +75789,8 @@
   {
     "name": {
       "raw": "JXD 300",
-      "sanitized": "jxd-300"
+      "sanitized": "jxd-300",
+      "normalized": "JXD 300"
     },
     "os": {
       "raw": "",
@@ -75679,7 +76003,8 @@
   {
     "name": {
       "raw": "PowKiddy X9",
-      "sanitized": "powkiddy-x9"
+      "sanitized": "powkiddy-x9",
+      "normalized": "PowKiddy X9"
     },
     "os": {
       "raw": "",
@@ -75892,7 +76217,8 @@
   {
     "name": {
       "raw": "Tlex Ulike",
-      "sanitized": "tlex-ulike"
+      "sanitized": "tlex-ulike",
+      "normalized": "Tlex Ulike"
     },
     "os": {
       "raw": "Android 4.1.1",
@@ -76110,7 +76436,8 @@
   {
     "name": {
       "raw": "Zega Mame Gear",
-      "sanitized": "zega-mame-gear"
+      "sanitized": "zega-mame-gear",
+      "normalized": "Zega Mame Gear"
     },
     "os": {
       "raw": "",
@@ -76323,7 +76650,8 @@
   {
     "name": {
       "raw": "GameBoy Null",
-      "sanitized": "gameboy-null"
+      "sanitized": "gameboy-null",
+      "normalized": "GameBoy Null"
     },
     "os": {
       "raw": "",
@@ -76536,7 +76864,8 @@
   {
     "name": {
       "raw": "Picicle",
-      "sanitized": "picicle"
+      "sanitized": "picicle",
+      "normalized": "Picicle"
     },
     "os": {
       "raw": "",
@@ -76749,7 +77078,8 @@
   {
     "name": {
       "raw": "MintyPi",
-      "sanitized": "mintypi"
+      "sanitized": "mintypi",
+      "normalized": "MintyPi"
     },
     "os": {
       "raw": "",
@@ -76962,7 +77292,8 @@
   {
     "name": {
       "raw": "Joyou A320+",
-      "sanitized": "joyou-a320+"
+      "sanitized": "joyou-a320+",
+      "normalized": "Joyou A320+"
     },
     "os": {
       "raw": "",
@@ -77175,7 +77506,8 @@
   {
     "name": {
       "raw": "Joyou G500",
-      "sanitized": "joyou-g500"
+      "sanitized": "joyou-g500",
+      "normalized": "Joyou G500"
     },
     "os": {
       "raw": "",
@@ -77388,7 +77720,8 @@
   {
     "name": {
       "raw": "GPD G7",
-      "sanitized": "gpd-g7"
+      "sanitized": "gpd-g7",
+      "normalized": "GPD G7"
     },
     "os": {
       "raw": "",
@@ -77601,7 +77934,8 @@
   {
     "name": {
       "raw": "GPD G7A",
-      "sanitized": "gpd-g7a"
+      "sanitized": "gpd-g7a",
+      "normalized": "GPD G7A"
     },
     "os": {
       "raw": "",
@@ -77814,7 +78148,8 @@
   {
     "name": {
       "raw": "GPD G5",
-      "sanitized": "gpd-g5"
+      "sanitized": "gpd-g5",
+      "normalized": "GPD G5"
     },
     "os": {
       "raw": "",
@@ -78027,7 +78362,8 @@
   {
     "name": {
       "raw": "GPD Q89",
-      "sanitized": "gpd-q89"
+      "sanitized": "gpd-q89",
+      "normalized": "GPD Q89"
     },
     "os": {
       "raw": "",
@@ -78240,7 +78576,8 @@
   {
     "name": {
       "raw": "GPD 5005",
-      "sanitized": "gpd-5005"
+      "sanitized": "gpd-5005",
+      "normalized": "GPD 5005"
     },
     "os": {
       "raw": "",
@@ -78453,7 +78790,8 @@
   {
     "name": {
       "raw": "GPD 7018",
-      "sanitized": "gpd-7018"
+      "sanitized": "gpd-7018",
+      "normalized": "GPD 7018"
     },
     "os": {
       "raw": "",
@@ -78666,7 +79004,8 @@
   {
     "name": {
       "raw": "1UP Arcade",
-      "sanitized": "1up-arcade"
+      "sanitized": "1up-arcade",
+      "normalized": "1UP Arcade"
     },
     "os": {
       "raw": "",
@@ -78879,7 +79218,8 @@
   {
     "name": {
       "raw": "Poke Gear",
-      "sanitized": "poke-gear"
+      "sanitized": "poke-gear",
+      "normalized": "Poke Gear"
     },
     "os": {
       "raw": "",
@@ -79092,7 +79432,8 @@
   {
     "name": {
       "raw": "Coolbaby RS-11",
-      "sanitized": "coolbaby-rs-11"
+      "sanitized": "coolbaby-rs-11",
+      "normalized": "Coolbaby RS-11"
     },
     "os": {
       "raw": "",
@@ -79305,7 +79646,8 @@
   {
     "name": {
       "raw": "TinyPi",
-      "sanitized": "tinypi"
+      "sanitized": "tinypi",
+      "normalized": "TinyPi"
     },
     "os": {
       "raw": "",
@@ -79518,7 +79860,8 @@
   {
     "name": {
       "raw": "TinyPi Pro",
-      "sanitized": "tinypi-pro"
+      "sanitized": "tinypi-pro",
+      "normalized": "TinyPi Pro"
     },
     "os": {
       "raw": "",
@@ -79731,7 +80074,8 @@
   {
     "name": {
       "raw": "Gemei X760+ LE",
-      "sanitized": "gemei-x760+-le"
+      "sanitized": "gemei-x760+-le",
+      "normalized": "Gemei X760+ LE"
     },
     "os": {
       "raw": "",
@@ -79945,7 +80289,8 @@
   {
     "name": {
       "raw": "JXD 200",
-      "sanitized": "jxd-200"
+      "sanitized": "jxd-200",
+      "normalized": "JXD 200"
     },
     "os": {
       "raw": "",
@@ -80158,7 +80503,8 @@
   {
     "name": {
       "raw": "JXD 3000",
-      "sanitized": "jxd-3000"
+      "sanitized": "jxd-3000",
+      "normalized": "JXD 3000"
     },
     "os": {
       "raw": "",
@@ -80371,7 +80717,8 @@
   {
     "name": {
       "raw": "JXD 5110B",
-      "sanitized": "jxd-5110b"
+      "sanitized": "jxd-5110b",
+      "normalized": "JXD 5110B"
     },
     "os": {
       "raw": "",
@@ -80584,7 +80931,8 @@
   {
     "name": {
       "raw": "JXD S7800B",
-      "sanitized": "jxd-s7800b"
+      "sanitized": "jxd-s7800b",
+      "normalized": "JXD S7800B"
     },
     "os": {
       "raw": "",
@@ -80797,7 +81145,8 @@
   {
     "name": {
       "raw": "JXD S7300C",
-      "sanitized": "jxd-s7300c"
+      "sanitized": "jxd-s7300c",
+      "normalized": "JXD S7300C"
     },
     "os": {
       "raw": "",
@@ -81010,7 +81359,8 @@
   {
     "name": {
       "raw": "JXD S192K",
-      "sanitized": "jxd-s192k"
+      "sanitized": "jxd-s192k",
+      "normalized": "JXD S192K"
     },
     "os": {
       "raw": "",
@@ -81223,7 +81573,8 @@
   {
     "name": {
       "raw": "JXD M1000",
-      "sanitized": "jxd-m1000"
+      "sanitized": "jxd-m1000",
+      "normalized": "JXD M1000"
     },
     "os": {
       "raw": "",
@@ -81436,7 +81787,8 @@
   {
     "name": {
       "raw": "JXD S5100",
-      "sanitized": "jxd-s5100"
+      "sanitized": "jxd-s5100",
+      "normalized": "JXD S5100"
     },
     "os": {
       "raw": "",
@@ -81649,7 +82001,8 @@
   {
     "name": {
       "raw": "JXD S5600",
-      "sanitized": "jxd-s5600"
+      "sanitized": "jxd-s5600",
+      "normalized": "JXD S5600"
     },
     "os": {
       "raw": "",
@@ -81862,7 +82215,8 @@
   {
     "name": {
       "raw": "JXD S5800",
-      "sanitized": "jxd-s5800"
+      "sanitized": "jxd-s5800",
+      "normalized": "JXD S5800"
     },
     "os": {
       "raw": "",
@@ -82075,7 +82429,8 @@
   {
     "name": {
       "raw": "JXD S601",
-      "sanitized": "jxd-s601"
+      "sanitized": "jxd-s601",
+      "normalized": "JXD S601"
     },
     "os": {
       "raw": "",
@@ -82288,7 +82643,8 @@
   {
     "name": {
       "raw": "JXD S602",
-      "sanitized": "jxd-s602"
+      "sanitized": "jxd-s602",
+      "normalized": "JXD S602"
     },
     "os": {
       "raw": "",
@@ -82501,7 +82857,8 @@
   {
     "name": {
       "raw": "JXD S7100",
-      "sanitized": "jxd-s7100"
+      "sanitized": "jxd-s7100",
+      "normalized": "JXD S7100"
     },
     "os": {
       "raw": "",
@@ -82714,7 +83071,8 @@
   {
     "name": {
       "raw": "JXD V5200",
-      "sanitized": "jxd-v5200"
+      "sanitized": "jxd-v5200",
+      "normalized": "JXD V5200"
     },
     "os": {
       "raw": "",
@@ -82927,7 +83285,8 @@
   {
     "name": {
       "raw": "NeoGeo X",
-      "sanitized": "neogeo-x"
+      "sanitized": "neogeo-x",
+      "normalized": "NeoGeo X"
     },
     "os": {
       "raw": "",
@@ -83140,7 +83499,8 @@
   {
     "name": {
       "raw": "Atari Flashback Portable",
-      "sanitized": "atari-flashback-portable"
+      "sanitized": "atari-flashback-portable",
+      "normalized": "Atari Flashback Portable"
     },
     "os": {
       "raw": "",
@@ -83353,7 +83713,8 @@
   {
     "name": {
       "raw": "MyMedia",
-      "sanitized": "mymedia"
+      "sanitized": "mymedia",
+      "normalized": "MyMedia"
     },
     "os": {
       "raw": "",
@@ -83566,7 +83927,8 @@
   {
     "name": {
       "raw": "PMP2",
-      "sanitized": "pmp2"
+      "sanitized": "pmp2",
+      "normalized": "PMP2"
     },
     "os": {
       "raw": "",
@@ -83779,7 +84141,8 @@
   {
     "name": {
       "raw": "Gamebuino META",
-      "sanitized": "gamebuino-meta"
+      "sanitized": "gamebuino-meta",
+      "normalized": "Gamebuino META"
     },
     "os": {
       "raw": "",
@@ -83992,7 +84355,8 @@
   {
     "name": {
       "raw": "Pocket C.H.I.P.",
-      "sanitized": "pocket-c.h.i.p."
+      "sanitized": "pocket-c.h.i.p.",
+      "normalized": "Pocket C.H.I.P."
     },
     "os": {
       "raw": "",
@@ -84205,7 +84569,8 @@
   {
     "name": {
       "raw": "Adafruit PyGamer",
-      "sanitized": "adafruit-pygamer"
+      "sanitized": "adafruit-pygamer",
+      "normalized": "Adafruit PyGamer"
     },
     "os": {
       "raw": "",
@@ -84418,7 +84783,8 @@
   {
     "name": {
       "raw": "Adafruit PyBadge",
-      "sanitized": "adafruit-pybadge"
+      "sanitized": "adafruit-pybadge",
+      "normalized": "Adafruit PyBadge"
     },
     "os": {
       "raw": "",
@@ -84631,7 +84997,8 @@
   {
     "name": {
       "raw": "Meggy Jr.",
-      "sanitized": "meggy-jr."
+      "sanitized": "meggy-jr.",
+      "normalized": "Meggy Jr."
     },
     "os": {
       "raw": "",
@@ -84844,7 +85211,8 @@
   {
     "name": {
       "raw": "Pokitto",
-      "sanitized": "pokitto"
+      "sanitized": "pokitto",
+      "normalized": "Pokitto"
     },
     "os": {
       "raw": "",
@@ -85057,7 +85425,8 @@
   {
     "name": {
       "raw": "Lotiyo L-1000",
-      "sanitized": "lotiyo-l-1000"
+      "sanitized": "lotiyo-l-1000",
+      "normalized": "Lotiyo L-1000"
     },
     "os": {
       "raw": "",
@@ -85270,7 +85639,8 @@
   {
     "name": {
       "raw": "Playdog Blackbone",
-      "sanitized": "playdog-blackbone"
+      "sanitized": "playdog-blackbone",
+      "normalized": "Playdog Blackbone"
     },
     "os": {
       "raw": "",
@@ -85483,7 +85853,8 @@
   {
     "name": {
       "raw": "PocketPlay",
-      "sanitized": "pocketplay"
+      "sanitized": "pocketplay",
+      "normalized": "PocketPlay"
     },
     "os": {
       "raw": "",
@@ -85696,7 +86067,8 @@
   {
     "name": {
       "raw": "PocketPlayX",
-      "sanitized": "pocketplayx"
+      "sanitized": "pocketplayx",
+      "normalized": "PocketPlayX"
     },
     "os": {
       "raw": "",
@@ -85909,7 +86281,8 @@
   {
     "name": {
       "raw": "Circuit Sword",
-      "sanitized": "circuit-sword"
+      "sanitized": "circuit-sword",
+      "normalized": "Circuit Sword"
     },
     "os": {
       "raw": "",
@@ -86122,7 +86495,8 @@
   {
     "name": {
       "raw": "Raspiboy",
-      "sanitized": "raspiboy"
+      "sanitized": "raspiboy",
+      "normalized": "Raspiboy"
     },
     "os": {
       "raw": "",
@@ -86337,7 +86711,8 @@
   {
     "name": {
       "raw": "RS-07",
-      "sanitized": "rs-07"
+      "sanitized": "rs-07",
+      "normalized": "RS-07"
     },
     "os": {
       "raw": "",
@@ -86550,7 +86925,8 @@
   {
     "name": {
       "raw": "RS-12",
-      "sanitized": "rs-12"
+      "sanitized": "rs-12",
+      "normalized": "RS-12"
     },
     "os": {
       "raw": "",
@@ -86763,7 +87139,8 @@
   {
     "name": {
       "raw": "Ragebee 7",
-      "sanitized": "ragebee-7"
+      "sanitized": "ragebee-7",
+      "normalized": "Ragebee 7"
     },
     "os": {
       "raw": "",
@@ -86976,7 +87353,8 @@
   {
     "name": {
       "raw": "CoolBaby RS-08",
-      "sanitized": "coolbaby-rs-08"
+      "sanitized": "coolbaby-rs-08",
+      "normalized": "CoolBaby RS-08"
     },
     "os": {
       "raw": "",
@@ -87192,7 +87570,8 @@
   {
     "name": {
       "raw": "Retro FC Plus",
-      "sanitized": "retro-fc-plus"
+      "sanitized": "retro-fc-plus",
+      "normalized": "Retro FC Plus"
     },
     "os": {
       "raw": "",
@@ -87405,7 +87784,8 @@
   {
     "name": {
       "raw": "PiGRRL 2",
-      "sanitized": "pigrrl-2"
+      "sanitized": "pigrrl-2",
+      "normalized": "PiGRRL 2"
     },
     "os": {
       "raw": "",
@@ -87618,7 +87998,8 @@
   {
     "name": {
       "raw": "PiGRRL Zero",
-      "sanitized": "pigrrl-zero"
+      "sanitized": "pigrrl-zero",
+      "normalized": "PiGRRL Zero"
     },
     "os": {
       "raw": "",
@@ -87831,7 +88212,8 @@
   {
     "name": {
       "raw": "Much G2",
-      "sanitized": "much-g2"
+      "sanitized": "much-g2",
+      "normalized": "Much G2"
     },
     "os": {
       "raw": "",
@@ -88044,7 +88426,8 @@
   {
     "name": {
       "raw": "Snail W3D",
-      "sanitized": "snail-w3d"
+      "sanitized": "snail-w3d",
+      "normalized": "Snail W3D"
     },
     "os": {
       "raw": "",
@@ -88257,7 +88640,8 @@
   {
     "name": {
       "raw": "Much i5",
-      "sanitized": "much-i5"
+      "sanitized": "much-i5",
+      "normalized": "Much i5"
     },
     "os": {
       "raw": "",
@@ -88470,7 +88854,8 @@
   {
     "name": {
       "raw": "PowKiddy J6",
-      "sanitized": "powkiddy-j6"
+      "sanitized": "powkiddy-j6",
+      "normalized": "PowKiddy J6"
     },
     "os": {
       "raw": "",
@@ -88683,7 +89068,8 @@
   {
     "name": {
       "raw": "PowKiddy V6",
-      "sanitized": "powkiddy-v6"
+      "sanitized": "powkiddy-v6",
+      "normalized": "PowKiddy V6"
     },
     "os": {
       "raw": "",
@@ -88896,7 +89282,8 @@
   {
     "name": {
       "raw": "Ipega 9501",
-      "sanitized": "ipega-9501"
+      "sanitized": "ipega-9501",
+      "normalized": "Ipega 9501"
     },
     "os": {
       "raw": "",
@@ -89109,7 +89496,8 @@
   {
     "name": {
       "raw": "Ipega 9701",
-      "sanitized": "ipega-9701"
+      "sanitized": "ipega-9701",
+      "normalized": "Ipega 9701"
     },
     "os": {
       "raw": "",
@@ -89322,7 +89710,8 @@
   {
     "name": {
       "raw": "G-Boy",
-      "sanitized": "g-boy"
+      "sanitized": "g-boy",
+      "normalized": "G-Boy"
     },
     "os": {
       "raw": "",
@@ -89535,7 +89924,8 @@
   {
     "name": {
       "raw": "Pocket Battlefield",
-      "sanitized": "pocket-battlefield"
+      "sanitized": "pocket-battlefield",
+      "normalized": "Pocket Battlefield"
     },
     "os": {
       "raw": "",
@@ -89748,7 +90138,8 @@
   {
     "name": {
       "raw": "RKDR II",
-      "sanitized": "rkdr-ii"
+      "sanitized": "rkdr-ii",
+      "normalized": "RKDR II"
     },
     "os": {
       "raw": "",
@@ -89961,7 +90352,8 @@
   {
     "name": {
       "raw": "CoolBaby RS18",
-      "sanitized": "coolbaby-rs18"
+      "sanitized": "coolbaby-rs18",
+      "normalized": "CoolBaby RS18"
     },
     "os": {
       "raw": "",
@@ -90174,7 +90566,8 @@
   {
     "name": {
       "raw": "ESPboy",
-      "sanitized": "espboy"
+      "sanitized": "espboy",
+      "normalized": "ESPboy"
     },
     "os": {
       "raw": "",
@@ -90387,7 +90780,8 @@
   {
     "name": {
       "raw": "Retroid Boy SE",
-      "sanitized": "retroid-boy-se"
+      "sanitized": "retroid-boy-se",
+      "normalized": "Retroid Boy SE"
     },
     "os": {
       "raw": "Android",
@@ -90605,7 +90999,8 @@
   {
     "name": {
       "raw": "CoolBaby X20",
-      "sanitized": "coolbaby-x20"
+      "sanitized": "coolbaby-x20",
+      "normalized": "CoolBaby X20"
     },
     "os": {
       "raw": "",
@@ -90818,7 +91213,8 @@
   {
     "name": {
       "raw": "8BitCADE XL",
-      "sanitized": "8bitcade-xl"
+      "sanitized": "8bitcade-xl",
+      "normalized": "8BitCADE XL"
     },
     "os": {
       "raw": "",
@@ -91031,7 +91427,8 @@
   {
     "name": {
       "raw": "AIWO G1000",
-      "sanitized": "aiwo-g1000"
+      "sanitized": "aiwo-g1000",
+      "normalized": "AIWO G1000"
     },
     "os": {
       "raw": "",
@@ -91244,7 +91641,8 @@
   {
     "name": {
       "raw": "ARCHOS GAMEPAD",
-      "sanitized": "archos-gamepad"
+      "sanitized": "archos-gamepad",
+      "normalized": "ARCHOS GAMEPAD"
     },
     "os": {
       "raw": "",
@@ -91457,7 +91855,8 @@
   {
     "name": {
       "raw": "EGP 1000",
-      "sanitized": "egp-1000"
+      "sanitized": "egp-1000",
+      "normalized": "EGP 1000"
     },
     "os": {
       "raw": "",
@@ -91670,7 +92069,8 @@
   {
     "name": {
       "raw": "Gaboze Pocaio",
-      "sanitized": "gaboze-pocaio"
+      "sanitized": "gaboze-pocaio",
+      "normalized": "Gaboze Pocaio"
     },
     "os": {
       "raw": "",
@@ -91883,7 +92283,8 @@
   {
     "name": {
       "raw": "GAMESE 7\"ANDROID CONSOLE",
-      "sanitized": "gamese-7-android-console"
+      "sanitized": "gamese-7-android-console",
+      "normalized": "GAMESE 7\"ANDROID CONSOLE"
     },
     "os": {
       "raw": "",
@@ -92096,7 +92497,8 @@
   {
     "name": {
       "raw": "Makerfocus ESP32",
-      "sanitized": "makerfocus-esp32"
+      "sanitized": "makerfocus-esp32",
+      "normalized": "Makerfocus ESP32"
     },
     "os": {
       "raw": "",
@@ -92309,7 +92711,8 @@
   {
     "name": {
       "raw": "ODROID S",
-      "sanitized": "odroid-s"
+      "sanitized": "odroid-s",
+      "normalized": "ODROID S"
     },
     "os": {
       "raw": "",
@@ -92522,7 +92925,8 @@
   {
     "name": {
       "raw": "Yinlips YDPG16",
-      "sanitized": "yinlips-ydpg16"
+      "sanitized": "yinlips-ydpg16",
+      "normalized": "Yinlips YDPG16"
     },
     "os": {
       "raw": "",
@@ -92735,7 +93139,8 @@
   {
     "name": {
       "raw": "Yinlips YDPG18A",
-      "sanitized": "yinlips-ydpg18a"
+      "sanitized": "yinlips-ydpg18a",
+      "normalized": "Yinlips YDPG18A"
     },
     "os": {
       "raw": "",
@@ -92948,7 +93353,8 @@
   {
     "name": {
       "raw": "Yinlips YDPG19",
-      "sanitized": "yinlips-ydpg19"
+      "sanitized": "yinlips-ydpg19",
+      "normalized": "Yinlips YDPG19"
     },
     "os": {
       "raw": "",
@@ -93161,7 +93567,8 @@
   {
     "name": {
       "raw": "ZIPPY M5 ANDROID CONSOLE",
-      "sanitized": "zippy-m5-android-console"
+      "sanitized": "zippy-m5-android-console",
+      "normalized": "ZIPPY M5 ANDROID CONSOLE"
     },
     "os": {
       "raw": "",
@@ -93374,7 +93781,8 @@
   {
     "name": {
       "raw": "ZX SPECTRUM VEGA PLUS",
-      "sanitized": "zx-spectrum-vega-plus"
+      "sanitized": "zx-spectrum-vega-plus",
+      "normalized": "ZX SPECTRUM VEGA PLUS"
     },
     "os": {
       "raw": "",
@@ -93587,7 +93995,8 @@
   {
     "name": {
       "raw": "PicoSystem",
-      "sanitized": "picosystem"
+      "sanitized": "picosystem",
+      "normalized": "PicoSystem"
     },
     "os": {
       "raw": "",
@@ -93800,7 +94209,8 @@
   {
     "name": {
       "raw": "PowKiddy X21",
-      "sanitized": "powkiddy-x21"
+      "sanitized": "powkiddy-x21",
+      "normalized": "PowKiddy X21"
     },
     "os": {
       "raw": "Linux",
@@ -94018,7 +94428,8 @@
   {
     "name": {
       "raw": "Pocket Battlefield 2",
-      "sanitized": "pocket-battlefield-2"
+      "sanitized": "pocket-battlefield-2",
+      "normalized": "Pocket Battlefield 2"
     },
     "os": {
       "raw": "",
@@ -94231,7 +94642,8 @@
   {
     "name": {
       "raw": "Wikipad",
-      "sanitized": "wikipad"
+      "sanitized": "wikipad",
+      "normalized": "Wikipad"
     },
     "os": {
       "raw": "",
@@ -94444,7 +94856,8 @@
   {
     "name": {
       "raw": "Bigben",
-      "sanitized": "bigben"
+      "sanitized": "bigben",
+      "normalized": "Bigben"
     },
     "os": {
       "raw": "",
@@ -94657,7 +95070,8 @@
   {
     "name": {
       "raw": "Retro Lite CM4",
-      "sanitized": "retro-lite-cm4"
+      "sanitized": "retro-lite-cm4",
+      "normalized": "Retro Lite CM4"
     },
     "os": {
       "raw": "",
@@ -94870,7 +95284,8 @@
   {
     "name": {
       "raw": "Retro Arcade For Education",
-      "sanitized": "retro-arcade-for-education"
+      "sanitized": "retro-arcade-for-education",
+      "normalized": "Retro Arcade For Education"
     },
     "os": {
       "raw": "",
@@ -95083,7 +95498,8 @@
   {
     "name": {
       "raw": "PSPi Zero",
-      "sanitized": "pspi-zero"
+      "sanitized": "pspi-zero",
+      "normalized": "PSPi Zero"
     },
     "os": {
       "raw": "",
@@ -95296,7 +95712,8 @@
   {
     "name": {
       "raw": "Pocket Arcade",
-      "sanitized": "pocket-arcade"
+      "sanitized": "pocket-arcade",
+      "normalized": "Pocket Arcade"
     },
     "os": {
       "raw": "",
@@ -95509,7 +95926,8 @@
   {
     "name": {
       "raw": "YGG Mini Console",
-      "sanitized": "ygg-mini-console"
+      "sanitized": "ygg-mini-console",
+      "normalized": "YGG Mini Console"
     },
     "os": {
       "raw": "",
@@ -95722,7 +96140,8 @@
   {
     "name": {
       "raw": "Odroid Android handheld",
-      "sanitized": "odroid-android-handheld"
+      "sanitized": "odroid-android-handheld",
+      "normalized": "Odroid Android handheld"
     },
     "os": {
       "raw": "",
@@ -95935,7 +96354,8 @@
   {
     "name": {
       "raw": "PIP",
-      "sanitized": "pip"
+      "sanitized": "pip",
+      "normalized": "PIP"
     },
     "os": {
       "raw": "",
@@ -96148,7 +96568,8 @@
   {
     "name": {
       "raw": "X5",
-      "sanitized": "x5"
+      "sanitized": "x5",
+      "normalized": "X5"
     },
     "os": {
       "raw": "",
@@ -96361,7 +96782,8 @@
   {
     "name": {
       "raw": "R36S Pro",
-      "sanitized": "r36s-pro"
+      "sanitized": "r36s-pro",
+      "normalized": "R36S Pro"
     },
     "os": {
       "raw": "?",
@@ -96582,7 +97004,8 @@
   {
     "name": {
       "raw": "K56/K560",
-      "sanitized": "k56-slash-k560"
+      "sanitized": "k56-slash-k560",
+      "normalized": "K56/K560"
     },
     "os": {
       "raw": "Android 13/14",
@@ -96800,7 +97223,8 @@
   {
     "name": {
       "raw": "SF3000",
-      "sanitized": "sf3000"
+      "sanitized": "sf3000",
+      "normalized": "SF3000"
     },
     "os": {
       "raw": "",
@@ -97013,7 +97437,8 @@
   {
     "name": {
       "raw": "Q88",
-      "sanitized": "q88"
+      "sanitized": "q88",
+      "normalized": "Q88"
     },
     "os": {
       "raw": "",
@@ -97226,7 +97651,8 @@
   {
     "name": {
       "raw": "M22 Pro",
-      "sanitized": "m22-pro"
+      "sanitized": "m22-pro",
+      "normalized": "M22 Pro"
     },
     "os": {
       "raw": "",
@@ -97439,7 +97865,8 @@
   {
     "name": {
       "raw": "D008",
-      "sanitized": "d008"
+      "sanitized": "d008",
+      "normalized": "D008"
     },
     "os": {
       "raw": "",
@@ -97652,7 +98079,8 @@
   {
     "name": {
       "raw": "D-28S",
-      "sanitized": "d-28s"
+      "sanitized": "d-28s",
+      "normalized": "D-28S"
     },
     "os": {
       "raw": "",
@@ -97865,7 +98293,8 @@
   {
     "name": {
       "raw": "D50 Plus",
-      "sanitized": "d50-plus"
+      "sanitized": "d50-plus",
+      "normalized": "D50 Plus"
     },
     "os": {
       "raw": "",
@@ -98078,7 +98507,8 @@
   {
     "name": {
       "raw": "R36H",
-      "sanitized": "r36h"
+      "sanitized": "r36h",
+      "normalized": "R36H"
     },
     "os": {
       "raw": "",
@@ -98291,7 +98721,8 @@
   {
     "name": {
       "raw": "AYANEO 3",
-      "sanitized": "ayaneo-3"
+      "sanitized": "ayaneo-3",
+      "normalized": "AYANEO 3"
     },
     "os": {
       "raw": "",
@@ -98504,7 +98935,8 @@
   {
     "name": {
       "raw": "R39S",
-      "sanitized": "r39s"
+      "sanitized": "r39s",
+      "normalized": "R39S"
     },
     "os": {
       "raw": "Linux",
@@ -98739,7 +99171,8 @@
   {
     "name": {
       "raw": "Z35s",
-      "sanitized": "z35s"
+      "sanitized": "z35s",
+      "normalized": "Z35s"
     },
     "os": {
       "raw": "EmuELEC/ArkOS",
@@ -98962,7 +99395,8 @@
   {
     "name": {
       "raw": "Nitro Blaze 8",
-      "sanitized": "nitro-blaze-8"
+      "sanitized": "nitro-blaze-8",
+      "normalized": "Nitro Blaze 8"
     },
     "os": {
       "raw": "",
@@ -99175,7 +99609,8 @@
   {
     "name": {
       "raw": "Nitro Blaze 11",
-      "sanitized": "nitro-blaze-11"
+      "sanitized": "nitro-blaze-11",
+      "normalized": "Nitro Blaze 11"
     },
     "os": {
       "raw": "",
@@ -99388,7 +99823,8 @@
   {
     "name": {
       "raw": "G28",
-      "sanitized": "g28"
+      "sanitized": "g28",
+      "normalized": "G28"
     },
     "os": {
       "raw": "",
@@ -99601,7 +100037,8 @@
   {
     "name": {
       "raw": "Sunday Dragon 3D",
-      "sanitized": "sunday-dragon-3d"
+      "sanitized": "sunday-dragon-3d",
+      "normalized": "Sunday Dragon 3D"
     },
     "os": {
       "raw": "",
@@ -99814,7 +100251,8 @@
   {
     "name": {
       "raw": "R40S Pro",
-      "sanitized": "r40s-pro"
+      "sanitized": "r40s-pro",
+      "normalized": "R40S Pro"
     },
     "os": {
       "raw": "Linux",
@@ -100032,7 +100470,8 @@
   {
     "name": {
       "raw": "DS",
-      "sanitized": "ds"
+      "sanitized": "ds",
+      "normalized": "DS"
     },
     "os": {
       "raw": "Nintendo DS System Software",
@@ -100290,7 +100729,8 @@
   {
     "name": {
       "raw": "DS Lite",
-      "sanitized": "ds-lite"
+      "sanitized": "ds-lite",
+      "normalized": "DS Lite"
     },
     "os": {
       "raw": "Nintendo DS System Software",
@@ -100557,7 +100997,8 @@
   {
     "name": {
       "raw": "DSi",
-      "sanitized": "dsi"
+      "sanitized": "dsi",
+      "normalized": "DSi"
     },
     "os": {
       "raw": "Nintendo DSi System Software",
@@ -100817,7 +101258,8 @@
   {
     "name": {
       "raw": "DSi XL",
-      "sanitized": "dsi-xl"
+      "sanitized": "dsi-xl",
+      "normalized": "DSi XL"
     },
     "os": {
       "raw": "Nintendo DSi System Software",
@@ -101076,7 +101518,8 @@
   {
     "name": {
       "raw": "3DS",
-      "sanitized": "3ds"
+      "sanitized": "3ds",
+      "normalized": "3DS"
     },
     "os": {
       "raw": "Nintendo 3DS System Software",
@@ -101344,7 +101787,8 @@
   {
     "name": {
       "raw": "3DS XL",
-      "sanitized": "3ds-xl"
+      "sanitized": "3ds-xl",
+      "normalized": "3DS XL"
     },
     "os": {
       "raw": "Nintendo 3DS System Software",
@@ -101610,7 +102054,8 @@
   {
     "name": {
       "raw": "2DS",
-      "sanitized": "2ds"
+      "sanitized": "2ds",
+      "normalized": "2DS"
     },
     "os": {
       "raw": "Nintendo 3DS System Software",
@@ -101879,7 +102324,8 @@
   {
     "name": {
       "raw": "New 3DS",
-      "sanitized": "new-3ds"
+      "sanitized": "new-3ds",
+      "normalized": "New 3DS"
     },
     "os": {
       "raw": "Nintendo 3DS System Software",
@@ -102137,7 +102583,8 @@
   {
     "name": {
       "raw": "New 3DS XL",
-      "sanitized": "new-3ds-xl"
+      "sanitized": "new-3ds-xl",
+      "normalized": "New 3DS XL"
     },
     "os": {
       "raw": "Nintendo 3DS System Software",
@@ -102400,7 +102847,8 @@
   {
     "name": {
       "raw": "New 2DS XL",
-      "sanitized": "new-2ds-xl"
+      "sanitized": "new-2ds-xl",
+      "normalized": "New 2DS XL"
     },
     "os": {
       "raw": "Nintendo 3DS System Software",
@@ -102660,7 +103108,8 @@
   {
     "name": {
       "raw": "Switch",
-      "sanitized": "switch"
+      "sanitized": "switch",
+      "normalized": "Switch"
     },
     "os": {
       "raw": "Nintendo Switch System Software 12.1.0",
@@ -102938,7 +103387,8 @@
   {
     "name": {
       "raw": "Switch Lite",
-      "sanitized": "switch-lite"
+      "sanitized": "switch-lite",
+      "normalized": "Switch Lite"
     },
     "os": {
       "raw": "Nintendo Switch System Software 12.1.0",
@@ -103212,7 +103662,8 @@
   {
     "name": {
       "raw": "Switch OLED",
-      "sanitized": "switch-oled"
+      "sanitized": "switch-oled",
+      "normalized": "Switch OLED"
     },
     "os": {
       "raw": "Nintendo Switch System Software",
@@ -103463,7 +103914,8 @@
   {
     "name": {
       "raw": "PSP-1000",
-      "sanitized": "psp-1000"
+      "sanitized": "psp-1000",
+      "normalized": "PSP-1000"
     },
     "os": {
       "raw": "PSP System Software 1.00",
@@ -103725,7 +104177,8 @@
   {
     "name": {
       "raw": "PSP-2000(PSP Slim)",
-      "sanitized": "psp-2000-open-parenthesis-psp-slim-close-parenthesis-"
+      "sanitized": "psp-2000-open-parenthesis-psp-slim-close-parenthesis-",
+      "normalized": "PSP-2000"
     },
     "os": {
       "raw": "PSP System Software 3.60",
@@ -104001,7 +104454,8 @@
   {
     "name": {
       "raw": "PSP-3000(PSP Slim & Lite / PSP Brite)",
-      "sanitized": "psp-3000-open-parenthesis-psp-slim--ampersand--lite--slash--psp-brite-close-parenthesis-"
+      "sanitized": "psp-3000-open-parenthesis-psp-slim--ampersand--lite--slash--psp-brite-close-parenthesis-",
+      "normalized": "PSP-3000"
     },
     "os": {
       "raw": "PSP System Software 4.20",
@@ -104279,7 +104733,8 @@
   {
     "name": {
       "raw": "PSP Street(PSP-E1000)",
-      "sanitized": "psp-street-open-parenthesis-psp-e1000-close-parenthesis-"
+      "sanitized": "psp-street-open-parenthesis-psp-e1000-close-parenthesis-",
+      "normalized": "PSP Street"
     },
     "os": {
       "raw": "PSP System Software 6.50",
@@ -104534,7 +104989,8 @@
   {
     "name": {
       "raw": "PSP Go(PSP-N1000)",
-      "sanitized": "psp-go-open-parenthesis-psp-n1000-close-parenthesis-"
+      "sanitized": "psp-go-open-parenthesis-psp-n1000-close-parenthesis-",
+      "normalized": "PSP Go"
     },
     "os": {
       "raw": "PSP System Software 5.70",
@@ -104793,7 +105249,8 @@
   {
     "name": {
       "raw": "PlayStation Vita(PCH-1000)",
-      "sanitized": "playstation-vita-open-parenthesis-pch-1000-close-parenthesis-"
+      "sanitized": "playstation-vita-open-parenthesis-pch-1000-close-parenthesis-",
+      "normalized": "PlayStation Vita"
     },
     "os": {
       "raw": "Vita System Software",
@@ -105095,7 +105552,8 @@
   {
     "name": {
       "raw": "PlayStation Vita(PCH-2000)",
-      "sanitized": "playstation-vita-open-parenthesis-pch-2000-close-parenthesis-"
+      "sanitized": "playstation-vita-open-parenthesis-pch-2000-close-parenthesis-",
+      "normalized": "PlayStation Vita"
     },
     "os": {
       "raw": "Vita System Software",
@@ -105398,7 +105856,8 @@
   {
     "name": {
       "raw": "Xperia Play",
-      "sanitized": "xperia-play"
+      "sanitized": "xperia-play",
+      "normalized": "Xperia Play"
     },
     "os": {
       "raw": "Android 2.3.7(Gingerbread)",
@@ -105667,7 +106126,8 @@
   {
     "name": {
       "raw": "Playdate",
-      "sanitized": "playdate"
+      "sanitized": "playdate",
+      "normalized": "Playdate"
     },
     "os": {
       "raw": "Proprietary",
@@ -105915,7 +106375,8 @@
   {
     "name": {
       "raw": "Switch 2",
-      "sanitized": "switch-2"
+      "sanitized": "switch-2",
+      "normalized": "Switch 2"
     },
     "os": {
       "raw": "Nintendo Switch System Software",

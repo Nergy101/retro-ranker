@@ -573,6 +573,7 @@ export class DeviceParser {
         device.name = {
           raw: value,
           sanitized: sanitizedName,
+          normalized: value.split("(")[0].trim(),
         };
         break;
       }
@@ -935,6 +936,7 @@ export class DeviceParser {
         device.name = {
           raw: value,
           sanitized: sanitizedName,
+          normalized: value.split("(")[0].trim(),
         };
         break;
       }

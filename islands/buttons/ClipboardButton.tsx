@@ -9,8 +9,7 @@ export function ClipboardButton({ url }: { url: string }) {
       aria-label="Copy URL of current page"
       style={{
         display: "flex",
-        justifyContent: "center",
-        borderRadius: 0,
+        justifyContent: "center"
       }}
       onClick={async () => {
         await navigator.clipboard.writeText(url);
@@ -33,7 +32,7 @@ export function ClipboardButton({ url }: { url: string }) {
       >
         {!success.value && (
           <>
-            <PiClipboard /> Copy URL
+            <PiClipboard /> Copy Link
           </>
         )}
         {success.value && (

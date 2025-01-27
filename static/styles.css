@@ -289,6 +289,11 @@ html {
   @media (max-width: 768px) {
     width: 100cqw;
   }
+
+  @media (min-width: 768px) {
+    border-bottom: 1px solid var(--pico-color);
+    border-right: 1px solid var(--pico-color);
+  }
 }
 
 .device-detail-similar-devices {
@@ -303,7 +308,7 @@ html {
 
 .specs-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 1rem;
   width: 100%;
   max-width: 100%;
@@ -1017,3 +1022,17 @@ h6,
     background-color: #3952a220;
   }
 }
+
+.device-detail-actions {
+  @media (max-width: 768px) {
+    border-bottom: 1px solid var(--pico-color);
+  }
+}
+
+.video-reviews {
+  overflow-x: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+

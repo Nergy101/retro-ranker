@@ -1,10 +1,6 @@
 import { Head } from "$fresh/runtime.ts";
 import { PageProps } from "$fresh/server.ts";
-import {
-  PiCalendarCheck,
-  PiCalendarSlash,
-  PiQuestion
-} from "@preact-icons/pi";
+import { PiCalendarCheck, PiCalendarSlash, PiQuestion } from "@preact-icons/pi";
 import { JSX, VNode } from "preact";
 import { CurrencyIcon } from "../../components/CurrencyIcon.tsx";
 import { DeviceCardMedium } from "../../components/DeviceCardMedium.tsx";
@@ -135,12 +131,16 @@ export default function DeviceDetail(props: PageProps) {
         <div style="display: flex; flex-direction: column; gap: 0.5rem; justify-content: center; align-items: center; padding-bottom: 0.5rem;">
           <h2
             style={{
-              fontSize: "2rem",
+              fontSize: "1.5rem",
               color: "var(--pico-primary)",
               textAlign: "center",
             }}
+            data-tooltip={device.name.normalized != device.name.raw
+              ? device.name.raw
+              : undefined}
+            data-placement="bottom"
           >
-            {device.name.raw}
+            {device.name.normalized}
           </h2>
           <div style="display: flex; gap: 0.5rem; align-items: center;">
             <p>{device.brand}</p>
@@ -163,8 +163,8 @@ export default function DeviceDetail(props: PageProps) {
                 <img
                   loading="lazy"
                   src={device.image?.url ?? "/images/placeholder-100x100.svg"}
-                  // width={100}
-                  // height={100}
+                  width={100}
+                  height={100}
                   alt={device.image?.alt ?? "A device image"}
                   style="width: 100%; height: 100%; object-fit: contain;"
                 />
@@ -231,7 +231,7 @@ export default function DeviceDetail(props: PageProps) {
             </span>
           </div>
         </div>
-        <div style={{ borderBottom: "1px solid var(--pico-color)" }}>
+        <div class="device-detail-actions">
           <div
             style="display: flex; justify-content: center; flex-flow: row wrap; margin:0;"
             role="group"
@@ -249,8 +249,6 @@ export default function DeviceDetail(props: PageProps) {
       </div>
 
       <div class="device-detail-performance">
-        <h3 style={{ textAlign: "center" }}>Emulation Performance</h3>
-
         <EmulationPerformance device={device} />
       </div>
 

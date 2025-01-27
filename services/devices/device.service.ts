@@ -363,6 +363,10 @@ export class DeviceService {
       icons.push({ icon: PiListThin({}), tooltip: "Ventilation Cutouts" });
     }
 
+    if (icons.length === 0) {
+      icons.push({ icon: PiEmpty({}), tooltip: "None" });
+    }
+
     return icons;
   }
 

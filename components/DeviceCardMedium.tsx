@@ -33,10 +33,15 @@ export function DeviceCardMedium({ device, isActive }: DeviceCardMediumProps) {
       >
         <hgroup style={{ textAlign: "center" }}>
           <strong
-            title={device.name.sanitized}
+            data-tooltip={
+              device.name.normalized != device.name.raw
+                ? device.name.raw
+                : undefined
+            }
+            data-placement="bottom"
           >
             <span style={{ color: "var(--pico-primary)" }}>
-              {device.name.raw}
+              {device.name.normalized}
             </span>
           </strong>
           <p style={{ fontSize: "0.6rem", color: "var(--pico-contrast)" }}>
