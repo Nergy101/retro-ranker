@@ -12,18 +12,98 @@ import {
   PiWifiHigh,
 } from "@preact-icons/pi";
 import { DeviceService } from "../services/devices/device.service.ts";
+import { Ranking } from "../data/models/ranking.model.ts";
 
 interface DeviceComparisonResultProps {
   device: Device;
+  ranking: Ranking;
 }
 
 export function DeviceComparisonResult(
-  { device }: DeviceComparisonResultProps,
+  { device, ranking }: DeviceComparisonResultProps,
 ) {
+  const isBest = (categoryName: string) => {
+    const betterClass = "better";
+    const worseClass = "worse";
+    const equalClass = "equal";
+
+    if (categoryName == "all") {
+      if (ranking.all[0] == "equal") {
+        return equalClass;
+      }
+
+      return ranking.all[0] == device.name.sanitized ? betterClass : worseClass;
+    }
+
+    if (categoryName == "emuPerformance") {
+      if (ranking.emuPerformance[0] == "equal") {
+        return equalClass;
+      }
+
+      return ranking.emuPerformance[0] == device.name.sanitized
+        ? betterClass
+        : worseClass;
+    }
+
+    if (categoryName == "monitor") {
+      if (ranking.monitor[0] == "equal") {
+        return equalClass;
+      }
+
+      return ranking.monitor[0] == device.name.sanitized
+        ? betterClass
+        : worseClass;
+    }
+
+    if (categoryName == "dimensions") {
+      if (ranking.dimensions[0] == "equal") {
+        return equalClass;
+      }
+      return ranking.dimensions[0] == device.name.sanitized
+        ? betterClass
+        : worseClass;
+    }
+
+    if (categoryName == "connectivity") {
+      if (ranking.connectivity[0] == "equal") {
+        return equalClass;
+      }
+      return ranking.connectivity[0] == device.name.sanitized
+        ? betterClass
+        : worseClass;
+    }
+
+    if (categoryName == "controls") {
+      if (ranking.controls[0] == "equal") {
+        return equalClass;
+      }
+      return ranking.controls[0] == device.name.sanitized
+        ? betterClass
+        : worseClass;
+    }
+
+    if (categoryName == "misc") {
+      if (ranking.misc[0] == "equal") {
+        return equalClass;
+      }
+      return ranking.misc[0] == device.name.sanitized
+        ? betterClass
+        : worseClass;
+    }
+
+    return equalClass;
+  };
+
   return (
     <div class="compare-result">
       <div
-        class="compare-result-header"
+        class={`compare-result-header ${isBest("all")}`}
+        data-placement="right"
+        data-tooltip={ranking.all[0] == "equal"
+          ? "Equal to other device"
+          : ranking.all[0] == device.name.sanitized
+          ? "Better"
+          : "Worse"}
       >
         <a
           href={`/devices/${device.name.sanitized}`}
@@ -159,9 +239,13 @@ export function DeviceComparisonResult(
         </table>
       </div>
 
-      <div class="compare-result-performance">
+      <div class={`compare-result-performance ${isBest("emuPerformance")}`}>
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <strong>Emulation Performance</strong>
+          <strong
+            style={{ marginBottom: "1rem" }}
+          >
+            Emulation Performance
+          </strong>
         </div>
 
         <div class="compare-result-performance-chips">
@@ -171,18 +255,22 @@ export function DeviceComparisonResult(
         </div>
       </div>
 
-      <div class="compare-result-screen">
-        <div class="compare-result-display-table">
-          <h3
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "0.25rem",
-            }}
-          >
+      <div
+        class={`compare-result-screen ${isBest("monitor")}`}
+      >
+        <h3
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "0.25rem",
+          }}
+        >
+          <span>
             <PiMonitor />
-          </h3>
+          </span>
+        </h3>
+        <div class="compare-result-display-table">
           <div class="overflow-auto">
             <table class="striped">
               <tbody>
@@ -232,7 +320,9 @@ export function DeviceComparisonResult(
         </div>
       </div>
 
-      <div class="compare-result-ergonomics">
+      <div
+        class={`compare-result-ergonomics ${isBest("dimensions")}`}
+      >
         <div class="compare-result-ergonomics-table">
           <h3
             style={{
@@ -242,7 +332,9 @@ export function DeviceComparisonResult(
               gap: "0.25rem",
             }}
           >
-            <PiRuler />
+            <span>
+              <PiRuler />
+            </span>
           </h3>
           <div class="overflow-auto">
             <table class="striped">
@@ -285,7 +377,9 @@ export function DeviceComparisonResult(
         </div>
       </div>
 
-      <div class="compare-result-connectivity">
+      <div
+        class={`compare-result-connectivity ${isBest("connectivity")}`}
+      >
         <div class="compare-result-connectivity-table">
           <h3
             style={{
@@ -295,7 +389,9 @@ export function DeviceComparisonResult(
               gap: "0.25rem",
             }}
           >
-            <PiWifiHigh />
+            <span>
+              <PiWifiHigh />
+            </span>
           </h3>
           <div class="overflow-auto">
             <table class="striped">
@@ -374,7 +470,9 @@ export function DeviceComparisonResult(
         </div>
       </div>
 
-      <div class="compare-result-controls">
+      <div
+        class={`compare-result-controls ${isBest("controls")}`}
+      >
         <div class="compare-result-controls-table">
           <h3
             style={{
@@ -384,7 +482,9 @@ export function DeviceComparisonResult(
               gap: "0.25rem",
             }}
           >
-            <PiGameController />
+            <span>
+              <PiGameController />
+            </span>
           </h3>
 
           <div class="overflow-auto">
@@ -426,7 +526,7 @@ export function DeviceComparisonResult(
         </div>
       </div>
 
-      <div class="compare-result-misc">
+      <div class={`compare-result-misc ${isBest("misc")}`}>
         <div class="compare-result-misc-table">
           <h3
             style={{
@@ -436,7 +536,9 @@ export function DeviceComparisonResult(
               gap: "0.25rem",
             }}
           >
-            <PiGear />
+            <span>
+              <PiGear />
+            </span>
           </h3>
           <div class="overflow-auto">
             <table class="striped">
@@ -468,7 +570,7 @@ export function DeviceComparisonResult(
                 <tr>
                   <th>SoC</th>
                   <td>
-                    {device.soc}
+                    {device.systemOnChip}
                   </td>
                 </tr>
                 <tr>

@@ -1,4 +1,4 @@
-import { SystemRating } from "../data/models/SystemRating.ts";
+import { SystemRating } from "../data/models/system-rating.model.ts";
 
 interface RatingInfoProps {
   rating: SystemRating;

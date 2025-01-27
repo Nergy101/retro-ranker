@@ -41,12 +41,18 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
               <tr>
                 <th>CPU</th>
                 <td>
-                  <span
-                    data-tooltip={device.cpu.names.join(", ")}
-                    data-placement="bottom"
-                  >
-                    {max20Characters(device.cpu.names[0])}
-                  </span>
+                  {device.cpu.names.length > 1
+                    ? (
+                      <span
+                        data-tooltip={device.cpu.names.join(", ")}
+                        data-placement="bottom"
+                      >
+                        {max20Characters(device.cpu.names[0])}
+                      </span>
+                    )
+                    : (
+                      device.cpu.names[0]
+                    )}
                   {device.cpu.cores && device.cpu.cores > 0 &&
                     ` (${device.cpu.cores} cores)`}
                   {device.cpu.clockSpeed && ` @ ${device.cpu.clockSpeed}`}
@@ -54,12 +60,18 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
 
                 <th>GPU</th>
                 <td>
-                  <span
-                    data-tooltip={device.gpu.name}
-                    data-placement="bottom"
-                  >
-                    {max20Characters(device.gpu.name)}
-                  </span>
+                  {device.gpu.name && device.gpu.name.length > 20
+                    ? (
+                      <span
+                        data-tooltip={device.gpu.name}
+                        data-placement="bottom"
+                      >
+                        {max20Characters(device.gpu.name)}
+                      </span>
+                    )
+                    : (
+                      device.gpu.name
+                    )}
                   {device.gpu.cores && ` (${device.gpu.cores})`}
                   {device.gpu.clockSpeed && ` @ ${device.gpu.clockSpeed}`}
                 </td>
@@ -92,9 +104,9 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
                 <th>Cooling</th>
                 <td>
                   <span style={{ display: "flex", gap: "0.25rem" }}>
-                    {DeviceService.getCoolingIcons(device.cooling).map(({icon, tooltip}) =>
-                      <span data-tooltip={tooltip}>{icon}</span>
-                    )}
+                    {DeviceService.getCoolingIcons(device.cooling).map((
+                      { icon, tooltip },
+                    ) => <span data-tooltip={tooltip}>{icon}</span>)}
                   </span>
                 </td>
               </tr>

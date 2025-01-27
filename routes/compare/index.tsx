@@ -3,9 +3,12 @@ import { PageProps } from "$fresh/server.ts";
 import { DeviceComparisonResult } from "../../components/DeviceComparisonResult.tsx";
 import { DeviceComparisonForm } from "../../islands/DeviceComparisonForm.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
+import { RatingsService } from "../../services/devices/ratings.service.ts";
 
 export default function DevicesIndex(props: PageProps) {
   const deviceService = DeviceService.getInstance();
+  const ratingsService = RatingsService.getInstance();
+
   const devices = props.url?.search.split("=")?.[1]?.split(",") || [];
 
   const devicesToCompare = devices.map((d) => deviceService.getDeviceByName(d))
@@ -17,6 +20,8 @@ export default function DevicesIndex(props: PageProps) {
   const similarDevices = devicesToCompare.flatMap((device) =>
     deviceService.getSimilarDevices(device.name.sanitized, 8)
   );
+
+  const ranking = ratingsService.createRanking(devicesToCompare);
 
   return (
     <div>
@@ -43,7 +48,7 @@ export default function DevicesIndex(props: PageProps) {
 
       <div class="compare-container">
         {devicesToCompare.map((device) => (
-          <DeviceComparisonResult device={device} />
+          <DeviceComparisonResult device={device} ranking={ranking} />
         ))}
       </div>
     </div>

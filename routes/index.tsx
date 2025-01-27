@@ -46,35 +46,17 @@ export default function Home() {
         class="container"
       >
         <div className="container">
-          {/* New Arrivals Section */}
-          <section style="margin-top: 2rem;">
-            <h2 class="home-section-title">
-              <PiSparkle /> New Arrivals
-            </h2>
-            <div class="device-row-grid">
-              {newArrivals.map((device) => (
-                <a href={`/devices/${device.name.sanitized}`}>
-                  <DeviceCardMedium
-                    device={device}
-                    isActive={false}
-                  />
-                </a>
-              ))}
-              <SeeMoreCard
-                href="/devices?sort=new-arrivals"
-                text="More New Arrivals"
-              />
-            </div>
-          </section>
-
           {/* Highly Rated Section */}
           <section style="margin-top: 2rem;">
             <h2 class="home-section-title">
-              <PiRanking /> Highly Rated
+              <PiRanking /> Highly Ranked
             </h2>
             <div class="device-row-grid">
               {highlyRated.map((device) => (
-                <a href={`/devices/${device.name.sanitized}`}>
+                <a
+                  href={`/devices/${device.name.sanitized}`}
+                  style={{ textDecoration: "none" }}
+                >
                   <DeviceCardMedium
                     device={device}
                     isActive={false}
@@ -88,6 +70,30 @@ export default function Home() {
             </div>
           </section>
 
+          {/* New Arrivals Section */}
+          <section style="margin-top: 2rem;">
+            <h2 class="home-section-title">
+              <PiSparkle /> New Arrivals
+            </h2>
+            <div class="device-row-grid">
+              {newArrivals.map((device) => (
+                <a
+                  href={`/devices/${device.name.sanitized}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <DeviceCardMedium
+                    device={device}
+                    isActive={false}
+                  />
+                </a>
+              ))}
+              <SeeMoreCard
+                href="/devices?sort=new-arrivals"
+                text="More New Arrivals"
+              />
+            </div>
+          </section>
+
           {/* personal Picks Section */}
           <section style="margin-top: 2rem;">
             <h2 class="home-section-title">
@@ -95,7 +101,10 @@ export default function Home() {
             </h2>
             <div class="device-row-grid">
               {personalPicks.map((device) => (
-                <a href={`/devices/${device.name.sanitized}`}>
+                <a
+                  href={`/devices/${device.name.sanitized}`}
+                  style={{ textDecoration: "none" }}
+                >
                   <DeviceCardMedium
                     device={device}
                     isActive={false}
@@ -116,7 +125,10 @@ export default function Home() {
             </h2>
             <div class="device-row-grid">
               {upcoming.map((device) => (
-                <a href={`/devices/${device.name.sanitized}`}>
+                <a
+                  href={`/devices/${device.name.sanitized}`}
+                  style={{ textDecoration: "none" }}
+                >
                   <DeviceCardMedium device={device} isActive={false} />
                 </a>
               ))}

@@ -961,3 +961,58 @@ h6,
     min-width: 15em;
   }
 }
+
+.better {
+  &[data-tooltip] {
+    border-bottom: 1px solid #16833e;
+  }
+
+  border: 1px solid #16833e;
+  background-color: #16833e20;
+  h3 {
+    color: #16833e;
+  }
+
+  td,
+  th {
+    background-color: #16833e20;
+  }
+
+  .icon {
+    color: #16833e;
+  }
+}
+
+.worse {
+  &[data-tooltip] {
+    border-bottom: 1px solid #ab0d0d;
+  }
+
+  border: 1px solid #ab0d0d;
+  background-color: #ab0d0d20;
+  h3 {
+    color: #ab0d0d;
+  }
+
+  td,
+  th {
+    background-color: #ab0d0d20;
+  }
+}
+
+.equal {
+  &[data-tooltip] {
+    border-bottom: 1px solid #3952a2;
+  }
+
+  border: 1px solid #3952a2;
+  background-color: #3952a220;
+  h3 {
+    color: #3952a2;
+  }
+
+  td,
+  th {
+    background-color: #3952a220;
+  }
+}
