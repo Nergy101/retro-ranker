@@ -5,10 +5,9 @@ import {
   PiSparkle,
   PiUserCheck,
 } from "@preact-icons/pi";
-import { DeviceCardSmall } from "../components/DeviceCardSmall.tsx";
+import { DeviceCardMedium } from "../components/DeviceCardMedium.tsx";
 import { SeeMoreCard } from "../components/SeeMoreCard.tsx";
 import { DeviceService } from "../services/devices/device.service.ts";
-import { DeviceCardMedium } from "../components/DeviceCardMedium.tsx";
 
 export default function Home() {
   // Filter devices into categories

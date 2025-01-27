@@ -6,7 +6,7 @@ export function ShareButton({ title, url }: { title: string; url: string }) {
       aria-label="Share page"
       style={{
         display: "flex",
-        justifyContent: "center"
+        justifyContent: "center",
       }}
       onClick={() => {
         navigator.share({

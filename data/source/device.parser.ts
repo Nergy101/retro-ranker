@@ -1,6 +1,7 @@
 import * as cheerio from "https://esm.sh/cheerio@1.0.0-rc.12";
 import { RatingsService } from "../../services/devices/ratings.service.ts";
 import { Device } from "../models/device.model.ts";
+import { EmulationSystem } from "../enums/EmulationSystem.ts";
 
 export class DeviceParser {
   private static ratingsService = RatingsService.getInstance();
@@ -46,24 +47,85 @@ export class DeviceParser {
   private static getOsLinks(os: string): { url: string; name: string }[] {
     const lowerOs = os.toLowerCase();
     const links: { url: string; name: string }[] = [];
-    if (lowerOs.includes("steam")) links.push({ url: "https://store.steampowered.com/steamos", name: "SteamOS" });
-    if (lowerOs.includes("android")) links.push({ url: "https://www.android.com/", name: "Android" });
-    if (lowerOs.includes("ios")) links.push({ url: "https://www.apple.com/ios/", name: "iOS" });
-    if (lowerOs.includes("linux")) links.push({ url: "https://www.linux.org/", name: "Linux" });
-    if (lowerOs.includes("macos")) links.push({ url: "https://www.apple.com/macos", name: "macOS" });
-    if (lowerOs.includes("windows")) links.push({ url: "https://www.microsoft.com/en-us/windows", name: "Windows" });
-    if (lowerOs.includes("garlic")) links.push({ url: "https://github.com/GarlicOS", name: "GarlicOS" });
-    if (lowerOs.includes("onion")) links.push({ url: "https://onionui.github.io/", name: "OnionOS" });
-    if (lowerOs.includes("gamma")) links.push({ url: "https://github.com/TheGammaSqueeze/GammaOS", name: "GammaOS" });
-    if (lowerOs.includes("opendingux")) links.push({ url: "https://github.com/OpenDingux", name: "OpenDingux" });
-    if (lowerOs.includes("arkos")) links.push({ url: "https://github.com/christianhaitian/arkos/wiki", name: "ArkOS" });
-    if (lowerOs.includes("minui")) links.push({ url: "https://github.com/shauninman/MinUI", name: "MiniUI" });
-    if (lowerOs.includes("batocera")) links.push({ url: "https://batocera.org/", name: "Batocera" });
-    if (lowerOs.includes("trimui")) links.push({ url: "http://www.trimui.com/", name: "TrimUI" });
-    if (lowerOs.includes("analogue os")) links.push({ url: "https://www.analogue.co/announcements/analogue-os-is-now-product-specific", name: "AnalogueOS" });
-    if (lowerOs.includes("nintendo")) links.push({ url: "https://nintendo.com/", name: "Nintendo" });
-    if (lowerOs.includes("psp")) links.push({ url: "https://en.wikipedia.org/wiki/PlayStation_Portable", name: "PSP" });
-    if (lowerOs.includes("vita")) links.push({ url: "https://en.wikipedia.org/wiki/PlayStation_Vita", name: "Vita" });
+    if (lowerOs.includes("steam")) {
+      links.push({
+        url: "https://store.steampowered.com/steamos",
+        name: "SteamOS",
+      });
+    }
+    if (lowerOs.includes("android")) {
+      links.push({ url: "https://www.android.com/", name: "Android" });
+    }
+    if (lowerOs.includes("ios")) {
+      links.push({ url: "https://www.apple.com/ios/", name: "iOS" });
+    }
+    if (lowerOs.includes("linux")) {
+      links.push({ url: "https://www.linux.org/", name: "Linux" });
+    }
+    if (lowerOs.includes("macos")) {
+      links.push({ url: "https://www.apple.com/macos", name: "macOS" });
+    }
+    if (lowerOs.includes("windows")) {
+      links.push({
+        url: "https://www.microsoft.com/en-us/windows",
+        name: "Windows",
+      });
+    }
+    if (lowerOs.includes("garlic")) {
+      links.push({ url: "https://github.com/GarlicOS", name: "GarlicOS" });
+    }
+    if (lowerOs.includes("onion")) {
+      links.push({ url: "https://onionui.github.io/", name: "OnionOS" });
+    }
+    if (lowerOs.includes("gamma")) {
+      links.push({
+        url: "https://github.com/TheGammaSqueeze/GammaOS",
+        name: "GammaOS",
+      });
+    }
+    if (lowerOs.includes("opendingux")) {
+      links.push({ url: "https://github.com/OpenDingux", name: "OpenDingux" });
+    }
+    if (lowerOs.includes("arkos")) {
+      links.push({
+        url: "https://github.com/christianhaitian/arkos/wiki",
+        name: "ArkOS",
+      });
+    }
+    if (lowerOs.includes("minui")) {
+      links.push({
+        url: "https://github.com/shauninman/MinUI",
+        name: "MiniUI",
+      });
+    }
+    if (lowerOs.includes("batocera")) {
+      links.push({ url: "https://batocera.org/", name: "Batocera" });
+    }
+    if (lowerOs.includes("trimui")) {
+      links.push({ url: "http://www.trimui.com/", name: "TrimUI" });
+    }
+    if (lowerOs.includes("analogue os")) {
+      links.push({
+        url:
+          "https://www.analogue.co/announcements/analogue-os-is-now-product-specific",
+        name: "AnalogueOS",
+      });
+    }
+    if (lowerOs.includes("nintendo")) {
+      links.push({ url: "https://nintendo.com/", name: "Nintendo" });
+    }
+    if (lowerOs.includes("psp")) {
+      links.push({
+        url: "https://en.wikipedia.org/wiki/PlayStation_Portable",
+        name: "PSP",
+      });
+    }
+    if (lowerOs.includes("vita")) {
+      links.push({
+        url: "https://en.wikipedia.org/wiki/PlayStation_Vita",
+        name: "Vita",
+      });
+    }
 
     return links;
   }
@@ -126,6 +188,7 @@ export class DeviceParser {
         name: {
           raw: "",
           sanitized: "",
+          normalized: "",
         },
         os: {
           raw: "",
@@ -332,6 +395,7 @@ export class DeviceParser {
         name: {
           raw: "",
           sanitized: "",
+          normalized: "",
         },
         os: {
           raw: "",
@@ -615,109 +679,109 @@ export class DeviceParser {
       // System ratings mapping
       case 8:
         device.consoleRatings?.push({
-          system: "Game Boy",
+          system: EmulationSystem.GameBoy,
           rating: this.ratingsService.parseSystemRating(value),
         });
         break;
       case 9:
         device.consoleRatings?.push({
-          system: "NES",
+          system: EmulationSystem.NES,
           rating: this.ratingsService.parseSystemRating(value),
         });
         break;
       case 10:
         device.consoleRatings?.push({
-          system: "Genesis",
+          system: EmulationSystem.Genesis,
           rating: this.ratingsService.parseSystemRating(value),
         });
         break;
       case 11:
         device.consoleRatings?.push({
-          system: "Game Boy Advance",
+          system: EmulationSystem.GameBoyAdvance,
           rating: this.ratingsService.parseSystemRating(value),
         });
         break;
       case 12:
         device.consoleRatings?.push({
-          system: "SNES",
+          system: EmulationSystem.SNES,
           rating: this.ratingsService.parseSystemRating(value),
         });
         break;
       case 13:
         device.consoleRatings?.push({
-          system: "PS1",
+          system: EmulationSystem.PS1,
           rating: this.ratingsService.parseSystemRating(value),
         });
         break;
       case 14:
         device.consoleRatings?.push({
-          system: "Nintendo DS",
+          system: EmulationSystem.NintendoDS,
           rating: this.ratingsService.parseSystemRating(value),
         });
         break;
       case 15:
         device.consoleRatings?.push({
-          system: "Nintendo 64",
+          system: EmulationSystem.Nintendo64,
           rating: this.ratingsService.parseSystemRating(value),
         });
         break;
       case 16:
         device.consoleRatings?.push({
-          system: "Dreamcast",
+          system: EmulationSystem.Dreamcast,
           rating: this.ratingsService.parseSystemRating(value),
         });
         break;
       case 17:
         device.consoleRatings?.push({
-          system: "PSP",
+          system: EmulationSystem.PSP,
           rating: this.ratingsService.parseSystemRating(value),
         });
         break;
       case 18:
         device.consoleRatings?.push({
-          system: "Saturn",
+          system: EmulationSystem.Saturn,
           rating: this.ratingsService.parseSystemRating(value),
         });
         break;
       case 19:
         device.consoleRatings?.push({
-          system: "GameCube",
+          system: EmulationSystem.GameCube,
           rating: this.ratingsService.parseSystemRating(value),
         });
         break;
       case 20:
         device.consoleRatings?.push({
-          system: "Wii",
+          system: EmulationSystem.Wii,
           rating: this.ratingsService.parseSystemRating(value),
         });
         break;
       case 21:
         device.consoleRatings?.push({
-          system: "3DS",
+          system: EmulationSystem.Nintendo3DS,
           rating: this.ratingsService.parseSystemRating(value),
         });
         break;
       case 22:
         device.consoleRatings?.push({
-          system: "PS2",
+          system: EmulationSystem.PS2,
           rating: this.ratingsService.parseSystemRating(value),
         });
         break;
       case 23:
         device.consoleRatings?.push({
-          system: "Wii U",
+          system: EmulationSystem.WiiU,
           rating: this.ratingsService.parseSystemRating(value),
         });
         break;
       case 24:
         device.consoleRatings?.push({
-          system: "Switch",
+          system: EmulationSystem.Switch,
           rating: this.ratingsService.parseSystemRating(value),
         });
         break;
       case 25:
         device.consoleRatings?.push({
-          system: "PS3",
+          system: EmulationSystem.PS3,
           rating: this.ratingsService.parseSystemRating(value),
         });
         break;
@@ -778,9 +842,11 @@ export class DeviceParser {
           const cooling = value.toLowerCase();
           device.cooling = {
             raw: value,
-            hasHeatsink: cooling.includes("heatsink") || cooling.includes("heat sink"),
+            hasHeatsink: cooling.includes("heatsink") ||
+              cooling.includes("heat sink"),
             hasFan: cooling.includes("fan"),
-            hasHeatPipe: cooling.includes("heatpipe") || cooling.includes("heat pipe"),
+            hasHeatPipe: cooling.includes("heatpipe") ||
+              cooling.includes("heat pipe"),
             hasVentilationCutouts: cooling.includes("ventilation cutouts"),
           };
         }
@@ -809,11 +875,13 @@ export class DeviceParser {
       case 51: {
         const connectivity = value.toLowerCase();
         device.connectivity = {
-          hasWifi: connectivity.includes("wifi") || connectivity.includes("wi-fi"),
+          hasWifi: connectivity.includes("wifi") ||
+            connectivity.includes("wi-fi"),
           hasBluetooth: connectivity.includes("bluetooth"),
           hasNFC: connectivity.includes("nfc"),
           hasUSB: connectivity.includes("usb"),
-          hasUSBC: connectivity.includes("usbc") || connectivity.includes("usb-c"),
+          hasUSBC: connectivity.includes("usbc") ||
+            connectivity.includes("usb-c"),
           hasDisplayPort: connectivity.includes("displayport"),
           hasVGA: connectivity.includes("vga"),
           hasDVI: connectivity.includes("dvi"),
@@ -965,6 +1033,7 @@ export class DeviceParser {
           icons: this.parseOsIcons(value),
           list: value.split(/, | \/ /),
           customFirmwares: [],
+          links: [],
         };
         break;
       case 7: // custom firmware
@@ -976,103 +1045,103 @@ export class DeviceParser {
         // System ratings mapping
       case 9:
         device.consoleRatings?.push({
-          system: "Game Boy",
+          system: EmulationSystem.GameBoy,
           rating: this.ratingsService.parseSystemRating(value),
         });
         break;
       case 10:
         device.consoleRatings?.push({
-          system: "NES",
+          system: EmulationSystem.NES,
           rating: this.ratingsService.parseSystemRating(value),
         });
         break;
       case 11:
         device.consoleRatings?.push({
-          system: "Genesis",
+          system: EmulationSystem.Genesis,
           rating: this.ratingsService.parseSystemRating(value),
         });
         break;
       case 12:
         device.consoleRatings?.push({
-          system: "Game Boy Advance",
+          system: EmulationSystem.GameBoyAdvance,
           rating: this.ratingsService.parseSystemRating(value),
         });
         break;
       case 13:
         device.consoleRatings?.push({
-          system: "SNES",
+          system: EmulationSystem.SNES,
           rating: this.ratingsService.parseSystemRating(value),
         });
         break;
       case 14:
         device.consoleRatings?.push({
-          system: "PS1",
+          system: EmulationSystem.PS1,
           rating: this.ratingsService.parseSystemRating(value),
         });
         break;
       case 15:
         device.consoleRatings?.push({
-          system: "Nintendo DS",
+          system: EmulationSystem.NintendoDS,
           rating: this.ratingsService.parseSystemRating(value),
         });
         break;
       case 16:
         device.consoleRatings?.push({
-          system: "Nintendo 64",
+          system: EmulationSystem.Nintendo64,
           rating: this.ratingsService.parseSystemRating(value),
         });
         break;
       case 17:
         device.consoleRatings?.push({
-          system: "Dreamcast",
+          system: EmulationSystem.Dreamcast,
           rating: this.ratingsService.parseSystemRating(value),
         });
         break;
       case 18:
         device.consoleRatings?.push({
-          system: "PSP",
+          system: EmulationSystem.PSP,
           rating: this.ratingsService.parseSystemRating(value),
         });
         break;
       case 19:
         device.consoleRatings?.push({
-          system: "Saturn",
+          system: EmulationSystem.Saturn,
           rating: this.ratingsService.parseSystemRating(value),
         });
         break;
       case 20:
         device.consoleRatings?.push({
-          system: "GameCube",
+          system: EmulationSystem.GameCube,
           rating: this.ratingsService.parseSystemRating(value),
         });
         break;
       case 21:
         device.consoleRatings?.push({
-          system: "Wii",
+          system: EmulationSystem.Wii,
           rating: this.ratingsService.parseSystemRating(value),
         });
         break;
       case 22:
         device.consoleRatings?.push({
-          system: "3DS",
+          system: EmulationSystem.Nintendo3DS,
           rating: this.ratingsService.parseSystemRating(value),
         });
         break;
       case 23:
         device.consoleRatings?.push({
-          system: "PS2",
+          system: EmulationSystem.PS2,
           rating: this.ratingsService.parseSystemRating(value),
         });
         break;
       case 24:
         device.consoleRatings?.push({
-          system: "Wii U",
+          system: EmulationSystem.WiiU,
           rating: this.ratingsService.parseSystemRating(value),
         });
         break;
       case 25:
         device.consoleRatings?.push({
-          system: "Switch",
+          system: EmulationSystem.Switch,
           rating: this.ratingsService.parseSystemRating(value),
         });
         break;
@@ -1124,9 +1193,11 @@ export class DeviceParser {
           const cooling = value.toLowerCase();
           device.cooling = {
             raw: value,
-            hasHeatsink: cooling.includes("heatsink") || cooling.includes("heat sink"),
+            hasHeatsink: cooling.includes("heatsink") ||
+              cooling.includes("heat sink"),
             hasFan: cooling.includes("fan"),
-            hasHeatPipe: cooling.includes("heat pipe") || cooling.includes("heat pipe"),
+            hasHeatPipe: cooling.includes("heat pipe") ||
+              cooling.includes("heat pipe"),
             hasVentilationCutouts: cooling.includes("ventilation cutouts"),
           };
         }
@@ -1158,11 +1229,13 @@ export class DeviceParser {
       case 49: {
         const connectivity = value.toLowerCase();
         device.connectivity = {
-          hasWifi: connectivity.includes("wifi") || connectivity.includes("wi-fi"),
+          hasWifi: connectivity.includes("wifi") ||
+            connectivity.includes("wi-fi"),
           hasBluetooth: connectivity.includes("bluetooth"),
           hasNFC: connectivity.includes("nfc"),
           hasUSB: connectivity.includes("usb"),
-          hasUSBC: connectivity.includes("usb-c") || connectivity.includes("usbc"),
+          hasUSBC: connectivity.includes("usb-c") ||
+            connectivity.includes("usbc"),
           hasDisplayPort: connectivity.includes("displayport"),
           hasVGA: connectivity.includes("vga"),
           hasDVI: connectivity.includes("dvi"),

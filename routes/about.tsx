@@ -164,8 +164,9 @@ export default function AboutPage() {
               Umami
             </a>
             , a privacy-focused analytics tool, to track usage.{" "}
-            <br />It's open source and self-hosted, all data collection is anonymous and GDPR
-            compliant. Hence why we don't need a cookie banner!
+            <br />It's open source and self-hosted, all data collection is
+            anonymous and GDPR compliant. Hence why we don't need a cookie
+            banner!
           </p>
         </details>
       </div>

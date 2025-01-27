@@ -9,7 +9,7 @@ export function ClipboardButton({ url }: { url: string }) {
       aria-label="Copy URL of current page"
       style={{
         display: "flex",
-        justifyContent: "center"
+        justifyContent: "center",
       }}
       onClick={async () => {
         await navigator.clipboard.writeText(url);

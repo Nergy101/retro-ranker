@@ -8,7 +8,7 @@ interface BreadcrumbProps {
   items?: {
     label: string;
     href?: string;
-    icon?: () => VNode<JSX.SVGAttributes>;
+    icon?: (props: { style?: JSX.CSSProperties }) => VNode<JSX.SVGAttributes>;
   }[];
   showNames?: boolean;
 }
@@ -95,7 +95,7 @@ export function Breadcrumb({ items, showNames }: BreadcrumbProps) {
           {showNames && <span>&nbsp;Home</span>}
         </div>
       </a>
-      {items.slice(1).map((item, index) => (
+      {items?.slice(1).map((item, index) => (
         <div
           key={index}
           style={{
@@ -110,7 +110,7 @@ export function Breadcrumb({ items, showNames }: BreadcrumbProps) {
               <a href={item.href} target="_self">
                 <div style={{ display: "inline-flex" }}>
                   <PiCaretRight style={{ marginRight: "0.5rem" }} />
-                  {item.icon && item.icon()}
+                  {item.icon && item.icon({ style: { marginRight: "0.5rem" } })}
                   <span>&nbsp;{item.label}</span>
                 </div>
               </a>
@@ -118,7 +118,7 @@ export function Breadcrumb({ items, showNames }: BreadcrumbProps) {
             : (
               <div style={{ display: "inline-flex" }}>
                 <PiCaretRight />
-                {item.icon && item.icon()}
+                {item.icon && item.icon({ style: { marginRight: "0.5rem" } })}
                 <span>&nbsp;{replaceTokens(item.label)}</span>
               </div>
             )}

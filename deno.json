@@ -18,7 +18,9 @@
     "**/_fresh/*",
     "data/source/results/*",
     "data/source/*.html",
-    "data/source/data-source.ipynb"
+    "data/source/data-source.ipynb",
+    "static/pico.pumpkin.min.css",
+    "static/styles.css"
   ],
   "imports": {
     "$fresh/": "https://deno.land/x/fresh@1.7.3/",

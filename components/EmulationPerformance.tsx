@@ -2,7 +2,7 @@ import { PiVibrate } from "@preact-icons/pi";
 import { Device } from "../data/models/device.model.ts";
 import { DeviceService } from "../services/devices/device.service.ts";
 import { RatingInfo } from "./RatingInfo.tsx";
-
+import { Cooling } from "../data/models/cooling.model.ts";
 interface EmulationPerformanceProps {
   device: Device;
 }
@@ -10,12 +10,12 @@ interface EmulationPerformanceProps {
 export function EmulationPerformance({ device }: EmulationPerformanceProps) {
   const ratings = device.consoleRatings;
 
-  const max20Characters = (text: string | null) => {
-    if (text && text.length > 20) {
-      return text.substring(0, 20) + "...";
-    }
-    return text;
-  };
+  // const max20Characters = (text: string | null) => {
+  //   if (text && text.length > 20) {
+  //     return text.substring(0, 20) + "...";
+  //   }
+  //   return text;
+  // };
 
   const getEmbedUrl = (url: string) => {
     if (url.includes("youtube.com")) {
@@ -26,13 +26,15 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
     return url;
   };
 
-  const getCoolingColor = (
-    { hasHeatsink, hasHeatPipe, hasFan, hasVentilationCutouts },
-  ) => {
+  const getCoolingColor = (cooling: Cooling) => {
     // count the number of true values
-    const trueCount =
-      [hasHeatsink, hasHeatPipe, hasFan, hasVentilationCutouts].filter(Boolean)
-        .length;
+    const trueCount = [
+      cooling.hasHeatsink,
+      cooling.hasHeatPipe,
+      cooling.hasFan,
+      cooling.hasVentilationCutouts,
+    ].filter(Boolean)
+      .length;
     if (trueCount === 0) {
       return { color: "#AB0D0D", textColor: "white", tooltip: "None" };
     }
@@ -52,7 +54,14 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
     };
   };
 
-  const getRumbleColor = (rumble: string) => {
+  const getRumbleColor = (rumble: string | null) => {
+    if (!rumble) {
+      return {
+        color: "var(--pico-contrast)",
+        textColor: "black",
+        tooltip: "Unknown",
+      };
+    }
     if (rumble === "✅") {
       return { color: "#16833E", textColor: "white", tooltip: "Present" };
     }
@@ -179,9 +188,9 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
         <>
           {device.reviews.videoReviews.length > 0 && (
             <div>
-            <hr
-              style={{ border: "1px solid var(--pico-muted-border-color)" }}
-            />
+              <hr
+                style={{ border: "1px solid var(--pico-muted-border-color)" }}
+              />
               <strong>Video Reviews:</strong>
               <div class="video-reviews">
                 {device.reviews.videoReviews.map((review) => (

@@ -10,7 +10,7 @@ import {
   PiRuler,
   PiSpeakerHigh,
   PiTabs,
-  PiWifiHigh
+  PiWifiHigh,
 } from "@preact-icons/pi";
 import { Device } from "../data/models/device.model.ts";
 import { DeviceService } from "../services/devices/device.service.ts";

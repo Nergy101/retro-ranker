@@ -11,13 +11,21 @@ const getRatingInfo = (rating: string) => {
     case "B":
       return { color: "#3952A2", text: "Playable 4/5", textColor: "white" };
     case "C":
-      return { color: "#EEB61B", text: "Playable with tweaks 3/5", textColor: "black" };
+      return {
+        color: "#EEB61B",
+        text: "Playable with tweaks 3/5",
+        textColor: "black",
+      };
     case "D":
       return { color: "#fb923c", text: "Barely works 2/5", textColor: "black" };
     case "F":
       return { color: "#AB0D0D", text: "Doesn't work 1/5", textColor: "white" };
     default:
-      return { color: "var(--pico-contrast)", text: "Unknown", textColor: "black" };
+      return {
+        color: "var(--pico-contrast)",
+        text: "Unknown",
+        textColor: "black",
+      };
   }
 };
 
@@ -38,4 +46,4 @@ export function RatingInfo({ rating }: RatingInfoProps) {
       <span data-tooltip={text}>{rating.system}</span>
     </div>
   );
-} 
+}

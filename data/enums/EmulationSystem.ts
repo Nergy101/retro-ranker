@@ -12,7 +12,7 @@ export enum EmulationSystem {
   Saturn = "Saturn",
   GameCube = "GameCube",
   Wii = "Wii",
-  ThreeDS = "3DS",
+  Nintendo3DS = "Nintendo 3DS",
   PS2 = "PS2",
   WiiU = "Wii U",
   Switch = "Switch",

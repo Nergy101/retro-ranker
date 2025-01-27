@@ -120,8 +120,16 @@ export function DeviceComparisonForm({
         }}
       >
         <div class="compare-form-inputs">
-          <div style={{ width: "100%"}}>
-            <span style={{display: "flex", justifyContent: "center", gap: "0.5rem"}}>Compare</span>
+          <div style={{ width: "100%" }}>
+            <span
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                gap: "0.5rem",
+              }}
+            >
+              Compare
+            </span>
             <input
               type="search"
               value={queryA.value}
@@ -131,7 +139,15 @@ export function DeviceComparisonForm({
             />
           </div>
           <div style={{ width: "100%" }}>
-            <span style={{display: "flex", justifyContent: "center", gap: "0.5rem"}}>Against</span>
+            <span
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                gap: "0.5rem",
+              }}
+            >
+              Against
+            </span>
             <input
               type="search"
               value={queryB.value}
@@ -218,7 +234,10 @@ export function DeviceComparisonForm({
                       : "transparent",
                   }}
                 >
-                  <DeviceCardMedium device={device} isActive={isActive(device.name.raw)} />
+                  <DeviceCardMedium
+                    device={device}
+                    isActive={isActive(device.name.raw)}
+                  />
                 </div>
               ))}
             </div>

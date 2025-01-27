@@ -24,7 +24,7 @@ export function DesktopNav({ pathname }: { pathname: string }) {
               <div
                 style={{ display: "inline-flex" }}
               >
-                {item.icon({style: {minWidth: "1rem"}})}
+                {item.icon && item.icon({ style: { minWidth: "1rem" } })}
                 &nbsp;{item.label}
               </div>
             </a>

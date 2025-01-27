@@ -394,7 +394,7 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 0;
+  padding: 0.5rem 1rem 0.5rem 0;
 }
 
 .burger-menu {
@@ -1035,4 +1035,3 @@ h6,
   grid-template-columns: repeat(4, 1fr);
   gap: 0.5rem;
 }
-

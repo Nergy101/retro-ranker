@@ -21,12 +21,12 @@ import {
   PiSteamLogo,
   PiTabs,
   PiWindowsLogo,
-  PiXCircle
+  PiXCircle,
 } from "@preact-icons/pi";
 import { JSX, VNode } from "preact";
 import { Device } from "../../data/models/device.model.ts";
 import { RatingsService } from "./ratings.service.ts";
-
+import { Cooling } from "../../data/models/cooling.model.ts";
 export class DeviceService {
   private devices: Device[] = [];
   private static instance: DeviceService;
@@ -339,12 +339,9 @@ export class DeviceService {
     return PiEmpty({});
   }
 
-  static getCoolingIcons(cooling: {
-    hasHeatsink: boolean;
-    hasFan: boolean;
-    hasHeatPipe: boolean;
-    hasVentilationCutouts: boolean;
-  }): { icon: VNode<JSX.SVGAttributes>; tooltip: string }[] {
+  static getCoolingIcons(
+    cooling: Cooling,
+  ): { icon: VNode<JSX.SVGAttributes>; tooltip: string }[] {
     const icons: { icon: VNode<JSX.SVGAttributes>; tooltip: string }[] = [];
 
     if (cooling.hasHeatsink) {

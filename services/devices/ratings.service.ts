@@ -103,7 +103,7 @@ export class RatingsService {
       dimensions: this.rankDevicesByDimensions(devices),
       connectivity: this.rankDevicesByConnectivity(devices),
       controls: this.rankDevicesByControls(devices),
-      misc: this.rankDevicesByMisc(devices),
+      misc: ["equal"], // this.rankDevicesByMisc(devices),
       all: [],
     };
 
@@ -170,8 +170,8 @@ export class RatingsService {
   private calculateDimensionScore(device: Device): number {
     if (!device.dimensions) return 0;
     const { length, width, height } = device.dimensions;
-    return (parseFloat(length) || 0) * (parseFloat(width) || 0) *
-      (parseFloat(height) || 0);
+    return (parseFloat(length || "0") || 0) * (parseFloat(width || "0") || 0) *
+      (parseFloat(height || "0") || 0);
   }
 
   private rankDevicesByConnectivity(devices: Device[]): string[] {
@@ -236,25 +236,25 @@ export class RatingsService {
     ].filter(Boolean).length;
   }
 
-  private rankDevicesByMisc(devices: Device[]): string[] {
-    return ["equal"];
-    // const rankedDevices = devices
-    //   .map(device => ({
-    //     name: device.name.sanitized,
-    //     score: this.calculateMiscScore(device),
-    //   }))
-    //   .sort((a, b) => b.score - a.score);
+  // private rankDevicesByMisc(devices: Device[]): string[] {
+  //   return ["equal"];
+  // const rankedDevices = devices
+  //   .map(device => ({
+  //     name: device.name.sanitized,
+  //     score: this.calculateMiscScore(device),
+  //   }))
+  //   .sort((a, b) => b.score - a.score);
 
-    // if (rankedDevices.length > 1 && rankedDevices[0].score === rankedDevices[1].score) {
-    //   return ["equal"];
-    // }
+  // if (rankedDevices.length > 1 && rankedDevices[0].score === rankedDevices[1].score) {
+  //   return ["equal"];
+  // }
 
-    // return rankedDevices.map(device => device.name);
-  }
+  // return rankedDevices.map(device => device.name);
+  // }
 
-  private calculateMiscScore(device: Device): number {
-    return 0; // Placeholder
-  }
+  // private calculateMiscScore(device: Device): number {
+  //   return 0; // Placeholder
+  // }
 
   private rankDevicesByAll(devices: Device[], ranking: Ranking): string[] {
     const deviceScores = devices.map((device) => {

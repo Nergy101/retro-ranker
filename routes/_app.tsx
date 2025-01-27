@@ -117,7 +117,14 @@ export default function App({ Component, url }: PageProps) {
         <footer style={{ borderTop: "1px solid var(--pico-primary)" }}>
           <div class="container-fluid">
             <div class="footer-grid">
-              <div class="footer-grid-item quick-links" style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+              <div
+                class="footer-grid-item quick-links"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
                 <strong>Other</strong>
                 <ul style={{ listStyle: "none", padding: 0 }}>
                   <li style={{ listStyle: "none" }}>
@@ -140,9 +147,16 @@ export default function App({ Component, url }: PageProps) {
                 </ul>
               </div>
 
-              <div class="footer-grid-item connect-links" style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+              <div
+                class="footer-grid-item connect-links"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
                 <strong>Connect</strong>
-                <ul style={{ listStyle: "none", padding: 0, }}>
+                <ul style={{ listStyle: "none", padding: 0 }}>
                   <li style={{ listStyle: "none" }}>
                     <a
                       href="https://bsky.app/profile/nergy101.bsky.social"

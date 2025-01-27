@@ -1,5 +1,6 @@
 import { EmulationTier } from "../enums/EmulationTier.ts";
-
+import { SystemRating } from "../../data/models/system-rating.model.ts";
+import { Cooling } from "./cooling.model.ts";
 export interface Device {
   name: {
     raw: string;
@@ -36,10 +37,7 @@ export interface Device {
     maxEmulation: string | null;
     emulationLimit: string | null;
   };
-  consoleRatings: {
-    system: string; // console name
-    rating: string; // A-F
-  }[];
+  consoleRatings: SystemRating[];
 
   systemOnChip: string | null;
   architecture: string | null;
@@ -75,13 +73,7 @@ export interface Device {
     lens: string | null;
   };
 
-  cooling: {
-    raw: string | null;
-    hasHeatsink: boolean | null;
-    hasHeatPipe: boolean | null;
-    hasFan: boolean | null;
-    hasVentilationCutouts: boolean | null;
-  };
+  cooling: Cooling;
 
   // Controls
   controls: {

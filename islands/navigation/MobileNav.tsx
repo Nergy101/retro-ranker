@@ -42,8 +42,8 @@ export function MobileNav({ pathname }: { pathname: string }) {
           />
         </a>
 
-        <div style={{display: "flex", justifyContent: "center"}}>
-          <form action="/devices" method="get" style={{margin: 0}}>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <form action="/devices" method="get" style={{ margin: 0 }}>
             <input
               type="search"
               placeholder="Search"
@@ -57,9 +57,6 @@ export function MobileNav({ pathname }: { pathname: string }) {
           style={{
             display: "flex",
             flexDirection: "row",
-            // alignItems: "center",
-            // justifyContent: "flex-end",
-            // gap: "0.5rem",
           }}
         >
           <button
@@ -95,7 +92,7 @@ export function MobileNav({ pathname }: { pathname: string }) {
                   : "mobile-nav-button"}
               >
                 <div style={{ display: "flex", alignItems: "center" }}>
-                  {item.icon()}
+                  {item.icon && item.icon({ style: { minWidth: "1rem" } })}
                   &nbsp;{item.label}
                 </div>
               </a>
