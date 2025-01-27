@@ -27,6 +27,10 @@ export function DeviceComparisonResult(
     const worseClass = "worse";
     const equalClass = "equal";
 
+    if (ranking.all.length <= 1) {
+      return "";
+    }
+
     if (categoryName == "all") {
       if (ranking.all[0] == "equal") {
         return equalClass;
@@ -98,12 +102,6 @@ export function DeviceComparisonResult(
     <div class="compare-result">
       <div
         class={`compare-result-header ${isBest("all")}`}
-        data-placement="right"
-        data-tooltip={ranking.all[0] == "equal"
-          ? "Equal to other device"
-          : ranking.all[0] == device.name.sanitized
-          ? "Better"
-          : "Worse"}
       >
         <a
           href={`/devices/${device.name.sanitized}`}
@@ -140,7 +138,7 @@ export function DeviceComparisonResult(
               ? (
                 <img
                   loading="lazy"
-                  src={device.image?.url}
+                  src={device.image?.url ?? "/images/placeholder-100x100.svg"}
                   width={100}
                   height={100}
                   alt={device.image?.alt ?? "A device image"}

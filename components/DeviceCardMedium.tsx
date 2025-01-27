@@ -26,6 +26,9 @@ export function DeviceCardMedium({ device, isActive }: DeviceCardMediumProps) {
           margin: "0",
           paddingTop: "0.5rem",
           borderRadius: "0.5rem",
+          borderBottomLeftRadius: "0",
+          borderBottomRightRadius: "0",
+          borderBottom: "none",
         }}
       >
         <hgroup style={{ textAlign: "center" }}>

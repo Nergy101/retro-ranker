@@ -29,10 +29,10 @@ export default function Home() {
             Welcome to{" "}
           </p>
           <h1>
-            <span style={{ color: "var(--pico-primary)" }}>Retro Ranker</span>.
+            <span style={{ color: "var(--pico-primary)" }}>Retro Ranker</span>
           </h1>
           <p>
-            Find the perfect device for your gaming needs.
+            Find the handheld gaming device for your needs.
           </p>
         </hgroup>
       </header>

@@ -16,6 +16,7 @@ import { ClipboardButton } from "../../islands/ClipboardButton.tsx";
 import { ShareButton } from "../../islands/ShareButton.tsx";
 import { CompareButton } from "../../islands/CompareButton.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
+import { DeviceCardMedium } from "../../components/DeviceCardMedium.tsx";
 
 export default function DeviceDetail(props: PageProps) {
   const deviceService = DeviceService.getInstance();
@@ -378,9 +379,12 @@ export default function DeviceDetail(props: PageProps) {
         <h2>Similar Devices</h2>
         <div class="similar-devices-grid">
           {similarDevices.map((device) => (
-            <DeviceCardSmall
-              device={device}
-            />
+            <a href={`/devices/${device.name.sanitized}`}>
+              <DeviceCardMedium
+                device={device}
+                isActive={false}
+              />
+            </a>
           ))}
         </div>
       </div>

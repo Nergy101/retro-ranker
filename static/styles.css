@@ -298,7 +298,7 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1rem 0;
+  padding: 1rem;
 }
 
 .specs-grid {
@@ -363,7 +363,7 @@ html {
 }
 
 .active {
-  color: var(--pico-contrast);
+  color: var(--pico-primary);
   font-weight: bold;
 }
 
