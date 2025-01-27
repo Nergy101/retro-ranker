@@ -114,7 +114,9 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
           <span style={{ display: "flex", gap: "0.25rem", fontSize: "1rem" }}>
             {DeviceService.getCoolingIcons(device.cooling).map((
               { icon, tooltip },
-            ) => <span data-tooltip={tooltip} data-placement="bottom">{icon}</span>)}
+            ) => (
+              <span data-tooltip={tooltip} data-placement="bottom">{icon}</span>
+            ))}
           </span>
         </div>
 
@@ -139,8 +141,6 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
           </span>
         </div>
       </div>
-
-
 
       {(device.reviews.writtenReviews.length > 0 ||
         device.hackingGuides.length > 0) && (
@@ -171,48 +171,46 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
               )
               : <span>No written reviews available.</span>}
           </div>
-          <hr
-            style={{ border: "1px solid var(--pico-muted-border-color)" }}
-          />
         </>
       )}
 
       {(device.reviews.videoReviews.length > 0 ||
         device.vendorLinks.length > 0) && (
         <>
-          <div>
-            <strong>Video Reviews:</strong>
-            {device.reviews.videoReviews.length > 0
-              ? (
-                <div class="video-reviews">
-                  {device.reviews.videoReviews.map((review) => (
-                    <div
-                      key={review.url}
-                      style={{ textDecoration: "none", listStyle: "none" }}
+          {device.reviews.videoReviews.length > 0 && (
+            <div>
+            <hr
+              style={{ border: "1px solid var(--pico-muted-border-color)" }}
+            />
+              <strong>Video Reviews:</strong>
+              <div class="video-reviews">
+                {device.reviews.videoReviews.map((review) => (
+                  <div
+                    key={review.url}
+                    style={{ textDecoration: "none", listStyle: "none" }}
+                  >
+                    <iframe
+                      width="300"
+                      height="200"
+                      src={getEmbedUrl(review.url)}
+                      target="_blank"
+                      alt={review.name}
                     >
-                      <iframe
-                        width="300"
-                        height="200"
-                        src={getEmbedUrl(review.url)}
-                        target="_blank"
-                        alt={review.name}
-                      >
-                        {review.name}
-                      </iframe>
-                    </div>
-                  ))}
-                </div>
-              )
-              : <span>No video reviews available.</span>}
-          </div>
-          <hr
-            style={{ border: "1px solid var(--pico-muted-border-color)" }}
-          />
+                      {review.name}
+                    </iframe>
+                  </div>
+                ))}
+              </div>
+              <hr
+                style={{ border: "1px solid var(--pico-muted-border-color)" }}
+              />
+            </div>
+          )}
         </>
       )}
 
-      
-        {/* <div class="overflow-auto">
+      {
+        /* <div class="overflow-auto">
         {device.cpu && device.gpu && (
           <>
             <div
@@ -319,7 +317,8 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
             />
           </>
         )}
-      </div> */}
+      </div> */
+      }
     </div>
   );
 }
