@@ -12,6 +12,7 @@ import { ClipboardButton } from "../../islands/buttons/ClipboardButton.tsx";
 import { CompareButton } from "../../islands/buttons/CompareButton.tsx";
 import { ShareButton } from "../../islands/buttons/ShareButton.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
+import { RatingsService } from "../../services/devices/ratings.service.ts";
 
 export default function DeviceDetail(props: PageProps) {
   const deviceService = DeviceService.getInstance();
@@ -71,11 +72,31 @@ export default function DeviceDetail(props: PageProps) {
       "image": device.image?.url ?? "/images/placeholder-100x100.svg",
       "description":
         `${device.name.raw} is a ${device.brand} device. The device is ${device.pricing.category} and costs on average ${device.pricing.average} ${device.pricing.currency}.`,
-      "offers": {
+      "offers": device.vendorLinks.map(link => ({
         "@type": "Offer",
-        "url": `https://retroranker.site/devices/${device.name.sanitized}`,
+        "url": link.url,
         "priceCurrency": device.pricing.currency,
-        "price": device.pricing.average,
+        "priceSpecification": {
+          "price": device.pricing?.average ?? "Unknown",
+          "priceCurrency": device.pricing.currency,
+        },
+      })),
+      "review": {
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": device.performance.normalizedRating,
+          "bestRating": 10,
+          "worstRating": 0,
+        },
+      },
+      "manufacturer": {
+        "@type": "Organization",
+        "name": device.brand,
+        "brand": {
+          "@type": "Brand",
+          "name": device.brand,
+        },
       },
       "releaseDate": device.released.mentionedDate
         ? new Date(device.released.mentionedDate).toISOString().split("T")[0]
