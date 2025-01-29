@@ -16,8 +16,10 @@ export function DeviceComparisonForm({
   const originalDeviceA = devicesToCompare?.[0];
   const originalDeviceB = devicesToCompare?.[1];
 
-  const selectedDeviceA = useSignal(originalDeviceA?.name.raw || "");
-  const selectedDeviceB = useSignal(originalDeviceB?.name.raw || "");
+  const allDeviceRawNames = allDevices.map((device) => device.name.raw);
+  const deviceNameIsInvalid = (deviceName: string) =>
+    !allDeviceRawNames.some((name) => name === deviceName);
+
   const queryA = useSignal(originalDeviceA?.name.raw || "");
   const queryB = useSignal(originalDeviceB?.name.raw || "");
   const suggestionsA = useSignal<Device[]>([]);
@@ -150,6 +152,9 @@ export function DeviceComparisonForm({
               onInput={(e) => setQueryA(e.currentTarget.value)}
               placeholder="Search for a device..."
               aria-label="Search devices"
+              {...(queryA.value === "" ? {} : {
+                ariaInvalid: deviceNameIsInvalid(queryA.value),
+              })}
             />
           </div>
           <div style={{ width: "100%" }}>
@@ -168,6 +173,9 @@ export function DeviceComparisonForm({
               onInput={(e) => setQueryB(e.currentTarget.value)}
               placeholder="Search for a device..."
               aria-label="Search devices"
+              {...(queryB.value === "" ? {} : {
+                ariaInvalid: deviceNameIsInvalid(queryB.value),
+              })}
             />
           </div>
         </div>
