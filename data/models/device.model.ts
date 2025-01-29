@@ -37,7 +37,7 @@ export interface Device {
     maxEmulation: string | null;
     emulationLimit: string | null;
   };
-  consoleRatings: SystemRating[];
+  systemRatings: SystemRating[];
 
   systemOnChip: string | null;
   architecture: string | null;

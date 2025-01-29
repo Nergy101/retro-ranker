@@ -198,8 +198,8 @@ export class DeviceService {
     return this.devices
       .filter((device) => device.name.sanitized !== sanitizedName)
       .sort((a, b) => {
-        const scoreA = this.ratingsService.getSimilarityScore(a, currentDevice);
-        const scoreB = this.ratingsService.getSimilarityScore(b, currentDevice);
+        const scoreA = RatingsService.getSimilarityScore(a, currentDevice);
+        const scoreB = RatingsService.getSimilarityScore(b, currentDevice);
         return scoreB - scoreA;
       })
       .slice(0, limit);

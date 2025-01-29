@@ -14,7 +14,7 @@ export class RatingsService {
     return RatingsService.instance;
   }
 
-  public parseSystemRating(value: string): string {
+  public static parseSystemRatingMark(value: string): string {
     if (value.includes("A")) return "A";
     if (value.includes("B")) return "B";
     if (value.includes("C")) return "C";
@@ -23,7 +23,16 @@ export class RatingsService {
     return "N/A";
   }
 
-  public parsePerformanceRating(text: string): {
+  public static parseSystemRatingNumber(value: string): number | null {
+    if (value.includes("A")) return 5;
+    if (value.includes("B")) return 4;
+    if (value.includes("C")) return 3;
+    if (value.includes("D")) return 2;
+    if (value.includes("F")) return 1;
+    return null;
+  }
+
+  public static parsePerformanceRating(text: string): {
     rating: number;
     normalizedRating: number;
     tier: EmulationTier;
@@ -76,7 +85,7 @@ export class RatingsService {
     };
   }
 
-  public getSimilarityScore(device: Device, targetDevice: Device): number {
+  public static getSimilarityScore(device: Device, targetDevice: Device): number {
     let score = 0;
 
     // Same brand

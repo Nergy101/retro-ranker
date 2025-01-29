@@ -15,7 +15,7 @@ export function SeeMoreCard({ href, text = "More devices" }: SeeMoreCardProps) {
       <PiArrowBendDoubleUpRight
         style={{ fontSize: "2rem", color: "var(--pico-primary-text)" }}
       />
-      <span>{text}</span>
+      <span class="see-more-text">{text}</span>
     </a>
   );
 }

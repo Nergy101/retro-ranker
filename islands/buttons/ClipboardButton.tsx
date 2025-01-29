@@ -32,7 +32,7 @@ export function ClipboardButton({ url }: { url: string }) {
       >
         {!success.value && (
           <>
-            <PiClipboard /> Copy Link
+            <PiClipboard /> Link
           </>
         )}
         {success.value && (

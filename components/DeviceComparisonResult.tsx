@@ -247,7 +247,7 @@ export function DeviceComparisonResult(
         </div>
 
         <div class="compare-result-performance-chips">
-          {device.consoleRatings.map((rating) => (
+          {device.systemRatings.map((rating) => (
             <RatingInfo key={rating.system} rating={rating} />
           ))}
         </div>

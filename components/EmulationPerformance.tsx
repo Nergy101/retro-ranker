@@ -1,14 +1,14 @@
 import { PiVibrate } from "@preact-icons/pi";
+import { Cooling } from "../data/models/cooling.model.ts";
 import { Device } from "../data/models/device.model.ts";
 import { DeviceService } from "../services/devices/device.service.ts";
 import { RatingInfo } from "./RatingInfo.tsx";
-import { Cooling } from "../data/models/cooling.model.ts";
 interface EmulationPerformanceProps {
   device: Device;
 }
 
 export function EmulationPerformance({ device }: EmulationPerformanceProps) {
-  const ratings = device.consoleRatings;
+  const ratings = device.systemRatings;
 
   // const max20Characters = (text: string | null) => {
   //   if (text && text.length > 20) {
@@ -81,15 +81,7 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
       style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}
     >
       <h3 style={{ textAlign: "center" }}>Emulation Performance</h3>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          flexWrap: "wrap",
-          gap: "0.5rem",
-          justifyContent: "center",
-        }}
-      >
+      <div class="rating-info-grid">
         {ratings.map((rating) => (
           <RatingInfo key={rating.system} rating={rating} />
         ))}
@@ -151,47 +143,16 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
         </div>
       </div>
 
-      {(device.reviews.writtenReviews.length > 0 ||
-        device.hackingGuides.length > 0) && (
-        <>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "0.5rem",
-            }}
-          >
-            <strong>Written Reviews:</strong>
-            {device.reviews.writtenReviews.length > 0
-              ? (
-                <ul>
-                  {device.reviews.writtenReviews.map((review) => (
-                    <li key={review.url}>
-                      <a
-                        href={review.url}
-                        target="_blank"
-                        alt={review.name}
-                      >
-                        {review.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              )
-              : <span>No written reviews available.</span>}
-          </div>
-        </>
-      )}
-
-      {(device.reviews.videoReviews.length > 0 ||
-        device.vendorLinks.length > 0) && (
+      {(device.reviews.videoReviews.length > 0) && (
         <>
           {device.reviews.videoReviews.length > 0 && (
             <div>
               <hr
                 style={{ border: "1px solid var(--pico-muted-border-color)" }}
               />
-              <strong>Video Reviews:</strong>
+              <strong>
+                Video Reviews:
+              </strong>
               <div class="video-reviews">
                 {device.reviews.videoReviews.map((review) => (
                   <div
@@ -210,11 +171,68 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
                   </div>
                 ))}
               </div>
-              <hr
-                style={{ border: "1px solid var(--pico-muted-border-color)" }}
-              />
             </div>
           )}
+        </>
+      )}
+
+      {(device.reviews.writtenReviews.length > 0 ||
+        device.hackingGuides.length > 0) && (
+        <>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "0.5rem",
+            }}
+          >
+            <strong>Written Reviews:</strong>
+            {device.reviews.writtenReviews.length > 0
+              ? (
+                <div
+                  style={{
+                    display: "flex",
+                    flexFlow: "row wrap",
+                    gap: "1rem",
+                  }}
+                >
+                  {device.reviews.writtenReviews.map((review) => (
+                    <div key={review.url}>
+                      <a
+                        href={review.url}
+                        target="_blank"
+                        alt={review.name}
+                      >
+                        {review.name}
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              )
+              : <span>No written reviews available.</span>}
+          </div>
+        </>
+      )}
+
+      {device.vendorLinks.length > 0 && (
+        <>
+          <hr
+            style={{ border: "1px solid var(--pico-muted-border-color)" }}
+          />
+          <strong>
+            Vendor Links:
+          </strong>
+          <div
+            style={{
+              display: "flex",
+              flexFlow: "row wrap",
+              gap: "1rem",
+            }}
+          >
+            {device.vendorLinks.map((link) => (
+              <a href={link.url} target="_blank">{link.name}</a>
+            ))}
+          </div>
         </>
       )}
 

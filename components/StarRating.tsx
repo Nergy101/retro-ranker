@@ -16,7 +16,7 @@ export function StarRating({ device }: StarRatingProps) {
     let featuresScore = 0;
 
     // Calculate emulation score (max 50 points)
-    const ratings = device.consoleRatings;
+    const ratings = device.systemRatings;
 
     const systemWeights = {
       "Game Boy": 1,
@@ -41,7 +41,7 @@ export function StarRating({ device }: StarRatingProps) {
 
     // Check if all ratings are "N/A"
     const allRatingsNA = ratings?.every((rating) =>
-      rating.rating === "N/A" || rating.rating === undefined
+      rating.ratingMark === "N/A" || rating.ratingMark === undefined
     );
 
     if (allRatingsNA || allRatingsNA === undefined || ratings?.length === 0) {
@@ -52,7 +52,7 @@ export function StarRating({ device }: StarRatingProps) {
     ratings?.forEach((rating) => {
       const weight =
         systemWeights[rating.system as keyof typeof systemWeights] || 1;
-      switch (rating.rating) {
+      switch (rating.ratingMark) {
         case "A":
           emulationScore += weight * 1;
           break;

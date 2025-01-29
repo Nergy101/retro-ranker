@@ -1030,8 +1030,27 @@ h6,
 }
 
 .video-reviews {
+  max-height: 10em;
   overflow-x: auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 0.5rem;
+}
+
+.rating-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 0.5rem;
+}
+
+.rating-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  padding: 0.25rem;
+  border-radius: 0.5em;
+  font-size: 0.75rem;
 }

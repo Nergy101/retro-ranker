@@ -2,5 +2,6 @@ import { EmulationSystem } from "../enums/EmulationSystem.ts";
 
 export interface SystemRating {
   system: EmulationSystem;
-  rating: string;
+  ratingMark: string;
+  ratingNumber: number | null;
 }
