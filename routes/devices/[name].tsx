@@ -77,19 +77,10 @@ export default function DeviceDetail(props: PageProps) {
         "url": link.url,
         "priceCurrency": device.pricing.currency,
         "priceSpecification": {
-          "price": device.pricing?.average ?? "Unknown",
+          "price": device.pricing?.average ?? "0",
           "priceCurrency": device.pricing.currency,
         },
       })),
-      "review": {
-        "@type": "Review",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": device.performance.normalizedRating,
-          "bestRating": 10,
-          "worstRating": 0,
-        },
-      },
       "manufacturer": {
         "@type": "Organization",
         "name": device.brand,
