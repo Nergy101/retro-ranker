@@ -16,6 +16,8 @@ export function DeviceComparisonForm({
   const originalDeviceA = devicesToCompare?.[0];
   const originalDeviceB = devicesToCompare?.[1];
 
+  const selectedDeviceA = useSignal(originalDeviceA?.name.raw || "");
+  const selectedDeviceB = useSignal(originalDeviceB?.name.raw || "");
   const queryA = useSignal(originalDeviceA?.name.raw || "");
   const queryB = useSignal(originalDeviceB?.name.raw || "");
   const suggestionsA = useSignal<Device[]>([]);
@@ -68,6 +70,10 @@ export function DeviceComparisonForm({
   const setQueryASuggestion = (value: string) => {
     queryA.value = value;
     suggestionsA.value = [];
+
+    if (queryA.value && queryB.value) {
+      handleSubmit();
+    }
   };
 
   const setQueryB = (value: string) => {
@@ -81,10 +87,18 @@ export function DeviceComparisonForm({
   const setQueryBSuggestion = (value: string) => {
     queryB.value = value;
     suggestionsB.value = [];
+
+    if (queryA.value && queryB.value) {
+      handleSubmit();
+    }
   };
 
-  const handleSubmit = (event: Event) => {
+  const handleFormSubmit = (event: Event) => {
     event.preventDefault();
+    handleSubmit();
+  };
+
+  const handleSubmit = () => {
     const selectedDeviceA = allDevices.find((device) =>
       device.name.raw === queryA.value
     );
@@ -110,7 +124,7 @@ export function DeviceComparisonForm({
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleFormSubmit}>
       <div
         style={{
           display: "flex",

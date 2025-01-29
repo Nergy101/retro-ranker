@@ -902,13 +902,13 @@ h6,
 }
 
 .suggestions-list {
+  z-index: 1000;
   width: 100cqw;
   padding: 1em;
   max-height: 80vh;
 
   border: 3px solid var(--pico-primary);
   border-radius: var(--pico-border-radius);
-  z-index: 1000;
   overflow-y: auto;
 
   position: absolute;
