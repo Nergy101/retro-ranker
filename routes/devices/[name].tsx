@@ -75,10 +75,10 @@ export default function DeviceDetail(props: PageProps) {
       "offers": device.vendorLinks.map(link => ({
         "@type": "Offer",
         "url": link.url,
-        "priceCurrency": device.pricing.currency,
+        "priceCurrency": device.pricing?.currency ?? "USD",
         "priceSpecification": {
           "price": device.pricing?.average ?? "0",
-          "priceCurrency": device.pricing.currency,
+          "priceCurrency": device.pricing?.currency ?? "USD",
         },
       })),
       "manufacturer": {
