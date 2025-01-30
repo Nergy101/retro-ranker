@@ -17,7 +17,7 @@
   "exclude": [
     "**/_fresh/*",
     "data/source/results/*",
-    "data/source/*.html",
+    "data/source/files/*",
     "data/source/data-source.ipynb",
     "static/pico.pumpkin.min.css",
     "static/styles.css"

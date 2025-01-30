@@ -85,7 +85,10 @@ export class RatingsService {
     };
   }
 
-  public static getSimilarityScore(device: Device, targetDevice: Device): number {
+  public static getSimilarityScore(
+    device: Device,
+    targetDevice: Device,
+  ): number {
     let score = 0;
 
     // Same brand

@@ -22,6 +22,7 @@ import * as $buttons_ShareButton from "./islands/buttons/ShareButton.tsx";
 import * as $navigation_Breadcrumb from "./islands/navigation/Breadcrumb.tsx";
 import * as $navigation_DesktopNav from "./islands/navigation/DesktopNav.tsx";
 import * as $navigation_MobileNav from "./islands/navigation/MobileNav.tsx";
+import * as $navigation_Navbar from "./islands/navigation/Navbar.tsx";
 import * as $navigation_ThemeSwitcher from "./islands/navigation/ThemeSwitcher.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
@@ -49,6 +50,7 @@ const manifest = {
     "./islands/navigation/Breadcrumb.tsx": $navigation_Breadcrumb,
     "./islands/navigation/DesktopNav.tsx": $navigation_DesktopNav,
     "./islands/navigation/MobileNav.tsx": $navigation_MobileNav,
+    "./islands/navigation/Navbar.tsx": $navigation_Navbar,
     "./islands/navigation/ThemeSwitcher.tsx": $navigation_ThemeSwitcher,
   },
   baseUrl: import.meta.url,

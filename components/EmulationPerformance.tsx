@@ -1,4 +1,4 @@
-import { PiVibrate } from "@preact-icons/pi";
+import { PiQuestionFill, PiVibrate } from "@preact-icons/pi";
 import { Cooling } from "../data/models/cooling.model.ts";
 import { Device } from "../data/models/device.model.ts";
 import { DeviceService } from "../services/devices/device.service.ts";
@@ -9,13 +9,6 @@ interface EmulationPerformanceProps {
 
 export function EmulationPerformance({ device }: EmulationPerformanceProps) {
   const ratings = device.systemRatings;
-
-  // const max20Characters = (text: string | null) => {
-  //   if (text && text.length > 20) {
-  //     return text.substring(0, 20) + "...";
-  //   }
-  //   return text;
-  // };
 
   const getEmbedUrl = (url: string) => {
     if (url.includes("youtube.com")) {
@@ -57,22 +50,80 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
   const getRumbleColor = (rumble: string | null) => {
     if (!rumble) {
       return {
-        color: "var(--pico-contrast)",
+        color: "#EEB61B",
         textColor: "black",
         tooltip: "Unknown",
       };
     }
+
     if (rumble === "✅") {
       return { color: "#16833E", textColor: "white", tooltip: "Present" };
     }
     if (rumble === "❌") {
       return { color: "#AB0D0D", textColor: "white", tooltip: "Not present" };
     }
+
     return {
-      color: "var(--pico-contrast)",
+      color: "#EEB61B",
       textColor: "black",
       tooltip: "Unknown",
     };
+  };
+
+  const renderCoolingSection = () => {
+    const coolingData = getCoolingColor(device.cooling);
+    return (
+      <div
+        style={{
+          backgroundColor: coolingData.color,
+          padding: "0.25rem",
+          borderRadius: "0.5em",
+          textAlign: "center",
+          fontSize: "0.75rem",
+          color: coolingData.textColor,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+        data-tooltip={coolingData.tooltip}
+      >
+        <strong>Cooling</strong>
+        <span style={{ display: "flex", gap: "0.25rem", fontSize: "1rem" }}>
+          {DeviceService.getCoolingIcons(device.cooling).map((
+            { icon, tooltip },
+          ) => (
+            <span data-tooltip={tooltip} data-placement="bottom">{icon}</span>
+          ))}
+        </span>
+      </div>
+    );
+  };
+
+  const renderRumbleSection = () => {
+    const rumbleData = getRumbleColor(device.rumble);
+    return (
+      <div
+        style={{
+          backgroundColor: rumbleData.color,
+          color: rumbleData.textColor,
+          padding: "0.25rem",
+          borderRadius: "0.5em",
+          textAlign: "center",
+          fontSize: "0.75rem",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+        data-tooltip={rumbleData.tooltip}
+      >
+        <strong>Rumble</strong>
+        <span style={{ display: "flex", gap: "0.25rem", fontSize: "1rem" }}>
+          {device.rumble === "✅" ? <PiVibrate /> : <PiQuestionFill />}
+        </span>
+      </div>
+    );
   };
 
   return (
@@ -96,51 +147,8 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
           justifyContent: "center",
         }}
       >
-        <div
-          style={{
-            backgroundColor: getCoolingColor(device.cooling).color,
-            padding: "0.25rem",
-            borderRadius: "0.5em",
-            textAlign: "center",
-            fontSize: "0.75rem",
-            color: getCoolingColor(device.cooling).textColor,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-          data-tooltip={getCoolingColor(device.cooling).tooltip}
-        >
-          <strong>Cooling</strong>
-          <span style={{ display: "flex", gap: "0.25rem", fontSize: "1rem" }}>
-            {DeviceService.getCoolingIcons(device.cooling).map((
-              { icon, tooltip },
-            ) => (
-              <span data-tooltip={tooltip} data-placement="bottom">{icon}</span>
-            ))}
-          </span>
-        </div>
-
-        <div
-          style={{
-            backgroundColor: getRumbleColor(device.rumble).color,
-            padding: "0.25rem",
-            borderRadius: "0.5em",
-            textAlign: "center",
-            fontSize: "0.75rem",
-            color: getRumbleColor(device.rumble).textColor,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-          data-tooltip={getRumbleColor(device.rumble).tooltip}
-        >
-          <strong>Rumble</strong>
-          <span style={{ display: "flex", gap: "0.25rem", fontSize: "1rem" }}>
-            <PiVibrate />
-          </span>
-        </div>
+        {renderCoolingSection()}
+        {renderRumbleSection()}
       </div>
 
       {(device.reviews.videoReviews.length > 0) && (

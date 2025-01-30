@@ -32,8 +32,6 @@ video {
 }
 
 html {
-  line-height: 1.5;
-  -webkit-text-size-adjust: 100%;
   font-family: "Azeret Mono", monospace;
 }
 
@@ -170,6 +168,17 @@ html {
   padding-left: 0;
 }
 
+.small-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+
+  @media (width <= 425px) {
+    /* grow last card horizontally to fill 2 spans */
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .small-card {
   padding: 1rem;
   border: 1px solid var(--pico-primary);
@@ -179,8 +188,6 @@ html {
   align-items: center;
   gap: 0.5rem;
   background-color: rgba(255, 255, 255, 0.05);
-
-  min-width: 13em;
 
   @media (max-width: 500px) {
     min-width: 10em;
@@ -367,11 +374,6 @@ html {
   justify-content: center;
 }
 
-.active {
-  color: var(--pico-primary);
-  font-weight: bold;
-}
-
 .device-row-grid {
   display: grid;
   gap: 0.5rem;
@@ -383,66 +385,6 @@ html {
 
   @media (max-width: 425px) {
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.mobile-nav {
-  display: none;
-}
-
-.mobile-nav-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem 1rem 0.5rem 0;
-}
-
-.burger-menu {
-  min-width: 2.5rem;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  padding: 0.5rem;
-  color: var(--pico-primary);
-}
-
-.mobile-nav-content {
-  display: none;
-  background-color: var(--pico-background-color);
-  position: absolute;
-  top: 4rem;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-}
-
-.mobile-nav-content.show {
-  display: block;
-}
-
-.mobile-nav-content ul {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  padding: 0;
-}
-
-.mobile-nav-content li {
-  list-style: none;
-}
-
-.desktop-nav {
-  display: block;
-}
-
-@media (max-width: 768px) {
-  .desktop-nav {
-    display: none;
-  }
-
-  .mobile-nav {
-    display: block;
   }
 }
 
@@ -1053,4 +995,135 @@ h6,
   padding: 0.25rem;
   border-radius: 0.5em;
   font-size: 0.75rem;
+}
+
+/* Desktop Nav */
+.desktop-nav-ul {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  padding: 0;
+
+  border-bottom: 1px solid var(--pico-primary);
+}
+
+.logo-nav-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+
+  .nav-item-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--pico-contrast);
+  }
+}
+
+.nav-a {
+  text-decoration: none;
+  color: var(--pico-contrast);
+}
+
+.active {
+  background-color: var(--pico-primary-focus);
+  border: 1px solid var(--pico-primary);
+}
+
+.nav-search-item {
+  margin-left: auto;
+  margin-right: 1rem;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nav-theme-item {
+  margin-right: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* Mobile Nav */
+
+.mobile-nav {
+  width: 100vw;
+  display: flex;
+}
+
+.mobile-nav-header {
+  flex: 1;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem;
+}
+
+.burger-menu {
+  margin-left: 1rem;
+
+  min-width: 2.5rem;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: var(--pico-primary);
+  border: 1px solid var(--pico-primary);
+  border-radius: 0.5rem;
+}
+
+.mobile-nav-content {
+  display: none;
+}
+
+.mobile-nav-content.show {
+  display: block;
+  background-color: var(--pico-background-color);
+  position: absolute;
+  top: 5rem;
+  left: 0;
+  right: 0;
+  z-index: 1100;
+}
+
+.mobile-nav-content ul {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+.mobile-nav-content li {
+  list-style: none;
+}
+
+.mobile-nav-search-item {
+  margin-left: auto;
+  margin-right: auto;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.mobile-nav-theme-switcher {
+  margin: 0 1rem;
+}
+
+.mobile-active {
+  background-color: var(--pico-primary-focus);
+  color: var(--pico-contrast);
+  font-weight: bold;
 }

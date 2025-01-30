@@ -25,6 +25,7 @@ export function parseOsIcons(os: string): string[] {
   if (lowerOs.includes("trimui")) icons.push("ph-scissors");
 
   if (lowerOs.includes("analogue os")) icons.push("ph-code");
+  if (lowerOs.includes("retroarch")) icons.push("👾");
 
   // OEM
   if (lowerOs.includes("nintendo")) icons.push("ph-factory");

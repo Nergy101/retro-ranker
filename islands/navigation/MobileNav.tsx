@@ -42,37 +42,31 @@ export function MobileNav({ pathname }: { pathname: string }) {
           />
         </a>
 
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <form action="/devices" method="get" style={{ margin: 0 }}>
+        <div class="mobile-nav-search-item">
+          <form action="/devices" method="get">
             <input
               type="search"
               placeholder="Search"
               name="search"
               aria-label="Search"
+              style={{ margin: 0 }}
             />
           </form>
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
+        <button
+          class="burger-menu"
+          onClick={() => {
+            document.querySelector(".mobile-nav-content")?.classList
+              .toggle("show");
           }}
+          aria-label="Toggle menu"
         >
-          <button
-            class="burger-menu"
-            onClick={() => {
-              document.querySelector(".mobile-nav-content")?.classList
-                .toggle("show");
-            }}
-            aria-label="Toggle menu"
-          >
-            <PiListBold />
-          </button>
+          <PiListBold />
+        </button>
 
-          <div>
-            <ThemeSwitcher showTooltip={false} showNames={false} />
-          </div>
+        <div class="mobile-nav-theme-switcher">
+          <ThemeSwitcher showTooltip={false} showNames={false} />
         </div>
       </div>
       <div
@@ -88,13 +82,13 @@ export function MobileNav({ pathname }: { pathname: string }) {
               <a
                 href={item.href}
                 class={item.isActive(pathname)
-                  ? "active mobile-nav-button"
+                  ? "mobile-active mobile-nav-button"
                   : "mobile-nav-button"}
               >
-                <div style={{ display: "flex", alignItems: "center" }}>
-                  {item.icon && item.icon({ style: { minWidth: "1rem" } })}
+                <span style={{ display: "flex", alignItems: "center" }}>
+                  {item.icon && item.icon({ style: { fontSize: "1.3rem" } })}
                   &nbsp;{item.label}
-                </div>
+                </span>
               </a>
             </li>
           ))}

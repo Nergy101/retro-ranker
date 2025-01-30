@@ -4,8 +4,8 @@ import { navigationItems } from "../../data/navigation.ts";
 export function DesktopNav({ pathname }: { pathname: string }) {
   return (
     <nav class="desktop-nav">
-      <ul>
-        <li>
+      <ul class="desktop-nav-ul">
+        <li class="logo-nav-item">
           <a href="/">
             <img
               loading="lazy"
@@ -16,43 +16,33 @@ export function DesktopNav({ pathname }: { pathname: string }) {
           </a>
         </li>
         {navigationItems.map((item) => (
-          <li>
+          <li class="nav-item">
             <a
               href={item.href}
-              class={item.isActive(pathname) ? "active" : ""}
+              class={item.isActive(pathname) ? "nav-a active" : "nav-a"}
             >
-              <div
-                style={{ display: "inline-flex" }}
-              >
+              <span class="nav-item-label">
                 {item.icon && item.icon({ style: { minWidth: "1rem" } })}
-                &nbsp;{item.label}
-              </div>
+                {item.label}
+              </span>
             </a>
           </li>
         ))}
-        <li style={{ marginLeft: "auto" }}>
-          <div style={{ display: "flex", flexDirection: "row" }}>
-            <form
-              action="/devices"
-              method="get"
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                marginRight: "1rem",
-              }}
-            >
-              <input
-                type="search"
-                placeholder="Search"
-                name="search"
-                aria-label="Search"
-              />
-            </form>
-            <div style={{ marginRight: "1rem" }}>
-              <ThemeSwitcher showNames={false} showTooltip={false} />
-            </div>
-          </div>
+        <li class="nav-search-item">
+          <form
+            action="/devices"
+            method="get"
+          >
+            <input
+              type="search"
+              placeholder="Search"
+              name="search"
+              aria-label="Search"
+            />
+          </form>
+        </li>
+        <li class="nav-theme-item">
+          <ThemeSwitcher showNames={false} showTooltip={false} />
         </li>
       </ul>
     </nav>

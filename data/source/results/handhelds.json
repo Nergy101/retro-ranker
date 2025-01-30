@@ -59927,7 +59927,7 @@
     "os": {
       "raw": "RetroArch(EmuELEC)",
       "icons": [
-        "ph-empty"
+        "👾"
       ],
       "list": [
         "RetroArch(EmuELEC)"
@@ -66381,7 +66381,7 @@
     "os": {
       "raw": "RetroArch",
       "icons": [
-        "ph-empty"
+        "👾"
       ],
       "list": [
         "RetroArch"
@@ -69615,7 +69615,8 @@
     "os": {
       "raw": "RetroArch(EmuELEC, ArkOS)",
       "icons": [
-        "ph-rainbow"
+        "ph-rainbow",
+        "👾"
       ],
       "list": [
         "RetroArch(EmuELEC",
@@ -71139,7 +71140,7 @@
     "os": {
       "raw": "RetroArch(EmuELEC)",
       "icons": [
-        "ph-empty"
+        "👾"
       ],
       "list": [
         "RetroArch(EmuELEC)"
@@ -72293,7 +72294,7 @@
     "os": {
       "raw": "RetroArch",
       "icons": [
-        "ph-empty"
+        "👾"
       ],
       "list": [
         "RetroArch"
@@ -72574,7 +72575,8 @@
     "os": {
       "raw": "OpenDingux, Rogue, RetroArch",
       "icons": [
-        "ph-brackets-round"
+        "ph-brackets-round",
+        "👾"
       ],
       "list": [
         "OpenDingux",
@@ -76562,7 +76564,8 @@
     "os": {
       "raw": "OpenDingux, Rogue, RetroArch",
       "icons": [
-        "ph-brackets-round"
+        "ph-brackets-round",
+        "👾"
       ],
       "list": [
         "OpenDingux",

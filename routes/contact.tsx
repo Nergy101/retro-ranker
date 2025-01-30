@@ -24,7 +24,7 @@ export default function ContactPage() {
             If you find Retro Ranker helpful and want to support its
             development, you can buy me a coffee or contribute to the project.
           </p>
-          <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+          <div class="small-card-grid">
             <a
               href="https://ko-fi.com/nergy"
               target="_blank"
@@ -50,33 +50,27 @@ export default function ContactPage() {
 
         <section>
           <h3>My Other Projects</h3>
-          <ul>
-            <li>
-              <a
-                href="https://portfolio.nergy.space"
-                target="_blank"
-                class="text-primary"
-              >
-                Portfolio
-              </a>
-              &nbsp;- My portfolio website
-            </li>
-            <li>
-              <a
-                href="https://blog.nergy.space"
-                target="_blank"
-                class="text-primary"
-              >
-                Blog
-              </a>
-              &nbsp;- My blog website
-            </li>
-          </ul>
+          <div class="small-card-grid">
+            <a
+              href="https://portfolio.nergy.space"
+              target="_blank"
+              class="small-card"
+            >
+              Portfolio
+            </a>
+            <a
+              href="https://blog.nergy.space"
+              target="_blank"
+              class="small-card"
+            >
+              Blog
+            </a>
+          </div>
         </section>
 
         <section>
           <h3>Connect With Me</h3>
-          <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+          <div class="small-card-grid">
             <a
               href="https://bsky.app/profile/nergy101.bsky.social"
               target="_blank"

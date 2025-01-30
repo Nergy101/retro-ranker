@@ -12,7 +12,6 @@ import { ClipboardButton } from "../../islands/buttons/ClipboardButton.tsx";
 import { CompareButton } from "../../islands/buttons/CompareButton.tsx";
 import { ShareButton } from "../../islands/buttons/ShareButton.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
-import { RatingsService } from "../../services/devices/ratings.service.ts";
 
 export default function DeviceDetail(props: PageProps) {
   const deviceService = DeviceService.getInstance();
@@ -72,7 +71,7 @@ export default function DeviceDetail(props: PageProps) {
       "image": device.image?.url ?? "/images/placeholder-100x100.svg",
       "description":
         `${device.name.raw} is a ${device.brand} device. The device is ${device.pricing.category} and costs on average ${device.pricing.average} ${device.pricing.currency}.`,
-      "offers": device.vendorLinks.map(link => ({
+      "offers": device.vendorLinks.map((link) => ({
         "@type": "Offer",
         "url": link.url,
         "price": device.pricing?.average ?? "0",

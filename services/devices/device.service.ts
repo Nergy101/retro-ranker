@@ -255,7 +255,7 @@ export class DeviceService {
       .slice(0, 4);
   }
 
-  static getOsIconComponent(os: string): VNode<JSX.SVGAttributes> {
+  static getOsIconComponent(os: string): VNode<JSX.SVGAttributes> | string {
     switch (os) {
       case "ph-factory":
         return PiFactory({});
@@ -287,6 +287,8 @@ export class DeviceService {
         return PiScissors({});
       case "ph-code":
         return PiCode({});
+      case "👾": //vnode of emoji
+        return "👾";
       default:
         return PiEmpty({});
     }

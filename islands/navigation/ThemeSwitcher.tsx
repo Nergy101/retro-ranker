@@ -1,6 +1,6 @@
+import { PiMoonStars, PiSun } from "@preact-icons/pi";
 import { useSignal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
-import { PiMoon, PiSun } from "@preact-icons/pi";
 
 export function ThemeSwitcher(
   { showNames = true, showTooltip = true, tooltipLocation = "bottom" }: {
@@ -41,6 +41,7 @@ export function ThemeSwitcher(
       class="outline"
       onClick={toggleTheme}
       style={{
+        margin: "0",
         padding: "0.5rem",
         borderRadius: "0.5rem",
         cursor: "pointer",
@@ -79,7 +80,7 @@ export function ThemeSwitcher(
               transform: "rotate(0deg)",
             }}
           >
-            <PiMoon />
+            <PiMoonStars />
           </span>
           {showNames && <span>Dark side</span>}
         </div>

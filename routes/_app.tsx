@@ -7,15 +7,14 @@ import {
   PiShield,
 } from "@preact-icons/pi";
 import { Breadcrumb } from "../islands/navigation/Breadcrumb.tsx";
-import { DesktopNav } from "../islands/navigation/DesktopNav.tsx";
-import { MobileNav } from "../islands/navigation/MobileNav.tsx";
+import { Navbar } from "../islands/navigation/Navbar.tsx";
 
 export default function App({ Component, url }: PageProps) {
   return (
     <html class="transition-colors" lang="en">
       <Head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="color-scheme" content="light dark" />
         <meta
           name="description"
@@ -97,18 +96,8 @@ export default function App({ Component, url }: PageProps) {
         />
       </Head>
       <body>
-        <header
-          style={{
-            padding: "0",
-            borderBottom: "1px solid var(--pico-primary)",
-          }}
-        >
-          {/* Desktop Navigation */}
-          <DesktopNav pathname={url.pathname} />
+        <Navbar pathname={url.pathname} />
 
-          {/* Mobile Navigation */}
-          <MobileNav pathname={url.pathname} />
-        </header>
         <main class="container">
           <Breadcrumb />
           <Component />

@@ -28,7 +28,7 @@ export const navigationItems: NavigationItem[] = [
     label: "Devices",
     icon: (props) => PiScroll({ ...props }),
     isActive: (pathname) => pathname.startsWith("/devices"),
-    priority: 0.9
+    priority: 0.9,
   },
   {
     href: "/compare",

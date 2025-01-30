@@ -1,4 +1,4 @@
-import { PiGitDiff } from "@preact-icons/pi";
+import { PiQuestion, PiTrash } from "@preact-icons/pi";
 import { useSignal } from "@preact/signals";
 import { useEffect, useRef } from "preact/hooks";
 import { DeviceCardMedium } from "../components/DeviceCardMedium.tsx";
@@ -121,6 +121,11 @@ export function DeviceComparisonForm({
     globalThis.location.href = "/compare";
   };
 
+  const handleExampleComparison = (deviceA: string, deviceB: string) => {
+    setQueryA(deviceA);
+    setQueryB(deviceB);
+  };
+
   const isActive = (deviceName: string) => {
     return deviceName === queryA.value || deviceName === queryB.value;
   };
@@ -178,6 +183,25 @@ export function DeviceComparisonForm({
               })}
             />
           </div>
+          <button
+            type="reset"
+            onClick={handleReset}
+            class="outline"
+            style={{
+              maxHeight: "fit-content",
+              alignSelf: "flex-end",
+            }}
+          >
+            <span
+              style={{
+                display: "flex",
+                gap: "0.25rem",
+              }}
+            >
+              <PiTrash style={{ minWidth: "1.2rem" }} />
+              Clear
+            </span>
+          </button>
         </div>
         <div id="suggestions-container">
           {suggestionsA.value.length > 0 && (
@@ -266,20 +290,36 @@ export function DeviceComparisonForm({
           </details>
         )}
       </div>
-      <div style={{ display: "flex", gap: "1rem" }}>
-        <button type="reset" onClick={handleReset}>Reset</button>
+      <div style={{ display: "flex", gap: "1rem", justifyContent: "center" }}>
         <button
+          class="secondary"
+          onClick={() => handleExampleComparison("Miyoo Flip", "RG-35XX SP")}
           type="submit"
           style={{
             display: "flex",
-            gap: "0.5rem",
             alignItems: "center",
             justifyContent: "center",
           }}
-          disabled={!queryA.value || !queryB.value}
         >
-          <PiGitDiff />
-          Compare selected devices
+          <span style={{ display: "flex", gap: "0.25rem" }}>
+            <PiQuestion style={{ minWidth: "1.2rem" }} />
+            Miyoo Flip vs RG-35XX SP
+          </span>
+        </button>
+        <button
+          class="secondary"
+          onClick={() => handleExampleComparison("Switch Lite", "New 3DS XL")}
+          type="submit"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <span style={{ display: "flex", gap: "0.25rem" }}>
+            <PiQuestion style={{ minWidth: "1.2rem" }} />
+            Switch Lite vs New 3DS XL
+          </span>
         </button>
       </div>
     </form>

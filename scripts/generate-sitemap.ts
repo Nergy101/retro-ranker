@@ -1,5 +1,5 @@
-import { DeviceService } from "../services/devices/device.service.ts";
 import { navigationItems } from "../data/navigation.ts";
+import { DeviceService } from "../services/devices/device.service.ts";
 
 const deviceService = DeviceService.getInstance();
 const SITE_URL = "https://retroranker.site";
@@ -14,6 +14,7 @@ const staticUrls = navigationItems.map((item) => ({
 
 const dynamicUrls = deviceNames.map((device) => ({
   loc: `${SITE_URL}/devices/${device}`,
+  priority: null,
 }));
 
 const urls = [...staticUrls, ...dynamicUrls];
@@ -24,7 +25,7 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
   urls
     .map(
       (url) => {
-        if (url.priority) {
+        if (url.priority !== null) {
           return `
         <url>
             <loc>${url.loc}</loc>

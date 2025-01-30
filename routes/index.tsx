@@ -42,7 +42,6 @@ export default function Home() {
           flexDirection: "column",
           alignItems: "center",
         }}
-        class="container"
       >
         <div className="container">
           {/* Highly Rated Section */}
