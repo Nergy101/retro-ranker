@@ -1,5 +1,5 @@
 import { Device } from "../../../data/models/device.model.ts";
-
+import { DeviceService } from "../../../services/devices/device.service.ts";
 interface DisplaySpecsTableProps {
   device: Device;
 }
@@ -34,7 +34,7 @@ export function DisplaySpecsTable({ device }: DisplaySpecsTableProps) {
     if (device.outputs.videoOutput?.AV) {
       videoOutputs.push("AV");
     }
-    return videoOutputs.join(", ");
+    return videoOutputs.length > 0 ? videoOutputs.join(", ") : null;
   };
 
   return (
@@ -51,8 +51,8 @@ export function DisplaySpecsTable({ device }: DisplaySpecsTableProps) {
             <th>Panel Type</th>
             <td>
               {device.screen.type.type}
-              {device.screen.type.isTouchscreen && " (Touchscreen)"}
-              {device.screen.type.isPenCapable && " (Pen Capable)"}
+              {device.screen.type.isTouchscreen && " (Touch)"}
+              {device.screen.type.isPenCapable && " (Pen)"}
             </td>
           </tr>
         )}
@@ -92,7 +92,9 @@ export function DisplaySpecsTable({ device }: DisplaySpecsTableProps) {
           : (
             <tr>
               <th>Video Output</th>
-              <td>❌</td>
+              <td>
+                {DeviceService.getPropertyIconByCharacter(null)}
+              </td>
             </tr>
           )}
         {device.screen.type?.isTouchscreen && (

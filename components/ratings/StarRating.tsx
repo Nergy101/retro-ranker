@@ -1,10 +1,6 @@
-import {
-  PiQuestion,
-  PiStar,
-  PiStarFill,
-  PiStarHalfFill,
-} from "@preact-icons/pi";
+import { PiStar, PiStarFill, PiStarHalfFill } from "@preact-icons/pi";
 import { Device } from "../../data/models/device.model.ts";
+import { DeviceService } from "../../services/devices/device.service.ts";
 interface StarRatingProps {
   device: Device;
 }
@@ -122,7 +118,7 @@ export function StarRating({ device }: StarRatingProps) {
         data-placement="bottom"
         data-tooltip="No emulation ratings available"
       >
-        <PiQuestion />
+        {DeviceService.getPropertyIconByCharacter(null)}
       </span>
     );
   }

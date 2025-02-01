@@ -150,7 +150,12 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
                 ).map((review) => (
                   <div
                     key={review.url}
-                    style={{ textDecoration: "none", listStyle: "none", width: "300px", height: "200px" }}
+                    style={{
+                      textDecoration: "none",
+                      listStyle: "none",
+                      width: "300px",
+                      height: "200px",
+                    }}
                   >
                     <iframe
                       width="300"

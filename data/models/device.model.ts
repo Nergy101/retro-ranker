@@ -78,6 +78,7 @@ export interface Device {
       | "DDR5"
       | "LPDDR4"
       | "LPDDR4X"
+      | "LPDDR5"
       | "LPDDR5X"
       | "other"
       | null;

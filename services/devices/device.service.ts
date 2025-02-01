@@ -309,6 +309,7 @@ export class DeviceService {
   static getPropertyIconByCharacter(
     char: "✅" | "❌" | "?" | string | null,
   ): VNode<JSX.SVGAttributes> {
+    console.log(char);
     if (char === "✅") {
       return PiCheckCircleFill({
         style: {
@@ -325,7 +326,8 @@ export class DeviceService {
         },
       });
     }
-    if (char === "?") {
+
+    if (char === "?" || char === null) {
       return PiQuestionFill({
         style: {
           color: "#3155bc",

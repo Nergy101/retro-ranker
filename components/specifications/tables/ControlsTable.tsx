@@ -24,8 +24,10 @@ export function ControlsTable({ device }: ControlsTableProps) {
     if (device.sensors?.hasHeartRateSensor) sensors.push("Heart Rate");
     if (device.sensors?.hasAntenna) sensors.push("Antenna");
     if (device.sensors?.screenClosure) sensors.push("Screen Closure");
-    return sensors.length > 0 ? sensors.join(", ") : "N/A";
+    return sensors;
   };
+
+  const sensors = getSensors();
 
   return (
     <table class="striped">
@@ -33,7 +35,7 @@ export function ControlsTable({ device }: ControlsTableProps) {
         {device.controls.dPad?.raw && (
           <tr>
             <th>D-Pad</th>
-            <td>{device.controls.dPad.raw} ({device.controls.dPad.type})</td>
+            <td>{device.controls.dPad.type}</td>
           </tr>
         )}
         {device.controls.analogs && (
@@ -118,11 +120,11 @@ export function ControlsTable({ device }: ControlsTableProps) {
             </td>
           </tr>
         )}
-        {device.sensors && (
+        {sensors.length > 0 && (
           <tr>
             <th>Sensors</th>
             <td>
-              {getSensors()}
+              {sensors.join(", ")}
             </td>
           </tr>
         )}

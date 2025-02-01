@@ -377,7 +377,8 @@ export default function DeviceDetail(props: PageProps) {
                     <tr>
                       <td>RAM</td>
                       <td>
-                        {device.ram?.type ?? "N/A"}
+                        {device.ram?.type ??
+                          DeviceService.getPropertyIconByCharacter(null)}
                       </td>
                       <td>
                         {device.ram?.sizes?.map((size, index) => (
@@ -394,9 +395,9 @@ export default function DeviceDetail(props: PageProps) {
                     <tr>
                       <td>Dimensions</td>
                       <td>
-                        {device.dimensions?.length
+                        {device.dimensions
                           ? `${device.dimensions.length}mm x ${device.dimensions.width}mm x ${device.dimensions.height}mm`
-                          : "N/A"}
+                          : DeviceService.getPropertyIconByCharacter(null)}
                       </td>
                       <td>{device.weight} grams</td>
                     </tr>
@@ -413,7 +414,7 @@ export default function DeviceDetail(props: PageProps) {
                             {res.width}x{res.height}
                             {device.screen.ppi?.[0]
                               ? `, ${device.screen.ppi[0]} PPI`
-                              : "N/A"}
+                              : DeviceService.getPropertyIconByCharacter(null)}
                           </div>
                         ))}
                       </td>

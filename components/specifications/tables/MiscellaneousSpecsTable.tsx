@@ -16,12 +16,14 @@ export function MiscellaneousSpecsTable(
             <td>{device.colors.join(", ")}</td>
           </tr>
         )}
-        {device.notes && device.notes.filter(note => note.trim() !== "").length > 0 && (
-          <tr>
-            <th>Notes</th>
-            <td>{device.notes.join(", ")}</td>
-          </tr>
-        )}
+        {device.notes &&
+          device.notes.filter((note) => note.trim() !== "").length > 0 &&
+          (
+            <tr>
+              <th>Notes</th>
+              <td>{device.notes.join(", ")}</td>
+            </tr>
+          )}
         {device.performance.emulationLimit && (
           <tr>
             <th>Emulation Limit</th>

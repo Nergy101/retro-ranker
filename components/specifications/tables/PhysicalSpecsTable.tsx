@@ -1,4 +1,5 @@
 import { Device } from "../../../data/models/device.model.ts";
+import { DeviceService } from "../../../services/devices/device.service.ts";
 
 interface PhysicalSpecsTableProps {
   device: Device;
@@ -17,14 +18,23 @@ export function PhysicalSpecsTable({ device }: PhysicalSpecsTableProps) {
             </td>
           </tr>
         )}
-        {device.weight && (
-          <tr>
-            <th>Weight</th>
-            <td>
-              {device.weight} grams
-            </td>
-          </tr>
-        )}
+        {device.weight
+          ? (
+            <tr>
+              <th>Weight</th>
+              <td>
+                {device.weight} grams
+              </td>
+            </tr>
+          )
+          : (
+            <tr>
+              <th>Weight</th>
+              <td>
+                {DeviceService.getPropertyIconByCharacter(null)}
+              </td>
+            </tr>
+          )}
         {device.battery && (
           <tr>
             <th>Battery</th>
