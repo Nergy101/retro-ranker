@@ -46,11 +46,15 @@ export class DeviceParser {
         architecture: null,
         ram: null,
         rumble: null,
-        sensors: [],
+        sensors: null,
         volumeControl: null,
         brightnessControl: null,
         powerControl: null,
-        battery: null,
+        battery: {
+          raw: null,
+          capacity: null,
+          unit: null,
+        },
         chargePort: null,
         storage: null,
         dimensions: null,
@@ -71,26 +75,12 @@ export class DeviceParser {
         connectivity: {
           hasWifi: null,
           hasBluetooth: null,
-          hasNFC: null,
-          hasUSB: null,
-          hasUSBC: null,
-          hasDisplayPort: null,
-          hasVGA: null,
-          hasDVI: null,
-          hasHDMI: null,
+          hasNfc: null,
+          hasUsb: null,
+          hasUsbC: null,
         },
-        cpu: {
-          raw: null,
-          names: [],
-          cores: null,
-          threads: null,
-          clockSpeed: null,
-        },
-        gpu: {
-          name: null,
-          cores: null,
-          clockSpeed: null,
-        },
+        cpus: [],
+        gpus: [],
         performance: {
           tier: null,
           rating: null,
@@ -115,10 +105,10 @@ export class DeviceParser {
         },
         controls: {
           dPad: null,
-          analogs: [],
-          faceButtons: [],
-          shoulderButtons: [],
-          extraButtons: [],
+          analogs: null,
+          numberOfFaceButtons: null,
+          shoulderButtons: null,
+          extraButtons: null,
         },
         outputs: {
           videoOutput: null,
@@ -233,6 +223,12 @@ export class DeviceParser {
         mapHandheldsColumnToDevice(colIndex, value, device);
       });
 
+      device.connectivity.hasUsbC = device.connectivity.hasUsbC ||
+        device.chargePort?.type === "USB-C" ||
+        device.outputs.videoOutput?.hasUsbC ||
+        device.outputs.audioOutput?.hasUsbC ||
+        false;
+
       devices.push(device);
     });
 
@@ -287,11 +283,15 @@ export class DeviceParser {
         architecture: null,
         ram: null,
         rumble: null,
-        sensors: [],
+        sensors: null,
         volumeControl: null,
         brightnessControl: null,
         powerControl: null,
-        battery: null,
+        battery: {
+          raw: null,
+          capacity: null,
+          unit: null,
+        },
         chargePort: null,
         storage: null,
         dimensions: null,
@@ -311,26 +311,12 @@ export class DeviceParser {
         connectivity: {
           hasWifi: false,
           hasBluetooth: false,
-          hasNFC: false,
-          hasUSB: false,
-          hasUSBC: false,
-          hasDisplayPort: false,
-          hasVGA: false,
-          hasDVI: false,
-          hasHDMI: false,
+          hasNfc: false,
+          hasUsb: false,
+          hasUsbC: false,
         },
-        cpu: {
-          raw: null,
-          names: [],
-          cores: null,
-          threads: null,
-          clockSpeed: null,
-        },
-        gpu: {
-          name: null,
-          cores: null,
-          clockSpeed: null,
-        },
+        cpus: [],
+        gpus: [],
         performance: {
           tier: null,
           rating: null,
@@ -355,10 +341,10 @@ export class DeviceParser {
         },
         controls: {
           dPad: null,
-          analogs: [],
-          faceButtons: [],
-          shoulderButtons: [],
-          extraButtons: [],
+          analogs: null,
+          numberOfFaceButtons: null,
+          shoulderButtons: null,
+          extraButtons: null,
         },
         outputs: {
           videoOutput: null,

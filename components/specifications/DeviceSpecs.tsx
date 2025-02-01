@@ -21,6 +21,9 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
       {/* Display */}
       <DisplaySpecs device={device} />
 
+      {/* Connectivity */}
+      <ConnectivitySpecs device={device} />
+
       {/* Physical */}
       <PhysicalSpecs device={device} />
 
@@ -35,9 +38,6 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
 
       {/* Miscellaneous */}
       <MiscellaneousSpecs device={device} />
-
-      {/* Connectivity */}
-      <ConnectivitySpecs device={device} />
     </div>
   );
 }

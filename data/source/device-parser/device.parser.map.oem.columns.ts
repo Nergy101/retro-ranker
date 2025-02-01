@@ -2,6 +2,7 @@ import { RatingsService } from "../../../services/devices/ratings.service.ts";
 import { EmulationSystem } from "../../enums/EmulationSystem.ts";
 import { Device } from "../../models/device.model.ts";
 import {
+  getOsLinks,
   getPriceCurrency,
   getPricingCategory,
   parseOsIcons,
@@ -10,15 +11,24 @@ import {
 
 export function mapOEMsColumnToDevice(
   colIndex: number,
-  value: string,
+  rawValue: string,
   device: Device,
 ): void {
+  const value = rawValue.toLowerCase().trim();
+
+  // Initialize required objects if they don't exist
+  device.outputs = device.outputs || {
+    videoOutput: null,
+    audioOutput: null,
+    speaker: null,
+  };
+
   switch (colIndex) {
     case 0: {
       break;
     }
     case 1: {
-      const sanitizedName = value.toLowerCase()
+      const sanitizedName = value
         .replaceAll(" ", "-")
         .replaceAll("?", "-question-mark-")
         .replaceAll("!", "-exclamation-mark-")
@@ -38,9 +48,9 @@ export function mapOEMsColumnToDevice(
         alt: value,
       };
       device.name = {
-        raw: value,
+        raw: rawValue,
         sanitized: sanitizedName,
-        normalized: value.split("(")[0].trim(),
+        normalized: rawValue.split("(")[0].trim(),
       };
       break;
     }
@@ -55,7 +65,7 @@ export function mapOEMsColumnToDevice(
         const mentionedDate = value.match(regex)?.[0];
 
         device.released = {
-          raw: value,
+          raw: rawValue,
           mentionedDate: mentionedDate ? new Date(mentionedDate) : null,
         };
       }
@@ -65,11 +75,11 @@ export function mapOEMsColumnToDevice(
       break;
     case 6:
       device.os = {
-        raw: value,
+        raw: rawValue,
         icons: parseOsIcons(value),
         list: value.split(/, | \/ /),
+        links: getOsLinks(value),
         customFirmwares: [],
-        links: [],
       };
       break;
     case 7: // custom firmware
@@ -78,7 +88,7 @@ export function mapOEMsColumnToDevice(
     case 8: // performance
       device.performance = RatingsService.parsePerformanceRating(value);
       break;
-      // System ratings mapping
+    // System ratings mapping
     case 9:
       device.systemRatings?.push({
         system: EmulationSystem.GameBoy,
@@ -202,35 +212,141 @@ export function mapOEMsColumnToDevice(
       device.systemOnChip = value;
       break;
     case 27:
-      device.cpu.raw = value;
-      device.cpu.names = value.split(", ");
+      device.cpus = [{
+        raw: rawValue,
+        names: value.split(", "),
+        cores: null,
+        threads: null,
+        clockSpeed: null,
+      }];
       break;
     case 28:
-      device.cpu.cores = parseInt(value) || null;
+      if (device.cpus?.[0]) {
+        device.cpus[0].cores = parseInt(value) || null;
+      }
       break;
     case 29:
-      device.cpu.clockSpeed = value;
+      if (device.cpus?.[0]) {
+        const clockSpeedRegex = /(\d+(?:\.\d+)?)\s*(MHz|GHz)/i;
+        const match = value.match(clockSpeedRegex);
+        if (match) {
+          device.cpus[0].clockSpeed = {
+            min: parseFloat(match[1]),
+            max: parseFloat(match[1]),
+            unit: match[2].toUpperCase() as "MHz" | "GHz",
+          };
+        }
+      }
       break;
     case 30:
-      device.architecture = value;
+      {
+        const arch = value;
+        device.architecture = arch.includes("arm")
+          ? "ARM"
+          : arch.includes("x86-64") || arch.includes("x86_64")
+          ? "x86-64"
+          : arch.includes("mips")
+          ? "MIPS"
+          : arch
+          ? "other"
+          : null;
+      }
       break;
     case 31:
-      device.gpu.name = value;
+      device.gpus = [{
+        name: value,
+        cores: null,
+        clockSpeed: null,
+      }];
       break;
     case 32:
-      device.gpu.clockSpeed = value;
+      if (device.gpus?.[0]) {
+        const clockSpeedRegex = /(\d+(?:\.\d+)?)\s*(MHz|GHz)/i;
+        const match = value.match(clockSpeedRegex);
+        if (match) {
+          device.gpus[0].clockSpeed = {
+            min: parseFloat(match[1]),
+            max: parseFloat(match[1]),
+            unit: match[2].toUpperCase() as "MHz" | "GHz",
+          };
+        }
+      }
       break;
     case 33:
-      device.ram = value;
+      {
+        const ramRegex = /(\d+(?:\.\d+)?)\s*(GB|MB|KB)/i;
+        const ramMatch = value.match(ramRegex);
+        device.ram = {
+          raw: rawValue,
+          sizes: ramMatch ? [parseFloat(ramMatch[1])] : null,
+          unit: ramMatch
+            ? ramMatch[2].toUpperCase() as "GB" | "MB" | "KB"
+            : null,
+          type: value.includes("lpddr5x")
+            ? "LPDDR5X"
+            : value.includes("lpddr4x")
+            ? "LPDDR4X"
+            : value.includes("lpddr4")
+            ? "LPDDR4"
+            : value.includes("ddr5")
+            ? "DDR5"
+            : value.includes("ddr4")
+            ? "DDR4"
+            : value.includes("ddr3")
+            ? "DDR3"
+            : value.includes("ddr2")
+            ? "DDR2"
+            : value.includes("ddr")
+            ? "DDR"
+            : value
+            ? "other"
+            : null,
+        };
+      }
       break;
     case 34:
-      device.screen.size = value;
+      {
+        const screenSizeRegex = /(\d+(?:\.\d+)?)/;
+        const screenMatch = value.match(screenSizeRegex);
+        device.screen.size = screenMatch ? parseFloat(screenMatch[1]) : null;
+      }
       break;
     case 35:
-      device.screen.type = value;
+      {
+        const screenType = value;
+        device.screen.type = {
+          raw: rawValue,
+          isTouchscreen: screenType.includes("touch"),
+          isPenCapable: screenType.includes("pen"),
+          type: screenType.includes("ips")
+            ? "IPS"
+            : screenType.includes("ads")
+            ? "ADS"
+            : screenType.includes("hips")
+            ? "HIPS"
+            : screenType.includes("oled")
+            ? "OLED"
+            : screenType.includes("monochrome") &&
+                screenType.includes("oled")
+            ? "MonochromeOLED"
+            : screenType.includes("lcd")
+            ? "LCD"
+            : screenType.includes("ltps")
+            ? "LTPS"
+            : screenType.includes("tft")
+            ? "TFT"
+            : screenType.includes("amoled")
+            ? "AMOLED"
+            : null,
+        };
+      }
       break;
     case 36:
-      device.screen.resolution = value;
+      device.screen.resolution = value.split(",").map((res) => ({
+        raw: res,
+        width: parseInt(res.split(" x ")[0]),
+        height: parseInt(res.split(" x ")[1]),
+      }));
       break;
     case 37:
       device.screen.aspectRatio = value;
@@ -239,131 +355,336 @@ export function mapOEMsColumnToDevice(
       device.screen.lens = value;
       break;
     case 39:
-      device.battery = value;
+      {
+        const batteryRegex = /(\d+(?:\.\d+)?)\s*(mAh|Wh)/i;
+        const batteryMatch = value.match(batteryRegex);
+        device.battery = {
+          raw: rawValue,
+          capacity: batteryMatch ? parseFloat(batteryMatch[1]) : null,
+          unit: batteryMatch ? batteryMatch[2] as "mAh" | "Wh" : null,
+        };
+      }
       break;
     case 40:
       {
-        const cooling = value.toLowerCase();
+        const cooling = value;
         device.cooling = {
-          raw: value,
+          raw: rawValue,
           hasHeatsink: cooling.includes("heatsink") ||
             cooling.includes("heat sink"),
           hasFan: cooling.includes("fan"),
-          hasHeatPipe: cooling.includes("heat pipe") ||
+          hasHeatPipe: cooling.includes("heatpipe") ||
             cooling.includes("heat pipe"),
-          hasVentilationCutouts: cooling.includes("ventilation cutouts"),
+          hasVentilationCutouts: cooling.includes("ventilation") ||
+            cooling.includes("cutouts"),
         };
       }
       break;
     case 41:
-      device.controls.dPad = value;
+      {
+        const dPadType = value;
+        device.controls.dPad = {
+          raw: rawValue,
+          type: dPadType.includes("separated") && dPadType.includes("cross")
+            ? "separated-cross"
+            : dPadType.includes("separated")
+            ? "separated-buttons"
+            : dPadType.includes("cross")
+            ? "cross"
+            : dPadType.includes("disc")
+            ? "disc"
+            : "d-pad",
+        };
+      }
       break;
     case 42:
-      device.controls.analogs = value.split(", ");
+      {
+        const analogsText = value;
+        device.controls.analogs = {
+          raw: rawValue,
+          dual: analogsText.includes("dual") || analogsText.includes("2x"),
+          single: analogsText.includes("single") || analogsText.includes("1x"),
+          L3: analogsText.includes("l3"),
+          R3: analogsText.includes("r3"),
+          isHallSensor: analogsText.includes("hall"),
+          isThumbstick: analogsText.includes("thumbstick"),
+          isSlidepad: analogsText.includes("slide"),
+        };
+      }
       break;
     case 43:
-      device.controls.faceButtons = value.split(", ");
+      {
+        const regexNumberOfFaceButtons = /(\d+)/;
+        const numberOfFaceButtons = value.match(regexNumberOfFaceButtons)?.[0];
+        device.controls.numberOfFaceButtons = numberOfFaceButtons
+          ? parseInt(numberOfFaceButtons)
+          : null;
+      }
       break;
     case 44:
-      device.controls.shoulderButtons = value.split(", ");
+      {
+        const shoulderText = value;
+        device.controls.shoulderButtons = {
+          raw: rawValue,
+          L: shoulderText.includes("l"),
+          L1: shoulderText.includes("l1"),
+          L2: shoulderText.includes("l2"),
+          L3: shoulderText.includes("l3"),
+          R: shoulderText.includes("r"),
+          R1: shoulderText.includes("r1"),
+          R2: shoulderText.includes("r2"),
+          R3: shoulderText.includes("r3"),
+          M1: shoulderText.includes("m1"),
+          M2: shoulderText.includes("m2"),
+          LC: shoulderText.includes("lc"),
+          RC: shoulderText.includes("rc"),
+          ZL: shoulderText.includes("zl"),
+          ZRVertical: shoulderText.includes("zrvertical"),
+          ZRHorizontal: shoulderText.includes("zrhorizontal"),
+        };
+      }
       break;
     case 45:
-      device.controls.extraButtons = value.split(", ");
+      {
+        const extraText = value;
+        device.controls.extraButtons = {
+          raw: rawValue,
+          power: extraText.includes("power"),
+          reset: extraText.includes("reset"),
+          home: extraText.includes("home"),
+          volumeUp: extraText.includes("volume up"),
+          volumeDown: extraText.includes("volume down"),
+          function: extraText.includes("fn") || extraText.includes("function"),
+          turbo: extraText.includes("turbo"),
+          touchpad: extraText.includes("touchpad"),
+          fingerprint: extraText.includes("fingerprint"),
+          mute: extraText.includes("mute"),
+          screenshot: extraText.includes("screenshot"),
+          programmableButtons: extraText.includes("programmable"),
+        };
+      }
       break;
     case 46:
-      device.chargePort = value;
+      {
+        const chargePortText = value;
+        const numberOfPorts = value.match(/\d+/)?.[0];
+        device.chargePort = {
+          raw: rawValue,
+          type: chargePortText.includes("usb-c")
+            ? "USB-C"
+            : chargePortText.includes("usb a")
+            ? "USB-A"
+            : chargePortText.includes("usb b")
+            ? "USB-B"
+            : chargePortText.includes("micro")
+            ? "Micro-USB"
+            : chargePortText.includes("mini")
+            ? "Mini-USB"
+            : chargePortText.includes("dc")
+            ? "DC-Power"
+            : chargePortText.includes("wireless")
+            ? "Wireless"
+            : null,
+          numberOfPorts: numberOfPorts ? parseInt(numberOfPorts) : null,
+        };
+      }
       break;
     case 47:
       device.storage = value;
       break;
     case 48:
-      device.sensors = value.split(", ");
+      {
+        const sensorText = value;
+        device.sensors = {
+          raw: sensorText,
+          hasMicrophone: sensorText.includes("microphone"),
+          hasAccelerometer: sensorText.includes("accelerometer"),
+          hasGyroscope: sensorText.includes("gyroscope"),
+          hasCompass: sensorText.includes("compass"),
+          hasMagnetometer: sensorText.includes("magnetometer"),
+          hasBarometer: sensorText.includes("barometer"),
+          hasProximitySensor: sensorText.includes("proximity"),
+          hasAmbientLightSensor: sensorText.includes("ambient") ||
+            sensorText.includes("light"),
+          hasFingerprintSensor: sensorText.includes("fingerprint"),
+          hasCamera: sensorText.includes("camera"),
+          hasGravitySensor: sensorText.includes("gravity"),
+          hasPressureSensor: sensorText.includes("pressure"),
+          hasTemperatureSensor: sensorText.includes("temperature"),
+          hasHumiditySensor: sensorText.includes("humidity"),
+          hasHeartRateSensor: sensorText.includes("heart"),
+          hasAntenna: sensorText.includes("antenna"),
+          screenClosure: sensorText.includes("closure"),
+        };
+      }
       break;
-    case 49: {
-      const connectivity = value.toLowerCase();
-      device.connectivity = {
-        hasWifi: connectivity.includes("wifi") ||
-          connectivity.includes("wi-fi"),
-        hasBluetooth: connectivity.includes("bluetooth"),
-        hasNFC: connectivity.includes("nfc"),
-        hasUSB: connectivity.includes("usb"),
-        hasUSBC: connectivity.includes("usb-c") ||
-          connectivity.includes("usbc"),
-        hasDisplayPort: connectivity.includes("displayport"),
-        hasVGA: connectivity.includes("vga"),
-        hasDVI: connectivity.includes("dvi"),
-        hasHDMI: connectivity.includes("hdmi"),
-      };
+    case 49:
+      {
+        const connectivityText = value;
+        device.connectivity = {
+          hasWifi: connectivityText.includes("wifi") ||
+            connectivityText.includes("wi-fi"),
+          hasBluetooth: connectivityText.includes("bluetooth"),
+          hasNfc: connectivityText.includes("nfc"),
+          hasUsb: connectivityText.includes("usb"),
+          hasUsbC: connectivityText.includes("usb-c") ||
+            connectivityText.includes("usbc"),
+        };
+      }
       break;
-    }
     case 50:
-      device.connectivity.hasHDMI = value.includes("HDMI");
-      device.connectivity.hasUSBC = value.includes("USB");
-      device.outputs.videoOutput = value;
+      {
+        const videoOutputText = value;
+        device.outputs.videoOutput = {
+          raw: rawValue,
+          hasUsbC: videoOutputText.includes("usb-c") ||
+            videoOutputText.includes("usbc"),
+          hasMicroHdmi: videoOutputText.includes("micro-hdmi") ||
+            videoOutputText.includes("micro hdmi"),
+          hasMiniHdmi: videoOutputText.includes("mini-hdmi") ||
+            videoOutputText.includes("mini hdmi"),
+          hasHdmi: videoOutputText.includes("hdmi") ||
+            videoOutputText.includes("hdmi2"),
+          hasDvi: videoOutputText.includes("dvi"),
+          hasVga: videoOutputText.includes("vga"),
+          hasDisplayPort: videoOutputText.includes("displayport"),
+          OcuLink: videoOutputText.includes("oculink"),
+          AV: videoOutputText.includes("av"),
+        };
+      }
       break;
     case 51:
-      device.outputs.audioOutput = value;
+      {
+        const audioOutputText = value;
+        device.outputs.audioOutput = {
+          raw: rawValue,
+          has35mmJack: audioOutputText.includes("3.5") ||
+            audioOutputText.includes("35mm"),
+          hasHeadphoneJack: audioOutputText.includes("headphone"),
+          hasUsbC: audioOutputText.includes("usb-c") ||
+            audioOutputText.includes("usbc"),
+        };
+      }
       break;
     case 52:
-      device.outputs.speaker = value;
+      {
+        const speakerText = value;
+        device.outputs.speaker = {
+          raw: rawValue,
+          type: speakerText.includes("stereo")
+            ? "stereo"
+            : speakerText.includes("surround")
+            ? "surround"
+            : speakerText.includes("mono")
+            ? "mono"
+            : null,
+        };
+      }
       break;
     case 53:
-      device.rumble = value;
+      device.rumble = value === "yes" ||
+        value.includes("true") || value === "✅";
       break;
     case 54:
       device.lowBatteryIndicator = value;
       break;
     case 55:
-      device.volumeControl = value;
+      {
+        const volumeText = value;
+        device.volumeControl = {
+          raw: rawValue,
+          type: volumeText.includes("wheel")
+            ? "wheel"
+            : volumeText.includes("slider")
+            ? "slider"
+            : volumeText.includes("menu")
+            ? "menu"
+            : volumeText.includes("combination")
+            ? "button-combination"
+            : volumeText.includes("button")
+            ? "dedicated-button"
+            : null,
+        };
+      }
       break;
     case 56:
-      device.brightnessControl = value;
+      {
+        const brightnessText = value;
+        device.brightnessControl = {
+          raw: rawValue,
+          type: brightnessText.includes("wheel")
+            ? "wheel"
+            : brightnessText.includes("slider")
+            ? "slider"
+            : brightnessText.includes("menu")
+            ? "menu"
+            : brightnessText.includes("combination")
+            ? "button-combination"
+            : brightnessText.includes("button")
+            ? "dedicated-button"
+            : null,
+        };
+      }
       break;
     case 57:
-      device.powerControl = value;
+      {
+        const powerText = value;
+        device.powerControl = {
+          raw: rawValue,
+          type: powerText.includes("switch")
+            ? "switch"
+            : powerText.includes("button")
+            ? "button"
+            : null,
+        };
+      }
       break;
     case 58:
-      device.dimensions = {
-        length: value.split(" x ")[0],
-        width: value.split(" x ")[1],
-        height: value.split(" x ")[2],
-      };
+      {
+        const dimensions = value.split(" x ");
+        device.dimensions = {
+          length: dimensions[0] ? parseFloat(dimensions[0]) : null,
+          width: dimensions[1] ? parseFloat(dimensions[1]) : null,
+          height: dimensions[2] ? parseFloat(dimensions[2]) : null,
+        };
+      }
       break;
     case 59:
-      device.weight = value;
+      {
+        const weightMatch = value.match(/(\d+(?:\.\d+)?)/);
+        device.weight = weightMatch ? parseFloat(weightMatch[1]) : null;
+      }
       break;
     case 60:
       device.colors = value.split(", ");
       break;
+    case 67:
+      {
+        if (value.includes("discontinued")) {
+          device.pricing = {
+            ...device.pricing,
+            raw: rawValue,
+            discontinued: true,
+          };
+          break;
+        }
 
-    case 67: {
-      if (value.toLowerCase().includes("discontinued")) {
+        const priceRange = parsePriceRange(value);
+        const averagePrice = (priceRange.min + priceRange.max) / 2;
         device.pricing = {
           ...device.pricing,
-          raw: value,
-          discontinued: true,
+          average: averagePrice,
+          category: getPricingCategory(averagePrice),
+          raw: rawValue,
+          discontinued: false,
+          range: {
+            min: priceRange.min,
+            max: priceRange.max,
+          },
+          currency: getPriceCurrency(value),
         };
-        break;
       }
-
-      const priceRange = parsePriceRange(value);
-      const averagePrice = (priceRange.min + priceRange.max) / 2;
-      device.pricing = {
-        ...device.pricing,
-        average: averagePrice,
-        category: getPricingCategory(averagePrice),
-        raw: value,
-        discontinued: false,
-        range: {
-          min: priceRange.min,
-          max: priceRange.max,
-        },
-        currency: getPriceCurrency(value),
-      };
-
       break;
-    }
-
     case 73:
       device.pros = value.split(", ").filter((pro) => pro.trim() !== "");
       break;

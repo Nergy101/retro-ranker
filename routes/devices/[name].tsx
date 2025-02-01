@@ -128,6 +128,8 @@ export default function DeviceDetail(props: PageProps) {
     );
   }
 
+  const releaseDate = getReleaseDate(device.released);
+
   return (
     <div class="device-detail">
       <Head>
@@ -152,7 +154,7 @@ export default function DeviceDetail(props: PageProps) {
               : undefined}
             data-placement="bottom"
           >
-            {device.name.normalized}
+            {device.name.raw}
           </h2>
           <div style="display: flex; gap: 0.5rem; align-items: center;">
             <p>{device.brand}</p>
@@ -232,14 +234,12 @@ export default function DeviceDetail(props: PageProps) {
                 alignItems: "center",
                 gap: "0.25rem",
               }}
-              data-tooltip={getReleaseDate(device.released).date}
+              data-tooltip={releaseDate.date}
               data-placement="bottom"
             >
-              {getReleaseDate(device.released).icon()}
+              {releaseDate.icon()}
 
-              {getReleaseDate(device.released).expected
-                ? "Expected"
-                : getReleaseDate(device.released).date}
+              {releaseDate.expected ? "Expected" : releaseDate.date}
             </span>
           </div>
         </div>
@@ -262,6 +262,20 @@ export default function DeviceDetail(props: PageProps) {
 
       <div class="device-detail-performance">
         <EmulationPerformance device={device} />
+      </div>
+
+      <div class="device-detail-similar-devices">
+        <h2>Similar Devices</h2>
+        <div class="similar-devices-grid">
+          {similarDevices.map((device) => (
+            <a href={`/devices/${device.name.sanitized}`}>
+              <DeviceCardMedium
+                device={device}
+                isActive={false}
+              />
+            </a>
+          ))}
+        </div>
       </div>
 
       <div class="device-detail-specs">
@@ -287,22 +301,22 @@ export default function DeviceDetail(props: PageProps) {
                     <tr>
                       <td>OS / CFW</td>
                       <td>
-                        {device.os.list.join(", ")} {device.os.customFirmwares
-                          ? `(${device.os.customFirmwares})`
+                        {device.os.list.join(", ")}
+                        {device.os.customFirmwares.length > 0
+                          ? `(${device.os.customFirmwares.join(", ")})`
                           : ""}
                       </td>
                       <td>
-                        <div style="display: flex; gap: 0.25rem;">
+                        <div style="display: flex; gap: 0.25rem; flex-direction: row;">
                           <div>
-                            <div
+                            <span
                               data-tooltip={device.os.list.join(", ")}
                               data-placement="bottom"
-                              style={{ display: "flex", gap: "0.25rem" }}
                             >
                               {device.os.icons.map((icon) => (
                                 DeviceService.getOsIconComponent(icon)
                               ))}
-                            </div>
+                            </span>
                           </div>
                           <div>
                             <ul>
@@ -326,43 +340,97 @@ export default function DeviceDetail(props: PageProps) {
                     <tr>
                       <td>CPU</td>
                       <td>
-                        <span style="display: flex; gap: 0.25rem;">
-                          {device.cpu.names.map((name) => <span>{name}</span>)}
-                        </span>
+                        {device.cpus?.map((cpu, index) => (
+                          <div key={index} style="display: flex; gap: 0.25rem;">
+                            {cpu.names.map((name, nameIndex) => (
+                              <span key={nameIndex}>{name}</span>
+                            ))}
+                          </div>
+                        ))}
                       </td>
                       <td>
-                        {device.cpu.cores} cores ({device.cpu.threads}{" "}
-                        threads) @ {device.cpu.clockSpeed}
+                        {device.cpus?.map((cpu, index) => (
+                          <div key={index}>
+                            {cpu.cores} cores ({cpu.threads} threads) @{" "}
+                            {cpu.clockSpeed?.max}
+                            {cpu.clockSpeed?.unit}
+                          </div>
+                        ))}
                       </td>
                     </tr>
                     <tr>
                       <td>GPU</td>
-                      <td>{device.gpu.name}</td>
                       <td>
-                        {device.gpu.cores} cores @ {device.gpu.clockSpeed}
+                        {device.gpus?.map((gpu, index) => (
+                          <div key={index}>{gpu.name}</div>
+                        ))}
+                      </td>
+                      <td>
+                        {device.gpus?.map((gpu, index) => (
+                          <div key={index}>
+                            {gpu.cores} @ {gpu.clockSpeed?.max}
+                            {gpu.clockSpeed?.unit}
+                          </div>
+                        ))}
                       </td>
                     </tr>
                     <tr>
                       <td>RAM</td>
-                      <td>{device.ram}</td>
-                      <td></td>
+                      <td>
+                        {device.ram?.raw ?? "N/A"}
+                        {device.ram?.type && ` (${device.ram.type})`}
+                      </td>
+                      <td>
+                        {device.ram?.sizes?.map((size, index) => (
+                          <span key={index}>
+                            {size}
+                            {device.ram?.unit}
+                            {index < (device.ram?.sizes?.length ?? 0) - 1
+                              ? ", "
+                              : ""}
+                          </span>
+                        ))}
+                      </td>
                     </tr>
                     <tr>
                       <td>Dimensions</td>
-                      <td>{device.dimensions}</td>
+                      <td>
+                        {device.dimensions?.length
+                          ? `${device.dimensions.length}mm x ${device.dimensions.width}mm x ${device.dimensions.height}mm`
+                          : "N/A"}
+                      </td>
                       <td>{device.weight}</td>
                     </tr>
                     <tr>
                       <td>Screen</td>
-                      <td>{device.screen.size} {device.screen.type}</td>
                       <td>
-                        {device.screen.resolution} {device.screen.ppi} PPI
+                        {device.screen.size} {device.screen.type?.type}
+                        {device.screen.type?.isTouchscreen ? " (Touch)" : ""}
+                        {device.screen.type?.isPenCapable ? " (Pen)" : ""}
+                      </td>
+                      <td>
+                        {device.screen.resolution?.map((res) => (
+                          <div key={res.raw}>
+                            {res.width}x{res.height}
+                            {device.screen.ppi?.[0]
+                              ? `, ${device.screen.ppi[0]} PPI`
+                              : "N/A"}
+                          </div>
+                        ))}
                       </td>
                     </tr>
                     <tr>
                       <td>Battery</td>
-                      <td>{device.battery}</td>
-                      <td>{device.chargePort}</td>
+                      <td>
+                        {device.battery?.capacity} {device.battery?.unit}
+                      </td>
+                      <td>
+                        Charge port: {device.chargePort?.type}{"  "}
+                        {device.chargePort?.numberOfPorts &&
+                            device.chargePort?.numberOfPorts > 1
+                          ? `${device.chargePort?.numberOfPorts}x`
+                          : ""}
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -381,20 +449,6 @@ export default function DeviceDetail(props: PageProps) {
             <DeviceSpecs device={device} />
           </details>
           <div class="divider" style="padding: 0.5rem 0 0 0;"></div>
-        </div>
-      </div>
-
-      <div class="device-detail-similar-devices">
-        <h2>Similar Devices</h2>
-        <div class="similar-devices-grid">
-          {similarDevices.map((device) => (
-            <a href={`/devices/${device.name.sanitized}`}>
-              <DeviceCardMedium
-                device={device}
-                isActive={false}
-              />
-            </a>
-          ))}
         </div>
       </div>
     </div>

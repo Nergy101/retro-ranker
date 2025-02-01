@@ -40,35 +40,93 @@ export interface Device {
   systemRatings: SystemRating[];
 
   systemOnChip: string | null;
-  architecture: string | null;
+  architecture: "ARM" | "x86-64" | "MIPS" | "other" | null;
 
   // CPU
-  cpu: {
+  cpus: {
     raw: string | null;
     names: string[];
     cores: number | null;
     threads: number | null;
-    clockSpeed: string | null;
-  };
+    clockSpeed: {
+      min: number | null;
+      max: number | null;
+      unit: "MHz" | "GHz" | null;
+    } | null;
+  }[] | null;
 
   // GPU
-  gpu: {
+  gpus: {
     name: string | null;
     cores: string | null;
-    clockSpeed: string | null;
-  };
+    clockSpeed: {
+      min: number | null;
+      max: number | null;
+      unit: "MHz" | "GHz" | null;
+    } | null;
+  }[] | null;
 
-  ram: string | null;
-  battery: string | null;
-  chargePort: string | null;
+  ram: {
+    raw: string | null;
+    sizes: number[] | null;
+    unit: "GB" | "MB" | "KB" | null;
+    type:
+      | "DDR"
+      | "DDR2"
+      | "DDR3"
+      | "DDR4"
+      | "DDR5"
+      | "LPDDR4"
+      | "LPDDR4X"
+      | "LPDDR5X"
+      | "other"
+      | null;
+  } | null;
+  battery: {
+    raw: string | null;
+    capacity: number | null;
+    unit: "mAh" | "Wh" | null;
+  };
+  chargePort: {
+    raw: string | null;
+    type:
+      | "USB-C"
+      | "USB-A"
+      | "USB-B"
+      | "Micro-USB"
+      | "Mini-USB"
+      | "DC-Power"
+      | "Wireless"
+      | null;
+    numberOfPorts: number | null;
+  } | null;
   storage: string | null;
 
   // Screen
   screen: {
-    size: string | null;
-    type: string | null;
-    resolution: string | null;
-    ppi: number | null;
+    size: number | null;
+    type: {
+      raw: string | null;
+      type:
+        | "IPS"
+        | "ADS"
+        | "HIPS"
+        | "OLED"
+        | "MonochromeOLED"
+        | "LCD"
+        | "LTPS"
+        | "TFT"
+        | "AMOLED"
+        | null;
+      isTouchscreen: boolean | null;
+      isPenCapable: boolean | null;
+    } | null;
+    resolution: {
+      raw: string | null;
+      width: number | null;
+      height: number | null;
+    }[] | null;
+    ppi: number[] | null;
     aspectRatio: string | null;
     lens: string | null;
   };
@@ -77,47 +135,160 @@ export interface Device {
 
   // Controls
   controls: {
-    dPad: string | null;
-    analogs: string[];
-    faceButtons: string[];
-    shoulderButtons: string[];
-    extraButtons: string[];
+    dPad: {
+      raw: string | null;
+      type:
+        | "cross"
+        | "separated-cross"
+        | "separated-buttons"
+        | "d-pad"
+        | "disc";
+    } | null;
+    analogs: {
+      raw: string | null;
+      dual: boolean | null;
+      single: boolean | null;
+
+      L3: boolean | null;
+      R3: boolean | null;
+      isHallSensor: boolean | null;
+      isThumbstick: boolean | null;
+      isSlidepad: boolean | null;
+    } | null;
+
+    numberOfFaceButtons: number | null;
+    shoulderButtons: {
+      raw: string | null;
+      L: boolean | null;
+      L1: boolean | null;
+      L2: boolean | null;
+      L3: boolean | null;
+      R: boolean | null;
+      R1: boolean | null;
+      R2: boolean | null;
+      R3: boolean | null;
+      M1: boolean | null;
+      M2: boolean | null;
+      LC: boolean | null;
+      RC: boolean | null;
+      ZL: boolean | null;
+      ZRVertical: boolean | null;
+      ZRHorizontal: boolean | null;
+    } | null;
+
+    extraButtons: {
+      raw: string | null;
+      power: boolean | null;
+      reset: boolean | null;
+      home: boolean | null;
+      volumeUp: boolean | null;
+      volumeDown: boolean | null;
+      function: boolean | null;
+      turbo: boolean | null;
+      touchpad: boolean | null;
+      fingerprint: boolean | null;
+      mute: boolean | null;
+      screenshot: boolean | null;
+      programmableButtons: boolean | null;
+    } | null;
   };
 
   connectivity: {
     hasWifi: boolean | null;
     hasBluetooth: boolean | null;
-    hasNFC: boolean | null;
-    hasUSB: boolean | null;
-    hasUSBC: boolean | null;
-    hasHDMI: boolean | null;
-    hasDisplayPort: boolean | null;
-    hasVGA: boolean | null;
-    hasDVI: boolean | null;
+    hasNfc: boolean | null;
+    hasUsb: boolean | null;
+    hasUsbC: boolean | null;
   };
 
   // Outputs
   outputs: {
-    videoOutput: string | null;
-    audioOutput: string | null;
-    speaker: string | null;
+    videoOutput: {
+      raw: string | null;
+      hasUsbC: boolean | null;
+      hasMicroHdmi: boolean | null;
+      hasMiniHdmi: boolean | null;
+      hasHdmi: boolean | null;
+      hasDvi: boolean | null;
+      hasVga: boolean | null;
+      hasDisplayPort: boolean | null;
+      OcuLink: boolean | null;
+      AV: boolean | null;
+    } | null;
+    audioOutput: {
+      raw: string | null;
+      has35mmJack: boolean | null;
+      hasHeadphoneJack: boolean | null;
+      hasUsbC: boolean | null;
+    } | null;
+    speaker: {
+      raw: string | null;
+      type: "mono" | "stereo" | "surround" | null;
+    } | null;
   };
 
-  rumble: string | null;
-  sensors: string[];
+  rumble: boolean | null;
+  sensors: {
+    raw: string | null;
+    hasMicrophone: boolean | null;
+    hasAccelerometer: boolean | null;
+    hasGyroscope: boolean | null;
+    hasCompass: boolean | null;
+    hasMagnetometer: boolean | null;
+    hasBarometer: boolean | null;
+    hasProximitySensor: boolean | null;
+    hasAmbientLightSensor: boolean | null;
+    hasFingerprintSensor: boolean | null;
+    hasCamera: boolean | null;
+    hasGravitySensor: boolean | null;
+    hasPressureSensor: boolean | null;
+    hasTemperatureSensor: boolean | null;
+    hasHumiditySensor: boolean | null;
+    hasHeartRateSensor: boolean | null;
+    hasAntenna: boolean | null;
+    screenClosure: boolean | null;
+  } | null;
   lowBatteryIndicator: string | null;
 
-  volumeControl: string | null;
-  brightnessControl: string | null;
-  powerControl: string | null;
+  volumeControl: {
+    raw: string | null;
+    type:
+      | "wheel"
+      | "dedicated-button"
+      | "button-combination"
+      | "slider"
+      | "menu"
+      | null;
+  } | null;
+  brightnessControl: {
+    raw: string | null;
+    type:
+      | "wheel"
+      | "dedicated-button"
+      | "button-combination"
+      | "slider"
+      | "menu"
+      | null;
+  } | null;
+  powerControl: {
+    raw: string | null;
+    type: "button" | "switch" | null;
+  } | null;
 
   dimensions: {
-    length: string | null;
-    width: string | null;
-    height: string | null;
+    length: number | null;
+    width: number | null;
+    height: number | null;
   } | null;
-  weight: string | null;
-  shellMaterial: string | null;
+  weight: number | null;
+  shellMaterial: {
+    raw: string | null;
+    isPlastic: boolean | null;
+    isMetal: boolean | null;
+    isAluminum: boolean | null;
+    isMagnesiumAlloy: boolean | null;
+    isOther: boolean | null;
+  } | null;
   colors: string[];
 
   // Reviews

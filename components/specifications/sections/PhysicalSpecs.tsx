@@ -1,5 +1,6 @@
 import { PiRuler } from "@preact-icons/pi";
 import { Device } from "../../../data/models/device.model.ts";
+import { PhysicalSpecsTable } from "../tables/PhysicalSpecsTable.tsx";
 
 interface PhysicalSpecsProps {
   device: Device;
@@ -12,28 +13,7 @@ export function PhysicalSpecs({ device }: PhysicalSpecsProps) {
         <PiRuler />
         Physical
       </h3>
-      <table class="striped">
-        <tbody>
-          {device.dimensions && (
-            <tr>
-              <th>Dimensions</th>
-              <td>{device.dimensions}</td>
-            </tr>
-          )}
-          {device.weight && (
-            <tr>
-              <th>Weight</th>
-              <td>{device.weight}</td>
-            </tr>
-          )}
-          {device.battery && (
-            <tr>
-              <th>Battery</th>
-              <td>{device.battery}</td>
-            </tr>
-          )}
-        </tbody>
-      </table>
+      <PhysicalSpecsTable device={device} />
     </section>
   );
-} 
+}

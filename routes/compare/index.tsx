@@ -1,5 +1,6 @@
 import { Head } from "$fresh/runtime.ts";
 import { PageProps } from "$fresh/server.ts";
+import { PiInfo } from "@preact-icons/pi";
 import { DeviceComparisonResult } from "../../components/comparisons/DeviceComparisonResult.tsx";
 import { DeviceComparisonForm } from "../../islands/forms/DeviceComparisonForm.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
@@ -44,6 +45,70 @@ export default function DevicesIndex(props: PageProps) {
           devicesToCompare={devicesToCompare}
           similarDevices={similarDevices}
         />
+      </div>
+
+      <div>
+        <details>
+          <summary>
+            <span
+              style={{ display: "flex", alignItems: "center", gap: "0.25rem" }}
+            >
+              <PiInfo />
+              <span>How does this ranking work?</span>
+            </span>
+          </summary>
+          <p>
+            The ranking you are looking at is based on all relevant properties
+            of the devices.
+            <br />
+            Every property is given a score.
+            <br />
+            The scores are then weighted and summed up to get the final results.
+          </p>
+          <div
+            style={{
+              display: "flex",
+              gap: "0.25rem",
+              alignItems: "center",
+            }}
+          >
+            <span
+              style={{
+                width: "fit-content",
+                backgroundColor: "#3952A2",
+                color: "white",
+                borderRadius: "0.25rem",
+                padding: "0.25rem",
+              }}
+            >
+              Blue means equal.
+            </span>
+            <br />
+            <span
+              style={{
+                width: "fit-content",
+                backgroundColor: "#16833E",
+                color: "white",
+                borderRadius: "0.25rem",
+                padding: "0.25rem",
+              }}
+            >
+              Green means better.
+            </span>
+            <br />
+            <span
+              style={{
+                width: "fit-content",
+                backgroundColor: "#AB0D0D",
+                color: "white",
+                borderRadius: "0.25rem",
+                padding: "0.25rem",
+              }}
+            >
+              Red means worse.
+            </span>
+          </div>
+        </details>
       </div>
 
       <div class="compare-container">

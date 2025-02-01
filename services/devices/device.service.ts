@@ -288,7 +288,9 @@ export class DeviceService {
     }
   }
 
-  static getPropertyIconByBool(bool: boolean | null): VNode<JSX.SVGAttributes> {
+  static getPropertyIconByBool(
+    bool: boolean | null | undefined,
+  ): VNode<JSX.SVGAttributes> {
     return bool
       ? PiCheckCircleFill({
         style: {
@@ -370,5 +372,14 @@ export class DeviceService {
       day: "numeric",
       year: "numeric",
     });
+  }
+
+  static getEmbedUrl(url: string): string {
+    if (url.includes("youtube.com")) {
+      const videoId = url.split("v=")[1];
+      return `https://www.youtube.com/embed/${videoId}`;
+    }
+
+    return url;
   }
 }

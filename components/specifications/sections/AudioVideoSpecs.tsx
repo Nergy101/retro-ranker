@@ -1,5 +1,6 @@
 import { PiSpeakerHigh } from "@preact-icons/pi";
 import { Device } from "../../../data/models/device.model.ts";
+import { AudioVideoTable } from "../tables/AudioVideoTable.tsx";
 
 interface AudioVideoSpecsProps {
   device: Device;
@@ -12,22 +13,7 @@ export function AudioVideoSpecs({ device }: AudioVideoSpecsProps) {
         <PiSpeakerHigh />
         Audio
       </h3>
-      <table class="striped">
-        <tbody>
-          {device.outputs.audioOutput && (
-            <tr>
-              <th>Audio Output</th>
-              <td>{device.outputs.audioOutput}</td>
-            </tr>
-          )}
-          {device.outputs.speaker && (
-            <tr>
-              <th>Speakers</th>
-              <td>{device.outputs.speaker}</td>
-            </tr>
-          )}
-        </tbody>
-      </table>
+      <AudioVideoTable device={device} />
     </section>
   );
-} 
+}

@@ -80,40 +80,29 @@ export function StarRating({ device }: StarRatingProps) {
     // Calculate features score (max 50 points)
     const features = {
       // Display features (15 points)
-      hasHDScreen: device.screen.ppi && device.screen.ppi >= 200 ? 5 : 0,
-      hasGoodScreenSize:
-        device.screen.size && parseFloat(device.screen.size) >= 5 ? 5 : 0,
-      hasQualityPanel:
-        device.screen.type && device.screen.type.toLowerCase()?.includes("ips")
-          ? 5
-          : 0,
-
-      // Performance features (15 points)
-      hasGoodCPU: device.cpu.cores && device.cpu.cores >= 4 ? 5 : 0,
-      hasGoodRAM: device.ram && parseInt(device.ram) >= 4 ? 5 : 0,
-      hasGoodCooling: device.cooling.raw &&
-          device.cooling.raw.toLowerCase().includes("fan")
+      hasHDScreen: device.screen.ppi?.[0] && device.screen.ppi[0] >= 200
         ? 5
         : 0,
+      hasGoodScreenSize: device.screen.size && device.screen.size >= 5 ? 5 : 0,
+      hasQualityPanel: device.screen.type?.type === "IPS" ||
+          device.screen.type?.type === "OLED" ||
+          device.screen.type?.type === "AMOLED"
+        ? 5
+        : 0,
+
+      // Performance features (15 points)
+      hasGoodCPU: device.cpus?.[0]?.cores && device.cpus[0].cores >= 4 ? 5 : 0,
+      hasGoodRAM: device.ram?.sizes?.[0] && device.ram.sizes[0] >= 4 ? 5 : 0,
+      hasGoodCooling: device.cooling.raw?.toLowerCase().includes("fan") ? 5 : 0,
 
       // Connectivity features (10 points)
       hasWifi: device.connectivity.hasWifi ? 3 : 0,
       hasBluetooth: device.connectivity.hasBluetooth ? 3 : 0,
-      hasHDMI: device.connectivity.hasHDMI ? 4 : 0,
+      hasHDMI: device.outputs.videoOutput?.hasHdmi ? 4 : 0,
 
       // Controls (10 points)
-      hasAnalogs:
-        device.controls.analogs.some((analog) =>
-            analog.toLowerCase().includes("dual")
-          )
-          ? 5
-          : 0,
-      hasGoodButtons:
-        device.controls.shoulderButtons.some((button) =>
-            button.toLowerCase().includes("l2")
-          )
-          ? 5
-          : 0,
+      hasAnalogs: device.controls.analogs?.dual ? 5 : 0,
+      hasGoodButtons: device.controls.shoulderButtons?.L2 ? 5 : 0,
     };
 
     featuresScore = Object.values(features).reduce((a, b) => a + b, 0);
