@@ -34,8 +34,10 @@ export function DisplaySpecsTable({ device }: DisplaySpecsTableProps) {
     if (device.outputs.videoOutput?.AV) {
       videoOutputs.push("AV");
     }
-    return videoOutputs.length > 0 ? videoOutputs.join(", ") : null;
+    return videoOutputs;
   };
+
+  const videoOutputs = videoOutputList();
 
   return (
     <table class="striped">
@@ -80,14 +82,11 @@ export function DisplaySpecsTable({ device }: DisplaySpecsTableProps) {
             <td>{device.screen.ppi.join(", ")}</td>
           </tr>
         )}
-        {device.outputs.videoOutput
-          ? (
-            <tr>
-              <th>Video Output</th>
-              <td>
-                {videoOutputList()}
-              </td>
-            </tr>
+        {videoOutputs.length > 0 ? (
+          <tr>
+            <th>Video Output</th>
+            <td>{videoOutputs.join(", ")}</td>
+          </tr>
           )
           : (
             <tr>
