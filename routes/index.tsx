@@ -5,8 +5,8 @@ import {
   PiSparkle,
   PiUserCheck,
 } from "@preact-icons/pi";
-import { DeviceCardMedium } from "../components/DeviceCardMedium.tsx";
-import { SeeMoreCard } from "../components/SeeMoreCard.tsx";
+import { DeviceCardMedium } from "../components/cards/DeviceCardMedium.tsx";
+import { SeeMoreCard } from "../components/cards/SeeMoreCard.tsx";
 import { DeviceService } from "../services/devices/device.service.ts";
 
 export default function Home() {

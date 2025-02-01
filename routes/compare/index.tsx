@@ -1,7 +1,7 @@
 import { Head } from "$fresh/runtime.ts";
 import { PageProps } from "$fresh/server.ts";
-import { DeviceComparisonResult } from "../../components/DeviceComparisonResult.tsx";
-import { DeviceComparisonForm } from "../../islands/DeviceComparisonForm.tsx";
+import { DeviceComparisonResult } from "../../components/comparisons/DeviceComparisonResult.tsx";
+import { DeviceComparisonForm } from "../../islands/forms/DeviceComparisonForm.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
 import { RatingsService } from "../../services/devices/ratings.service.ts";
 

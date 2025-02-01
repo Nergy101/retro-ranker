@@ -1,6 +1,6 @@
 import { useSignal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
-import { UmamiService } from "../services/umami/umami.service.ts";
+import { UmamiService } from "../../services/umami/umami.service.ts";
 
 interface DeviceSearchFormProps {
   initialSearch: string;

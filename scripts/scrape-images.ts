@@ -1,6 +1,30 @@
 import { Device } from "../data/models/device.model.ts";
 
-async function downloadImage(url: string, deviceName: string) {
+export async function downloadDeviceImages(
+  devices: Device[],
+  targetDir: string,
+) {
+  console.info(`Starting download of ${devices.length} device images...`);
+
+  // Create the target directory if it doesn't exist
+  await Deno.mkdir(targetDir, { recursive: true });
+  console.info(`Created device images target directory: ${targetDir}`);
+
+  const downloads = devices.map((device) => {
+    if (device.image.originalUrl) {
+      downloadImage(device.image.originalUrl, device.name.sanitized, targetDir);
+    }
+  });
+
+  await Promise.all(downloads);
+  console.info("Finished downloading all images!");
+}
+
+async function downloadImage(
+  url: string,
+  deviceName: string,
+  targetDir: string,
+) {
   try {
     if (url == "") {
       console.info(`❌ ${deviceName}: No image URL found`);
@@ -26,9 +50,8 @@ async function downloadImage(url: string, deviceName: string) {
       .replaceAll("\\", "-backslash-")
       .replace(/[^a-z0-9$-_.+!*'(),]/g, "-");
 
-    const filePath = `static/devices/${sanitizedName}.png`;
+    const filePath = `${targetDir}/${sanitizedName}.png`;
 
-    await Deno.mkdir("static/devices", { recursive: true });
     await Deno.writeFile(filePath, imageData);
 
     console.info(`✅ ${deviceName}`);
@@ -41,21 +64,7 @@ async function downloadImage(url: string, deviceName: string) {
   }
 }
 
-export async function downloadDeviceImages(devices: Device[]) {
-  console.info(`Starting download of ${devices.length} device images...`);
-
-  const downloads = devices.map((device) => {
-    if (device.image.originalUrl) {
-      downloadImage(device.image.originalUrl, device.name.sanitized);
-    }
-  });
-
-  await Promise.all(downloads);
-
-  console.info("Finished downloading all images!");
-}
-
-// Example usage:.
+// Get all device images and download them to the static/devices directory
 import { DeviceService } from "../services/devices/device.service.ts";
 const devices = DeviceService.getInstance().getAllDevices();
-await downloadDeviceImages(devices);
+await downloadDeviceImages(devices, "static/devices");

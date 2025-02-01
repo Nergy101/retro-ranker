@@ -124,18 +124,12 @@ export class DeviceService {
       );
     });
 
-    // not rly sorting, just filtering, rename later
     if (filter === "upcoming") {
       filteredDevices = filteredDevices.filter((device) =>
         device.released.raw?.toLowerCase().includes("upcoming")
       );
-    } else {
-      filteredDevices = filteredDevices.filter((device) =>
-        !device.released.raw?.toLowerCase().includes("upcoming")
-      );
     }
 
-    // not rly sorting, just filtering, rename later
     if (filter === "personal-picks") {
       filteredDevices = filteredDevices.filter((device) =>
         this.personalPicks.includes(device.name.sanitized)

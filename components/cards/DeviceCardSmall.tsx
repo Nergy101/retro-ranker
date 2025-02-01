@@ -1,5 +1,5 @@
-import { Device } from "../data/models/device.model.ts";
-import { StarRating } from "./StarRating.tsx";
+import { Device } from "../../data/models/device.model.ts";
+import { StarRating } from "../ratings/StarRating.tsx";
 
 interface DeviceCardSmallProps {
   device: Device;

@@ -1,7 +1,7 @@
 import { PageProps } from "$fresh/server.ts";
-import { DeviceCardMedium } from "../../components/DeviceCardMedium.tsx";
-import { PaginationNav } from "../../components/PaginationNav.tsx";
-import { DeviceSearchForm } from "../../islands/DeviceSearchForm.tsx";
+import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
+import { PaginationNav } from "../../components/shared/PaginationNav.tsx";
+import { DeviceSearchForm } from "../../islands/forms/DeviceSearchForm.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
 import { Head } from "$fresh/runtime.ts";
 

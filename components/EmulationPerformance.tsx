@@ -2,7 +2,7 @@ import { PiQuestionFill, PiVibrate } from "@preact-icons/pi";
 import { Cooling } from "../data/models/cooling.model.ts";
 import { Device } from "../data/models/device.model.ts";
 import { DeviceService } from "../services/devices/device.service.ts";
-import { RatingInfo } from "./RatingInfo.tsx";
+import { RatingInfo } from "./ratings/RatingInfo.tsx";
 interface EmulationPerformanceProps {
   device: Device;
 }

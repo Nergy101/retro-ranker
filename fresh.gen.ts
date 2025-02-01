@@ -14,11 +14,11 @@ import * as $devices_index from "./routes/devices/index.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $privacy from "./routes/privacy.tsx";
 import * as $terms from "./routes/terms.tsx";
-import * as $DeviceComparisonForm from "./islands/DeviceComparisonForm.tsx";
-import * as $DeviceSearchForm from "./islands/DeviceSearchForm.tsx";
 import * as $buttons_ClipboardButton from "./islands/buttons/ClipboardButton.tsx";
 import * as $buttons_CompareButton from "./islands/buttons/CompareButton.tsx";
 import * as $buttons_ShareButton from "./islands/buttons/ShareButton.tsx";
+import * as $forms_DeviceComparisonForm from "./islands/forms/DeviceComparisonForm.tsx";
+import * as $forms_DeviceSearchForm from "./islands/forms/DeviceSearchForm.tsx";
 import * as $navigation_Breadcrumb from "./islands/navigation/Breadcrumb.tsx";
 import * as $navigation_DesktopNav from "./islands/navigation/DesktopNav.tsx";
 import * as $navigation_MobileNav from "./islands/navigation/MobileNav.tsx";
@@ -42,11 +42,11 @@ const manifest = {
     "./routes/terms.tsx": $terms,
   },
   islands: {
-    "./islands/DeviceComparisonForm.tsx": $DeviceComparisonForm,
-    "./islands/DeviceSearchForm.tsx": $DeviceSearchForm,
     "./islands/buttons/ClipboardButton.tsx": $buttons_ClipboardButton,
     "./islands/buttons/CompareButton.tsx": $buttons_CompareButton,
     "./islands/buttons/ShareButton.tsx": $buttons_ShareButton,
+    "./islands/forms/DeviceComparisonForm.tsx": $forms_DeviceComparisonForm,
+    "./islands/forms/DeviceSearchForm.tsx": $forms_DeviceSearchForm,
     "./islands/navigation/Breadcrumb.tsx": $navigation_Breadcrumb,
     "./islands/navigation/DesktopNav.tsx": $navigation_DesktopNav,
     "./islands/navigation/MobileNav.tsx": $navigation_MobileNav,

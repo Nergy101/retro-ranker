@@ -1,8 +1,8 @@
 import { PiQuestion } from "@preact-icons/pi";
-import { Device } from "../data/models/device.model.ts";
-import { DeviceService } from "../services/devices/device.service.ts";
-import { CurrencyIcon } from "./CurrencyIcon.tsx";
-import { StarRating } from "./StarRating.tsx";
+import { Device } from "../../data/models/device.model.ts";
+import { DeviceService } from "../../services/devices/device.service.ts";
+import { CurrencyIcon } from "../shared/CurrencyIcon.tsx";
+import { StarRating } from "../ratings/StarRating.tsx";
 
 interface DeviceCardMediumProps {
   device: Device;

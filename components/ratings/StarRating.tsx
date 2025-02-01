@@ -4,7 +4,7 @@ import {
   PiStarFill,
   PiStarHalfFill,
 } from "@preact-icons/pi";
-import { Device } from "../data/models/device.model.ts";
+import { Device } from "../../data/models/device.model.ts";
 interface StarRatingProps {
   device: Device;
 }

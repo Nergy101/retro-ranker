@@ -1,4 +1,4 @@
-import { navigationItems } from "../data/navigation.ts";
+import { navigationItems } from "../data/navigation-items.ts";
 import { DeviceService } from "../services/devices/device.service.ts";
 
 const deviceService = DeviceService.getInstance();

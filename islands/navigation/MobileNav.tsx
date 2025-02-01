@@ -1,6 +1,6 @@
 import { PiListBold } from "@preact-icons/pi";
 import { useEffect } from "preact/hooks";
-import { navigationItems } from "../../data/navigation.ts";
+import { navigationItems } from "../../data/navigation-items.ts";
 import { ThemeSwitcher } from "./ThemeSwitcher.tsx";
 
 export function MobileNav({ pathname }: { pathname: string }) {

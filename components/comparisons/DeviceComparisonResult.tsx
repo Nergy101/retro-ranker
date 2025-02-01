@@ -1,7 +1,7 @@
-import { Device } from "../data/models/device.model.ts";
-import { CurrencyIcon } from "./CurrencyIcon.tsx";
-import { RatingInfo } from "./RatingInfo.tsx";
-import { StarRating } from "./StarRating.tsx";
+import { Device } from "../../data/models/device.model.ts";
+import { CurrencyIcon } from "../shared/CurrencyIcon.tsx";
+import { RatingInfo } from "../ratings/RatingInfo.tsx";
+import { StarRating } from "../ratings/StarRating.tsx";
 
 import {
   PiGameController,
@@ -11,8 +11,8 @@ import {
   PiRuler,
   PiWifiHigh,
 } from "@preact-icons/pi";
-import { DeviceService } from "../services/devices/device.service.ts";
-import { Ranking } from "../data/models/ranking.model.ts";
+import { DeviceService } from "../../services/devices/device.service.ts";
+import { Ranking } from "../../data/models/ranking.model.ts";
 
 interface DeviceComparisonResultProps {
   device: Device;

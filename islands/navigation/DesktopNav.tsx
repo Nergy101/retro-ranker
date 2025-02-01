@@ -1,5 +1,5 @@
 import { ThemeSwitcher } from "./ThemeSwitcher.tsx";
-import { navigationItems } from "../../data/navigation.ts";
+import { navigationItems } from "../../data/navigation-items.ts";
 
 export function DesktopNav({ pathname }: { pathname: string }) {
   return (
