@@ -835,7 +835,7 @@
         16
       ],
       "unit": "GB",
-      "type": "DDR5"
+      "type": "LPDDR5"
     },
     "rumble": true,
     "sensors": {
@@ -23340,7 +23340,7 @@
         16
       ],
       "unit": "GB",
-      "type": "DDR5"
+      "type": "LPDDR5"
     },
     "rumble": true,
     "sensors": {
@@ -26495,7 +26495,7 @@
         16
       ],
       "unit": "GB",
-      "type": "DDR5"
+      "type": "LPDDR5"
     },
     "rumble": true,
     "sensors": {
@@ -33446,7 +33446,7 @@
         16
       ],
       "unit": "GB",
-      "type": "DDR5"
+      "type": "LPDDR5"
     },
     "rumble": true,
     "sensors": {
@@ -35102,7 +35102,7 @@
         16
       ],
       "unit": "GB",
-      "type": "DDR5"
+      "type": "LPDDR5"
     },
     "rumble": true,
     "sensors": {
@@ -38948,7 +38948,7 @@
         8
       ],
       "unit": "GB",
-      "type": "DDR5"
+      "type": "LPDDR5"
     },
     "rumble": true,
     "sensors": {
@@ -46246,7 +46246,7 @@
         8
       ],
       "unit": "GB",
-      "type": "DDR5"
+      "type": "LPDDR5"
     },
     "rumble": true,
     "sensors": {
@@ -47096,7 +47096,7 @@
         16
       ],
       "unit": "GB",
-      "type": "DDR5"
+      "type": "LPDDR5"
     },
     "rumble": true,
     "sensors": {
@@ -47741,7 +47741,7 @@
         8
       ],
       "unit": "GB",
-      "type": "DDR5"
+      "type": "LPDDR5"
     },
     "rumble": true,
     "sensors": {
@@ -48181,7 +48181,7 @@
         16
       ],
       "unit": "GB",
-      "type": "DDR5"
+      "type": "LPDDR5"
     },
     "rumble": true,
     "sensors": {
@@ -51450,7 +51450,7 @@
         16
       ],
       "unit": "GB",
-      "type": "DDR5"
+      "type": "LPDDR5"
     },
     "rumble": true,
     "sensors": {
@@ -53099,7 +53099,7 @@
         16
       ],
       "unit": "GB",
-      "type": "DDR5"
+      "type": "LPDDR5"
     },
     "rumble": false,
     "sensors": {
@@ -54844,7 +54844,7 @@
         6
       ],
       "unit": "GB",
-      "type": "DDR5"
+      "type": "LPDDR5"
     },
     "rumble": true,
     "sensors": {
@@ -56443,7 +56443,7 @@
         16
       ],
       "unit": "GB",
-      "type": "DDR5"
+      "type": "LPDDR5"
     },
     "rumble": true,
     "sensors": {
@@ -58981,7 +58981,7 @@
         16
       ],
       "unit": "GB",
-      "type": "DDR5"
+      "type": "LPDDR5"
     },
     "rumble": true,
     "sensors": {
@@ -60241,7 +60241,7 @@
         32
       ],
       "unit": "GB",
-      "type": "DDR5"
+      "type": "LPDDR5"
     },
     "rumble": true,
     "sensors": {
@@ -67916,7 +67916,7 @@
         16
       ],
       "unit": "GB",
-      "type": "DDR5"
+      "type": "LPDDR5"
     },
     "rumble": true,
     "sensors": {

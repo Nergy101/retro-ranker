@@ -281,7 +281,7 @@ export default function DeviceDetail(props: PageProps) {
       <div class="device-detail-specs">
         <div style="display: flex; flex-direction: column;">
           <div class="divider" style="padding: 0.5rem 0;"></div>
-          <details>
+          <details open>
             <summary>
               <strong style={{ color: "var(--pico-primary)" }}>
                 Specifications Summary
@@ -377,8 +377,7 @@ export default function DeviceDetail(props: PageProps) {
                     <tr>
                       <td>RAM</td>
                       <td>
-                        {device.ram?.raw ?? "N/A"}
-                        {device.ram?.type && ` (${device.ram.type})`}
+                        {device.ram?.type ?? "N/A"}
                       </td>
                       <td>
                         {device.ram?.sizes?.map((size, index) => (
@@ -399,7 +398,7 @@ export default function DeviceDetail(props: PageProps) {
                           ? `${device.dimensions.length}mm x ${device.dimensions.width}mm x ${device.dimensions.height}mm`
                           : "N/A"}
                       </td>
-                      <td>{device.weight}</td>
+                      <td>{device.weight} grams</td>
                     </tr>
                     <tr>
                       <td>Screen</td>

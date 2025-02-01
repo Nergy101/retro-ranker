@@ -302,6 +302,8 @@ export function mapHandheldsColumnToDevice(
             : null,
           type: value.includes("lpddr5x")
             ? "LPDDR5X"
+            : value.includes("lpddr5")
+            ? "LPDDR5"
             : value.includes("lpddr4x")
             ? "LPDDR4X"
             : value.includes("lpddr4")
