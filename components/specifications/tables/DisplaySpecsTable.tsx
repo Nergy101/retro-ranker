@@ -82,11 +82,12 @@ export function DisplaySpecsTable({ device }: DisplaySpecsTableProps) {
             <td>{device.screen.ppi.join(", ")}</td>
           </tr>
         )}
-        {videoOutputs.length > 0 ? (
-          <tr>
-            <th>Video Output</th>
-            <td>{videoOutputs.join(", ")}</td>
-          </tr>
+        {videoOutputs.length > 0
+          ? (
+            <tr>
+              <th>Video Output</th>
+              <td>{videoOutputs.join(", ")}</td>
+            </tr>
           )
           : (
             <tr>

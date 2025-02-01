@@ -1,3 +1,4 @@
+// deno-lint-ignore-file no-console
 import {
   PiAndroidLogo,
   PiAppleLogo,
@@ -309,7 +310,6 @@ export class DeviceService {
   static getPropertyIconByCharacter(
     char: "✅" | "❌" | "?" | string | null,
   ): VNode<JSX.SVGAttributes> {
-    console.log(char);
     if (char === "✅") {
       return PiCheckCircleFill({
         style: {

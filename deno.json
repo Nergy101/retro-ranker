@@ -12,7 +12,11 @@
     "sitemap": "deno run -A scripts/generate-sitemap.ts"
   },
   "lint": {
-    "rules": { "tags": ["fresh", "recommended"], "exclude": ["require-await"] }
+    "rules": {
+      "tags": ["fresh", "recommended"],
+      "exclude": ["require-await"],
+      "include": ["no-console"]
+    }
   },
   "exclude": [
     "**/_fresh/*",

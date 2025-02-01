@@ -1,3 +1,4 @@
+// deno-lint-ignore-file no-console
 import { Device } from "../data/models/device.model.ts";
 
 export async function downloadDeviceImages(

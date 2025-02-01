@@ -1,3 +1,4 @@
+// deno-lint-ignore-file no-console
 import { FreshContext } from "$fresh/server.ts";
 import { DeviceService } from "../../../services/devices/device.service.ts";
 
