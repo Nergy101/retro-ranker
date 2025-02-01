@@ -16,7 +16,7 @@ export function MiscellaneousSpecsTable(
             <td>{device.colors.join(", ")}</td>
           </tr>
         )}
-        {device.notes && device.notes.length > 0 && (
+        {device.notes && device.notes.filter(note => note.trim() !== "").length > 0 && (
           <tr>
             <th>Notes</th>
             <td>{device.notes.join(", ")}</td>

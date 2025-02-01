@@ -55,7 +55,7 @@ export function mapHandheldsColumnToDevice(
       break;
     }
     case 3:
-      device.brand = value;
+      device.brand = rawValue;
       break;
     case 4:
       {
@@ -77,7 +77,7 @@ export function mapHandheldsColumnToDevice(
       device.os = {
         raw: rawValue,
         icons: parseOsIcons(value),
-        list: value.split(/, | \/ /),
+        list: rawValue.split(/, | \/ /),
         links: getOsLinks(value),
         customFirmwares: [],
       };
@@ -217,12 +217,12 @@ export function mapHandheldsColumnToDevice(
       });
       break;
     case 26:
-      device.systemOnChip = value;
+      device.systemOnChip = rawValue;
       break;
     case 27:
       device.cpus = [{
         raw: rawValue,
-        names: value.split(", "),
+        names: rawValue.split(", "),
         cores: null,
         threads: null,
         clockSpeed: null,
@@ -267,7 +267,7 @@ export function mapHandheldsColumnToDevice(
       break;
     case 32:
       device.gpus = [{
-        name: value,
+        name: rawValue,
         cores: null,
         clockSpeed: null,
       }];
@@ -695,7 +695,7 @@ export function mapHandheldsColumnToDevice(
     }
     case 63:
       {
-        device.colors = value.split(", ");
+        device.colors = rawValue.split(", ");
       }
       break;
     case 70: {
@@ -720,16 +720,16 @@ export function mapHandheldsColumnToDevice(
       break;
     }
     case 77:
-      device.pros = value.split(", ").filter((pro) => pro.trim() !== "");
+      device.pros = rawValue.split(", ").filter((pro) => pro.trim() !== "");
       break;
     case 78:
-      device.cons = value.split(", ").filter((con) => con.trim() !== "");
+      device.cons = rawValue.split(", ").filter((con) => con.trim() !== "");
       break;
     case 79:
-      device.performance.emulationLimit = value;
+      device.performance.emulationLimit = rawValue;
       break;
     case 80:
-      device.notes = value.split(", ");
+      device.notes = rawValue.split(", ");
       break;
   }
 }

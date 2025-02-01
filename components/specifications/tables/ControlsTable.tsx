@@ -24,7 +24,7 @@ export function ControlsTable({ device }: ControlsTableProps) {
     if (device.sensors?.hasHeartRateSensor) sensors.push("Heart Rate");
     if (device.sensors?.hasAntenna) sensors.push("Antenna");
     if (device.sensors?.screenClosure) sensors.push("Screen Closure");
-    return sensors.join(", ");
+    return sensors.length > 0 ? sensors.join(", ") : "N/A";
   };
 
   return (
