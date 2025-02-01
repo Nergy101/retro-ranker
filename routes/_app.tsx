@@ -98,10 +98,12 @@ export default function App({ Component, url }: PageProps) {
       <body>
         <Navbar pathname={url.pathname} />
 
-        <main class="container">
-          <Breadcrumb />
-          <Component />
-        </main>
+        <div class="content">
+          <main class="container" style={{ padding: "1em", borderRadius: "var(--pico-border-radius)" }}>
+            <Breadcrumb />
+            <Component />
+          </main>
+        </div>
 
         <footer style={{ borderTop: "1px solid var(--pico-primary)" }}>
           <div class="container-fluid">

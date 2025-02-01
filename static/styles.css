@@ -8,6 +8,37 @@
   margin: 0;
 }
 
+/* Set the main background image and put a dark overlay on it */
+
+.content {
+  padding: 1em;
+}
+
+[data-theme="dark"] .content {
+  background-image: url("/images/bg.png");
+  background-size: auto;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-blend-mode: multiply;
+  background-color: rgba(19, 23, 31, 0.6);
+}
+
+[data-theme="dark"] .container {
+  background-color: rgba(20, 22, 30, 0.95);
+}
+
+[data-theme="light"] .content {
+  background-image: url("/images/bg.png");
+  background-size: auto;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-blend-mode: multiply;
+}
+
+[data-theme="light"] .container {
+  background-color: rgba(255, 255, 255, 0.96);
+}
+
 button {
   color: inherit;
   cursor: pointer;
@@ -525,12 +556,6 @@ h6,
   gap: 0.5rem;
 }
 
-@media (max-width: 1024px) {
-  .similar-devices-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 @media (max-width: 500px) {
   .similar-devices-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -911,6 +936,7 @@ h6,
 }
 
 .better {
+  background-blend-mode: multiply !important;
   &[data-tooltip] {
     border-bottom: 1px solid #16833e;
   }
@@ -976,8 +1002,16 @@ h6,
   overflow-x: scroll;
   overflow-y: scroll;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 0.5rem;
+  grid-template-columns: repeat(3, 1fr);
+
+  @media (width <= 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (width < 768px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 .rating-info-grid {

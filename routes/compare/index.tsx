@@ -47,66 +47,67 @@ export default function DevicesIndex(props: PageProps) {
         />
       </div>
 
-      <div>
+      <div style={{ marginTop: "1rem", marginBottom: "2rem" }}>
         <details>
-          <summary>
-            <span
-              style={{ display: "flex", alignItems: "center", gap: "0.25rem" }}
-            >
+          <summary class="flex items-center gap-2">
+            <div style={{ display: "flex", alignItems: "center" }}>
               <PiInfo />
-              <span>How does this ranking work?</span>
-            </span>
+              &nbsp;How does this ranking work?
+            </div>
           </summary>
-          <p>
-            The ranking you are looking at is based on all relevant properties
-            of the devices.
-            <br />
-            Every property is given a score.
-            <br />
-            The scores are then weighted and summed up to get the final results.
-          </p>
-          <div
-            style={{
-              display: "flex",
-              gap: "0.25rem",
-              alignItems: "center",
-            }}
-          >
-            <span
+          <div>
+            <p>
+              The ranking you are looking at is based on all relevant properties
+              of the devices.
+              <br />
+              Every property is given a score.
+              <br />
+              The scores are then weighted and summed up to get the final
+              results.
+            </p>
+            <div
               style={{
-                width: "fit-content",
-                backgroundColor: "#3952A2",
-                color: "white",
-                borderRadius: "0.25rem",
-                padding: "0.25rem",
+                display: "flex",
+                gap: "0.25rem",
+                alignItems: "center",
               }}
             >
-              Blue means equal.
-            </span>
-            <br />
-            <span
-              style={{
-                width: "fit-content",
-                backgroundColor: "#16833E",
-                color: "white",
-                borderRadius: "0.25rem",
-                padding: "0.25rem",
-              }}
-            >
-              Green means better.
-            </span>
-            <br />
-            <span
-              style={{
-                width: "fit-content",
-                backgroundColor: "#AB0D0D",
-                color: "white",
-                borderRadius: "0.25rem",
-                padding: "0.25rem",
-              }}
-            >
-              Red means worse.
-            </span>
+              <span
+                style={{
+                  width: "fit-content",
+                  backgroundColor: "#3952A2",
+                  color: "white",
+                  borderRadius: "0.25rem",
+                  padding: "0.25rem",
+                }}
+              >
+                Blue means equal.
+              </span>
+              <br />
+              <span
+                style={{
+                  width: "fit-content",
+                  backgroundColor: "#16833E",
+                  color: "white",
+                  borderRadius: "0.25rem",
+                  padding: "0.25rem",
+                }}
+              >
+                Green means better.
+              </span>
+              <br />
+              <span
+                style={{
+                  width: "fit-content",
+                  backgroundColor: "#AB0D0D",
+                  color: "white",
+                  borderRadius: "0.25rem",
+                  padding: "0.25rem",
+                }}
+              >
+                Red means worse.
+              </span>
+            </div>
           </div>
         </details>
       </div>
