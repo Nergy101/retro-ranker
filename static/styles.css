@@ -760,7 +760,7 @@ h6,
   grid-area: screen;
   padding: 0.5rem;
   overflow-y: auto;
-  height: 21em;
+  height: 23em;
 
   border: 1px solid var(--pico-primary);
   border-radius: var(--pico-border-radius);
