@@ -43,7 +43,7 @@ export default function Home() {
           alignItems: "center",
         }}
       >
-        <div className="container">
+        <div class="container-fluid">
           {/* Highly Rated Section */}
           <section style="margin-top: 2rem;">
             <h2 class="home-section-title">
