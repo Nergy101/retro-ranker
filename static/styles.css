@@ -14,31 +14,6 @@
   padding: 1em;
 }
 
-[data-theme="dark"] .content {
-  background-image: url("/images/bg.png");
-  background-size: auto;
-  background-repeat: repeat;
-  background-attachment: fixed;
-  background-blend-mode: multiply;
-  background-color: rgba(19, 23, 31, 0.6);
-}
-
-[data-theme="dark"] .container {
-  background-color: rgba(20, 22, 30, 0.95);
-}
-
-[data-theme="light"] .content {
-  background-image: url("/images/bg.png");
-  background-size: auto;
-  background-repeat: repeat;
-  background-attachment: fixed;
-  background-blend-mode: multiply;
-}
-
-[data-theme="light"] .container {
-  background-color: rgba(255, 255, 255, 0.96);
-}
-
 button {
   color: inherit;
   cursor: pointer;
