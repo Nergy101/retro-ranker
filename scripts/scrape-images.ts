@@ -1,5 +1,10 @@
 // deno-lint-ignore-file no-console
 import { Device } from "../data/device.model.ts";
+import { slugify } from "https://deno.land/x/slugify@0.3.0/mod.ts";
+
+slugify.extend({
+  '?': 'question-mark'
+})
 
 export async function downloadDeviceImages(
   devices: Device[],
@@ -37,19 +42,20 @@ async function downloadImage(
     }
 
     const imageData = new Uint8Array(await response.arrayBuffer());
-    const sanitizedName = deviceName.toLowerCase()
-      .replaceAll(" ", "-")
-      .replaceAll("?", "-question-mark-")
-      .replaceAll("!", "-exclamation-mark-")
-      .replaceAll("'", "-apostrophe-")
-      .replaceAll("(", "-open-parenthesis-")
-      .replaceAll(")", "-close-parenthesis-")
-      .replaceAll("&", "-ampersand-")
-      .replaceAll(":", "-colon-")
-      .replaceAll(";", "-semicolon-")
-      .replaceAll("/", "-slash-")
-      .replaceAll("\\", "-backslash-")
-      .replace(/[^a-z0-9$-_.+!*'(),]/g, "-");
+    const sanitizedName = slugify(deviceName);
+    // const sanitizedName = deviceName.toLowerCase()
+      // .replaceAll(" ", "-")
+      // .replaceAll("?", "-question-mark-")
+      // .replaceAll("!", "-exclamation-mark-")
+      // .replaceAll("'", "-apostrophe-")
+      // .replaceAll("(", "-open-parenthesis-")
+      // .replaceAll(")", "-close-parenthesis-")
+      // .replaceAll("&", "-ampersand-")
+      // .replaceAll(":", "-colon-")
+      // .replaceAll(";", "-semicolon-")
+      // .replaceAll("/", "-slash-")
+      // .replaceAll("\\", "-backslash-")
+      // .replace(/[^a-z0-9$-_.+!*'(),]/g, "-");
 
     const filePath = `${targetDir}/${sanitizedName}.png`;
 

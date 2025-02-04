@@ -8,6 +8,7 @@ import {
   parseOsIcons,
   parsePriceRange,
 } from "./device.parser.helpers.ts";
+import { slugify } from "https://deno.land/x/slugify@0.3.0/mod.ts";
 
 export function mapOEMsColumnToDevice(
   colIndex: number,
@@ -28,19 +29,20 @@ export function mapOEMsColumnToDevice(
       break;
     }
     case 1: {
-      const sanitizedName = value
-        .replaceAll(" ", "-")
-        .replaceAll("?", "-question-mark-")
-        .replaceAll("!", "-exclamation-mark-")
-        .replaceAll("'", "-apostrophe-")
-        .replaceAll("(", "-open-parenthesis-")
-        .replaceAll(")", "-close-parenthesis-")
-        .replaceAll("&", "-ampersand-")
-        .replaceAll(":", "-colon-")
-        .replaceAll(";", "-semicolon-")
-        .replaceAll("/", "-slash-")
-        .replaceAll("\\", "-backslash-")
-        .replace(/[^a-z0-9$-_.+!*'(),]/g, "-");
+      const sanitizedName = slugify(value);
+      // const sanitizedName = value
+      //   .replaceAll(" ", "-")
+      //   .replaceAll("?", "-question-mark-")
+      //   .replaceAll("!", "-exclamation-mark-")
+      //   .replaceAll("'", "-apostrophe-")
+      //   .replaceAll("(", "-open-parenthesis-")
+      //   .replaceAll(")", "-close-parenthesis-")
+      //   .replaceAll("&", "-ampersand-")
+      //   .replaceAll(":", "-colon-")
+      //   .replaceAll(";", "-semicolon-")
+      //   .replaceAll("/", "-slash-")
+      //   .replaceAll("\\", "-backslash-")
+      //   .replace(/[^a-z0-9$-_.+!*'(),]/g, "-");
 
       device.image = {
         ...device.image,

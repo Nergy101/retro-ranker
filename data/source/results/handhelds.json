@@ -4211,7 +4211,7 @@
   {
     "name": {
       "raw": "SP Touch Handheld (?)",
-      "sanitized": "sp-touch-handheld--open-parenthesis--question-mark--close-parenthesis-",
+      "sanitized": "sp-touch-handheld-(question-mark)",
       "normalized": "SP Touch Handheld"
     },
     "os": {
@@ -4299,7 +4299,7 @@
     ],
     "image": {
       "originalUrl": "https://lh7-rt.googleusercontent.com/sheetsz/AHOq17GLzzEf7fCpmtzLJuups9CFTyfrgOjlWsYh-TXmi0a63MTfhHCCU1-oB3QJGrijjX3dXcMTE-dRrfaqic6Q8IO622X9up5a3lkfpHud0PGeTONR2UyGR2Vgu2MzTrnqfDyqEc1H=w120-h64?key=db8c6zyaldUKp-ZPCWmnqw",
-      "url": "/devices/sp-touch-handheld--open-parenthesis--question-mark--close-parenthesis-.png",
+      "url": "/devices/sp-touch-handheld-(question-mark).png",
       "alt": "sp touch handheld (?)"
     },
     "released": {
@@ -4563,7 +4563,7 @@
   {
     "name": {
       "raw": "SP Non-touch Handheld (?)",
-      "sanitized": "sp-non-touch-handheld--open-parenthesis--question-mark--close-parenthesis-",
+      "sanitized": "sp-non-touch-handheld-(question-mark)",
       "normalized": "SP Non-touch Handheld"
     },
     "os": {
@@ -4651,7 +4651,7 @@
     ],
     "image": {
       "originalUrl": "https://lh7-rt.googleusercontent.com/sheetsz/AHOq17FpRzjDQ51KIBoVPdnrrIBw19i_wDievRJZds7wby7e1y1S4PFRFgXsWV7kmWtlVOrwWdAPwLwo9UEqFEluMcSymT19ihknGm_N1ep-R-jXexdtaVFq4TpyxX6AzRTj4S1IhRcCJw=w120-h64?key=db8c6zyaldUKp-ZPCWmnqw",
-      "url": "/devices/sp-non-touch-handheld--open-parenthesis--question-mark--close-parenthesis-.png",
+      "url": "/devices/sp-non-touch-handheld-(question-mark).png",
       "alt": "sp non-touch handheld (?)"
     },
     "released": {
@@ -20881,7 +20881,7 @@
   {
     "name": {
       "raw": "GPD Win Max 2 (2024)",
-      "sanitized": "gpd-win-max-2--open-parenthesis-2024-close-parenthesis-",
+      "sanitized": "gpd-win-max-2-(2024)",
       "normalized": "GPD Win Max 2"
     },
     "os": {
@@ -20982,7 +20982,7 @@
     ],
     "image": {
       "originalUrl": "https://lh7-rt.googleusercontent.com/sheetsz/AHOq17FfHWMqbTV6d82U4PEgJgScrxjX0PjCFUKa9SDkUt8X90nEojiQqGkqPXOsw_LtPyCqr9U5rfGcu89DLXKYIEUt4gsWoz27ngtBjVUWRq3RKx8GqD9e_lr_uNpCrcXZ8hNV-9bmpwgYkFJFVyvpcVoNrTFz=w120-h64?key=db8c6zyaldUKp-ZPCWmnqw",
-      "url": "/devices/gpd-win-max-2--open-parenthesis-2024-close-parenthesis-.png",
+      "url": "/devices/gpd-win-max-2-(2024).png",
       "alt": "gpd win max 2 (2024)"
     },
     "released": {
@@ -22506,7 +22506,7 @@
   {
     "name": {
       "raw": "Miyoo A30 / 282",
-      "sanitized": "miyoo-a30--slash--282",
+      "sanitized": "miyoo-a30-282",
       "normalized": "Miyoo A30 / 282"
     },
     "os": {
@@ -22604,7 +22604,7 @@
     ],
     "image": {
       "originalUrl": "https://lh7-rt.googleusercontent.com/sheetsz/AHOq17GOm2ucRZR_KFOenB2bMSUnDsV844EkW6o8d1HugJ3F4qQ347wAz-eWWRxDELCEoKBuxIp4LAEMsYMNJVpJZQ3RY45pd2FAni48SySpwr-9tea5rPtnvtJerERzxJ15fOnXdjswEOjxDoRiu1OG4eQu_Ie4_WQ=w120-h64?key=db8c6zyaldUKp-ZPCWmnqw",
-      "url": "/devices/miyoo-a30--slash--282.png",
+      "url": "/devices/miyoo-a30-282.png",
       "alt": "miyoo a30 / 282"
     },
     "released": {
@@ -31420,7 +31420,7 @@
   {
     "name": {
       "raw": "M18 / R43 Pro",
-      "sanitized": "m18--slash--r43-pro",
+      "sanitized": "m18-r43-pro",
       "normalized": "M18 / R43 Pro"
     },
     "os": {
@@ -31516,7 +31516,7 @@
     ],
     "image": {
       "originalUrl": "https://lh7-rt.googleusercontent.com/sheetsz/AHOq17HOK8IjFBx5JZ0lrbIYJs37-uGEkPoO2N6sqFDXtb9el1VuTBqdEJr5aOqDi7jXTzDpfkPsDXuPScbtLMBmABnAN1LuHydlT1gG8dAJKfd_lt7wtB2luMUGje6Gv0XyHQXx1bo6_PLBRRwZ4EhSBGusHymeTQ=w120-h64?key=db8c6zyaldUKp-ZPCWmnqw",
-      "url": "/devices/m18--slash--r43-pro.png",
+      "url": "/devices/m18-r43-pro.png",
       "alt": "m18 / r43 pro"
     },
     "released": {
@@ -39726,7 +39726,7 @@
   {
     "name": {
       "raw": "GPD Win 4(7640U / 7840U)",
-      "sanitized": "gpd-win-4-open-parenthesis-7640u--slash--7840u-close-parenthesis-",
+      "sanitized": "gpd-win-4(7640u-7840u)",
       "normalized": "GPD Win 4"
     },
     "os": {
@@ -39822,7 +39822,7 @@
     ],
     "image": {
       "originalUrl": "https://lh7-rt.googleusercontent.com/sheetsz/AHOq17HuvsVFWb4kVr_JZeESxLnvOBn-krwmAVB7cfS77zLsUsiEOenpQPA2LueqrkI09ugn3FrOv53ywLuYbKnhZyNUOd9cQUg2wWIA5s2hccM9SpzS8N0x_S5yzrtPovd6PtczqG_uqlpmXqQ5DUjsVBA-ih5B=w120-h64?key=db8c6zyaldUKp-ZPCWmnqw",
-      "url": "/devices/gpd-win-4-open-parenthesis-7640u--slash--7840u-close-parenthesis-.png",
+      "url": "/devices/gpd-win-4(7640u-7840u).png",
       "alt": "gpd win 4(7640u / 7840u)"
     },
     "released": {
@@ -41772,7 +41772,7 @@
   {
     "name": {
       "raw": "GPD Win Max 2(7640U / 7840U)",
-      "sanitized": "gpd-win-max-2-open-parenthesis-7640u--slash--7840u-close-parenthesis-",
+      "sanitized": "gpd-win-max-2(7640u-7840u)",
       "normalized": "GPD Win Max 2"
     },
     "os": {
@@ -41867,7 +41867,7 @@
     ],
     "image": {
       "originalUrl": "https://lh7-rt.googleusercontent.com/sheetsz/AHOq17FfHWMqbTV6d82U4PEgJgScrxjX0PjCFUKa9SDkUt8X90nEojiQqGkqPXOsw_LtPyCqr9U5rfGcu89DLXKYIEUt4gsWoz27ngtBjVUWRq3RKx8GqD9e_lr_uNpCrcXZ8hNV-9bmpwgYkFJFVyvpcVoNrTFz=w120-h64?key=db8c6zyaldUKp-ZPCWmnqw",
-      "url": "/devices/gpd-win-max-2-open-parenthesis-7640u--slash--7840u-close-parenthesis-.png",
+      "url": "/devices/gpd-win-max-2(7640u-7840u).png",
       "alt": "gpd win max 2(7640u / 7840u)"
     },
     "released": {
@@ -48571,7 +48571,7 @@
   {
     "name": {
       "raw": "RK2023(WiFi model)",
-      "sanitized": "rk2023-open-parenthesis-wifi-model-close-parenthesis-",
+      "sanitized": "rk2023(wifi-model)",
       "normalized": "RK2023"
     },
     "os": {
@@ -48666,7 +48666,7 @@
     ],
     "image": {
       "originalUrl": "https://lh7-rt.googleusercontent.com/sheetsz/AHOq17GheJIFr4g5e3ySOWwPvOjzp2V0bD3DQ-eCzD3WosZAwr4adL89iPAdHk9aPeQuVoNo42qr1APgnpcyf_wLAlYq7BaTCRTTMYOPE7SOCjWRMQ3eC7rSnuhKk_Ox5wu5PTmMSxxF4CclzDqRspXxQyoyL9Tf=w120-h64?key=db8c6zyaldUKp-ZPCWmnqw",
-      "url": "/devices/rk2023-open-parenthesis-wifi-model-close-parenthesis-.png",
+      "url": "/devices/rk2023(wifi-model).png",
       "alt": "rk2023(wifi model)"
     },
     "released": {
@@ -71022,7 +71022,7 @@
   {
     "name": {
       "raw": "Retro Dreamer(Game 4 All CM4)",
-      "sanitized": "retro-dreamer-open-parenthesis-game-4-all-cm4-close-parenthesis-",
+      "sanitized": "retro-dreamer(game-4-all-cm4)",
       "normalized": "Retro Dreamer"
     },
     "os": {
@@ -71128,7 +71128,7 @@
     ],
     "image": {
       "originalUrl": "https://lh7-rt.googleusercontent.com/sheetsz/AHOq17HodPGXCR-CNZi-i0M-Ymci72HiUAvl9bIclP5MAt3YPBbiN5rpgDBedq-A9qwzYjbFGHKCby6mzULq0lut3WSve-C8T2FzjEDCNYXVkA0l5fJ9IQu5Df4ER1DzLuB3Ig5f1qLHj-q0nvmWBgswJK_bfOg=w120-h64?key=db8c6zyaldUKp-ZPCWmnqw",
-      "url": "/devices/retro-dreamer-open-parenthesis-game-4-all-cm4-close-parenthesis-.png",
+      "url": "/devices/retro-dreamer(game-4-all-cm4).png",
       "alt": "retro dreamer(game 4 all cm4)"
     },
     "released": {
@@ -71819,7 +71819,7 @@
   {
     "name": {
       "raw": "Retroid Pocket 2+(RP2 PCB Upgrade)",
-      "sanitized": "retroid-pocket-2+-open-parenthesis-rp2-pcb-upgrade-close-parenthesis-",
+      "sanitized": "retroid-pocket-2+(rp2-pcb-upgrade)",
       "normalized": "Retroid Pocket 2+"
     },
     "os": {
@@ -71918,7 +71918,7 @@
     ],
     "image": {
       "originalUrl": "https://lh7-rt.googleusercontent.com/sheetsz/AHOq17FuLX--8UhII3h5swiGXNp45sqS2An796KsiEoK6hDci_glpjdofY1Ps4irjNWEYmv5Spm79sw0Kwervc6qL-ESsQCBg4tMy608uunIv1dZITphfosuobO8h3wW0Lgv6cJsA_X6BAO9cEqsQW8RRePqU5A=w120-h64?key=db8c6zyaldUKp-ZPCWmnqw",
-      "url": "/devices/retroid-pocket-2+-open-parenthesis-rp2-pcb-upgrade-close-parenthesis-.png",
+      "url": "/devices/retroid-pocket-2+(rp2-pcb-upgrade).png",
       "alt": "retroid pocket 2+(rp2 pcb upgrade)"
     },
     "released": {
@@ -75421,7 +75421,7 @@
   {
     "name": {
       "raw": "AYANEO Pro(Retro Power)",
-      "sanitized": "ayaneo-pro-open-parenthesis-retro-power-close-parenthesis-",
+      "sanitized": "ayaneo-pro(retro-power)",
       "normalized": "AYANEO Pro"
     },
     "os": {
@@ -75516,7 +75516,7 @@
     ],
     "image": {
       "originalUrl": "https://lh7-rt.googleusercontent.com/sheetsz/AHOq17FcVjK6r-jWgzt6Aj-fvhsDKrzQMYtT3paYV4xoWtfwJPbXHG8PAQXtnvgmhYPkW9sStOzP6p14-jjtcQgh4wN1vT5o_61Fi9SmLbGA6WrqIRL5359fPJph6U-S3Pd0QgcpNU01fYaVijSTX1UEFmMwy0Q=w120-h64?key=db8c6zyaldUKp-ZPCWmnqw",
-      "url": "/devices/ayaneo-pro-open-parenthesis-retro-power-close-parenthesis-.png",
+      "url": "/devices/ayaneo-pro(retro-power).png",
       "alt": "ayaneo pro(retro power)"
     },
     "released": {
@@ -78886,7 +78886,7 @@
   {
     "name": {
       "raw": "A380 / GameMax",
-      "sanitized": "a380--slash--gamemax",
+      "sanitized": "a380-gamemax",
       "normalized": "A380 / GameMax"
     },
     "os": {
@@ -78982,7 +78982,7 @@
     ],
     "image": {
       "originalUrl": "https://lh7-rt.googleusercontent.com/sheetsz/AHOq17ERXDNd4KmfThI-LOW_8lQnHiVUxANDeIn7VEcYHIw8nutIg8N3MXyEJBYvoV8_pOlye74s6BZem1qeAIT2km9F0fNFsN0-PJmuMXy-HVJ-PDyLfhTX-zFuTUJ5kdvi1flSAoAbxotNzkxF1DPTVFiMBOzp=w120-h64?key=db8c6zyaldUKp-ZPCWmnqw",
-      "url": "/devices/a380--slash--gamemax.png",
+      "url": "/devices/a380-gamemax.png",
       "alt": "a380 / gamemax"
     },
     "released": {
@@ -90151,7 +90151,7 @@
   {
     "name": {
       "raw": "TRIMUI Model S / PowKiddy A66",
-      "sanitized": "trimui-model-s--slash--powkiddy-a66",
+      "sanitized": "trimui-model-s-powkiddy-a66",
       "normalized": "TRIMUI Model S / PowKiddy A66"
     },
     "os": {
@@ -90252,7 +90252,7 @@
     ],
     "image": {
       "originalUrl": "https://lh7-rt.googleusercontent.com/sheetsz/AHOq17HNhKg5ji8zmEcMDrInzQRXmBHmX5hhJKKq068Yr5x-d9otWOTHtFIgN4lgk42zn5ZKtSWdg35jxbEFLzg1xpFLDMqOg72iIwgOHl5rPU3L0UACXp5FmInImz9TCOpsI98NV_oq4FdtZmkXNWY9miQFa0o=w120-h64?key=db8c6zyaldUKp-ZPCWmnqw",
-      "url": "/devices/trimui-model-s--slash--powkiddy-a66.png",
+      "url": "/devices/trimui-model-s-powkiddy-a66.png",
       "alt": "trimui model s / powkiddy a66"
     },
     "released": {
@@ -91835,7 +91835,7 @@
   {
     "name": {
       "raw": "Q500 / PS5000 / Lintian LT-8203",
-      "sanitized": "q500--slash--ps5000--slash--lintian-lt-8203",
+      "sanitized": "q500-ps5000-lintian-lt-8203",
       "normalized": "Q500 / PS5000 / Lintian LT-8203"
     },
     "os": {
@@ -91927,7 +91927,7 @@
     ],
     "image": {
       "originalUrl": "https://lh7-rt.googleusercontent.com/sheetsz/AHOq17HX3EqsyeaArugjWzRPUKibh7vZb3b9uImbdqB7Cv8FIq8Kp3khPqk19rqkO-blir4RPyFscbAiX1XsO-nGsNsGKMgh8fl8AJh-VH83KKVNoP6c6kzPFOneX1kIO70dhYysx001hu2FYiv4bIRcRo9NId0=w120-h64?key=db8c6zyaldUKp-ZPCWmnqw",
-      "url": "/devices/q500--slash--ps5000--slash--lintian-lt-8203.png",
+      "url": "/devices/q500-ps5000-lintian-lt-8203.png",
       "alt": "q500 / ps5000 / lintian lt-8203"
     },
     "released": {
@@ -93105,7 +93105,7 @@
   {
     "name": {
       "raw": "CoolBaby RS-63 / RS3128",
-      "sanitized": "coolbaby-rs-63--slash--rs3128",
+      "sanitized": "coolbaby-rs-63-rs3128",
       "normalized": "CoolBaby RS-63 / RS3128"
     },
     "os": {
@@ -93200,7 +93200,7 @@
     ],
     "image": {
       "originalUrl": "https://lh7-rt.googleusercontent.com/sheetsz/AHOq17EBo1R7ujMb4XTbY5weICaTYD92zb8mrxckl2X5CdDPAh_0DqzTOKLs5S0hhtlT6hE-EovKq7K4rVU9_dsexyV-EVINV7bGEhoiCZSwU2zEeP2pw00b0Qn8eD-DuUFxzr1aJoSzPFqIUNY4FZVrZYMkfg7J=w120-h64?key=db8c6zyaldUKp-ZPCWmnqw",
-      "url": "/devices/coolbaby-rs-63--slash--rs3128.png",
+      "url": "/devices/coolbaby-rs-63-rs3128.png",
       "alt": "coolbaby rs-63 / rs3128"
     },
     "released": {
@@ -98099,7 +98099,7 @@
   {
     "name": {
       "raw": "Q900 / PS7000",
-      "sanitized": "q900--slash--ps7000",
+      "sanitized": "q900-ps7000",
       "normalized": "Q900 / PS7000"
     },
     "os": {
@@ -98195,7 +98195,7 @@
     ],
     "image": {
       "originalUrl": "https://lh7-rt.googleusercontent.com/sheetsz/AHOq17G3RlKBW2h__tMzKiYouSexdItOzrwdJg24bu7FMDgzgjc-cQfWffA3VK8shLwVeCxvB3VmIkAzaNnJ6eDAGOJxfptOcGayqxJVkfuaJ2s_OXrSNKtmNmAiEHtrm0c2yFdAPSTa8Pgz2YSkC2tLmbukRMeQ=w120-h64?key=db8c6zyaldUKp-ZPCWmnqw",
-      "url": "/devices/q900--slash--ps7000.png",
+      "url": "/devices/q900-ps7000.png",
       "alt": "q900 / ps7000"
     },
     "released": {
@@ -99316,7 +99316,7 @@
   {
     "name": {
       "raw": "Odroid Go Advance - Black Edition",
-      "sanitized": "odroid-go-advance---black-edition",
+      "sanitized": "odroid-go-advance-black-edition",
       "normalized": "Odroid Go Advance - Black Edition"
     },
     "os": {
@@ -99408,7 +99408,7 @@
     ],
     "image": {
       "originalUrl": "https://lh7-rt.googleusercontent.com/sheetsz/AHOq17E0VxeQ1xugjIyipuntvIVuCBHYODBMCcxNx9h-aTbNGvH_4btC8CRi81ISYY3mMFYr8OjeDiZaSUXSURHqSkFd8do6vxN2ev2vJRQErhBRNHs8wpwxhDDVa2XjuJ4vpm3gTX2BPHul_ebXv-8u-mmokR6r=w120-h64?key=db8c6zyaldUKp-ZPCWmnqw",
-      "url": "/devices/odroid-go-advance---black-edition.png",
+      "url": "/devices/odroid-go-advance-black-edition.png",
       "alt": "odroid go advance - black edition"
     },
     "released": {
@@ -102968,7 +102968,7 @@
   {
     "name": {
       "raw": "New PocketGo / PlayGo / Miyoo Max",
-      "sanitized": "new-pocketgo--slash--playgo--slash--miyoo-max",
+      "sanitized": "new-pocketgo-playgo-miyoo-max",
       "normalized": "New PocketGo / PlayGo / Miyoo Max"
     },
     "os": {
@@ -103067,7 +103067,7 @@
     ],
     "image": {
       "originalUrl": "https://lh7-rt.googleusercontent.com/sheetsz/AHOq17GIPqYP25S1a3fc_6Zm0OyxhwQDp_EL7mlWaZIMqiaqYvmtMLahbqt7HvBtWzRv6SVU7D54I9MAMKkoOjSruu95o_FxGoRGo-8bcPNc2Y7C9JD_CTVohUpfQjrMj2zcG9ZkAZ9oDWOJokVilP5vkpyN6Bi2=w120-h64?key=db8c6zyaldUKp-ZPCWmnqw",
-      "url": "/devices/new-pocketgo--slash--playgo--slash--miyoo-max.png",
+      "url": "/devices/new-pocketgo-playgo-miyoo-max.png",
       "alt": "new pocketgo / playgo / miyoo max"
     },
     "released": {
@@ -107789,7 +107789,7 @@
   {
     "name": {
       "raw": "GPD Win 2(2019 Model)",
-      "sanitized": "gpd-win-2-open-parenthesis-2019-model-close-parenthesis-",
+      "sanitized": "gpd-win-2(2019-model)",
       "normalized": "GPD Win 2"
     },
     "os": {
@@ -107884,7 +107884,7 @@
     ],
     "image": {
       "originalUrl": "https://lh7-rt.googleusercontent.com/sheetsz/AHOq17FujkBlcw82tybG7eXCGM-vNRxzxAxpZom9UEoUWxG6GOyoAadlXB1GZDyoxjf-ixwvBya814dpB8rgv9Q9Bvrvd-g7nl7rjNhDNgQfnqG5KcoZ7quO4uhBRGPvgnjeafVQ1lUK7t-5dSOgwpFWSE6GAit7=w120-h64?key=db8c6zyaldUKp-ZPCWmnqw",
-      "url": "/devices/gpd-win-2-open-parenthesis-2019-model-close-parenthesis-.png",
+      "url": "/devices/gpd-win-2(2019-model).png",
       "alt": "gpd win 2(2019 model)"
     },
     "released": {
@@ -110191,7 +110191,7 @@
   {
     "name": {
       "raw": "RetroGame RS-97(Anniversary Edition / IPS Screen Model)",
-      "sanitized": "retrogame-rs-97-open-parenthesis-anniversary-edition--slash--ips-screen-model-close-parenthesis-",
+      "sanitized": "retrogame-rs-97(anniversary-edition-ips-screen-model)",
       "normalized": "RetroGame RS-97"
     },
     "os": {
@@ -110283,7 +110283,7 @@
     ],
     "image": {
       "originalUrl": "https://lh7-rt.googleusercontent.com/sheetsz/AHOq17FenBhWKWIUdvyL_UlgmxnFrmnZYEbEtt9NVd4vWSeRfQTcONZR6-2au8Rx1EPo2jD4qBhourFHr30procPkldlwsoN5ElJst9NE3Gjvf4W6WiXODFJIunAQiahWqUTWCIRIh6PWk5Eloov3066o3kyUs4=w120-h64?key=db8c6zyaldUKp-ZPCWmnqw",
-      "url": "/devices/retrogame-rs-97-open-parenthesis-anniversary-edition--slash--ips-screen-model-close-parenthesis-.png",
+      "url": "/devices/retrogame-rs-97(anniversary-edition-ips-screen-model).png",
       "alt": "retrogame rs-97(anniversary edition / ips screen model)"
     },
     "released": {
@@ -118167,7 +118167,7 @@
   {
     "name": {
       "raw": "Freeplay CM3 / Zero",
-      "sanitized": "freeplay-cm3--slash--zero",
+      "sanitized": "freeplay-cm3-zero",
       "normalized": "Freeplay CM3 / Zero"
     },
     "os": {
@@ -118262,7 +118262,7 @@
     ],
     "image": {
       "originalUrl": "https://lh7-rt.googleusercontent.com/sheetsz/AHOq17GnLezKmHPt__AhbHbPE9rKw1VI5pydZSiQWEbcrlKmdIPhdFILlTY2VjNk31NuTDs2V2iYA3Xtg2ySJSzWdJD2zfOXaq5VlkGRRjjwySo9Zt_DxtXRnKFvzw47-kzv8XAuWLiJiX3b_nMcgM2l1d9XxJWo=w120-h64?key=db8c6zyaldUKp-ZPCWmnqw",
-      "url": "/devices/freeplay-cm3--slash--zero.png",
+      "url": "/devices/freeplay-cm3-zero.png",
       "alt": "freeplay cm3 / zero"
     },
     "released": {
@@ -122096,7 +122096,7 @@
   {
     "name": {
       "raw": "Much W1 / 78P01",
-      "sanitized": "much-w1--slash--78p01",
+      "sanitized": "much-w1-78p01",
       "normalized": "Much W1 / 78P01"
     },
     "os": {
@@ -122192,7 +122192,7 @@
     ],
     "image": {
       "originalUrl": "https://lh7-rt.googleusercontent.com/sheetsz/AHOq17E4dAWyjvXCFZDoyZvP3hETsEG8M4u3bwP4dE9dd5xc04ynvcyjLqRpsSZx_G_9vpgT39wS6_1Xt1omrO1VkFJzq1stbkKQuAEkEetoR6CRFzKLPYtFL6xTFT0BtOp-KKK36E076Eh17DtA75KFDFDwHHI=w120-h64?key=db8c6zyaldUKp-ZPCWmnqw",
-      "url": "/devices/much-w1--slash--78p01.png",
+      "url": "/devices/much-w1-78p01.png",
       "alt": "much w1 / 78p01"
     },
     "released": {
@@ -122876,7 +122876,7 @@
   {
     "name": {
       "raw": "iBen L1 / X",
-      "sanitized": "iben-l1--slash--x",
+      "sanitized": "iben-l1-x",
       "normalized": "iBen L1 / X"
     },
     "os": {
@@ -122971,7 +122971,7 @@
     ],
     "image": {
       "originalUrl": "https://lh7-rt.googleusercontent.com/sheetsz/AHOq17EVD6skkOWk0gm3-3c_ijtvwc8yTyw5DC801mJWw_OVt0l8VeCtLSMfyQxF640etcpVaHkUKpTe_lh9loKUxy9hAPxySzlQV3E-rdzER8zsBo-VHNB7mJ9BgQopWsQvJtFeXa_e-Uf5mIlh0BcISwMHXWo=w120-h64?key=db8c6zyaldUKp-ZPCWmnqw",
-      "url": "/devices/iben-l1--slash--x.png",
+      "url": "/devices/iben-l1-x.png",
       "alt": "iben l1 / x"
     },
     "released": {
@@ -126362,7 +126362,7 @@
   {
     "name": {
       "raw": "Letcool N350JP /Defender MultiMix Magic /MiShark64",
-      "sanitized": "letcool-n350jp--slash-defender-multimix-magic--slash-mishark64",
+      "sanitized": "letcool-n350jp-defender-multimix-magic-mishark64",
       "normalized": "Letcool N350JP /Defender MultiMix Magic /MiShark64"
     },
     "os": {
@@ -126453,7 +126453,7 @@
     ],
     "image": {
       "originalUrl": "https://lh7-rt.googleusercontent.com/sheetsz/AHOq17FJQuEHvJO6Kfk7Wsr2mOJoiD8NtgkgqGEUvlqg26sWOe7i4klpXEamom_uaCUr58_tQp3v-Yu_C1hCkzePPjc1baXxPusqr_RJdR5mPvpiZiTRYmwHpkkeqMoTryCYskHICo35TM2FwSvHbpy6xIDHXBA=w120-h64?key=db8c6zyaldUKp-ZPCWmnqw",
-      "url": "/devices/letcool-n350jp--slash-defender-multimix-magic--slash-mishark64.png",
+      "url": "/devices/letcool-n350jp-defender-multimix-magic-mishark64.png",
       "alt": "letcool n350jp /defender multimix magic /mishark64"
     },
     "released": {
@@ -159358,7 +159358,7 @@
   {
     "name": {
       "raw": "GAMESE 7\"ANDROID CONSOLE",
-      "sanitized": "gamese-7-android-console",
+      "sanitized": "gamese-7\"android-console",
       "normalized": "GAMESE 7\"ANDROID CONSOLE"
     },
     "os": {
@@ -159446,7 +159446,7 @@
     ],
     "image": {
       "originalUrl": null,
-      "url": "/devices/gamese-7-android-console.png",
+      "url": "/devices/gamese-7\"android-console.png",
       "alt": "gamese 7\"android console"
     },
     "released": {
@@ -167029,7 +167029,7 @@
   {
     "name": {
       "raw": "K56/K560",
-      "sanitized": "k56-slash-k560",
+      "sanitized": "k56k560",
       "normalized": "K56/K560"
     },
     "os": {
@@ -167122,7 +167122,7 @@
     ],
     "image": {
       "originalUrl": null,
-      "url": "/devices/k56-slash-k560.png",
+      "url": "/devices/k56k560.png",
       "alt": "k56/k560"
     },
     "released": {
@@ -178197,7 +178197,7 @@
   {
     "name": {
       "raw": "PSP-2000(PSP Slim)",
-      "sanitized": "psp-2000-open-parenthesis-psp-slim-close-parenthesis-",
+      "sanitized": "psp-2000(psp-slim)",
       "normalized": "PSP-2000"
     },
     "os": {
@@ -178392,7 +178392,7 @@
     ],
     "image": {
       "originalUrl": "https://lh7-rt.googleusercontent.com/sheetsz/AHOq17GSB_Htex0QPQhX0PBt_OdRipK3otxAC8zZ-AUDyC9YRUE5GMXiYwj9a5IZiLOw0b5vXZumaC8azcmLDZbsZ7r0ESXR2wp6-yqXriFX5wTHxNQwdb7Fdh2oRZr5Q3Qxk0Uj2Af1eh9LEd9siBUF_crTXxC0=w120-h64?key=db8c6zyaldUKp-ZPCWmnqw",
-      "url": "/devices/psp-2000-open-parenthesis-psp-slim-close-parenthesis-.png",
+      "url": "/devices/psp-2000(psp-slim).png",
       "alt": "psp-2000(psp slim)"
     },
     "released": {
@@ -178606,7 +178606,7 @@
   {
     "name": {
       "raw": "PSP-3000(PSP Slim & Lite / PSP Brite)",
-      "sanitized": "psp-3000-open-parenthesis-psp-slim--ampersand--lite--slash--psp-brite-close-parenthesis-",
+      "sanitized": "psp-3000(psp-slim-and-lite-psp-brite)",
       "normalized": "PSP-3000"
     },
     "os": {
@@ -178803,7 +178803,7 @@
     ],
     "image": {
       "originalUrl": "https://lh7-rt.googleusercontent.com/sheetsz/AHOq17FpMHMjgxic5gopNnSZhS4JIE0w7cX5k2iIvNGw7XLxpDny9mjjArdfgGqxCcLARcS_GqmzArzpKDGyWO8nRHl9D_Cvb2poIgt5VjYN_0Lz5D6VNDD1wuxm_zjba6QctPHfaaYxKd-XW90arCoLRJ4u1ig=w120-h64?key=db8c6zyaldUKp-ZPCWmnqw",
-      "url": "/devices/psp-3000-open-parenthesis-psp-slim--ampersand--lite--slash--psp-brite-close-parenthesis-.png",
+      "url": "/devices/psp-3000(psp-slim-and-lite-psp-brite).png",
       "alt": "psp-3000(psp slim & lite / psp brite)"
     },
     "released": {
@@ -179017,7 +179017,7 @@
   {
     "name": {
       "raw": "PSP Street(PSP-E1000)",
-      "sanitized": "psp-street-open-parenthesis-psp-e1000-close-parenthesis-",
+      "sanitized": "psp-street(psp-e1000)",
       "normalized": "PSP Street"
     },
     "os": {
@@ -179204,7 +179204,7 @@
     ],
     "image": {
       "originalUrl": "https://lh7-rt.googleusercontent.com/sheetsz/AHOq17EY8bDp-8gQ8wAUSox85pwoMp_5gHOdPX_F6OlOkJwV8fQnVwIev_Zuhlip-uhq8NMMsFkXsj7mI-ExTBHqTOmvH0X1a_YI2cWfKRITL6c_LfNlkRF0tgM5Gxr-m6FOTW4cFw1xSmoJheAWnGBdLNYYofci=w120-h64?key=db8c6zyaldUKp-ZPCWmnqw",
-      "url": "/devices/psp-street-open-parenthesis-psp-e1000-close-parenthesis-.png",
+      "url": "/devices/psp-street(psp-e1000).png",
       "alt": "psp street(psp-e1000)"
     },
     "released": {
@@ -179408,7 +179408,7 @@
   {
     "name": {
       "raw": "PSP Go(PSP-N1000)",
-      "sanitized": "psp-go-open-parenthesis-psp-n1000-close-parenthesis-",
+      "sanitized": "psp-go(psp-n1000)",
       "normalized": "PSP Go"
     },
     "os": {
@@ -179595,7 +179595,7 @@
     ],
     "image": {
       "originalUrl": "https://lh7-rt.googleusercontent.com/sheetsz/AHOq17FnplR0Wx8PhdJ8kQkjIbcxsDtz6HKol7RZ2ZPm8eXC-xxKAvlKFLdm1qtPszXNkvUdQtfmHFwRbL_xpCTvYBExB3I3gnBliJuW1zzs22Iot2m4SEA7WjTPVPXW-HqPEgSoi0ctVcpWKBduPPee0wVNk7G1=w120-h64?key=db8c6zyaldUKp-ZPCWmnqw",
-      "url": "/devices/psp-go-open-parenthesis-psp-n1000-close-parenthesis-.png",
+      "url": "/devices/psp-go(psp-n1000).png",
       "alt": "psp go(psp-n1000)"
     },
     "released": {
@@ -179799,7 +179799,7 @@
   {
     "name": {
       "raw": "PlayStation Vita(PCH-1000)",
-      "sanitized": "playstation-vita-open-parenthesis-pch-1000-close-parenthesis-",
+      "sanitized": "playstation-vita(pch-1000)",
       "normalized": "PlayStation Vita"
     },
     "os": {
@@ -179986,7 +179986,7 @@
     ],
     "image": {
       "originalUrl": "https://lh7-rt.googleusercontent.com/sheetsz/AHOq17GIMckKE_FszUN57MM2VTqO890QfgneDJ-dCL6K0_bsgBXWTXNevS092YF6UCAVGZvw7lVRdw1hYGNkiOYuos4hWN4YLi27nNOG7Sm0LPfR89mrRuRI-c4Cro-76bNUWXRdXiM97InURfVyEUKMdcactQ0J=w120-h64?key=db8c6zyaldUKp-ZPCWmnqw",
-      "url": "/devices/playstation-vita-open-parenthesis-pch-1000-close-parenthesis-.png",
+      "url": "/devices/playstation-vita(pch-1000).png",
       "alt": "playstation vita(pch-1000)"
     },
     "released": {
@@ -180230,7 +180230,7 @@
   {
     "name": {
       "raw": "PlayStation Vita(PCH-2000)",
-      "sanitized": "playstation-vita-open-parenthesis-pch-2000-close-parenthesis-",
+      "sanitized": "playstation-vita(pch-2000)",
       "normalized": "PlayStation Vita"
     },
     "os": {
@@ -180419,7 +180419,7 @@
     ],
     "image": {
       "originalUrl": "https://lh7-rt.googleusercontent.com/sheetsz/AHOq17Ern7c2kZPNWt4iAEwF_zt7-ULOYAPZsIqgMpztZeQk4fnZQlPH5cOF7YkssujFu6UDl0GHnPUHkiWCURIz7NVozfaK8y5qi9PvqYaXjJirB8nUhu50sDulw4NOhKiQzmHdwULi5Y9kkI6VP44baWulhz8=w120-h64?key=db8c6zyaldUKp-ZPCWmnqw",
-      "url": "/devices/playstation-vita-open-parenthesis-pch-2000-close-parenthesis-.png",
+      "url": "/devices/playstation-vita(pch-2000).png",
       "alt": "playstation vita(pch-2000)"
     },
     "released": {
