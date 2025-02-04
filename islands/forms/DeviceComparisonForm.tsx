@@ -288,6 +288,20 @@ export function DeviceComparisonForm({
         </button>
         <button
           class="secondary"
+          onClick={() => handleExampleComparison("RG-34XX", "RG-40XXH")}
+          type="submit"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <span style={{ display: "flex", gap: "0.25rem" }}>
+            RG-34XX vs RG-40XXH
+          </span>
+        </button>
+        <button
+          class="secondary"
           onClick={() => handleExampleComparison("Switch", "Odin 2 Portal")}
           type="submit"
           style={{
@@ -298,20 +312,6 @@ export function DeviceComparisonForm({
         >
           <span style={{ display: "flex", gap: "0.25rem" }}>
             Switch vs Odin 2 Portal
-          </span>
-        </button>
-        <button
-          class="secondary"
-          onClick={() => handleExampleComparison("RG-34XX", "GKD Pixel 2")}
-          type="submit"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <span style={{ display: "flex", gap: "0.25rem" }}>
-            RG-34XX vs GKD Pixel 2
           </span>
         </button>
       </div>
