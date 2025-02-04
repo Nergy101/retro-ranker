@@ -127,7 +127,7 @@ export function DeviceCardMedium({ device, isActive }: DeviceCardMediumProps) {
           : (
             <span
               style={{ display: "flex", gap: "0.25rem" }}
-              data-tooltip="Discontinued"
+              data-tooltip="No pricing information available"
             >
               <PiQuestion />
             </span>

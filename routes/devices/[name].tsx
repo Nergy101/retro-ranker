@@ -203,7 +203,7 @@ export default function DeviceDetail(props: PageProps) {
             </p>
           </div>
           <div style="display: flex; align-items: center; flex-direction: column;">
-            {!device.pricing.discontinued
+            {!device.pricing.discontinued && device.pricing.average
               ? (
                 <span
                   style={{
@@ -222,7 +222,7 @@ export default function DeviceDetail(props: PageProps) {
               : (
                 <span
                   style={{ display: "flex", gap: "0.25rem" }}
-                  data-tooltip="Discontinued"
+                  data-tooltip="No pricing information available"
                 >
                   <PiQuestion />
                 </span>
