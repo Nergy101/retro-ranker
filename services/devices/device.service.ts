@@ -25,13 +25,13 @@ import {
   PiXCircle,
 } from "@preact-icons/pi";
 import { JSX, VNode } from "preact";
-import { Device } from "../../data/models/device.model.ts";
-import { RatingsService } from "./ratings.service.ts";
+import { Device } from "../../data/device.model.ts";
 import { Cooling } from "../../data/models/cooling.model.ts";
+import { RatingsService } from "./ratings.service.ts";
+
 export class DeviceService {
   private devices: Device[] = [];
   private static instance: DeviceService;
-  private ratingsService = RatingsService.getInstance();
   private personalPicks: string[] = [
     "miyoo-flip",
     "gkd-pixel-2",
@@ -56,7 +56,7 @@ export class DeviceService {
     return DeviceService.instance;
   }
 
-  private loadDevices(): void {
+  private async loadDevices(): Promise<void> {
     try {
       this.devices = JSON.parse(
         Deno.readTextFileSync("data/source/results/handhelds.json"),

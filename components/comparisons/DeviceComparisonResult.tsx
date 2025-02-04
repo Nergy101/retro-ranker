@@ -1,4 +1,4 @@
-import { Device } from "../../data/models/device.model.ts";
+import { Device } from "../../data/device.model.ts";
 import { RatingInfo } from "../ratings/RatingInfo.tsx";
 import { StarRating } from "../ratings/StarRating.tsx";
 import { CurrencyIcon } from "../shared/CurrencyIcon.tsx";

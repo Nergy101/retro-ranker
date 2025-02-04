@@ -1,0 +1,20 @@
+export interface DeviceSensors {
+  raw: string | null;
+  hasMicrophone: boolean | null;
+  hasAccelerometer: boolean | null;
+  hasGyroscope: boolean | null;
+  hasCompass: boolean | null;
+  hasMagnetometer: boolean | null;
+  hasBarometer: boolean | null;
+  hasProximitySensor: boolean | null;
+  hasAmbientLightSensor: boolean | null;
+  hasFingerprintSensor: boolean | null;
+  hasCamera: boolean | null;
+  hasGravitySensor: boolean | null;
+  hasPressureSensor: boolean | null;
+  hasTemperatureSensor: boolean | null;
+  hasHumiditySensor: boolean | null;
+  hasHeartRateSensor: boolean | null;
+  hasAntenna: boolean | null;
+  screenClosure: boolean | null;
+}

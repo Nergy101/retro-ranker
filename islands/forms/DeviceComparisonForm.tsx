@@ -2,7 +2,7 @@ import { PiQuestion, PiTrash } from "@preact-icons/pi";
 import { useSignal } from "@preact/signals";
 import { useEffect, useRef } from "preact/hooks";
 import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
-import { Device } from "../../data/models/device.model.ts";
+import { Device } from "../../data/device.model.ts";
 
 export function DeviceComparisonForm({
   allDevices,

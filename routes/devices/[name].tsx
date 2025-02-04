@@ -7,7 +7,7 @@ import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
 import { DeviceSpecs } from "../../components/specifications/DeviceSpecs.tsx";
 import { EmulationPerformance } from "../../components/EmulationPerformance.tsx";
 import { StarRating } from "../../components/ratings/StarRating.tsx";
-import { Device } from "../../data/models/device.model.ts";
+import { Device } from "../../data/device.model.ts";
 import { ClipboardButton } from "../../islands/buttons/ClipboardButton.tsx";
 import { CompareButton } from "../../islands/buttons/CompareButton.tsx";
 import { ShareButton } from "../../islands/buttons/ShareButton.tsx";

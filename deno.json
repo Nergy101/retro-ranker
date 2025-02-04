@@ -15,7 +15,7 @@
     "rules": {
       "tags": ["fresh", "recommended"],
       "exclude": ["require-await"],
-      "include": ["no-console"]
+      "include": ["no-console", "no-unused-vars", "no-debugger"]
     }
   },
   "exclude": [

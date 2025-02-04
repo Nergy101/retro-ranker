@@ -1,4 +1,4 @@
-import { Device } from "../../models/device.model.ts";
+import { Device } from "../../device.model.ts";
 import { EmulationSystem } from "../../enums/EmulationSystem.ts";
 import { RatingsService } from "../../../services/devices/ratings.service.ts";
 import {

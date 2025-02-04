@@ -1,5 +1,5 @@
 import { PiCpu } from "@preact-icons/pi";
-import { Device } from "../../../data/models/device.model.ts";
+import { Device } from "../../../data/device.model.ts";
 import { ProcessingSpecsTable } from "../tables/ProcessingSpecsTable.tsx";
 
 interface ProcessingSpecsProps {

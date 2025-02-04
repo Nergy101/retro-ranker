@@ -1,5 +1,5 @@
 import { PiQuestion } from "@preact-icons/pi";
-import { Device } from "../../data/models/device.model.ts";
+import { Device } from "../../data/device.model.ts";
 import { DeviceService } from "../../services/devices/device.service.ts";
 import { CurrencyIcon } from "../shared/CurrencyIcon.tsx";
 import { StarRating } from "../ratings/StarRating.tsx";
@@ -10,6 +10,39 @@ interface DeviceCardMediumProps {
 }
 
 export function DeviceCardMedium({ device, isActive }: DeviceCardMediumProps) {
+  const getPriceIndicator = () => {
+    if (device.pricing.discontinued) {
+      return (
+        <span data-tooltip="Discontinued">
+          <PiQuestion />
+        </span>
+      );
+    }
+    // if low its 1 dollar sign, if medium its 2 dollar signs, if high its 3 dollar signs
+    if (device.pricing.category === "low") {
+      return (
+        <span style={{ display: "flex", alignItems: "flex-end" }}>
+          <CurrencyIcon currencyCode={device.pricing.currency} />
+        </span>
+      );
+    } else if (device.pricing.category === "medium") {
+      return (
+        <span style={{ display: "flex", alignItems: "flex-end" }}>
+          <CurrencyIcon currencyCode={device.pricing.currency} />
+          <CurrencyIcon currencyCode={device.pricing.currency} />
+        </span>
+      );
+    } else if (device.pricing.category === "high") {
+      return (
+        <span style={{ display: "flex", alignItems: "flex-end" }}>
+          <CurrencyIcon currencyCode={device.pricing.currency} />
+          <CurrencyIcon currencyCode={device.pricing.currency} />
+          <CurrencyIcon currencyCode={device.pricing.currency} />
+        </span>
+      );
+    }
+  };
+
   return (
     <article
       class={`device-search-card ${isActive ? "active" : ""}`}
@@ -77,15 +110,18 @@ export function DeviceCardMedium({ device, isActive }: DeviceCardMediumProps) {
       <div style={{ display: "flex", justifyContent: "center" }}>
         <StarRating device={device} />
       </div>
-      <div style="margin-bottom: .5rem; display: flex; flex-direction: row; justify-content: center; gap: .5rem;">
-        {!device.pricing.discontinued
+      <div style="margin-bottom: .5rem; margin-top: .5rem; font-size: .8rem; display: flex; flex-direction: row; justify-content: center; gap: .5rem;">
+        {!device.pricing.discontinued && device.pricing.average
           ? (
             <span
-              style={{ display: "flex", gap: "0.25rem" }}
+              style={{ display: "flex" }}
               data-tooltip={`${device.pricing.range.min}-${device.pricing.range.max} ${device.pricing.currency}`}
             >
-              <CurrencyIcon currencyCode={device.pricing.currency} />
-              {device.pricing.average}
+              {getPriceIndicator()}
+              {
+                /* <CurrencyIcon currencyCode={device.pricing.currency} />
+              {device.pricing.average} */
+              }
             </span>
           )
           : (
@@ -96,9 +132,13 @@ export function DeviceCardMedium({ device, isActive }: DeviceCardMediumProps) {
               <PiQuestion />
             </span>
           )}
-
         <span
-          style={{ display: "flex", gap: "0.25rem" }}
+          style={{
+            display: "flex",
+            gap: "0.25rem",
+            fontSize: "1.2rem",
+            marginTop: "0.5rem",
+          }}
           data-tooltip={device.os.list.join(", ") === "?"
             ? "No OS information available"
             : device.os.list.join(", ")}

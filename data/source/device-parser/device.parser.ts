@@ -1,6 +1,6 @@
 import * as cheerio from "https://esm.sh/cheerio@1.0.0-rc.12";
 import { EmulationSystemOrder } from "../../enums/EmulationSystem.ts";
-import { Device } from "../../models/device.model.ts";
+import { Device } from "../../device.model.ts";
 import { mapHandheldsColumnToDevice } from "./device.parser.map.handheld.columns.ts";
 import { mapOEMsColumnToDevice } from "./device.parser.map.oem.columns.ts";
 

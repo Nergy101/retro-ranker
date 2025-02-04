@@ -1,5 +1,5 @@
 import { PiFan } from "@preact-icons/pi";
-import { Device } from "../../../data/models/device.model.ts";
+import { Device } from "../../../data/device.model.ts";
 import { CoolingSpecsTable } from "../tables/CoolingSpecsTable.tsx";
 
 interface CoolingSpecsProps {

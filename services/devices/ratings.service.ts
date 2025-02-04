@@ -1,5 +1,5 @@
 import { EmulationTier } from "../../data/enums/EmulationTier.ts";
-import { Device } from "../../data/models/device.model.ts";
+import { Device } from "../../data/device.model.ts";
 import { Ranking } from "../../data/models/ranking.model.ts";
 
 export class RatingsService {

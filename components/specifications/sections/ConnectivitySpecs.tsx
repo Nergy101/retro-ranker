@@ -1,5 +1,5 @@
 import { PiWifiHigh } from "@preact-icons/pi";
-import { Device } from "../../../data/models/device.model.ts";
+import { Device } from "../../../data/device.model.ts";
 import { ConnectivityTable } from "../tables/ConnectivityTable.tsx";
 
 interface ConnectivitySpecsProps {
