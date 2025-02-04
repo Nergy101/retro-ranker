@@ -211,7 +211,7 @@ export function DeviceComparisonResult(
             {!device.pricing.discontinued && device.pricing.average
               ? (
                 <span
-                  style={{ display: "flex", gap: "0.25rem",  }}
+                  style={{ display: "flex", gap: "0.25rem" }}
                   data-tooltip={`${device.pricing.range.min}-${device.pricing.range.max} ${device.pricing.currency}`}
                 >
                   <CurrencyIcon currencyCode={device.pricing.currency} />
@@ -220,7 +220,7 @@ export function DeviceComparisonResult(
               )
               : (
                 <span
-                  style={{ display: "flex", gap: "0.25rem" }}
+                  style={{ display: "flex" }}
                   data-tooltip="No pricing information available"
                 >
                   <CurrencyIcon currencyCode="USD" />

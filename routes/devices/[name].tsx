@@ -221,7 +221,7 @@ export default function DeviceDetail(props: PageProps) {
               )
               : (
                 <span
-                  style={{ display: "flex", gap: "0.25rem" }}
+                  style={{ display: "flex" }}
                   data-tooltip="No pricing information available"
                 >
                   <CurrencyIcon currencyCode="USD" />
