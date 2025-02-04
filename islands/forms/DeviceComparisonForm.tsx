@@ -1,4 +1,4 @@
-import { PiQuestion, PiTrash } from "@preact-icons/pi";
+import { PiGitDiff, PiQuestion, PiTrash } from "@preact-icons/pi";
 import { useSignal } from "@preact/signals";
 import { useEffect, useRef } from "preact/hooks";
 import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
@@ -283,7 +283,7 @@ export function DeviceComparisonForm({
           }}
         >
           <span style={{ display: "flex", gap: "0.25rem" }}>
-            Miyoo Flip vs RG-35XX SP
+            Miyoo Flip <PiGitDiff /> RG-35XX SP
           </span>
         </button>
         <button
@@ -297,7 +297,7 @@ export function DeviceComparisonForm({
           }}
         >
           <span style={{ display: "flex", gap: "0.25rem" }}>
-            RG-34XX vs RG-40XXH
+            RG-34XX <PiGitDiff /> RG-40XXH
           </span>
         </button>
         <button
@@ -311,7 +311,7 @@ export function DeviceComparisonForm({
           }}
         >
           <span style={{ display: "flex", gap: "0.25rem" }}>
-            Switch vs Odin 2 Portal
+            Switch <PiGitDiff /> Odin 2 Portal
           </span>
         </button>
       </div>
