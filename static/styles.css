@@ -668,7 +668,7 @@ h6,
 .compare-result-header {
   grid-area: header;
   padding: 0.5rem;
-  height: 25em;
+  height: 30em;
 
   display: flex;
   flex-direction: column;
@@ -686,7 +686,7 @@ h6,
   border: 1px solid var(--pico-primary);
   border-radius: var(--pico-border-radius);
 
-  height: 25em;
+  height: 30em;
 
   @media (max-width: 768px) {
     height: 13em;
@@ -1140,5 +1140,15 @@ h6,
 @media (max-width: 500px) {
   h3 span {
     display: none;
+  }
+}
+
+.compare-form-examples {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+
+  @media (max-width: 500px) {
+    flex-direction: column;
   }
 }

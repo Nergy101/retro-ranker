@@ -183,25 +183,6 @@ export function DeviceComparisonForm({
               })}
             />
           </div>
-          <button
-            type="reset"
-            onClick={handleReset}
-            class="outline"
-            style={{
-              maxHeight: "fit-content",
-              alignSelf: "flex-end",
-            }}
-          >
-            <span
-              style={{
-                display: "flex",
-                gap: "0.25rem",
-              }}
-            >
-              <PiTrash style={{ minWidth: "1.2rem" }} />
-              Clear
-            </span>
-          </button>
         </div>
         <div id="suggestions-container">
           {suggestionsA.value.length > 0 && (
@@ -290,7 +271,7 @@ export function DeviceComparisonForm({
           </details>
         )}
       </div>
-      <div style={{ display: "flex", gap: "1rem", justifyContent: "center" }}>
+      <div class="compare-form-examples">
         <button
           class="secondary"
           onClick={() => handleExampleComparison("Miyoo Flip", "RG-35XX SP")}
@@ -302,13 +283,12 @@ export function DeviceComparisonForm({
           }}
         >
           <span style={{ display: "flex", gap: "0.25rem" }}>
-            <PiQuestion style={{ minWidth: "1.2rem" }} />
             Miyoo Flip vs RG-35XX SP
           </span>
         </button>
         <button
           class="secondary"
-          onClick={() => handleExampleComparison("Switch Lite", "New 3DS XL")}
+          onClick={() => handleExampleComparison("Switch", "Odin 2 Portal")}
           type="submit"
           style={{
             display: "flex",
@@ -317,8 +297,21 @@ export function DeviceComparisonForm({
           }}
         >
           <span style={{ display: "flex", gap: "0.25rem" }}>
-            <PiQuestion style={{ minWidth: "1.2rem" }} />
-            Switch Lite vs New 3DS XL
+            Switch vs Odin 2 Portal
+          </span>
+        </button>
+        <button
+          class="secondary"
+          onClick={() => handleExampleComparison("RG-34XX", "GKD Pixel 2")}
+          type="submit"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <span style={{ display: "flex", gap: "0.25rem" }}>
+            RG-34XX vs GKD Pixel 2
           </span>
         </button>
       </div>

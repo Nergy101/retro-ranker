@@ -472,6 +472,12 @@ export class DeviceParser {
         return -((a.ratingNumber ?? 0) - (b.ratingNumber ?? 0));
       });
 
+      device.connectivity.hasUsbC = device.connectivity.hasUsbC ||
+        device.chargePort?.type === "USB-C" ||
+        device.outputs.videoOutput?.hasUsbC ||
+        device.outputs.audioOutput?.hasUsbC ||
+        false;
+        
       devices.push(device);
     });
 

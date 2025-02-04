@@ -176813,7 +176813,7 @@
       "hasBluetooth": true,
       "hasNfc": true,
       "hasUsb": false,
-      "hasUsbC": false
+      "hasUsbC": true
     },
     "cpus": [
       {
@@ -177218,7 +177218,7 @@
       "hasBluetooth": true,
       "hasNfc": true,
       "hasUsb": false,
-      "hasUsbC": false
+      "hasUsbC": true
     },
     "cpus": [
       {
@@ -177614,7 +177614,7 @@
       "hasBluetooth": true,
       "hasNfc": true,
       "hasUsb": false,
-      "hasUsbC": false
+      "hasUsbC": true
     },
     "cpus": [
       {
@@ -181244,7 +181244,7 @@
       "hasBluetooth": true,
       "hasNfc": false,
       "hasUsb": false,
-      "hasUsbC": false
+      "hasUsbC": true
     },
     "cpus": [
       {
