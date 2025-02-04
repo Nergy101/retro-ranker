@@ -1,6 +1,10 @@
+// deno-lint-ignore-file no-console
 import { navigationItems } from "../data/navigation-items.ts";
 import { DeviceService } from "../services/devices/device.service.ts";
+// @deno-types="https://deno.land/x/chalk_deno@v4.1.1-deno/index.d.ts"
+import chalk from "https://deno.land/x/chalk_deno@v4.1.1-deno/source/index.js";
 
+console.info(chalk.blue("Generating sitemap..."));
 const deviceService = DeviceService.getInstance();
 const SITE_URL = "https://retroranker.site";
 const devices = deviceService.getAllDevices();
@@ -46,3 +50,5 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 
 // write to file as byte[]
 await Deno.writeFile("static/sitemap.xml", new TextEncoder().encode(sitemap));
+
+console.info(chalk.green("Sitemap generated successfully!"));
