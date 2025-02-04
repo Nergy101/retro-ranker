@@ -208,10 +208,10 @@ export function DeviceComparisonResult(
             <StarRating device={device} />
           </div>
           <div style="margin-bottom: .5rem; display: flex; flex-direction: row; justify-content: center; gap: .5rem;">
-            {!device.pricing.discontinued
+            {!device.pricing.discontinued && device.pricing.average
               ? (
                 <span
-                  style={{ display: "flex", gap: "0.25rem" }}
+                  style={{ display: "flex", gap: "0.25rem",  }}
                   data-tooltip={`${device.pricing.range.min}-${device.pricing.range.max} ${device.pricing.currency}`}
                 >
                   <CurrencyIcon currencyCode={device.pricing.currency} />
@@ -221,8 +221,9 @@ export function DeviceComparisonResult(
               : (
                 <span
                   style={{ display: "flex", gap: "0.25rem" }}
-                  data-tooltip="Discontinued"
+                  data-tooltip="No pricing information available"
                 >
+                  <CurrencyIcon currencyCode="USD" />
                   <PiQuestion />
                 </span>
               )}

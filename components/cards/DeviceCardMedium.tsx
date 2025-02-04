@@ -118,10 +118,6 @@ export function DeviceCardMedium({ device, isActive }: DeviceCardMediumProps) {
               data-tooltip={`${device.pricing.range.min}-${device.pricing.range.max} ${device.pricing.currency}`}
             >
               {getPriceIndicator()}
-              {
-                /* <CurrencyIcon currencyCode={device.pricing.currency} />
-              {device.pricing.average} */
-              }
             </span>
           )
           : (
@@ -129,6 +125,7 @@ export function DeviceCardMedium({ device, isActive }: DeviceCardMediumProps) {
               style={{ display: "flex", gap: "0.25rem" }}
               data-tooltip="No pricing information available"
             >
+              <CurrencyIcon currencyCode="USD" />
               <PiQuestion />
             </span>
           )}
