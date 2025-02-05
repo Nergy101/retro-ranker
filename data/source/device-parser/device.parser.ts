@@ -477,7 +477,7 @@ export class DeviceParser {
         device.outputs.videoOutput?.hasUsbC ||
         device.outputs.audioOutput?.hasUsbC ||
         false;
-        
+
       devices.push(device);
     });
 

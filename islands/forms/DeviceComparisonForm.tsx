@@ -1,4 +1,4 @@
-import { PiGitDiff, PiQuestion, PiTrash } from "@preact-icons/pi";
+import { PiGitDiff } from "@preact-icons/pi";
 import { useSignal } from "@preact/signals";
 import { useEffect, useRef } from "preact/hooks";
 import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
@@ -115,10 +115,6 @@ export function DeviceComparisonForm({
     } else {
       alert("Select valid devices for comparison.");
     }
-  };
-
-  const handleReset = () => {
-    globalThis.location.href = "/compare";
   };
 
   const handleExampleComparison = (deviceA: string, deviceB: string) => {

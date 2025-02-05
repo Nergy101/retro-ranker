@@ -36,7 +36,11 @@ export async function downloadDeviceImages(
 
   const downloads = devices.map(async (device) => {
     if (device.image.originalUrl) {
-      await downloadImage(device.image.originalUrl, device.name.sanitized, targetDir);
+      await downloadImage(
+        device.image.originalUrl,
+        device.name.sanitized,
+        targetDir,
+      );
     }
   });
 
