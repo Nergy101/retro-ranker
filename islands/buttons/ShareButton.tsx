@@ -4,29 +4,26 @@ export function ShareButton({ title, url }: { title: string; url: string }) {
   return (
     <div
       aria-label="Share page"
-      style={{
-        display: "flex",
-        justifyContent: "center",
-      }}
+      class="device-detail-action-button"
       onClick={() => {
         navigator.share({
           title,
           url,
         });
       }}
+      data-tooltip="Share"
+      data-placement="bottom"
     >
       <span
         style={{
           display: "flex",
           alignItems: "center",
           gap: "0.25rem",
-          borderBottom: "none",
           cursor: "pointer",
         }}
-        data-tooltip="Share"
-        data-placement="bottom"
       >
-        <PiShare /> Share
+        <PiShare />
+        <span class="device-detail-action-button-label">Share</span>
       </span>
     </div>
   );

@@ -6,29 +6,27 @@ interface CompareButtonProps {
 
 export function CompareButton({ deviceName }: CompareButtonProps) {
   return (
-    <div
-      aria-label="Compare this device with another"
-      style={{
-        display: "flex",
-        justifyContent: "center",
-      }}
+    <a
+      class="device-detail-action-button"
+      style={{ textDecoration: "none" }}
+      href={`/compare?devices=${deviceName}`}
+      data-tooltip="Compare"
+      data-placement="bottom"
     >
-      <a
+      <div
         style={{
           display: "flex",
           alignItems: "center",
           gap: "0.25rem",
-          borderBottom: "none",
           textDecoration: "none",
           cursor: "pointer",
           color: "var(--pico-color)",
         }}
-        data-tooltip="Compare"
-        data-placement="bottom"
-        href={`/compare?devices=${deviceName}`}
+        aria-label="Compare this device with another"
       >
-        <PiGitDiff /> Compare
-      </a>
-    </div>
+        <PiGitDiff />
+        <span class="device-detail-action-button-label">Compare</span>
+      </div>
+    </a>
   );
 }

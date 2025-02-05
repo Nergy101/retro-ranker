@@ -7,10 +7,7 @@ export function ClipboardButton({ url }: { url: string }) {
   return (
     <div
       aria-label="Copy URL of current page"
-      style={{
-        display: "flex",
-        justifyContent: "center",
-      }}
+      class="device-detail-action-button"
       onClick={async () => {
         await navigator.clipboard.writeText(url);
         success.value = true;
@@ -18,26 +15,27 @@ export function ClipboardButton({ url }: { url: string }) {
           success.value = false;
         }, 2000);
       }}
+      data-tooltip="Copy link"
+      data-placement="bottom"
     >
       <span
         style={{
           display: "flex",
           alignItems: "center",
           gap: "0.25rem",
-          borderBottom: "none",
           cursor: "pointer",
         }}
-        data-tooltip="Copy link"
-        data-placement="bottom"
       >
         {!success.value && (
           <>
-            <PiClipboard /> Link
+            <PiClipboard />
+            <span class="device-detail-action-button-label">Link</span>
           </>
         )}
         {success.value && (
           <>
-            <PiCheck /> Copied!
+            <PiCheck />
+            <span class="device-detail-action-button-label">Copied!</span>
           </>
         )}
       </span>

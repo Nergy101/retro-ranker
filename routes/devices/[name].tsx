@@ -12,6 +12,7 @@ import { ClipboardButton } from "../../islands/buttons/ClipboardButton.tsx";
 import { CompareButton } from "../../islands/buttons/CompareButton.tsx";
 import { ShareButton } from "../../islands/buttons/ShareButton.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
+import { DeviceLinks } from "../../components/DeviceLinks.tsx";
 
 export default function DeviceDetail(props: PageProps) {
   const deviceService = DeviceService.getInstance();
@@ -145,7 +146,8 @@ export default function DeviceDetail(props: PageProps) {
         <div style="display: flex; flex-direction: column; gap: 0.5rem; justify-content: center; align-items: center; padding-bottom: 0.5rem;">
           <h2
             style={{
-              fontSize: "1.5rem",
+              padding: "0",
+              margin: "0",
               color: "var(--pico-primary)",
               textAlign: "center",
             }}
@@ -245,24 +247,23 @@ export default function DeviceDetail(props: PageProps) {
           </div>
         </div>
         <div class="device-detail-actions">
-          <div
-            style="display: flex; justify-content: center; flex-flow: row wrap; margin:0;"
-            role="group"
-          >
-            <ClipboardButton
-              url={`https://retroranker.site/devices/${device.name.sanitized}`}
-            />
-            <ShareButton
-              title={device.name.raw}
-              url={`https://retroranker.site/devices/${device.name.sanitized}`}
-            />
-            <CompareButton deviceName={device.name.sanitized} />
-          </div>
+          <ClipboardButton
+            url={`https://retroranker.site/devices/${device.name.sanitized}`}
+          />
+          <ShareButton
+            title={device.name.raw}
+            url={`https://retroranker.site/devices/${device.name.sanitized}`}
+          />
+          <CompareButton deviceName={device.name.sanitized} />
         </div>
       </div>
 
       <div class="device-detail-performance">
         <EmulationPerformance device={device} />
+      </div>
+
+      <div class="device-detail-links">
+        <DeviceLinks device={device} />
       </div>
 
       <div class="device-detail-similar-devices">

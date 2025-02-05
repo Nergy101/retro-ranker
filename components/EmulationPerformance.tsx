@@ -1,8 +1,9 @@
 import { PiQuestionFill, PiVibrate } from "@preact-icons/pi";
-import { Cooling } from "../data/models/cooling.model.ts";
 import { Device } from "../data/device.model.ts";
+import { Cooling } from "../data/models/cooling.model.ts";
 import { DeviceService } from "../services/devices/device.service.ts";
 import { RatingInfo } from "./ratings/RatingInfo.tsx";
+
 interface EmulationPerformanceProps {
   device: Device;
 }
@@ -114,14 +115,14 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
       class="emulation-performance"
       style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}
     >
-      <h3 style={{ textAlign: "center" }}>Emulation Performance</h3>
+      <h3 style={{ textAlign: "center", padding: 0, margin: 0 }}>Emulation Performance</h3>
       <div class="rating-info-grid">
         {ratings.map((rating) => (
           <RatingInfo key={rating.system} rating={rating} />
         ))}
       </div>
 
-      <h3 style={{ textAlign: "center", paddingTop: "1rem" }}>Ergonomics</h3>
+      <h3 style={{ textAlign: "center", padding: 0, margin: 0 }}>Ergonomics</h3>
       <div
         style={{
           display: "flex",
@@ -133,141 +134,6 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
         {renderCoolingSection()}
         {renderRumbleSection()}
       </div>
-
-      {(device.reviews.videoReviews.length > 0) && (
-        <>
-          {device.reviews.videoReviews.length > 0 && (
-            <div>
-              <hr
-                style={{ border: "1px solid var(--pico-muted-border-color)" }}
-              />
-              <strong>
-                Video Reviews:
-              </strong>
-              <div class="video-reviews">
-                {device.reviews.videoReviews.filter((review) =>
-                  review.url.includes("youtu")
-                ).map((review) => (
-                  <div
-                    key={review.url}
-                    style={{
-                      textDecoration: "none",
-                      listStyle: "none",
-                      width: "300px",
-                      height: "200px",
-                    }}
-                  >
-                    <iframe
-                      width="300"
-                      height="200"
-                      src={DeviceService.getEmbedUrl(review.url)}
-                      target="_blank"
-                      alt={review.name}
-                      defer
-                    >
-                      {review.name}
-                    </iframe>
-                  </div>
-                ))}
-                {device.reviews.videoReviews.filter((review) =>
-                  !review.url.includes("youtu")
-                ).map((review) => (
-                  <div key={review.url}>
-                    <a href={review.url} target="_blank">
-                      {new URL(review.url).hostname} - {review.name}
-                    </a>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-        </>
-      )}
-
-      {(device.reviews.writtenReviews.length > 0) && (
-        <>
-          <hr
-            style={{ border: "1px solid var(--pico-muted-border-color)" }}
-          />
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "0.5rem",
-            }}
-          >
-            <strong>Written Reviews:</strong>
-            {device.reviews.writtenReviews.length > 0
-              ? (
-                <div
-                  style={{
-                    display: "flex",
-                    flexFlow: "row wrap",
-                    gap: "1rem",
-                  }}
-                >
-                  {device.reviews.writtenReviews.map((review) => (
-                    <div key={review.url}>
-                      <a
-                        href={review.url}
-                        target="_blank"
-                        alt={review.name}
-                      >
-                        {review.name}
-                      </a>
-                    </div>
-                  ))}
-                </div>
-              )
-              : <span>No written reviews available.</span>}
-          </div>
-        </>
-      )}
-
-      {device.vendorLinks.length > 0 && (
-        <>
-          <hr
-            style={{ border: "1px solid var(--pico-muted-border-color)" }}
-          />
-          <strong>
-            Vendor Links:
-          </strong>
-          <div
-            style={{
-              display: "flex",
-              flexFlow: "row wrap",
-              gap: "1rem",
-            }}
-          >
-            {device.vendorLinks.map((link) => (
-              <a href={link.url} target="_blank">{link.name}</a>
-            ))}
-          </div>
-        </>
-      )}
-
-      {device.hackingGuides.length > 0 && (
-        <>
-          <hr
-            style={{ border: "1px solid var(--pico-muted-border-color)" }}
-          />
-          <strong>Hacking Guides:</strong>
-          <div
-            style={{
-              display: "flex",
-              flexFlow: "row wrap",
-              gap: "1rem",
-            }}
-          >
-            {device.hackingGuides.map((guide) => (
-              <a href={guide.url} target="_blank">{guide.name}</a>
-            ))}
-          </div>
-        </>
-      )}
-      <hr
-        style={{ border: "1px solid var(--pico-muted-border-color)" }}
-      />
     </div>
   );
 }

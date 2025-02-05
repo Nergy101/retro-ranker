@@ -246,9 +246,10 @@ html {
   border: 1px solid var(--pico-secondary);
   border-radius: var(--pico-border-radius);
   display: grid;
-  gap: 1rem;
+  gap: 0.5rem;
   grid-template-areas:
     "header performance"
+    "links links"
     "similar similar"
     "specs specs";
   grid-template-columns: 1fr 3fr;
@@ -261,6 +262,7 @@ html {
     grid-template-areas:
       "header"
       "performance"
+      "links"
       "similar"
       "specs";
     grid-template-columns: 1fr;
@@ -268,16 +270,66 @@ html {
 }
 
 .device-detail-performance {
-  width: 75cqw;
   grid-area: performance;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding: 1rem;
 
   @media (max-width: 768px) {
     width: 100cqw;
   }
+}
+
+.device-detail-header {
+  height: fit-content;
+  grid-area: header;
+  padding: 1rem 0 0 0;
+  border-radius: var(--pico-border-radius);
+  border-top-right-radius: 0;
+
+  background-color: var(--pico-background-color);
+  /* border-bottom: 1px solid var(--pico-color); */
+  border-right: 1px solid var(--pico-color);
+
+  @media (max-width: 768px) {
+    width: 100cqw;
+  }
+
+  .device-detail-actions {
+    border-top: 1px solid var(--pico-color);
+    border-bottom: 1px solid var(--pico-color);
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+
+    @media (max-width: 768px) {
+      flex-direction: row;
+    }
+
+    .device-detail-action-button {
+      display: flex;
+      justify-content: center;
+      cursor: pointer;
+      border-bottom: none;
+
+      &:hover {
+        /* border-bottom: 1px solid var(--pico-primary); */
+        color: var(--pico-primary);
+      }
+    }
+
+    .device-detail-action-button-label {
+      @media (max-width: 768px) {
+        /* display: none; */
+      }
+    }
+  }
+}
+
+.device-detail-links {
+  width: 100cqw;
+  grid-area: links;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .device-detail-specs {
@@ -290,25 +342,6 @@ html {
   }
 }
 
-.device-detail-header {
-  width: 25cqw;
-  height: fit-content;
-  grid-area: header;
-  padding: 1rem 0 0 0;
-  /* background-color: rgba(254, 182, 112, 0.2); */
-  border-radius: var(--pico-border-radius);
-  border-top-right-radius: 0;
-
-  @media (max-width: 768px) {
-    width: 100cqw;
-  }
-
-  @media (min-width: 768px) {
-    border-bottom: 1px solid var(--pico-color);
-    border-right: 1px solid var(--pico-color);
-  }
-}
-
 .device-detail-similar-devices {
   width: 100cqw;
   grid-area: similar;
@@ -316,7 +349,8 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .specs-grid {
@@ -965,12 +999,6 @@ h6,
   }
 }
 
-.device-detail-actions {
-  @media (max-width: 768px) {
-    border-bottom: 1px solid var(--pico-color);
-  }
-}
-
 .video-reviews {
   height: 10em;
   overflow-x: scroll;
@@ -978,6 +1006,7 @@ h6,
   display: grid;
   gap: 0.5rem;
   grid-template-columns: repeat(3, 1fr);
+  justify-self: center;
 
   @media (width <= 1024px) {
     grid-template-columns: repeat(2, 1fr);
