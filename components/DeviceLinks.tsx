@@ -1,3 +1,10 @@
+import {
+  PiArrowDown,
+  PiCaretCircleDoubleDown,
+  PiHandArrowDown,
+  PiHandSwipeRight,
+  PiMouseScroll,
+} from "@preact-icons/pi";
 import { Device } from "../data/device.model.ts";
 import { DeviceService } from "../services/devices/device.service.ts";
 
@@ -7,13 +14,32 @@ export function DeviceLinks({ device }: { device: Device }) {
       {(device.reviews.videoReviews.length > 0) && (
         <>
           {device.reviews.videoReviews.length > 0 && (
-            <div style={{ textAlign: "center" }}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.5rem",
+              }}
+            >
               <hr
                 style={{ border: "1px solid var(--pico-muted-border-color)" }}
               />
-              <strong>
-                Video Reviews
-              </strong>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  width: "100%",
+                }}
+              >
+                <div style={{ visibility: "hidden" }}></div>
+                <strong>
+                  Video Reviews
+                </strong>
+                <span data-tooltip="Scroll down to see more" data-placement="left">
+                  <PiCaretCircleDoubleDown />
+                </span>
+              </div>
               <div class="video-reviews">
                 {device.reviews.videoReviews.filter((review) =>
                   review.url.includes("youtu")

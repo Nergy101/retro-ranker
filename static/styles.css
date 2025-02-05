@@ -1006,7 +1006,6 @@ h6,
   display: grid;
   gap: 0.5rem;
   grid-template-columns: repeat(3, 1fr);
-  justify-self: center;
 
   @media (width <= 1024px) {
     grid-template-columns: repeat(2, 1fr);
