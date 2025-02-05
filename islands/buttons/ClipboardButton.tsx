@@ -27,7 +27,7 @@ export function ClipboardButton({ url }: { url: string }) {
           borderBottom: "none",
           cursor: "pointer",
         }}
-        data-tooltip="Copy URL"
+        data-tooltip="Copy link"
         data-placement="bottom"
       >
         {!success.value && (

@@ -310,16 +310,6 @@ export default function DeviceDetail(props: PageProps) {
                       <td>
                         <div style="display: flex; gap: 0.25rem; flex-direction: row;">
                           <div>
-                            <span
-                              data-tooltip={device.os.list.join(", ")}
-                              data-placement="bottom"
-                            >
-                              {device.os.icons.map((icon) => (
-                                DeviceService.getOsIconComponent(icon)
-                              ))}
-                            </span>
-                          </div>
-                          <div>
                             <ul>
                               {device.os.links?.map((link) => (
                                 <li>
