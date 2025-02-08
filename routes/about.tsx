@@ -102,8 +102,14 @@ export default function AboutPage() {
             <li>Detailed technical specifications for each device</li>
             <li>Performance ratings for different emulation capabilities</li>
             <li>Side-by-side device comparisons</li>
-            <li>Real-world performance metrics and benchmarks</li>
-            <li>Up-to-date pricing and availability information</li>
+            <li>
+              Real-world performance metrics and benchmarks{" "}
+              <span data-tooltip="Coming soon" data-placement="right">(🚧)</span>
+            </li>
+            <li>
+              Up-to-date pricing and availability information{" "}
+              <span data-tooltip="Coming soon" data-placement="right">(🚧)</span>
+            </li>
           </ul>
         </details>
 
@@ -124,11 +130,20 @@ export default function AboutPage() {
             >
               Retro Handhelds
             </a>{" "}
-            community. We particularly draw from their comprehensive Handhelds
-            Overview, which serves as the foundation for our device
-            specifications and performance ratings. This collaboration ensures
-            our data remains accurate and up-to-date with the latest
-            developments in the retro handheld scene.
+            community.
+            <br />
+            We particularly draw from their comprehensive{" "}
+            <a
+              href="https://docs.google.com/spreadsheets/d/1irg60f9qsZOkhp0cwOU7Cy4rJQeyusEUzTNQzhoTYTU/"
+              target="_blank"
+            >
+              Handhelds Overview
+            </a>
+            , which serves as the foundation for our device specifications and
+            performance ratings.
+            <br />
+            By using this data, we ensure our data remains accurate and
+            up-to-date with the latest developments in the retro handheld scene.
           </p>
         </details>
 
