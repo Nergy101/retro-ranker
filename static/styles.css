@@ -639,7 +639,6 @@ h6,
   gap: 0.5rem;
 
   @media (max-width: 425px) {
-    display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
   }

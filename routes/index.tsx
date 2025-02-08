@@ -95,8 +95,11 @@ export default function Home() {
           {/* Highly Rated Section */}
           <section style="margin-top: 2rem;">
             <h2 class="home-section-title">
-              <PiRanking /> Highly Ranked 
-              <span style={{ fontSize: "0.8rem" }}>(mid-range)</span>
+              <PiRanking />
+              <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
+                Highly Ranked
+                <span style={{ fontSize: "0.8rem" }}>(mid-range)</span>
+              </div>
             </h2>
             <div class="device-row-grid">
               {highlyRated.map((device) => (
