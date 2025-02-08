@@ -258,6 +258,7 @@ export function DeviceComparisonResult(
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "0.25rem",
+                fontSize: "0.8rem",
               }}
               data-tooltip={releaseDate.date}
               data-placement="bottom"
