@@ -44,30 +44,6 @@ export default function Home() {
         }}
       >
         <div class="container-fluid">
-          {/* Highly Rated Section */}
-          <section style="margin-top: 2rem;">
-            <h2 class="home-section-title">
-              <PiRanking /> Highly Ranked
-            </h2>
-            <div class="device-row-grid">
-              {highlyRated.map((device) => (
-                <a
-                  href={`/devices/${device.name.sanitized}`}
-                  style={{ textDecoration: "none" }}
-                >
-                  <DeviceCardMedium
-                    device={device}
-                    isActive={false}
-                  />
-                </a>
-              ))}
-              <SeeMoreCard
-                href="/devices?sort=highly-rated"
-                text="More Highly Rated"
-              />
-            </div>
-          </section>
-
           {/* New Arrivals Section */}
           <section style="margin-top: 2rem;">
             <h2 class="home-section-title">
@@ -112,6 +88,31 @@ export default function Home() {
               <SeeMoreCard
                 href="/devices?filter=personal-picks"
                 text="More Personal Picks"
+              />
+            </div>
+          </section>
+
+          {/* Highly Rated Section */}
+          <section style="margin-top: 2rem;">
+            <h2 class="home-section-title">
+              <PiRanking /> Highly Ranked 
+              <span style={{ fontSize: "0.8rem" }}>(mid-range)</span>
+            </h2>
+            <div class="device-row-grid">
+              {highlyRated.map((device) => (
+                <a
+                  href={`/devices/${device.name.sanitized}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <DeviceCardMedium
+                    device={device}
+                    isActive={false}
+                  />
+                </a>
+              ))}
+              <SeeMoreCard
+                href="/devices?sort=highly-rated"
+                text="More Highly Ranked"
               />
             </div>
           </section>

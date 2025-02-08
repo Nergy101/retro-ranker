@@ -60,10 +60,28 @@ export default function DevicesIndex(props: PageProps) {
               The ranking you are looking at is based on all relevant properties
               of the devices.
               <br />
-              Every property is given a score.
-              <br />
-              The scores are then weighted and summed up to get the final
+              Every property is given a score and placed into a category. The
+              categories are then weighted and summed up to get the final
               results.
+              <br />
+              Category weights:
+              <div
+                style={{ display: "flex", flexDirection: "row", gap: "0.5rem" }}
+              >
+                <ul>
+                  <li>Performance (30%)</li>
+                  <li>Monitor (10%)</li>
+                  <li>Dimensions (10%)</li>
+                </ul>
+                <ul>
+                  <li>Connectivity (20%)</li>
+                  <li>Audio (10%)</li>
+                  <li>Controls (10%)</li>
+                </ul>
+                <ul>
+                  <li>Misc (10%)</li>
+                </ul>
+              </div>
             </p>
             <div
               style={{

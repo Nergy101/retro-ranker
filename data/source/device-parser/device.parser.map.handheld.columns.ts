@@ -75,6 +75,7 @@ export function mapHandheldsColumnToDevice(
       {
         device.performance = RatingsService.parsePerformanceRating(
           value,
+          device.name.sanitized
         );
       }
       break;

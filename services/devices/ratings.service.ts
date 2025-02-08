@@ -32,53 +32,82 @@ export class RatingsService {
     return null;
   }
 
-  public static parsePerformanceRating(text: string): {
+  public static parsePerformanceRating(text: string, deviceName: string): {
     rating: number;
     normalizedRating: number;
     tier: EmulationTier;
     maxEmulation: string;
     emulationLimit: string;
   } {
+    // Count occurrences for each symbol.
     const starCount = (text.match(/⭐️/g) || []).length;
     const explosionCount = (text.match(/💥/g) || []).length;
     const fireCount = (text.match(/🔥/g) || []).length;
 
     let rating = 0;
-    const tier = text as EmulationTier;
     let maxEmulation = "";
 
-    if (starCount) {
-      rating = starCount; // 0-5
-      maxEmulation = [
-        "GB/GBC/GG/NES/SMS at full speed",
-        "Most GBA & Genesis, some SNES playable",
-        "Full GBA & Genesis, most SNES/PS1 playable",
-        "Full SNES/PS1, most DS, some N64/DC/PSP",
-        "Most DS/N64/PSP/DC, some Saturn",
-      ][starCount - 1];
-    } else if (explosionCount) {
-      rating = 1 + explosionCount; // 1-6
-      maxEmulation = [
-        "Full DS/N64/PSP/DC, most Saturn",
-        "Full Saturn, some GameCube",
-        "Most GameCube, some Wii/3DS",
-        "Full GameCube, most Wii/3DS, some PS2/Wii U",
-        "Full GameCube/Wii, most 3DS/PS2, some Wii U",
-      ][explosionCount - 1];
-    } else if (fireCount) {
-      rating = 2 + fireCount; // 2-7
-      maxEmulation = [
-        "Full 3DS/PS2, most Wii U, some Switch",
-        "Most Switch, some PS3",
-        "Full Switch, most PS3",
-        "Full PS3",
-        "Beyond!",
-      ][fireCount - 1];
+    // Prefer the highest "cluster": fire > explosion > star.
+    if (fireCount > 0) {
+      // For fire symbols, we assign:
+      // 1 fire -> rating 11, 2 fires -> rating 12, ... 5 fires -> rating 15.
+      rating = 10 + fireCount;
+      const fireMessages = [
+        "3DS/PS2 all full speed, most Wii U playable, some Switch playable",
+        "Most Switch playable, some PS3 playable",
+        "All Switch playable, most PS3 playable",
+        "All PS3 playable",
+        "Limits unknown",
+      ];
+      maxEmulation = fireMessages[fireCount - 1] ||
+        fireMessages[fireMessages.length - 1];
+    } else if (explosionCount > 0) {
+      // For explosion symbols, we assign:
+      // 1 explosion -> rating 6, 2 explosions -> rating 7, ... 5 explosions -> rating 10.
+      rating = 5 + explosionCount;
+      const explosionMessages = [
+        "Most DS/N64/PSP/DC all full speed, most Saturn playable",
+        "DS/N64/PSP/DC/Saturn full speed, some GameCube playable",
+        "Most GameCube playable, some Wii/3DS playable",
+        "GameCube mostly all full speed, most Wii/3DS playable, some PS2/Wii U playable",
+        "GameCube/Wii all full speed, most 3DS/PS2 playable, some Wii U playable",
+      ];
+      maxEmulation = explosionMessages[explosionCount - 1] ||
+        explosionMessages[explosionMessages.length - 1];
+    } else if (starCount > 0) {
+      // For star symbols, rating is simply the star count (1–5).
+      rating = starCount;
+      const starMessages = [
+        "GB/GBC/GG/NES/SMS/all previous retro consoles all full speed",
+        "Most GBA & Genesis playable, some SNES playable",
+        "GBA & Genesis all full speed, most SNES/PS1 playable",
+        "SNES/PS1 all full speed, most DS playable, some N64/DC/PSP playable",
+        "Most DS/N64/PSP/DC playable, some Saturn playable",
+      ];
+      maxEmulation = starMessages[starCount - 1] ||
+        starMessages[starMessages.length - 1];
     }
+
+    // If no valid symbols were found, fall back to a default rating.
+    if (rating === 0) {
+      return {
+        rating: 0,
+        normalizedRating: 0,
+        tier: "Unknown" as EmulationTier,
+        maxEmulation: "",
+        emulationLimit: "",
+      };
+    }
+
+    // Normalize the raw rating so that the top possible score (15) maps to 10.
+    const normalizedRating = Number(((rating / 15) * 10).toFixed(1));
+
+    // Maintain the original text as the tier (casting to EmulationTier).
+    const tier = text as EmulationTier;
 
     return {
       rating,
-      normalizedRating: Number((((rating / 7) * 10) + 1).toFixed(1)),
+      normalizedRating,
       tier,
       maxEmulation,
       emulationLimit: "",
@@ -154,26 +183,12 @@ export class RatingsService {
   }
 
   private calculatePerformanceScore(device: Device): number {
+    // base score is 0-10
     let score = device.performance.normalizedRating ?? 0;
-
-    // Bonus for better CPU/GPU
-    if (device.cpus?.[0]?.clockSpeed?.max) {
-      score += device.cpus[0].clockSpeed.max * 0.1;
-    }
-
-    if (device.gpus?.[0]?.clockSpeed?.max) {
-      score += device.gpus[0].clockSpeed.max * 0.1;
-    }
 
     // Bonus for more RAM and better RAM type
     if (device.ram?.sizes?.[0]) {
       score += Math.log2(device.ram.sizes[0]) * 0.1;
-    }
-
-    if (device.ram?.type) {
-      if (device.ram.type === "DDR5") score += 1;
-      if (device.ram.type === "LPDDR5") score += 0.5;
-      if (device.ram.type === "LPDDR5X") score += 0.5;
     }
 
     if (device.ram?.unit === "GB") score += 1;
@@ -471,9 +486,11 @@ export class RatingsService {
       // Weight different ranking categories
       const weights = {
         emuPerformance: 0.3,
-        monitor: 0.2,
-        connectivity: 0.2,
+        monitor: 0.1,
         dimensions: 0.1,
+
+        connectivity: 0.2,
+        audio: 0.1,
         controls: 0.1,
         misc: 0.1,
       };
@@ -482,7 +499,9 @@ export class RatingsService {
         { rank: ranking.emuPerformance, weight: weights.emuPerformance },
         { rank: ranking.monitor, weight: weights.monitor },
         { rank: ranking.dimensions, weight: weights.dimensions },
+
         { rank: ranking.connectivity, weight: weights.connectivity },
+        { rank: ranking.audio, weight: weights.audio },
         { rank: ranking.controls, weight: weights.controls },
         { rank: ranking.misc, weight: weights.misc },
       ];

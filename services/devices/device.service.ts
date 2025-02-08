@@ -157,8 +157,8 @@ export class DeviceService {
             (new Date(a.released.mentionedDate ?? new Date())).getTime()
           );
         case "highly-rated":
-          return (b.performance?.normalizedRating ?? 0) -
-            (a.performance?.normalizedRating ?? 0);
+          return (b.totalRating) -
+            (a.totalRating);
         default:
           return 0;
       }
@@ -237,13 +237,14 @@ export class DeviceService {
   }
 
   public getHighlyRated(): Device[] {
-    // get the 4 highest rated devices that are not upcoming
+    // get the 4 highest rated devices that are not upcoming and have a price under $500
     return this.devices
       .filter((device) =>
         device.totalRating &&
-        device.totalRating >= 8.5 &&
+        device.pricing.category === "mid" &&
         !device.released.raw?.toLowerCase().includes("upcoming")
       )
+      .sort((a, b) => b.totalRating - a.totalRating)
       .slice(0, 4);
   }
 
@@ -426,11 +427,10 @@ export class DeviceService {
       hasGoodBattery:
         device.battery?.capacity && device.battery.capacity >= 3000 ? 10 : 0,
       // Check the build quality based on the material (metal or aluminum is preferred)
-      hasGoodBuild:
-        device.shellMaterial &&
+      hasGoodBuild: device.shellMaterial &&
           (device.shellMaterial.isMetal || device.shellMaterial.isAluminum)
-          ? 10
-          : 0,
+        ? 10
+        : 0,
     };
 
     // Calculate the total features score and normalize it.
