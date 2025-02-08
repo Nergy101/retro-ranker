@@ -277,6 +277,11 @@ export class RatingsService {
       score = score / Math.log(device.weight + 1);
     }
 
+    // Bonus for better battery life
+    if (device.battery?.capacity) {
+      score += Math.log10(device.battery.capacity);
+    }
+
     return score;
   }
 

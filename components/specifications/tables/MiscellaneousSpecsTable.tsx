@@ -10,20 +10,6 @@ export function MiscellaneousSpecsTable(
   return (
     <table class="striped">
       <tbody>
-        {device.shellMaterial && (
-          <tr>
-            <th>Shell Material</th>
-            <td>
-              {device.shellMaterial.raw || [
-                device.shellMaterial.isPlastic && "Plastic",
-                device.shellMaterial.isMetal && "Metal",
-                device.shellMaterial.isAluminum && "Aluminum",
-                device.shellMaterial.isMagnesiumAlloy && "Magnesium Alloy",
-                device.shellMaterial.isOther && "Other",
-              ].filter(Boolean).join(", ")}
-            </td>
-          </tr>
-        )}
         {device.performance.emulationLimit && (
           <tr>
             <th>Emulation Limit</th>

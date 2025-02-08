@@ -1,4 +1,5 @@
 import { Device } from "../../../data/device.model.ts";
+import { ShellMaterial } from "../../../data/models/physical.model.ts";
 import { DeviceService } from "../../../services/devices/device.service.ts";
 
 interface PhysicalSpecsTableProps {
@@ -6,6 +7,15 @@ interface PhysicalSpecsTableProps {
 }
 
 export function PhysicalSpecsTable({ device }: PhysicalSpecsTableProps) {
+  const getShellMaterialName = (shellMaterial: ShellMaterial) => {
+    if (shellMaterial.isMetal) return "Metal";
+    if (shellMaterial.isPlastic) return "Plastic";
+    if (shellMaterial.isAluminum) return "Aluminum";
+    if (shellMaterial.isMagnesiumAlloy) return "Magnesium Alloy";
+    return DeviceService.getPropertyIconByCharacter(null);
+  };
+
+
   return (
     <table class="striped">
       <tbody>
@@ -43,6 +53,12 @@ export function PhysicalSpecsTable({ device }: PhysicalSpecsTableProps) {
                 ? device.battery.capacity + " " + device.battery.unit
                 : DeviceService.getPropertyIconByCharacter(null)}
             </td>
+          </tr>
+        )}
+        {device.shellMaterial && (
+          <tr>
+            <th>Shell Material</th>
+            <td>{getShellMaterialName(device.shellMaterial)}</td>
           </tr>
         )}
       </tbody>
