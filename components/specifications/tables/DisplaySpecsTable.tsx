@@ -76,10 +76,17 @@ export function DisplaySpecsTable({ device }: DisplaySpecsTableProps) {
             <td>{device.screen.aspectRatio}</td>
           </tr>
         )}
-        {device.screen.ppi && device.screen.ppi.length > 0 && (
+        {device.screen.ppi && device.screen.ppi.length > 0 ? (
           <tr>
             <th>PPI</th>
             <td>{device.screen.ppi.join(", ")}</td>
+          </tr>
+        ) : (
+          <tr>
+            <th>PPI</th>
+            <td>
+              {DeviceService.getPropertyIconByCharacter("?")}
+            </td>
           </tr>
         )}
         {videoOutputs.length > 0

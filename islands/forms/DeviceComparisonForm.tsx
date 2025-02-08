@@ -284,7 +284,7 @@ export function DeviceComparisonForm({
         </button>
         <button
           class="secondary"
-          onClick={() => handleExampleComparison("RG-34XX", "RG-40XXH")}
+          onClick={() => handleExampleComparison("RG-405M", "RG-406H")}
           type="submit"
           style={{
             display: "flex",
@@ -293,7 +293,7 @@ export function DeviceComparisonForm({
           }}
         >
           <span style={{ display: "flex", gap: "0.25rem" }}>
-            RG-34XX <PiGitDiff /> RG-40XXH
+            RG-405M <PiGitDiff /> RG-406H
           </span>
         </button>
         <button

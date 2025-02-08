@@ -7,14 +7,16 @@ interface PhysicalSpecsTableProps {
 }
 
 export function PhysicalSpecsTable({ device }: PhysicalSpecsTableProps) {
-  const getShellMaterialName = (shellMaterial: ShellMaterial) => {
+  const getShellMaterialName = (
+    device: Device,
+    shellMaterial: ShellMaterial,
+  ) => {
     if (shellMaterial.isMetal) return "Metal";
     if (shellMaterial.isPlastic) return "Plastic";
     if (shellMaterial.isAluminum) return "Aluminum";
     if (shellMaterial.isMagnesiumAlloy) return "Magnesium Alloy";
-    return DeviceService.getPropertyIconByCharacter(null);
+    return device.shellMaterial?.raw || "Other";
   };
-
 
   return (
     <table class="striped">
@@ -55,12 +57,21 @@ export function PhysicalSpecsTable({ device }: PhysicalSpecsTableProps) {
             </td>
           </tr>
         )}
-        {device.shellMaterial && (
-          <tr>
-            <th>Shell Material</th>
-            <td>{getShellMaterialName(device.shellMaterial)}</td>
-          </tr>
-        )}
+        {device.shellMaterial
+          ? (
+            <tr>
+              <th>Shell Material</th>
+              <td>{getShellMaterialName(device, device.shellMaterial)}</td>
+            </tr>
+          )
+          : (
+            <tr>
+              <th>Shell Material</th>
+              <td>
+                {DeviceService.getPropertyIconByCharacter(null)}
+              </td>
+            </tr>
+          )}
       </tbody>
     </table>
   );
