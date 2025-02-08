@@ -78,7 +78,7 @@ export class RatingsService {
 
     return {
       rating,
-      normalizedRating: Number(((rating / 7) * 10).toFixed(1)),
+      normalizedRating: Number((((rating / 7) * 10) + 1).toFixed(1)),
       tier,
       maxEmulation,
       emulationLimit: "",

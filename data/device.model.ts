@@ -25,6 +25,7 @@ import { SystemRating } from "./models/system-rating.model.ts";
 export interface Device {
   name: DeviceName;
   brand: string;
+  totalRating: number; // the total rating of the device, scale of 0-10
   image: DeviceImage;
   released: DeviceRelease;
   formFactor: string | null;

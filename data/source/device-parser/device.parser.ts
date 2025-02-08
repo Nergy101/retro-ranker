@@ -3,6 +3,7 @@ import { EmulationSystemOrder } from "../../enums/EmulationSystem.ts";
 import { Device } from "../../device.model.ts";
 import { mapHandheldsColumnToDevice } from "./device.parser.map.handheld.columns.ts";
 import { mapOEMsColumnToDevice } from "./device.parser.map.oem.columns.ts";
+import { DeviceService } from "../../../services/devices/device.service.ts";
 
 export class DeviceParser {
   public static parseHandheldsHtml(filePath: string): Device[] {
@@ -229,6 +230,8 @@ export class DeviceParser {
         device.outputs.audioOutput?.hasUsbC ||
         false;
 
+      device.totalRating = DeviceService.calculateScore(device);
+
       devices.push(device);
     });
 
@@ -276,6 +279,7 @@ export class DeviceParser {
           links: [],
         },
         brand: "",
+        totalRating: null,
         lowBatteryIndicator: null,
         hackingGuides: [],
         systemRatings: [],
@@ -478,6 +482,7 @@ export class DeviceParser {
         device.outputs.audioOutput?.hasUsbC ||
         false;
 
+      device.totalRating = DeviceService.calculateScore(device);
       devices.push(device);
     });
 

@@ -110,25 +110,43 @@ export function DeviceCardMedium({ device, isActive }: DeviceCardMediumProps) {
       <div style={{ display: "flex", justifyContent: "center" }}>
         <StarRating device={device} />
       </div>
-      <div style="margin-bottom: .5rem; margin-top: .5rem; font-size: .8rem; display: flex; flex-direction: row; justify-content: center; gap: .5rem;">
-        {!device.pricing.discontinued && device.pricing.average
-          ? (
-            <span
-              style={{ display: "flex" }}
-              data-tooltip={`${device.pricing.range.min}-${device.pricing.range.max} ${device.pricing.currency}`}
-            >
-              {getPriceIndicator()}
-            </span>
-          )
-          : (
-            <span
-              style={{ display: "flex" }}
-              data-tooltip="No pricing information available"
-            >
-              <CurrencyIcon currencyCode="USD" />
-              <PiQuestion />
-            </span>
-          )}
+      <div
+        style={{
+          marginBottom: ".5rem",
+          fontSize: ".8rem",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+          alignItems: "baseline",
+          gap: ".5rem",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            flexDirection: "column",
+          }}
+        >
+          {!device.pricing.discontinued && device.pricing.average
+            ? (
+              <span
+                style={{ display: "flex", fontSize: "1rem" }}
+                data-tooltip={`${device.pricing.range.min}-${device.pricing.range.max} ${device.pricing.currency}`}
+              >
+                {getPriceIndicator()}
+              </span>
+            )
+            : (
+              <span
+                style={{ display: "flex", fontSize: "1rem" }}
+                data-tooltip="No pricing information available"
+              >
+                <CurrencyIcon currencyCode="USD" />
+                <PiQuestion />
+              </span>
+            )}
+        </div>
         <span
           style={{
             display: "flex",
