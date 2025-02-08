@@ -1,5 +1,5 @@
 import { Device } from "../../data/device.model.ts";
-import { AudioVideoSpecs } from "./sections/AudioVideoSpecs.tsx";
+import { AudioSpecs } from "./sections/AudioSpecs.tsx";
 import { ConnectivitySpecs } from "./sections/ConnectivitySpecs.tsx";
 import { ControlsSpecs } from "./sections/ControlsSpecs.tsx";
 import { CoolingSpecs } from "./sections/CoolingSpecs.tsx";
@@ -30,8 +30,8 @@ export function DeviceSpecs({ device }: DeviceSpecsProps) {
       {/* Cooling */}
       <CoolingSpecs device={device} />
 
-      {/* Audio and Video */}
-      <AudioVideoSpecs device={device} />
+      {/* Audio */}
+      <AudioSpecs device={device} />
 
       {/* Controls */}
       <ControlsSpecs device={device} />

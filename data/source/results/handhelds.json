@@ -243,8 +243,8 @@
       }
     ],
     "performance": {
-      "rating": 11,
-      "normalizedRating": 7.3,
+      "rating": 3,
+      "normalizedRating": 4.3,
       "tier": "🔥½",
       "maxEmulation": "Full 3DS/PS2, most Wii U, some Switch",
       "emulationLimit": "Smooth Gamecube, Wii, PS2"
@@ -651,7 +651,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "?"
@@ -1061,7 +1061,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️¼",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast playable but not all at full speed"
@@ -1434,8 +1434,8 @@
       }
     ],
     "performance": {
-      "rating": 7,
-      "normalizedRating": 4.7,
+      "rating": 3,
+      "normalizedRating": 4.3,
       "tier": "💥💥",
       "maxEmulation": "Full Saturn, some GameCube",
       "emulationLimit": "N64, PSP & Dreamcast playable"
@@ -1810,8 +1810,8 @@
       }
     ],
     "performance": {
-      "rating": 14,
-      "normalizedRating": 9.3,
+      "rating": 6,
+      "normalizedRating": 8.6,
       "tier": "🔥🔥🔥🔥",
       "maxEmulation": "Full PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2, Wii U, Switch almost all full speed"
@@ -2194,8 +2194,8 @@
       }
     ],
     "performance": {
-      "rating": 14,
-      "normalizedRating": 9.3,
+      "rating": 6,
+      "normalizedRating": 8.6,
       "tier": "🔥🔥🔥🔥",
       "maxEmulation": "Full PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2, Wii U, Switch almost all full speed"
@@ -2587,7 +2587,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️¼",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast playable but not all at full speed"
@@ -2964,8 +2964,8 @@
       }
     ],
     "performance": {
-      "rating": 14,
-      "normalizedRating": 9.3,
+      "rating": 6,
+      "normalizedRating": 8.6,
       "tier": "🔥🔥🔥🔥",
       "maxEmulation": "Full PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2, Wii U, Switch almost all full speed"
@@ -3346,8 +3346,8 @@
       }
     ],
     "performance": {
-      "rating": 7,
-      "normalizedRating": 4.7,
+      "rating": 3,
+      "normalizedRating": 4.3,
       "tier": "💥💥",
       "maxEmulation": "Full Saturn, some GameCube",
       "emulationLimit": "N64, PSP & Dreamcast playable"
@@ -3718,8 +3718,8 @@
       }
     ],
     "performance": {
-      "rating": 7,
-      "normalizedRating": 4.7,
+      "rating": 3,
+      "normalizedRating": 4.3,
       "tier": "💥💥",
       "maxEmulation": "Full Saturn, some GameCube",
       "emulationLimit": "N64, PSP & Dreamcast playable"
@@ -4784,8 +4784,8 @@
       }
     ],
     "performance": {
-      "rating": 14,
-      "normalizedRating": 9.3,
+      "rating": 6,
+      "normalizedRating": 8.6,
       "tier": "🔥🔥🔥🔥",
       "maxEmulation": "Full PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2, Wii U, Switch almost all full speed"
@@ -5151,8 +5151,8 @@
       }
     ],
     "performance": {
-      "rating": 14,
-      "normalizedRating": 9.3,
+      "rating": 6,
+      "normalizedRating": 8.6,
       "tier": "🔥🔥🔥🔥",
       "maxEmulation": "Full PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2, Wii U, Switch almost all full speed"
@@ -5516,8 +5516,8 @@
       }
     ],
     "performance": {
-      "rating": 7,
-      "normalizedRating": 4.7,
+      "rating": 3,
+      "normalizedRating": 4.3,
       "tier": "💥💥",
       "maxEmulation": "Full Saturn, some GameCube",
       "emulationLimit": ""
@@ -5885,8 +5885,8 @@
       }
     ],
     "performance": {
-      "rating": 7,
-      "normalizedRating": 4.7,
+      "rating": 3,
+      "normalizedRating": 4.3,
       "tier": "💥💥½",
       "maxEmulation": "Full Saturn, some GameCube",
       "emulationLimit": ""
@@ -6252,8 +6252,8 @@
       }
     ],
     "performance": {
-      "rating": 14,
-      "normalizedRating": 9.3,
+      "rating": 6,
+      "normalizedRating": 8.6,
       "tier": "🔥🔥🔥🔥",
       "maxEmulation": "Full PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2 fully playable"
@@ -6668,8 +6668,8 @@
       }
     ],
     "performance": {
-      "rating": 14,
-      "normalizedRating": 9.3,
+      "rating": 6,
+      "normalizedRating": 8.6,
       "tier": "🔥🔥🔥🔥",
       "maxEmulation": "Full PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2 fully playable"
@@ -7061,7 +7061,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️¼",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast playable but not all at full speed"
@@ -7450,8 +7450,8 @@
       }
     ],
     "performance": {
-      "rating": 12,
-      "normalizedRating": 8,
+      "rating": 4,
+      "normalizedRating": 5.7,
       "tier": "🔥🔥¼",
       "maxEmulation": "Most Switch, some PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2 fully playable, most Wii U and Switch playable"
@@ -7859,7 +7859,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast mostly playable but not all full speed"
@@ -7948,7 +7948,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -8238,7 +8238,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast mostly playable but not all full speed"
@@ -8327,7 +8327,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -8642,8 +8642,8 @@
       }
     ],
     "performance": {
-      "rating": 14,
-      "normalizedRating": 9.3,
+      "rating": 6,
+      "normalizedRating": 8.6,
       "tier": "🔥🔥🔥🔥",
       "maxEmulation": "Full PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2, Wii U, Switch almost all full speed"
@@ -9014,8 +9014,8 @@
       }
     ],
     "performance": {
-      "rating": 14,
-      "normalizedRating": 9.3,
+      "rating": 6,
+      "normalizedRating": 8.6,
       "tier": "🔥🔥🔥🔥",
       "maxEmulation": "Full PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2, Wii U, Switch almost all full speed"
@@ -9393,7 +9393,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 and Dreamcast mostly playable, PSP somewhat playable, Saturn barely playable"
@@ -9482,7 +9482,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -9809,7 +9809,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), 2D PSP mostly playable but 3D PSP needs frameskip, N64 & Dreamcast mostly playable for easier to emulate games"
@@ -10194,8 +10194,8 @@
       }
     ],
     "performance": {
-      "rating": 14,
-      "normalizedRating": 9.3,
+      "rating": 6,
+      "normalizedRating": 8.6,
       "tier": "🔥🔥🔥🔥",
       "maxEmulation": "Full PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2, Wii U, Switch almost all full speed"
@@ -10592,8 +10592,8 @@
       }
     ],
     "performance": {
-      "rating": 12,
-      "normalizedRating": 8,
+      "rating": 4,
+      "normalizedRating": 5.7,
       "tier": "🔥🔥½",
       "maxEmulation": "Most Switch, some PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2, Wii U all fully playable, most Switch fully playable"
@@ -10989,8 +10989,8 @@
       }
     ],
     "performance": {
-      "rating": 12,
-      "normalizedRating": 8,
+      "rating": 4,
+      "normalizedRating": 5.7,
       "tier": "🔥🔥½",
       "maxEmulation": "Most Switch, some PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2, Wii U all fully playable, most Switch fully playable"
@@ -11379,8 +11379,8 @@
       }
     ],
     "performance": {
-      "rating": 8,
-      "normalizedRating": 5.3,
+      "rating": 4,
+      "normalizedRating": 5.7,
       "tier": "💥💥💥",
       "maxEmulation": "Most GameCube, some Wii/3DS",
       "emulationLimit": "N64, Dreamcast, PSP all full speed, Gamecube and Wii almost all full speed, PS2 playable, Switch mostly unplayable"
@@ -11793,8 +11793,8 @@
       }
     ],
     "performance": {
-      "rating": 9,
-      "normalizedRating": 6,
+      "rating": 5,
+      "normalizedRating": 7.1,
       "tier": "💥💥💥💥½",
       "maxEmulation": "Full GameCube, most Wii/3DS, some PS2/Wii U",
       "emulationLimit": "Gamecube, Wii, PS2 playable, some Switch barely playable"
@@ -12209,7 +12209,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️¼",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast playable but not all at full speed"
@@ -12631,7 +12631,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 and Dreamcast mostly playable, PSP somewhat playable, Saturn barely playable"
@@ -12720,7 +12720,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -13042,7 +13042,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast mostly playable but not all full speed"
@@ -13131,7 +13131,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -13437,8 +13437,8 @@
       }
     ],
     "performance": {
-      "rating": 14,
-      "normalizedRating": 9.3,
+      "rating": 6,
+      "normalizedRating": 8.6,
       "tier": "🔥🔥🔥🔥",
       "maxEmulation": "Full PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2, Wii U, Switch almost all full speed"
@@ -13870,7 +13870,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast mostly playable but not all full speed"
@@ -13959,7 +13959,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": true,
         "hasMiniHdmi": false,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -14285,8 +14285,8 @@
       }
     ],
     "performance": {
-      "rating": 9,
-      "normalizedRating": 6,
+      "rating": 5,
+      "normalizedRating": 7.1,
       "tier": "💥💥💥💥½",
       "maxEmulation": "Full GameCube, most Wii/3DS, some PS2/Wii U",
       "emulationLimit": "Gamecube, Wii, PS2 playable, some Switch barely playable"
@@ -14691,8 +14691,8 @@
       }
     ],
     "performance": {
-      "rating": 7,
-      "normalizedRating": 4.7,
+      "rating": 3,
+      "normalizedRating": 4.3,
       "tier": "💥💥½",
       "maxEmulation": "Full Saturn, some GameCube",
       "emulationLimit": "N64, PSP & Dreamcast full speed, most Gamecube, Wii playable. PS2 barely playable for easier to emulate games only"
@@ -15091,8 +15091,8 @@
       }
     ],
     "performance": {
-      "rating": 8,
-      "normalizedRating": 5.3,
+      "rating": 4,
+      "normalizedRating": 5.7,
       "tier": "💥💥💥",
       "maxEmulation": "Most GameCube, some Wii/3DS",
       "emulationLimit": "N64, Dreamcast, PSP all full speed, Gamecube and Wii almost all full speed, PS2 playable, Switch mostly unplayable"
@@ -15502,7 +15502,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), 2D PSP mostly playable but 3D PSP needs frameskip, N64 & Dreamcast mostly playable for easier to emulate games"
@@ -15917,7 +15917,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast mostly playable but not all full speed"
@@ -16006,7 +16006,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -16300,7 +16300,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast mostly playable but not all full speed"
@@ -16389,7 +16389,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -16674,7 +16674,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 and Dreamcast mostly playable, PSP somewhat playable, Saturn barely playable"
@@ -16763,7 +16763,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -17077,8 +17077,8 @@
       }
     ],
     "performance": {
-      "rating": 8,
-      "normalizedRating": 5.3,
+      "rating": 4,
+      "normalizedRating": 5.7,
       "tier": "💥💥💥½",
       "maxEmulation": "Most GameCube, some Wii/3DS",
       "emulationLimit": "N64, Dreamcast, PSP full speed, GameCube & Wii mostly playable, some PS2 playable"
@@ -17167,7 +17167,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -17463,8 +17463,8 @@
       }
     ],
     "performance": {
-      "rating": 7,
-      "normalizedRating": 4.7,
+      "rating": 3,
+      "normalizedRating": 4.3,
       "tier": "💥💥¾",
       "maxEmulation": "Full Saturn, some GameCube",
       "emulationLimit": "N64, PSP & Dreamcast full speed, most Gamecube, Wii playable. PS2 barely playable for easier to emulate games only"
@@ -17870,7 +17870,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), 2D PSP mostly playable but 3D PSP needs frameskip, N64 & Dreamcast mostly playable for easier to emulate games"
@@ -18250,7 +18250,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast mostly playable but not all full speed"
@@ -18339,7 +18339,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -18624,7 +18624,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "N64, PSP & Dreamcast mostly playable but not all full speed"
@@ -19019,8 +19019,8 @@
       }
     ],
     "performance": {
-      "rating": 14,
-      "normalizedRating": 9.3,
+      "rating": 6,
+      "normalizedRating": 8.6,
       "tier": "🔥🔥🔥🔥",
       "maxEmulation": "Full PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2 fully playable"
@@ -19458,7 +19458,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 and Dreamcast mostly playable, PSP somewhat playable, Saturn barely playable"
@@ -19547,7 +19547,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -19862,8 +19862,8 @@
       }
     ],
     "performance": {
-      "rating": 14,
-      "normalizedRating": 9.3,
+      "rating": 6,
+      "normalizedRating": 8.6,
       "tier": "🔥🔥🔥🔥",
       "maxEmulation": "Full PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2, Wii U, Switch almost all full speed"
@@ -20254,7 +20254,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️½",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "SNES & PS1 almost all full speed except for slight lag on a few FX chip SNES games and 3D PS1 games"
@@ -20343,7 +20343,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -20650,8 +20650,8 @@
       }
     ],
     "performance": {
-      "rating": 12,
-      "normalizedRating": 8,
+      "rating": 4,
+      "normalizedRating": 5.7,
       "tier": "🔥🔥¼",
       "maxEmulation": "Most Switch, some PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2, Wii U all fully playable, most Switch fully playable"
@@ -20740,7 +20740,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": true,
         "hasMiniHdmi": false,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -21068,7 +21068,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), 2D PSP mostly playable but 3D PSP needs frameskip, N64 & Dreamcast mostly playable for easier to emulate games"
@@ -21483,7 +21483,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast mostly playable but not all full speed"
@@ -21572,7 +21572,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -21877,8 +21877,8 @@
       }
     ],
     "performance": {
-      "rating": 8,
-      "normalizedRating": 5.3,
+      "rating": 4,
+      "normalizedRating": 5.7,
       "tier": "💥💥💥",
       "maxEmulation": "Most GameCube, some Wii/3DS",
       "emulationLimit": "N64, Dreamcast, PSP all full speed, Gamecube and Wii almost all full speed, PS2 playable, Switch mostly unplayable"
@@ -22290,8 +22290,8 @@
       }
     ],
     "performance": {
-      "rating": 14,
-      "normalizedRating": 9.3,
+      "rating": 6,
+      "normalizedRating": 8.6,
       "tier": "🔥🔥🔥🔥",
       "maxEmulation": "Full PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2 almost all full speed. Wii U & Switch mostly playable"
@@ -22671,8 +22671,8 @@
       }
     ],
     "performance": {
-      "rating": 12,
-      "normalizedRating": 8,
+      "rating": 4,
+      "normalizedRating": 5.7,
       "tier": "🔥🔥½",
       "maxEmulation": "Most Switch, some PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2, Wii U all fully playable, most Switch fully playable"
@@ -23096,7 +23096,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast mostly playable but not all full speed"
@@ -23185,7 +23185,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -23492,7 +23492,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 and Dreamcast mostly playable, PSP somewhat playable, Saturn barely playable"
@@ -23581,7 +23581,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -23914,7 +23914,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES & PS1 almost all full speed except for slight lag on a few FX chip SNES games and 3D PS1 games"
@@ -24325,7 +24325,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast mostly playable but not all full speed"
@@ -24414,7 +24414,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -24714,8 +24714,8 @@
       }
     ],
     "performance": {
-      "rating": 14,
-      "normalizedRating": 9.3,
+      "rating": 6,
+      "normalizedRating": 8.6,
       "tier": "🔥🔥🔥🔥",
       "maxEmulation": "Full PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2, Wii U, Switch almost all full speed"
@@ -25110,7 +25110,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 and Dreamcast mostly playable, PSP somewhat playable, Saturn barely playable"
@@ -25199,7 +25199,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -25528,7 +25528,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast mostly playable but not all full speed"
@@ -25617,7 +25617,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -25919,7 +25919,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️¼",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "SNES & PS1 almost all full speed except for slight lag on a few FX chip SNES games and 3D PS1 games"
@@ -26299,8 +26299,8 @@
       }
     ],
     "performance": {
-      "rating": 14,
-      "normalizedRating": 9.3,
+      "rating": 6,
+      "normalizedRating": 8.6,
       "tier": "🔥🔥🔥🔥",
       "maxEmulation": "Full PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2, Wii U, Switch almost all full speed"
@@ -26697,8 +26697,8 @@
       }
     ],
     "performance": {
-      "rating": 14,
-      "normalizedRating": 9.3,
+      "rating": 6,
+      "normalizedRating": 8.6,
       "tier": "🔥🔥🔥🔥",
       "maxEmulation": "Full PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2, Wii U, Switch almost all full speed"
@@ -27100,7 +27100,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 and Dreamcast mostly playable, PSP somewhat playable, Saturn barely playable"
@@ -27189,7 +27189,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -27498,7 +27498,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), 2D PSP mostly playable but 3D PSP needs frameskip, N64 & Dreamcast mostly playable for easier to emulate games"
@@ -27873,8 +27873,8 @@
       }
     ],
     "performance": {
-      "rating": 13,
-      "normalizedRating": 8.7,
+      "rating": 5,
+      "normalizedRating": 7.1,
       "tier": "🔥🔥🔥",
       "maxEmulation": "Full Switch, most PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2 fully playable, PS3 mostly playable"
@@ -28314,8 +28314,8 @@
       }
     ],
     "performance": {
-      "rating": 8,
-      "normalizedRating": 5.3,
+      "rating": 4,
+      "normalizedRating": 5.7,
       "tier": "💥💥💥",
       "maxEmulation": "Most GameCube, some Wii/3DS",
       "emulationLimit": "N64, Dreamcast, PSP all full speed, Gamecube and Wii almost all full speed, PS2 playable, Switch mostly unplayable"
@@ -28739,7 +28739,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast mostly playable but not all full speed"
@@ -28828,7 +28828,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -29126,8 +29126,8 @@
       }
     ],
     "performance": {
-      "rating": 8,
-      "normalizedRating": 5.3,
+      "rating": 4,
+      "normalizedRating": 5.7,
       "tier": "💥💥💥½",
       "maxEmulation": "Most GameCube, some Wii/3DS",
       "emulationLimit": "N64, Dreamcast, PSP full speed, GameCube & Wii mostly playable, some PS2 playable"
@@ -29216,7 +29216,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": true,
         "hasMiniHdmi": false,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -29522,8 +29522,8 @@
       }
     ],
     "performance": {
-      "rating": 14,
-      "normalizedRating": 9.3,
+      "rating": 6,
+      "normalizedRating": 8.6,
       "tier": "🔥🔥🔥🔥",
       "maxEmulation": "Full PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2 almost all full speed. Wii U & Switch mostly playable"
@@ -29967,8 +29967,8 @@
       }
     ],
     "performance": {
-      "rating": 11,
-      "normalizedRating": 7.3,
+      "rating": 3,
+      "normalizedRating": 4.3,
       "tier": "🔥",
       "maxEmulation": "Full 3DS/PS2, most Wii U, some Switch",
       "emulationLimit": "PSP, Gamecube & Wii full speed, PS2 playable"
@@ -30355,8 +30355,8 @@
       }
     ],
     "performance": {
-      "rating": 13,
-      "normalizedRating": 8.7,
+      "rating": 5,
+      "normalizedRating": 7.1,
       "tier": "🔥🔥🔥",
       "maxEmulation": "Full Switch, most PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2 fully playable, PS3 mostly playable"
@@ -30756,8 +30756,8 @@
       }
     ],
     "performance": {
-      "rating": 8,
-      "normalizedRating": 5.3,
+      "rating": 4,
+      "normalizedRating": 5.7,
       "tier": "💥💥💥",
       "maxEmulation": "Most GameCube, some Wii/3DS",
       "emulationLimit": "N64, Dreamcast, PSP all full speed, Gamecube and Wii almost all full speed, PS2 playable, Switch mostly unplayable"
@@ -30846,7 +30846,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": true,
         "hasMiniHdmi": false,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -31154,8 +31154,8 @@
       }
     ],
     "performance": {
-      "rating": 14,
-      "normalizedRating": 9.3,
+      "rating": 6,
+      "normalizedRating": 8.6,
       "tier": "🔥🔥🔥🔥",
       "maxEmulation": "Full PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2, Wii U, Switch, PS3 all fully playable"
@@ -31555,7 +31555,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️¼",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS)"
@@ -31976,8 +31976,8 @@
       }
     ],
     "performance": {
-      "rating": 9,
-      "normalizedRating": 6,
+      "rating": 5,
+      "normalizedRating": 7.1,
       "tier": "💥💥💥💥",
       "maxEmulation": "Full GameCube, most Wii/3DS, some PS2/Wii U",
       "emulationLimit": "Gamecube, Wii, PS2 playable, some Switch barely playable"
@@ -32066,7 +32066,7 @@
         "hasUsbC": true,
         "hasMicroHdmi": true,
         "hasMiniHdmi": false,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -32409,7 +32409,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 and Dreamcast mostly playable, PSP somewhat playable, Saturn barely playable"
@@ -32498,7 +32498,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -32826,7 +32826,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast mostly playable but not all full speed"
@@ -33237,7 +33237,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), 2D PSP mostly playable but 3D PSP needs frameskip, N64 & Dreamcast mostly playable for easier to emulate games"
@@ -33621,7 +33621,7 @@
     ],
     "performance": {
       "rating": 1,
-      "normalizedRating": 0.7,
+      "normalizedRating": 1.4,
       "tier": "⭐️¾",
       "maxEmulation": "GB/GBC/GG/NES/SMS at full speed",
       "emulationLimit": "GBA mostly runs fine, some non-FX SNES runs ok but can be laggy"
@@ -34019,8 +34019,8 @@
       }
     ],
     "performance": {
-      "rating": 14,
-      "normalizedRating": 9.3,
+      "rating": 6,
+      "normalizedRating": 8.6,
       "tier": "🔥🔥🔥🔥",
       "maxEmulation": "Full PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2 almost all full speed. Wii U & Switch mostly playable"
@@ -34423,7 +34423,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), 2D PSP mostly playable but 3D PSP needs frameskip, N64 & Dreamcast mostly playable for easier to emulate games"
@@ -34820,8 +34820,8 @@
       }
     ],
     "performance": {
-      "rating": 14,
-      "normalizedRating": 9.3,
+      "rating": 6,
+      "normalizedRating": 8.6,
       "tier": "🔥🔥🔥🔥",
       "maxEmulation": "Full PS3",
       "emulationLimit": "Gamecube, Wii, PS2, Wii U, Switch playable"
@@ -35245,7 +35245,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 and Dreamcast mostly playable, PSP somewhat playable, Saturn barely playable"
@@ -35334,7 +35334,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -35660,7 +35660,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast mostly playable but not all full speed"
@@ -35749,7 +35749,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -36063,7 +36063,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast mostly playable but not all full speed"
@@ -36152,7 +36152,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -36477,8 +36477,8 @@
       }
     ],
     "performance": {
-      "rating": 12,
-      "normalizedRating": 8,
+      "rating": 4,
+      "normalizedRating": 5.7,
       "tier": "🔥🔥½",
       "maxEmulation": "Most Switch, some PS3",
       "emulationLimit": "PSP, Gamecube & Wii full speed, PS2 playable"
@@ -36941,7 +36941,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), 2D PSP mostly playable but 3D PSP needs frameskip, N64 & Dreamcast mostly playable"
@@ -37352,7 +37352,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast playable but not all at full speed"
@@ -37791,7 +37791,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), 2D PSP mostly playable but 3D PSP needs frameskip, N64 & Dreamcast mostly playable for easier to emulate games"
@@ -38199,8 +38199,8 @@
       }
     ],
     "performance": {
-      "rating": 13,
-      "normalizedRating": 8.7,
+      "rating": 5,
+      "normalizedRating": 7.1,
       "tier": "🔥🔥🔥",
       "maxEmulation": "Full Switch, most PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2 fully playable"
@@ -38647,8 +38647,8 @@
       }
     ],
     "performance": {
-      "rating": 12,
-      "normalizedRating": 8,
+      "rating": 4,
+      "normalizedRating": 5.7,
       "tier": "🔥🔥¼",
       "maxEmulation": "Most Switch, some PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2, Wii U all fully playable, most Switch fully playable"
@@ -38737,7 +38737,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": true,
         "hasMiniHdmi": false,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -39098,8 +39098,8 @@
       }
     ],
     "performance": {
-      "rating": 14,
-      "normalizedRating": 9.3,
+      "rating": 6,
+      "normalizedRating": 8.6,
       "tier": "🔥🔥🔥🔥",
       "maxEmulation": "Full PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2 almost all full speed. Wii U & Switch mostly playable"
@@ -39509,7 +39509,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️¼",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "Most SNES runs at 60 FPS but lags with FX & Mode 7 games, most 2D PS1 runs fine (not all at full 60 FPS) but lags with 3D games"
@@ -39905,8 +39905,8 @@
       }
     ],
     "performance": {
-      "rating": 9,
-      "normalizedRating": 6,
+      "rating": 5,
+      "normalizedRating": 7.1,
       "tier": "💥💥💥💥",
       "maxEmulation": "Full GameCube, most Wii/3DS, some PS2/Wii U",
       "emulationLimit": "Gamecube, Wii, PS2 playable"
@@ -40323,8 +40323,8 @@
       }
     ],
     "performance": {
-      "rating": 10,
-      "normalizedRating": 6.7,
+      "rating": 6,
+      "normalizedRating": 8.6,
       "tier": "💥💥💥💥💥",
       "maxEmulation": "Full GameCube/Wii, most 3DS/PS2, some Wii U",
       "emulationLimit": "Smooth Gamecube, Wii, PS2"
@@ -40721,8 +40721,8 @@
       }
     ],
     "performance": {
-      "rating": 14,
-      "normalizedRating": 9.3,
+      "rating": 6,
+      "normalizedRating": 8.6,
       "tier": "🔥🔥🔥🔥",
       "maxEmulation": "Full PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2 almost all full speed. Wii U & Switch mostly playable"
@@ -41131,8 +41131,8 @@
       }
     ],
     "performance": {
-      "rating": 14,
-      "normalizedRating": 9.3,
+      "rating": 6,
+      "normalizedRating": 8.6,
       "tier": "🔥🔥🔥🔥",
       "maxEmulation": "Full PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2 almost all full speed. Wii U & Switch mostly playable"
@@ -41518,8 +41518,8 @@
       }
     ],
     "performance": {
-      "rating": 7,
-      "normalizedRating": 4.7,
+      "rating": 3,
+      "normalizedRating": 4.3,
       "tier": "💥💥",
       "maxEmulation": "Full Saturn, some GameCube",
       "emulationLimit": "N64, PSP & Dreamcast almost all full speed, some Gamecube playable. PS2 barely playable for easier to emulate games only"
@@ -41930,7 +41930,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast mostly playable but not all full speed"
@@ -42019,7 +42019,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -42338,8 +42338,8 @@
       }
     ],
     "performance": {
-      "rating": 8,
-      "normalizedRating": 5.3,
+      "rating": 4,
+      "normalizedRating": 5.7,
       "tier": "💥💥💥¼",
       "maxEmulation": "Most GameCube, some Wii/3DS",
       "emulationLimit": "Gamecube & Wii mostly full speed, some PS2 playable"
@@ -42752,8 +42752,8 @@
       }
     ],
     "performance": {
-      "rating": 7,
-      "normalizedRating": 4.7,
+      "rating": 3,
+      "normalizedRating": 4.3,
       "tier": "💥💥",
       "maxEmulation": "Full Saturn, some GameCube",
       "emulationLimit": "N64, PSP & Dreamcast almost all full speed, some Gamecube playable. PS2 barely playable for easier to emulate games only"
@@ -42842,7 +42842,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": true,
         "hasMiniHdmi": false,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -43176,8 +43176,8 @@
       }
     ],
     "performance": {
-      "rating": 14,
-      "normalizedRating": 9.3,
+      "rating": 6,
+      "normalizedRating": 8.6,
       "tier": "🔥🔥🔥🔥",
       "maxEmulation": "Full PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2 almost all full speed. Wii U & Switch mostly playable"
@@ -43601,8 +43601,8 @@
       }
     ],
     "performance": {
-      "rating": 14,
-      "normalizedRating": 9.3,
+      "rating": 6,
+      "normalizedRating": 8.6,
       "tier": "🔥🔥🔥🔥",
       "maxEmulation": "Full PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2 fully playable"
@@ -43999,8 +43999,8 @@
       }
     ],
     "performance": {
-      "rating": 14,
-      "normalizedRating": 9.3,
+      "rating": 6,
+      "normalizedRating": 8.6,
       "tier": "🔥🔥🔥🔥",
       "maxEmulation": "Full PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2 almost all full speed. Wii U & Switch mostly playable"
@@ -44381,8 +44381,8 @@
       }
     ],
     "performance": {
-      "rating": 6,
-      "normalizedRating": 4,
+      "rating": 2,
+      "normalizedRating": 2.9,
       "tier": "💥",
       "maxEmulation": "Full DS/N64/PSP/DC, most Saturn",
       "emulationLimit": "N64, PSP & Dreamcast mostly playable but not all full speed, Gamecube and PS2 mostly unplayable"
@@ -44802,8 +44802,8 @@
       }
     ],
     "performance": {
-      "rating": 7,
-      "normalizedRating": 4.7,
+      "rating": 3,
+      "normalizedRating": 4.3,
       "tier": "💥💥½",
       "maxEmulation": "Full Saturn, some GameCube",
       "emulationLimit": "N64, PSP & Dreamcast full speed, most Gamecube, Wii playable. PS2 barely playable for easier to emulate games only"
@@ -45224,7 +45224,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), 2D PSP mostly playable but 3D PSP needs frameskip, N64 & Dreamcast mostly playable for easier to emulate games"
@@ -45632,8 +45632,8 @@
       }
     ],
     "performance": {
-      "rating": 6,
-      "normalizedRating": 4,
+      "rating": 2,
+      "normalizedRating": 2.9,
       "tier": "💥¾",
       "maxEmulation": "Full DS/N64/PSP/DC, most Saturn",
       "emulationLimit": "N64, PSP, Dreamcast full speed, some Gamecube and Wii playable, PS2 barely playable for easier to emulate games only"
@@ -45722,7 +45722,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -46030,7 +46030,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️½",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "GBA and SNES mostly playable, PS1 and above unplayable"
@@ -46417,7 +46417,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "≥⭐️⭐️⭐️⭐️⭐️",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast mostly playable but not all full speed"
@@ -46506,7 +46506,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": true,
         "hasMiniHdmi": false,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -46807,8 +46807,8 @@
       }
     ],
     "performance": {
-      "rating": 14,
-      "normalizedRating": 9.3,
+      "rating": 6,
+      "normalizedRating": 8.6,
       "tier": "🔥🔥🔥🔥",
       "maxEmulation": "Full PS3",
       "emulationLimit": "Gamecube, Wii, PS2, Wii U, Switch playable"
@@ -47212,8 +47212,8 @@
       }
     ],
     "performance": {
-      "rating": 14,
-      "normalizedRating": 9.3,
+      "rating": 6,
+      "normalizedRating": 8.6,
       "tier": "🔥🔥🔥🔥",
       "maxEmulation": "Full PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2 almost all full speed. Wii U & Switch mostly playable"
@@ -47623,8 +47623,8 @@
       }
     ],
     "performance": {
-      "rating": 10,
-      "normalizedRating": 6.7,
+      "rating": 6,
+      "normalizedRating": 8.6,
       "tier": "💥💥💥💥💥",
       "maxEmulation": "Full GameCube/Wii, most 3DS/PS2, some Wii U",
       "emulationLimit": "Gamecube & Wii mostly full speed, most PS2 playable"
@@ -48050,7 +48050,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "SNES FX & 3D PS1 (mostly 60 FPS)"
@@ -48470,8 +48470,8 @@
       }
     ],
     "performance": {
-      "rating": 13,
-      "normalizedRating": 8.7,
+      "rating": 5,
+      "normalizedRating": 7.1,
       "tier": "🔥🔥🔥",
       "maxEmulation": "Full Switch, most PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2 fully playable"
@@ -49116,8 +49116,8 @@
       }
     ],
     "performance": {
-      "rating": 11,
-      "normalizedRating": 7.3,
+      "rating": 3,
+      "normalizedRating": 4.3,
       "tier": "🔥¼",
       "maxEmulation": "Full 3DS/PS2, most Wii U, some Switch",
       "emulationLimit": "Smooth Gamecube, Wii, PS2"
@@ -49556,8 +49556,8 @@
       }
     ],
     "performance": {
-      "rating": 12,
-      "normalizedRating": 8,
+      "rating": 4,
+      "normalizedRating": 5.7,
       "tier": "🔥🔥",
       "maxEmulation": "Most Switch, some PS3",
       "emulationLimit": "Smooth Gamecube, Wii, PS2"
@@ -49976,7 +49976,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast mostly playable but not all full speed"
@@ -50065,7 +50065,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -50371,8 +50371,8 @@
       }
     ],
     "performance": {
-      "rating": 8,
-      "normalizedRating": 5.3,
+      "rating": 4,
+      "normalizedRating": 5.7,
       "tier": "💥💥💥½",
       "maxEmulation": "Most GameCube, some Wii/3DS",
       "emulationLimit": "Gamecube & Wii mostly full speed, some PS2 playable"
@@ -50789,7 +50789,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 & NDS (playable but can be laggy)"
@@ -51194,7 +51194,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), 2D PSP mostly playable but 3D PSP needs frameskip, N64 & Dreamcast mostly playable for easier to emulate games"
@@ -51586,8 +51586,8 @@
       }
     ],
     "performance": {
-      "rating": 7,
-      "normalizedRating": 4.7,
+      "rating": 3,
+      "normalizedRating": 4.3,
       "tier": "💥💥",
       "maxEmulation": "Full Saturn, some GameCube",
       "emulationLimit": "N64, PSP & Dreamcast almost all full speed, some Gamecube playable. PS2 barely playable for easier to emulate games only"
@@ -51676,7 +51676,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -51997,7 +51997,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast mostly playable but not all full speed"
@@ -52086,7 +52086,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -52401,7 +52401,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast mostly playable but not all full speed"
@@ -52490,7 +52490,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -52826,8 +52826,8 @@
       }
     ],
     "performance": {
-      "rating": 12,
-      "normalizedRating": 8,
+      "rating": 4,
+      "normalizedRating": 5.7,
       "tier": "🔥🔥",
       "maxEmulation": "Most Switch, some PS3",
       "emulationLimit": "Gamecube & Wii mostly full speed, most PS2 playable"
@@ -53235,8 +53235,8 @@
       }
     ],
     "performance": {
-      "rating": 7,
-      "normalizedRating": 4.7,
+      "rating": 3,
+      "normalizedRating": 4.3,
       "tier": "💥💥",
       "maxEmulation": "Full Saturn, some GameCube",
       "emulationLimit": "N64, PSP & Dreamcast almost all full speed, some Gamecube playable. PS2 barely playable for easier to emulate games only"
@@ -53325,7 +53325,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": true,
         "hasMiniHdmi": false,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -53639,7 +53639,7 @@
     ],
     "performance": {
       "rating": 1,
-      "normalizedRating": 0.7,
+      "normalizedRating": 1.4,
       "tier": "⭐️¾",
       "maxEmulation": "GB/GBC/GG/NES/SMS at full speed",
       "emulationLimit": "GBA mostly runs fine, some non-FX SNES runs ok but can be laggy"
@@ -54053,8 +54053,8 @@
       }
     ],
     "performance": {
-      "rating": 7,
-      "normalizedRating": 4.7,
+      "rating": 3,
+      "normalizedRating": 4.3,
       "tier": "💥💥",
       "maxEmulation": "Full Saturn, some GameCube",
       "emulationLimit": "N64, PSP & Dreamcast almost all full speed, some Gamecube playable. PS2 barely playable for easier to emulate games only"
@@ -54474,8 +54474,8 @@
       }
     ],
     "performance": {
-      "rating": 12,
-      "normalizedRating": 8,
+      "rating": 4,
+      "normalizedRating": 5.7,
       "tier": "🔥🔥",
       "maxEmulation": "Most Switch, some PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2 almost all full speed. Wii U & Switch mostly playable"
@@ -54981,7 +54981,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast mostly playable but not all full speed"
@@ -55070,7 +55070,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -55391,7 +55391,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️½",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "SNES & PS1 almost all full speed except for slight lag on a few FX chip SNES games and 3D PS1 games"
@@ -55810,8 +55810,8 @@
       }
     ],
     "performance": {
-      "rating": 12,
-      "normalizedRating": 8,
+      "rating": 4,
+      "normalizedRating": 5.7,
       "tier": "🔥🔥",
       "maxEmulation": "Most Switch, some PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2 almost all full speed. Wii U & Switch mostly playable"
@@ -56218,8 +56218,8 @@
       }
     ],
     "performance": {
-      "rating": 11,
-      "normalizedRating": 7.3,
+      "rating": 3,
+      "normalizedRating": 4.3,
       "tier": "🔥",
       "maxEmulation": "Full 3DS/PS2, most Wii U, some Switch",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2 almost all full speed. Switch mostly playable?"
@@ -56622,7 +56622,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast mostly playable but not all full speed"
@@ -57025,7 +57025,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast mostly playable but not all full speed"
@@ -57424,7 +57424,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️¼",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "Most SNES runs at 60 FPS but lags with FX & Mode 7 games, most 2D PS1 runs fine (not all at full 60 FPS) but lags with 3D games"
@@ -57513,7 +57513,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -57821,8 +57821,8 @@
       }
     ],
     "performance": {
-      "rating": 12,
-      "normalizedRating": 8,
+      "rating": 4,
+      "normalizedRating": 5.7,
       "tier": "🔥🔥",
       "maxEmulation": "Most Switch, some PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2 almost all full speed. Wii U & Switch mostly playable"
@@ -58295,7 +58295,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️½",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "SNES FX & 3D PS1 (mostly 60 FPS)"
@@ -58384,7 +58384,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -58750,7 +58750,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 & NDS (playable but can be laggy)"
@@ -59119,7 +59119,7 @@
     ],
     "performance": {
       "rating": 1,
-      "normalizedRating": 0.7,
+      "normalizedRating": 1.4,
       "tier": "⭐️",
       "maxEmulation": "GB/GBC/GG/NES/SMS at full speed",
       "emulationLimit": "GB, SMS"
@@ -59495,8 +59495,8 @@
       }
     ],
     "performance": {
-      "rating": 7,
-      "normalizedRating": 4.7,
+      "rating": 3,
+      "normalizedRating": 4.3,
       "tier": "💥💥",
       "maxEmulation": "Full Saturn, some GameCube",
       "emulationLimit": "N64, PSP & Dreamcast almost all full speed, some Gamecube playable. PS2 barely playable for easier to emulate games only"
@@ -59914,8 +59914,8 @@
       }
     ],
     "performance": {
-      "rating": 7,
-      "normalizedRating": 4.7,
+      "rating": 3,
+      "normalizedRating": 4.3,
       "tier": "💥💥",
       "maxEmulation": "Full Saturn, some GameCube",
       "emulationLimit": "N64, PSP & Dreamcast almost all full speed, some Gamecube playable. PS2 barely playable for easier to emulate games only"
@@ -60004,7 +60004,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": true,
         "hasMiniHdmi": false,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -60356,8 +60356,8 @@
       }
     ],
     "performance": {
-      "rating": 12,
-      "normalizedRating": 8,
+      "rating": 4,
+      "normalizedRating": 5.7,
       "tier": "🔥🔥",
       "maxEmulation": "Most Switch, some PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2 almost all full speed. Wii U & Switch mostly playable"
@@ -60804,7 +60804,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast mostly playable but not all full speed"
@@ -60893,7 +60893,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -61200,8 +61200,8 @@
       }
     ],
     "performance": {
-      "rating": 7,
-      "normalizedRating": 4.7,
+      "rating": 3,
+      "normalizedRating": 4.3,
       "tier": "💥💥½",
       "maxEmulation": "Full Saturn, some GameCube",
       "emulationLimit": "N64, Dreamcast, PSP full speed, GameCube & Wii mostly playable, some PS2 playable"
@@ -61615,8 +61615,8 @@
       }
     ],
     "performance": {
-      "rating": 12,
-      "normalizedRating": 8,
+      "rating": 4,
+      "normalizedRating": 5.7,
       "tier": "🔥🔥",
       "maxEmulation": "Most Switch, some PS3",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2 almost all full speed. Wii U & Switch mostly playable"
@@ -61705,7 +61705,7 @@
         "hasUsbC": true,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -62072,8 +62072,8 @@
       }
     ],
     "performance": {
-      "rating": 6,
-      "normalizedRating": 4,
+      "rating": 2,
+      "normalizedRating": 2.9,
       "tier": "💥½",
       "maxEmulation": "Full DS/N64/PSP/DC, most Saturn",
       "emulationLimit": "N64, Dreamcast, PSP (playable), Saturn (mostly playable), Gamecube (some playable), Wii (mostly unplayable)"
@@ -62487,8 +62487,8 @@
       }
     ],
     "performance": {
-      "rating": 12,
-      "normalizedRating": 8,
+      "rating": 4,
+      "normalizedRating": 5.7,
       "tier": "🔥🔥",
       "maxEmulation": "Most Switch, some PS3",
       "emulationLimit": "Smooth Gamecube, Wii, PS2"
@@ -62910,8 +62910,8 @@
       }
     ],
     "performance": {
-      "rating": 11,
-      "normalizedRating": 7.3,
+      "rating": 3,
+      "normalizedRating": 4.3,
       "tier": "🔥½",
       "maxEmulation": "Full 3DS/PS2, most Wii U, some Switch",
       "emulationLimit": "PS2 & below all full speed"
@@ -63358,7 +63358,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast mostly playable but not all full speed"
@@ -63447,7 +63447,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -63769,7 +63769,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast mostly playable but not all full speed"
@@ -63858,7 +63858,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -64174,7 +64174,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast mostly playable but not all full speed"
@@ -64263,7 +64263,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -64578,8 +64578,8 @@
       }
     ],
     "performance": {
-      "rating": 11,
-      "normalizedRating": 7.3,
+      "rating": 3,
+      "normalizedRating": 4.3,
       "tier": "🔥",
       "maxEmulation": "Full 3DS/PS2, most Wii U, some Switch",
       "emulationLimit": "PS2 & below all full speed"
@@ -65013,8 +65013,8 @@
       }
     ],
     "performance": {
-      "rating": 6,
-      "normalizedRating": 4,
+      "rating": 2,
+      "normalizedRating": 2.9,
       "tier": "💥¼",
       "maxEmulation": "Full DS/N64/PSP/DC, most Saturn",
       "emulationLimit": "N64, Dreamcast, PSP (playable), Saturn (mostly playable), Gamecube (some playable), Wii (mostly unplayable)"
@@ -65103,7 +65103,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": true,
         "hasMiniHdmi": false,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -65444,7 +65444,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "SNES & PS1 almost all full speed except for slight lag on a few FX chip SNES games and 3D PS1 games"
@@ -65847,8 +65847,8 @@
       }
     ],
     "performance": {
-      "rating": 9,
-      "normalizedRating": 6,
+      "rating": 5,
+      "normalizedRating": 7.1,
       "tier": "💥💥💥💥",
       "maxEmulation": "Full GameCube, most Wii/3DS, some PS2/Wii U",
       "emulationLimit": "PSP, Gamecube & Wii playable, PS2 playable?"
@@ -66248,8 +66248,8 @@
       }
     ],
     "performance": {
-      "rating": 8,
-      "normalizedRating": 5.3,
+      "rating": 4,
+      "normalizedRating": 5.7,
       "tier": "💥💥💥",
       "maxEmulation": "Most GameCube, some Wii/3DS",
       "emulationLimit": "Gamecube & Wii mostly full speed, some PS2 playable"
@@ -66687,8 +66687,8 @@
       }
     ],
     "performance": {
-      "rating": 8,
-      "normalizedRating": 5.3,
+      "rating": 4,
+      "normalizedRating": 5.7,
       "tier": "💥💥💥",
       "maxEmulation": "Most GameCube, some Wii/3DS",
       "emulationLimit": "N64, Dreamcast, PSP full speed, GameCube & Wii mostly playable"
@@ -66777,7 +66777,7 @@
         "hasUsbC": true,
         "hasMicroHdmi": true,
         "hasMiniHdmi": false,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -67158,7 +67158,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast mostly playable but not all full speed"
@@ -67247,7 +67247,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -67586,7 +67586,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), 2D PSP mostly playable but 3D PSP needs frameskip, N64 & Dreamcast mostly playable for easier to emulate games"
@@ -68006,7 +68006,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast mostly playable but not all full speed"
@@ -68095,7 +68095,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -68436,8 +68436,8 @@
       }
     ],
     "performance": {
-      "rating": 11,
-      "normalizedRating": 7.3,
+      "rating": 3,
+      "normalizedRating": 4.3,
       "tier": "🔥½",
       "maxEmulation": "Full 3DS/PS2, most Wii U, some Switch",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2 almost all full speed. Wii U & Switch mostly playable"
@@ -68874,7 +68874,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), 2D PSP mostly playable but 3D PSP needs frameskip, N64 & Dreamcast mostly playable for easier to emulate games"
@@ -69290,8 +69290,8 @@
       }
     ],
     "performance": {
-      "rating": 12,
-      "normalizedRating": 8,
+      "rating": 4,
+      "normalizedRating": 5.7,
       "tier": "🔥🔥½",
       "maxEmulation": "Most Switch, some PS3",
       "emulationLimit": "PSP, Gamecube & Wii full speed, PS2 playable"
@@ -70168,7 +70168,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "SNES & PS1 almost all full speed except for slight lag on a few FX chip SNES games and 3D PS1 games"
@@ -70257,7 +70257,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -70559,7 +70559,7 @@
     ],
     "performance": {
       "rating": 1,
-      "normalizedRating": 0.7,
+      "normalizedRating": 1.4,
       "tier": "<⭐️",
       "maxEmulation": "GB/GBC/GG/NES/SMS at full speed",
       "emulationLimit": "5 included games and MicroPython or Arduino IDE homebrew games only"
@@ -70957,8 +70957,8 @@
       }
     ],
     "performance": {
-      "rating": 8,
-      "normalizedRating": 5.3,
+      "rating": 4,
+      "normalizedRating": 5.7,
       "tier": "💥💥💥¼",
       "maxEmulation": "Most GameCube, some Wii/3DS",
       "emulationLimit": "Taki claims full speed Gamecube, Wii playable, some PS2 playable"
@@ -71047,7 +71047,7 @@
         "hasUsbC": true,
         "hasMicroHdmi": true,
         "hasMiniHdmi": false,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -71554,8 +71554,8 @@
       }
     ],
     "performance": {
-      "rating": 11,
-      "normalizedRating": 7.3,
+      "rating": 3,
+      "normalizedRating": 4.3,
       "tier": "🔥½",
       "maxEmulation": "Full 3DS/PS2, most Wii U, some Switch",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2 almost all full speed. Wii U & Switch mostly playable"
@@ -72043,7 +72043,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "≥⭐️⭐️⭐️⭐️⭐️",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "Depends on what core is installed, but for most of the available options N64, PSP & Dreamcast are playable. Some are capable of GameCube and some Wii."
@@ -72438,7 +72438,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast playable"
@@ -72831,7 +72831,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast mostly playable (not all full speed)"
@@ -73227,8 +73227,8 @@
       }
     ],
     "performance": {
-      "rating": 6,
-      "normalizedRating": 4,
+      "rating": 2,
+      "normalizedRating": 2.9,
       "tier": "💥½",
       "maxEmulation": "Full DS/N64/PSP/DC, most Saturn",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64, Dreamcast, PSP (playable), Saturn (somewhat playable), Gamecube (some playable but mostly unplayable)"
@@ -73317,7 +73317,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": true,
         "hasMiniHdmi": false,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -73782,7 +73782,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "SNES & PS1 almost all full speed except for slight lag on a few FX chip SNES games and 3D PS1 games"
@@ -74172,7 +74172,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "GameBoy, GameBoy Color, GameBoy Advance (Game Gear, Neo Geo Pocket Color, Atari Lynx & Turbografx-16 with adapters)"
@@ -74603,8 +74603,8 @@
       }
     ],
     "performance": {
-      "rating": 6,
-      "normalizedRating": 4,
+      "rating": 2,
+      "normalizedRating": 2.9,
       "tier": "💥",
       "maxEmulation": "Full DS/N64/PSP/DC, most Saturn",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64, Dreamcast, PSP (playable), Saturn (somewhat playable), Gamecube (mostly unplayable)"
@@ -74693,7 +74693,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -75067,7 +75067,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️½",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "SNES & PS1 almost all full speed except for slight lag on a few FX chip SNES games and 3D PS1 games"
@@ -75557,7 +75557,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast playable"
@@ -75646,7 +75646,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": true,
         "hasMiniHdmi": false,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -75968,7 +75968,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "Most SNES runs at 60 FPS but lags with FX & Mode 7 games, most 2D PS1 runs fine (not all at full 60 FPS) but lags with 3D games"
@@ -76369,8 +76369,8 @@
       }
     ],
     "performance": {
-      "rating": 11,
-      "normalizedRating": 7.3,
+      "rating": 3,
+      "normalizedRating": 4.3,
       "tier": "🔥½",
       "maxEmulation": "Full 3DS/PS2, most Wii U, some Switch",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2 almost all full speed. Wii U & Switch mostly playable"
@@ -76459,7 +76459,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": true,
         "hasMiniHdmi": false,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -76825,8 +76825,8 @@
       }
     ],
     "performance": {
-      "rating": 11,
-      "normalizedRating": 7.3,
+      "rating": 3,
+      "normalizedRating": 4.3,
       "tier": "🔥",
       "maxEmulation": "Full 3DS/PS2, most Wii U, some Switch",
       "emulationLimit": "PSP, Gamecube & Wii full speed, PS2 playable"
@@ -77238,8 +77238,8 @@
       }
     ],
     "performance": {
-      "rating": 7,
-      "normalizedRating": 4.7,
+      "rating": 3,
+      "normalizedRating": 4.3,
       "tier": "💥💥¼",
       "maxEmulation": "Full Saturn, some GameCube",
       "emulationLimit": "PSP, Gamecube & Wii playable, PS2 playable?"
@@ -77681,7 +77681,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), 2D PSP mostly playable but 3D PSP needs frameskip, N64 & Dreamcast mostly playable for easier to emulate games"
@@ -78098,8 +78098,8 @@
       }
     ],
     "performance": {
-      "rating": 11,
-      "normalizedRating": 7.3,
+      "rating": 3,
+      "normalizedRating": 4.3,
       "tier": "🔥",
       "maxEmulation": "Full 3DS/PS2, most Wii U, some Switch",
       "emulationLimit": "Gamecube, Wii, 3DS, PS2 almost all full speed. Wii U & Switch mostly playable"
@@ -78188,7 +78188,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": true,
         "hasMiniHdmi": false,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -78525,7 +78525,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 & NDS (playable but can be laggy)"
@@ -78914,8 +78914,8 @@
       }
     ],
     "performance": {
-      "rating": 7,
-      "normalizedRating": 4.7,
+      "rating": 3,
+      "normalizedRating": 4.3,
       "tier": "💥💥",
       "maxEmulation": "Full Saturn, some GameCube",
       "emulationLimit": "N64, PSP & Dreamcast almost all full speed, some Gamecube playable. PS2 barely playable for easier to emulate games only"
@@ -79004,7 +79004,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -79407,8 +79407,8 @@
       }
     ],
     "performance": {
-      "rating": 11,
-      "normalizedRating": 7.3,
+      "rating": 3,
+      "normalizedRating": 4.3,
       "tier": "🔥",
       "maxEmulation": "Full 3DS/PS2, most Wii U, some Switch",
       "emulationLimit": "Gamecube, Wii, PS2 playable"
@@ -79855,7 +79855,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), 2D PSP mostly playable but 3D PSP needs frameskip, N64 & Dreamcast mostly playable for easier to emulate games"
@@ -80292,7 +80292,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️¼",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 & NDS (playable but can be laggy)"
@@ -80381,7 +80381,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -80709,7 +80709,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "≥⭐️⭐️⭐️¾",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 & NDS (playable but can be laggy)"
@@ -80798,7 +80798,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": true,
         "hasMiniHdmi": false,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -81103,7 +81103,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "SNES & PS1 almost all full speed except for slight lag on a few FX chip SNES games and 3D PS1 games"
@@ -81192,7 +81192,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -81506,7 +81506,7 @@
     ],
     "performance": {
       "rating": 1,
-      "normalizedRating": 0.7,
+      "normalizedRating": 1.4,
       "tier": "⭐️",
       "maxEmulation": "GB/GBC/GG/NES/SMS at full speed",
       "emulationLimit": "GameBoy, GameBoy Color, NES, GameGear, Sega Master-System, ScummVM, & proof of concept SNES emulator"
@@ -81878,7 +81878,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "GBA mostly runs fine, some non-FX SNES & 2D PS1 runs ok but can be laggy"
@@ -82311,7 +82311,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), Dreamcast & N64 (playable but can be laggy), PSP (most run fine but some are unplayable)"
@@ -82400,7 +82400,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -82719,8 +82719,8 @@
       }
     ],
     "performance": {
-      "rating": 11,
-      "normalizedRating": 7.3,
+      "rating": 3,
+      "normalizedRating": 4.3,
       "tier": "🔥",
       "maxEmulation": "Full 3DS/PS2, most Wii U, some Switch",
       "emulationLimit": "Gamecube, Wii, PS2 playable"
@@ -82809,7 +82809,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": true,
         "hasMiniHdmi": false,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -83243,8 +83243,8 @@
       }
     ],
     "performance": {
-      "rating": 9,
-      "normalizedRating": 6,
+      "rating": 5,
+      "normalizedRating": 7.1,
       "tier": "💥💥💥💥½",
       "maxEmulation": "Full GameCube, most Wii/3DS, some PS2/Wii U",
       "emulationLimit": "PSP, Gamecube & Wii full speed, PS2 playable"
@@ -83936,7 +83936,7 @@
     ],
     "performance": {
       "rating": 1,
-      "normalizedRating": 0.7,
+      "normalizedRating": 1.4,
       "tier": "⭐️",
       "maxEmulation": "GB/GBC/GG/NES/SMS at full speed",
       "emulationLimit": "GB, GBC, GG, NES, SMS, COL"
@@ -84314,7 +84314,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), 2D PSP mostly playable but 3D PSP needs frameskip, N64 & Dreamcast mostly playable for easier to emulate games"
@@ -84716,8 +84716,8 @@
       }
     ],
     "performance": {
-      "rating": 11,
-      "normalizedRating": 7.3,
+      "rating": 3,
+      "normalizedRating": 4.3,
       "tier": "🔥",
       "maxEmulation": "Full 3DS/PS2, most Wii U, some Switch",
       "emulationLimit": "PSP, Gamecube & Wii full speed, PS2 playable"
@@ -85299,7 +85299,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast playable"
@@ -85734,7 +85734,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), 2D PSP mostly playable but 3D PSP needs frameskip, N64 & Dreamcast mostly playable for easier to emulate games"
@@ -86216,8 +86216,8 @@
       }
     ],
     "performance": {
-      "rating": 6,
-      "normalizedRating": 4,
+      "rating": 2,
+      "normalizedRating": 2.9,
       "tier": "💥½",
       "maxEmulation": "Full DS/N64/PSP/DC, most Saturn",
       "emulationLimit": "N64, PSP & Dreamcast playable"
@@ -86306,7 +86306,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": true,
         "hasMiniHdmi": false,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -86621,7 +86621,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), 2D PSP mostly playable but 3D PSP needs frameskip, N64 & Dreamcast mostly playable for easier to emulate games"
@@ -87051,7 +87051,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️¼",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 likely unplayable due to no GPU, CPS3 runs at 60 FPS with overclocking to 1.9 GHz and latest FBA build"
@@ -87460,7 +87460,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 & NDS (playable but can be laggy)"
@@ -87840,7 +87840,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "SNES & PS1 almost all full speed except for slight lag on a few FX chip SNES games and 3D PS1 games"
@@ -88247,7 +88247,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), 2D PSP mostly playable but 3D PSP needs frameskip, N64 & Dreamcast mostly playable for easier to emulate games"
@@ -88730,7 +88730,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), 2D PSP mostly playable but 3D PSP needs frameskip, N64 & Dreamcast mostly playable for easier to emulate games"
@@ -89156,7 +89156,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️¾",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "NDS, N64, PSP & Dreamcast playable (Estimate)"
@@ -89245,7 +89245,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": true,
         "hasMiniHdmi": false,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -89537,7 +89537,7 @@
     ],
     "performance": {
       "rating": 1,
-      "normalizedRating": 0.7,
+      "normalizedRating": 1.4,
       "tier": "⭐️",
       "maxEmulation": "GB/GBC/GG/NES/SMS at full speed",
       "emulationLimit": "GB, GBC, GG, NES, SMS, COL"
@@ -89933,7 +89933,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 & NDS (playable but can be laggy)"
@@ -90312,8 +90312,8 @@
       }
     ],
     "performance": {
-      "rating": 11,
-      "normalizedRating": 7.3,
+      "rating": 3,
+      "normalizedRating": 4.3,
       "tier": "🔥",
       "maxEmulation": "Full 3DS/PS2, most Wii U, some Switch",
       "emulationLimit": "Gamecube, Wii, PS2 playable"
@@ -90402,7 +90402,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": true,
         "hasMiniHdmi": false,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -90747,7 +90747,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 & NDS (playable but can be laggy)"
@@ -91143,7 +91143,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️¾",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), Dreamcast & N64 (playable but can be laggy), PSP (most run fine but some are unplayable)"
@@ -91558,7 +91558,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "Most SNES runs at 60 FPS but lags with FX & Mode 7 games, most 2D PS1 runs fine (not all at full 60 FPS) but lags with 3D games"
@@ -91975,7 +91975,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "SNES & PS1 almost all full speed except for slight lag on a few FX chip SNES games and 3D PS1 games"
@@ -92399,7 +92399,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), 2D PSP mostly playable but 3D PSP needs frameskip, N64 & Dreamcast mostly playable for easier to emulate games"
@@ -92840,7 +92840,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️¼",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "SNES FX & 3D PS1 (mostly 60 FPS, although some lag due to bad firmware, hardware shouldn't have a problem), N64 laggy"
@@ -92929,7 +92929,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -93237,7 +93237,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️¼",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "SNES FX & 3D PS1 (mostly 60 FPS), N64 laggy"
@@ -93326,7 +93326,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -93654,7 +93654,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), 2D PSP mostly playable but 3D PSP needs frameskip, N64 & Dreamcast mostly playable for easier to emulate games"
@@ -94088,8 +94088,8 @@
       }
     ],
     "performance": {
-      "rating": 9,
-      "normalizedRating": 6,
+      "rating": 5,
+      "normalizedRating": 7.1,
       "tier": "💥💥💥💥",
       "maxEmulation": "Full GameCube, most Wii/3DS, some PS2/Wii U",
       "emulationLimit": "PS2, Gamecube & Wii playable"
@@ -94510,7 +94510,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️½",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 & NDS (playable but can be laggy)"
@@ -94599,7 +94599,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -94916,7 +94916,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), 2D PSP mostly playable but 3D PSP needs frameskip, N64 & Dreamcast mostly playable for easier to emulate games"
@@ -95005,7 +95005,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -95325,7 +95325,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 & NDS (playable but can be laggy)"
@@ -95728,7 +95728,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "N64, PSP & Dreamcast playable"
@@ -95817,7 +95817,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -96123,7 +96123,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 & NDS (playable but can be laggy)"
@@ -96212,7 +96212,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -96531,8 +96531,8 @@
       }
     ],
     "performance": {
-      "rating": 8,
-      "normalizedRating": 5.3,
+      "rating": 4,
+      "normalizedRating": 5.7,
       "tier": "💥💥💥",
       "maxEmulation": "Most GameCube, some Wii/3DS",
       "emulationLimit": "Gamecube, Wii"
@@ -96621,7 +96621,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": true,
         "hasMiniHdmi": false,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -96940,7 +96940,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "PSP mostly playable but some need frameskip, Dreamcast barely playable, and N64 is hit and miss"
@@ -97029,7 +97029,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": true,
         "hasMiniHdmi": false,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -97414,7 +97414,7 @@
     ],
     "performance": {
       "rating": 1,
-      "normalizedRating": 0.7,
+      "normalizedRating": 1.4,
       "tier": "<⭐️",
       "maxEmulation": "GB/GBC/GG/NES/SMS at full speed",
       "emulationLimit": "NES only"
@@ -97794,7 +97794,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), 2D PSP mostly playable but 3D PSP needs frameskip, N64 & Dreamcast mostly playable for easier to emulate games"
@@ -98277,7 +98277,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "SNES & PS1 almost all full speed except for slight lag on a few FX chip SNES games and 3D PS1 games"
@@ -98366,7 +98366,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -98685,7 +98685,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "SNES & PS1 almost all full speed except for slight lag on a few FX chip SNES games and 3D PS1 games"
@@ -98774,7 +98774,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -99091,7 +99091,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "GBA mostly runs fine, some non-FX SNES & 2D PS1 runs ok but can be laggy"
@@ -99505,7 +99505,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️½",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 & NDS (playable but can be laggy)"
@@ -99903,7 +99903,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), 2D PSP mostly playable but 3D PSP needs frameskip, N64 & Dreamcast mostly playable for easier to emulate games"
@@ -100316,7 +100316,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️½",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "SNES FX & 3D PS1 (mostly 60 FPS, although some lag due to bad firmware, hardware shouldn't have a problem), N64 laggy"
@@ -100405,7 +100405,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -100718,7 +100718,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), 2D PSP mostly playable but 3D PSP needs frameskip, N64 & Dreamcast mostly playable for easier to emulate games"
@@ -101128,7 +101128,7 @@
     ],
     "performance": {
       "rating": 1,
-      "normalizedRating": 0.7,
+      "normalizedRating": 1.4,
       "tier": "<⭐️",
       "maxEmulation": "GB/GBC/GG/NES/SMS at full speed",
       "emulationLimit": "Arduino IDE, Arduboy Game Loader, GCC & AVRDude homebrew games only"
@@ -101526,7 +101526,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️½",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), no N64 emulator built in though"
@@ -101937,7 +101937,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "SNES & PS1 almost all full speed except for slight lag on a few FX chip SNES games and 3D PS1 games"
@@ -102026,7 +102026,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -102351,7 +102351,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "PSP mostly playable but some need frameskip, Dreamcast barely playable, and N64 is hit and miss"
@@ -102440,7 +102440,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": true,
         "hasMiniHdmi": false,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -102757,7 +102757,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), 2D PSP mostly playable but 3D PSP needs frameskip, N64 & Dreamcast mostly playable for easier to emulate games"
@@ -103180,7 +103180,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "Most SNES runs at 60 FPS but lags with FX & Mode 7 games, most 2D PS1 runs fine (not all at full 60 FPS) but lags with 3D games"
@@ -103269,7 +103269,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -103561,7 +103561,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️¼",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 likely unplayable due to no GPU"
@@ -103975,7 +103975,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 & NDS (playable but can be laggy)"
@@ -104377,7 +104377,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "SNES & PS1 almost all full speed except for slight lag on a few FX chip SNES games and 3D PS1 games"
@@ -104785,7 +104785,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "GBA mostly runs fine, some non-FX SNES & 2D PS1 runs ok but can be laggy"
@@ -105181,7 +105181,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 & NDS (playable but can be laggy)"
@@ -105585,7 +105585,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "N64 apparently playable"
@@ -105979,7 +105979,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "≥⭐️⭐️⭐️⭐️⭐️",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "Pi 3B+ Model: SNES FX & 3D PS1 (60 FPS), N64 & NDS (playable but can be laggy)Windows model seen running PS2 in preview video"
@@ -106375,7 +106375,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️¼",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), Dreamcast & N64 (playable but can be laggy), PSP (most run fine but some are unplayable)"
@@ -106464,7 +106464,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -106765,7 +106765,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "NES, GBA, SMS run fine, SNES can be playable but usually laggy, PS1 unplayable"
@@ -107160,7 +107160,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "NDS, N64, PSP & Dreamcast playable"
@@ -107580,7 +107580,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "SNES & PS1 almost all full speed except for slight lag on a few FX chip SNES games and 3D PS1 games"
@@ -107669,7 +107669,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -107999,7 +107999,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "Most SNES runs at 60 FPS but lags with FX & Mode 7 games, most 2D PS1 runs fine (not all at full 60 FPS) but lags with 3D games"
@@ -108088,7 +108088,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -108400,7 +108400,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 & NDS (playable but can be laggy)"
@@ -108804,7 +108804,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 & NDS (playable but can be laggy)"
@@ -108893,7 +108893,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -109193,8 +109193,8 @@
       }
     ],
     "performance": {
-      "rating": 8,
-      "normalizedRating": 5.3,
+      "rating": 4,
+      "normalizedRating": 5.7,
       "tier": "💥💥💥",
       "maxEmulation": "Most GameCube, some Wii/3DS",
       "emulationLimit": "PS2, Gamecube & Wii U playable"
@@ -109283,7 +109283,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": true,
         "hasMiniHdmi": false,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -109595,7 +109595,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 & NDS (playable but can be laggy)"
@@ -110383,7 +110383,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "Most SNES runs at 60 FPS but lags with FX & Mode 7 games, most 2D PS1 runs fine (not all at full 60 FPS) but lags with 3D games"
@@ -110795,7 +110795,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️½",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "Most SNES runs at 60 FPS but lags with FX & Mode 7 games, most 2D PS1 runs fine (not all at full 60 FPS) but lags with 3D games"
@@ -111191,7 +111191,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "GBA mostly runs fine, some non-FX SNES & 2D PS1 runs ok but can be laggy"
@@ -111593,7 +111593,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️½",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "Most SNES runs at 60 FPS but lags with FX & Mode 7 games, most 2D PS1 runs fine (not all at full 60 FPS) but lags with 3D games"
@@ -111994,7 +111994,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️½",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "Most SNES runs at 60 FPS but lags with FX & Mode 7 games, most 2D PS1 runs fine (not all at full 60 FPS) but lags with 3D games"
@@ -112394,8 +112394,8 @@
       }
     ],
     "performance": {
-      "rating": 7,
-      "normalizedRating": 4.7,
+      "rating": 3,
+      "normalizedRating": 4.3,
       "tier": "💥💥",
       "maxEmulation": "Full Saturn, some GameCube",
       "emulationLimit": "PSP, Gamecube & Wii playable, some PS2 playable"
@@ -112801,7 +112801,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "Most SNES runs at 60 FPS but lags with FX & Mode 7 games, most 2D PS1 runs fine (not all at full 60 FPS) but lags with 3D games"
@@ -112890,7 +112890,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -113195,7 +113195,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "GBA mostly runs fine, some non-FX SNES & 2D PS1 runs ok but can be laggy"
@@ -113601,7 +113601,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️½",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "Most SNES runs at 60 FPS but lags with FX & Mode 7 games, most 2D PS1 runs fine (not all at full 60 FPS) but lags with 3D games"
@@ -113997,7 +113997,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 & NDS (playable but can be laggy)"
@@ -114421,7 +114421,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), Dreamcast & N64 (playable but can be laggy), PSP (most run fine but some are unplayable)"
@@ -114510,7 +114510,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -114824,7 +114824,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "NES, CPS1, Sega Mega Drive (Genesis), GB, GBC, SG-1000, GG, SMS, NeoGeo, SNES"
@@ -115224,7 +115224,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "GBA maximum"
@@ -115624,7 +115624,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "Pi dependent"
@@ -116022,7 +116022,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 & NDS (playable but can be laggy)"
@@ -116111,7 +116111,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": true,
         "hasMiniHdmi": false,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -116424,7 +116424,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), Dreamcast, Saturn & N64 (playable), PSP (most run fine but some are unplayable), Gamecube (mostly unplayable)"
@@ -116513,7 +116513,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -116821,7 +116821,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 & NDS (playable but can be laggy)"
@@ -117197,7 +117197,7 @@
     ],
     "performance": {
       "rating": 1,
-      "normalizedRating": 0.7,
+      "normalizedRating": 1.4,
       "tier": "⭐️",
       "maxEmulation": "GB/GBC/GG/NES/SMS at full speed",
       "emulationLimit": "GB, GBC, GG, NES, SMS, COL"
@@ -117595,7 +117595,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "NES, GBA, SMS run fine, SNES can be playable but usually laggy, PS1 unplayable"
@@ -117993,7 +117993,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️½",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "Most SNES runs at 60 FPS but lags with FX & Mode 7 games, most 2D PS1 runs fine (not all at full 60 FPS) but lags with 3D games"
@@ -118391,7 +118391,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️¼",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 & NDS (playable but can be laggy)"
@@ -118787,7 +118787,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 & NDS (playable but can be laggy)"
@@ -119186,7 +119186,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 & NDS (playable but can be laggy)"
@@ -119572,7 +119572,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 & NDS (playable but can be laggy)"
@@ -119661,7 +119661,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -119965,7 +119965,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️½",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "Most SNES runs at 60 FPS but lags with FX & Mode 7 games, most 2D PS1 runs fine (not all at full 60 FPS) but lags with 3D games"
@@ -120364,7 +120364,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 & NDS (playable but can be laggy)"
@@ -120758,7 +120758,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "PS1, N64, Dreamcast playable, some PSP and GameCube playable"
@@ -121151,7 +121151,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️½",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "Most SNES runs at 60 FPS but lags with FX & Mode 7 games, most 2D PS1 runs fine (not all at full 60 FPS) but lags with 3D games"
@@ -121537,7 +121537,7 @@
     ],
     "performance": {
       "rating": 1,
-      "normalizedRating": 0.7,
+      "normalizedRating": 1.4,
       "tier": "⭐️½",
       "maxEmulation": "GB/GBC/GG/NES/SMS at full speed",
       "emulationLimit": "GBA maximum"
@@ -121928,8 +121928,8 @@
       }
     ],
     "performance": {
-      "rating": 6,
-      "normalizedRating": 4,
+      "rating": 2,
+      "normalizedRating": 2.9,
       "tier": "💥",
       "maxEmulation": "Full DS/N64/PSP/DC, most Saturn",
       "emulationLimit": "PS2 & Gamecube mostly unplayable, PSP playable with frameskip, Dreamcast & N64 are 60FPS"
@@ -122018,7 +122018,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -122314,7 +122314,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️½",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "Most SNES runs at 60 FPS but lags with FX & Mode 7 games, most 2D PS1 runs fine (not all at full 60 FPS) but lags with 3D games"
@@ -122707,7 +122707,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️¼",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 & NDS (playable but can be laggy)"
@@ -122796,7 +122796,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -123109,7 +123109,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "PS1 (60 FPS), N64 mostly full speed, Dreamcast mostly playable but never 60 FPS, 2D PSP mostly full speed but struggles with 3D"
@@ -123198,7 +123198,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -123502,7 +123502,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "PS1 (60 FPS), N64 mostly full speed, Dreamcast mostly playable but never 60 FPS, 2D PSP mostly full speed but struggles with 3D"
@@ -123891,7 +123891,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "SNES & PS1 almost all full speed except for slight lag on a few FX chip SNES games and 3D PS1 games"
@@ -123980,7 +123980,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -124281,7 +124281,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), N64 & NDS (playable but can be laggy)"
@@ -124370,7 +124370,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -124674,7 +124674,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "Gamecube unplayable, most PSP runs fine but sometimes laggy, N64 & PS1 60 FPS"
@@ -124763,7 +124763,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -125070,7 +125070,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "NES, GBA, SMS run fine, SNES playable but usually laggy"
@@ -125453,7 +125453,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "Reads original GBA cartridges without emulation, but can also emulate GBA roms, as well as emulating (GB)Game Boy Original, (GBC) Game Boy Colour, (SMS) Sega Master System, GG(Game Gear), NES and PCE( PC Engine/ Turbo Grafx)"
@@ -125840,7 +125840,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "Most SNES runs at 60 FPS but lags with FX & Mode 7 games, most 2D PS1 runs fine (not all at full 60 FPS) but lags with 3D games"
@@ -126224,7 +126224,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "Most SNES runs at 60 FPS but lags with FX & Mode 7 games, most 2D PS1 runs fine (not all at full 60 FPS) but lags with 3D games"
@@ -126608,7 +126608,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "NES, GBA, SMS run fine, SNES playable but usually laggy"
@@ -126989,7 +126989,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "Most SNES runs at 60 FPS but lags with FX & Mode 7 games, most 2D PS1 runs fine (not all at full 60 FPS) but lags with 3D games"
@@ -127374,7 +127374,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "Most SNES runs at 60 FPS but lags with FX & Mode 7 games, most 2D PS1 runs fine (not all at full 60 FPS) but lags with 3D games"
@@ -127759,7 +127759,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "Most SNES runs at 60 FPS but lags with FX & Mode 7 games, most GBA runs fine, Genesis runs fine"
@@ -128150,7 +128150,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️½",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "Most SNES runs at 60 FPS but lags with FX & Mode 7 games, most 2D PS1 runs fine (not all at full 60 FPS) but lags with 3D games"
@@ -128533,7 +128533,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "NES, GBA, SMS run fine, SNES playable but usually laggy"
@@ -128922,7 +128922,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "NES, GBA, SMS run fine, SNES playable but usually laggy"
@@ -129306,7 +129306,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "Most SNES runs at 60 FPS but lags with FX & Mode 7 games, most 2D PS1 runs fine (not all at full 60 FPS) but lags with 3D games"
@@ -129690,7 +129690,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "Most SNES runs at 60 FPS but lags with FX & Mode 7 games, most 2D PS1 runs fine (not all at full 60 FPS) but lags with 3D games"
@@ -130074,7 +130074,7 @@
     ],
     "performance": {
       "rating": 1,
-      "normalizedRating": 0.7,
+      "normalizedRating": 1.4,
       "tier": "⭐️",
       "maxEmulation": "GB/GBC/GG/NES/SMS at full speed",
       "emulationLimit": "Sega Genesis only"
@@ -130458,7 +130458,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "Most SNES runs at 60 FPS but lags with FX & Mode 7 games, most 2D PS1 runs fine (not all at full 60 FPS) but lags with 3D games"
@@ -130842,7 +130842,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "Most SNES runs at 60 FPS but lags with FX & Mode 7 games, most 2D PS1 runs fine (not all at full 60 FPS) but lags with 3D games"
@@ -131221,7 +131221,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "NES, GBA, SMS run fine, SNES playable but usually laggy"
@@ -131601,7 +131601,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "NES, GBA, SMS run fine, SNES playable but usually laggy"
@@ -167729,7 +167729,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": ""
@@ -168161,7 +168161,7 @@
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": true,
-        "hasHdmi": true,
+        "hasHdmi": false,
         "hasDvi": false,
         "hasVga": false,
         "hasDisplayPort": false,
@@ -170903,7 +170903,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES FX & 3D PS1 (60 FPS), 2D PSP mostly playable, N64 & Dreamcast mostly playable for easier to emulate games"
@@ -171281,7 +171281,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️½",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": ""
@@ -173387,7 +173387,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️¼",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "Most Genesis/GBA/SNES playable"
@@ -173787,7 +173787,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️¼",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "Most Genesis/GBA/SNES playable"
@@ -174178,7 +174178,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️½",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "Most Genesis/GBA/SNES playable"
@@ -174568,7 +174568,7 @@
     ],
     "performance": {
       "rating": 2,
-      "normalizedRating": 1.3,
+      "normalizedRating": 2.9,
       "tier": "⭐️⭐️½",
       "maxEmulation": "Most GBA & Genesis, some SNES playable",
       "emulationLimit": "Most Genesis/GBA/SNES playable"
@@ -174965,7 +174965,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "GBA & Genesis all full speed, most SNES playable except for FX chip games"
@@ -175360,7 +175360,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "GBA & Genesis all full speed, most SNES playable except for FX chip games"
@@ -175760,7 +175760,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "GBA & Genesis all full speed, most SNES playable except for FX chip games"
@@ -176147,7 +176147,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️¾",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "SNES full speed, some PS1, N64 playable"
@@ -176539,7 +176539,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️¾",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "SNES full speed, some PS1, N64 playable"
@@ -176929,7 +176929,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️¾",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "SNES full speed, some PS1, N64 playable"
@@ -177324,7 +177324,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️¾",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "PS1 and DS fully playable, most N64 playable, some PSP playable"
@@ -177729,7 +177729,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️¾",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "PS1 and DS fully playable, most N64 playable, some PSP playable"
@@ -178125,7 +178125,7 @@
     ],
     "performance": {
       "rating": 5,
-      "normalizedRating": 3.3,
+      "normalizedRating": 7.1,
       "tier": "⭐️⭐️⭐️⭐️⭐️¾",
       "maxEmulation": "Most DS/N64/PSP/DC, some Saturn",
       "emulationLimit": "PS1 and DS fully playable, most N64 playable, some PSP playable"
@@ -178516,7 +178516,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️½",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "GBA & Genesis all full speed, most SNES playable except for FX chip games"
@@ -178915,7 +178915,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️¾",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "GBA & Genesis all full speed, most SNES playable except for FX chip games, N64, DC mostly unplayable"
@@ -179326,7 +179326,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️¾",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "GBA & Genesis all full speed, most SNES playable except for FX chip games, N64, DC mostly unplayable"
@@ -179727,7 +179727,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️¾",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "GBA & Genesis all full speed, most SNES playable except for FX chip games, N64, DC mostly unplayable"
@@ -180118,7 +180118,7 @@
     ],
     "performance": {
       "rating": 3,
-      "normalizedRating": 2,
+      "normalizedRating": 4.3,
       "tier": "⭐️⭐️⭐️¾",
       "maxEmulation": "Full GBA & Genesis, most SNES/PS1 playable",
       "emulationLimit": "GBA & Genesis all full speed, most SNES playable except for FX chip games, N64, DC mostly unplayable"
@@ -180509,7 +180509,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "GBA & Genesis all full speed, most SNES playable except for FX chip games, some N64 playable"
@@ -180942,7 +180942,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "GBA & Genesis all full speed, most SNES playable except for FX chip games, some N64 playable"
@@ -181378,7 +181378,7 @@
     ],
     "performance": {
       "rating": 4,
-      "normalizedRating": 2.7,
+      "normalizedRating": 5.7,
       "tier": "⭐️⭐️⭐️⭐️¼",
       "maxEmulation": "Full SNES/PS1, most DS, some N64/DC/PSP",
       "emulationLimit": "SNES and PS1 full speed, N64 and DS mostly playable, PSP mostly unplayable"
@@ -181750,7 +181750,7 @@
     ],
     "performance": {
       "rating": 1,
-      "normalizedRating": 0.7,
+      "normalizedRating": 1.4,
       "tier": "⭐️",
       "maxEmulation": "GB/GBC/GG/NES/SMS at full speed",
       "emulationLimit": "Playdate & Homebrew games only, although an open source GameBoy emulator has been built for the Playdate"

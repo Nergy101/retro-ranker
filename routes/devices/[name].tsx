@@ -97,7 +97,7 @@ export default function DeviceDetail(props: PageProps) {
         {
           "@type": "PropertyValue",
           "name": "RAM",
-          "value": device.ram,
+          "value": device.ram?.sizes?.join(", ") + " " + device.ram?.unit,
         },
         {
           "@type": "PropertyValue",
@@ -107,7 +107,7 @@ export default function DeviceDetail(props: PageProps) {
         {
           "@type": "PropertyValue",
           "name": "Battery",
-          "value": device.battery,
+          "value": device.battery.capacity + " " + device.battery.unit,
         },
       ],
     });
@@ -414,7 +414,10 @@ export default function DeviceDetail(props: PageProps) {
                     <tr>
                       <td>Battery</td>
                       <td>
-                        {device.battery?.capacity} {device.battery?.unit}
+                        {device.battery?.capacity
+                          ? device.battery?.capacity + " " +
+                            device.battery?.unit
+                          : DeviceService.getPropertyIconByCharacter(null)}
                       </td>
                       <td>
                         Charge port: {device.chargePort?.type}{"  "}

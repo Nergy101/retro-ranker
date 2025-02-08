@@ -55,6 +55,62 @@ export function ConnectivityTable({ device }: ConnectivityTableProps) {
                 )}
               </td>
             </tr>
+            <tr>
+              <th>HDMI</th>
+              <td>
+                {DeviceService.getPropertyIconByBool(
+                  toBoolOrNull(device.outputs?.videoOutput?.hasHdmi),
+                )}
+              </td>
+            </tr>
+            <tr>
+              <th>DisplayPort</th>
+              <td>
+                {DeviceService.getPropertyIconByBool(
+                  toBoolOrNull(device.outputs?.videoOutput?.hasDisplayPort),
+                )}
+              </td>
+            </tr>
+            <tr>
+              <th>VGA</th>
+              <td>
+                {DeviceService.getPropertyIconByBool(
+                  toBoolOrNull(device.outputs?.videoOutput?.hasVga),
+                )}
+              </td>
+            </tr>
+            <tr>
+              <th>DVI</th>
+              <td>
+                {DeviceService.getPropertyIconByBool(
+                  toBoolOrNull(device.outputs?.videoOutput?.hasDvi),
+                )}
+              </td>
+            </tr>
+            <tr>
+              <th>Micro HDMI</th>
+              <td>
+                {DeviceService.getPropertyIconByBool(
+                  toBoolOrNull(device.outputs?.videoOutput?.hasMicroHdmi),
+                )}
+              </td>
+            </tr>
+            <tr>
+              <th>Mini HDMI</th>
+              <td>
+                {DeviceService.getPropertyIconByBool(
+                  toBoolOrNull(device.outputs?.videoOutput?.hasMiniHdmi),
+                )}
+              </td>
+            </tr>
+            <tr>
+              <th>OcuLink</th>
+              <td>
+                {DeviceService.getPropertyIconByBool(
+                  toBoolOrNull(device.outputs?.videoOutput?.OcuLink),
+                )}
+              </td>
+            </tr>
           </>
         )}
       </tbody>

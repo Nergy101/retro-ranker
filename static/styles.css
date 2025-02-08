@@ -660,6 +660,7 @@ h6,
     "screen screen screen"
     "ergonomics ergonomics ergonomics"
     "connectivity connectivity connectivity"
+    "audio audio audio"
     "controls controls controls"
     "misc misc misc";
   grid-template-columns: repeat(3, 1fr);
@@ -672,6 +673,7 @@ h6,
       "screen screen screen"
       "ergonomics ergonomics ergonomics"
       "connectivity connectivity connectivity"
+      "audio audio audio"
       "controls controls controls"
       "misc misc misc";
   }
@@ -690,6 +692,7 @@ h6,
 .compare-result-screen,
 .compare-result-ergonomics,
 .compare-result-connectivity,
+.compare-result-audio,
 .compare-result-controls,
 .compare-result-misc {
   height: 30em;
@@ -720,15 +723,23 @@ h6,
   border: 1px solid var(--pico-primary);
   border-radius: var(--pico-border-radius);
 
+  &.better {
+    color: #16833e;
+  }
+
+  &.worse {
+    color: #ab0d0d;
+  }
+
   height: 30em;
 
   @media (max-width: 768px) {
-    height: 13em;
+    height: 24em;
   }
 
   @media (max-width: 425px) {
     font-size: 0.75rem;
-    height: 21em;
+    height: 32em;
   }
 }
 
@@ -743,6 +754,14 @@ h6,
 
   border: 1px solid var(--pico-primary);
   border-radius: var(--pico-border-radius);
+
+  &.better {
+    color: #16833e;
+  }
+
+  &.worse {
+    color: #ab0d0d;
+  }
 
   @media (max-width: 1024px) {
     height: 12em;
@@ -777,18 +796,18 @@ h6,
   grid-area: screen;
   padding: 0.5rem;
   overflow-y: auto;
-  height: 23em;
+  height: 25em;
 
   border: 1px solid var(--pico-primary);
   border-radius: var(--pico-border-radius);
 
   @media (max-width: 1024px) {
-    height: 27em;
+    height: 32em;
   }
 
   @media (max-width: 425px) {
     font-size: 0.75rem;
-    height: 30em;
+    height: 40em;
   }
 }
 
@@ -828,6 +847,17 @@ h6,
   border-radius: var(--pico-border-radius);
 }
 
+.compare-result-audio {
+  grid-area: audio;
+  padding: 0.5rem;
+  height: fit-content;
+
+  overflow-y: auto;
+
+  border: 1px solid var(--pico-primary);
+  border-radius: var(--pico-border-radius);
+}
+
 .compare-result-controls {
   grid-area: controls;
   padding: 0.5rem;
@@ -843,12 +873,12 @@ h6,
   }
 
   @media (max-width: 768px) {
-    height: 26em;
+    height: 30em;
   }
 
   @media (max-width: 425px) {
     font-size: 0.75rem;
-    height: 29em;
+    height: 36em;
   }
 }
 

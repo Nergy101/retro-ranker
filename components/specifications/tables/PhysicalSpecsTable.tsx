@@ -39,7 +39,9 @@ export function PhysicalSpecsTable({ device }: PhysicalSpecsTableProps) {
           <tr>
             <th>Battery</th>
             <td>
-              {device.battery.capacity} {device.battery.unit}
+              {device.battery.capacity
+                ? device.battery.capacity + " " + device.battery.unit
+                : DeviceService.getPropertyIconByCharacter(null)}
             </td>
           </tr>
         )}

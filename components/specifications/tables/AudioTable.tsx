@@ -1,10 +1,10 @@
 import { Device } from "../../../data/device.model.ts";
 
-interface AudioVideoTableProps {
+interface AudioTableProps {
   device: Device;
 }
 
-export function AudioVideoTable({ device }: AudioVideoTableProps) {
+export function AudioTable({ device }: AudioTableProps) {
   const getDeviceAudioOutput = (device: Device) => {
     const audioOutputs = [];
     if (device.outputs.audioOutput?.has35mmJack) audioOutputs.push("3.5mm");

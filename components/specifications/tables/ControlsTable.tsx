@@ -27,6 +27,23 @@ export function ControlsTable({ device }: ControlsTableProps) {
     return sensors;
   };
 
+  const getAnalogSticks = () => {
+    if (!device.controls.analogs) return null;
+    const analogSticksText = [
+      device.controls.analogs.dual && "Dual",
+      device.controls.analogs.single && "Single",
+      device.controls.analogs.isHallSensor && "Hall Sensor",
+      device.controls.analogs.isThumbstick && "Thumbstick",
+      device.controls.analogs.isSlidepad && "Slidepad",
+      device.controls.analogs.L3 && "L3",
+      device.controls.analogs.R3 && "R3",
+    ]
+      .filter(Boolean)
+      .join(", ");
+    if (analogSticksText.length === 0) return null;
+    return analogSticksText;
+  };
+
   const sensors = getSensors();
 
   return (
@@ -38,24 +55,23 @@ export function ControlsTable({ device }: ControlsTableProps) {
             <td>{device.controls.dPad.type}</td>
           </tr>
         )}
-        {device.controls.analogs && (
-          <tr>
-            <th>Analog Sticks</th>
-            <td>
-              {[
-                device.controls.analogs.dual && "Dual",
-                device.controls.analogs.single && "Single",
-                device.controls.analogs.isHallSensor && "Hall Sensor",
-                device.controls.analogs.isThumbstick && "Thumbstick",
-                device.controls.analogs.isSlidepad && "Slidepad",
-                device.controls.analogs.L3 && "L3",
-                device.controls.analogs.R3 && "R3",
-              ]
-                .filter(Boolean)
-                .join(", ")}
-            </td>
-          </tr>
-        )}
+        {getAnalogSticks()
+          ? (
+            <tr>
+              <th>Analog Sticks</th>
+              <td>
+                {getAnalogSticks()}
+              </td>
+            </tr>
+          )
+          : (
+            <tr>
+              <th>Analog Sticks</th>
+              <td>
+                {DeviceService.getPropertyIconByCharacter("❌")}
+              </td>
+            </tr>
+          )}
         {device.controls.numberOfFaceButtons && (
           <tr>
             <th>Face Buttons</th>

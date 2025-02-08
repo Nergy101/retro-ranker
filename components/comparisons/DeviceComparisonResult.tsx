@@ -12,6 +12,7 @@ import {
   PiMonitor,
   PiQuestion,
   PiRuler,
+  PiSpeakerHigh,
   PiWifiHigh,
 } from "@preact-icons/pi";
 import { VNode } from "https://esm.sh/preact@10.25.4/src/index.js";
@@ -23,6 +24,7 @@ import { ControlsTable } from "../specifications/tables/ControlsTable.tsx";
 import { MiscellaneousSpecsTable } from "../specifications/tables/MiscellaneousSpecsTable.tsx";
 import { PhysicalSpecsTable } from "../specifications/tables/PhysicalSpecsTable.tsx";
 import { ProcessingSpecsTable } from "../specifications/tables/ProcessingSpecsTable.tsx";
+import { AudioTable } from "../specifications/tables/AudioTable.tsx";
 
 interface DeviceComparisonResultProps {
   device: Device;
@@ -79,6 +81,15 @@ export function DeviceComparisonResult(
         return equalClass;
       }
       return ranking.connectivity[0] == device.name.sanitized
+        ? betterClass
+        : worseClass;
+    }
+
+    if (categoryName == "audio") {
+      if (ranking.audio[0] == "equal") {
+        return equalClass;
+      }
+      return ranking.audio[0] == device.name.sanitized
         ? betterClass
         : worseClass;
     }
@@ -260,6 +271,13 @@ export function DeviceComparisonResult(
       </div>
 
       <div class={`compare-result-summary overflow-auto ${isBest("all")}`}>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+          <strong
+            style={{ marginBottom: "1rem", marginTop: ".5rem", textAlign: "center" }}
+          >
+            Summary
+          </strong>
+        </div>
         <ProcessingSpecsTable device={device} />
       </div>
 
@@ -335,6 +353,27 @@ export function DeviceComparisonResult(
             </span>
           </h3>
           <ConnectivityTable device={device} />
+        </div>
+      </div>
+
+      <div
+        class={`compare-result-audio ${isBest("audio")}`}
+      >
+        <div class="compare-result-audio-table">
+          <h3
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "0.25rem",
+            }}
+          >
+            <PiSpeakerHigh />
+            <span>
+              Audio
+            </span>
+          </h3>
+          <AudioTable device={device} />
         </div>
       </div>
 

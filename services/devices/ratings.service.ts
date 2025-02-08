@@ -48,7 +48,7 @@ export class RatingsService {
     let maxEmulation = "";
 
     if (starCount) {
-      rating = starCount; // 1-5
+      rating = starCount; // 0-5
       maxEmulation = [
         "GB/GBC/GG/NES/SMS at full speed",
         "Most GBA & Genesis, some SNES playable",
@@ -57,7 +57,7 @@ export class RatingsService {
         "Most DS/N64/PSP/DC, some Saturn",
       ][starCount - 1];
     } else if (explosionCount) {
-      rating = 5 + explosionCount; // 6-10
+      rating = 1 + explosionCount; // 1-6
       maxEmulation = [
         "Full DS/N64/PSP/DC, most Saturn",
         "Full Saturn, some GameCube",
@@ -66,7 +66,7 @@ export class RatingsService {
         "Full GameCube/Wii, most 3DS/PS2, some Wii U",
       ][explosionCount - 1];
     } else if (fireCount) {
-      rating = 10 + fireCount; // 11-15
+      rating = 2 + fireCount; // 2-7
       maxEmulation = [
         "Full 3DS/PS2, most Wii U, some Switch",
         "Most Switch, some PS3",
@@ -78,7 +78,7 @@ export class RatingsService {
 
     return {
       rating,
-      normalizedRating: Number(((rating / 15) * 10).toFixed(1)),
+      normalizedRating: Number(((rating / 7) * 10).toFixed(1)),
       tier,
       maxEmulation,
       emulationLimit: "",
@@ -98,9 +98,7 @@ export class RatingsService {
     if (device.formFactor === targetDevice.formFactor) score += 2;
 
     // Similar performance tier
-    if (device.performance.tier === targetDevice.performance.tier) {
-      score += 2;
-    }
+    if (device.performance.tier === targetDevice.performance.tier) score += 2;
 
     // Similar price category
     if (device.pricing.category === targetDevice.pricing.category) score += 1;
@@ -126,6 +124,7 @@ export class RatingsService {
       monitor: this.rankDevicesByMonitor(devices),
       dimensions: this.rankDevicesByDimensions(devices),
       connectivity: this.rankDevicesByConnectivity(devices),
+      audio: this.rankDevicesByAudio(devices),
       controls: this.rankDevicesByControls(devices),
       misc: this.rankDevicesByMisc(devices),
       all: [],
@@ -162,9 +161,24 @@ export class RatingsService {
       score += device.cpus[0].clockSpeed.max * 0.1;
     }
 
-    if (device.ram?.sizes?.[0]) {
-      score += Math.log2(device.ram.sizes[0]) * 0.5;
+    if (device.gpus?.[0]?.clockSpeed?.max) {
+      score += device.gpus[0].clockSpeed.max * 0.1;
     }
+
+    // Bonus for more RAM and better RAM type
+    if (device.ram?.sizes?.[0]) {
+      score += Math.log2(device.ram.sizes[0]) * 0.1;
+    }
+
+    if (device.ram?.type) {
+      if (device.ram.type === "DDR5") score += 1;
+      if (device.ram.type === "LPDDR5") score += 0.5;
+      if (device.ram.type === "LPDDR5X") score += 0.5;
+    }
+
+    if (device.ram?.unit === "GB") score += 1;
+    if (device.ram?.unit === "MB") score += 0.5;
+    if (device.ram?.unit === "KB") score += 0.25;
 
     return score;
   }
@@ -192,15 +206,15 @@ export class RatingsService {
 
     // Bonus for better screen types
     if (device.screen.type) {
-      if (device.screen.type.type === "OLED") score += 20;
-      if (device.screen.type.type === "IPS") score += 15;
-      if (device.screen.type.type === "AMOLED") score += 25;
-      if (device.screen.type.type === "MonochromeOLED") score += 10;
-      if (device.screen.type.type === "LCD") score += 5;
-      if (device.screen.type.type === "LTPS") score += 10;
-      if (device.screen.type.type === "TFT") score += 5;
-      if (device.screen.type.isTouchscreen) score += 10;
-      if (device.screen.type.isPenCapable) score += 10;
+      if (device.screen.type.type === "OLED") score += 1;
+      if (device.screen.type.type === "IPS") score += .9;
+      if (device.screen.type.type === "AMOLED") score += 1;
+      if (device.screen.type.type === "MonochromeOLED") score += 1;
+      if (device.screen.type.type === "LCD") score += .6;
+      if (device.screen.type.type === "LTPS") score += .6;
+      if (device.screen.type.type === "TFT") score += .5;
+      if (device.screen.type.isTouchscreen) score += 1;
+      if (device.screen.type.isPenCapable) score += 1;
     }
 
     return score;
@@ -228,15 +242,19 @@ export class RatingsService {
     if (!device.dimensions) return 0;
 
     const { length, width, height } = device.dimensions;
-    const volume = (length || 0) * (width || 0) * (height || 0);
+    // make between 0 and 1
+    const lengthScore = length ? length / 100 : 0;
+    const widthScore = width ? width / 100 : 0;
+    const heightScore = height ? height / 100 : 0;
+    const volumeScore = (lengthScore * widthScore * heightScore) / 100;
 
-    let score = volume;
+    let score = volumeScore;
 
     // Bonus for premium materials
     if (device.shellMaterial) {
-      if (device.shellMaterial.isMetal) score *= 1.2;
-      if (device.shellMaterial.isAluminum) score *= 1.15;
-      if (device.shellMaterial.isMagnesiumAlloy) score *= 1.25;
+      if (device.shellMaterial.isMetal) score += 1;
+      if (device.shellMaterial.isAluminum) score += .9;
+      if (device.shellMaterial.isMagnesiumAlloy) score += 1.25;
     }
 
     // Weight consideration
@@ -269,8 +287,8 @@ export class RatingsService {
     let score = 0;
 
     // Basic connectivity
-    if (device.connectivity.hasWifi) score += 3;
-    if (device.connectivity.hasBluetooth) score += 3;
+    if (device.connectivity.hasWifi) score += 2;
+    if (device.connectivity.hasBluetooth) score += 2;
     if (device.connectivity.hasUsbC) score += 3;
     if (device.connectivity.hasNfc) score += 1;
     if (device.connectivity.hasUsb) score += 1;
@@ -283,15 +301,42 @@ export class RatingsService {
       if (device.outputs.videoOutput?.hasVga) score += 1;
       if (device.outputs.videoOutput?.hasDvi) score += 1;
       if (device.outputs.videoOutput.hasUsbC) score += 2;
-      if (device.outputs.videoOutput.hasMicroHdmi) score += 1.5;
-      if (device.outputs.videoOutput.hasMiniHdmi) score += 1.5;
-      if (device.outputs.videoOutput.OcuLink) score += 2;
+      if (device.outputs.videoOutput.hasMicroHdmi) score += 1;
+      if (device.outputs.videoOutput.hasMiniHdmi) score += 1;
+      if (device.outputs.videoOutput.OcuLink) score += 1;
     }
 
-    // Audio capabilities
+    return score;
+  }
+
+  private rankDevicesByAudio(devices: Device[]): string[] {
+    const rankedDevices = devices
+      .map((device) => ({
+        name: device.name.sanitized,
+        score: this.calculateAudioScore(device),
+      }))
+      .sort((a, b) => b.score - a.score);
+
+    if (
+      rankedDevices.length > 1 &&
+      rankedDevices[0].score === rankedDevices[1].score
+    ) {
+      return ["equal"];
+    }
+
+    return rankedDevices.map((device) => device.name);
+  }
+
+  private calculateAudioScore(device: Device): number {
+    let score = 0;
+
+    // Audio output capabilities
     if (device.outputs.audioOutput) {
       if (device.outputs.audioOutput.has35mmJack) score += 1;
       if (device.outputs.audioOutput.hasHeadphoneJack) score += 1;
+      if (device.outputs.audioOutput.hasUsbC) score += 2;
+      if (device.outputs.speaker?.type === "stereo") score += 1;
+      if (device.outputs.speaker?.type === "mono") score += .5;
     }
 
     return score;
@@ -320,19 +365,18 @@ export class RatingsService {
 
     // D-Pad
     if (device.controls.dPad) {
-      score += 2;
       if (device.controls.dPad.type === "cross") score += 1;
-      if (device.controls.dPad.type === "d-pad") score += 1.5;
+      if (device.controls.dPad.type === "d-pad") score += 1;
     }
 
     // Analog sticks
     if (device.controls.analogs) {
-      if (device.controls.analogs.dual) score += 4;
-      else if (device.controls.analogs.single) score += 2;
+      if (device.controls.analogs.dual) score += 2;
+      else if (device.controls.analogs.single) score += 1;
 
-      if (device.controls.analogs.isHallSensor) score += 2;
-      if (device.controls.analogs.L3) score += 1;
-      if (device.controls.analogs.R3) score += 1;
+      if (device.controls.analogs.isHallSensor) score += 1;
+      if (device.controls.analogs.L3) score += .5;
+      if (device.controls.analogs.R3) score += .5;
     }
 
     // Face buttons
@@ -356,11 +400,11 @@ export class RatingsService {
     // Extra buttons
     if (device.controls.extraButtons) {
       const extraButtons = device.controls.extraButtons;
-      if (extraButtons.home) score += 0.5;
-      if (extraButtons.function) score += 0.5;
+      if (extraButtons.home) score += 1;
+      if (extraButtons.function) score += 1;
       if (extraButtons.turbo) score += 1;
-      if (extraButtons.touchpad) score += 2;
-      if (extraButtons.programmableButtons) score += 2;
+      if (extraButtons.touchpad) score += 1;
+      if (extraButtons.programmableButtons) score += 1;
     }
 
     // Additional features
@@ -397,9 +441,9 @@ export class RatingsService {
 
     // Cooling
     if (device.cooling) {
-      if (device.cooling.hasFan) score += 2;
+      if (device.cooling.hasFan) score += 1;
       if (device.cooling.hasHeatsink) score += 1;
-      if (device.cooling.hasHeatPipe) score += 1.5;
+      if (device.cooling.hasHeatPipe) score += 1;
       if (device.cooling.hasVentilationCutouts) score += 1;
     }
 
@@ -407,14 +451,14 @@ export class RatingsService {
     if (device.sensors) {
       if (device.sensors.hasGyroscope) score += 1;
       if (device.sensors.hasAccelerometer) score += 1;
-      if (device.sensors.hasMicrophone) score += 0.5;
+      if (device.sensors.hasMicrophone) score += 1;
       if (device.sensors.hasCamera) score += 1;
       if (device.sensors.hasFingerprintSensor) score += 1;
     }
 
     // Controls
-    if (device.volumeControl?.type === "dedicated-button") score += 0.5;
-    if (device.brightnessControl?.type === "dedicated-button") score += 0.5;
+    if (device.volumeControl?.type === "dedicated-button") score += 1;
+    if (device.brightnessControl?.type === "dedicated-button") score += 1;
 
     return score;
   }
@@ -426,12 +470,12 @@ export class RatingsService {
 
       // Weight different ranking categories
       const weights = {
-        emuPerformance: 0.35,
+        emuPerformance: 0.3,
         monitor: 0.2,
-        dimensions: 0.15,
-        connectivity: 0.15,
+        connectivity: 0.2,
+        dimensions: 0.1,
         controls: 0.1,
-        misc: 0.05,
+        misc: 0.1,
       };
 
       const categories = [

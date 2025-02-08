@@ -10,6 +10,32 @@ export function MiscellaneousSpecsTable(
   return (
     <table class="striped">
       <tbody>
+        {device.shellMaterial && (
+          <tr>
+            <th>Shell Material</th>
+            <td>
+              {device.shellMaterial.raw || [
+                device.shellMaterial.isPlastic && "Plastic",
+                device.shellMaterial.isMetal && "Metal",
+                device.shellMaterial.isAluminum && "Aluminum",
+                device.shellMaterial.isMagnesiumAlloy && "Magnesium Alloy",
+                device.shellMaterial.isOther && "Other",
+              ].filter(Boolean).join(", ")}
+            </td>
+          </tr>
+        )}
+        {device.performance.emulationLimit && (
+          <tr>
+            <th>Emulation Limit</th>
+            <td>{device.performance.emulationLimit}</td>
+          </tr>
+        )}
+        {device.performance.maxEmulation && (
+          <tr>
+            <th>Max Emulation</th>
+            <td>{device.performance.maxEmulation}</td>
+          </tr>
+        )}
         {device.colors && device.colors.length > 0 && (
           <tr>
             <th>Colors</th>
@@ -24,18 +50,6 @@ export function MiscellaneousSpecsTable(
               <td>{device.notes.join(", ")}</td>
             </tr>
           )}
-        {device.performance.emulationLimit && (
-          <tr>
-            <th>Emulation Limit</th>
-            <td>{device.performance.emulationLimit}</td>
-          </tr>
-        )}
-        {device.performance.maxEmulation && (
-          <tr>
-            <th>Max Emulation</th>
-            <td>{device.performance.maxEmulation}</td>
-          </tr>
-        )}
         {device.pros.length > 0 && (
           <tr>
             <th>Pros</th>
@@ -49,20 +63,6 @@ export function MiscellaneousSpecsTable(
             <th>Cons</th>
             <td>
               {device.cons.map((con) => <span>{con}</span>)}
-            </td>
-          </tr>
-        )}
-        {device.shellMaterial && (
-          <tr>
-            <th>Shell Material</th>
-            <td>
-              {device.shellMaterial.raw || [
-                device.shellMaterial.isPlastic && "Plastic",
-                device.shellMaterial.isMetal && "Metal",
-                device.shellMaterial.isAluminum && "Aluminum",
-                device.shellMaterial.isMagnesiumAlloy && "Magnesium Alloy",
-                device.shellMaterial.isOther && "Other",
-              ].filter(Boolean).join(", ")}
             </td>
           </tr>
         )}

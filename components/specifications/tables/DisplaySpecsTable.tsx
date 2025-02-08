@@ -93,22 +93,44 @@ export function DisplaySpecsTable({ device }: DisplaySpecsTableProps) {
             <tr>
               <th>Video Output</th>
               <td>
-                {DeviceService.getPropertyIconByCharacter(null)}
+                {DeviceService.getPropertyIconByCharacter("❌")}
               </td>
             </tr>
           )}
-        {device.screen.type?.isTouchscreen && (
-          <tr>
-            <th>Touch Input</th>
-            <td>Yes</td>
-          </tr>
-        )}
-        {device.screen.type?.isPenCapable && (
-          <tr>
-            <th>Pen Support</th>
-            <td>Yes</td>
-          </tr>
-        )}
+        {device.screen.type?.isTouchscreen
+          ? (
+            <tr>
+              <th>Touch Input</th>
+              <td>
+                {DeviceService.getPropertyIconByCharacter("✅")}
+              </td>
+            </tr>
+          )
+          : (
+            <tr>
+              <th>Touch Input</th>
+              <td>
+                {DeviceService.getPropertyIconByCharacter("❌")}
+              </td>
+            </tr>
+          )}
+        {device.screen.type?.isPenCapable
+          ? (
+            <tr>
+              <th>Pen Support</th>
+              <td>
+                {DeviceService.getPropertyIconByCharacter("✅")}
+              </td>
+            </tr>
+          )
+          : (
+            <tr>
+              <th>Pen Support</th>
+              <td>
+                {DeviceService.getPropertyIconByCharacter("❌")}
+              </td>
+            </tr>
+          )}
       </tbody>
     </table>
   );

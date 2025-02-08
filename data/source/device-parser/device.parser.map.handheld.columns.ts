@@ -528,8 +528,12 @@ export function mapHandheldsColumnToDevice(
             videoOutputText.includes("micro hdmi"),
           hasMiniHdmi: videoOutputText.includes("mini-hdmi") ||
             videoOutputText.includes("mini hdmi"),
-          hasHdmi: videoOutputText.includes("hdmi") ||
-            videoOutputText.includes("hdmi2"),
+          hasHdmi: (videoOutputText.includes("hdmi") ||
+            videoOutputText.includes("hdmi2")) &&
+            !videoOutputText.includes("mini-hdmi") &&
+            !videoOutputText.includes("mini hdmi") &&
+            !videoOutputText.includes("micro-hdmi") &&
+            !videoOutputText.includes("micro hdmi"),
           hasDvi: videoOutputText.includes("dvi"),
           hasVga: videoOutputText.includes("vga"),
           hasDisplayPort: videoOutputText.includes("displayport") ||

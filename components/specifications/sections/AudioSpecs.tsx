@@ -1,19 +1,19 @@
 import { PiSpeakerHigh } from "@preact-icons/pi";
 import { Device } from "../../../data/device.model.ts";
-import { AudioVideoTable } from "../tables/AudioVideoTable.tsx";
+import { AudioTable } from "../tables/AudioTable.tsx";
 
-interface AudioVideoSpecsProps {
+interface AudioSpecsProps {
   device: Device;
 }
 
-export function AudioVideoSpecs({ device }: AudioVideoSpecsProps) {
+export function AudioSpecs({ device }: AudioSpecsProps) {
   return (
     <section class="specs-section overflow-auto">
       <h3>
         <PiSpeakerHigh />
         Audio
       </h3>
-      <AudioVideoTable device={device} />
+      <AudioTable device={device} />
     </section>
   );
 }
