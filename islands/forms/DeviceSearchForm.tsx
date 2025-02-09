@@ -165,6 +165,8 @@ export function DeviceSearchForm(
           </div>
           <input type="submit" value="Search" style={{ borderRadius: "2em" }} />
         </form>
+
+        {initialTag && <Tag tag={initialTag} />}
       </div>
     );
   }

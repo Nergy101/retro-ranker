@@ -1212,12 +1212,11 @@ h6,
 
 .similar-devices-tags {
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   gap: 0.5rem;
   justify-content: center;
   margin-bottom: 1rem;
   cursor: pointer;
-
 }
 
 .tag {  display: flex;
