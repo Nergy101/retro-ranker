@@ -4,6 +4,7 @@ import { PaginationNav } from "../../components/shared/PaginationNav.tsx";
 import { DeviceSearchForm } from "../../islands/forms/DeviceSearchForm.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
 import { Head } from "$fresh/runtime.ts";
+import { slugify } from "https://deno.land/x/slugify@0.3.0/mod.ts";
 
 export default function DevicesIndex(props: PageProps) {
   const deviceService = DeviceService.getInstance();
@@ -23,6 +24,11 @@ export default function DevicesIndex(props: PageProps) {
     | "personal-picks" ||
     "all";
 
+  const tag = {
+    name: props.url?.searchParams?.get("tag") || "",
+    slug: slugify(props.url?.searchParams?.get("tag") || ""),
+  };
+
   const pageSize = 9;
 
   const allDevices = deviceService.getAllDevices();
@@ -32,6 +38,7 @@ export default function DevicesIndex(props: PageProps) {
     searchCategory as "all" | "low" | "mid" | "high",
     sortBy,
     filter,
+    tag.slug,
     pageNumber,
     pageSize,
   );
@@ -64,6 +71,7 @@ export default function DevicesIndex(props: PageProps) {
         initialSort={sortBy}
         initialFilter={filter}
         initialPage={pageNumber}
+        initialTag={tag}
       />
 
       {hasResults
@@ -76,6 +84,7 @@ export default function DevicesIndex(props: PageProps) {
             searchCategory={searchCategory}
             sortBy={sortBy}
             filter={filter}
+            tagSlug={tag.slug}
           />
         )
         : null}
@@ -127,6 +136,7 @@ export default function DevicesIndex(props: PageProps) {
               searchCategory={searchCategory}
               sortBy={sortBy}
               filter={filter}
+              tagSlug={tag.slug}
             />
           </div>
         )

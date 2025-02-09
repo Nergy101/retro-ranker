@@ -1,6 +1,8 @@
 import { useSignal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
 import { UmamiService } from "../../services/umami/umami.service.ts";
+import { Tag } from "../../components/Tag.tsx";
+import { Tag as TagModel } from "../../data/models/tag.model.ts";
 
 interface DeviceSearchFormProps {
   initialSearch: string;
@@ -8,11 +10,18 @@ interface DeviceSearchFormProps {
   initialPage: number;
   initialSort: string;
   initialFilter: string;
+  initialTag: TagModel;
 }
 
 export function DeviceSearchForm(
-  { initialSearch, initialCategory, initialPage, initialSort, initialFilter }:
-    DeviceSearchFormProps,
+  {
+    initialSearch,
+    initialCategory,
+    initialPage,
+    initialSort,
+    initialFilter,
+    initialTag,
+  }: DeviceSearchFormProps,
 ) {
   const umamiService = UmamiService.getInstance();
   const searchQuery = useSignal(initialSearch);
@@ -106,7 +115,63 @@ export function DeviceSearchForm(
 
   if (viewportWidth.value < 800) {
     return (
-      <form method="get" class="device-search-form-mobile">
+      <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+        <form method="get" class="device-search-form-mobile">
+          <input
+            name="search"
+            type="search"
+            placeholder="Name, Brand or OS..."
+            value={searchQuery}
+            aria-label="Search devices"
+          />
+          <input
+            style="display: none;"
+            name="page"
+            type="number"
+            value={page}
+          />
+          <select
+            name="category"
+            aria-label="Filter by category"
+            value={category}
+            onChange={handleCategoryChange}
+          >
+            <option value="all">Price</option>
+            <option value="low">Budget</option>
+            <option value="mid">Mid-Range</option>
+            <option value="high">High-End</option>
+          </select>
+          <div>
+            <select
+              name="sort"
+              aria-label="Sort by"
+              value={sort}
+              onChange={handleSortChange}
+            >
+              <option value="all">Sort</option>
+              <option value="highly-rated">Highly Rated</option>
+              <option value="new-arrivals">New Arrivals</option>
+            </select>
+            <select
+              name="filter"
+              aria-label="Filter by"
+              value={filter}
+              onChange={handleFilterChange}
+            >
+              <option value="all">Filter</option>
+              <option value="upcoming">Upcoming</option>
+              <option value="personal-picks">Personal Picks</option>
+            </select>
+          </div>
+          <input type="submit" value="Search" style={{ borderRadius: "2em" }} />
+        </form>
+      </div>
+    );
+  }
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+      <form role="search" method="get" class="device-search-form">
         <input
           name="search"
           type="search"
@@ -131,80 +196,30 @@ export function DeviceSearchForm(
           <option value="mid">Mid-Range</option>
           <option value="high">High-End</option>
         </select>
-        <div>
-          <select
-            name="sort"
-            aria-label="Sort by"
-            value={sort}
-            onChange={handleSortChange}
-          >
-            <option value="all">Sort</option>
-            <option value="highly-rated">Highly Rated</option>
-            <option value="new-arrivals">New Arrivals</option>
-          </select>
-          <select
-            name="filter"
-            aria-label="Filter by"
-            value={filter}
-            onChange={handleFilterChange}
-          >
-            <option value="all">Filter</option>
-            <option value="upcoming">Upcoming</option>
-            <option value="personal-picks">Personal Picks</option>
-          </select>
-        </div>
-        <input type="submit" value="Search" style={{ borderRadius: "2em" }} />
+        <select
+          name="sort"
+          aria-label="Sort by"
+          value={sort}
+          onChange={handleSortChange}
+        >
+          <option value="all">Sort</option>
+          <option value="highly-rated">Highly Rated</option>
+          <option value="new-arrivals">New Arrivals</option>
+        </select>
+        <select
+          name="filter"
+          aria-label="Filter by"
+          value={filter}
+          onChange={handleFilterChange}
+        >
+          <option value="all">Filter</option>
+          <option value="upcoming">Upcoming</option>
+          <option value="personal-picks">Personal Picks</option>
+        </select>
+        <input type="submit" value="Search" />
       </form>
-    );
-  }
 
-  return (
-    <form role="search" method="get" class="device-search-form">
-      <input
-        name="search"
-        type="search"
-        placeholder="Name, Brand or OS..."
-        value={searchQuery}
-        aria-label="Search devices"
-      />
-      <input
-        style="display: none;"
-        name="page"
-        type="number"
-        value={page}
-      />
-      <select
-        name="category"
-        aria-label="Filter by category"
-        value={category}
-        onChange={handleCategoryChange}
-      >
-        <option value="all">Price</option>
-        <option value="low">Budget</option>
-        <option value="mid">Mid-Range</option>
-        <option value="high">High-End</option>
-      </select>
-      <select
-        name="sort"
-        aria-label="Sort by"
-        value={sort}
-        onChange={handleSortChange}
-      >
-        <option value="all">Sort</option>
-        <option value="highly-rated">Highly Rated</option>
-        <option value="new-arrivals">New Arrivals</option>
-      </select>
-      <select
-        name="filter"
-        aria-label="Filter by"
-        value={filter}
-        onChange={handleFilterChange}
-      >
-        <option value="all">Filter</option>
-        <option value="upcoming">Upcoming</option>
-        <option value="personal-picks">Personal Picks</option>
-      </select>
-      <input type="submit" value="Search" />
-    </form>
+      {initialTag && <Tag tag={initialTag} />}
+    </div>
   );
 }

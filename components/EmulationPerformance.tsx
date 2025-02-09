@@ -3,6 +3,7 @@ import { Device } from "../data/device.model.ts";
 import { Cooling } from "../data/models/cooling.model.ts";
 import { DeviceService } from "../services/devices/device.service.ts";
 import { RatingInfo } from "./ratings/RatingInfo.tsx";
+import { Tag } from "./Tag.tsx";
 
 interface EmulationPerformanceProps {
   device: Device;
@@ -115,7 +116,9 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
       class="emulation-performance"
       style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}
     >
-      <h3 style={{ textAlign: "center", padding: 0, margin: 0 }}>Emulation Performance</h3>
+      <h3 style={{ textAlign: "center", padding: 0, margin: 0 }}>
+        Emulation Performance
+      </h3>
       <div class="rating-info-grid">
         {ratings.map((rating) => (
           <RatingInfo key={rating.system} rating={rating} />

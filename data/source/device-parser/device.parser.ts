@@ -4,6 +4,7 @@ import { Device } from "../../device.model.ts";
 import { mapHandheldsColumnToDevice } from "./device.parser.map.handheld.columns.ts";
 import { mapOEMsColumnToDevice } from "./device.parser.map.oem.columns.ts";
 import { DeviceService } from "../../../services/devices/device.service.ts";
+import { slugify } from "https://deno.land/x/slugify@0.3.0/mod.ts";
 
 export class DeviceParser {
   public static parseHandheldsHtml(filePath: string): Device[] {
@@ -40,7 +41,9 @@ export class DeviceParser {
           customFirmwares: [],
           links: [],
         },
+        tags: [],
         brand: "",
+        totalRating: 0,
         lowBatteryIndicator: null,
         hackingGuides: [],
         systemOnChip: null,
@@ -232,6 +235,19 @@ export class DeviceParser {
 
       device.totalRating = DeviceService.calculateScore(device);
 
+      device.tags = [
+        ...device.os.list.map((tag) => ({ name: tag, slug: slugify(tag) })),
+        { name: device.brand, slug: slugify(device.brand) },
+        {
+          name: device.pricing.category ?? "",
+          slug: slugify(device.pricing.category ?? ""),
+        },
+        {
+          name: device.formFactor ?? "",
+          slug: slugify(device.formFactor ?? ""),
+        },
+      ].filter((tag) => tag.slug !== "");
+
       devices.push(device);
     });
 
@@ -278,8 +294,9 @@ export class DeviceParser {
           customFirmwares: [],
           links: [],
         },
+        tags: [],
         brand: "",
-        totalRating: null,
+        totalRating: 0,
         lowBatteryIndicator: null,
         hackingGuides: [],
         systemRatings: [],
@@ -483,6 +500,15 @@ export class DeviceParser {
         false;
 
       device.totalRating = DeviceService.calculateScore(device);
+
+      device.tags = [
+        ...device.tags,
+        ...device.os.list,
+        device.brand,
+        device.pricing.category ?? "",
+        device.formFactor ?? "",
+      ];
+
       devices.push(device);
     });
 

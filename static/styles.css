@@ -1209,3 +1209,31 @@ h6,
     flex-direction: column;
   }
 }
+
+.similar-devices-tags {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+  cursor: pointer;
+
+}
+
+.tag {  display: flex;
+  flex-flow: row wrap;
+  max-width: fit-content;
+
+  background-color: var(--pico-primary);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--pico-border-radius);
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--pico-contrast);
+  font-size: 0.6rem;
+
+  &:hover {
+    background-color: var(--pico-contrast);
+    color: var(--pico-primary);
+  }
+}

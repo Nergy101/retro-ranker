@@ -83,6 +83,7 @@ export class DeviceService {
       | "all"
       | "upcoming"
       | "personal-picks" = "all",
+    tagSlug: string = "",
     pageNumber: number = 1,
     pageSize: number = 9,
   ): { page: Device[]; totalAmountOfResults: number } {
@@ -147,6 +148,12 @@ export class DeviceService {
         const year = mentionedDate.getFullYear();
         return year === currentYear || year === currentYear - 1;
       });
+    }
+
+    if (tagSlug) {
+      filteredDevices = filteredDevices.filter((device) =>
+        device.tags.some((tag) => tag.slug === tagSlug)
+      );
     }
 
     const sortedDevices = filteredDevices.sort((a, b) => {

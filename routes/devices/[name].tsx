@@ -13,6 +13,7 @@ import { CompareButton } from "../../islands/buttons/CompareButton.tsx";
 import { ShareButton } from "../../islands/buttons/ShareButton.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
 import { DeviceLinks } from "../../components/DeviceLinks.tsx";
+import { Tag } from "../../components/Tag.tsx";
 
 export default function DeviceDetail(props: PageProps) {
   const deviceService = DeviceService.getInstance();
@@ -267,7 +268,10 @@ export default function DeviceDetail(props: PageProps) {
       </div>
 
       <div class="device-detail-similar-devices">
-        <h2>Similar Devices</h2>
+        <h2>Find Similar Devices</h2>
+        <div class="similar-devices-tags">
+          {device.tags.map((tag) => <Tag tag={tag} />)}
+        </div>
         <div class="similar-devices-grid">
           {similarDevices.map((device) => (
             <a href={`/devices/${device.name.sanitized}`}>

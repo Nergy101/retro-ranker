@@ -21,6 +21,7 @@ import { DeviceReviews } from "./models/reviews.model.ts";
 import { DeviceScreen } from "./models/screen.model.ts";
 import { DeviceSensors } from "./models/sensors.model.ts";
 import { SystemRating } from "./models/system-rating.model.ts";
+import { Tag } from "./models/tag.model.ts";
 
 export interface Device {
   name: DeviceName;
@@ -69,4 +70,5 @@ export interface Device {
   pros: string[];
   cons: string[];
   notes: string[];
+  tags: Tag[];
 }

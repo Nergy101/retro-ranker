@@ -13,6 +13,7 @@ interface PaginationNavProps {
   searchCategory: string;
   sortBy: string;
   filter: string;
+  tagSlug: string;
 }
 
 export function PaginationNav({
@@ -23,6 +24,7 @@ export function PaginationNav({
   searchCategory,
   sortBy,
   filter,
+  tagSlug,
 }: PaginationNavProps) {
   return (
     <div style="display: flex; justify-content: center; margin-top: 1rem; margin-bottom: 1rem;">
@@ -33,7 +35,7 @@ export function PaginationNav({
               aria-label="First page"
               name="first-page"
               class="pagination-link"
-              href={`/devices?page=1&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}`}
+              href={`/devices?page=1&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}&tag=${tagSlug}`}
               data-tooltip="First page"
             >
               <PiCaretDoubleLeftBold />
@@ -45,7 +47,7 @@ export function PaginationNav({
               class="pagination-link"
               href={`/devices?page=${
                 pageNumber - 1
-              }&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}`}
+              }&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}&tag=${tagSlug}`}
               data-tooltip="Previous page"
             >
               <PiCaretLeftBold />
@@ -73,7 +75,7 @@ export function PaginationNav({
               class="pagination-link"
               href={`/devices?page=${
                 pageNumber + 1
-              }&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}`}
+              }&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}&tag=${tagSlug}`}
               data-tooltip="Next page"
             >
               <PiCaretRightBold />
@@ -85,7 +87,7 @@ export function PaginationNav({
               class="pagination-link"
               href={`/devices?page=${
                 Math.ceil(totalResults / pageSize)
-              }&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}`}
+              }&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}&tag=${tagSlug}`}
               data-tooltip="Last page"
             >
               <PiCaretDoubleRightBold />
