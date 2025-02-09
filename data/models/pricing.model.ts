@@ -9,5 +9,5 @@ export interface DevicePricing {
   average: number | null;
   range: PriceRange;
   currency: string | null;
-  category: string | null;
+  category: "low" | "mid" | "high" | null;
 }

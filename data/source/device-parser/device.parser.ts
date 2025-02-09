@@ -511,14 +511,47 @@ export class DeviceParser {
         return { name: tag, slug };
       }),
       { name: device.brand, slug: slugify(device.brand) },
-      {
-        name: device.pricing.category ?? "",
-        slug: slugify(device.pricing.category ?? ""),
-      },
-      {
-        name: device.formFactor ?? "",
-        slug: slugify(device.formFactor ?? ""),
-      },
-    ].filter((tag) => tag.slug !== "");
+      this.getCategoryTag(device),
+      this.getFormFactorTag(device),
+    ].filter((tag) => tag !== null);
+  }
+
+  private static getCategoryTag(device: Device): Tag | null {
+    const slug = slugify(device.pricing.category ?? "");
+    if (slug === "low") {
+      return { name: "$", slug: "low" };
+    }
+
+    if (slug === "mid") {
+      return { name: "$$", slug: "mid" };
+    }
+
+    if (slug === "high") {
+      return { name: "$$$", slug: "high" };
+    }
+
+    if (slug === "unknown") {
+      return { name: "$???", slug: "price-unknown" };
+    }
+
+    return null;
+  }
+
+  private static getFormFactorTag(device: Device): Tag | null {
+    const slug = slugify(device.formFactor ?? "");
+
+    if (slug.includes("horizontal")) {
+      return { name: "Horizontal", slug: "horizontal" };
+    }
+
+    if (slug.includes("vertical")) {
+      return { name: "Vertical", slug: "vertical" };
+    }
+
+    if (slug.includes("clamshell")) {
+      return { name: "Clamshell", slug: "clamshell" };
+    }
+
+    return { name: device.formFactor ?? "", slug };
   }
 }
