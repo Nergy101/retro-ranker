@@ -166,7 +166,7 @@ export function DeviceSearchForm(
           <input type="submit" value="Search" style={{ borderRadius: "2em" }} />
         </form>
 
-        {initialTag && <Tag tag={initialTag} />}
+        {initialTag.slug && <Tag tag={initialTag} />}
       </div>
     );
   }
@@ -221,7 +221,7 @@ export function DeviceSearchForm(
         <input type="submit" value="Search" />
       </form>
 
-      {initialTag && <Tag tag={initialTag} />}
+      {initialTag.slug && <Tag tag={initialTag} />}
     </div>
   );
 }

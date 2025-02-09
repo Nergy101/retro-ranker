@@ -28,9 +28,12 @@ import { JSX, VNode } from "preact";
 import { Device } from "../../data/device.model.ts";
 import { Cooling } from "../../data/models/cooling.model.ts";
 import { RatingsService } from "./ratings.service.ts";
+import { Tag } from "../../data/models/tag.model.ts";
 
 export class DeviceService {
   private devices: Device[] = [];
+  private tags: Tag[] = [];
+
   private static instance: DeviceService;
   private personalPicks: string[] = [
     "miyoo-flip",
@@ -60,6 +63,12 @@ export class DeviceService {
     try {
       this.devices = JSON.parse(
         Deno.readTextFileSync("data/source/results/handhelds.json"),
+      );
+
+      // deduplicate tags
+      this.tags = this.devices.flatMap((device) => device.tags).filter(
+        (tag, index, self) =>
+          index === self.findIndex((t) => t.slug === tag.slug),
       );
     } catch (error) {
       console.error("Failed to load devices:", error);
@@ -152,7 +161,7 @@ export class DeviceService {
 
     if (tagSlug) {
       filteredDevices = filteredDevices.filter((device) =>
-        device.tags.some((tag) => tag.slug === tagSlug)
+        device.tags.some((tag) => tag.slug.includes(tagSlug))
       );
     }
 
@@ -455,5 +464,9 @@ export class DeviceService {
 
     // Ensure the final score is between 0 and 10.
     return Math.max(0, Math.min(10, finalScore));
+  }
+
+  getFriendlyTagName(tagSlug: string): string | null {
+    return this.tags.find((tag) => tag.slug === tagSlug)?.name ?? null;
   }
 }

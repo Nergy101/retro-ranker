@@ -5,6 +5,7 @@ import { mapHandheldsColumnToDevice } from "./device.parser.map.handheld.columns
 import { mapOEMsColumnToDevice } from "./device.parser.map.oem.columns.ts";
 import { DeviceService } from "../../../services/devices/device.service.ts";
 import { slugify } from "https://deno.land/x/slugify@0.3.0/mod.ts";
+import { Tag } from "../../models/tag.model.ts";
 
 export class DeviceParser {
   public static parseHandheldsHtml(filePath: string): Device[] {
@@ -235,18 +236,7 @@ export class DeviceParser {
 
       device.totalRating = DeviceService.calculateScore(device);
 
-      device.tags = [
-        ...device.os.list.map((tag) => ({ name: tag, slug: slugify(tag) })),
-        { name: device.brand, slug: slugify(device.brand) },
-        {
-          name: device.pricing.category ?? "",
-          slug: slugify(device.pricing.category ?? ""),
-        },
-        {
-          name: device.formFactor ?? "",
-          slug: slugify(device.formFactor ?? ""),
-        },
-      ].filter((tag) => tag.slug !== "");
+      device.tags = this.getTags(device);
 
       devices.push(device);
     });
@@ -501,17 +491,34 @@ export class DeviceParser {
 
       device.totalRating = DeviceService.calculateScore(device);
 
-      device.tags = [
-        ...device.tags,
-        ...device.os.list,
-        device.brand,
-        device.pricing.category ?? "",
-        device.formFactor ?? "",
-      ];
+      device.tags = this.getTags(device);
 
       devices.push(device);
     });
 
     return devices;
+  }
+
+  private static getTags(device: Device): Tag[] {
+    return [
+      ...device.os.list.map((tag) => {
+        const slug = slugify(tag);
+
+        if (tag.toLowerCase().includes("steam")) {
+          return { name: "SteamOS", slug: "steam-os" };
+        }
+
+        return { name: tag, slug };
+      }),
+      { name: device.brand, slug: slugify(device.brand) },
+      {
+        name: device.pricing.category ?? "",
+        slug: slugify(device.pricing.category ?? ""),
+      },
+      {
+        name: device.formFactor ?? "",
+        slug: slugify(device.formFactor ?? ""),
+      },
+    ].filter((tag) => tag.slug !== "");
   }
 }
