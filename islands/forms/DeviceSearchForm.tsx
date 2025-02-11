@@ -41,6 +41,7 @@ export function DeviceSearchForm(
     const pageInput = select.form?.querySelector(
       'input[name="page"]',
     ) as HTMLInputElement;
+
     if (pageInput) {
       pageInput.value = page.value.toString();
     }
@@ -62,15 +63,12 @@ export function DeviceSearchForm(
       const form = document.getElementsByClassName(
         "device-search-form-mobile",
       )[0] as HTMLFormElement;
-      form.tags = initialTags.map((t) => t.slug).join(",");
 
       form?.submit();
     } else {
       const form = document.getElementsByClassName(
         "device-search-form",
       )[0] as HTMLFormElement;
-
-      form.tags = initialTags.map((t) => t.slug).join(",");
 
       form?.submit();
     }
