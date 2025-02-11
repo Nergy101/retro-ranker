@@ -25,7 +25,7 @@ export function DeviceCardMedium({ device, isActive }: DeviceCardMediumProps) {
           <CurrencyIcon currencyCode={device.pricing.currency} />
         </span>
       );
-    } else if (device.pricing.category === "medium") {
+    } else if (device.pricing.category === "mid") {
       return (
         <span style={{ display: "flex", alignItems: "flex-end" }}>
           <CurrencyIcon currencyCode={device.pricing.currency} />

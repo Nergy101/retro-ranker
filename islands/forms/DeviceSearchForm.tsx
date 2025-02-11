@@ -113,6 +113,55 @@ export function DeviceSearchForm(
     };
   }, []);
 
+  const renderTags = () => {
+    return (
+      <>
+        {initialTag.slug
+          ? <Tag tag={initialTag} />
+          : (
+            <div class="similar-devices-tags">
+              <Tag
+                tag={{
+                  "name": "$",
+                  "slug": "low",
+                }}
+              />
+              <Tag
+                tag={{
+                  "name": "$$",
+                  "slug": "mid",
+                }}
+              />
+              <Tag
+                tag={{
+                  "name": "$$$",
+                  "slug": "high",
+                }}
+              />{" "}
+              <Tag
+                tag={{
+                  "name": "Clamshell",
+                  "slug": "clamshell",
+                }}
+              />
+              <Tag
+                tag={{
+                  "name": "Horizontal",
+                  "slug": "horizontal",
+                }}
+              />
+              <Tag
+                tag={{
+                  "name": "Vertical",
+                  "slug": "vertical",
+                }}
+              />
+            </div>
+          )}
+      </>
+    );
+  };
+
   if (viewportWidth.value < 800) {
     return (
       <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
@@ -166,7 +215,7 @@ export function DeviceSearchForm(
           <input type="submit" value="Search" style={{ borderRadius: "2em" }} />
         </form>
 
-        {initialTag.slug && <Tag tag={initialTag} />}
+        {renderTags()}
       </div>
     );
   }
@@ -221,7 +270,7 @@ export function DeviceSearchForm(
         <input type="submit" value="Search" />
       </form>
 
-      {initialTag.slug && <Tag tag={initialTag} />}
+      {renderTags()}
     </div>
   );
 }
