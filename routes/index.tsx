@@ -8,7 +8,7 @@ import {
 import { DeviceCardMedium } from "../components/cards/DeviceCardMedium.tsx";
 import { SeeMoreCard } from "../components/cards/SeeMoreCard.tsx";
 import { DeviceService } from "../services/devices/device.service.ts";
-import { Tag } from "../components/Tag.tsx";
+import { Tag } from "../components/Tags/Tag.tsx";
 
 export default function Home() {
   // Filter devices into categories
@@ -17,6 +17,7 @@ export default function Home() {
   const personalPicks = deviceService.getpersonalPicks();
   const highlyRated = deviceService.getHighlyRated();
   const upcoming = deviceService.getUpcoming();
+
   return (
     <div>
       <Head>
@@ -45,69 +46,68 @@ export default function Home() {
         }}
       >
         <div class="container-fluid">
-
-        <div class="tags">
-              <Tag
-                tag={{
-                  "name": "$",
-                  "slug": "low",
-                }}
-              />
-              <Tag
-                tag={{
-                  "name": "$$",
-                  "slug": "mid",
-                }}
-              />
-              <Tag
-                tag={{
-                  "name": "$$$",
-                  "slug": "high",
-                }}
-              />
-              <Tag
-                tag={{
-                  "name": "Anbernic",
-                  "slug": "anbernic",
-                }}
-              />
-              <Tag
-                tag={{
-                  "name": "Miyoo",
-                  "slug": "miyoo-bittboy",
-                }}
-              />
-              <Tag
-                tag={{
-                  "name": "Ayaneo",
-                  "slug": "ayaneo",
-                }}
-              />
-              <Tag
-                tag={{
-                  "name": "Steam OS",
-                  "slug": "steam-os",
-                }}
-              />
-              <Tag
-                tag={{
-                  "name": "Clamshell",
-                  "slug": "clamshell",
-                }}
-              />
-              <Tag
-                tag={{
-                  "name": "Horizontal",
-                  "slug": "horizontal",
-                }}
-              />
-              <Tag
-                tag={{
-                  "name": "Vertical",
-                  "slug": "vertical",
-                }}
-              />
-            </div>
+          <div class="tags">
+            <Tag
+              tag={{
+                "name": "$",
+                "slug": "low",
+              }}
+            />
+            <Tag
+              tag={{
+                "name": "$$",
+                "slug": "mid",
+              }}
+            />
+            <Tag
+              tag={{
+                "name": "$$$",
+                "slug": "high",
+              }}
+            />
+            <Tag
+              tag={{
+                "name": "Anbernic",
+                "slug": "anbernic",
+              }}
+            />
+            <Tag
+              tag={{
+                "name": "Miyoo",
+                "slug": "miyoo-bittboy",
+              }}
+            />
+            <Tag
+              tag={{
+                "name": "Ayaneo",
+                "slug": "ayaneo",
+              }}
+            />
+            <Tag
+              tag={{
+                "name": "Steam OS",
+                "slug": "steam-os",
+              }}
+            />
+            <Tag
+              tag={{
+                "name": "Clamshell",
+                "slug": "clamshell",
+              }}
+            />
+            <Tag
+              tag={{
+                "name": "Horizontal",
+                "slug": "horizontal",
+              }}
+            />
+            <Tag
+              tag={{
+                "name": "Vertical",
+                "slug": "vertical",
+              }}
+            />
+          </div>
 
           {/* New Arrivals Section */}
           <section style="margin-top: 2rem;">
@@ -161,7 +161,9 @@ export default function Home() {
           <section style="margin-top: 2rem;">
             <h2 class="home-section-title">
               <PiRanking />
-              <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
+              <div
+                style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}
+              >
                 Highly Ranked
                 <span style={{ fontSize: "0.8rem" }}>(mid-range)</span>
               </div>

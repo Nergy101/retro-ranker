@@ -1,8 +1,8 @@
 import { useSignal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
-import { UmamiService } from "../../services/umami/umami.service.ts";
-import { Tag } from "../../components/Tag.tsx";
+import { FilterTag } from "../../components/Tags/FilterTag.tsx";
 import { Tag as TagModel } from "../../data/models/tag.model.ts";
+import { UmamiService } from "../../services/umami/umami.service.ts";
 
 interface DeviceSearchFormProps {
   initialSearch: string;
@@ -10,7 +10,8 @@ interface DeviceSearchFormProps {
   initialPage: number;
   initialSort: string;
   initialFilter: string;
-  initialTag: TagModel;
+  initialTags: TagModel[];
+  defaultTags: TagModel[];
 }
 
 export function DeviceSearchForm(
@@ -20,7 +21,8 @@ export function DeviceSearchForm(
     initialPage,
     initialSort,
     initialFilter,
-    initialTag,
+    initialTags,
+    defaultTags,
   }: DeviceSearchFormProps,
 ) {
   const umamiService = UmamiService.getInstance();
@@ -32,52 +34,9 @@ export function DeviceSearchForm(
 
   const viewportWidth = useSignal(globalThis.innerWidth);
 
-  const defaultTags = [
-    { name: "$", slug: "low" },
-    { name: "$$", slug: "mid" },
-    { name: "$$$", slug: "high" },
-    { name: "Anbernic", slug: "anbernic" },
-    { name: "Miyoo / Bittboy", slug: "miyoo-bittboy" },
-    { name: "Ayaneo", slug: "ayaneo" },
-    { name: "Steam OS", slug: "steam-os" },
-    { name: "Clamshell", slug: "clamshell" },
-    { name: "Horizontal", slug: "horizontal" },
-    { name: "Vertical", slug: "vertical" },
-  ];
-
-  const handleCategoryChange = (e: Event) => {
-    const select = e.target as HTMLSelectElement;
-    page.value = 1;
-    category.value = select.value;
-
-    // Update the page input value explicitly
-    const pageInput = select.form?.querySelector(
-      'input[name="page"]',
-    ) as HTMLInputElement;
-    if (pageInput) {
-      pageInput.value = page.value.toString();
-    }
-
-    submitForm();
-  };
-
   const handleSortChange = (e: Event) => {
     const select = e.target as HTMLSelectElement;
     sort.value = select.value;
-    // Update the page input value explicitly
-    const pageInput = select.form?.querySelector(
-      'input[name="page"]',
-    ) as HTMLInputElement;
-    if (pageInput) {
-      pageInput.value = page.value.toString();
-    }
-
-    submitForm();
-  };
-
-  const handleFilterChange = (e: Event) => {
-    const select = e.target as HTMLSelectElement;
-    filter.value = select.value;
     // Update the page input value explicitly
     const pageInput = select.form?.querySelector(
       'input[name="page"]',
@@ -96,17 +55,22 @@ export function DeviceSearchForm(
       sort: sort.value,
       filter: filter.value,
       page: page.value,
+      tags: initialTags.map((t) => t.slug).join(","),
     });
 
     if (viewportWidth.value < 500) {
       const form = document.getElementsByClassName(
         "device-search-form-mobile",
       )[0] as HTMLFormElement;
+      form.tags = initialTags.map((t) => t.slug).join(",");
+
       form?.submit();
     } else {
       const form = document.getElementsByClassName(
         "device-search-form",
       )[0] as HTMLFormElement;
+
+      form.tags = initialTags.map((t) => t.slug).join(",");
 
       form?.submit();
     }
@@ -126,18 +90,66 @@ export function DeviceSearchForm(
     };
   }, []);
 
+  const getTagsHref = (
+    tags: TagModel[],
+    tag: TagModel,
+    type: "add" | "remove",
+  ) => {
+    // if a tag with the same type is present, filter it out and insert the new one
+    let tagSlugs = "";
+    let filteredTags = [];
+
+    if (type === "add") {
+      filteredTags = tags.filter((t) => t.type !== tag.type)
+        .concat(tag)
+        .filter((t) => t.slug !== "");
+    } else {
+      filteredTags = tags.filter((t) => t.type !== tag.type).filter((t) =>
+        t.slug !== ""
+      );
+    }
+
+    tagSlugs = filteredTags.map((t) => t.slug).join(",");
+
+    if (tagSlugs != "") {
+      return `/devices?tags=${tagSlugs}&sort=${sort.value}&filter=${filter.value}&page=${page.value}&search=${searchQuery.value}`;
+    }
+
+    return `/devices?sort=${sort.value}&filter=${filter.value}&page=${page.value}&search=${searchQuery.value}`;
+  };
+
   const renderTags = () => {
     return (
       <>
-        {initialTag.slug && (
+        {initialTags.length > 0 && (
           <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
             <span>Filtered on:</span>
-            <Tag tag={initialTag} />
+            {initialTags.map((tag) => (
+              <FilterTag
+                tag={tag}
+                type="remove"
+                href={getTagsHref(
+                  initialTags,
+                  tag,
+                  "remove",
+                )}
+              />
+            ))}
           </div>
         )}
         <span style={{ textAlign: "center" }}>Filter by:</span>
         <div class="tags">
-          {defaultTags.filter(t => t.slug !== initialTag.slug).map((tag) => <Tag tag={tag} />)}
+          {defaultTags.filter((t) =>
+            !initialTags.some((t2) => t2.slug === t.slug)
+          ).map((tag) => {
+            return (
+              <FilterTag
+                tag={tag}
+                type={"add"}
+                href={getTagsHref(initialTags, tag, "add")}
+              />
+            );
+          })}
         </div>
       </>
     );
@@ -145,13 +157,19 @@ export function DeviceSearchForm(
 
   if (viewportWidth.value < 800) {
     return (
-      <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-        <form method="get" class="device-search-form-mobile">
+      <div
+        style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
+      >
+        <form
+          method="get"
+          class="device-search-form-mobile"
+          f-client-nav={false}
+        >
           <input
             name="search"
             type="search"
             placeholder="Name, Brand or OS..."
-            value={searchQuery}
+            value={searchQuery.value}
             aria-label="Search devices"
           />
           <input
@@ -160,17 +178,12 @@ export function DeviceSearchForm(
             type="number"
             value={page}
           />
-          <select
-            name="category"
-            aria-label="Filter by category"
-            value={category}
-            onChange={handleCategoryChange}
-          >
-            <option value="all">Price</option>
-            <option value="low">Budget</option>
-            <option value="mid">Mid-Range</option>
-            <option value="high">High-End</option>
-          </select>
+          <input
+            style="display: none;"
+            name="tags"
+            type="text"
+            value={initialTags.map((t) => t.slug).join(",")}
+          />
           <div>
             <select
               name="sort"
@@ -179,18 +192,8 @@ export function DeviceSearchForm(
               onChange={handleSortChange}
             >
               <option value="all">Sort</option>
-              <option value="highly-rated">Highly Rated</option>
-              <option value="new-arrivals">New Arrivals</option>
-            </select>
-            <select
-              name="filter"
-              aria-label="Filter by"
-              value={filter}
-              onChange={handleFilterChange}
-            >
-              <option value="all">Filter</option>
-              <option value="upcoming">Upcoming</option>
-              <option value="personal-picks">Personal Picks</option>
+              <option value="highly-rated">Ranking</option>
+              <option value="new-arrivals">New - Old</option>
             </select>
           </div>
           <input type="submit" value="Search" style={{ borderRadius: "2em" }} />
@@ -203,12 +206,17 @@ export function DeviceSearchForm(
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-      <form role="search" method="get" class="device-search-form">
+      <form
+        role="search"
+        method="get"
+        class="device-search-form"
+        f-client-nav={false}
+      >
         <input
           name="search"
           type="search"
           placeholder="Name, Brand or OS..."
-          value={searchQuery}
+          value={searchQuery.value}
           aria-label="Search devices"
         />
         <input
@@ -217,17 +225,12 @@ export function DeviceSearchForm(
           type="number"
           value={page}
         />
-        <select
-          name="category"
-          aria-label="Filter by category"
-          value={category}
-          onChange={handleCategoryChange}
-        >
-          <option value="all">Price</option>
-          <option value="low">Budget</option>
-          <option value="mid">Mid-Range</option>
-          <option value="high">High-End</option>
-        </select>
+        <input
+          style="display: none;"
+          name="tags"
+          type="text"
+          value={initialTags.map((t) => t.slug).join(",")}
+        />
         <select
           name="sort"
           aria-label="Sort by"
@@ -235,18 +238,8 @@ export function DeviceSearchForm(
           onChange={handleSortChange}
         >
           <option value="all">Sort</option>
-          <option value="highly-rated">Highly Rated</option>
-          <option value="new-arrivals">New Arrivals</option>
-        </select>
-        <select
-          name="filter"
-          aria-label="Filter by"
-          value={filter}
-          onChange={handleFilterChange}
-        >
-          <option value="all">Filter</option>
-          <option value="upcoming">Upcoming</option>
-          <option value="personal-picks">Personal Picks</option>
+          <option value="highly-rated">Ranking</option>
+          <option value="new-arrivals">New - Old</option>
         </select>
         <input type="submit" value="Search" />
       </form>

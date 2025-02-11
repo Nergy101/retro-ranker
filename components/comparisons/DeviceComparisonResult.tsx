@@ -25,7 +25,7 @@ import { MiscellaneousSpecsTable } from "../specifications/tables/MiscellaneousS
 import { PhysicalSpecsTable } from "../specifications/tables/PhysicalSpecsTable.tsx";
 import { ProcessingSpecsTable } from "../specifications/tables/ProcessingSpecsTable.tsx";
 import { AudioTable } from "../specifications/tables/AudioTable.tsx";
-import { Tag } from "../Tag.tsx";
+import { Tag } from "../Tags/Tag.tsx";
 
 interface DeviceComparisonResultProps {
   device: Device;

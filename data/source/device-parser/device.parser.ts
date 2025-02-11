@@ -6,6 +6,7 @@ import { mapOEMsColumnToDevice } from "./device.parser.map.oem.columns.ts";
 import { DeviceService } from "../../../services/devices/device.service.ts";
 import { slugify } from "https://deno.land/x/slugify@0.3.0/mod.ts";
 import { Tag } from "../../models/tag.model.ts";
+import { personalPicks } from "../../personal-picks.ts";
 
 export class DeviceParser {
   public static parseHandheldsHtml(filePath: string): Device[] {
@@ -501,37 +502,55 @@ export class DeviceParser {
 
   private static getTags(device: Device): Tag[] {
     return [
-      ...device.os.list.map((tag) => {
-        const slug = slugify(tag).toLowerCase();
-
-        if (tag.toLowerCase().includes("steam")) {
-          return { name: "Steam OS", slug: "steam-os" };
-        }
-
-        return { name: tag, slug };
-      }),
-      { name: device.brand, slug: slugify(device.brand).toLowerCase() },
-      this.getCategoryTag(device),
+      ...this.getOsTags(device),
+      this.getBrandTag(device),
+      this.getPriceTag(device),
       this.getFormFactorTag(device),
-    ].filter((tag) => tag !== null);
+      this.getReleaseDateTag(device),
+      this.getPersonalPickTag(device),
+    ].filter((tag) => tag !== null) as Tag[];
   }
 
-  private static getCategoryTag(device: Device): Tag | null {
+  private static getOsTags(device: Device): Tag[] {
+    return device.os.list.map((tag) => {
+      const slug = slugify(tag).toLowerCase();
+
+      if (tag.toLowerCase().includes("steam")) {
+        return { name: "Steam OS", slug: "steam-os", type: "os" } as Tag;
+      }
+
+      return { name: tag, slug, type: "os" } as Tag;
+    });
+  }
+
+  private static getBrandTag(device: Device): Tag | null {
+    if (device.brand === "") {
+      return null;
+    }
+
+    return {
+      name: device.brand,
+      slug: slugify(device.brand).toLowerCase(),
+      type: "brand",
+    } as Tag;
+  }
+
+  private static getPriceTag(device: Device): Tag | null {
     const slug = slugify(device.pricing.category ?? "").toLowerCase();
     if (slug === "low") {
-      return { name: "$", slug: "low" };
+      return { name: "$", slug: "low", type: "price" } as Tag;
     }
 
     if (slug === "mid") {
-      return { name: "$$", slug: "mid" };
+      return { name: "$$", slug: "mid", type: "price" } as Tag;
     }
 
     if (slug === "high") {
-      return { name: "$$$", slug: "high" };
+      return { name: "$$$", slug: "high", type: "price" } as Tag;
     }
 
     if (slug === "unknown") {
-      return { name: "$???", slug: "price-unknown" };
+      return { name: "$??", slug: "price-unknown", type: "price" } as Tag;
     }
 
     return null;
@@ -541,17 +560,55 @@ export class DeviceParser {
     const slug = slugify(device.formFactor ?? "").toLowerCase();
 
     if (slug.includes("horizontal")) {
-      return { name: "Horizontal", slug: "horizontal" };
+      return {
+        name: "Horizontal",
+        slug: "horizontal",
+        type: "formFactor",
+      } as Tag;
     }
 
     if (slug.includes("vertical")) {
-      return { name: "Vertical", slug: "vertical" };
+      return { name: "Vertical", slug: "vertical", type: "formFactor" } as Tag;
     }
 
     if (slug.includes("clamshell")) {
-      return { name: "Clamshell", slug: "clamshell" };
+      return {
+        name: "Clamshell",
+        slug: "clamshell",
+        type: "formFactor",
+      } as Tag;
     }
 
-    return { name: device.formFactor ?? "", slug };
+    if (device.formFactor === null) {
+      return null;
+    }
+
+    return { name: device.formFactor, slug, type: "formFactor" } as Tag;
+  }
+
+  private static getReleaseDateTag(device: Device): Tag | null {
+    if (device.released.raw?.toLowerCase().includes("upcoming")) {
+      return { name: "Upcoming", slug: "upcoming", type: "releaseDate" } as Tag;
+    }
+
+    // get year from date otherwise null
+    const year = new Date(device.released.mentionedDate ?? "").getFullYear();
+    if (year) {
+      return {
+        name: year.toString(),
+        slug: `year-${year}`,
+        type: "releaseDate",
+      } as Tag;
+    }
+
+    return null;
+  }
+
+  private static getPersonalPickTag(device: Device): Tag | null {
+    if (personalPicks.includes(device.name.sanitized)) {
+      return { name: "Personal Pick", slug: "personal-pick", type: "personalPick" } as Tag;
+    }
+
+    return null;
   }
 }

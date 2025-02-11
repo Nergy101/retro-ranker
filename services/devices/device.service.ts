@@ -29,24 +29,12 @@ import { Device } from "../../data/device.model.ts";
 import { Cooling } from "../../data/models/cooling.model.ts";
 import { RatingsService } from "./ratings.service.ts";
 import { Tag } from "../../data/models/tag.model.ts";
-
+import { personalPicks } from "../../data/personal-picks.ts";
 export class DeviceService {
   private devices: Device[] = [];
   private tags: Tag[] = [];
 
   private static instance: DeviceService;
-  private personalPicks: string[] = [
-    "miyoo-flip",
-    "gkd-pixel-2",
-    "rg-34xx",
-    "switch",
-    "rg-35xx-sp",
-    "rg-405m",
-    "miyoo-mini-plus",
-    "steam-deck-oled",
-    "retroid-pocket-mini",
-    "trimui-smart-brick",
-  ];
 
   private constructor() {
     this.loadDevices();
@@ -92,7 +80,7 @@ export class DeviceService {
       | "all"
       | "upcoming"
       | "personal-picks" = "all",
-    tagSlug: string = "",
+    tags: Tag[] = [],
     pageNumber: number = 1,
     pageSize: number = 9,
   ): { page: Device[]; totalAmountOfResults: number } {
@@ -143,7 +131,7 @@ export class DeviceService {
 
     if (filter === "personal-picks") {
       filteredDevices = filteredDevices.filter((device) =>
-        this.personalPicks.includes(device.name.sanitized)
+        personalPicks.includes(device.name.sanitized)
       );
     }
 
@@ -159,9 +147,10 @@ export class DeviceService {
       });
     }
 
-    if (tagSlug) {
+    // filter by tags. Device must have all tags in the array.
+    if (tags.length > 0) {
       filteredDevices = filteredDevices.filter((device) =>
-        device.tags.some((tag) => tag.slug.includes(tagSlug))
+        tags.every((tag) => device.tags.some((t) => t.slug === tag.slug))
       );
     }
 
@@ -218,10 +207,10 @@ export class DeviceService {
 
   public getpersonalPicks(): Device[] {
     return this.devices
-      .filter((device) => this.personalPicks.includes(device.name.sanitized))
+      .filter((device) => personalPicks.includes(device.name.sanitized))
       .sort((a, b) =>
-        this.personalPicks.indexOf(a.name.sanitized) -
-        this.personalPicks.indexOf(b.name.sanitized)
+        personalPicks.indexOf(a.name.sanitized) -
+        personalPicks.indexOf(b.name.sanitized)
       )
       .slice(0, 4);
   }
@@ -466,7 +455,7 @@ export class DeviceService {
     return Math.max(0, Math.min(10, finalScore));
   }
 
-  getFriendlyTagName(tagSlug: string): string | null {
-    return this.tags.find((tag) => tag.slug === tagSlug)?.name ?? null;
+  getTagBySlug(tagSlug: string): Tag | null {
+    return this.tags.find((tag) => tag.slug === tagSlug) ?? null;
   }
 }

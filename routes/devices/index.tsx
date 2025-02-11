@@ -1,10 +1,10 @@
+import { Head, Partial } from "$fresh/runtime.ts";
 import { PageProps } from "$fresh/server.ts";
 import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
 import { PaginationNav } from "../../components/shared/PaginationNav.tsx";
+import { Tag as TagModel } from "../../data/models/tag.model.ts";
 import { DeviceSearchForm } from "../../islands/forms/DeviceSearchForm.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
-import { Head, Partial } from "$fresh/runtime.ts";
-import { Tag as TagModel } from "../../data/models/tag.model.ts";
 
 export default function DevicesIndex(props: PageProps) {
   const deviceService = DeviceService.getInstance();
@@ -24,24 +24,39 @@ export default function DevicesIndex(props: PageProps) {
     | "personal-picks" ||
     "all";
 
-  const tagSlug = props.url?.searchParams?.get("tag") || "";
-  const friendlyTagName = deviceService.getFriendlyTagName(tagSlug);
+  const tagsParam = props.url?.searchParams?.get("tags") || "";
+  const parsedTags = tagsParam.split(",");
 
-  const tag = {
-    name: friendlyTagName,
-    slug: tagSlug,
-  } as TagModel;
+  const initialTags = parsedTags.map((slug) => deviceService.getTagBySlug(slug))
+    .filter((tag) => tag !== null && tag.slug !== "") as TagModel[];
 
   const pageSize = 9;
 
   const allDevices = deviceService.getAllDevices();
+
+  const defaultTags = [
+    deviceService.getTagBySlug("low"),
+    deviceService.getTagBySlug("mid"),
+    deviceService.getTagBySlug("high"),
+    deviceService.getTagBySlug("upcoming"),
+    deviceService.getTagBySlug("personal-pick"),
+    deviceService.getTagBySlug("year-2025"),
+    deviceService.getTagBySlug("year-2024"),
+    deviceService.getTagBySlug("anbernic"),
+    deviceService.getTagBySlug("miyoo-bittboy"),
+    deviceService.getTagBySlug("ayaneo"),
+    deviceService.getTagBySlug("steam-os"),
+    deviceService.getTagBySlug("clamshell"),
+    deviceService.getTagBySlug("horizontal"),
+    deviceService.getTagBySlug("vertical"),
+  ].filter((tag) => tag !== null) as TagModel[];
 
   const pagedFilteredSortedDevices = deviceService.searchDevices(
     searchQuery,
     searchCategory as "all" | "low" | "mid" | "high",
     sortBy,
     filter,
-    tag.slug,
+    initialTags,
     pageNumber,
     pageSize,
   );
@@ -67,7 +82,7 @@ export default function DevicesIndex(props: PageProps) {
           </p>
         </hgroup>
       </header>
-
+      
       <Partial name="search-results">
         <DeviceSearchForm
           initialSearch={searchQuery}
@@ -75,7 +90,8 @@ export default function DevicesIndex(props: PageProps) {
           initialSort={sortBy}
           initialFilter={filter}
           initialPage={pageNumber}
-          initialTag={tag}
+          initialTags={initialTags}
+          defaultTags={defaultTags}
         />
 
         {hasResults
@@ -88,7 +104,7 @@ export default function DevicesIndex(props: PageProps) {
               searchCategory={searchCategory}
               sortBy={sortBy}
               filter={filter}
-              tagSlug={tag.slug}
+              tags={initialTags}
             />
           )
           : null}
@@ -140,7 +156,7 @@ export default function DevicesIndex(props: PageProps) {
                 searchCategory={searchCategory}
                 sortBy={sortBy}
                 filter={filter}
-                tagSlug={tag.slug}
+                tags={initialTags}
               />
             </div>
           )

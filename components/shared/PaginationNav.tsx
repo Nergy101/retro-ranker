@@ -4,6 +4,7 @@ import {
   PiCaretLeftBold,
   PiCaretRightBold,
 } from "@preact-icons/pi";
+import { Tag } from "../../data/models/tag.model.ts";
 
 interface PaginationNavProps {
   pageNumber: number;
@@ -13,7 +14,7 @@ interface PaginationNavProps {
   searchCategory: string;
   sortBy: string;
   filter: string;
-  tagSlug: string;
+  tags: Tag[];
 }
 
 export function PaginationNav({
@@ -24,8 +25,9 @@ export function PaginationNav({
   searchCategory,
   sortBy,
   filter,
-  tagSlug,
+  tags,
 }: PaginationNavProps) {
+  const tagSlugs = tags.map((tag) => tag.slug).join(",");
   return (
     <div style="display: flex; justify-content: center; margin-top: 1rem; margin-bottom: 1rem;">
       <div style="display: flex; flex-direction: row; gap: 0.5rem; align-items: center;">
@@ -35,7 +37,7 @@ export function PaginationNav({
               aria-label="First page"
               name="first-page"
               class="pagination-link"
-              href={`/devices?page=1&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}&tag=${tagSlug}`}
+              href={`/devices?page=1&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}&tags=${tagSlugs}`}
               data-tooltip="First page"
             >
               <PiCaretDoubleLeftBold />
@@ -47,7 +49,7 @@ export function PaginationNav({
               class="pagination-link"
               href={`/devices?page=${
                 pageNumber - 1
-              }&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}&tag=${tagSlug}`}
+              }&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}&tags=${tagSlugs}`}
               data-tooltip="Previous page"
             >
               <PiCaretLeftBold />
@@ -75,7 +77,7 @@ export function PaginationNav({
               class="pagination-link"
               href={`/devices?page=${
                 pageNumber + 1
-              }&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}&tag=${tagSlug}`}
+              }&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}&tags=${tagSlugs}`}
               data-tooltip="Next page"
             >
               <PiCaretRightBold />
@@ -87,7 +89,7 @@ export function PaginationNav({
               class="pagination-link"
               href={`/devices?page=${
                 Math.ceil(totalResults / pageSize)
-              }&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}&tag=${tagSlug}`}
+              }&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}&tags=${tagSlugs}`}
               data-tooltip="Last page"
             >
               <PiCaretDoubleRightBold />
