@@ -502,22 +502,22 @@ export class DeviceParser {
   private static getTags(device: Device): Tag[] {
     return [
       ...device.os.list.map((tag) => {
-        const slug = slugify(tag);
+        const slug = slugify(tag).toLowerCase();
 
         if (tag.toLowerCase().includes("steam")) {
-          return { name: "SteamOS", slug: "steam-os" };
+          return { name: "Steam OS", slug: "steam-os" };
         }
 
         return { name: tag, slug };
       }),
-      { name: device.brand, slug: slugify(device.brand) },
+      { name: device.brand, slug: slugify(device.brand).toLowerCase() },
       this.getCategoryTag(device),
       this.getFormFactorTag(device),
     ].filter((tag) => tag !== null);
   }
 
   private static getCategoryTag(device: Device): Tag | null {
-    const slug = slugify(device.pricing.category ?? "");
+    const slug = slugify(device.pricing.category ?? "").toLowerCase();
     if (slug === "low") {
       return { name: "$", slug: "low" };
     }
@@ -538,7 +538,7 @@ export class DeviceParser {
   }
 
   private static getFormFactorTag(device: Device): Tag | null {
-    const slug = slugify(device.formFactor ?? "");
+    const slug = slugify(device.formFactor ?? "").toLowerCase();
 
     if (slug.includes("horizontal")) {
       return { name: "Horizontal", slug: "horizontal" };

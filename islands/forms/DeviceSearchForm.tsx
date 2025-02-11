@@ -137,7 +137,31 @@ export function DeviceSearchForm(
                   "name": "$$$",
                   "slug": "high",
                 }}
-              />{" "}
+              />
+              <Tag
+                tag={{
+                  "name": "Anbernic",
+                  "slug": "anbernic",
+                }}
+              />
+              <Tag
+                tag={{
+                  "name": "Miyoo",
+                  "slug": "miyoo-bittboy",
+                }}
+              />
+              <Tag
+                tag={{
+                  "name": "Ayaneo",
+                  "slug": "ayaneo",
+                }}
+              />
+              <Tag
+                tag={{
+                  "name": "Steam OS",
+                  "slug": "steam-os",
+                }}
+              />
               <Tag
                 tag={{
                   "name": "Clamshell",
