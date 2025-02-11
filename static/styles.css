@@ -664,7 +664,7 @@ h6,
     "misc misc misc";
   grid-template-columns: repeat(3, 1fr);
 
-  @media (max-width: 768px) {
+  @media (max-width: 950px) {
     grid-template-areas:
       "header header header"
       "summary summary summary"
@@ -732,8 +732,8 @@ h6,
 
   height: 30em;
 
-  @media (max-width: 768px) {
-    height: 24em;
+  @media (max-width: 950px) {
+    height: 25em;
   }
 
   @media (max-width: 425px) {
@@ -825,8 +825,8 @@ h6,
     height: 18em;
   }
 
-  @media (max-width: 768px) {
-    height: 18em;
+  @media (max-width: 950px) {
+    height: 22em;
   }
 
   @media (max-width: 425px) {
@@ -1219,20 +1219,26 @@ h6,
   cursor: pointer;
 }
 
-.tag {  display: flex;
+.tag-link {
+  text-decoration: none;
+}
+
+.tag {
+  display: flex;
   flex-flow: row wrap;
   max-width: fit-content;
+  color: var(--pico-contrast);
 
-  background-color: var(--pico-primary);
+  background-color: var(--pico-background-color);
+  border: 1px solid var(--pico-primary);
+
   padding: 0.25rem 0.5rem;
   border-radius: var(--pico-border-radius);
   align-items: center;
   gap: 0.25rem;
-  color: var(--pico-contrast);
   font-size: 0.6rem;
 
   &:hover {
-    background-color: var(--pico-contrast);
-    color: var(--pico-primary);
+    background-color: var(--pico-primary-focus);
   }
 }

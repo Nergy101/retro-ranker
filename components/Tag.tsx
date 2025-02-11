@@ -5,7 +5,7 @@ export function Tag({ tag }: { tag: TagModel }) {
   const slug = tag.slug;
 
   return (
-    <a href={`/devices?tag=${slug}`}>
+    <a href={`/devices?tag=${slug}`} class="tag-link">
       <span class="tag">
         <PiTag />
         {tag.name}
