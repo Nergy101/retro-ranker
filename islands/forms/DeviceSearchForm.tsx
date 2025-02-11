@@ -135,7 +135,6 @@ export function DeviceSearchForm(
             ))}
           </div>
         )}
-        <span style={{ textAlign: "center" }}>Filter by:</span>
         <div class="tags">
           {defaultTags.filter((t) =>
             !initialTags.some((t2) => t2.slug === t.slug)

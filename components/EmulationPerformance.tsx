@@ -3,7 +3,6 @@ import { Device } from "../data/device.model.ts";
 import { Cooling } from "../data/models/cooling.model.ts";
 import { DeviceService } from "../services/devices/device.service.ts";
 import { RatingInfo } from "./ratings/RatingInfo.tsx";
-import { Tag } from "./Tags/Tag.tsx";
 
 interface EmulationPerformanceProps {
   device: Device;

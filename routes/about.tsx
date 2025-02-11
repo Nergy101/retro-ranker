@@ -104,11 +104,15 @@ export default function AboutPage() {
             <li>Side-by-side device comparisons</li>
             <li>
               Real-world performance metrics and benchmarks{" "}
-              <span data-tooltip="Coming soon" data-placement="right">(🚧)</span>
+              <span data-tooltip="Coming soon" data-placement="right">
+                (🚧)
+              </span>
             </li>
             <li>
               Up-to-date pricing and availability information{" "}
-              <span data-tooltip="Coming soon" data-placement="right">(🚧)</span>
+              <span data-tooltip="Coming soon" data-placement="right">
+                (🚧)
+              </span>
             </li>
           </ul>
         </details>

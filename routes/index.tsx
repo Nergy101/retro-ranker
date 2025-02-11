@@ -9,6 +9,7 @@ import { DeviceCardMedium } from "../components/cards/DeviceCardMedium.tsx";
 import { SeeMoreCard } from "../components/cards/SeeMoreCard.tsx";
 import { DeviceService } from "../services/devices/device.service.ts";
 import { Tag } from "../components/Tags/Tag.tsx";
+import { Tag as TagModel } from "../data/models/tag.model.ts";
 
 export default function Home() {
   // Filter devices into categories
@@ -17,6 +18,19 @@ export default function Home() {
   const personalPicks = deviceService.getpersonalPicks();
   const highlyRated = deviceService.getHighlyRated();
   const upcoming = deviceService.getUpcoming();
+
+  const defaultTags = [
+    deviceService.getTagBySlug("low"),
+    deviceService.getTagBySlug("mid"),
+    deviceService.getTagBySlug("high"),
+    deviceService.getTagBySlug("year-2024"),
+    deviceService.getTagBySlug("year-2025"),
+    deviceService.getTagBySlug("anbernic"),
+    deviceService.getTagBySlug("miyoo-bittboy"),
+    deviceService.getTagBySlug("clamshell"),
+    deviceService.getTagBySlug("horizontal"),
+    deviceService.getTagBySlug("vertical"),
+  ].filter((tag) => tag !== null) as TagModel[];
 
   return (
     <div>
@@ -47,66 +61,7 @@ export default function Home() {
       >
         <div class="container-fluid">
           <div class="tags">
-            <Tag
-              tag={{
-                "name": "$",
-                "slug": "low",
-              }}
-            />
-            <Tag
-              tag={{
-                "name": "$$",
-                "slug": "mid",
-              }}
-            />
-            <Tag
-              tag={{
-                "name": "$$$",
-                "slug": "high",
-              }}
-            />
-            <Tag
-              tag={{
-                "name": "Anbernic",
-                "slug": "anbernic",
-              }}
-            />
-            <Tag
-              tag={{
-                "name": "Miyoo",
-                "slug": "miyoo-bittboy",
-              }}
-            />
-            <Tag
-              tag={{
-                "name": "Ayaneo",
-                "slug": "ayaneo",
-              }}
-            />
-            <Tag
-              tag={{
-                "name": "Steam OS",
-                "slug": "steam-os",
-              }}
-            />
-            <Tag
-              tag={{
-                "name": "Clamshell",
-                "slug": "clamshell",
-              }}
-            />
-            <Tag
-              tag={{
-                "name": "Horizontal",
-                "slug": "horizontal",
-              }}
-            />
-            <Tag
-              tag={{
-                "name": "Vertical",
-                "slug": "vertical",
-              }}
-            />
+            {defaultTags.map((tag) => <Tag tag={tag} />)}
           </div>
 
           {/* New Arrivals Section */}

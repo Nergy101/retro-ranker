@@ -606,7 +606,11 @@ export class DeviceParser {
 
   private static getPersonalPickTag(device: Device): Tag | null {
     if (personalPicks.includes(device.name.sanitized)) {
-      return { name: "Personal Pick", slug: "personal-pick", type: "personalPick" } as Tag;
+      return {
+        name: "Personal Pick",
+        slug: "personal-pick",
+        type: "personalPick",
+      } as Tag;
     }
 
     return null;

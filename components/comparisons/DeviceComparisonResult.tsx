@@ -285,7 +285,13 @@ export function DeviceComparisonResult(
           </strong>
         </div>
         <ProcessingSpecsTable device={device} />
-        <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+          }}
+        >
           <strong
             style={{
               marginBottom: "1rem",

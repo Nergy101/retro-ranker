@@ -82,7 +82,7 @@ export default function DevicesIndex(props: PageProps) {
           </p>
         </hgroup>
       </header>
-      
+
       <Partial name="search-results">
         <DeviceSearchForm
           initialSearch={searchQuery}

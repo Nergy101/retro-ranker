@@ -1,5 +1,5 @@
-import { EmulationTier } from "../../data/enums/EmulationTier.ts";
 import { Device } from "../../data/device.model.ts";
+import { EmulationTier } from "../../data/enums/EmulationTier.ts";
 import { Ranking } from "../../data/models/ranking.model.ts";
 
 export class RatingsService {
@@ -32,7 +32,7 @@ export class RatingsService {
     return null;
   }
 
-  public static parsePerformanceRating(text: string, deviceName: string): {
+  public static parsePerformanceRating(text: string): {
     rating: number;
     normalizedRating: number;
     tier: EmulationTier;

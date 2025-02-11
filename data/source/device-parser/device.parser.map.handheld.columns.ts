@@ -75,7 +75,6 @@ export function mapHandheldsColumnToDevice(
       {
         device.performance = RatingsService.parsePerformanceRating(
           value,
-          device.name.sanitized
         );
       }
       break;
@@ -702,7 +701,11 @@ export function mapHandheldsColumnToDevice(
         ...device.pricing,
 
         average: averagePrice,
-        category: getPricingCategory(averagePrice),
+        category: getPricingCategory(averagePrice) as
+          | "low"
+          | "mid"
+          | "high"
+          | null,
         raw: rawValue,
         range: {
           min: priceRange.min,

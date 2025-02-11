@@ -663,7 +663,11 @@ export function mapOEMsColumnToDevice(
         device.pricing = {
           ...device.pricing,
           average: averagePrice,
-          category: getPricingCategory(averagePrice),
+          category: getPricingCategory(averagePrice) as
+            | "low"
+            | "mid"
+            | "high"
+            | null,
           raw: rawValue,
           discontinued: false,
           range: {

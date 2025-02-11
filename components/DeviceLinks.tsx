@@ -1,10 +1,4 @@
-import {
-  PiArrowDown,
-  PiCaretCircleDoubleDown,
-  PiHandArrowDown,
-  PiHandSwipeRight,
-  PiMouseScroll,
-} from "@preact-icons/pi";
+import { PiCaretCircleDoubleDown } from "@preact-icons/pi";
 import { Device } from "../data/device.model.ts";
 import { DeviceService } from "../services/devices/device.service.ts";
 
@@ -36,7 +30,10 @@ export function DeviceLinks({ device }: { device: Device }) {
                 <strong>
                   Video Reviews
                 </strong>
-                <span data-tooltip="Scroll down to see more" data-placement="left">
+                <span
+                  data-tooltip="Scroll down to see more"
+                  data-placement="left"
+                >
                   <PiCaretCircleDoubleDown />
                 </span>
               </div>
