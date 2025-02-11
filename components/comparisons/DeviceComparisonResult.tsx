@@ -25,6 +25,7 @@ import { MiscellaneousSpecsTable } from "../specifications/tables/MiscellaneousS
 import { PhysicalSpecsTable } from "../specifications/tables/PhysicalSpecsTable.tsx";
 import { ProcessingSpecsTable } from "../specifications/tables/ProcessingSpecsTable.tsx";
 import { AudioTable } from "../specifications/tables/AudioTable.tsx";
+import { Tag } from "../Tag.tsx";
 
 interface DeviceComparisonResultProps {
   device: Device;
@@ -272,14 +273,32 @@ export function DeviceComparisonResult(
       </div>
 
       <div class={`compare-result-summary overflow-auto ${isBest("all")}`}>
-      <div style={{ display: "flex", justifyContent: "center" }}>
+        <div style={{ display: "flex", justifyContent: "center" }}>
           <strong
-            style={{ marginBottom: "1rem", marginTop: ".5rem", textAlign: "center" }}
+            style={{
+              marginBottom: "1rem",
+              marginTop: ".5rem",
+              textAlign: "center",
+            }}
           >
             Summary
           </strong>
         </div>
         <ProcessingSpecsTable device={device} />
+        <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
+          <strong
+            style={{
+              marginBottom: "1rem",
+              marginTop: ".5rem",
+              textAlign: "center",
+            }}
+          >
+            Tags
+          </strong>
+          <div class="tags">
+            {device.tags.map((tag) => <Tag tag={tag} />)}
+          </div>
+        </div>
       </div>
 
       <div class={`compare-result-performance ${isBest("emuPerformance")}`}>

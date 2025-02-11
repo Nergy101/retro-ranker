@@ -3,7 +3,7 @@ import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
 import { PaginationNav } from "../../components/shared/PaginationNav.tsx";
 import { DeviceSearchForm } from "../../islands/forms/DeviceSearchForm.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
-import { Head } from "$fresh/runtime.ts";
+import { Head, Partial } from "$fresh/runtime.ts";
 import { Tag as TagModel } from "../../data/models/tag.model.ts";
 
 export default function DevicesIndex(props: PageProps) {
@@ -51,7 +51,7 @@ export default function DevicesIndex(props: PageProps) {
   const amountOfResults = pagedFilteredSortedDevices.totalAmountOfResults;
 
   return (
-    <div>
+    <div f-client-nav>
       <Head>
         <title>Retro Ranker - Device Catalog</title>
       </Head>
@@ -68,69 +68,18 @@ export default function DevicesIndex(props: PageProps) {
         </hgroup>
       </header>
 
-      <DeviceSearchForm
-        initialSearch={searchQuery}
-        initialCategory={searchCategory}
-        initialSort={sortBy}
-        initialFilter={filter}
-        initialPage={pageNumber}
-        initialTag={tag}
-      />
+      <Partial name="search-results">
+        <DeviceSearchForm
+          initialSearch={searchQuery}
+          initialCategory={searchCategory}
+          initialSort={sortBy}
+          initialFilter={filter}
+          initialPage={pageNumber}
+          initialTag={tag}
+        />
 
-      {hasResults
-        ? (
-          <PaginationNav
-            pageNumber={pageNumber}
-            pageSize={pageSize}
-            totalResults={amountOfResults}
-            searchQuery={searchQuery}
-            searchCategory={searchCategory}
-            sortBy={sortBy}
-            filter={filter}
-            tagSlug={tag.slug}
-          />
-        )
-        : null}
-
-      {!hasResults
-        ? (
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              marginTop: "1rem",
-            }}
-          >
-            <p>No results found for your search criteria.</p>
-          </div>
-        )
-        : (
-          <div class="device-search-grid">
-            {pageResults.map((device) => (
-              <>
-                <a
-                  href={`/devices/${device.name.sanitized}`}
-                  style={{
-                    textDecoration: "none",
-                    width: "100%",
-                  }}
-                >
-                  <DeviceCardMedium device={device} isActive={false} />
-                </a>
-              </>
-            ))}
-          </div>
-        )}
-
-      {hasResults
-        ? (
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              marginTop: "1rem",
-            }}
-          >
+        {hasResults
+          ? (
             <PaginationNav
               pageNumber={pageNumber}
               pageSize={pageSize}
@@ -141,9 +90,62 @@ export default function DevicesIndex(props: PageProps) {
               filter={filter}
               tagSlug={tag.slug}
             />
-          </div>
-        )
-        : null}
+          )
+          : null}
+
+        {!hasResults
+          ? (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginTop: "1rem",
+              }}
+            >
+              <p>No results found for your search criteria.</p>
+            </div>
+          )
+          : (
+            <div class="device-search-grid" f-client-nav={false}>
+              {pageResults.map((device) => (
+                <>
+                  <a
+                    href={`/devices/${device.name.sanitized}`}
+                    style={{
+                      textDecoration: "none",
+                      width: "100%",
+                    }}
+                  >
+                    <DeviceCardMedium device={device} isActive={false} />
+                  </a>
+                </>
+              ))}
+            </div>
+          )}
+
+        {hasResults
+          ? (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginTop: "1rem",
+              }}
+            >
+              <PaginationNav
+                pageNumber={pageNumber}
+                pageSize={pageSize}
+                totalResults={amountOfResults}
+                searchQuery={searchQuery}
+                searchCategory={searchCategory}
+                sortBy={sortBy}
+                filter={filter}
+                tagSlug={tag.slug}
+              />
+            </div>
+          )
+          : null}
+      </Partial>
     </div>
   );
 }

@@ -32,6 +32,19 @@ export function DeviceSearchForm(
 
   const viewportWidth = useSignal(globalThis.innerWidth);
 
+  const defaultTags = [
+    { name: "$", slug: "low" },
+    { name: "$$", slug: "mid" },
+    { name: "$$$", slug: "high" },
+    { name: "Anbernic", slug: "anbernic" },
+    { name: "Miyoo / Bittboy", slug: "miyoo-bittboy" },
+    { name: "Ayaneo", slug: "ayaneo" },
+    { name: "Steam OS", slug: "steam-os" },
+    { name: "Clamshell", slug: "clamshell" },
+    { name: "Horizontal", slug: "horizontal" },
+    { name: "Vertical", slug: "vertical" },
+  ];
+
   const handleCategoryChange = (e: Event) => {
     const select = e.target as HTMLSelectElement;
     page.value = 1;
@@ -116,72 +129,16 @@ export function DeviceSearchForm(
   const renderTags = () => {
     return (
       <>
-        {initialTag.slug
-          ? <Tag tag={initialTag} />
-          : (
-            <div class="similar-devices-tags">
-              <Tag
-                tag={{
-                  "name": "$",
-                  "slug": "low",
-                }}
-              />
-              <Tag
-                tag={{
-                  "name": "$$",
-                  "slug": "mid",
-                }}
-              />
-              <Tag
-                tag={{
-                  "name": "$$$",
-                  "slug": "high",
-                }}
-              />
-              <Tag
-                tag={{
-                  "name": "Anbernic",
-                  "slug": "anbernic",
-                }}
-              />
-              <Tag
-                tag={{
-                  "name": "Miyoo",
-                  "slug": "miyoo-bittboy",
-                }}
-              />
-              <Tag
-                tag={{
-                  "name": "Ayaneo",
-                  "slug": "ayaneo",
-                }}
-              />
-              <Tag
-                tag={{
-                  "name": "Steam OS",
-                  "slug": "steam-os",
-                }}
-              />
-              <Tag
-                tag={{
-                  "name": "Clamshell",
-                  "slug": "clamshell",
-                }}
-              />
-              <Tag
-                tag={{
-                  "name": "Horizontal",
-                  "slug": "horizontal",
-                }}
-              />
-              <Tag
-                tag={{
-                  "name": "Vertical",
-                  "slug": "vertical",
-                }}
-              />
-            </div>
-          )}
+        {initialTag.slug && (
+          <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
+            <span>Filtered on:</span>
+            <Tag tag={initialTag} />
+          </div>
+        )}
+        <span style={{ textAlign: "center" }}>Filter by:</span>
+        <div class="tags">
+          {defaultTags.filter(t => t.slug !== initialTag.slug).map((tag) => <Tag tag={tag} />)}
+        </div>
       </>
     );
   };

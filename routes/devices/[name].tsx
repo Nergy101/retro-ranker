@@ -269,7 +269,7 @@ export default function DeviceDetail(props: PageProps) {
 
       <div class="device-detail-similar-devices">
         <h2>Find Similar Devices</h2>
-        <div class="similar-devices-tags">
+        <div class="tags">
           {device.tags.map((tag) => <Tag tag={tag} />)}
         </div>
         <div class="similar-devices-grid">
