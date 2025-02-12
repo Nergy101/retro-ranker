@@ -27,18 +27,6 @@
         </url>
         
         <url>
-            <loc>https://retroranker.site/devices/legion-go-s</loc>
-        </url>
-        
-        <url>
-            <loc>https://retroranker.site/devices/gkd-pixel-2</loc>
-        </url>
-        
-        <url>
-            <loc>https://retroranker.site/devices/v20</loc>
-        </url>
-        
-        <url>
             <loc>https://retroranker.site/devices/touch-one-35</loc>
         </url>
         
@@ -88,6 +76,18 @@
         
         <url>
             <loc>https://retroranker.site/devices/k560</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/v20</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/legion-go-s</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gkd-pixel-2</loc>
         </url>
         
         <url>
@@ -152,6 +152,10 @@
         
         <url>
             <loc>https://retroranker.site/devices/trimui-smart-brick</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/m22-pro</loc>
         </url>
         
         <url>
@@ -1223,6 +1227,18 @@
         </url>
         
         <url>
+            <loc>https://retroranker.site/devices/gpd-q9</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpd-g58</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/tlex-ulike</loc>
+        </url>
+        
+        <url>
             <loc>https://retroranker.site/devices/gcw-zero</loc>
         </url>
         
@@ -1311,14 +1327,6 @@
         </url>
         
         <url>
-            <loc>https://retroranker.site/devices/gpd-q9</loc>
-        </url>
-        
-        <url>
-            <loc>https://retroranker.site/devices/gpd-g58</loc>
-        </url>
-        
-        <url>
             <loc>https://retroranker.site/devices/gpd-q88+</loc>
         </url>
         
@@ -1336,10 +1344,6 @@
         
         <url>
             <loc>https://retroranker.site/devices/powkiddy-x9</loc>
-        </url>
-        
-        <url>
-            <loc>https://retroranker.site/devices/tlex-ulike</loc>
         </url>
         
         <url>
@@ -1735,10 +1739,6 @@
         </url>
         
         <url>
-            <loc>https://retroranker.site/devices/m22-pro</loc>
-        </url>
-        
-        <url>
             <loc>https://retroranker.site/devices/d008</loc>
         </url>
         
@@ -1780,6 +1780,10 @@
         
         <url>
             <loc>https://retroranker.site/devices/r40s-pro</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/m21</loc>
         </url>
         
         <url>

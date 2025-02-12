@@ -41,6 +41,10 @@ export async function downloadDeviceImages(
         device.name.sanitized,
         targetDir,
       );
+    } else {
+      console.info(
+        chalk.blue(`device ${device.name.sanitized} does not have originalUrl`),
+      );
     }
   });
 
