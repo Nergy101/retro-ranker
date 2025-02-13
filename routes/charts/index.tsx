@@ -1,8 +1,9 @@
 import { Head } from "$fresh/runtime.ts";
-import { DevicesPerBrandBarChart } from "../../components/charts/devices-per-brand-bar-chart.tsx";
-import { DevicesPerRatingBarChart } from "../../components/charts/devices-per-rating-bar-chart.tsx";
-import { DevicesPerReleaseYearLineChart } from "../../components/charts/devices-per-release-year-line-chart.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
+
+import { DevicesPerBrandBarChart } from "../../islands/charts/devices-per-brand-bar-chart.tsx";
+import { DevicesPerRatingBarChart } from "../../islands/charts/devices-per-rating-bar-chart.tsx";
+import { DevicesPerReleaseYearLineChart } from "../../islands/charts/devices-per-release-year-line-chart.tsx";
 
 export default function ChartsIndex() {
   const deviceService = DeviceService.getInstance();

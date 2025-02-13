@@ -1,5 +1,5 @@
 import { Device } from "../../data/device.model.ts";
-import FreshChart from "../../islands/charts/chart.tsx";
+import FreshChart from "./chart.tsx";
 
 interface BarChartProps {
   devices: Device[];

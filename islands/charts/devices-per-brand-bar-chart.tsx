@@ -1,11 +1,14 @@
 import { Device } from "../../data/device.model.ts";
-import FreshChart from "../../islands/charts/chart.tsx";
+import FreshChart from "./chart.tsx";
+import { useSignal } from "@preact/signals";
 
 interface BarChartProps {
   devices: Device[];
 }
 
 export function DevicesPerBrandBarChart({ devices }: BarChartProps) {
+  const minAmountOfDevices = useSignal(10);
+
   // Get unique brands from the devices array
   const getAllBrands = () => {
     return Array.from(new Set(devices.map((d) => d.brand)))
@@ -21,8 +24,8 @@ export function DevicesPerBrandBarChart({ devices }: BarChartProps) {
     }
 
     data = data
-      .filter((d) => d.amountOfDevices >= 5)
-      .sort((a, b) => b.amountOfDevices - a.amountOfDevices);
+      .filter((d) => d.amountOfDevices >= minAmountOfDevices.value)
+      .sort((a, b) => a.amountOfDevices - b.amountOfDevices);
 
     return data;
   };
@@ -73,19 +76,41 @@ export function DevicesPerBrandBarChart({ devices }: BarChartProps) {
   };
 
   const barChartData = getBarChartData();
-  // const maxBarValue = Math.max(...getSortedData().map((d) => d.amountOfDevices));
+  const maxBarValue = Math.max(
+    ...getSortedData().map((d) => d.amountOfDevices),
+  );
+
+  const setMinAmountOfDevices = (e: Event) => {
+    console.log(e);
+    const value = (e.target as HTMLInputElement)?.value;
+    minAmountOfDevices.value = parseInt(value ?? "5");
+  };
 
   return (
     <div>
       <h2>Devices created per Brand</h2>
-      <p>Minimum of 5 devices</p>
+      <p>Minimum of {minAmountOfDevices.value} devices</p>
+      <div style={{ display: "flex", alignItems: "baseline", gap: ".5rem" }}>
+        <span>0</span>
+        <input
+          type="range"
+          min="1"
+          max={maxBarValue}
+          step="1"
+          value={minAmountOfDevices.value}
+          onInput={setMinAmountOfDevices}
+          onInputCapture={(e) => console.log(e)}
+        />
+        <span>{maxBarValue}</span>
+      </div>
+
       <FreshChart
         type="bar"
         options={{
           scales: {
             y: {
               min: 0,
-              // max: maxBarValue,
+              max: maxBarValue,
               ticks: {},
             },
           },
