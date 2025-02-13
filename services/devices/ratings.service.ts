@@ -233,16 +233,18 @@ export class RatingsService {
       switch (device.screen.type.type) {
         case "OLED":
         case "AMOLED":
-        case "MonochromeOLED":
           baseScore = 300;
           break;
-        case "IPS":
+        case "LTPS":
           baseScore = 250;
           break;
-        case "LCD":
+        case "MonochromeOLED":
           baseScore = 200;
           break;
-        case "LTPS":
+        case "IPS":
+          baseScore = 200;
+          break;
+        case "LCD":
           baseScore = 150;
           break;
         case "TFT":
