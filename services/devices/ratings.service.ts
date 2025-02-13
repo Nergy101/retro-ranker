@@ -223,22 +223,57 @@ export class RatingsService {
   }
 
   calculateMonitorScore(device: Device): number {
-    // Here the raw score starts with the screen ppi (typically 100–400)
-    // plus bonus points for screen type features.
-    let rawScore = device.screen.ppi?.[0] ?? 0;
+    let score = 0;
+
     if (device.screen.type) {
-      if (device.screen.type.type === "OLED") rawScore += 1;
-      if (device.screen.type.type === "IPS") rawScore += 0.9;
-      if (device.screen.type.type === "AMOLED") rawScore += 1;
-      if (device.screen.type.type === "MonochromeOLED") rawScore += 1;
-      if (device.screen.type.type === "LCD") rawScore += 0.6;
-      if (device.screen.type.type === "LTPS") rawScore += 0.6;
-      if (device.screen.type.type === "TFT") rawScore += 0.5;
-      if (device.screen.type.isTouchscreen) rawScore += 1;
-      if (device.screen.type.isPenCapable) rawScore += 1;
+      // Determine a base score based on the panel type.
+      // OLEDs, AMOLEDs, and MonochromeOLEDs get a high base score,
+      // IPS screens get a lower base score, and other types are scored accordingly.
+      let baseScore = 0;
+      switch (device.screen.type.type) {
+        case "OLED":
+        case "AMOLED":
+        case "MonochromeOLED":
+          baseScore = 300;
+          break;
+        case "IPS":
+          baseScore = 250;
+          break;
+        case "LCD":
+          baseScore = 200;
+          break;
+        case "LTPS":
+          baseScore = 150;
+          break;
+        case "TFT":
+          baseScore = 100;
+          break;
+        default:
+          baseScore = 50;
+      }
+
+      // Bonuses for extra features.
+      if (device.screen.type.isTouchscreen) {
+        baseScore += 10;
+      }
+      if (device.screen.type.isPenCapable) {
+        baseScore += 10;
+      }
+
+      // Add a small contribution from PPI, to allow devices with the same panel type
+      // to be differentiated by higher DPI. The weight is reduced compared to the type score.
+      const ppi = device.screen.ppi?.[0] ?? 0;
+      const ppiContribution = ppi * 0.05; // e.g., 300 PPI adds about 15 points
+
+      score = baseScore + ppiContribution;
+    } else {
+      // Fallback: if no panel type info is available, use the PPI with a reduced weight.
+      score = (device.screen.ppi?.[0] ?? 0) * 0.05;
     }
-    // We use an expected range roughly from 100 (poor) to 453 (very good)
-    const normalized = this.normalizeFacetScore(rawScore, 100, 453);
+
+    // Normalize the score so that the final monitor rating is scaled between 1 (worst) and 10 (best).
+    // The expected score range is roughly 50 (lowest) to 320 (highest) based on the chosen constants.
+    const normalized = this.normalizeFacetScore(score, 50, 320);
     return Number(normalized.toFixed(1));
   }
 
