@@ -1,8 +1,8 @@
 import { useSignal } from "@preact/signals";
+import { useEffect } from "preact/hooks";
 import { Device } from "../../data/device.model.ts";
 import { RatingsService } from "../../services/devices/ratings.service.ts";
 import FreshChart from "./chart.tsx";
-import { useEffect } from "preact/hooks";
 
 interface RadarChartProps {
   devices: Device[];
@@ -95,7 +95,7 @@ export function DevicesRadarChart(
         min: 0,
         max: 10,
         ticks: {
-          stepSize: 1,
+          display: false,
         },
         grid: {
           color: "#898989",
