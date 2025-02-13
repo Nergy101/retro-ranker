@@ -156,6 +156,7 @@ export default function DevicesIndex(props: PageProps) {
                 <DevicesRadarChart
                   devices={devicesToCompare}
                   showTitle={false}
+                  ranking={ranking}
                 />
               </div>
             </div>

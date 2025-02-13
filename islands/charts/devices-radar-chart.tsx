@@ -3,14 +3,16 @@ import { useEffect } from "preact/hooks";
 import { Device } from "../../data/device.model.ts";
 import { RatingsService } from "../../services/devices/ratings.service.ts";
 import FreshChart from "./chart.tsx";
+import { Ranking } from "../../data/models/ranking.model.ts";
 
 interface RadarChartProps {
   devices: Device[];
   showTitle?: boolean;
+  ranking?: Ranking;
 }
 
 export function DevicesRadarChart(
-  { devices, showTitle = true }: RadarChartProps,
+  { devices, showTitle = true, ranking }: RadarChartProps,
 ) {
   // Create an instance of the ratings service.
   const ratingsService = RatingsService.getInstance();
@@ -76,8 +78,18 @@ export function DevicesRadarChart(
 
     // Generate a distinct color for the device.
     const hue = (index * 137.5) % 360;
-    const borderColor = `hsl(${hue}, 70%, 50%)`;
-    const backgroundColor = `hsla(${hue}, 70%, 50%, 0.3)`;
+    let borderColor = `hsl(${hue}, 70%, 50%)`;
+    let backgroundColor = `hsla(${hue}, 70%, 50%, 0.3)`;
+
+    // If a ranking is provided, use the color of the best or worst device.
+    if (ranking) {
+      borderColor = ranking.all[0] === device.name.sanitized
+        ? "#16833e"
+        : "#ab0d0d";
+      backgroundColor = ranking.all[0] === device.name.sanitized
+        ? "#16833e30"
+        : "#ab0d0d30";
+    }
 
     return {
       label: device.name.raw, // using the device's raw name for display
