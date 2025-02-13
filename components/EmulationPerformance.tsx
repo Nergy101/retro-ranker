@@ -29,7 +29,7 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
     if (trueCount === 2) {
       return { color: "#3952A2", textColor: "white", tooltip: "Good" };
     }
-    if (trueCount === 3) {
+    if (trueCount >= 3) {
       return { color: "#16833E", textColor: "white", tooltip: "Excellent" };
     }
     return {
