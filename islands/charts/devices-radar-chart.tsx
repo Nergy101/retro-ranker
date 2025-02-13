@@ -82,13 +82,15 @@ export function DevicesRadarChart(
 
     // If a ranking is provided, use the color of the best or worst device.
 
-    if (ranking?.all[0] !== "equal") {
-      borderColor = ranking?.all[0] === device.name.sanitized
-        ? "#16833e"
-        : "#ab0d0d";
-      backgroundColor = ranking?.all[0] === device.name.sanitized
-        ? "#16833e30"
-        : "#ab0d0d30";
+    if (ranking) {
+      if (ranking?.all[0] !== "equal") {
+        borderColor = ranking?.all[0] === device.name.sanitized
+          ? "#16833e"
+          : "#ab0d0d";
+        backgroundColor = ranking?.all[0] === device.name.sanitized
+          ? "#16833e30"
+          : "#ab0d0d30";
+      }
     }
 
     return {
