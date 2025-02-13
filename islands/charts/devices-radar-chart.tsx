@@ -82,11 +82,12 @@ export function DevicesRadarChart(
     let backgroundColor = `hsla(${hue}, 70%, 50%, 0.3)`;
 
     // If a ranking is provided, use the color of the best or worst device.
-    if (ranking) {
-      borderColor = ranking.all[0] === device.name.sanitized
+
+    if (ranking?.all[0] !== "equal") {
+      borderColor = ranking?.all[0] === device.name.sanitized
         ? "#16833e"
         : "#ab0d0d";
-      backgroundColor = ranking.all[0] === device.name.sanitized
+      backgroundColor = ranking?.all[0] === device.name.sanitized
         ? "#16833e30"
         : "#ab0d0d30";
     }
