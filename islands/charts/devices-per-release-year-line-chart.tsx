@@ -89,6 +89,7 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
         <div>
           Min Year: {selectedMinYear.value}
           <input
+            aria-label="Minimum year"
             type="range"
             min={initialMin}
             max={selectedMaxYear.value}
@@ -102,6 +103,7 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
         <div>
           Max Year: {selectedMaxYear.value}
           <input
+            aria-label="Maximum year"
             type="range"
             min={selectedMinYear.value}
             max={initialMax}

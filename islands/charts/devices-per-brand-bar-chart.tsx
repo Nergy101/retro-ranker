@@ -93,10 +93,13 @@ export function DevicesPerBrandBarChart({ devices }: BarChartProps) {
       <div style={{ display: "flex", alignItems: "baseline", gap: ".5rem" }}>
         <span>0</span>
         <input
+          aria-label="Minimum of devices"
+          name="minAmountOfDevices"
           type="range"
           min="1"
           max={maxBarValue}
           step="1"
+          list="markers"
           value={minAmountOfDevices.value}
           onInput={setMinAmountOfDevices}
         />
