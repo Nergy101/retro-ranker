@@ -21,9 +21,21 @@ export default function DevicesSimilarRadarChart({
   };
 
   return (
-    <div style={{ marginBottom: "1rem", display: "flex", flexDirection: "column", alignItems: "center" }}>
+    <div
+      style={{
+        marginBottom: "1rem",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
       {showSimilarDevices.value
-        ? <DevicesRadarChart devices={[device, ...similarDevices]} showTitle={showTitle} />
+        ? (
+          <DevicesRadarChart
+            devices={[device, ...similarDevices]}
+            showTitle={showTitle}
+          />
+        )
         : <DevicesRadarChart devices={[device]} showTitle={showTitle} />}
       <label>
         <input

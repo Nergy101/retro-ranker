@@ -1,11 +1,11 @@
 import { Head } from "$fresh/runtime.ts";
 import { PageProps } from "$fresh/server.ts";
-import { PiChartLine, PiChartPolar, PiInfo } from "@preact-icons/pi";
+import { PiChartLine, PiInfo } from "@preact-icons/pi";
 import { DeviceComparisonResult } from "../../components/comparisons/DeviceComparisonResult.tsx";
+import { DevicesRadarChart } from "../../islands/charts/devices-radar-chart.tsx";
 import { DeviceComparisonForm } from "../../islands/forms/DeviceComparisonForm.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
 import { RatingsService } from "../../services/devices/ratings.service.ts";
-import { DevicesRadarChart } from "../../islands/charts/devices-radar-chart.tsx";
 
 export default function DevicesIndex(props: PageProps) {
   const deviceService = DeviceService.getInstance();

@@ -22,7 +22,6 @@ export function DevicesRadarChart(
   useEffect(() => {
     const handleResize = () => {
       viewportWidth.value = globalThis.innerWidth;
-      console.log(viewportWidth.value);
       setChartSize();
     };
 
