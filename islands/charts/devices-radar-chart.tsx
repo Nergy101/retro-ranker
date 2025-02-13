@@ -125,12 +125,16 @@ export function DevicesRadarChart(
       style={{
         display: "flex",
         justifyContent: "center",
+        flexDirection: "column",
+        alignItems: "center",
         width: chartSize.value.width,
         height: chartSize.value.height,
       }}
     >
       {showTitle && (
-        <h2 style={{ textAlign: "center" }}>Device Scoring Radar Chart</h2>
+        <h2 style={{ textAlign: "center" }}>
+          Device Scoring Radar Chart
+        </h2>
       )}
       <FreshChart
         type="radar"

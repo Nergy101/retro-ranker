@@ -2,38 +2,26 @@ import { Head } from "$fresh/runtime.ts";
 import { PageProps } from "$fresh/server.ts";
 import { PiCalendarCheck, PiCalendarSlash, PiQuestion } from "@preact-icons/pi";
 import { JSX, VNode } from "preact";
-import { CurrencyIcon } from "../../components/shared/CurrencyIcon.tsx";
 import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
-import { DeviceSpecs } from "../../components/specifications/DeviceSpecs.tsx";
+import { DeviceLinks } from "../../components/DeviceLinks.tsx";
 import { EmulationPerformance } from "../../components/EmulationPerformance.tsx";
 import { StarRating } from "../../components/ratings/StarRating.tsx";
+import { CurrencyIcon } from "../../components/shared/CurrencyIcon.tsx";
+import { DeviceSpecs } from "../../components/specifications/DeviceSpecs.tsx";
+import { Tag } from "../../components/Tags/Tag.tsx";
 import { Device } from "../../data/device.model.ts";
 import { ClipboardButton } from "../../islands/buttons/ClipboardButton.tsx";
 import { CompareButton } from "../../islands/buttons/CompareButton.tsx";
 import { ShareButton } from "../../islands/buttons/ShareButton.tsx";
-import { DeviceService } from "../../services/devices/device.service.ts";
-import { DeviceLinks } from "../../components/DeviceLinks.tsx";
-import { Tag } from "../../components/Tags/Tag.tsx";
-import { DevicesRadarChart } from "../../islands/charts/devices-radar-chart.tsx";
 import DevicesSimilarRadarChart from "../../islands/charts/devices-similar-radar-chart.tsx";
+import { DeviceService } from "../../services/devices/device.service.ts";
 
 export default function DeviceDetail(props: PageProps) {
   const deviceService = DeviceService.getInstance();
   const device = deviceService.getDeviceByName(props.params?.name);
   const similarDevices = deviceService.getSimilarDevices(
     device?.name.sanitized ?? null,
-  );
-
-  const url = new URL(props.url.href);
-  const showSimilarDevices = url.searchParams.get("showSimilar") === "true";
-
-  url.searchParams.delete("showSimilar");
-  let toggleUrl: string;
-  if (showSimilarDevices) {
-    toggleUrl = url.toString();
-  } else {
-    toggleUrl = url.toString() + (url.search ? "&" : "?") + "showSimilar=true";
-  }
+  ).sort((a, b) => b.totalRating - a.totalRating);
 
   const getReleaseDate = (
     deviceReleased: { raw: string | null; mentionedDate: Date | null },
@@ -281,9 +269,12 @@ export default function DeviceDetail(props: PageProps) {
       </div>
 
       <div class="device-detail-similar-devices">
-        <DevicesSimilarRadarChart device={device} similarDevices={similarDevices} />
-
         <h2 style="text-align: center;">Find Similar Devices</h2>
+        <DevicesSimilarRadarChart
+          device={device}
+          similarDevices={similarDevices}
+          showTitle={false}
+        />
         <div class="tags">
           {device.tags.map((tag) => <Tag tag={tag} />)}
         </div>
