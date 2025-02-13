@@ -32,10 +32,12 @@ export default function DevicesIndex(props: PageProps) {
       <header>
         <hgroup style={{ textAlign: "center" }}>
           <h1>Compare Devices</h1>
-          <p>
-            Comparing the following devices: <br />
-            {deviceNames.join(", ")}
-          </p>
+          {deviceNames.length > 0 && (
+            <p>
+              Comparing the following devices: <br />
+              {deviceNames.join(", ")}
+            </p>
+          )}
         </hgroup>
       </header>
 

@@ -1,4 +1,5 @@
 import {
+PiChartLine,
   PiChatText,
   PiGameController,
   PiGitDiff,
@@ -35,6 +36,13 @@ export const navigationItems: NavigationItem[] = [
     label: "Compare",
     icon: (props) => PiGitDiff({ ...props }),
     isActive: (pathname) => pathname.startsWith("/compare"),
+    priority: 0.9,
+  },
+  {
+    href: "/charts",
+    label: "Charts",
+    icon: (props) => PiChartLine({ ...props }),
+    isActive: (pathname) => pathname.startsWith("/charts"),
     priority: 0.9,
   },
   {

@@ -1243,3 +1243,8 @@ h6,
     background-color: var(--pico-primary-focus);
   }
 }
+
+.chart-wrapper {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}

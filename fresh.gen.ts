@@ -7,6 +7,7 @@ import * as $_app from "./routes/_app.tsx";
 import * as $about from "./routes/about.tsx";
 import * as $api_devices_name_ from "./routes/api/devices/[name].ts";
 import * as $api_devices_index from "./routes/api/devices/index.ts";
+import * as $charts_index from "./routes/charts/index.tsx";
 import * as $compare_index from "./routes/compare/index.tsx";
 import * as $contact from "./routes/contact.tsx";
 import * as $devices_name_ from "./routes/devices/[name].tsx";
@@ -17,6 +18,7 @@ import * as $terms from "./routes/terms.tsx";
 import * as $buttons_ClipboardButton from "./islands/buttons/ClipboardButton.tsx";
 import * as $buttons_CompareButton from "./islands/buttons/CompareButton.tsx";
 import * as $buttons_ShareButton from "./islands/buttons/ShareButton.tsx";
+import * as $charts_chart from "./islands/charts/chart.tsx";
 import * as $forms_DeviceComparisonForm from "./islands/forms/DeviceComparisonForm.tsx";
 import * as $forms_DeviceSearchForm from "./islands/forms/DeviceSearchForm.tsx";
 import * as $navigation_Breadcrumb from "./islands/navigation/Breadcrumb.tsx";
@@ -33,6 +35,7 @@ const manifest = {
     "./routes/about.tsx": $about,
     "./routes/api/devices/[name].ts": $api_devices_name_,
     "./routes/api/devices/index.ts": $api_devices_index,
+    "./routes/charts/index.tsx": $charts_index,
     "./routes/compare/index.tsx": $compare_index,
     "./routes/contact.tsx": $contact,
     "./routes/devices/[name].tsx": $devices_name_,
@@ -45,6 +48,7 @@ const manifest = {
     "./islands/buttons/ClipboardButton.tsx": $buttons_ClipboardButton,
     "./islands/buttons/CompareButton.tsx": $buttons_CompareButton,
     "./islands/buttons/ShareButton.tsx": $buttons_ShareButton,
+    "./islands/charts/chart.tsx": $charts_chart,
     "./islands/forms/DeviceComparisonForm.tsx": $forms_DeviceComparisonForm,
     "./islands/forms/DeviceSearchForm.tsx": $forms_DeviceSearchForm,
     "./islands/navigation/Breadcrumb.tsx": $navigation_Breadcrumb,
