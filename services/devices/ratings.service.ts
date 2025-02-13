@@ -182,20 +182,26 @@ export class RatingsService {
     return rankedDevices.map((device) => device.name);
   }
 
-  private calculatePerformanceScore(device: Device): number {
-    // base score is 0-10
-    let score = device.performance.normalizedRating ?? 0;
+  // Helper method to normalize a raw score into the 1 (worst) to 10 (best) range.
+  // If the raw score is below min, returns 1; if above max, returns 10;
+  // otherwise does a linear mapping.
+  private normalizeFacetScore(raw: number, min: number, max: number): number {
+    if (raw <= min) return 1;
+    if (raw >= max) return 10;
+    return 1 + ((raw - min) / (max - min)) * 9;
+  }
 
-    // Bonus for more RAM and better RAM type
+  calculatePerformanceScore(device: Device): number {
+    // Our expected raw performance score: 0 (worst) to about 12 (best)
+    let rawScore = device.performance.normalizedRating ?? 0;
     if (device.ram?.sizes?.[0]) {
-      score += Math.log2(device.ram.sizes[0]) * 0.1;
+      rawScore += Math.log2(device.ram.sizes[0]) * 0.1;
     }
-
-    if (device.ram?.unit === "GB") score += 1;
-    if (device.ram?.unit === "MB") score += 0.5;
-    if (device.ram?.unit === "KB") score += 0.25;
-
-    return score;
+    if (device.ram?.unit === "GB") rawScore += 1;
+    if (device.ram?.unit === "MB") rawScore += 0.5;
+    if (device.ram?.unit === "KB") rawScore += 0.25;
+    const normalized = this.normalizeFacetScore(rawScore, 0, 12);
+    return Number(normalized.toFixed(1));
   }
 
   private rankDevicesByMonitor(devices: Device[]): string[] {
@@ -216,23 +222,24 @@ export class RatingsService {
     return rankedDevices.map((device) => device.name);
   }
 
-  private calculateMonitorScore(device: Device): number {
-    let score = device.screen.ppi?.[0] ?? 0;
-
-    // Bonus for better screen types
+  calculateMonitorScore(device: Device): number {
+    // Here the raw score starts with the screen ppi (typically 100–400)
+    // plus bonus points for screen type features.
+    let rawScore = device.screen.ppi?.[0] ?? 0;
     if (device.screen.type) {
-      if (device.screen.type.type === "OLED") score += 1;
-      if (device.screen.type.type === "IPS") score += .9;
-      if (device.screen.type.type === "AMOLED") score += 1;
-      if (device.screen.type.type === "MonochromeOLED") score += 1;
-      if (device.screen.type.type === "LCD") score += .6;
-      if (device.screen.type.type === "LTPS") score += .6;
-      if (device.screen.type.type === "TFT") score += .5;
-      if (device.screen.type.isTouchscreen) score += 1;
-      if (device.screen.type.isPenCapable) score += 1;
+      if (device.screen.type.type === "OLED") rawScore += 1;
+      if (device.screen.type.type === "IPS") rawScore += 0.9;
+      if (device.screen.type.type === "AMOLED") rawScore += 1;
+      if (device.screen.type.type === "MonochromeOLED") rawScore += 1;
+      if (device.screen.type.type === "LCD") rawScore += 0.6;
+      if (device.screen.type.type === "LTPS") rawScore += 0.6;
+      if (device.screen.type.type === "TFT") rawScore += 0.5;
+      if (device.screen.type.isTouchscreen) rawScore += 1;
+      if (device.screen.type.isPenCapable) rawScore += 1;
     }
-
-    return score;
+    // We use an expected range roughly from 100 (poor) to 453 (very good)
+    const normalized = this.normalizeFacetScore(rawScore, 100, 453);
+    return Number(normalized.toFixed(1));
   }
 
   private rankDevicesByDimensions(devices: Device[]): string[] {
@@ -253,36 +260,29 @@ export class RatingsService {
     return rankedDevices.map((device) => device.name);
   }
 
-  private calculateDimensionScore(device: Device): number {
-    if (!device.dimensions) return 0;
-
+  calculateDimensionScore(device: Device): number {
+    // If dimensions are missing, return the worst value.
+    if (!device.dimensions) return 1;
     const { length, width, height } = device.dimensions;
-    // make between 0 and 1
     const lengthScore = length ? length / 100 : 0;
     const widthScore = width ? width / 100 : 0;
     const heightScore = height ? height / 100 : 0;
     const volumeScore = (lengthScore * widthScore * heightScore) / 100;
-
-    let score = volumeScore;
-
-    // Bonus for premium materials
+    let rawScore = volumeScore;
     if (device.shellMaterial) {
-      if (device.shellMaterial.isMetal) score += 1;
-      if (device.shellMaterial.isAluminum) score += .9;
-      if (device.shellMaterial.isMagnesiumAlloy) score += 1.25;
+      if (device.shellMaterial.isMetal) rawScore += 1;
+      if (device.shellMaterial.isAluminum) rawScore += 0.9;
+      if (device.shellMaterial.isMagnesiumAlloy) rawScore += 1.25;
     }
-
-    // Weight consideration
     if (device.weight) {
-      score = score / Math.log(device.weight + 1);
+      rawScore = rawScore / Math.log(device.weight + 1);
     }
-
-    // Bonus for better battery life
     if (device.battery?.capacity) {
-      score += Math.log10(device.battery.capacity);
+      rawScore += Math.log10(device.battery.capacity);
     }
-
-    return score;
+    // We assume an expected raw dimension score between 0 and ~6.
+    const normalized = this.normalizeFacetScore(rawScore, 0, 6);
+    return Number(normalized.toFixed(1));
   }
 
   private rankDevicesByConnectivity(devices: Device[]): string[] {
@@ -303,30 +303,27 @@ export class RatingsService {
     return rankedDevices.map((device) => device.name);
   }
 
-  private calculateConnectivityScore(device: Device): number {
-    let score = 0;
-
-    // Basic connectivity
-    if (device.connectivity.hasWifi) score += 2;
-    if (device.connectivity.hasBluetooth) score += 2;
-    if (device.connectivity.hasUsbC) score += 3;
-    if (device.connectivity.hasNfc) score += 1;
-    if (device.connectivity.hasUsb) score += 1;
-
-    // Video output capabilities
+  calculateConnectivityScore(device: Device): number {
+    let rawScore = 0;
+    if (device.connectivity.hasWifi) rawScore += 2;
+    if (device.connectivity.hasBluetooth) rawScore += 2;
+    if (device.connectivity.hasUsbC) rawScore += 3;
+    if (device.connectivity.hasNfc) rawScore += 1;
+    if (device.connectivity.hasUsb) rawScore += 1;
     if (device.outputs.videoOutput) {
-      if (device.outputs.videoOutput?.AV) score += 1;
-      if (device.outputs.videoOutput?.hasHdmi) score += 2;
-      if (device.outputs.videoOutput?.hasDisplayPort) score += 2;
-      if (device.outputs.videoOutput?.hasVga) score += 1;
-      if (device.outputs.videoOutput?.hasDvi) score += 1;
-      if (device.outputs.videoOutput.hasUsbC) score += 2;
-      if (device.outputs.videoOutput.hasMicroHdmi) score += 1;
-      if (device.outputs.videoOutput.hasMiniHdmi) score += 1;
-      if (device.outputs.videoOutput.OcuLink) score += 1;
+      if (device.outputs.videoOutput?.AV) rawScore += 1;
+      if (device.outputs.videoOutput?.hasHdmi) rawScore += 2;
+      if (device.outputs.videoOutput?.hasDisplayPort) rawScore += 2;
+      if (device.outputs.videoOutput?.hasVga) rawScore += 1;
+      if (device.outputs.videoOutput?.hasDvi) rawScore += 1;
+      if (device.outputs.videoOutput.hasUsbC) rawScore += 2;
+      if (device.outputs.videoOutput.hasMicroHdmi) rawScore += 1;
+      if (device.outputs.videoOutput.hasMiniHdmi) rawScore += 1;
+      if (device.outputs.videoOutput.OcuLink) rawScore += 1;
     }
-
-    return score;
+    // Expected raw connectivity score from 0 (poor) to around 14 (rich features)
+    const normalized = this.normalizeFacetScore(rawScore, 0, 14);
+    return Number(normalized.toFixed(1));
   }
 
   private rankDevicesByAudio(devices: Device[]): string[] {
@@ -347,19 +344,18 @@ export class RatingsService {
     return rankedDevices.map((device) => device.name);
   }
 
-  private calculateAudioScore(device: Device): number {
-    let score = 0;
-
-    // Audio output capabilities
+  calculateAudioScore(device: Device): number {
+    let rawScore = 0;
     if (device.outputs.audioOutput) {
-      if (device.outputs.audioOutput.has35mmJack) score += 1;
-      if (device.outputs.audioOutput.hasHeadphoneJack) score += 1;
-      if (device.outputs.audioOutput.hasUsbC) score += 2;
-      if (device.outputs.speaker?.type === "stereo") score += 1;
-      if (device.outputs.speaker?.type === "mono") score += .5;
+      if (device.outputs.audioOutput.has35mmJack) rawScore += 1;
+      if (device.outputs.audioOutput.hasHeadphoneJack) rawScore += 1;
+      if (device.outputs.audioOutput.hasUsbC) rawScore += 2;
+      if (device.outputs.speaker?.type === "stereo") rawScore += 1;
+      if (device.outputs.speaker?.type === "mono") rawScore += 0.5;
     }
-
-    return score;
+    // Expected raw audio score from 0 to 5.
+    const normalized = this.normalizeFacetScore(rawScore, 0, 5);
+    return Number(normalized.toFixed(1));
   }
 
   private rankDevicesByControls(devices: Device[]): string[] {
@@ -380,57 +376,45 @@ export class RatingsService {
     return rankedDevices.map((device) => device.name);
   }
 
-  private calculateControlsScore(device: Device): number {
-    let score = 0;
-
-    // D-Pad
+  calculateControlsScore(device: Device): number {
+    let rawScore = 0;
     if (device.controls.dPad) {
-      if (device.controls.dPad.type === "cross") score += 1;
-      if (device.controls.dPad.type === "d-pad") score += 1;
+      if (device.controls.dPad.type === "cross") rawScore += 1;
+      if (device.controls.dPad.type === "d-pad") rawScore += 1;
     }
-
-    // Analog sticks
     if (device.controls.analogs) {
-      if (device.controls.analogs.dual) score += 2;
-      else if (device.controls.analogs.single) score += 1;
-
-      if (device.controls.analogs.isHallSensor) score += 1;
-      if (device.controls.analogs.L3) score += .5;
-      if (device.controls.analogs.R3) score += .5;
+      if (device.controls.analogs.dual) rawScore += 2;
+      else if (device.controls.analogs.single) rawScore += 1;
+      if (device.controls.analogs.isHallSensor) rawScore += 1;
+      if (device.controls.analogs.L3) rawScore += 0.5;
+      if (device.controls.analogs.R3) rawScore += 0.5;
     }
-
-    // Face buttons
     if (device.controls.numberOfFaceButtons) {
-      score += device.controls.numberOfFaceButtons;
+      rawScore += device.controls.numberOfFaceButtons;
     }
-
-    // Shoulder buttons
     if (device.controls.shoulderButtons) {
       const shoulderButtons = device.controls.shoulderButtons;
-      if (shoulderButtons.L1) score += 1;
-      if (shoulderButtons.L2) score += 1;
-      if (shoulderButtons.L3) score += 1;
-      if (shoulderButtons.R1) score += 1;
-      if (shoulderButtons.R2) score += 1;
-      if (shoulderButtons.R3) score += 1;
-      if (shoulderButtons.M1) score += 0.5;
-      if (shoulderButtons.M2) score += 0.5;
+      if (shoulderButtons.L1) rawScore += 1;
+      if (shoulderButtons.L2) rawScore += 1;
+      if (shoulderButtons.L3) rawScore += 1;
+      if (shoulderButtons.R1) rawScore += 1;
+      if (shoulderButtons.R2) rawScore += 1;
+      if (shoulderButtons.R3) rawScore += 1;
+      if (shoulderButtons.M1) rawScore += 0.5;
+      if (shoulderButtons.M2) rawScore += 0.5;
     }
-
-    // Extra buttons
     if (device.controls.extraButtons) {
       const extraButtons = device.controls.extraButtons;
-      if (extraButtons.home) score += 1;
-      if (extraButtons.function) score += 1;
-      if (extraButtons.turbo) score += 1;
-      if (extraButtons.touchpad) score += 1;
-      if (extraButtons.programmableButtons) score += 1;
+      if (extraButtons.home) rawScore += 1;
+      if (extraButtons.function) rawScore += 1;
+      if (extraButtons.turbo) rawScore += 1;
+      if (extraButtons.touchpad) rawScore += 1;
+      if (extraButtons.programmableButtons) rawScore += 1;
     }
-
-    // Additional features
-    if (device.rumble) score += 2;
-
-    return score;
+    if (device.rumble) rawScore += 2;
+    // Expected raw controls score from 0 to ~23.
+    const normalized = this.normalizeFacetScore(rawScore, 0, 23);
+    return Number(normalized.toFixed(1));
   }
 
   private rankDevicesByMisc(devices: Device[]): string[] {
@@ -451,36 +435,29 @@ export class RatingsService {
     return rankedDevices.map((device) => device.name);
   }
 
-  private calculateMiscScore(device: Device): number {
-    let score = 0;
-
-    // Battery
+  calculateMiscScore(device: Device): number {
+    let rawScore = 0;
     if (device.battery?.capacity) {
-      score += Math.log10(device.battery.capacity);
+      rawScore += Math.log10(device.battery.capacity);
     }
-
-    // Cooling
     if (device.cooling) {
-      if (device.cooling.hasFan) score += 1;
-      if (device.cooling.hasHeatsink) score += 1;
-      if (device.cooling.hasHeatPipe) score += 1;
-      if (device.cooling.hasVentilationCutouts) score += 1;
+      if (device.cooling.hasFan) rawScore += 1;
+      if (device.cooling.hasHeatsink) rawScore += 1;
+      if (device.cooling.hasHeatPipe) rawScore += 1;
+      if (device.cooling.hasVentilationCutouts) rawScore += 1;
     }
-
-    // Sensors
     if (device.sensors) {
-      if (device.sensors.hasGyroscope) score += 1;
-      if (device.sensors.hasAccelerometer) score += 1;
-      if (device.sensors.hasMicrophone) score += 1;
-      if (device.sensors.hasCamera) score += 1;
-      if (device.sensors.hasFingerprintSensor) score += 1;
+      if (device.sensors.hasGyroscope) rawScore += 1;
+      if (device.sensors.hasAccelerometer) rawScore += 1;
+      if (device.sensors.hasMicrophone) rawScore += 1;
+      if (device.sensors.hasCamera) rawScore += 1;
+      if (device.sensors.hasFingerprintSensor) rawScore += 1;
     }
-
-    // Controls
-    if (device.volumeControl?.type === "dedicated-button") score += 1;
-    if (device.brightnessControl?.type === "dedicated-button") score += 1;
-
-    return score;
+    if (device.volumeControl?.type === "dedicated-button") rawScore += 1;
+    if (device.brightnessControl?.type === "dedicated-button") rawScore += 1;
+    // Expected raw misc score from 0 to about 15.
+    const normalized = this.normalizeFacetScore(rawScore, 0, 15);
+    return Number(normalized.toFixed(1));
   }
 
   private rankDevicesByAll(devices: Device[], ranking: Ranking): string[] {

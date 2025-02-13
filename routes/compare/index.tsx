@@ -1,10 +1,11 @@
 import { Head } from "$fresh/runtime.ts";
 import { PageProps } from "$fresh/server.ts";
-import { PiInfo } from "@preact-icons/pi";
+import { PiChartLine, PiChartPolar, PiInfo } from "@preact-icons/pi";
 import { DeviceComparisonResult } from "../../components/comparisons/DeviceComparisonResult.tsx";
 import { DeviceComparisonForm } from "../../islands/forms/DeviceComparisonForm.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
 import { RatingsService } from "../../services/devices/ratings.service.ts";
+import { DevicesRadarChart } from "../../islands/charts/devices-radar-chart.tsx";
 
 export default function DevicesIndex(props: PageProps) {
   const deviceService = DeviceService.getInstance();
@@ -49,9 +50,9 @@ export default function DevicesIndex(props: PageProps) {
         />
       </div>
 
-      <div style={{ marginTop: "1rem", marginBottom: "2rem" }}>
+      <div>
         <details>
-          <summary class="flex items-center gap-2">
+          <summary class="flex">
             <div style={{ display: "flex", alignItems: "center" }}>
               <PiInfo />
               &nbsp;How does this ranking work?
@@ -131,6 +132,36 @@ export default function DevicesIndex(props: PageProps) {
           </div>
         </details>
       </div>
+
+      {devicesToCompare.length > 1 && (
+        <div>
+          <details>
+            <summary class="flex">
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <PiChartLine />
+                &nbsp;Show ranking chart
+              </div>
+            </summary>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <div
+                class="overflow-auto"
+                style={{
+                  // width: "100%",
+                  // height: "100%",
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "center",
+                }}
+              >
+                <DevicesRadarChart
+                  devices={devicesToCompare}
+                  showTitle={false}
+                />
+              </div>
+            </div>
+          </details>
+        </div>
+      )}
 
       <div class="compare-container">
         {devicesToCompare.map((device) => (

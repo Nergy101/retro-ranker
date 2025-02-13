@@ -22,6 +22,8 @@ import * as $charts_chart from "./islands/charts/chart.tsx";
 import * as $charts_devices_per_brand_bar_chart from "./islands/charts/devices-per-brand-bar-chart.tsx";
 import * as $charts_devices_per_ranking_bar_chart from "./islands/charts/devices-per-ranking-bar-chart.tsx";
 import * as $charts_devices_per_release_year_line_chart from "./islands/charts/devices-per-release-year-line-chart.tsx";
+import * as $charts_devices_radar_chart from "./islands/charts/devices-radar-chart.tsx";
+import * as $charts_devices_similar_radar_chart from "./islands/charts/devices-similar-radar-chart.tsx";
 import * as $forms_DeviceComparisonForm from "./islands/forms/DeviceComparisonForm.tsx";
 import * as $forms_DeviceSearchForm from "./islands/forms/DeviceSearchForm.tsx";
 import * as $navigation_Breadcrumb from "./islands/navigation/Breadcrumb.tsx";
@@ -58,6 +60,9 @@ const manifest = {
       $charts_devices_per_ranking_bar_chart,
     "./islands/charts/devices-per-release-year-line-chart.tsx":
       $charts_devices_per_release_year_line_chart,
+    "./islands/charts/devices-radar-chart.tsx": $charts_devices_radar_chart,
+    "./islands/charts/devices-similar-radar-chart.tsx":
+      $charts_devices_similar_radar_chart,
     "./islands/forms/DeviceComparisonForm.tsx": $forms_DeviceComparisonForm,
     "./islands/forms/DeviceSearchForm.tsx": $forms_DeviceSearchForm,
     "./islands/navigation/Breadcrumb.tsx": $navigation_Breadcrumb,

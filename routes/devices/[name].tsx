@@ -14,6 +14,8 @@ import { ShareButton } from "../../islands/buttons/ShareButton.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
 import { DeviceLinks } from "../../components/DeviceLinks.tsx";
 import { Tag } from "../../components/Tags/Tag.tsx";
+import { DevicesRadarChart } from "../../islands/charts/devices-radar-chart.tsx";
+import DevicesSimilarRadarChart from "../../islands/charts/devices-similar-radar-chart.tsx";
 
 export default function DeviceDetail(props: PageProps) {
   const deviceService = DeviceService.getInstance();
@@ -21,6 +23,17 @@ export default function DeviceDetail(props: PageProps) {
   const similarDevices = deviceService.getSimilarDevices(
     device?.name.sanitized ?? null,
   );
+
+  const url = new URL(props.url.href);
+  const showSimilarDevices = url.searchParams.get("showSimilar") === "true";
+
+  url.searchParams.delete("showSimilar");
+  let toggleUrl: string;
+  if (showSimilarDevices) {
+    toggleUrl = url.toString();
+  } else {
+    toggleUrl = url.toString() + (url.search ? "&" : "?") + "showSimilar=true";
+  }
 
   const getReleaseDate = (
     deviceReleased: { raw: string | null; mentionedDate: Date | null },
@@ -268,15 +281,17 @@ export default function DeviceDetail(props: PageProps) {
       </div>
 
       <div class="device-detail-similar-devices">
+        <DevicesSimilarRadarChart device={device} similarDevices={similarDevices} />
+
         <h2 style="text-align: center;">Find Similar Devices</h2>
         <div class="tags">
           {device.tags.map((tag) => <Tag tag={tag} />)}
         </div>
         <div class="similar-devices-grid">
-          {similarDevices.map((device) => (
-            <a href={`/devices/${device.name.sanitized}`}>
+          {similarDevices.map((deviceItem) => (
+            <a href={`/devices/${deviceItem.name.sanitized}`}>
               <DeviceCardMedium
-                device={device}
+                device={deviceItem}
                 isActive={false}
               />
             </a>
