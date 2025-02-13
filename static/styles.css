@@ -1215,8 +1215,24 @@ h6,
   flex-flow: row wrap;
   gap: 0.5rem;
   justify-content: center;
+  align-items: center;
   margin-bottom: 1rem;
   cursor: pointer;
+
+  &.vertical {
+    flex-direction: column;
+  }
+}
+
+.tags-row {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 0.5rem;
+  width: 100%;
+
 }
 
 .tag-link {

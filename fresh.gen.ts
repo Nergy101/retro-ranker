@@ -20,7 +20,7 @@ import * as $buttons_CompareButton from "./islands/buttons/CompareButton.tsx";
 import * as $buttons_ShareButton from "./islands/buttons/ShareButton.tsx";
 import * as $charts_chart from "./islands/charts/chart.tsx";
 import * as $charts_devices_per_brand_bar_chart from "./islands/charts/devices-per-brand-bar-chart.tsx";
-import * as $charts_devices_per_rating_bar_chart from "./islands/charts/devices-per-rating-bar-chart.tsx";
+import * as $charts_devices_per_ranking_bar_chart from "./islands/charts/devices-per-ranking-bar-chart.tsx";
 import * as $charts_devices_per_release_year_line_chart from "./islands/charts/devices-per-release-year-line-chart.tsx";
 import * as $forms_DeviceComparisonForm from "./islands/forms/DeviceComparisonForm.tsx";
 import * as $forms_DeviceSearchForm from "./islands/forms/DeviceSearchForm.tsx";
@@ -54,8 +54,8 @@ const manifest = {
     "./islands/charts/chart.tsx": $charts_chart,
     "./islands/charts/devices-per-brand-bar-chart.tsx":
       $charts_devices_per_brand_bar_chart,
-    "./islands/charts/devices-per-rating-bar-chart.tsx":
-      $charts_devices_per_rating_bar_chart,
+    "./islands/charts/devices-per-ranking-bar-chart.tsx":
+      $charts_devices_per_ranking_bar_chart,
     "./islands/charts/devices-per-release-year-line-chart.tsx":
       $charts_devices_per_release_year_line_chart,
     "./islands/forms/DeviceComparisonForm.tsx": $forms_DeviceComparisonForm,

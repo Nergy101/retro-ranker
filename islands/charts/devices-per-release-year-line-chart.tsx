@@ -69,12 +69,13 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
     }
 
     return [{
-      label: "Devices released in year",
+      label: "Devices released for given year",
       data: amountOfDevicesPerYear,
       fill: true,
-      borderColor: "rgb(54, 162, 235)",
-      backgroundColor: "rgba(54, 162, 235, 0.1)",
-      borderWidth: 1,
+      borderColor: "#e48500",
+      backgroundColor: "#e4850050",
+      pointBackgroundColor: "#e48500",
+      borderWidth: 3,
       tension: 0.4,
       pointRadius: 5,
     }];
@@ -124,6 +125,7 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
         }}
         data={{
           labels: getLineChartLabels(),
+          // deno-lint-ignore no-explicit-any
           datasets: getLineChartData() as any,
         }}
       />

@@ -32,7 +32,7 @@ export function DevicesPerBrandBarChart({ devices }: BarChartProps) {
 
   // Generate a color based on the brand name.
   // This produces a stable color by converting a string hash to an HSL value.
-  const getColorForBrand = (brand: string): string => {
+  const getColorsForBrand = (brand: string): [string, string] => {
     let hash = 0;
     for (let i = 0; i < brand.length; i++) {
       hash = brand.charCodeAt(i) + ((hash << 5) - hash);
@@ -42,12 +42,12 @@ export function DevicesPerBrandBarChart({ devices }: BarChartProps) {
       hue += 360;
     }
     // The saturation and lightness can be adjusted as needed.
-    return `hsl(${hue}, 70%, 50%)`;
+    return ["hsl(" + hue + ", 70%, 50%)", "hsl(" + hue + ", 70%, 50%, 0.5)"];
   };
 
   // Get colors for all unique brands
   const getColorsForAllBrands = () => {
-    return getAllBrands().map((brand) => getColorForBrand(brand));
+    return getAllBrands().map((brand) => getColorsForBrand(brand));
   };
 
   const getBarChartData = () => {
@@ -56,12 +56,13 @@ export function DevicesPerBrandBarChart({ devices }: BarChartProps) {
     const colorsForAllBrands = getColorsForAllBrands();
     return [{
       label: "Devices per Brand",
-      backgroundColor: colorsForAllBrands,
-      borderColor: colorsForAllBrands,
-      borderWidth: 1,
+      backgroundColor: colorsForAllBrands.map((c) => c[1]),
+      borderColor: colorsForAllBrands.map((c) => c[0]),
+      borderWidth: 3,
       data: data.map((d) => d.amountOfDevices),
       tooltip: {
         callbacks: {
+          // deno-lint-ignore no-explicit-any
           label: (context: any) => {
             return `${context.label}: ${context.raw} devices`;
           },
@@ -81,14 +82,13 @@ export function DevicesPerBrandBarChart({ devices }: BarChartProps) {
   );
 
   const setMinAmountOfDevices = (e: Event) => {
-    console.log(e);
     const value = (e.target as HTMLInputElement)?.value;
     minAmountOfDevices.value = parseInt(value ?? "5");
   };
 
   return (
     <div>
-      <h2>Devices created per Brand</h2>
+      <h2>Devices released per brand</h2>
       <p>Minimum of {minAmountOfDevices.value} devices</p>
       <div style={{ display: "flex", alignItems: "baseline", gap: ".5rem" }}>
         <span>0</span>
@@ -99,7 +99,6 @@ export function DevicesPerBrandBarChart({ devices }: BarChartProps) {
           step="1"
           value={minAmountOfDevices.value}
           onInput={setMinAmountOfDevices}
-          onInputCapture={(e) => console.log(e)}
         />
         <span>{maxBarValue}</span>
       </div>
@@ -117,6 +116,7 @@ export function DevicesPerBrandBarChart({ devices }: BarChartProps) {
         }}
         data={{
           labels: getBarChartLabels(),
+          // deno-lint-ignore no-explicit-any
           datasets: barChartData as any,
         }}
       />

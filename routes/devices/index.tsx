@@ -49,7 +49,9 @@ export default function DevicesIndex(props: PageProps) {
     deviceService.getTagBySlug("clamshell"),
     deviceService.getTagBySlug("horizontal"),
     deviceService.getTagBySlug("vertical"),
-  ].filter((tag) => tag !== null) as TagModel[];
+  ].filter((tag) => tag !== null).filter((t) =>
+    !initialTags.some((t2) => t2.slug === t.slug)
+  ) as TagModel[];
 
   const pagedFilteredSortedDevices = deviceService.searchDevices(
     searchQuery,
@@ -93,6 +95,8 @@ export default function DevicesIndex(props: PageProps) {
           initialTags={initialTags}
           defaultTags={defaultTags}
         />
+
+        <hr />
 
         {hasResults
           ? (

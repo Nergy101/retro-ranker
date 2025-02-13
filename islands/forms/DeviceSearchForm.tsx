@@ -136,9 +136,7 @@ export function DeviceSearchForm(
           </div>
         )}
         <div class="tags">
-          {defaultTags.filter((t) =>
-            !initialTags.some((t2) => t2.slug === t.slug)
-          ).map((tag) => {
+          {defaultTags.map((tag) => {
             return (
               <FilterTag
                 tag={tag}
