@@ -17,7 +17,8 @@ export default function DevicesIndex(props: PageProps) {
     .filter((device) => device !== null);
 
   const deviceNames = devicesToCompare.map((device) => device.name.raw);
-  const allDevices = deviceService.getAllDevices();
+  const allDevices = deviceService.getAllDevices()
+    .sort((a, b) => a.name.raw.localeCompare(b.name.raw));
 
   const similarDevices = devicesToCompare.flatMap((device) =>
     deviceService.getSimilarDevices(device.name.sanitized, 8)
@@ -146,8 +147,6 @@ export default function DevicesIndex(props: PageProps) {
               <div
                 class="overflow-auto"
                 style={{
-                  // width: "100%",
-                  // height: "100%",
                   display: "flex",
                   flexDirection: "row",
                   justifyContent: "center",

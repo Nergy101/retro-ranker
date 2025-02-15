@@ -1,6 +1,6 @@
 import { PiGitDiff } from "@preact-icons/pi";
 import { useSignal } from "@preact/signals";
-import { useEffect, useRef } from "preact/hooks";
+import { useEffect, useRef, useState } from "preact/hooks";
 import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
 import { Device } from "../../data/device.model.ts";
 
@@ -18,14 +18,20 @@ export function DeviceComparisonForm({
 
   const allDeviceRawNames = allDevices.map((device) => device.name.raw);
   const deviceNameIsInvalid = (deviceName: string) =>
-    !allDeviceRawNames.some((name) => name === deviceName);
+    !allDeviceRawNames.some((name) =>
+      name.toLowerCase() === deviceName.toLowerCase()
+    );
 
-  const queryA = useSignal(originalDeviceA?.name.raw || "");
-  const queryB = useSignal(originalDeviceB?.name.raw || "");
+  const [queryA, setQueryA] = useState(originalDeviceA?.name.raw || "");
+  const [queryB, setQueryB] = useState(originalDeviceB?.name.raw || "");
   const suggestionsA = useSignal<Device[]>([]);
   const suggestionsB = useSignal<Device[]>([]);
+
   const suggestionsARef = useRef<HTMLUListElement>(null);
   const suggestionsBRef = useRef<HTMLUListElement>(null);
+
+  const selectedDeviceA = useSignal<Device | null>(originalDeviceA || null);
+  const selectedDeviceB = useSignal<Device | null>(originalDeviceB || null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -61,56 +67,67 @@ export function DeviceComparisonForm({
     };
   }, []);
 
-  const setQueryA = (value: string) => {
-    queryA.value = value;
+  const queryAChanged = (value: string) => {
+    setQueryA(value);
     suggestionsA.value = allDevices.filter((device) =>
-      device.name.raw.toLowerCase().includes(value.toLowerCase()) ||
-      device.brand.toLowerCase().includes(value.toLowerCase())
+      device.name.raw.toLowerCase().includes(value.trim().toLowerCase()) ||
+      device.brand.toLowerCase().includes(value.trim().toLowerCase())
     );
+
+    selectedDeviceA.value =
+      allDevices.find((device) =>
+        device.name.raw.toLowerCase() === queryA.toLowerCase()
+      ) ?? null;
   };
 
   const setQueryASuggestion = (value: string) => {
-    queryA.value = value;
+    setQueryA(value);
     suggestionsA.value = [];
 
-    if (queryA.value && queryB.value) {
+    selectedDeviceA.value =
+      allDevices.find((device) =>
+        device.name.raw.toLowerCase() === queryA.trim().toLowerCase()
+      ) ?? null;
+
+    if (selectedDeviceA.value && selectedDeviceB.value) {
       handleSubmit();
     }
   };
 
-  const setQueryB = (value: string) => {
-    queryB.value = value;
+  const queryBChanged = (value: string) => {
+    setQueryB(value);
     suggestionsB.value = allDevices.filter((device) =>
-      device.name.raw.toLowerCase().includes(value.toLowerCase()) ||
-      device.brand.toLowerCase().includes(value.toLowerCase())
+      device.name.raw.toLowerCase().includes(value.trim().toLowerCase()) ||
+      device.brand.toLowerCase().includes(value.trim().toLowerCase())
     );
+
+    selectedDeviceB.value =
+      allDevices.find((device) =>
+        device.name.raw.toLowerCase() === queryB.toLowerCase()
+      ) ?? null;
   };
 
   const setQueryBSuggestion = (value: string) => {
-    queryB.value = value;
+    setQueryB(value);
     suggestionsB.value = [];
-
-    if (queryA.value && queryB.value) {
+    selectedDeviceB.value =
+      allDevices.find((device) =>
+        device.name.raw.toLowerCase() === queryB.toLowerCase()
+      ) ?? null;
+    if (selectedDeviceA.value && selectedDeviceB.value) {
       handleSubmit();
     }
   };
 
-  const handleFormSubmit = (event: Event) => {
-    event.preventDefault();
+  const handleFormSubmit = (e: Event) => {
+    e.preventDefault();
     handleSubmit();
   };
 
   const handleSubmit = () => {
-    const selectedDeviceA = allDevices.find((device) =>
-      device.name.raw === queryA.value
-    );
-    const selectedDeviceB = allDevices.find((device) =>
-      device.name.raw === queryB.value
-    );
-
-    if (selectedDeviceA && selectedDeviceB) {
-      const sanitizedA = selectedDeviceA.name.sanitized;
-      const sanitizedB = selectedDeviceB.name.sanitized;
+    if (selectedDeviceA.value && selectedDeviceB.value) {
+      const sanitizedA = selectedDeviceA.value.name.sanitized;
+      const sanitizedB = selectedDeviceB.value.name.sanitized;
       globalThis.location.href = `/compare?devices=${sanitizedA},${sanitizedB}`;
     } else {
       alert("Select valid devices for comparison.");
@@ -118,12 +135,13 @@ export function DeviceComparisonForm({
   };
 
   const handleExampleComparison = (deviceA: string, deviceB: string) => {
-    setQueryA(deviceA);
-    setQueryB(deviceB);
+    queryAChanged(deviceA);
+    queryBChanged(deviceB);
   };
 
   const isActive = (deviceName: string) => {
-    return deviceName === queryA.value || deviceName === queryB.value;
+    return deviceName.toLowerCase() === queryA.toLowerCase() ||
+      deviceName.toLowerCase() === queryB.toLowerCase();
   };
 
   return (
@@ -149,12 +167,13 @@ export function DeviceComparisonForm({
             </span>
             <input
               type="search"
-              value={queryA.value}
-              onInput={(e) => setQueryA(e.currentTarget.value)}
+              value={queryA}
+              onInput={(e) => queryAChanged(e.currentTarget.value)}
+              // onChange={(e) => queryAChanged(e.currentTarget.value)}
               placeholder="Search for a device..."
               aria-label="Search devices"
-              {...(queryA.value === "" ? {} : {
-                ariaInvalid: deviceNameIsInvalid(queryA.value),
+              {...(queryA === "" ? {} : {
+                ariaInvalid: deviceNameIsInvalid(queryA),
               })}
             />
           </div>
@@ -170,12 +189,13 @@ export function DeviceComparisonForm({
             </span>
             <input
               type="search"
-              value={queryB.value}
-              onInput={(e) => setQueryB(e.currentTarget.value)}
+              value={queryB}
+              onInput={(e) => queryBChanged(e.currentTarget.value)}
+              // onChange={(e) => queryBChanged(e.currentTarget.value)}
               placeholder="Search for a device..."
               aria-label="Search devices"
-              {...(queryB.value === "" ? {} : {
-                ariaInvalid: deviceNameIsInvalid(queryB.value),
+              {...(queryB === "" ? {} : {
+                ariaInvalid: deviceNameIsInvalid(queryB),
               })}
             />
           </div>
@@ -252,7 +272,7 @@ export function DeviceComparisonForm({
                   onClick={() => setQueryBSuggestion(device.name.raw)}
                   style={{
                     cursor: "pointer",
-                    backgroundColor: device.name.raw === queryB.value
+                    backgroundColor: device.name.raw === queryB
                       ? "var(--color-primary)"
                       : "transparent",
                   }}
