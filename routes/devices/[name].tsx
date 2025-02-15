@@ -8,14 +8,13 @@ import { EmulationPerformance } from "../../components/EmulationPerformance.tsx"
 import { StarRating } from "../../components/ratings/StarRating.tsx";
 import { CurrencyIcon } from "../../components/shared/CurrencyIcon.tsx";
 import { DeviceSpecs } from "../../components/specifications/DeviceSpecs.tsx";
-
-import { Tag } from "../../components/tags/Tag.tsx";
 import { Device } from "../../data/device.model.ts";
 import { ClipboardButton } from "../../islands/buttons/ClipboardButton.tsx";
 import { CompareButton } from "../../islands/buttons/CompareButton.tsx";
 import { ShareButton } from "../../islands/buttons/ShareButton.tsx";
-import DevicesSimilarRadarChart from "../../islands/charts/devices-similar-radar-chart.tsx";
+import { DevicesSimilarRadarChart } from "../../islands/charts/DevicesSimilarRadarChart.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
+import { Tag } from "../../components/tags/Tag.tsx";
 
 export default function DeviceDetail(props: PageProps) {
   const deviceService = DeviceService.getInstance();

@@ -2,7 +2,7 @@ import { useSignal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
 import { Device } from "../../data/device.model.ts";
 import { RatingsService } from "../../services/devices/ratings.service.ts";
-import FreshChart from "./chart.tsx";
+import { FreshChart } from "./FreshChart.tsx";
 import { Ranking } from "../../data/models/ranking.model.ts";
 
 interface RadarChartProps {

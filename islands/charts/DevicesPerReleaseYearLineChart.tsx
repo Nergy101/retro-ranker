@@ -1,6 +1,6 @@
-import FreshChart from "./chart.tsx";
 import { Device } from "../../data/device.model.ts";
 import { useSignal } from "@preact/signals";
+import { FreshChart } from "./FreshChart.tsx";
 
 interface LineChartProps {
   devices: Device[];

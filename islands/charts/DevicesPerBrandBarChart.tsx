@@ -1,5 +1,5 @@
 import { Device } from "../../data/device.model.ts";
-import FreshChart from "./chart.tsx";
+import { FreshChart } from "./FreshChart.tsx";
 import { useSignal } from "@preact/signals";
 
 interface BarChartProps {

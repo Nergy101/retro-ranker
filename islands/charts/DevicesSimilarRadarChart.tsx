@@ -1,6 +1,6 @@
 import { useSignal } from "@preact/signals";
 import type { Device } from "../../data/device.model.ts";
-import { DevicesRadarChart } from "./devices-radar-chart.tsx";
+import { DevicesRadarChart } from "./DevicesRadarChart.tsx";
 
 interface DevicesSimilarRadarChartProps {
   device: Device;
@@ -8,7 +8,7 @@ interface DevicesSimilarRadarChartProps {
   showTitle?: boolean;
 }
 
-export default function DevicesSimilarRadarChart({
+export function DevicesSimilarRadarChart({
   device,
   similarDevices,
   showTitle = true,

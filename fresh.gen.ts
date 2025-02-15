@@ -18,12 +18,12 @@ import * as $terms from "./routes/terms.tsx";
 import * as $buttons_ClipboardButton from "./islands/buttons/ClipboardButton.tsx";
 import * as $buttons_CompareButton from "./islands/buttons/CompareButton.tsx";
 import * as $buttons_ShareButton from "./islands/buttons/ShareButton.tsx";
-import * as $charts_chart from "./islands/charts/chart.tsx";
-import * as $charts_devices_per_brand_bar_chart from "./islands/charts/devices-per-brand-bar-chart.tsx";
-import * as $charts_devices_per_ranking_bar_chart from "./islands/charts/devices-per-ranking-bar-chart.tsx";
-import * as $charts_devices_per_release_year_line_chart from "./islands/charts/devices-per-release-year-line-chart.tsx";
-import * as $charts_devices_radar_chart from "./islands/charts/devices-radar-chart.tsx";
-import * as $charts_devices_similar_radar_chart from "./islands/charts/devices-similar-radar-chart.tsx";
+import * as $charts_DevicesPerBrandBarChart from "./islands/charts/DevicesPerBrandBarChart.tsx";
+import * as $charts_DevicesPerRankingBarChart from "./islands/charts/DevicesPerRankingBarChart.tsx";
+import * as $charts_DevicesPerReleaseYearLineChart from "./islands/charts/DevicesPerReleaseYearLineChart.tsx";
+import * as $charts_DevicesRadarChart from "./islands/charts/DevicesRadarChart.tsx";
+import * as $charts_DevicesSimilarRadarChart from "./islands/charts/DevicesSimilarRadarChart.tsx";
+import * as $charts_FreshChart from "./islands/charts/FreshChart.tsx";
 import * as $forms_DeviceComparisonForm from "./islands/forms/DeviceComparisonForm.tsx";
 import * as $forms_DeviceSearchForm from "./islands/forms/DeviceSearchForm.tsx";
 import * as $navigation_Breadcrumb from "./islands/navigation/Breadcrumb.tsx";
@@ -53,16 +53,16 @@ const manifest = {
     "./islands/buttons/ClipboardButton.tsx": $buttons_ClipboardButton,
     "./islands/buttons/CompareButton.tsx": $buttons_CompareButton,
     "./islands/buttons/ShareButton.tsx": $buttons_ShareButton,
-    "./islands/charts/chart.tsx": $charts_chart,
-    "./islands/charts/devices-per-brand-bar-chart.tsx":
-      $charts_devices_per_brand_bar_chart,
-    "./islands/charts/devices-per-ranking-bar-chart.tsx":
-      $charts_devices_per_ranking_bar_chart,
-    "./islands/charts/devices-per-release-year-line-chart.tsx":
-      $charts_devices_per_release_year_line_chart,
-    "./islands/charts/devices-radar-chart.tsx": $charts_devices_radar_chart,
-    "./islands/charts/devices-similar-radar-chart.tsx":
-      $charts_devices_similar_radar_chart,
+    "./islands/charts/DevicesPerBrandBarChart.tsx":
+      $charts_DevicesPerBrandBarChart,
+    "./islands/charts/DevicesPerRankingBarChart.tsx":
+      $charts_DevicesPerRankingBarChart,
+    "./islands/charts/DevicesPerReleaseYearLineChart.tsx":
+      $charts_DevicesPerReleaseYearLineChart,
+    "./islands/charts/DevicesRadarChart.tsx": $charts_DevicesRadarChart,
+    "./islands/charts/DevicesSimilarRadarChart.tsx":
+      $charts_DevicesSimilarRadarChart,
+    "./islands/charts/FreshChart.tsx": $charts_FreshChart,
     "./islands/forms/DeviceComparisonForm.tsx": $forms_DeviceComparisonForm,
     "./islands/forms/DeviceSearchForm.tsx": $forms_DeviceSearchForm,
     "./islands/navigation/Breadcrumb.tsx": $navigation_Breadcrumb,
