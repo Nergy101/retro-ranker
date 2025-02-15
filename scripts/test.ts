@@ -9,4 +9,4 @@ const sortedDevices = devices.sort((a: Device, b: Device) => {
   return (b.screen.ppi?.[0] ?? 0) - (a.screen.ppi?.[0] ?? 0);
 });
 
-console.log(sortedDevices[0].screen.ppi?.[0], sortedDevices[0].name.raw);
+console.info(sortedDevices[0].screen.ppi?.[0], sortedDevices[0].name.raw);

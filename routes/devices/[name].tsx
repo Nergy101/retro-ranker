@@ -445,7 +445,7 @@ export default function DeviceDetail(props: PageProps) {
 
           <div class="divider" style="padding: 0.5rem 0;"></div>
 
-          <details>
+          <details open>
             <summary>
               <strong style={{ color: "var(--pico-primary)" }}>
                 Full Specifications

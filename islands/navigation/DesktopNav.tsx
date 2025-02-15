@@ -1,50 +1,139 @@
 import { ThemeSwitcher } from "./ThemeSwitcher.tsx";
 import { navigationItems } from "../../data/navigation-items.ts";
+import { useSignal } from "@preact/signals";
+import { useEffect, useRef } from "preact/hooks";
+import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
+import { Device } from "../../data/device.model.ts";
 
-export function DesktopNav({ pathname }: { pathname: string }) {
+export function DesktopNav(
+  { pathname, allDevices }: { pathname: string; allDevices: Device[] },
+) {
+  const suggestionsRef = useRef<HTMLUListElement>(null);
+
+  const selectedDevice = useSignal<Device | null>(null);
+  const suggestions = useSignal<Device[]>([]);
+  const query = useSignal<string>("");
+  const isActive = (deviceName: string) => {
+    return deviceName.toLowerCase() ===
+      selectedDevice.value?.name.raw.toLowerCase();
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        suggestionsRef.current &&
+        !suggestionsRef.current.contains(event.target as Node)
+      ) {
+        suggestions.value = [];
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
+  const queryChanged = (value: string) => {
+    query.value = value;
+    suggestions.value = allDevices.filter((device) =>
+      device.name.raw.toLowerCase().includes(value.trim().toLowerCase()) ||
+      device.brand.toLowerCase().includes(value.trim().toLowerCase())
+    ).sort((a, b) => a.name.raw.localeCompare(b.name.raw));
+
+    selectedDevice.value =
+      allDevices.find((device) =>
+        device.name.raw.toLowerCase() === value.toLowerCase()
+      ) ?? null;
+  };
+
+  const setQuerySuggestion = (value: string) => {
+    queryChanged(value);
+    suggestions.value = [];
+
+    if (selectedDevice.value) {
+      globalThis.location.href =
+        `/devices/${selectedDevice.value.name.sanitized}`;
+    }
+  };
+
+  const handleSubmit = () => {
+    if (selectedDevice.value) {
+      const sanitized = selectedDevice.value.name.sanitized;
+      globalThis.location.href = `/devices/${sanitized}`;
+      return;
+    }
+    globalThis.location.href = "/devices?search=" + query.value;
+  };
+
   return (
-    <nav class="desktop-nav">
-      <ul class="desktop-nav-ul">
-        <li class="logo-nav-item">
-          <a href="/">
-            <img
-              loading="lazy"
-              src="/logo-no-background.svg"
-              alt="logo"
-              width="120"
-            />
-          </a>
-        </li>
-        {navigationItems.map((item) => (
-          <li class="nav-item">
-            <a
-              href={item.href}
-              class={item.isActive(pathname) ? "nav-a active" : "nav-a"}
-            >
-              <span class="nav-item-label">
-                {item.icon && item.icon({ style: { minWidth: "1rem" } })}
-                {item.label}
-              </span>
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <nav class="desktop-nav">
+        <ul class="desktop-nav-ul">
+          <li class="logo-nav-item">
+            <a href="/">
+              <img
+                loading="lazy"
+                src="/logo-no-background.svg"
+                alt="logo"
+                width="120"
+              />
             </a>
           </li>
-        ))}
-        <li class="nav-search-item">
-          <form
-            action="/devices"
-            method="get"
-          >
-            <input
-              type="search"
-              placeholder="Search"
-              name="search"
-              aria-label="Search"
-            />
-          </form>
-        </li>
-        <li class="nav-theme-item">
-          <ThemeSwitcher showNames={false} showTooltip={false} />
-        </li>
-      </ul>
-    </nav>
+          {navigationItems.map((item) => (
+            <li class="nav-item">
+              <a
+                href={item.href}
+                class={item.isActive(pathname) ? "nav-a active" : "nav-a"}
+              >
+                <span class="nav-item-label">
+                  {item.icon && item.icon({ style: { minWidth: "1rem" } })}
+                  {item.label}
+                </span>
+              </a>
+            </li>
+          ))}
+          <li class="nav-search-item">
+            <div>
+              <input
+                type="search"
+                placeholder="Search"
+                name="search"
+                aria-label="Search"
+                onInput={(e) => queryChanged(e.currentTarget.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    handleSubmit();
+                  }
+                }}
+              />
+            </div>
+          </li>
+          <li class="nav-theme-item">
+            <ThemeSwitcher showNames={false} showTooltip={false} />
+          </li>
+        </ul>
+      </nav>
+
+      <div id="suggestions-container">
+        {suggestions.value.length > 0 && (
+          <ul class="suggestions-list" ref={suggestionsRef}>
+            {suggestions.value.map((device) => (
+              <li
+                key={device.name.sanitized}
+                onClick={() => setQuerySuggestion(device.name.raw)}
+                class="suggestions-list-item"
+              >
+                <DeviceCardMedium
+                  device={device}
+                  isActive={isActive(device.name.raw)}
+                />
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </div>
   );
 }

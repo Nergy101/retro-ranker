@@ -3,8 +3,12 @@ import { type PageProps } from "$fresh/server.ts";
 import Footer from "../components/shared/Footer.tsx";
 import { Breadcrumb } from "../islands/navigation/Breadcrumb.tsx";
 import { Navbar } from "../islands/navigation/Navbar.tsx";
+import { DeviceService } from "../services/devices/device.service.ts";
 
 export default function App({ Component, url }: PageProps) {
+  const allDevices = DeviceService.getInstance().getAllDevices()
+  .sort((a, b) => a.name.raw.localeCompare(b.name.raw));
+
   return (
     <html class="transition-colors" lang="en">
       <Head>
@@ -91,7 +95,7 @@ export default function App({ Component, url }: PageProps) {
         />
       </Head>
       <body>
-        <Navbar pathname={url.pathname} />
+        <Navbar pathname={url.pathname} allDevices={allDevices} />
 
         <main
           class="container content"

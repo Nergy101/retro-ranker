@@ -1,9 +1,14 @@
 import { PiListBold } from "@preact-icons/pi";
-import { useEffect } from "preact/hooks";
+import { useEffect, useRef } from "preact/hooks";
 import { navigationItems } from "../../data/navigation-items.ts";
+import { Device } from "../../data/device.model.ts";
 import { ThemeSwitcher } from "./ThemeSwitcher.tsx";
+import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
+import { useSignal } from "@preact/signals";
 
-export function MobileNav({ pathname }: { pathname: string }) {
+export function MobileNav(
+  { pathname, allDevices }: { pathname: string; allDevices: Device[] },
+) {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const mobileNavContent = document.querySelector(".mobile-nav-content");
@@ -30,70 +35,156 @@ export function MobileNav({ pathname }: { pathname: string }) {
     };
   }, []);
 
+  const suggestionsRef = useRef<HTMLUListElement>(null);
+
+  const selectedDevice = useSignal<Device | null>(null);
+  const suggestions = useSignal<Device[]>([]);
+  const query = useSignal<string>("");
+  const isActive = (deviceName: string) => {
+    return deviceName.toLowerCase() ===
+      selectedDevice.value?.name.raw.toLowerCase();
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        suggestionsRef.current &&
+        !suggestionsRef.current.contains(event.target as Node)
+      ) {
+        suggestions.value = [];
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
+  const queryChanged = (value: string) => {
+    query.value = value;
+    suggestions.value = allDevices.filter((device) =>
+      device.name.raw.toLowerCase().includes(value.trim().toLowerCase()) ||
+      device.brand.toLowerCase().includes(value.trim().toLowerCase())
+    ).sort((a, b) => a.name.raw.localeCompare(b.name.raw));
+
+    selectedDevice.value =
+      allDevices.find((device) =>
+        device.name.raw.toLowerCase() === value.toLowerCase()
+      ) ?? null;
+  };
+
+  const setQuerySuggestion = (value: string) => {
+    queryChanged(value);
+    suggestions.value = [];
+
+    if (selectedDevice.value) {
+      globalThis.location.href =
+        `/devices/${selectedDevice.value.name.sanitized}`;
+    }
+  };
+
+  const handleSubmit = () => {
+    if (selectedDevice.value) {
+      const sanitized = selectedDevice.value.name.sanitized;
+      globalThis.location.href = `/devices/${sanitized}`;
+      return;
+    }
+    globalThis.location.href = "/devices?search=" + query.value;
+  };
+
   return (
-    <nav class="mobile-nav">
-      <div class="mobile-nav-header">
-        <a href="/">
-          <img
-            loading="lazy"
-            src="/logo-no-background.svg"
-            alt="logo"
-            width="120"
-          />
-        </a>
-
-        <div class="mobile-nav-search-item">
-          <form action="/devices" method="get">
-            <input
-              type="search"
-              placeholder="Search"
-              name="search"
-              aria-label="Search"
-              style={{ margin: 0 }}
+    <div>
+      <nav class="mobile-nav">
+        <div class="mobile-nav-header">
+          <a href="/">
+            <img
+              loading="lazy"
+              src="/logo-no-background.svg"
+              alt="logo"
+              width="120"
             />
-          </form>
-        </div>
+          </a>
 
-        <button
-          class="burger-menu"
-          onClick={() => {
-            document.querySelector(".mobile-nav-content")?.classList
-              .toggle("show");
+          <div class="mobile-nav-search-item">
+            <div>
+              <input
+                type="search"
+                placeholder="Search"
+                name="search"
+                aria-label="Search"
+                style={{ margin: 0 }}
+                onInput={(e) => queryChanged(e.currentTarget.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    handleSubmit();
+                  }
+                }}
+              />
+            </div>
+          </div>
+
+          <button
+            class="burger-menu"
+            onClick={() => {
+              document.querySelector(".mobile-nav-content")?.classList
+                .toggle("show");
+            }}
+            aria-label="Toggle menu"
+          >
+            <PiListBold />
+          </button>
+
+          <div class="mobile-nav-theme-switcher">
+            <ThemeSwitcher showTooltip={false} showNames={false} />
+          </div>
+        </div>
+        <div
+          class="mobile-nav-content"
+          style={{
+            paddingTop: "1em",
+            borderBottom: "1px solid var(--pico-primary)",
           }}
-          aria-label="Toggle menu"
         >
-          <PiListBold />
-        </button>
-
-        <div class="mobile-nav-theme-switcher">
-          <ThemeSwitcher showTooltip={false} showNames={false} />
+          <ul>
+            {navigationItems.map((item) => (
+              <li style={{ padding: "0" }}>
+                <a
+                  href={item.href}
+                  class={item.isActive(pathname)
+                    ? "mobile-active mobile-nav-button"
+                    : "mobile-nav-button"}
+                >
+                  <span style={{ display: "flex", alignItems: "center" }}>
+                    {item.icon && item.icon({ style: { fontSize: "1.3rem" } })}
+                    &nbsp;{item.label}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
-      </div>
-      <div
-        class="mobile-nav-content"
-        style={{
-          paddingTop: "1em",
-          borderBottom: "1px solid var(--pico-primary)",
-        }}
-      >
-        <ul>
-          {navigationItems.map((item) => (
-            <li style={{ padding: "0" }}>
-              <a
-                href={item.href}
-                class={item.isActive(pathname)
-                  ? "mobile-active mobile-nav-button"
-                  : "mobile-nav-button"}
+      </nav>
+
+      <div id="suggestions-container" >
+        {suggestions.value.length > 0 && (
+          <ul class="suggestions-list" ref={suggestionsRef}>
+            {suggestions.value.map((device) => (
+              <li
+                key={device.name.sanitized}
+                onClick={() => setQuerySuggestion(device.name.raw)}
+                class="suggestions-list-item"
               >
-                <span style={{ display: "flex", alignItems: "center" }}>
-                  {item.icon && item.icon({ style: { fontSize: "1.3rem" } })}
-                  &nbsp;{item.label}
-                </span>
-              </a>
-            </li>
-          ))}
-        </ul>
+                <DeviceCardMedium
+                  device={device}
+                  isActive={isActive(device.name.raw)}
+                />
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
-    </nav>
+    </div>
   );
 }

@@ -2,8 +2,11 @@ import { useEffect } from "preact/hooks";
 import { useSignal } from "@preact/signals";
 import { MobileNav } from "./MobileNav.tsx";
 import { DesktopNav } from "./DesktopNav.tsx";
+import { Device } from "../../data/device.model.ts";
 
-export function Navbar({ pathname }: { pathname: string }) {
+export function Navbar(
+  { pathname, allDevices }: { pathname: string; allDevices: Device[] },
+) {
   const isMobile = useSignal(globalThis.innerWidth <= 768);
   const isLoading = useSignal(true);
 
@@ -29,8 +32,8 @@ export function Navbar({ pathname }: { pathname: string }) {
   return (
     <>
       {isMobile.value
-        ? <MobileNav pathname={pathname} />
-        : <DesktopNav pathname={pathname} />}
+        ? <MobileNav pathname={pathname} allDevices={allDevices} />
+        : <DesktopNav pathname={pathname} allDevices={allDevices} />}
     </>
   );
 }

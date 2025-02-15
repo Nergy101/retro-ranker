@@ -72,11 +72,7 @@ export function DeviceComparisonForm({
     suggestionsA.value = allDevices.filter((device) =>
       device.name.raw.toLowerCase().includes(value.trim().toLowerCase()) ||
       device.brand.toLowerCase().includes(value.trim().toLowerCase())
-    ).sort((a, b) => {
-      const dateA = a.released.mentionedDate ? new Date(a.released.mentionedDate) : new Date(0);
-      const dateB = b.released.mentionedDate ? new Date(b.released.mentionedDate) : new Date(0);
-      return dateB.getTime() - dateA.getTime();
-    });
+    ).sort((a, b) => a.name.raw.localeCompare(b.name.raw));
 
     selectedDeviceA.value =
       allDevices.find((device) =>
@@ -89,11 +85,7 @@ export function DeviceComparisonForm({
     suggestionsB.value = allDevices.filter((device) =>
       device.name.raw.toLowerCase().includes(value.trim().toLowerCase()) ||
       device.brand.toLowerCase().includes(value.trim().toLowerCase())
-    ).sort((a, b) => {
-      const dateA = a.released.mentionedDate ? new Date(a.released.mentionedDate) : new Date(0);
-      const dateB = b.released.mentionedDate ? new Date(b.released.mentionedDate) : new Date(0);
-      return dateB.getTime() - dateA.getTime();
-    });
+    ).sort((a, b) => a.name.raw.localeCompare(b.name.raw));
 
     selectedDeviceB.value =
       allDevices.find((device) =>
