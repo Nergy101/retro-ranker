@@ -120,6 +120,7 @@ export default function DevicesIndex(props: PageProps) {
           initialPage={pageNumber}
           initialTags={initialTags}
           defaultTags={defaultTags}
+          activeLayout={activeLayout}
         />
 
         <hr />

@@ -12,6 +12,7 @@ interface DeviceSearchFormProps {
   initialFilter: string;
   initialTags: TagModel[];
   defaultTags: TagModel[];
+  activeLayout: string;
 }
 
 export function DeviceSearchForm(
@@ -23,6 +24,7 @@ export function DeviceSearchForm(
     initialFilter,
     initialTags,
     defaultTags,
+    activeLayout,
   }: DeviceSearchFormProps,
 ) {
   const umamiService = UmamiService.getInstance();
@@ -89,7 +91,6 @@ export function DeviceSearchForm(
   }, []);
 
   const getTagsHref = (
-    tags: TagModel[],
     tag: TagModel,
     type: "add" | "remove",
   ) => {
@@ -98,22 +99,22 @@ export function DeviceSearchForm(
     let filteredTags = [];
 
     if (type === "add") {
-      filteredTags = tags.filter((t) => t.type !== tag.type)
+      filteredTags = initialTags.filter((t) => t.type !== tag.type)
         .concat(tag)
         .filter((t) => t.slug !== "");
     } else {
-      filteredTags = tags.filter((t) => t.type !== tag.type).filter((t) =>
-        t.slug !== ""
-      );
+      filteredTags = initialTags.filter((t) => t.type !== tag.type).filter((
+        t,
+      ) => t.slug !== "");
     }
 
     tagSlugs = filteredTags.map((t) => t.slug).join(",");
 
     if (tagSlugs != "") {
-      return `/devices?tags=${tagSlugs}&sort=${sort.value}&filter=${filter.value}&page=${page.value}&search=${searchQuery.value}`;
+      return `/devices?tags=${tagSlugs}&sort=${sort.value}&filter=${filter.value}&page=${page.value}&layout=${activeLayout}&search=${searchQuery.value}`;
     }
 
-    return `/devices?sort=${sort.value}&filter=${filter.value}&page=${page.value}&search=${searchQuery.value}`;
+    return `/devices?sort=${sort.value}&filter=${filter.value}&page=${page.value}&layout=${activeLayout}&search=${searchQuery.value}`;
   };
 
   const renderTags = () => {
@@ -127,7 +128,6 @@ export function DeviceSearchForm(
                 tag={tag}
                 type="remove"
                 href={getTagsHref(
-                  initialTags,
                   tag,
                   "remove",
                 )}
@@ -141,7 +141,7 @@ export function DeviceSearchForm(
               <FilterTag
                 tag={tag}
                 type={"add"}
-                href={getTagsHref(initialTags, tag, "add")}
+                href={getTagsHref(tag, "add")}
               />
             );
           })}
