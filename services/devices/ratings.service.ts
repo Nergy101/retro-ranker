@@ -265,7 +265,7 @@ export class RatingsService {
       // Add a small contribution from PPI, to allow devices with the same panel type
       // to be differentiated by higher DPI. The weight is reduced compared to the type score.
       const ppi = device.screen.ppi?.[0] ?? 0;
-      const ppiContribution = ppi * 0.05; // e.g., 300 PPI adds about 15 points
+      const ppiContribution = ppi * 0.05; // e.g., 300 PPI adds about 15 points and 200PPI adds about 10 points
 
       score = baseScore + ppiContribution;
     } else {
@@ -275,7 +275,7 @@ export class RatingsService {
 
     // Normalize the score so that the final monitor rating is scaled between 1 (worst) and 10 (best).
     // The expected score range is roughly 50 (lowest) to 320 (highest) based on the chosen constants.
-    const normalized = this.normalizeFacetScore(score, 50, 320);
+    const normalized = this.normalizeFacetScore(score, 50, 360);
     return Number(normalized.toFixed(1));
   }
 
