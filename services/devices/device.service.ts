@@ -165,7 +165,7 @@ export class DeviceService {
           return (b.totalRating) -
             (a.totalRating);
         default:
-          return 0;
+          return query ? a.name.raw.localeCompare(b.name.raw) : 0;
       }
     });
 
