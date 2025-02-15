@@ -14,7 +14,7 @@ import { CompareButton } from "../../islands/buttons/CompareButton.tsx";
 import { ShareButton } from "../../islands/buttons/ShareButton.tsx";
 import { DevicesSimilarRadarChart } from "../../islands/charts/DevicesSimilarRadarChart.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
-import { TagComponent } from "../../components/tags/TagComponent.tsx";
+import { TagComponent } from "../../components/shared/TagComponent.tsx";
 
 export default function DeviceDetail(props: PageProps) {
   const deviceService = DeviceService.getInstance();

@@ -1,6 +1,6 @@
 import { useSignal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
-import { FilterTag } from "../../components/tags/FilterTag.tsx";
+import { FilterTag } from "../../components/shared/FilterTag.tsx";
 import { TagModel } from "../../data/models/tag.model.ts";
 import { UmamiService } from "../../services/umami/umami.service.ts";
 

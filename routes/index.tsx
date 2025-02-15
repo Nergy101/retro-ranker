@@ -7,7 +7,7 @@ import {
 } from "@preact-icons/pi";
 import { DeviceCardMedium } from "../components/cards/DeviceCardMedium.tsx";
 import { SeeMoreCard } from "../components/cards/SeeMoreCard.tsx";
-import { TagComponent } from "../components/tags/TagComponent.tsx";
+import { TagComponent } from "../components/shared/TagComponent.tsx";
 import { TagModel } from "../data/models/tag.model.ts";
 import { DeviceService } from "../services/devices/device.service.ts";
 
