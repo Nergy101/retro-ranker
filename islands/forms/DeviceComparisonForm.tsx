@@ -94,7 +94,7 @@ export function DeviceComparisonForm({
   };
 
   const setQueryASuggestion = (value: string) => {
-    queryA.value = value;
+    queryAChanged(value);
     suggestionsA.value = [];
 
     if (selectedDeviceA.value && selectedDeviceB.value) {
