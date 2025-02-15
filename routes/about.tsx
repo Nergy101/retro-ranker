@@ -103,16 +103,8 @@ export default function AboutPage() {
             <li>Performance ratings for different emulation capabilities</li>
             <li>Side-by-side device comparisons</li>
             <li>
-              Real-world performance metrics and benchmarks{" "}
-              <span data-tooltip="Coming soon" data-placement="right">
-                (🚧)
-              </span>
-            </li>
-            <li>
-              Up-to-date pricing and availability information{" "}
-              <span data-tooltip="Coming soon" data-placement="right">
-                (🚧)
-              </span>
+              Charts and graphs to visualize device performance and
+              specifications
             </li>
           </ul>
         </details>
@@ -167,6 +159,26 @@ export default function AboutPage() {
               Discord
             </a>{" "}
             to connect with fellow enthusiasts and share your experiences.
+          </p>
+        </details>
+
+        <details>
+          <summary class="flex items-center gap-2">
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <PiQuestion class="text-3xl" />
+              &nbsp;This website looks a lot like...
+            </div>
+          </summary>
+          <p>
+            I'm a big fan of the work done by Jipsony on his website{" "}
+            <a href="https://retrocatalog.com/" class="text-primary">
+              Retro Catalog
+            </a>
+            .
+            <br />
+            I've borrowed some of his ideas for this website.
+            <br />
+            In the end, I'm just hoping to be of some help to the community.
           </p>
         </details>
 
