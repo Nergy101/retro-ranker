@@ -1,6 +1,6 @@
 // deno-lint-ignore-file no-console
 import { FreshContext } from "$fresh/server.ts";
-import { Tag } from "../../../data/models/tag.model.ts";
+import { TagModel } from "../../../data/models/tag.model.ts";
 import { DeviceService } from "../../../services/devices/device.service.ts";
 
 export const handler = {
@@ -31,7 +31,7 @@ export const handler = {
 
     const tags = tagsParam.map((tag) => {
       return deviceService.getTagBySlug(tag);
-    }).filter((tag) => tag !== null) as Tag[];
+    }).filter((tag) => tag !== null) as TagModel[];
 
     if (searchQuery || category || sortBy || filter || pageNumber || pageSize) {
       const devices = deviceService.searchDevices(

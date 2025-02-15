@@ -5,7 +5,7 @@ import { mapHandheldsColumnToDevice } from "./device.parser.map.handheld.columns
 import { mapOEMsColumnToDevice } from "./device.parser.map.oem.columns.ts";
 import { DeviceService } from "../../../services/devices/device.service.ts";
 import { slugify } from "https://deno.land/x/slugify@0.3.0/mod.ts";
-import { Tag } from "../../models/tag.model.ts";
+import { TagModel } from "../../models/tag.model.ts";
 import { personalPicks } from "../../personal-picks.ts";
 
 export class DeviceParser {
@@ -500,7 +500,7 @@ export class DeviceParser {
     return devices;
   }
 
-  private static getTags(device: Device): Tag[] {
+  private static getTags(device: Device): TagModel[] {
     return [
       ...this.getOsTags(device),
       this.getBrandTag(device),
@@ -508,22 +508,22 @@ export class DeviceParser {
       this.getFormFactorTag(device),
       this.getReleaseDateTag(device),
       this.getPersonalPickTag(device),
-    ].filter((tag) => tag !== null) as Tag[];
+    ].filter((tag) => tag !== null) as TagModel[];
   }
 
-  private static getOsTags(device: Device): Tag[] {
+  private static getOsTags(device: Device): TagModel[] {
     return device.os.list.map((tag) => {
       const slug = slugify(tag).toLowerCase();
 
       if (tag.toLowerCase().includes("steam")) {
-        return { name: "Steam OS", slug: "steam-os", type: "os" } as Tag;
+        return { name: "Steam OS", slug: "steam-os", type: "os" } as TagModel;
       }
 
-      return { name: tag, slug, type: "os" } as Tag;
+      return { name: tag, slug, type: "os" } as TagModel;
     });
   }
 
-  private static getBrandTag(device: Device): Tag | null {
+  private static getBrandTag(device: Device): TagModel | null {
     if (device.brand === "") {
       return null;
     }
@@ -532,31 +532,31 @@ export class DeviceParser {
       name: device.brand,
       slug: slugify(device.brand).toLowerCase(),
       type: "brand",
-    } as Tag;
+    } as TagModel;
   }
 
-  private static getPriceTag(device: Device): Tag | null {
+  private static getPriceTag(device: Device): TagModel | null {
     const slug = slugify(device.pricing.category ?? "").toLowerCase();
     if (slug === "low") {
-      return { name: "$", slug: "low", type: "price" } as Tag;
+      return { name: "$", slug: "low", type: "price" } as TagModel;
     }
 
     if (slug === "mid") {
-      return { name: "$$", slug: "mid", type: "price" } as Tag;
+      return { name: "$$", slug: "mid", type: "price" } as TagModel;
     }
 
     if (slug === "high") {
-      return { name: "$$$", slug: "high", type: "price" } as Tag;
+      return { name: "$$$", slug: "high", type: "price" } as TagModel;
     }
 
     if (slug === "unknown") {
-      return { name: "$??", slug: "price-unknown", type: "price" } as Tag;
+      return { name: "$??", slug: "price-unknown", type: "price" } as TagModel;
     }
 
     return null;
   }
 
-  private static getFormFactorTag(device: Device): Tag | null {
+  private static getFormFactorTag(device: Device): TagModel | null {
     const slug = slugify(device.formFactor ?? "").toLowerCase();
 
     if (slug.includes("horizontal")) {
@@ -564,11 +564,15 @@ export class DeviceParser {
         name: "Horizontal",
         slug: "horizontal",
         type: "formFactor",
-      } as Tag;
+      } as TagModel;
     }
 
     if (slug.includes("vertical")) {
-      return { name: "Vertical", slug: "vertical", type: "formFactor" } as Tag;
+      return {
+        name: "Vertical",
+        slug: "vertical",
+        type: "formFactor",
+      } as TagModel;
     }
 
     if (slug.includes("clamshell")) {
@@ -576,19 +580,23 @@ export class DeviceParser {
         name: "Clamshell",
         slug: "clamshell",
         type: "formFactor",
-      } as Tag;
+      } as TagModel;
     }
 
     if (device.formFactor === null) {
       return null;
     }
 
-    return { name: device.formFactor, slug, type: "formFactor" } as Tag;
+    return { name: device.formFactor, slug, type: "formFactor" } as TagModel;
   }
 
-  private static getReleaseDateTag(device: Device): Tag | null {
+  private static getReleaseDateTag(device: Device): TagModel | null {
     if (device.released.raw?.toLowerCase().includes("upcoming")) {
-      return { name: "Upcoming", slug: "upcoming", type: "releaseDate" } as Tag;
+      return {
+        name: "Upcoming",
+        slug: "upcoming",
+        type: "releaseDate",
+      } as TagModel;
     }
 
     // get year from date otherwise null
@@ -598,19 +606,19 @@ export class DeviceParser {
         name: year.toString(),
         slug: `year-${year}`,
         type: "releaseDate",
-      } as Tag;
+      } as TagModel;
     }
 
     return null;
   }
 
-  private static getPersonalPickTag(device: Device): Tag | null {
+  private static getPersonalPickTag(device: Device): TagModel | null {
     if (personalPicks.includes(device.name.sanitized)) {
       return {
         name: "Personal Pick",
         slug: "personal-pick",
         type: "personalPick",
-      } as Tag;
+      } as TagModel;
     }
 
     return null;

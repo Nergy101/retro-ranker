@@ -7,9 +7,9 @@ import {
 } from "@preact-icons/pi";
 import { DeviceCardMedium } from "../components/cards/DeviceCardMedium.tsx";
 import { SeeMoreCard } from "../components/cards/SeeMoreCard.tsx";
+import { TagComponent } from "../components/tags/TagComponent.tsx";
+import { TagModel } from "../data/models/tag.model.ts";
 import { DeviceService } from "../services/devices/device.service.ts";
-import { Tag } from "../components/tags/Tag.tsx";
-import { Tag as TagModel } from "../data/models/tag.model.ts";
 
 export default function Home() {
   // Filter devices into categories
@@ -61,7 +61,7 @@ export default function Home() {
       >
         <div class="container-fluid">
           <div class="tags">
-            {defaultTags.map((tag) => <Tag tag={tag} />)}
+            {defaultTags.map((tag) => <TagComponent tag={tag} />)}
           </div>
           <hr />
 

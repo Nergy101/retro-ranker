@@ -25,7 +25,7 @@ import { MiscellaneousSpecsTable } from "../specifications/tables/MiscellaneousS
 import { PhysicalSpecsTable } from "../specifications/tables/PhysicalSpecsTable.tsx";
 import { ProcessingSpecsTable } from "../specifications/tables/ProcessingSpecsTable.tsx";
 import { AudioTable } from "../specifications/tables/AudioTable.tsx";
-import { Tag } from "../tags/Tag.tsx";
+import { TagComponent } from "../tags/TagComponent.tsx";
 
 interface DeviceComparisonResultProps {
   device: Device;
@@ -302,7 +302,7 @@ export function DeviceComparisonResult(
             Tags
           </strong>
           <div class="tags">
-            {device.tags.map((tag) => <Tag tag={tag} />)}
+            {device.tags.map((tag) => <TagComponent tag={tag} />)}
           </div>
         </div>
       </div>

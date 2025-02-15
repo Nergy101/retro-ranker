@@ -1,7 +1,7 @@
 import { PiTag } from "@preact-icons/pi";
-import { Tag as TagModel } from "../../data/models/tag.model.ts";
+import { TagModel } from "../../data/models/tag.model.ts";
 
-export function Tag({ tag }: { tag: TagModel }) {
+export function TagComponent({ tag }: { tag: TagModel }) {
   const slug = tag.slug;
 
   return (

@@ -4,7 +4,7 @@ import {
   PiCaretLeftBold,
   PiCaretRightBold,
 } from "@preact-icons/pi";
-import { Tag } from "../../data/models/tag.model.ts";
+import { TagModel } from "../../data/models/tag.model.ts";
 
 interface PaginationNavProps {
   pageNumber: number;
@@ -14,7 +14,7 @@ interface PaginationNavProps {
   searchCategory: string;
   sortBy: string;
   filter: string;
-  tags: Tag[];
+  tags: TagModel[];
 }
 
 export function PaginationNav({

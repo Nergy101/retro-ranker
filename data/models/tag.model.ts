@@ -1,4 +1,4 @@
-export interface Tag {
+export interface TagModel {
   name: string;
   slug: string;
   type:

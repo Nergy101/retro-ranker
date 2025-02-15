@@ -2,7 +2,7 @@ import { Head, Partial } from "$fresh/runtime.ts";
 import { PageProps } from "$fresh/server.ts";
 import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
 import { PaginationNav } from "../../components/shared/PaginationNav.tsx";
-import { Tag as TagModel } from "../../data/models/tag.model.ts";
+import { TagModel } from "../../data/models/tag.model.ts";
 import { DeviceSearchForm } from "../../islands/forms/DeviceSearchForm.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
 

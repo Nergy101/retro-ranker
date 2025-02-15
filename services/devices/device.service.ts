@@ -27,12 +27,12 @@ import {
 import { JSX, VNode } from "preact";
 import { Device } from "../../data/device.model.ts";
 import { Cooling } from "../../data/models/cooling.model.ts";
+import { TagModel } from "../../data/models/tag.model.ts";
 import { RatingsService } from "./ratings.service.ts";
-import { Tag } from "../../data/models/tag.model.ts";
 import { personalPicks } from "../../data/personal-picks.ts";
 export class DeviceService {
   private devices: Device[] = [];
-  private tags: Tag[] = [];
+  private tags: TagModel[] = [];
 
   private static instance: DeviceService;
 
@@ -80,7 +80,7 @@ export class DeviceService {
       | "all"
       | "upcoming"
       | "personal-picks" = "all",
-    tags: Tag[] = [],
+    tags: TagModel[] = [],
     pageNumber: number = 1,
     pageSize: number = 9,
   ): { page: Device[]; totalAmountOfResults: number } {
@@ -455,7 +455,7 @@ export class DeviceService {
     return Math.max(0, Math.min(10, finalScore));
   }
 
-  getTagBySlug(tagSlug: string): Tag | null {
+  getTagBySlug(tagSlug: string): TagModel | null {
     return this.tags.find((tag) => tag.slug === tagSlug) ?? null;
   }
 }

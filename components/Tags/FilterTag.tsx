@@ -1,5 +1,5 @@
 import { PiPlusBold, PiTag, PiXBold } from "@preact-icons/pi";
-import { Tag as TagModel } from "../../data/models/tag.model.ts";
+import { TagModel } from "../../data/models/tag.model.ts";
 
 export function FilterTag(
   { tag, type, href }: {
