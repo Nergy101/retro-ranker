@@ -1,4 +1,9 @@
-import { PiShield, PiFileText, PiChatText, PiGithubLogo } from "@preact-icons/pi";
+import {
+  PiChatText,
+  PiFileText,
+  PiGithubLogo,
+  PiShield,
+} from "@preact-icons/pi";
 
 export default function Footer() {
   return (

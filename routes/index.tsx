@@ -64,7 +64,7 @@ export default function Home() {
             {defaultTags.map((tag) => <Tag tag={tag} />)}
           </div>
           <hr />
-          
+
           {/* New Arrivals Section */}
           <section class="home-section">
             <h2 class="home-section-title">
