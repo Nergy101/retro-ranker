@@ -1,4 +1,4 @@
-import { PiGridFour, PiGridNine, PiList } from "@preact-icons/pi";
+import { PiGridNine, PiList, PiSquaresFour } from "@preact-icons/pi";
 
 export function LayoutSelector({ activeLayout }: { activeLayout: string }) {
   const setActiveLayout = (layout: string) => {
@@ -14,26 +14,47 @@ export function LayoutSelector({ activeLayout }: { activeLayout: string }) {
   return (
     <div style={{ display: "flex", gap: "1rem", justifyContent: "flex-end" }}>
       <button
+        data-tooltip="Normal View"
+        data-placement="left"
         type="button"
         class="outline no-border"
-        style={{ color: getStyle("grid9"), cursor: "pointer", margin: 0, padding: 0 }}
+        style={{
+          color: getStyle("grid9"),
+          cursor: "pointer",
+          margin: 0,
+          padding: 0,
+        }}
         onClick={() =>
           setActiveLayout("grid9")}
       >
         <PiGridNine />
       </button>
       <button
+        data-tooltip="Detailed View"
+        data-placement="left"
         type="button"
         class="outline no-border"
-        style={{ color: getStyle("grid4"), cursor: "pointer", margin: 0, padding: 0 }}
+        style={{
+          color: getStyle("grid4"),
+          cursor: "pointer",
+          margin: 0,
+          padding: 0,
+        }}
         onClick={() => setActiveLayout("grid4")}
       >
-        <PiGridFour />
+        <PiSquaresFour />
       </button>
       <button
+        data-tooltip="Quick View"
+        data-placement="left"
         type="button"
         class="outline no-border"
-        style={{ color: getStyle("list"), cursor: "pointer", margin: 0, padding: 0 }}
+        style={{
+          color: getStyle("list"),
+          cursor: "pointer",
+          margin: 0,
+          padding: 0,
+        }}
         onClick={() => setActiveLayout("list")}
       >
         <PiList />

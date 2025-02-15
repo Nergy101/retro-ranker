@@ -1,10 +1,10 @@
 import { PiListBold } from "@preact-icons/pi";
-import { useEffect, useRef } from "preact/hooks";
-import { navigationItems } from "../../data/navigation-items.ts";
-import { Device } from "../../data/device.model.ts";
-import { ThemeSwitcher } from "./ThemeSwitcher.tsx";
-import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
 import { useSignal } from "@preact/signals";
+import { useEffect, useRef } from "preact/hooks";
+import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
+import { Device } from "../../data/device.model.ts";
+import { navigationItems } from "../../data/navigation-items.ts";
+import { ThemeSwitcher } from "./ThemeSwitcher.tsx";
 
 export function MobileNav(
   { pathname, allDevices }: { pathname: string; allDevices: Device[] },
@@ -167,7 +167,7 @@ export function MobileNav(
         </div>
       </nav>
 
-      <div id="suggestions-container" >
+      <div id="suggestions-container">
         {suggestions.value.length > 0 && (
           <ul class="suggestions-list" ref={suggestionsRef}>
             {suggestions.value.map((device) => (

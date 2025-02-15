@@ -7,7 +7,7 @@ import { DeviceService } from "../services/devices/device.service.ts";
 
 export default function App({ Component, url }: PageProps) {
   const allDevices = DeviceService.getInstance().getAllDevices()
-  .sort((a, b) => a.name.raw.localeCompare(b.name.raw));
+    .sort((a, b) => a.name.raw.localeCompare(b.name.raw));
 
   return (
     <html class="transition-colors" lang="en">

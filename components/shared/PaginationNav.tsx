@@ -31,8 +31,22 @@ export function PaginationNav({
 }: PaginationNavProps) {
   const tagSlugs = tags.map((tag) => tag.slug).join(",");
   return (
-    <div style={{ display: "flex", justifyContent: "center", marginTop: "1rem", marginBottom: "1rem" }}>
-      <div style={{ display: "flex", flexDirection: "row", gap: "0.5rem", alignItems: "center" }}>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        marginTop: "1rem",
+        marginBottom: "1rem",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          gap: "0.5rem",
+          alignItems: "center",
+        }}
+      >
         {pageNumber > 1 && (
           <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
             <a

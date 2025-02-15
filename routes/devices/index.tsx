@@ -1,6 +1,8 @@
 import { Head, Partial } from "$fresh/runtime.ts";
 import { PageProps } from "$fresh/server.ts";
+import { DeviceCardLarge } from "../../components/cards/DeviceCardLarge.tsx";
 import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
+import { DeviceCardRow } from "../../components/cards/DeviceCardRow.tsx";
 import { PaginationNav } from "../../components/shared/PaginationNav.tsx";
 import { TagModel } from "../../data/models/tag.model.ts";
 import { DeviceSearchForm } from "../../islands/forms/DeviceSearchForm.tsx";
@@ -32,7 +34,16 @@ export default function DevicesIndex(props: PageProps) {
   const initialTags = parsedTags.map((slug) => deviceService.getTagBySlug(slug))
     .filter((tag) => tag !== null && tag.slug !== "") as TagModel[];
 
-  const allDevices = deviceService.getAllDevices();
+  const allDevices = deviceService.getAllDevices()
+    .sort((a, b) => {
+      const dateA = a.released.mentionedDate
+        ? new Date(a.released.mentionedDate)
+        : new Date(0);
+      const dateB = b.released.mentionedDate
+        ? new Date(b.released.mentionedDate)
+        : new Date(0);
+      return dateB.getTime() - dateA.getTime();
+    });
 
   const defaultTags = [
     deviceService.getTagBySlug("low"),
@@ -73,7 +84,7 @@ export default function DevicesIndex(props: PageProps) {
       case "grid4":
         return 4;
       default:
-        return 10;
+        return 20;
     }
   };
 
@@ -169,7 +180,17 @@ export default function DevicesIndex(props: PageProps) {
                       width: "100%",
                     }}
                   >
-                    <DeviceCardMedium device={device} isActive={false} />
+                    {activeLayout === "grid9" && (
+                      <DeviceCardMedium device={device} isActive={false} />
+                    )}
+
+                    {activeLayout === "grid4" && (
+                      <DeviceCardLarge device={device} />
+                    )}
+
+                    {activeLayout === "list" && (
+                      <DeviceCardRow device={device} />
+                    )}
                   </a>
                 </>
               ))}

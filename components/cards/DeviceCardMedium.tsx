@@ -80,7 +80,15 @@ export function DeviceCardMedium({ device, isActive }: DeviceCardMediumProps) {
           </p>
         </hgroup>
       </header>
-      <div style="padding: 0.5rem;display: flex; flex-direction: column; justify-content: center; align-items: center;">
+      <div
+        style={{
+          padding: "0.5rem",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         {device.image?.originalUrl
           ? (
             <img
