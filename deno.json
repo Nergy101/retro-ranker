@@ -39,5 +39,6 @@
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.8.0",
     "$std/": "https://deno.land/std@0.216.0/"
   },
-  "compilerOptions": { "jsx": "react-jsx", "jsxImportSource": "preact" }
+  "compilerOptions": { "jsx": "react-jsx", "jsxImportSource": "preact" },
+  "unstable": ["cron"]
 }
