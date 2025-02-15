@@ -1,6 +1,6 @@
 import { PiGitDiff } from "@preact-icons/pi";
 import { useSignal } from "@preact/signals";
-import { useEffect, useRef, useState } from "preact/hooks";
+import { useEffect, useRef } from "preact/hooks";
 import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
 import { Device } from "../../data/device.model.ts";
 
@@ -22,8 +22,8 @@ export function DeviceComparisonForm({
       name.toLowerCase() === deviceName.toLowerCase()
     );
 
-  const [queryA, setQueryA] = useState(originalDeviceA?.name.raw || "");
-  const [queryB, setQueryB] = useState(originalDeviceB?.name.raw || "");
+  const queryA = useSignal(originalDeviceA?.name.raw || "");
+  const queryB = useSignal(originalDeviceB?.name.raw || "");
   const suggestionsA = useSignal<Device[]>([]);
   const suggestionsB = useSignal<Device[]>([]);
 
@@ -68,7 +68,7 @@ export function DeviceComparisonForm({
   }, []);
 
   const queryAChanged = (value: string) => {
-    setQueryA(value);
+    queryA.value = value;
     suggestionsA.value = allDevices.filter((device) =>
       device.name.raw.toLowerCase().includes(value.trim().toLowerCase()) ||
       device.brand.toLowerCase().includes(value.trim().toLowerCase())
@@ -76,26 +76,12 @@ export function DeviceComparisonForm({
 
     selectedDeviceA.value =
       allDevices.find((device) =>
-        device.name.raw.toLowerCase() === queryA.toLowerCase()
+        device.name.raw.toLowerCase() === queryA.value.toLowerCase()
       ) ?? null;
-  };
-
-  const setQueryASuggestion = (value: string) => {
-    setQueryA(value);
-    suggestionsA.value = [];
-
-    selectedDeviceA.value =
-      allDevices.find((device) =>
-        device.name.raw.toLowerCase() === queryA.trim().toLowerCase()
-      ) ?? null;
-
-    if (selectedDeviceA.value && selectedDeviceB.value) {
-      handleSubmit();
-    }
   };
 
   const queryBChanged = (value: string) => {
-    setQueryB(value);
+    queryB.value = value;
     suggestionsB.value = allDevices.filter((device) =>
       device.name.raw.toLowerCase().includes(value.trim().toLowerCase()) ||
       device.brand.toLowerCase().includes(value.trim().toLowerCase())
@@ -103,25 +89,26 @@ export function DeviceComparisonForm({
 
     selectedDeviceB.value =
       allDevices.find((device) =>
-        device.name.raw.toLowerCase() === queryB.toLowerCase()
+        device.name.raw.toLowerCase() === queryB.value.toLowerCase()
       ) ?? null;
   };
 
-  const setQueryBSuggestion = (value: string) => {
-    setQueryB(value);
-    suggestionsB.value = [];
-    selectedDeviceB.value =
-      allDevices.find((device) =>
-        device.name.raw.toLowerCase() === queryB.toLowerCase()
-      ) ?? null;
+  const setQueryASuggestion = (value: string) => {
+    queryA.value = value;
+    suggestionsA.value = [];
+
     if (selectedDeviceA.value && selectedDeviceB.value) {
       handleSubmit();
     }
   };
 
-  const handleFormSubmit = (e: Event) => {
-    e.preventDefault();
-    handleSubmit();
+  const setQueryBSuggestion = (value: string) => {
+    queryBChanged(value);
+    suggestionsB.value = [];
+
+    if (selectedDeviceA.value && selectedDeviceB.value) {
+      handleSubmit();
+    }
   };
 
   const handleSubmit = () => {
@@ -137,15 +124,17 @@ export function DeviceComparisonForm({
   const handleExampleComparison = (deviceA: string, deviceB: string) => {
     queryAChanged(deviceA);
     queryBChanged(deviceB);
+    handleSubmit();
   };
 
   const isActive = (deviceName: string) => {
-    return deviceName.toLowerCase() === queryA.toLowerCase() ||
-      deviceName.toLowerCase() === queryB.toLowerCase();
+    return deviceName.toLowerCase() === queryA.value.toLowerCase() ||
+      deviceName.toLowerCase() === queryB.value.toLowerCase();
   };
 
   return (
-    <form onSubmit={handleFormSubmit}>
+    <div
+    >
       <div
         style={{
           display: "flex",
@@ -169,12 +158,16 @@ export function DeviceComparisonForm({
               type="search"
               value={queryA}
               onInput={(e) => queryAChanged(e.currentTarget.value)}
-              // onChange={(e) => queryAChanged(e.currentTarget.value)}
               placeholder="Search for a device..."
               aria-label="Search devices"
-              {...(queryA === "" ? {} : {
-                ariaInvalid: deviceNameIsInvalid(queryA),
+              {...(queryA.value === "" ? {} : {
+                ariaInvalid: deviceNameIsInvalid(queryA.value),
               })}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  handleSubmit();
+                }
+              }}
             />
           </div>
           <div style={{ width: "100%" }}>
@@ -191,15 +184,21 @@ export function DeviceComparisonForm({
               type="search"
               value={queryB}
               onInput={(e) => queryBChanged(e.currentTarget.value)}
-              // onChange={(e) => queryBChanged(e.currentTarget.value)}
               placeholder="Search for a device..."
               aria-label="Search devices"
-              {...(queryB === "" ? {} : {
-                ariaInvalid: deviceNameIsInvalid(queryB),
+              {...(queryB.value === "" ? {} : {
+                ariaInvalid: deviceNameIsInvalid(queryB.value),
               })}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  handleSubmit();
+                }
+              }}
             />
           </div>
         </div>
+
+        {/* Suggestions */}
         <div id="suggestions-container">
           {suggestionsA.value.length > 0 && (
             <ul class="suggestions-list" ref={suggestionsARef}>
@@ -235,10 +234,14 @@ export function DeviceComparisonForm({
           )}
         </div>
 
+        {/* Similar Devices */}
         {originalDeviceA && (
           <details>
-            <summary>
-              <strong>Similar Devices to {originalDeviceA.name.raw}</strong>
+            <summary class="flex">
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <PiGitDiff />
+                &nbsp;Similar Devices to {originalDeviceA.name.raw}
+              </div>
             </summary>
             <div class="similar-devices-compare-grid">
               {similarDevices.slice(0, 8).map((device) => (
@@ -262,8 +265,11 @@ export function DeviceComparisonForm({
 
         {originalDeviceB && (
           <details>
-            <summary>
-              <strong>Similar Devices to {originalDeviceB?.name.raw}</strong>
+            <summary class="flex">
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <PiGitDiff />
+                &nbsp;Similar Devices to {originalDeviceB?.name.raw}
+              </div>
             </summary>
             <div class="similar-devices-compare-grid">
               {similarDevices.slice(8, 16).map((device) => (
@@ -272,7 +278,7 @@ export function DeviceComparisonForm({
                   onClick={() => setQueryBSuggestion(device.name.raw)}
                   style={{
                     cursor: "pointer",
-                    backgroundColor: device.name.raw === queryB
+                    backgroundColor: device.name.raw === queryB.value
                       ? "var(--color-primary)"
                       : "transparent",
                   }}
@@ -287,6 +293,8 @@ export function DeviceComparisonForm({
           </details>
         )}
       </div>
+
+      {/* Examples */}
       <div class="compare-form-examples">
         <button
           class="secondary"
@@ -331,6 +339,6 @@ export function DeviceComparisonForm({
           </span>
         </button>
       </div>
-    </form>
+    </div>
   );
 }
