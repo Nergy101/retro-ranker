@@ -52,8 +52,9 @@ export class DeviceService {
       const projectPathToData = Deno.cwd() + "/data";
       const filePath = projectPathToData + "/source/results/handhelds.json";
 
+      // sync to force the file to be read before showing any pages
       this.devices = JSON.parse(
-        await Deno.readTextFile(filePath),
+        Deno.readTextFileSync(filePath),
       );
 
       // deduplicate tags
@@ -78,7 +79,8 @@ export class DeviceService {
     sortBy:
       | "all"
       | "highly-rated"
-      | "new-arrivals" = "all",
+      | "new-arrivals"
+      | "alphabetical" = "all",
     filter:
       | "all"
       | "upcoming"
@@ -140,11 +142,14 @@ export class DeviceService {
 
     const currentYear = new Date().getFullYear();
     if (sortBy === "new-arrivals") {
+      // filter on last 2 years
       filteredDevices = filteredDevices.filter((device) => {
         // where mentionedDate is a valid date
         if (!device.released.mentionedDate) return false;
+
         const mentionedDate = new Date(device.released.mentionedDate);
         if (!mentionedDate) return false;
+
         const year = mentionedDate.getFullYear();
         return year === currentYear || year === currentYear - 1;
       });
@@ -167,8 +172,13 @@ export class DeviceService {
         case "highly-rated":
           return (b.totalRating) -
             (a.totalRating);
+        case "alphabetical":
+          return a.name.raw.localeCompare(b.name.raw);
         default:
-          return query !== "" ? a.name.raw.localeCompare(b.name.raw) : 0;
+          return query !== ""
+            ? (new Date(b.released.mentionedDate ?? new Date())).getTime() -
+              (new Date(a.released.mentionedDate ?? new Date())).getTime()
+            : 0;
       }
     });
 

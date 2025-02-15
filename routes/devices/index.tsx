@@ -16,7 +16,8 @@ export default function DevicesIndex(props: PageProps) {
   const sortBy = props.url?.searchParams?.get("sort") as
     | "all"
     | "highly-rated"
-    | "new-arrivals" ||
+    | "new-arrivals"
+    | "alphabetical" ||
     "all";
 
   const filter = props.url?.searchParams?.get("filter") as
@@ -30,7 +31,6 @@ export default function DevicesIndex(props: PageProps) {
 
   const initialTags = parsedTags.map((slug) => deviceService.getTagBySlug(slug))
     .filter((tag) => tag !== null && tag.slug !== "") as TagModel[];
-
 
   const allDevices = deviceService.getAllDevices();
 
@@ -52,8 +52,6 @@ export default function DevicesIndex(props: PageProps) {
   ].filter((tag) => tag !== null).filter((t) =>
     !initialTags.some((t2) => t2.slug === t.slug)
   ) as TagModel[];
-
-
 
   const activeLayout = props.url?.searchParams?.get("layout") as string ||
     "grid9";
@@ -94,7 +92,6 @@ export default function DevicesIndex(props: PageProps) {
   const hasResults = pagedFilteredSortedDevices.page.length > 0;
   const pageResults = pagedFilteredSortedDevices.page;
   const amountOfResults = pagedFilteredSortedDevices.totalAmountOfResults;
-
 
   return (
     <div class="devices-page" f-client-nav>

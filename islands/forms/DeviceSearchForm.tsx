@@ -188,7 +188,8 @@ export function DeviceSearchForm(
             >
               <option value="all">Sort</option>
               <option value="highly-rated">Ranking</option>
-              <option value="new-arrivals">New - Old</option>
+              <option value="new-arrivals">New arrivals</option>
+              <option value="alphabetical">A - Z</option>
             </select>
           </div>
           <input type="submit" value="Search" style={{ borderRadius: "2em" }} />
@@ -234,7 +235,8 @@ export function DeviceSearchForm(
         >
           <option value="all">Sort</option>
           <option value="highly-rated">Ranking</option>
-          <option value="new-arrivals">New - Old</option>
+          <option value="new-arrivals">New arrivals</option>
+          <option value="alphabetical">A - Z</option>
         </select>
         <input type="submit" value="Search" />
       </form>
