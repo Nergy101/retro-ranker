@@ -52,9 +52,6 @@ export class DeviceService {
       const projectPathToData = Deno.cwd() + "/data";
       const filePath = projectPathToData + "/source/results/handhelds.json";
 
-      console.log("filePath: ", filePath);
-      console.log("Deno.cwd(): ", Deno.cwd());
-
       this.devices = JSON.parse(
         await Deno.readTextFile(filePath),
       );

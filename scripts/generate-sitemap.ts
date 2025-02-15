@@ -55,7 +55,6 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 // write to file as byte[]
 const projectPathToStatic = "../static";
 const sitemapPath = projectPathToStatic + "/sitemap.xml";
-console.log("sitemapPath: ", sitemapPath);
 
 await Deno.writeFile(sitemapPath, new TextEncoder().encode(sitemap));
 
