@@ -14,6 +14,7 @@ interface PaginationNavProps {
   searchCategory: string;
   sortBy: string;
   filter: string;
+  activeLayout: string;
   tags: TagModel[];
 }
 
@@ -25,19 +26,20 @@ export function PaginationNav({
   searchCategory,
   sortBy,
   filter,
+  activeLayout,
   tags,
 }: PaginationNavProps) {
   const tagSlugs = tags.map((tag) => tag.slug).join(",");
   return (
-    <div style="display: flex; justify-content: center; margin-top: 1rem; margin-bottom: 1rem;">
-      <div style="display: flex; flex-direction: row; gap: 0.5rem; align-items: center;">
+    <div style={{ display: "flex", justifyContent: "center", marginTop: "1rem", marginBottom: "1rem" }}>
+      <div style={{ display: "flex", flexDirection: "row", gap: "0.5rem", alignItems: "center" }}>
         {pageNumber > 1 && (
           <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
             <a
               aria-label="First page"
               name="first-page"
               class="pagination-link"
-              href={`/devices?page=1&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}&tags=${tagSlugs}`}
+              href={`/devices?page=1&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}&tags=${tagSlugs}&layout=${activeLayout}`}
               data-tooltip="First page"
             >
               <PiCaretDoubleLeftBold />
@@ -49,7 +51,7 @@ export function PaginationNav({
               class="pagination-link"
               href={`/devices?page=${
                 pageNumber - 1
-              }&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}&tags=${tagSlugs}`}
+              }&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}&tags=${tagSlugs}&layout=${activeLayout}`}
               data-tooltip="Previous page"
             >
               <PiCaretLeftBold />
@@ -77,7 +79,7 @@ export function PaginationNav({
               class="pagination-link"
               href={`/devices?page=${
                 pageNumber + 1
-              }&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}&tags=${tagSlugs}`}
+              }&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}&tags=${tagSlugs}&layout=${activeLayout}`}
               data-tooltip="Next page"
             >
               <PiCaretRightBold />
@@ -89,7 +91,7 @@ export function PaginationNav({
               class="pagination-link"
               href={`/devices?page=${
                 Math.ceil(totalResults / pageSize)
-              }&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}&tags=${tagSlugs}`}
+              }&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}&tags=${tagSlugs}&layout=${activeLayout}`}
               data-tooltip="Last page"
             >
               <PiCaretDoubleRightBold />

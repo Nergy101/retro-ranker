@@ -4,6 +4,7 @@ import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
 import { PaginationNav } from "../../components/shared/PaginationNav.tsx";
 import { TagModel } from "../../data/models/tag.model.ts";
 import { DeviceSearchForm } from "../../islands/forms/DeviceSearchForm.tsx";
+import { LayoutSelector } from "../../islands/LayoutSelector.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
 
 export default function DevicesIndex(props: PageProps) {
@@ -30,7 +31,6 @@ export default function DevicesIndex(props: PageProps) {
   const initialTags = parsedTags.map((slug) => deviceService.getTagBySlug(slug))
     .filter((tag) => tag !== null && tag.slug !== "") as TagModel[];
 
-  const pageSize = 9;
 
   const allDevices = deviceService.getAllDevices();
 
@@ -53,6 +53,34 @@ export default function DevicesIndex(props: PageProps) {
     !initialTags.some((t2) => t2.slug === t.slug)
   ) as TagModel[];
 
+
+
+  const activeLayout = props.url?.searchParams?.get("layout") as string ||
+    "grid9";
+
+  const getLayoutGrid = (layout: string) => {
+    if (layout === "grid9") {
+      return "device-search-grid-9";
+    }
+    if (layout === "grid4") {
+      return "device-search-grid-4";
+    }
+    return "device-search-list";
+  };
+
+  const getPageSize = (activeLayout: string) => {
+    switch (activeLayout) {
+      case "grid9":
+        return 9;
+      case "grid4":
+        return 4;
+      default:
+        return 10;
+    }
+  };
+
+  const pageSize = getPageSize(activeLayout);
+
   const pagedFilteredSortedDevices = deviceService.searchDevices(
     searchQuery,
     searchCategory as "all" | "low" | "mid" | "high",
@@ -66,6 +94,7 @@ export default function DevicesIndex(props: PageProps) {
   const hasResults = pagedFilteredSortedDevices.page.length > 0;
   const pageResults = pagedFilteredSortedDevices.page;
   const amountOfResults = pagedFilteredSortedDevices.totalAmountOfResults;
+
 
   return (
     <div class="devices-page" f-client-nav>
@@ -97,6 +126,11 @@ export default function DevicesIndex(props: PageProps) {
         />
 
         <hr />
+        <div f-client-nav={false}>
+          <LayoutSelector
+            activeLayout={activeLayout}
+          />
+        </div>
 
         {hasResults
           ? (
@@ -108,6 +142,7 @@ export default function DevicesIndex(props: PageProps) {
               searchCategory={searchCategory}
               sortBy={sortBy}
               filter={filter}
+              activeLayout={activeLayout}
               tags={initialTags}
             />
           )
@@ -126,7 +161,7 @@ export default function DevicesIndex(props: PageProps) {
             </div>
           )
           : (
-            <div class="device-search-grid" f-client-nav={false}>
+            <div class={getLayoutGrid(activeLayout)} f-client-nav={false}>
               {pageResults.map((device) => (
                 <>
                   <a
@@ -160,6 +195,7 @@ export default function DevicesIndex(props: PageProps) {
                 searchCategory={searchCategory}
                 sortBy={sortBy}
                 filter={filter}
+                activeLayout={activeLayout}
                 tags={initialTags}
               />
             </div>

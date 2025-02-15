@@ -46,6 +46,10 @@ body {
   min-height: 100vh;
 }
 
+body.paused-animation::before {
+  animation-play-state: paused !important;
+}
+
 body::before {
   content: "";
   position: fixed;
@@ -57,7 +61,7 @@ body::before {
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
   background-size: auto 1000px, cover;
   z-index: -1;
-  animation: scrollBackground 60s linear infinite;
+  animation: scrollBackground 30s linear infinite;
 }
 
 @keyframes scrollBackground {
@@ -490,7 +494,7 @@ body::before {
   align-items: center;
 }
 
-.device-search-grid {
+.device-search-grid-9 {
   display: grid !important;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
@@ -502,15 +506,56 @@ body::before {
 }
 
 @media (max-width: 1024px) {
-  .device-search-grid {
+  .device-search-grid-9 {
     gap: 0.25rem;
   }
 }
 
 @media (max-width: 500px) {
-  .device-search-grid {
+  .device-search-grid-9 {
     grid-template-columns: repeat(2, 1fr);
     gap: 0.25rem;
+  }
+}
+
+.device-search-grid-4 {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  justify-content: center;
+  align-items: stretch;
+  justify-items: center;
+  margin: 0 auto;
+  max-width: 1200px;
+
+  a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .device-search-card {
+    max-width: 100%;
+  }
+}
+
+.device-search-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .device-search-card {
+    max-width: 100%;
   }
 }
 
@@ -1352,4 +1397,8 @@ h6,
 
 .content {
   flex: 1;
+}
+
+.no-border {
+  border: none !important;
 }

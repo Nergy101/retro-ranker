@@ -15,6 +15,7 @@ import * as $devices_index from "./routes/devices/index.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $privacy from "./routes/privacy.tsx";
 import * as $terms from "./routes/terms.tsx";
+import * as $LayoutSelector from "./islands/LayoutSelector.tsx";
 import * as $buttons_ClipboardButton from "./islands/buttons/ClipboardButton.tsx";
 import * as $buttons_CompareButton from "./islands/buttons/CompareButton.tsx";
 import * as $buttons_ShareButton from "./islands/buttons/ShareButton.tsx";
@@ -50,6 +51,7 @@ const manifest = {
     "./routes/terms.tsx": $terms,
   },
   islands: {
+    "./islands/LayoutSelector.tsx": $LayoutSelector,
     "./islands/buttons/ClipboardButton.tsx": $buttons_ClipboardButton,
     "./islands/buttons/CompareButton.tsx": $buttons_CompareButton,
     "./islands/buttons/ShareButton.tsx": $buttons_ShareButton,
