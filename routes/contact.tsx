@@ -8,7 +8,7 @@ import {
 
 export default function ContactPage() {
   return (
-    <div class="mx-auto max-w-screen-md">
+    <div class="mx-auto max-w-screen-md contact">
       <Head>
         <title>Retro Ranker - Contact</title>
       </Head>

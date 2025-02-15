@@ -8,7 +8,7 @@ import {
 import { DeviceCardMedium } from "../components/cards/DeviceCardMedium.tsx";
 import { SeeMoreCard } from "../components/cards/SeeMoreCard.tsx";
 import { DeviceService } from "../services/devices/device.service.ts";
-import { Tag } from "../components/Tags/Tag.tsx";
+import { Tag } from "../components/tags/Tag.tsx";
 import { Tag as TagModel } from "../data/models/tag.model.ts";
 
 export default function Home() {
@@ -33,15 +33,15 @@ export default function Home() {
   ].filter((tag) => tag !== null) as TagModel[];
 
   return (
-    <div>
+    <div class="home-page">
       <Head>
         <title>Retro Ranker - Home</title>
       </Head>
 
-      <header>
+      <header class="home-header">
         <hgroup style={{ textAlign: "center" }}>
           <p>
-            Welcome to{" "}
+            Welcome to
           </p>
           <h1>
             <span style={{ color: "var(--pico-primary)" }}>Retro Ranker</span>
@@ -63,9 +63,10 @@ export default function Home() {
           <div class="tags">
             {defaultTags.map((tag) => <Tag tag={tag} />)}
           </div>
-
+          <hr />
+          
           {/* New Arrivals Section */}
-          <section style="margin-top: 2rem;">
+          <section class="home-section">
             <h2 class="home-section-title">
               <PiSparkle /> New Arrivals
             </h2>
@@ -89,7 +90,7 @@ export default function Home() {
           </section>
 
           {/* personal Picks Section */}
-          <section style="margin-top: 2rem;">
+          <section class="home-section">
             <h2 class="home-section-title">
               <PiUserCheck /> Personal Picks
             </h2>
@@ -113,7 +114,7 @@ export default function Home() {
           </section>
 
           {/* Highly Rated Section */}
-          <section style="margin-top: 2rem;">
+          <section class="home-section">
             <h2 class="home-section-title">
               <PiRanking />
               <div
@@ -143,7 +144,7 @@ export default function Home() {
           </section>
 
           {/* Upcoming Section */}
-          <section style="margin-top: 2rem;">
+          <section class="home-section">
             <h2 class="home-section-title">
               <PiCalendarHeart /> Upcoming
             </h2>

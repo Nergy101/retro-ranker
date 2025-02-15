@@ -133,8 +133,7 @@ export function DeviceComparisonForm({
   };
 
   return (
-    <div
-    >
+    <div>
       <div
         style={{
           display: "flex",

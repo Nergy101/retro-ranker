@@ -8,12 +8,6 @@
   margin: 0;
 }
 
-/* Set the main background image and put a dark overlay on it */
-
-.content {
-  padding: 1em;
-}
-
 button {
   color: inherit;
   cursor: pointer;
@@ -37,8 +31,47 @@ video {
   height: auto;
 }
 
-html {
+html,
+body {
   font-family: "Azeret Mono", monospace;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url("/images/patternbg.svg") repeat,
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  background-size: auto 1000px, cover;
+  z-index: -1;
+  animation: scrollBackground 60s linear infinite;
+}
+
+@keyframes scrollBackground {
+  from {
+    background-position: center 0, top;
+  }
+  to {
+    background-position: center 1000px, top;
+  }
+}
+
+[data-theme="light"] body::before {
+  background: url("/images/patternbgw.svg") repeat;
+  background-size: auto 1000px, cover;
 }
 
 .transition-colors {
@@ -242,8 +275,8 @@ html {
 }
 
 .device-detail {
-  background-color: var(--pico-card-background-color);
-  border: 1px solid var(--pico-secondary);
+  background-color: var(--pico-background-color);
+  border: 1px solid var(--pico-primary);
   border-radius: var(--pico-border-radius);
   display: grid;
   gap: 0.5rem;
@@ -288,15 +321,15 @@ html {
 
   background-color: var(--pico-background-color);
   /* border-bottom: 1px solid var(--pico-color); */
-  border-right: 1px solid var(--pico-color);
+  border-right: 1px solid var(--pico-primary);
 
   @media (max-width: 768px) {
     width: 100cqw;
   }
 
   .device-detail-actions {
-    border-top: 1px solid var(--pico-color);
-    border-bottom: 1px solid var(--pico-color);
+    border-top: 1px solid var(--pico-primary);
+    border-bottom: 1px solid var(--pico-primary);
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
@@ -489,6 +522,7 @@ html {
   padding: 0;
   display: flex;
   flex-direction: column;
+  background-color: var(--pico-card-background-color);
 }
 
 .device-search-card.active {
@@ -580,15 +614,6 @@ h6,
 
 .divider {
   border-top: 1px solid var(--pico-muted-border-color);
-}
-
-.tag {
-  background-color: var(--pico-contrast);
-  color: black;
-  padding: 0.25rem 0.5rem;
-  border-radius: var(--pico-border-radius);
-  margin-right: 0.25rem;
-  display: inline-block;
 }
 
 .emulation-performance {
@@ -1062,6 +1087,9 @@ h6,
   border-radius: 0.5em;
   font-size: 0.75rem;
 }
+.desktop-nav {
+  background-color: var(--pico-background-color);
+}
 
 /* Desktop Nav */
 .desktop-nav-ul {
@@ -1123,6 +1151,7 @@ h6,
 /* Mobile Nav */
 
 .mobile-nav {
+  background-color: var(--pico-background-color);
   width: 100vw;
   display: flex;
 }
@@ -1210,6 +1239,15 @@ h6,
   }
 }
 
+.tag {
+  background: var(--pico-card-background-color) !important;
+  color: black;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--pico-border-radius);
+  margin-right: 0.25rem;
+  display: inline-block;
+}
+
 .tags {
   display: flex;
   flex-flow: row wrap;
@@ -1259,7 +1297,59 @@ h6,
   }
 }
 
-.chart-wrapper {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+.home-page {
+  background-color: var(--pico-background-color);
+  padding: 1rem;
+  border-radius: var(--pico-border-radius);
+  margin-bottom: 1rem;
+  border: 1px solid var(--pico-primary);
+}
+
+.charts-page {
+  background-color: var(--pico-background-color);
+  padding: 1rem;
+  border-radius: var(--pico-border-radius);
+  margin-bottom: 1rem;
+  border: 1px solid var(--pico-primary);
+}
+
+.compare-page {
+  background-color: var(--pico-background-color);
+  padding: 1rem;
+  border-radius: var(--pico-border-radius);
+  margin-bottom: 1rem;
+  border: 1px solid var(--pico-primary);
+}
+
+.devices-page {
+  background-color: var(--pico-background-color);
+  padding: 1rem;
+  border-radius: var(--pico-border-radius);
+  margin-bottom: 1rem;
+  border: 1px solid var(--pico-primary);
+}
+
+.about {
+  background-color: var(--pico-background-color);
+  padding: 1rem;
+  border-radius: var(--pico-border-radius);
+  margin-bottom: 1rem;
+  border: 1px solid var(--pico-primary);
+}
+
+.contact {
+  background-color: var(--pico-background-color);
+  padding: 1rem;
+  border-radius: var(--pico-border-radius);
+  margin-bottom: 1rem;
+  border: 1px solid var(--pico-primary);
+}
+
+.footer {
+  background-color: var(--pico-background-color);
+  border-radius: var(--pico-border-radius);
+}
+
+.content {
+  flex: 1;
 }

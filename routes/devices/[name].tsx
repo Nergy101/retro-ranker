@@ -8,7 +8,8 @@ import { EmulationPerformance } from "../../components/EmulationPerformance.tsx"
 import { StarRating } from "../../components/ratings/StarRating.tsx";
 import { CurrencyIcon } from "../../components/shared/CurrencyIcon.tsx";
 import { DeviceSpecs } from "../../components/specifications/DeviceSpecs.tsx";
-import { Tag } from "../../components/Tags/Tag.tsx";
+
+import { Tag } from "../../components/tags/Tag.tsx";
 import { Device } from "../../data/device.model.ts";
 import { ClipboardButton } from "../../islands/buttons/ClipboardButton.tsx";
 import { CompareButton } from "../../islands/buttons/CompareButton.tsx";

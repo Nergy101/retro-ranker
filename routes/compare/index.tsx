@@ -27,7 +27,7 @@ export default function DevicesIndex(props: PageProps) {
   const ranking = ratingsService.createRanking(devicesToCompare);
 
   return (
-    <div>
+    <div class="compare-page">
       <Head>
         <title>Retro Ranker - Compare Devices</title>
       </Head>
@@ -43,7 +43,7 @@ export default function DevicesIndex(props: PageProps) {
         </hgroup>
       </header>
 
-      <div class="compare-form">
+      <div>
         <DeviceComparisonForm
           allDevices={allDevices}
           devicesToCompare={devicesToCompare}
@@ -51,7 +51,7 @@ export default function DevicesIndex(props: PageProps) {
         />
       </div>
 
-      <div>
+      <div class="ranking-info">
         <details>
           <summary class="flex">
             <div style={{ display: "flex", alignItems: "center" }}>

@@ -10,7 +10,7 @@ import {
 
 export default function AboutPage() {
   return (
-    <div class="mx-auto max-w-screen-md">
+    <div class="mx-auto max-w-screen-md about">
       <Head>
         <title>Retro Ranker - About</title>
       </Head>

@@ -10,7 +10,7 @@ export default function ChartsIndex() {
   const devices = deviceService.getAllDevices();
 
   return (
-    <>
+    <div class="charts-page">
       <Head>
         <title>Explore Charts</title>
       </Head>
@@ -27,6 +27,6 @@ export default function ChartsIndex() {
       <div class="chart-wrapper">
         <DevicesPerRatingBarChart devices={devices} />
       </div>
-    </>
+    </div>
   );
 }

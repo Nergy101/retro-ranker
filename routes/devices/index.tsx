@@ -68,7 +68,7 @@ export default function DevicesIndex(props: PageProps) {
   const amountOfResults = pagedFilteredSortedDevices.totalAmountOfResults;
 
   return (
-    <div f-client-nav>
+    <div class="devices-page" f-client-nav>
       <Head>
         <title>Retro Ranker - Device Catalog</title>
       </Head>
