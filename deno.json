@@ -8,10 +8,11 @@
     "build": "deno run -A dev.ts build",
     "preview": "deno run -A main.ts",
     "update": "deno run -A -r https://fresh.deno.dev/update .",
-    "scrape": "deno run -A scripts/scrape-images.ts",
-    "sitemap": "deno run -A scripts/generate-sitemap.ts",
-    "sources": "deno run -A scripts/get-new-sources.ts",
-    "generate-devices": "deno run -A scripts/generate-devices.ts"
+    "refresh-all": "cd scripts && deno run -A refresh-all.ts",
+    "sources": "cd scripts && deno run -A get-new-sources.ts",
+    "generate-devices": "cd scripts && deno run -A generate-devices.ts",
+    "scrape": "cd scripts && deno run -A scrape-images.ts",
+    "sitemap": "cd scripts && deno run -A generate-sitemap.ts"
   },
   "lint": {
     "rules": {
