@@ -1,13 +1,17 @@
 // deno-lint-ignore-file no-console
+import { Device } from "../data/device.model.ts";
 import { navigationItems } from "../data/navigation-items.ts";
-import { DeviceService } from "../services/devices/device.service.ts";
 // @deno-types="https://deno.land/x/chalk_deno@v4.1.1-deno/index.d.ts"
 import chalk from "https://deno.land/x/chalk_deno@v4.1.1-deno/source/index.js";
 
-console.info(chalk.blue("Generating sitemap..."));
-const deviceService = DeviceService.getInstance();
+console.info(chalk.blue(" --- Generating sitemap --- "));
 const SITE_URL = "https://retroranker.site";
-const devices = deviceService.getAllDevices();
+
+const devices = JSON.parse(
+  new TextDecoder().decode(
+    await Deno.readFile("../data/source/results/handhelds.json"),
+  ),
+) as Device[];
 
 const deviceNames = devices.map((device) => device.name.sanitized);
 
@@ -49,6 +53,10 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
   </urlset>`;
 
 // write to file as byte[]
-await Deno.writeFile("static/sitemap.xml", new TextEncoder().encode(sitemap));
+const projectPathToStatic = "../static";
+const sitemapPath = projectPathToStatic + "/sitemap.xml";
+console.log("sitemapPath: ", sitemapPath);
+
+await Deno.writeFile(sitemapPath, new TextEncoder().encode(sitemap));
 
 console.info(chalk.green("Sitemap generated successfully!"));

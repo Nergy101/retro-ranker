@@ -9,10 +9,9 @@ import { TagModel } from "../../models/tag.model.ts";
 import { personalPicks } from "../../personal-picks.ts";
 
 export class DeviceParser {
-  public static parseHandheldsHtml(filePath: string): Device[] {
+  public static parseHandheldsHtml(fileContent: string): Device[] {
     const devices: Device[] = [];
-    const text = Deno.readTextFileSync(filePath);
-    const $ = cheerio.load(text);
+    const $ = cheerio.load(fileContent);
 
     const table = $("tbody");
     if (!table.length) return devices;
@@ -251,10 +250,9 @@ export class DeviceParser {
     });
   }
 
-  public static parseOEMsHtml(filePath: string): Device[] {
+  public static parseOEMsHtml(fileContent: string): Device[] {
     const devices: Device[] = [];
-    const text = Deno.readTextFileSync(filePath);
-    const $ = cheerio.load(text);
+    const $ = cheerio.load(fileContent);
 
     const table = $("tbody");
     if (!table.length) return devices;

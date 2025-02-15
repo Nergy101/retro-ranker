@@ -49,8 +49,14 @@ export class DeviceService {
 
   private async loadDevices(): Promise<void> {
     try {
+      const projectPathToData = Deno.cwd() + "/data";
+      const filePath = projectPathToData + "/source/results/handhelds.json";
+
+      console.log("filePath: ", filePath);
+      console.log("Deno.cwd(): ", Deno.cwd());
+
       this.devices = JSON.parse(
-        Deno.readTextFileSync("data/source/results/handhelds.json"),
+        await Deno.readTextFile(filePath),
       );
 
       // deduplicate tags

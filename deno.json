@@ -9,7 +9,9 @@
     "preview": "deno run -A main.ts",
     "update": "deno run -A -r https://fresh.deno.dev/update .",
     "scrape": "deno run -A scripts/scrape-images.ts",
-    "sitemap": "deno run -A scripts/generate-sitemap.ts"
+    "sitemap": "deno run -A scripts/generate-sitemap.ts",
+    "sources": "deno run -A scripts/get-new-sources.ts",
+    "generate-devices": "deno run -A scripts/generate-devices.ts"
   },
   "lint": {
     "rules": {

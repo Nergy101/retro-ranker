@@ -14,9 +14,7 @@ export async function downloadDeviceImages(
   devices: Device[],
   targetDir: string,
 ) {
-  console.info(
-    chalk.blue(`Starting download of ${devices.length} device images...`),
-  );
+  console.info(chalk.blue("--- Downloading device images ---"));
 
   // Create the target directory if it doesn't exist
   try {
@@ -101,6 +99,11 @@ async function downloadImage(
 
 console.info(chalk.blue("Downloading device images..."));
 // Get all device images and download them to the static/devices directory
-import { DeviceService } from "../services/devices/device.service.ts";
-const devices = DeviceService.getInstance().getAllDevices();
-await downloadDeviceImages(devices, "static/devices");
+
+const devices = JSON.parse(
+  new TextDecoder().decode(
+    await Deno.readFile("../data/source/results/handhelds.json"),
+  ),
+) as Device[];
+
+await downloadDeviceImages(devices, "../static/devices");
