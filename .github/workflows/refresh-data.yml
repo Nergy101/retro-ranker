@@ -1,7 +1,15 @@
 name: Refresh Data and Commit
 
+permissions:
+  contents: write
+
 on:
   workflow_dispatch:
+    inputs:
+      commitMessage:
+        description: "The commit message to use"
+        required: false
+        default: "Refresh data"
   schedule:
     - cron: "0 0 * * *" # Runs daily at midnight UTC
 
@@ -29,7 +37,7 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add .
           if ! git diff-index --quiet HEAD; then
-            git commit -m "Refresh data $(date +'%Y-%m-%d %H:%M:%S')"
+            git commit -m "$(date +'%Y-%m-%d %H:%M:%S'): ${{ github.event.inputs.commitMessage }}"
             git push origin main
           else
             echo "No changes to commit"
