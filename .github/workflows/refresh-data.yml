@@ -1,0 +1,36 @@
+name: Refresh Data and Commit
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *" # Runs daily at midnight UTC
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Run refresh-all task
+        run: deno task refresh-all
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          if ! git diff-index --quiet HEAD; then
+            git commit -m "Refresh data $(date +'%Y-%m-%d %H:%M:%S')"
+            git push origin main
+          else
+            echo "No changes to commit"
+          fi
