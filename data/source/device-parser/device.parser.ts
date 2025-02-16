@@ -537,8 +537,9 @@ export class DeviceParser {
         if (slug.includes("(")) {
           // get name between ( and )
           const name = slug.split("(")[1].split(")")[0];
-
-          tags.push({ name, slug: `linux-${name}`, type: "os" } as TagModel);
+          if (name !== "linux") {
+            tags.push({ name, slug: `linux-${name}`, type: "os" } as TagModel);
+          }
         }
         continue;
       }
