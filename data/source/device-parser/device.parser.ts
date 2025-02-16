@@ -506,19 +506,47 @@ export class DeviceParser {
       this.getFormFactorTag(device),
       this.getReleaseDateTag(device),
       this.getPersonalPickTag(device),
-    ].filter((tag) => tag !== null) as TagModel[];
+    ].filter((tag) =>
+      tag !== null &&
+      tag.slug !== "" &&
+      tag.name !== "?"
+    ) as TagModel[];
   }
 
   private static getOsTags(device: Device): TagModel[] {
-    return device.os.list.map((tag) => {
+    const tags: TagModel[] = [];
+
+    for (const tag of device.os.list) {
       const slug = slugify(tag).toLowerCase();
 
-      if (tag.toLowerCase().includes("steam")) {
-        return { name: "Steam OS", slug: "steam-os", type: "os" } as TagModel;
+      if (slug.includes("android")) {
+        tags.push({ name: "Android", slug: "android", type: "os" } as TagModel);
+        continue;
       }
 
-      return { name: tag, slug, type: "os" } as TagModel;
-    });
+      if (slug.includes("linux")) {
+        tags.push({ name: "Linux", slug: "linux", type: "os" } as TagModel);
+
+        if (tag.toLowerCase().includes("steam")) {
+          tags.push(
+            { name: "Steam OS", slug: "steam-os", type: "os" } as TagModel,
+          );
+          continue;
+        }
+
+        if (slug.includes("(")) {
+          // get name betwene ( and )
+          const name = slug.split("(")[1].split(")")[0];
+
+          tags.push({ name, slug: `linux-${name}`, type: "os" } as TagModel);
+        }
+        continue;
+      }
+
+      tags.push({ name: tag, slug, type: "os" } as TagModel);
+    }
+
+    return tags;
   }
 
   private static getBrandTag(device: Device): TagModel | null {
@@ -556,6 +584,14 @@ export class DeviceParser {
 
   private static getFormFactorTag(device: Device): TagModel | null {
     const slug = slugify(device.formFactor ?? "").toLowerCase();
+
+    if (slug.includes("micro")) {
+      return {
+        name: "Micro",
+        slug: "micro",
+        type: "formFactor",
+      } as TagModel;
+    }
 
     if (slug.includes("horizontal")) {
       return {

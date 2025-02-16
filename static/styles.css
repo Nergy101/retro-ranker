@@ -259,6 +259,8 @@ body::before {
 [data-theme="dark"] .see-more-card {
   background-color: rgba(0, 0, 0, 0.5);
   background-image: url("/images/see-more.webp");
+  background-size: cover;
+  background-position: center;
   color: var(--pico-primary);
 }
 
