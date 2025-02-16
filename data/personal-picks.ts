@@ -1,12 +1,12 @@
 export const personalPicks: string[] = [
-  "miyoo-flip",
   "gkd-pixel-2",
-  "rg-34xx",
-  "switch",
   "rg-35xx-sp",
-  "rg-405m",
+  "trimui-smart-brick",
+  "retroid-pocket-mini",
+  "miyoo-flip",
+  "rg-34xx",
+  "rg-406h",
+  "switch",
   "miyoo-mini-plus",
   "steam-deck-oled",
-  "retroid-pocket-mini",
-  "trimui-smart-brick",
 ];
