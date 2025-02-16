@@ -198,6 +198,12 @@ export default function DeviceDetail(props: PageProps) {
                     width={100}
                     height={100}
                     alt="A placeholder image"
+                    style={{
+                      width: "100px",
+                      height: "100px",
+                      objectFit: "contain",
+                      borderRadius: "1em",
+                    }}
                   />
                 </span>
               )}

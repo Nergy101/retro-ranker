@@ -19,10 +19,32 @@ export function DeviceCardRow({ device }: DeviceCardRowProps) {
         width: "80%",
       }}
     >
-      <img
-        src={device.image.url ?? "images/placeholder.png"}
-        alt={device.name.raw}
-      />
+      {device.image?.originalUrl
+        ? (
+          <img
+            loading="lazy"
+            src={device.image?.url ?? "/images/placeholder-100x100.svg"}
+            width={100}
+            height={100}
+            alt={device.image?.alt ?? "A device image"}
+          />
+        )
+        : (
+          <span>
+            <img
+              src="/images/placeholder-100x100.svg"
+              width={100}
+              height={100}
+              alt="A placeholder image"
+              style={{
+                width: "100px",
+                height: "100px",
+                objectFit: "contain",
+                borderRadius: "1em",
+              }}
+            />
+          </span>
+        )}
       <strong style={{ color: "var(--pico-contrast)" }}>
         {device.name.raw} <span style={{ fontSize: "0.7rem" }}>by</span>{" "}
         {device.brand}

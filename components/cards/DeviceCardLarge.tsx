@@ -76,15 +76,18 @@ export function DeviceCardLarge({ device }: { device: Device }) {
             />
           )
           : (
-            <span
-              data-tooltip="No image available"
-              data-placement="bottom"
-            >
+            <span>
               <img
                 src="/images/placeholder-100x100.svg"
                 width={100}
                 height={100}
                 alt="A placeholder image"
+                style={{
+                  width: "100px",
+                  height: "100px",
+                  objectFit: "contain",
+                  borderRadius: "1em",
+                }}
               />
             </span>
           )}
