@@ -12,9 +12,22 @@ export default function ChartsIndex() {
   return (
     <div class="charts-page">
       <Head>
-        <title>Explore Charts</title>
+        <title>Retro Ranker - Explore Charts</title>
+        <meta
+          name="description"
+          content="Explore charts for all devices in the Retro Ranker database."
+        />
       </Head>
-      <h1 style={{ textAlign: "center" }}>Explore Charts</h1>
+      <hgroup style={{ textAlign: "center" }}>
+        <h1>Explore Charts</h1>
+        <p>
+          Explore charts for{" "}
+          <span style={{ color: "var(--pico-primary)" }}>
+            {devices.length}
+          </span>{" "}
+          devices
+        </p>
+      </hgroup>
 
       <div class="chart-wrapper">
         <DevicesPerReleaseYearLineChart devices={devices} />

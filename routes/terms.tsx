@@ -5,6 +5,10 @@ export default function TermsPage() {
     <div class="p-4 mx-auto max-w-screen-md">
       <Head>
         <title>Retro Ranker - Terms of Service</title>
+        <meta
+          name="description"
+          content="Read the terms of service for Retro Ranker."
+        />
       </Head>
 
       <h1 class="text-4xl font-bold mb-6">Terms of Service</h1>

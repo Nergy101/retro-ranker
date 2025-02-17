@@ -11,10 +11,14 @@ export default function ContactPage() {
     <div class="mx-auto max-w-screen-md contact">
       <Head>
         <title>Retro Ranker - Contact</title>
+        <meta
+          name="description"
+          content="Contact the Retro Ranker team."
+        />
       </Head>
 
-      <h1 class="text-3xl font-bold">
-        Get in Touch
+      <h1 class="text-3xl font-bold" style={{ textAlign: "center" }}>
+        Contact
       </h1>
 
       <div>

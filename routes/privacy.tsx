@@ -5,6 +5,10 @@ export default function PrivacyPolicyPage() {
     <div class="p-4 mx-auto max-w-screen-md">
       <Head>
         <title>Retro Ranker - Privacy Policy</title>
+        <meta
+          name="description"
+          content="Learn about how we collect, use, and protect your personal information when you use our website."
+        />
       </Head>
 
       <h1 class="text-4xl font-bold mb-6">Privacy Policy</h1>

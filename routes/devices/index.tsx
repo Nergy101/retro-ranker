@@ -125,12 +125,16 @@ export default function DevicesIndex(props: PageProps) {
     <div class="devices-page" f-client-nav>
       <Head>
         <title>Retro Ranker - Device Catalog</title>
+        <meta
+          name="description"
+          content="Search through the Retro Ranker device catalog."
+        />
       </Head>
       <header>
         <hgroup style={{ textAlign: "center" }}>
           <h1>Device Catalog</h1>
           <p>
-            Currently indexed{" "}
+            Search through{" "}
             <span style={{ color: "var(--pico-primary)" }}>
               {allDevices.length}
             </span>{" "}

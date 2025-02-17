@@ -13,9 +13,13 @@ export default function AboutPage() {
     <div class="mx-auto max-w-screen-md about">
       <Head>
         <title>Retro Ranker - About</title>
+        <meta
+          name="description"
+          content="Learn about Retro Ranker, a comprehensive database and comparison platform for retro handheld gaming devices."
+        />
       </Head>
 
-      <h1 class="text-3xl font-bold mb-6">
+      <h1 class="text-3xl font-bold mb-6" style={{ textAlign: "center" }}>
         About <span style={{ color: "var(--pico-primary)" }}>Retro Ranker</span>
       </h1>
 

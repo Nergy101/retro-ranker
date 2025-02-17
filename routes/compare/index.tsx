@@ -30,16 +30,30 @@ export default function DevicesIndex(props: PageProps) {
     <div class="compare-page">
       <Head>
         <title>Retro Ranker - Compare Devices</title>
+        <meta
+          name="description"
+          content="Compare devices in the Retro Ranker database."
+        />
       </Head>
       <header>
         <hgroup style={{ textAlign: "center" }}>
           <h1>Compare Devices</h1>
-          {deviceNames.length > 0 && (
-            <p>
-              Comparing the following devices: <br />
-              {deviceNames.join(", ")}
-            </p>
-          )}
+          {deviceNames.length > 0
+            ? (
+              <p>
+                Comparing the following devices: <br />
+                {deviceNames.join(", ")}
+              </p>
+            )
+            : (
+              <p>
+                Compare between{" "}
+                <span style={{ color: "var(--pico-primary)" }}>
+                  {allDevices.length}
+                </span>{" "}
+                devices
+              </p>
+            )}
         </hgroup>
       </header>
 
@@ -61,8 +75,7 @@ export default function DevicesIndex(props: PageProps) {
           </summary>
           <div>
             <p>
-              The ranking you are looking at is based on all relevant properties
-              of the devices.
+              The ranking is based on all relevant properties of the devices.
               <br />
               Every property is given a score and placed into a category. The
               categories are then weighted and summed up to get the final

@@ -138,6 +138,10 @@ export default function DeviceDetail(props: PageProps) {
     <div class="device-detail">
       <Head>
         <title>Retro Ranker - {device.name.raw}</title>
+        <meta
+          name="description"
+          content={`${device.name.raw} is a ${device.brand.raw} device. The device is ${device.pricing.category} and costs on average ${device.pricing.average} ${device.pricing.currency}.`}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
