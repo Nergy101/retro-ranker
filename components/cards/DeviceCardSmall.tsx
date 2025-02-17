@@ -42,8 +42,13 @@ export function DeviceCardSmall({ device }: DeviceCardSmallProps) {
             >
               <span>{device.name.raw}</span>
             </strong>
-            <p style={{ fontSize: "0.6rem", color: "var(--pico-contrast)" }}>
-              {device.brand}
+            <p
+              style={{ fontSize: "0.6rem", color: "var(--pico-contrast)" }}
+              data-tooltip={device.brand.raw === device.brand.normalized
+                ? undefined
+                : device.brand.raw}
+            >
+              {device.brand.normalized}
             </p>
           </hgroup>
           <div class="figure">

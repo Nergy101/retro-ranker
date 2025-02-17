@@ -78,7 +78,7 @@ export class DeviceService {
     category: "all" | "low" | "mid" | "high" = "all",
     sortBy:
       | "all"
-      | "highly-rated"
+      | "highly-ranked"
       | "new-arrivals"
       | "high-low-price"
       | "low-high-price"
@@ -99,7 +99,7 @@ export class DeviceService {
         return device.pricing.category === "low" && (
           device.name.sanitized.toLowerCase().includes(lowerQuery) ||
           device.name.raw.toLowerCase().includes(lowerQuery) ||
-          device.brand.toLowerCase().includes(lowerQuery) ||
+          device.brand.raw.toLowerCase().includes(lowerQuery) ||
           device.os.raw.toLowerCase().includes(lowerQuery)
         );
       }
@@ -108,7 +108,7 @@ export class DeviceService {
         return device.pricing.category === "mid" && (
           device.name.sanitized.toLowerCase().includes(lowerQuery) ||
           device.name.raw.toLowerCase().includes(lowerQuery) ||
-          device.brand.toLowerCase().includes(lowerQuery) ||
+          device.brand.raw.toLowerCase().includes(lowerQuery) ||
           device.os.raw.toLowerCase().includes(lowerQuery)
         );
       }
@@ -118,7 +118,7 @@ export class DeviceService {
           device.pricing.category === "high" &&
           (device.name.sanitized.toLowerCase().includes(lowerQuery) ||
             device.name.raw.toLowerCase().includes(lowerQuery) ||
-            device.brand.toLowerCase().includes(lowerQuery) ||
+            device.brand.raw.toLowerCase().includes(lowerQuery) ||
             device.os.raw.toLowerCase().includes(lowerQuery))
         );
       }
@@ -126,7 +126,7 @@ export class DeviceService {
       return (
         device.name.sanitized.toLowerCase().includes(lowerQuery) ||
         device.name.raw.toLowerCase().includes(lowerQuery) ||
-        device.brand.toLowerCase().includes(lowerQuery) ||
+        device.brand.raw.toLowerCase().includes(lowerQuery) ||
         device.os.raw.toLowerCase().includes(lowerQuery)
       );
     });
@@ -180,7 +180,7 @@ export class DeviceService {
             (new Date(b.released.mentionedDate ?? new Date())).getTime() -
             (new Date(a.released.mentionedDate ?? new Date())).getTime()
           );
-        case "highly-rated":
+        case "highly-ranked":
           return (b.totalRating) -
             (a.totalRating);
         case "alphabetical":

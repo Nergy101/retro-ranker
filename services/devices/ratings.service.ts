@@ -121,7 +121,7 @@ export class RatingsService {
     let score = 0;
 
     // Same brand
-    if (device.brand === targetDevice.brand) score += 3;
+    if (device.brand.raw === targetDevice.brand.raw) score += 3;
 
     // Similar form factor
     if (device.formFactor === targetDevice.formFactor) score += 2;

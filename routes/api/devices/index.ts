@@ -17,7 +17,7 @@ export const handler = {
       | "all";
     const sortBy = params.get("sortBy") as
       | "all"
-      | "highly-rated"
+      | "highly-ranked"
       | "new-arrivals"
       | "all";
     const filter = params.get("filter") as

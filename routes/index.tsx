@@ -138,7 +138,7 @@ export default function Home() {
                 </a>
               ))}
               <SeeMoreCard
-                href="/devices?sort=highly-rated"
+                href="/devices?sort=highly-ranked"
                 text="More Highly Ranked"
               />
             </div>

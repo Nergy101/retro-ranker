@@ -64,7 +64,14 @@ export function DeviceCardMedium({ device, isActive }: DeviceCardMediumProps) {
           borderBottom: "none",
         }}
       >
-        <hgroup style={{ textAlign: "center" }}>
+        <hgroup
+          style={{
+            textAlign: "center",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
           <strong
             data-tooltip={device.name.normalized != device.name.raw
               ? device.name.raw
@@ -75,9 +82,14 @@ export function DeviceCardMedium({ device, isActive }: DeviceCardMediumProps) {
               {device.name.normalized}
             </span>
           </strong>
-          <p style={{ fontSize: "0.6rem", color: "var(--pico-contrast)" }}>
-            {device.brand}
-          </p>
+          <span
+            style={{ fontSize: "0.6rem", color: "var(--pico-contrast)" }}
+            data-tooltip={device.brand.raw === device.brand.normalized
+              ? undefined
+              : device.brand.raw}
+          >
+            {device.brand.normalized}
+          </span>
         </hgroup>
       </header>
       <div

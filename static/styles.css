@@ -239,9 +239,9 @@ body::before {
 
 .small-card:hover {
   cursor: pointer;
-  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
   background-color: rgba(254, 182, 112, 0.2);
   transform: scale(1.05);
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
 .see-more-card {
@@ -555,7 +555,7 @@ body::before {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: .25rem;
 
   a {
     display: flex;
@@ -1416,4 +1416,21 @@ h6,
 
 .no-border {
   border: none !important;
+}
+
+.device-card-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--pico-primary);
+  padding: 0.25rem;
+  border-radius: var(--pico-radius);
+  width: 100%;
+
+  &:hover {
+    background-color: var(--pico-primary-focus);
+    transform: scale(1.02);
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+  }
 }

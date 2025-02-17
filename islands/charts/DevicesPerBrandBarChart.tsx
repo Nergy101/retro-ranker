@@ -12,15 +12,15 @@ export function DevicesPerBrandBarChart({ devices }: BarChartProps) {
   // Get unique brands from the devices array
   const getAllBrands = () => {
     return Array.from(new Set(devices.map((d) => d.brand)))
-      .filter((brand) => brand !== undefined && brand !== null && brand !== "");
+      .filter((brand) => brand !== undefined && brand !== null && brand?.raw !== "");
   };
 
   const getSortedData = () => {
     let data: { brand: string; amountOfDevices: number }[] = [];
 
     for (const brand of getAllBrands()) {
-      const number = devices.filter((d) => d.brand === brand).length;
-      data.push({ brand, amountOfDevices: number });
+      const number = devices.filter((d) => d.brand.raw === brand.raw).length;
+      data.push({ brand: brand.raw, amountOfDevices: number });
     }
 
     data = data
@@ -47,7 +47,7 @@ export function DevicesPerBrandBarChart({ devices }: BarChartProps) {
 
   // Get colors for all unique brands
   const getColorsForAllBrands = () => {
-    return getAllBrands().map((brand) => getColorsForBrand(brand));
+    return getAllBrands().map((brand) => getColorsForBrand(brand.raw));
   };
 
   const getBarChartData = () => {

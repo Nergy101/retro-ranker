@@ -44,7 +44,11 @@ export function mapHandheldsColumnToDevice(
       break;
     }
     case 3:
-      device.brand = rawValue;
+      device.brand = {
+        raw: rawValue,
+        sanitized: slugify(rawValue),
+        normalized: rawValue.split("(")[0].trim(),
+      };
       break;
     case 4:
       {

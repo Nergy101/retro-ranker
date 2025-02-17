@@ -185,8 +185,11 @@ export function DeviceComparisonResult(
                   fontSize: "0.6rem",
                   color: "var(--pico-contrast)",
                 }}
+                data-tooltip={device.brand.raw === device.brand.normalized
+                  ? undefined
+                  : device.brand.raw}
               >
-                {device.brand}
+                {device.brand.normalized}
               </p>
             </hgroup>
           </div>
@@ -233,7 +236,9 @@ export function DeviceComparisonResult(
                   data-tooltip={`${device.pricing.range.min}-${device.pricing.range.max} ${device.pricing.currency}`}
                 >
                   <CurrencyIcon currencyCode={device.pricing.currency} />
-                  {device.pricing.average}
+                  <span style={{ lineHeight: "normal", fontSize: "0.9rem" }}>
+                    {device.pricing.average}
+                  </span>
                 </span>
               )
               : (
@@ -267,8 +272,6 @@ export function DeviceComparisonResult(
                 gap: "0.25rem",
                 fontSize: "0.8rem",
               }}
-              data-tooltip={releaseDate.date}
-              data-placement="bottom"
             >
               {releaseDate.icon()}
 
@@ -307,7 +310,7 @@ export function DeviceComparisonResult(
           >
             Tags
           </strong>
-          <div class="tags">
+          <div class="tags" style={{ margin: "0 1em" }}>
             {device.tags.map((tag) => <TagComponent tag={tag} />)}
           </div>
         </div>

@@ -1,5 +1,6 @@
 import type { DeviceArchitecture } from "./models/architecture.model.ts";
 import { DeviceBattery } from "./models/battery.model.ts";
+import { DeviceBrand } from "./models/brand.model.ts";
 import { DeviceChargePort } from "./models/charge-port.model.ts";
 import { DeviceConnectivity } from "./models/connectivity.model.ts";
 import { DeviceControlConfig } from "./models/controls-config.model.ts";
@@ -25,7 +26,7 @@ import { TagModel } from "./models/tag.model.ts";
 
 export interface Device {
   name: DeviceName;
-  brand: string;
+  brand: DeviceBrand;
   totalRating: number; // the total rating of the device, scale of 0-10
   image: DeviceImage;
   released: DeviceRelease;

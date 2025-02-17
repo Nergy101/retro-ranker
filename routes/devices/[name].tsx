@@ -70,11 +70,11 @@ export default function DeviceDetail(props: PageProps) {
       "name": device.name.raw,
       "brand": {
         "@type": "Brand",
-        "name": device.brand,
+        "name": device.brand.raw,
       },
       "image": device.image?.url ?? "/images/placeholder-100x100.svg",
       "description":
-        `${device.name.raw} is a ${device.brand} device. The device is ${device.pricing.category} and costs on average ${device.pricing.average} ${device.pricing.currency}.`,
+        `${device.name.raw} is a ${device.brand.raw} device. The device is ${device.pricing.category} and costs on average ${device.pricing.average} ${device.pricing.currency}.`,
       "offers": device.vendorLinks.map((link) => ({
         "@type": "Offer",
         "url": link.url,
@@ -87,10 +87,10 @@ export default function DeviceDetail(props: PageProps) {
       })),
       "manufacturer": {
         "@type": "Organization",
-        "name": device.brand,
+        "name": device.brand.raw,
         "brand": {
           "@type": "Brand",
-          "name": device.brand,
+          "name": device.brand.raw,
         },
       },
       "releaseDate": device.released.mentionedDate
@@ -159,22 +159,17 @@ export default function DeviceDetail(props: PageProps) {
               : undefined}
             data-placement="bottom"
           >
-            {device.name.raw}
+            {device.name.normalized}
           </h2>
-          <div style="display: flex; gap: 0.5rem; align-items: center;">
-            <p>{device.brand}</p>
-            <p
-              data-tooltip={device.os.list.join(", ") === "?"
-                ? "No OS information available"
-                : device.os.list.join(", ")}
-              data-placement="bottom"
+          <div style="display: flex; gap: 0.5rem; align-items: flex-end;">
+            <span
+              style={{ textAlign: "center" }}
+              data-tooltip={device.brand.raw === device.brand.normalized
+                ? undefined
+                : device.brand.raw}
             >
-              <span style="display: flex; gap: 0.25rem;">
-                {device.os.icons.map((icon) =>
-                  DeviceService.getOsIconComponent(icon)
-                )}
-              </span>
-            </p>
+              {device.brand.normalized}
+            </span>
           </div>
           <div>
             {device.image?.originalUrl
@@ -209,45 +204,64 @@ export default function DeviceDetail(props: PageProps) {
               )}
           </div>
           <div style="display: flex; gap: 0.5rem;">
-            <p>
-              <StarRating device={device} />
-            </p>
+            <StarRating device={device} />
           </div>
           <div style="display: flex; align-items: center; flex-direction: column;">
-            {!device.pricing.discontinued && device.pricing.average
-              ? (
-                <span
-                  style={{
-                    color: "var(--pico-color)",
-                    display: "inline-flex",
-                  }}
-                  data-tooltip={`${device.pricing.category}: 
+            <div style="display: flex; gap: 0.25rem;">
+              {!device.pricing.discontinued && device.pricing.average
+                ? (
+                  <span
+                    style={{
+                      color: "var(--pico-color)",
+                      display: "inline-flex",
+                      alignItems: "flex-end",
+                    }}
+                    data-tooltip={`${device.pricing.category}: 
                 ${device.pricing.range?.min}-${device.pricing.range?.max} 
                 ${device.pricing.currency}`}
-                  data-placement="bottom"
-                >
-                  <CurrencyIcon currencyCode={device.pricing.currency} />
-                  {device.pricing.average}
-                </span>
-              )
-              : (
-                <span
-                  style={{ display: "flex" }}
-                  data-tooltip="No pricing information available"
-                >
-                  <CurrencyIcon currencyCode="USD" />
-                  <PiQuestion />
-                </span>
-              )}
+                    data-placement="bottom"
+                  >
+                    <CurrencyIcon currencyCode={device.pricing.currency} />
+                    <span style={{ lineHeight: "normal", fontSize: "0.9rem" }}>
+                      {device.pricing.average}
+                    </span>
+                  </span>
+                )
+                : (
+                  <span
+                    style={{ display: "flex" }}
+                    data-tooltip="No pricing information available"
+                  >
+                    <CurrencyIcon currencyCode="USD" />
+                    <PiQuestion />
+                  </span>
+                )}
+
+              <span
+                style={{
+                  display: "flex",
+                  gap: "0.25rem",
+                  fontSize: "1.2rem",
+                  marginTop: "0.5rem",
+                }}
+                data-tooltip={device.os.list.join(", ") === "?"
+                  ? "No OS information available"
+                  : device.os.list.join(", ")}
+              >
+                {device.os.icons.map((icon) =>
+                  DeviceService.getOsIconComponent(icon)
+                )}
+              </span>
+            </div>
+
             <span
               style={{
                 color: "var(--pico-color)",
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "0.25rem",
+                paddingTop: "0.25rem",
               }}
-              data-tooltip={releaseDate.date}
-              data-placement="bottom"
             >
               {releaseDate.icon()}
 

@@ -91,7 +91,7 @@ export function DeviceCardLarge({ device }: { device: Device }) {
               />
             </span>
           )}
-        <hgroup style={{ textAlign: "center" }}>
+        <hgroup style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
           <strong
             data-tooltip={device.name.normalized != device.name.raw
               ? device.name.raw
@@ -102,9 +102,14 @@ export function DeviceCardLarge({ device }: { device: Device }) {
               {device.name.normalized}
             </span>
           </strong>
-          <p style={{ fontSize: "0.6rem", color: "var(--pico-contrast)" }}>
-            {device.brand}
-          </p>
+          <span
+            style={{ fontSize: "0.6rem", color: "var(--pico-contrast)" }}
+            data-tooltip={device.brand.raw === device.brand.normalized
+              ? undefined
+              : device.brand.raw}
+          >
+            {device.brand.normalized}
+          </span>
           <div
             style={{
               display: "flex",

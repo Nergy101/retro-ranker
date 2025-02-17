@@ -39,7 +39,7 @@ export function DesktopNav(
     query.value = value;
     suggestions.value = allDevices.filter((device) =>
       device.name.raw.toLowerCase().includes(value.trim().toLowerCase()) ||
-      device.brand.toLowerCase().includes(value.trim().toLowerCase())
+      device.brand.raw.toLowerCase().includes(value.trim().toLowerCase())
     ).sort((a, b) => a.name.raw.localeCompare(b.name.raw));
 
     selectedDevice.value =

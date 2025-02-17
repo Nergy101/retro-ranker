@@ -1,12 +1,12 @@
-import * as cheerio from "https://esm.sh/cheerio@1.0.0-rc.12";
-import { EmulationSystemOrder } from "../../enums/EmulationSystem.ts";
-import { Device } from "../../device.model.ts";
-import { mapHandheldsColumnToDevice } from "./device.parser.map.handheld.columns.ts";
-import { mapOEMsColumnToDevice } from "./device.parser.map.oem.columns.ts";
-import { DeviceService } from "../../../services/devices/device.service.ts";
 import { slugify } from "https://deno.land/x/slugify@0.3.0/mod.ts";
+import * as cheerio from "https://esm.sh/cheerio@1.0.0-rc.12";
+import { DeviceService } from "../../../services/devices/device.service.ts";
+import { Device } from "../../device.model.ts";
+import { EmulationSystemOrder } from "../../enums/EmulationSystem.ts";
 import { TagModel } from "../../models/tag.model.ts";
 import { personalPicks } from "../../personal-picks.ts";
+import { mapHandheldsColumnToDevice } from "./device.parser.map.handheld.columns.ts";
+import { mapOEMsColumnToDevice } from "./device.parser.map.oem.columns.ts";
 
 export class DeviceParser {
   public static parseHandheldsHtml(fileContent: string): Device[] {
@@ -35,6 +35,11 @@ export class DeviceParser {
           sanitized: "",
           normalized: "",
         },
+        brand: {
+          raw: "",
+          sanitized: "",
+          normalized: "",
+        },
         os: {
           raw: "",
           list: [],
@@ -43,7 +48,6 @@ export class DeviceParser {
           links: [],
         },
         tags: [],
-        brand: "",
         totalRating: 0,
         lowBatteryIndicator: null,
         hackingGuides: [],
@@ -245,7 +249,7 @@ export class DeviceParser {
     return devices.filter((device) => {
       return (
         device.name.raw !== "" ||
-        device.brand !== ""
+        device.brand.raw !== ""
       );
     });
   }
@@ -276,6 +280,11 @@ export class DeviceParser {
           sanitized: "",
           normalized: "",
         },
+        brand: {
+          raw: "",
+          sanitized: "",
+          normalized: "",
+        },
         os: {
           raw: "",
           list: [],
@@ -284,7 +293,6 @@ export class DeviceParser {
           links: [],
         },
         tags: [],
-        brand: "",
         totalRating: 0,
         lowBatteryIndicator: null,
         hackingGuides: [],
@@ -551,13 +559,13 @@ export class DeviceParser {
   }
 
   private static getBrandTag(device: Device): TagModel | null {
-    if (device.brand === "") {
+    if (device.brand.raw === "") {
       return null;
     }
 
     return {
-      name: device.brand,
-      slug: slugify(device.brand).toLowerCase(),
+      name: device.brand.raw,
+      slug: device.brand.sanitized,
       type: "brand",
     } as TagModel;
   }

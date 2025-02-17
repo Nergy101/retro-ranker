@@ -17,7 +17,7 @@ export default function DevicesIndex(props: PageProps) {
   const pageNumber = parseInt(props.url?.searchParams?.get("page") || "1");
   const sortBy = props.url?.searchParams?.get("sort") as
     | "all"
-    | "highly-rated"
+    | "highly-ranked"
     | "new-arrivals"
     | "high-low-price"
     | "low-high-price"
