@@ -80,7 +80,10 @@ export class DeviceService {
       | "all"
       | "highly-rated"
       | "new-arrivals"
-      | "alphabetical" = "all",
+      | "high-low-price"
+      | "low-high-price"
+      | "alphabetical"
+      | "reverse-alphabetical" = "all",
     filter:
       | "all"
       | "upcoming"
@@ -155,6 +158,14 @@ export class DeviceService {
       });
     }
 
+    if (sortBy === "high-low-price") {
+      filteredDevices = filteredDevices.filter((device) => device.pricing.average);
+    }
+
+    if (sortBy === "low-high-price") {
+      filteredDevices = filteredDevices.filter((device) => device.pricing.average);
+    }
+
     // filter by tags. Device must have all tags in the array.
     if (tags.length > 0) {
       filteredDevices = filteredDevices.filter((device) =>
@@ -174,6 +185,12 @@ export class DeviceService {
             (a.totalRating);
         case "alphabetical":
           return a.name.raw.localeCompare(b.name.raw);
+        case "reverse-alphabetical":
+          return b.name.raw.localeCompare(a.name.raw);
+        case "high-low-price":
+          return (b.pricing.average ?? -1) - (a.pricing.average ?? -1);
+        case "low-high-price":
+          return (a.pricing.average ?? -1) - (b.pricing.average ?? -1);
         default:
           return query !== ""
             ? (new Date(b.released.mentionedDate ?? new Date())).getTime() -

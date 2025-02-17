@@ -186,10 +186,13 @@ export function DeviceSearchForm(
               value={sort}
               onChange={handleSortChange}
             >
-              <option value="all">Sort</option>
+              <option value="all">No sorting</option>
               <option value="highly-rated">Ranking</option>
-              <option value="new-arrivals">New arrivals</option>
+              <option value="new-arrivals">New arrivals (released)</option>
+              <option value="high-low-price">Expensive - Cheapest</option>
+              <option value="low-high-price">Cheapest - Expensive</option>
               <option value="alphabetical">A - Z</option>
+              <option value="reverse-alphabetical">Z - A</option>
             </select>
           </div>
           <input type="submit" value="Search" style={{ borderRadius: "2em" }} />
@@ -233,10 +236,13 @@ export function DeviceSearchForm(
           value={sort}
           onChange={handleSortChange}
         >
-          <option value="all">Sort</option>
+          <option value="all">No sorting</option>
           <option value="highly-rated">Ranking</option>
-          <option value="new-arrivals">New arrivals</option>
+          <option value="new-arrivals">New arrivals (released)</option>
+          <option value="high-low-price">Expensive - Cheapest</option>
+          <option value="low-high-price">Cheapest - Expensive</option>
           <option value="alphabetical">A - Z</option>
+          <option value="reverse-alphabetical">Z - A</option>
         </select>
         <input type="submit" value="Search" />
       </form>

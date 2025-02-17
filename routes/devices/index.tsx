@@ -19,8 +19,11 @@ export default function DevicesIndex(props: PageProps) {
     | "all"
     | "highly-rated"
     | "new-arrivals"
-    | "alphabetical" ||
-    "all";
+    | "high-low-price"
+    | "low-high-price"
+    | "alphabetical"
+    | "reverse-alphabetical"
+    || "all";
 
   const filter = props.url?.searchParams?.get("filter") as
     | "all"
