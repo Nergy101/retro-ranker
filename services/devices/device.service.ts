@@ -159,11 +159,15 @@ export class DeviceService {
     }
 
     if (sortBy === "high-low-price") {
-      filteredDevices = filteredDevices.filter((device) => device.pricing.average);
+      filteredDevices = filteredDevices.filter((device) =>
+        device.pricing.average
+      );
     }
 
     if (sortBy === "low-high-price") {
-      filteredDevices = filteredDevices.filter((device) => device.pricing.average);
+      filteredDevices = filteredDevices.filter((device) =>
+        device.pricing.average
+      );
     }
 
     // filter by tags. Device must have all tags in the array.

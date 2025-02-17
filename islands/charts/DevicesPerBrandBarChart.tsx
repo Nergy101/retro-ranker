@@ -12,7 +12,9 @@ export function DevicesPerBrandBarChart({ devices }: BarChartProps) {
   // Get unique brands from the devices array
   const getAllBrands = () => {
     return Array.from(new Set(devices.map((d) => d.brand)))
-      .filter((brand) => brand !== undefined && brand !== null && brand?.raw !== "");
+      .filter((brand) =>
+        brand !== undefined && brand !== null && brand?.raw !== ""
+      );
   };
 
   const getSortedData = () => {

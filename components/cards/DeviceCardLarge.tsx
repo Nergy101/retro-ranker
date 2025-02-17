@@ -91,7 +91,14 @@ export function DeviceCardLarge({ device }: { device: Device }) {
               />
             </span>
           )}
-        <hgroup style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <hgroup
+          style={{
+            textAlign: "center",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
           <strong
             data-tooltip={device.name.normalized != device.name.raw
               ? device.name.raw

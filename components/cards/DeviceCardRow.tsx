@@ -6,10 +6,7 @@ interface DeviceCardRowProps {
 
 export function DeviceCardRow({ device }: DeviceCardRowProps) {
   return (
-    <div
-      class="device-card-row"
-    
-    >
+    <div class="device-card-row">
       {/* Image Section */}
       <div
         style={{
