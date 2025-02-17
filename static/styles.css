@@ -543,6 +543,10 @@ body::before {
 
   @media (max-width: 1024px) {
     grid-template-columns: repeat(1, 1fr);
+
+    .device-search-card {
+      max-width: 90%;
+    }
   }
 }
 

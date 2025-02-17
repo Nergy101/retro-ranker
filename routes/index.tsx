@@ -30,6 +30,7 @@ export default function Home() {
     deviceService.getTagBySlug("clamshell"),
     deviceService.getTagBySlug("horizontal"),
     deviceService.getTagBySlug("vertical"),
+    deviceService.getTagBySlug("micro"),
   ].filter((tag) => tag !== null) as TagModel[];
 
   return (

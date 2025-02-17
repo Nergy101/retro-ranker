@@ -60,6 +60,7 @@ export default function DevicesIndex(props: PageProps) {
     deviceService.getTagBySlug("clamshell"),
     deviceService.getTagBySlug("horizontal"),
     deviceService.getTagBySlug("vertical"),
+    deviceService.getTagBySlug("micro"),
   ].filter((tag) => tag !== null).filter((t) =>
     !initialTags.some((t2) => t2.slug === t.slug)
   ) as TagModel[];
@@ -88,7 +89,20 @@ export default function DevicesIndex(props: PageProps) {
     }
   };
 
-  const pageSize = getPageSize(activeLayout);
+  const pageSize = props.url?.searchParams?.get("pageSize")
+    ? parseInt(
+      props.url?.searchParams?.get("pageSize") ??
+        getPageSize(activeLayout).toString(),
+    )
+    : getPageSize(activeLayout);
+
+  const getMaxPageSize = () => {
+    if (pageSize > 100) {
+      return 10;
+    }
+
+    return pageSize;
+  };
 
   const pagedFilteredSortedDevices = deviceService.searchDevices(
     searchQuery,
@@ -97,7 +111,7 @@ export default function DevicesIndex(props: PageProps) {
     filter,
     initialTags,
     pageNumber,
-    pageSize,
+    getMaxPageSize(),
   );
 
   const hasResults = pagedFilteredSortedDevices.page.length > 0;
@@ -138,6 +152,7 @@ export default function DevicesIndex(props: PageProps) {
         <div f-client-nav={false}>
           <LayoutSelector
             activeLayout={activeLayout}
+            initialPageSize={pageSize}
           />
         </div>
 
@@ -145,7 +160,7 @@ export default function DevicesIndex(props: PageProps) {
           ? (
             <PaginationNav
               pageNumber={pageNumber}
-              pageSize={pageSize}
+              pageSize={getMaxPageSize()}
               totalResults={amountOfResults}
               searchQuery={searchQuery}
               searchCategory={searchCategory}
@@ -208,7 +223,7 @@ export default function DevicesIndex(props: PageProps) {
             >
               <PaginationNav
                 pageNumber={pageNumber}
-                pageSize={pageSize}
+                pageSize={getMaxPageSize()}
                 totalResults={amountOfResults}
                 searchQuery={searchQuery}
                 searchCategory={searchCategory}
