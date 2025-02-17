@@ -75,8 +75,16 @@ export function DevicesPerRatingBarChart({ devices }: BarChartProps) {
       <FreshChart
         type="bar"
         options={{
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
           scales: {
             y: {
+              grid: {
+                color: "#898989",
+              },
               min: 0,
               max: maxBarValue,
               ticks: {},

@@ -7,13 +7,13 @@ interface BarChartProps {
 }
 
 export function DevicesPerBrandBarChart({ devices }: BarChartProps) {
-  const minAmountOfDevices = useSignal(10);
+  const minAmountOfDevices = useSignal(5);
 
   // Get unique brands from the devices array
   const getAllBrands = () => {
     return Array.from(new Set(devices.map((d) => d.brand.raw)))
       .filter((brand) =>
-        brand !== undefined && brand !== null && brand !== ""
+        brand !== undefined && brand !== null && brand !== "" && brand !== "Unknown"
       );
   };
 
@@ -82,6 +82,7 @@ export function DevicesPerBrandBarChart({ devices }: BarChartProps) {
   const maxBarValue = Math.max(
     ...getSortedData().map((d) => d.amountOfDevices),
   );
+  const maxBarValueForChart = Math.ceil(maxBarValue / 5) * 5;
 
   const setMinAmountOfDevices = (e: Event) => {
     const value = (e.target as HTMLInputElement)?.value;
@@ -111,10 +112,18 @@ export function DevicesPerBrandBarChart({ devices }: BarChartProps) {
       <FreshChart
         type="bar"
         options={{
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
           scales: {
             y: {
+              grid: {
+                color: "#898989",
+              },
               min: 0,
-              max: maxBarValue,
+              max: maxBarValueForChart,
               ticks: {},
             },
           },

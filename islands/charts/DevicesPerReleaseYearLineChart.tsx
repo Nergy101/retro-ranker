@@ -118,8 +118,16 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
       <FreshChart
         type="line"
         options={{
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
           scales: {
             y: {
+              grid: {
+                color: "#898989",
+              },
               min: 0,
               ticks: {},
             },
