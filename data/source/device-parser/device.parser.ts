@@ -532,15 +532,57 @@ export class DeviceParser {
         continue;
       }
 
+      if (tag.toLowerCase().includes("steam")) {
+        tags.push(
+          { name: "Steam OS", slug: "steam-os", type: "os" } as TagModel,
+        );
+        continue;
+      }
+
+      if (tag.toLowerCase().includes("batocera")) {
+        tags.push(
+          { name: "Batocera", slug: "batocera", type: "os" } as TagModel,
+        );
+        continue;
+      }
+
+      if (tag.toLowerCase().includes("arkos")) {
+        tags.push(
+          { name: "ArkOS", slug: "arkos", type: "os" } as TagModel,
+        );
+        continue;
+      }
+
+      if (tag.toLowerCase().includes("emuelec")) {
+        tags.push(
+          { name: "EmuELEC", slug: "emuelec", type: "os" } as TagModel,
+        );
+        continue;
+      }
+
+      if (tag.toLowerCase().includes("onion")) {
+        tags.push(
+          { name: "Onion OS", slug: "onion-os", type: "os" } as TagModel,
+        );
+        continue;
+      }
+
+      if (tag.toLowerCase().includes("kinhank")) {
+        tags.push(
+          { name: "KinHank", slug: "kinhank", type: "os" } as TagModel,
+        );
+        continue;
+      }
+
+      if (tag.toLowerCase().includes("open source proprietary")) {
+        tags.push(
+          { name: "Open Source Proprietary", slug: "open-source-proprietary", type: "os" } as TagModel,
+        );
+        continue;
+      }
+
       if (slug.includes("linux")) {
         tags.push({ name: "Linux", slug: "linux", type: "os" } as TagModel);
-
-        if (tag.toLowerCase().includes("steam")) {
-          tags.push(
-            { name: "Steam OS", slug: "steam-os", type: "os" } as TagModel,
-          );
-          continue;
-        }
 
         if (slug.includes("(")) {
           // get name between ( and )
@@ -561,6 +603,14 @@ export class DeviceParser {
   private static getBrandTag(device: Device): TagModel | null {
     if (device.brand.raw === "") {
       return null;
+    }
+
+    if (device.brand.raw.toLowerCase().includes("dingoo")) {
+      return {
+        name: "Dingoo Technology",
+        slug: "dingoo-technology",
+        type: "brand",
+      } as TagModel;
     }
 
     return {
@@ -622,6 +672,22 @@ export class DeviceParser {
       return {
         name: "Clamshell",
         slug: "clamshell",
+        type: "formFactor",
+      } as TagModel;
+    }
+
+    if (slug.includes("landscape")) {
+      return {
+        name: "Landscape",
+        slug: "landscape",
+        type: "formFactor",
+      } as TagModel;
+    }
+
+    if (slug.includes("portrait")) {
+      return {
+        name: "Portrait",
+        slug: "portrait",
         type: "formFactor",
       } as TagModel;
     }

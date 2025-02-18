@@ -61,7 +61,8 @@ export class DeviceService {
       this.tags = this.devices.flatMap((device) => device.tags).filter(
         (tag, index, self) =>
           index === self.findIndex((t) => t.slug === tag.slug),
-      );
+      ).sort((a, b) => a.name.localeCompare(b.name));
+
     } catch (error) {
       console.error("Failed to load devices:", error);
       this.devices = [];
@@ -487,6 +488,16 @@ export class DeviceService {
 
     // Ensure the final score is between 0 and 10.
     return Math.max(0, Math.min(10, finalScore));
+  }
+
+  getAllTags(): TagModel[] {
+    return this.tags;
+  }
+
+  getDevicesWithTags(tags: TagModel[]): Device[] {
+    return this.devices.filter((device) =>
+      tags.every((tag) => device.tags.some((t) => t.slug === tag.slug))
+    );
   }
 
   getTagBySlug(tagSlug: string): TagModel | null {

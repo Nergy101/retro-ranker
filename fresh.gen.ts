@@ -12,10 +12,12 @@ import * as $compare_index from "./routes/compare/index.tsx";
 import * as $contact from "./routes/contact.tsx";
 import * as $devices_name_ from "./routes/devices/[name].tsx";
 import * as $devices_index from "./routes/devices/index.tsx";
+import * as $devices_tags from "./routes/devices/tags.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $privacy from "./routes/privacy.tsx";
 import * as $terms from "./routes/terms.tsx";
 import * as $LayoutSelector from "./islands/LayoutSelector.tsx";
+import * as $TagTypeahead from "./islands/TagTypeahead.tsx";
 import * as $buttons_ClipboardButton from "./islands/buttons/ClipboardButton.tsx";
 import * as $buttons_CompareButton from "./islands/buttons/CompareButton.tsx";
 import * as $buttons_ShareButton from "./islands/buttons/ShareButton.tsx";
@@ -46,12 +48,14 @@ const manifest = {
     "./routes/contact.tsx": $contact,
     "./routes/devices/[name].tsx": $devices_name_,
     "./routes/devices/index.tsx": $devices_index,
+    "./routes/devices/tags.tsx": $devices_tags,
     "./routes/index.tsx": $index,
     "./routes/privacy.tsx": $privacy,
     "./routes/terms.tsx": $terms,
   },
   islands: {
     "./islands/LayoutSelector.tsx": $LayoutSelector,
+    "./islands/TagTypeahead.tsx": $TagTypeahead,
     "./islands/buttons/ClipboardButton.tsx": $buttons_ClipboardButton,
     "./islands/buttons/CompareButton.tsx": $buttons_CompareButton,
     "./islands/buttons/ShareButton.tsx": $buttons_ShareButton,

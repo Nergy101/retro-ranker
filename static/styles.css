@@ -1434,3 +1434,19 @@ h6,
     transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
   }
 }
+
+.devices-by-tags-page {
+  background-color: var(--pico-background-color);
+  padding: 1rem;
+  border-radius: var(--pico-border-radius);
+  margin-bottom: 1rem;
+  border: 1px solid var(--pico-primary);
+}
+
+.tags-group {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: var(--pico-card-background-color);
+  border-radius: var(--pico-border-radius);
+  border: 1px solid var(--pico-primary);
+}

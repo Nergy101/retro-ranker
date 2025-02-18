@@ -140,6 +140,13 @@ export default function DevicesIndex(props: PageProps) {
             </span>{" "}
             devices
           </p>
+          <a
+            f-client-nav={false}
+            style={{ fontSize: "0.8rem" }}
+            href="/devices/tags"
+          >
+            Search devices by all tags 🚧
+          </a>
         </hgroup>
       </header>
 
