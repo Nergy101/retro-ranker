@@ -555,7 +555,7 @@ body::before {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: .25rem;
+  gap: 0.25rem;
 
   a {
     display: flex;
@@ -1149,6 +1149,7 @@ h6,
 }
 .desktop-nav {
   background-color: var(--pico-background-color);
+  border-bottom: 1px solid var(--pico-primary);
 }
 
 /* Desktop Nav */
@@ -1158,8 +1159,6 @@ h6,
   flex-direction: row;
   list-style: none;
   padding: 0;
-
-  border-bottom: 1px solid var(--pico-primary);
 }
 
 .logo-nav-item {
@@ -1214,6 +1213,7 @@ h6,
   background-color: var(--pico-background-color);
   width: 100vw;
   display: flex;
+  border-bottom: 1px solid var(--pico-primary);
 }
 
 .mobile-nav-header {
