@@ -247,10 +247,10 @@ export function DeviceCardMedium({ device, isActive }: DeviceCardMediumProps) {
         }}
       >
         {upToSystemA && (
-          <RatingInfo rating={upToSystemA} tooltipPosition="bottom" />
+          <RatingInfo rating={upToSystemA} tooltipUseShortSystemName={true} tooltipPosition="bottom" />
         )}
         {upToSystemC && (
-          <RatingInfo rating={upToSystemC} tooltipPosition="bottom" />
+          <RatingInfo rating={upToSystemC} tooltipUseShortSystemName={true} tooltipPosition="bottom" />
         )}
       </div>
     </article>
