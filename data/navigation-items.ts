@@ -1,4 +1,5 @@
 import {
+PiCalendar,
   PiChartLine,
   PiChatText,
   PiGameController,
@@ -43,6 +44,13 @@ export const navigationItems: NavigationItem[] = [
     label: "Charts",
     icon: (props) => PiChartLine({ ...props }),
     isActive: (pathname) => pathname.startsWith("/charts"),
+    priority: 0.9,
+  },
+  {
+    href: "/release-timeline",
+    label: "Releases",
+    icon: (props) => PiCalendar({ ...props }),
+    isActive: (pathname) => pathname.startsWith("/release-timeline"),
     priority: 0.9,
   },
   {

@@ -15,6 +15,7 @@ import * as $devices_index from "./routes/devices/index.tsx";
 import * as $devices_tags from "./routes/devices/tags.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $privacy from "./routes/privacy.tsx";
+import * as $release_timeline_index from "./routes/release-timeline/index.tsx";
 import * as $terms from "./routes/terms.tsx";
 import * as $LayoutSelector from "./islands/LayoutSelector.tsx";
 import * as $TagTypeahead from "./islands/TagTypeahead.tsx";
@@ -51,6 +52,7 @@ const manifest = {
     "./routes/devices/tags.tsx": $devices_tags,
     "./routes/index.tsx": $index,
     "./routes/privacy.tsx": $privacy,
+    "./routes/release-timeline/index.tsx": $release_timeline_index,
     "./routes/terms.tsx": $terms,
   },
   islands: {

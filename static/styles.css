@@ -1450,3 +1450,58 @@ h6,
   border-radius: var(--pico-border-radius);
   border: 1px solid var(--pico-primary);
 }
+
+.release-timeline-page {
+  background-color: var(--pico-background-color);
+  padding: 1rem;
+  border-radius: var(--pico-border-radius);
+  margin-bottom: 1rem;
+  border: 1px solid var(--pico-primary);
+}
+
+.timeline {
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 1em;
+  overflow-x: scroll;
+}
+
+.timeline-month {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 20em;
+  overflow-x: hidden;
+  padding: 1em;
+  border: 1px solid var(--pico-primary);
+
+  &:first-child {
+    border-top-right-radius: var(--pico-border-radius);
+    border-bottom-right-radius: var(--pico-border-radius);
+  }
+
+  &:last-child {
+    border-top-left-radius: var(--pico-border-radius);
+    border-bottom-left-radius: var(--pico-border-radius);
+  }
+}
+
+.timeline-items {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 0.5rem;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  padding: 0.5rem;
+}
+
+.timeline-item {
+  flex: 1 1 auto;
+  display: flex;
+
+  a {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+}

@@ -3,9 +3,12 @@ import { SystemRating } from "../../data/models/system-rating.model.ts";
 
 interface RatingInfoProps {
   rating: SystemRating;
+  tooltipPosition?: "top" | "bottom";
 }
 
-const getRatingInfo = (rating: SystemRating) => {
+const getRatingInfo = (
+  rating: SystemRating
+) => {
   switch (rating.ratingMark.toUpperCase()) {
     case "A":
       return {
@@ -46,7 +49,7 @@ const getRatingInfo = (rating: SystemRating) => {
   }
 };
 
-export function RatingInfo({ rating }: RatingInfoProps) {
+export function RatingInfo({ rating, tooltipPosition = "top" }: RatingInfoProps) {
   const { color, text, textColor } = getRatingInfo(rating);
 
   return (
@@ -57,7 +60,7 @@ export function RatingInfo({ rating }: RatingInfoProps) {
         color: textColor,
       }}
     >
-      <span data-tooltip={text}>
+      <span data-tooltip={text} data-placement={tooltipPosition}>
         {EmulationSystemShort[rating.system] ?? rating.system}
       </span>
     </div>

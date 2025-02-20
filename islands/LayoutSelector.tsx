@@ -2,21 +2,21 @@ import { PiGridNine, PiList, PiSquaresFour } from "@preact-icons/pi";
 import { useSignal } from "@preact/signals";
 
 export function LayoutSelector(
-  { activeLayout, initialPageSize }: {
+  { activeLayout, initialPageSize, defaultPageSize }: {
     activeLayout: string;
     initialPageSize: number;
+    defaultPageSize: number;
   },
 ) {
   const pageSize = useSignal(initialPageSize);
 
   const handlePageSizeChange = (e: Event) => {
-    const newPageSize = parseInt((e.target as HTMLInputElement).value, 10);
-    if (newPageSize >= 1 && newPageSize <= 100) {
-      pageSize.value = newPageSize;
-      const url = new URL(globalThis.location.href);
-      url.searchParams.set("pageSize", pageSize.value.toString());
-      globalThis.history.pushState({}, "", url.toString());
-    }
+    const newPageSize = parseInt((e.target as HTMLSelectElement).value, 10);
+    pageSize.value = newPageSize;
+
+    const url = new URL(globalThis.location.href);
+    url.searchParams.set("pageSize", pageSize.value.toString());
+    globalThis.location.href = url.toString();
   };
 
   const handleSubmit = (e: Event) => {
@@ -99,17 +99,20 @@ export function LayoutSelector(
         }}
       >
         <form onSubmit={handleSubmit}>
-          <input
-            style={{ padding: 0, margin: 0 }}
-            type="number"
-            min="1"
-            max="100"
+          <select
+            style={{
+              textAlign: "center",
+            }}
             value={pageSize.value}
-            onInput={handlePageSizeChange}
+            onChange={handlePageSizeChange}
             name="pageSize"
             aria-label="Page Size"
-            aria-invalid={pageSize.value < 1 || pageSize.value > 100}
-          />
+          >
+            <option value={defaultPageSize}>{defaultPageSize}</option>
+            <option value={10}>10</option>
+            <option value={20}>20</option>
+            <option value={50}>50</option>
+          </select>
         </form>
       </div>
     </div>

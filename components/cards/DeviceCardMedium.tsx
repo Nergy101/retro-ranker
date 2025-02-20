@@ -3,6 +3,12 @@ import { Device } from "../../data/device.model.ts";
 import { DeviceService } from "../../services/devices/device.service.ts";
 import { CurrencyIcon } from "../shared/CurrencyIcon.tsx";
 import { StarRating } from "../ratings/StarRating.tsx";
+import {
+  EmulationSystemOrder,
+  EmulationSystemShort,
+} from "../../data/enums/EmulationSystem.ts";
+import { RatingInfo } from "../ratings/RatingInfo.tsx";
+import { SystemRating } from "../../data/models/system-rating.model.ts";
 
 interface DeviceCardMediumProps {
   device: Device;
@@ -42,6 +48,53 @@ export function DeviceCardMedium({ device, isActive }: DeviceCardMediumProps) {
       );
     }
   };
+
+  const getUptoSystemA = (): SystemRating | null => {
+    const systemRatings = device.systemRatings;
+    if (systemRatings.length === 0) {
+      return null;
+    }
+
+    const aRatings = systemRatings.filter((rating) =>
+      rating.ratingMark === "A"
+    );
+    if (aRatings.length === 0) {
+      return null;
+    }
+
+    const mostDifficultSystem = aRatings.reduce((prev, current) =>
+      EmulationSystemOrder[prev.system] > EmulationSystemOrder[current.system]
+        ? prev
+        : current
+    );
+
+    return mostDifficultSystem;
+  };
+
+  const getUptoSystemC = (): SystemRating | null => {
+    const systemRatings = device.systemRatings;
+    if (systemRatings.length === 0) {
+      return null;
+    }
+
+    const cRatings = systemRatings.filter((rating) =>
+      rating.ratingMark === "C"
+    );
+    if (cRatings.length === 0) {
+      return null;
+    }
+
+    const mostDifficultSystem = cRatings.reduce((prev, current) =>
+      EmulationSystemOrder[prev.system] > EmulationSystemOrder[current.system]
+        ? prev
+        : current
+    );
+
+    return mostDifficultSystem;
+  };
+
+  const upToSystemA = getUptoSystemA();
+  const upToSystemC = getUptoSystemC();
 
   return (
     <article
@@ -185,6 +238,19 @@ export function DeviceCardMedium({ device, isActive }: DeviceCardMediumProps) {
             DeviceService.getOsIconComponent(icon)
           )}
         </span>
+      </div>
+      <div
+        style={{
+          marginBottom: "0.5rem",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: "0.5rem",
+        }}
+      >
+        {upToSystemA && <RatingInfo rating={upToSystemA} tooltipPosition="bottom" />}
+        {upToSystemC && <RatingInfo rating={upToSystemC} tooltipPosition="bottom" />}
       </div>
     </article>
   );
