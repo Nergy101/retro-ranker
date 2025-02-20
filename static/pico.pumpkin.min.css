@@ -2651,7 +2651,7 @@ progress::-moz-progress-bar {
 [data-tooltip][data-placement="top"]::after,
 [data-tooltip][data-placement="top"]::before {
   display: block;
-  z-index: 99;
+  z-index: 999;
   position: absolute;
   bottom: 100%;
   left: 50%;

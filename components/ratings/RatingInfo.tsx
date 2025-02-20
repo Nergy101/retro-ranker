@@ -9,35 +9,36 @@ interface RatingInfoProps {
 const getRatingInfo = (
   rating: SystemRating
 ) => {
+  const systemShort = EmulationSystemShort[rating.system];
   switch (rating.ratingMark.toUpperCase()) {
     case "A":
       return {
         color: "#16833E",
-        text: `${rating.system}: Excellent ${rating.ratingNumber}/5`,
+        text: `${systemShort}: Excellent ${rating.ratingNumber}/5`,
         textColor: "white",
       };
     case "B":
       return {
         color: "#3952A2",
-        text: `${rating.system}: Playable ${rating.ratingNumber}/5`,
+        text: `${systemShort}: Playable ${rating.ratingNumber}/5`,
         textColor: "white",
       };
     case "C":
       return {
         color: "#EEB61B",
-        text: `${rating.system}: Playable with tweaks ${rating.ratingNumber}/5`,
+        text: `${systemShort}: Playable with tweaks ${rating.ratingNumber}/5`,
         textColor: "black",
       };
     case "D":
       return {
         color: "#fb923c",
-        text: `${rating.system}: Barely works ${rating.ratingNumber}/5`,
+        text: `${systemShort}: Barely works ${rating.ratingNumber}/5`,
         textColor: "black",
       };
     case "F":
       return {
         color: "#AB0D0D",
-        text: `${rating.system}: Doesn't work ${rating.ratingNumber}/5`,
+        text: `${systemShort}: Doesn't work ${rating.ratingNumber}/5`,
         textColor: "white",
       };
     default:
