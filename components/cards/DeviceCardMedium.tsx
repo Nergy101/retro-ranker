@@ -1,14 +1,11 @@
 import { PiQuestion } from "@preact-icons/pi";
 import { Device } from "../../data/device.model.ts";
-import { DeviceService } from "../../services/devices/device.service.ts";
-import { CurrencyIcon } from "../shared/CurrencyIcon.tsx";
-import { StarRating } from "../ratings/StarRating.tsx";
-import {
-  EmulationSystemOrder,
-  EmulationSystemShort,
-} from "../../data/enums/EmulationSystem.ts";
-import { RatingInfo } from "../ratings/RatingInfo.tsx";
+import { EmulationSystemOrder } from "../../data/enums/EmulationSystem.ts";
 import { SystemRating } from "../../data/models/system-rating.model.ts";
+import { DeviceService } from "../../services/devices/device.service.ts";
+import { RatingInfo } from "../ratings/RatingInfo.tsx";
+import { StarRating } from "../ratings/StarRating.tsx";
+import { CurrencyIcon } from "../shared/CurrencyIcon.tsx";
 
 interface DeviceCardMediumProps {
   device: Device;
@@ -249,8 +246,12 @@ export function DeviceCardMedium({ device, isActive }: DeviceCardMediumProps) {
           gap: "0.5rem",
         }}
       >
-        {upToSystemA && <RatingInfo rating={upToSystemA} tooltipPosition="bottom" />}
-        {upToSystemC && <RatingInfo rating={upToSystemC} tooltipPosition="bottom" />}
+        {upToSystemA && (
+          <RatingInfo rating={upToSystemA} tooltipPosition="bottom" />
+        )}
+        {upToSystemC && (
+          <RatingInfo rating={upToSystemC} tooltipPosition="bottom" />
+        )}
       </div>
     </article>
   );
