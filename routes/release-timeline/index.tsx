@@ -24,10 +24,11 @@ export default function ReleaseTimeline(props: PageProps) {
   });
 
   const devicesGroupedByYearAndMonth = sortedDevices.reduce((acc, device) => {
-    const parsedDate = new Date(device.released.mentionedDate ?? 0);
-    const year = parsedDate.getFullYear();
-    const month = parsedDate.getMonth();
-    if (!year || !month) return acc;
+    const parsedDate = new Date(device.released.mentionedDate ?? 0, );
+
+    const year = parsedDate.getUTCFullYear();
+    const month = parsedDate.getUTCMonth();
+
     acc[`${year}-${month}`] = [...(acc[`${year}-${month}`] || []), device];
     return acc;
   }, {} as Record<string, Device[]>);

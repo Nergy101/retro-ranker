@@ -23,14 +23,14 @@ export function TimelineContent(
     }
   }, []);
 
-  const getKeyName = (key: string) => {
-    const date = new Date(key);
-    const month = date.toLocaleString("default", { month: "long" });
+  const getKeyName = (year: number, month: number) => {
+    const date = new Date(Date.UTC(year, month));
+    const monthName = date.toLocaleString("default", { month: "long" });
     return (
       <div>
-        <span>{month}</span>
+        <span>{monthName}</span>
         <br />
-        <span>{date.getFullYear()}</span>
+        <span>{year}</span>
       </div>
     );
   };
@@ -69,40 +69,45 @@ export function TimelineContent(
         </div>
       </div>
 
-      {Object.entries(devicesGroupedByYearAndMonth).map(([key, devices]) => (
-        <div
-          class="timeline-container"
-          id={key}
-        >
-          <div class="timeline-dot"></div>
+      {Object.entries(devicesGroupedByYearAndMonth).map(([key, devices]) => {
+        const year = parseInt(key.split("-")[0]);
+        const month = parseInt(key.split("-")[1]);
+
+        return (
           <div
-            class="timeline-text"
-            onClick={() => {
-              globalThis.location.hash = key;
-              globalThis.navigator.clipboard.writeText(
-                `${globalThis.location.origin}/release-timeline#${key}`,
-              );
-            }}
-            data-tooltip="Click to copy link to this section"
+            class="timeline-container"
+            id={key}
           >
-            <div>{getKeyName(key)}</div>
-          </div>
-          <div class="timeline-body">
-            <div class="timeline-devices-grid">
-              {devices.map((device) => {
-                return (
-                  <a
-                    href={`/devices/${device.name.sanitized}`}
-                    style={{ textDecoration: "none" }}
-                  >
-                    <DeviceCardMedium device={device} />
-                  </a>
+            <div class="timeline-dot"></div>
+            <div
+              class="timeline-text"
+              onClick={() => {
+                globalThis.location.hash = key;
+                globalThis.navigator.clipboard.writeText(
+                  `${globalThis.location.origin}/release-timeline#${key}`,
                 );
-              })}
+              }}
+              data-tooltip="Click to copy link to this section"
+            >
+              <div>{getKeyName(year, month)}</div>
+            </div>
+            <div class="timeline-body">
+              <div class="timeline-devices-grid">
+                {devices.map((device) => {
+                  return (
+                    <a
+                      href={`/devices/${device.name.sanitized}`}
+                      style={{ textDecoration: "none" }}
+                    >
+                      <DeviceCardMedium device={device} />
+                    </a>
+                  );
+                })}
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }
