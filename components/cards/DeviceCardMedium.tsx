@@ -12,7 +12,9 @@ interface DeviceCardMediumProps {
   isActive: boolean;
 }
 
-export function DeviceCardMedium({ device, isActive }: DeviceCardMediumProps) {
+export function DeviceCardMedium(
+  { device, isActive = false }: DeviceCardMediumProps,
+) {
   const getPriceIndicator = () => {
     if (device.pricing.discontinued) {
       return (
@@ -247,10 +249,18 @@ export function DeviceCardMedium({ device, isActive }: DeviceCardMediumProps) {
         }}
       >
         {upToSystemA && (
-          <RatingInfo rating={upToSystemA} tooltipUseShortSystemName={true} tooltipPosition="bottom" />
+          <RatingInfo
+            rating={upToSystemA}
+            tooltipUseShortSystemName={true}
+            tooltipPosition="bottom"
+          />
         )}
         {upToSystemC && (
-          <RatingInfo rating={upToSystemC} tooltipUseShortSystemName={true} tooltipPosition="bottom" />
+          <RatingInfo
+            rating={upToSystemC}
+            tooltipUseShortSystemName={true}
+            tooltipPosition="bottom"
+          />
         )}
       </div>
     </article>
