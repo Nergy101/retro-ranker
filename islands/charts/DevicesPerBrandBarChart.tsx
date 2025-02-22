@@ -7,7 +7,7 @@ interface BarChartProps {
 }
 
 export function DevicesPerBrandBarChart({ devices }: BarChartProps) {
-  const minAmountOfDevices = useSignal(5);
+  const minAmountOfDevices = useSignal(10);
 
   // Get unique brands from the devices array
   const getAllBrands = () => {

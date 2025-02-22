@@ -21,12 +21,13 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
 
   // Use the first and last available years as the slider boundaries
   const initialMin = fullYears[0] ?? new Date().getFullYear();
-  const initialMax = fullYears[fullYears.length - 1] ??
-    new Date().getFullYear();
+  const initialMax = new Date().getFullYear();
 
   // Signals to store the current filter values for minimum and maximum year
-  const selectedMinYear = useSignal(initialMin);
-  const selectedMaxYear = useSignal(initialMax);
+  const selectedMinYear = useSignal(2017);
+  const selectedMaxYear = useSignal(initialMax - 1);
+  const showTotalDevices = useSignal(false);
+  const minimalOf12DevicesProduced = useSignal(true);
 
   // Filter the devices to only include those within the selected year range.
   const filteredDevices = devices.filter((d) => {
@@ -68,17 +69,78 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
       }
     }
 
-    return [{
-      label: "Devices released for given year",
-      data: amountOfDevicesPerYear,
-      fill: true,
-      borderColor: "#e48500",
-      backgroundColor: "#e4850050",
-      pointBackgroundColor: "#e48500",
-      borderWidth: 3,
-      tension: 0.4,
-      pointRadius: 5,
-    }];
+    const amountOfDevicesPerBrandPerYear: Record<string, number[]> = {};
+
+    // First, initialize arrays for each brand
+    const uniqueBrands = Array.from(
+      new Set(filteredDevices.map((d) => d.brand.sanitized)),
+    );
+    for (const brand of uniqueBrands) {
+      amountOfDevicesPerBrandPerYear[brand] = Array(years.length).fill(0);
+    }
+
+    // Then count devices per brand per year
+    for (const d of filteredDevices) {
+      if (d.released?.mentionedDate) {
+        const actualDate = new Date(d.released.mentionedDate);
+        const year = actualDate.getFullYear();
+        const index = years.indexOf(year);
+        if (index !== -1) {
+          amountOfDevicesPerBrandPerYear[d.brand.sanitized][index]++;
+        }
+      }
+    }
+
+    // Generate a unique color for each brand
+    const brandColors = Object.keys(amountOfDevicesPerBrandPerYear).reduce(
+      (acc, brand, index) => {
+        // Generate HSL colors with good spacing and consistent saturation/lightness
+        const hue = (index * 137.5) % 360; // Golden angle approximation for good color distribution
+        acc[brand] = {
+          border: `hsl(${hue}, 70%, 45%)`,
+          background: `hsla(${hue}, 70%, 45%, 0.2)`,
+        };
+        return acc;
+      },
+      {} as Record<string, { border: string; background: string }>,
+    );
+
+    const data = [];
+
+    if (showTotalDevices.value) {
+      data.push({
+        label: "Total devices released",
+        data: amountOfDevicesPerYear,
+        fill: false,
+        borderColor: "#e48500",
+        // backgroundColor: "#e4850050",
+        pointBackgroundColor: "#e48500",
+        borderWidth: 3,
+        tension: 0.4,
+        pointRadius: 5,
+      });
+    }
+
+    data.push(
+      ...Object.entries(amountOfDevicesPerBrandPerYear).filter((x) => {
+        if (minimalOf12DevicesProduced.value) {
+          return x[1].reduce((acc, curr) => acc + curr, 0) >= 10;
+        }
+        return true;
+      })
+        .map(([brand, amountOfDevicesPerYear]) => ({
+          label: `${brand}`,
+          data: amountOfDevicesPerYear,
+          fill: false,
+          borderColor: brandColors[brand].border,
+          // backgroundColor: brandColors[brand].background,
+          borderWidth: 2,
+          tension: 0.4,
+          pointRadius: 3,
+        })),
+    );
+
+    return data;
   };
 
   return (
@@ -114,13 +176,34 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
             }}
           />
         </div>
+        <div>
+          <label>
+            <input
+              type="checkbox"
+              checked={minimalOf12DevicesProduced.value}
+              onChange={(e) =>
+                minimalOf12DevicesProduced.value =
+                  (e.target as HTMLInputElement).checked}
+            />
+            Show brands that produced &gt; 10 devices over selected years
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              checked={showTotalDevices.value}
+              onChange={(e) =>
+                showTotalDevices.value = (e.target as HTMLInputElement).checked}
+            />
+            Show total devices line
+          </label>
+        </div>
       </div>
       <FreshChart
         type="line"
         options={{
           plugins: {
             legend: {
-              display: false,
+              display: minimalOf12DevicesProduced.value ? true : false,
             },
           },
           scales: {
