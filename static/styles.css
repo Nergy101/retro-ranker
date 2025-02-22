@@ -329,7 +329,6 @@ body.paused-animation::before {
 .device-detail-header {
   height: fit-content;
   grid-area: header;
-  padding: 1rem 0 0 0;
   border-radius: var(--pico-border-radius);
   border-top-right-radius: 0;
 
@@ -1602,4 +1601,12 @@ table tr {
   color: var(--pico-contrast);
   padding: 2rem;
   border: 1px solid var(--pico-primary);
+}
+
+.back-button {
+  background-color: unset !important;
+  border-radius: var(--pico-border-radius) !important;
+  color: var(--pico-contrast) !important;
+  padding: 0.5rem 1rem !important;
+  border: none !important;
 }

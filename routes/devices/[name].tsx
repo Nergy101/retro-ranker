@@ -21,6 +21,7 @@ import { DevicesSimilarRadarChart } from "../../islands/charts/DevicesSimilarRad
 import { DeviceService } from "../../services/devices/device.service.ts";
 import { TagComponent } from "../../components/shared/TagComponent.tsx";
 import { SummaryTable } from "../../components/specifications/tables/SummaryTable.tsx";
+import { BackButton } from "../../islands/buttons/BackButton.tsx";
 
 export default function DeviceDetail(props: PageProps) {
   const deviceService = DeviceService.getInstance();
@@ -156,6 +157,9 @@ export default function DeviceDetail(props: PageProps) {
       </Head>
 
       <div class="device-detail-header">
+        <div style={{ margin: 0, padding: 0 }}>
+          <BackButton />
+        </div>
         <div
           style={{
             display: "flex",
@@ -173,6 +177,7 @@ export default function DeviceDetail(props: PageProps) {
               color: "var(--pico-primary)",
               display: "flex",
               alignItems: "center",
+              textAlign: "center",
               gap: "0.5rem",
             }}
             data-tooltip={device.name.normalized != device.name.raw
@@ -180,14 +185,6 @@ export default function DeviceDetail(props: PageProps) {
               : undefined}
             data-placement="bottom"
           >
-            <a
-              href="/devices"
-              class="back-button"
-              data-tooltip="Back to devices"
-              data-placement="right"
-            >
-              <PiArrowLeft />
-            </a>
             {device.name.normalized}
           </h2>
           <div style="display: flex; gap: 0.5rem; align-items: flex-end;">
