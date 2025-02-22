@@ -9,7 +9,7 @@ import { CurrencyIcon } from "../shared/CurrencyIcon.tsx";
 
 interface DeviceCardMediumProps {
   device: Device;
-  isActive: boolean;
+  isActive?: boolean;
 }
 
 export function DeviceCardMedium(

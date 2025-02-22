@@ -1460,71 +1460,7 @@ h6,
   border: 1px solid var(--pico-primary);
 }
 
-.release-timeline-page {
-  background-color: var(--pico-background-color);
-  padding: 1rem;
-  border-radius: var(--pico-border-radius);
-  margin-bottom: 1rem;
-  border: 1px solid var(--pico-primary);
-
-  @media (max-width: 768px) {
-    font-size: 0.75rem;
-  }
-}
-
-.timeline {
-  display: flex;
-  flex-direction: row-reverse;
-  padding: 1em;
-  overflow-x: scroll;
-}
-
-.timeline-month {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 25em;
-  overflow-x: hidden;
-  padding: 1em;
-  border: 1px solid var(--pico-primary);
-
-  &:first-child {
-    border-top-right-radius: var(--pico-border-radius);
-    border-bottom-right-radius: var(--pico-border-radius);
-  }
-
-  &:last-child {
-    border-top-left-radius: var(--pico-border-radius);
-    border-bottom-left-radius: var(--pico-border-radius);
-  }
-}
-
-.timeline-items {
-  width: 100%;
-  display: flex;
-  flex-flow: row wrap;
-  gap: 0.5rem;
-  overflow-y: hidden;
-  overflow-x: hidden;
-  padding: 0.5rem;
-}
-
-.timeline-item {
-  flex: 1 1 auto;
-  display: flex;
-  width: 100%;
-
-  a {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-  }
-}
-
 table tr {
-  /* width: calc(100% / 2); */
-  /* width: 100%; */
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -1541,4 +1477,105 @@ table tr {
     flex-direction: row;
     justify-content: center;
   }
+}
+
+.release-timeline-page {
+  background-color: var(--pico-background-color);
+  padding: 1rem;
+  margin-bottom: 1rem;
+
+  @media (max-width: 768px) {
+    font-size: 0.75rem;
+  }
+}
+
+.timeline {
+  position: relative;
+  padding-left: 4rem;
+  margin: 0 0 0 30px;
+  color: white;
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -1rem;
+    width: 4px;
+    height: 100%;
+    background: var(--pico-primary-background);
+  }
+
+  .timeline-container {
+    position: relative;
+    margin-bottom: 2.5rem;
+
+    .timeline-text {
+      position: absolute;
+      left: -350px;
+      top: 0;
+      width: 250px;
+      height: 6rem;
+      border-radius: 0.25rem;
+      text-align: center;
+      font-size: 2rem;
+      background-color: var(--pico-primary-background);
+
+      @media (max-width: 1440px) {
+        left: -185px;
+        width: 200px;
+        font-size: 1.5rem;
+      }
+
+      @media (max-width: 768px) {
+        left: -150px;
+        width: 150px;
+        font-size: 1.5rem;
+        height: 5rem;
+      }
+
+      @media (max-width: 425px) {
+        left: -100px;
+        width: 100px;
+        font-size: 1rem;
+        height: 3rem;
+      }
+    }
+
+    .timeline-body {
+      background: var(--timeline-body-bg);
+      border-radius: var(--timeline-body-round);
+      padding: 0 1rem;
+      box-shadow: var(--timeline-body-shadow);
+
+      &:before {
+        content: "";
+        background: inherit;
+        width: 20px;
+        height: 20px;
+        display: block;
+        position: absolute;
+        left: -10px;
+        transform: rotate(45deg);
+        border-radius: 0 0 0 2px;
+      }
+
+      .timeline-devices-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+
+        @media (max-width: 425px) {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    }
+  }
+}
+
+.warning {
+  background-color: var(--pico-card-background-color);
+  border-radius: var(--pico-border-radius);
+  color: var(--pico-contrast);
+  padding: 2rem;
+  border: 1px solid var(--pico-primary);
 }

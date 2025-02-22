@@ -23,6 +23,7 @@ import * as $release_timeline_index from "./routes/release-timeline/index.tsx";
 import * as $terms from "./routes/terms.tsx";
 import * as $LayoutSelector from "./islands/LayoutSelector.tsx";
 import * as $TagTypeahead from "./islands/TagTypeahead.tsx";
+import * as $TimelineContent from "./islands/TimelineContent.tsx";
 import * as $buttons_ClipboardButton from "./islands/buttons/ClipboardButton.tsx";
 import * as $buttons_CompareButton from "./islands/buttons/CompareButton.tsx";
 import * as $buttons_ShareButton from "./islands/buttons/ShareButton.tsx";
@@ -66,6 +67,7 @@ const manifest = {
   islands: {
     "./islands/LayoutSelector.tsx": $LayoutSelector,
     "./islands/TagTypeahead.tsx": $TagTypeahead,
+    "./islands/TimelineContent.tsx": $TimelineContent,
     "./islands/buttons/ClipboardButton.tsx": $buttons_ClipboardButton,
     "./islands/buttons/CompareButton.tsx": $buttons_CompareButton,
     "./islands/buttons/ShareButton.tsx": $buttons_ShareButton,

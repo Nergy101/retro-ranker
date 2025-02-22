@@ -1,17 +1,14 @@
 import { Head } from "$fresh/runtime.ts";
-import { PiCaretCircleDoubleLeft } from "@preact-icons/pi";
-import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
-import { Device } from "../../data/device.model.ts";
-import { DeviceService } from "../../services/devices/device.service.ts";
 import { PageProps } from "$fresh/server.ts";
+import { PiCaretCircleDoubleDown } from "@preact-icons/pi";
+import { DeviceService } from "../../services/devices/device.service.ts";
+import { TimelineContent } from "../../islands/TimelineContent.tsx";
+import { Device } from "../../data/device.model.ts";
 
 export default function ReleaseTimeline(props: PageProps) {
-  const yearsToShow = props.url.searchParams.get("years");
-
   const deviceService = DeviceService.getInstance();
   const devices = deviceService.getAllDevices();
 
-  // Sort devices by release date, oldest to newest
   const sortedDevices = devices.sort((a, b) => {
     const dateA = a.released.mentionedDate
       ? new Date(a.released.mentionedDate)
@@ -26,7 +23,7 @@ export default function ReleaseTimeline(props: PageProps) {
     return device.released.raw?.toLowerCase().includes("upcoming");
   });
 
-  let devicesGroupedByYearAndMonth = sortedDevices.reduce((acc, device) => {
+  const devicesGroupedByYearAndMonth = sortedDevices.reduce((acc, device) => {
     const parsedDate = new Date(device.released.mentionedDate ?? 0);
     const year = parsedDate.getFullYear();
     const month = parsedDate.getMonth();
@@ -35,116 +32,38 @@ export default function ReleaseTimeline(props: PageProps) {
     return acc;
   }, {} as Record<string, Device[]>);
 
-  if (yearsToShow !== null) {
-    devicesGroupedByYearAndMonth = Object.fromEntries(
-      Object.entries(devicesGroupedByYearAndMonth).filter(([key]) =>
-        key.startsWith(yearsToShow)
-      ),
-    );
-  }
-
-  if (yearsToShow === "upcoming") {
-    devicesGroupedByYearAndMonth["upcoming"] = upcomingDevices;
-  }
-
-  const getAllYears = () => {
-    return Array.from(
-      new Set(
-        devices.map((device) =>
-          new Date(device.released.mentionedDate ?? 0).getFullYear().toString()
-        ),
-      ),
-    ).reverse();
-  };
-
-  const renderTimeLine = () => {
-    if (yearsToShow === null) {
-      return (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <p>Select a year to view the release timeline.</p>
-        </div>
-      );
-    }
-
-    return (
-      <div class="timeline-container">
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <span
-            data-tooltip="Scroll left to go back in time"
-            data-placement="bottom"
-          >
-            <PiCaretCircleDoubleLeft />
-          </span>
-        </div>
-        <div class="timeline">
-          {Object.entries(devicesGroupedByYearAndMonth).map((
-            [date, devices],
-          ) => (
-            <div class="timeline-month">
-              <h2>
-                {date === "upcoming"
-                  ? "Upcoming"
-                  : new Date(date).toLocaleString("default", {
-                    month: "long",
-                    year: "numeric",
-                  })}
-              </h2>
-              <div class="timeline-items">
-                {devices.map((device) => (
-                  <div class="timeline-item">
-                    <a href={`/devices/${device.name.sanitized}`}>
-                      <DeviceCardMedium device={device} isActive={false} />
-                    </a>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  };
-
   return (
-    <div class="release-timeline-page">
+    <>
       <Head>
-        <title>Retro Ranker - Device Release Timeline</title>
+        <title>Retro Ranker - Release Timeline</title>
         <meta
           name="description"
-          content="Explore the release timeline of all devices in the Retro Ranker database."
+          content="Retro Ranker - Release Timeline"
         />
       </Head>
-      <h1>
+      <div class="release-timeline-page">
+        <h1 style={{ textAlign: "center" }}>Release Timeline</h1>
         <div
           style={{
             display: "flex",
-            alignItems: "center",
             justifyContent: "center",
-            gap: "10px",
+            marginBottom: "1rem",
+            fontSize: "1.5rem",
           }}
         >
-          <span>Device Release Timeline</span>
+          <div
+            style={{ display: "flex", alignItems: "center" }}
+            data-tooltip="Scroll down to see the timeline"
+            data-placement="bottom"
+          >
+            <PiCaretCircleDoubleDown />
+          </div>
         </div>
-      </h1>
-
-      <div class="year-selection tags">
-        {getAllYears().map((year) => (
-          <a href={`/release-timeline?years=${year}`}>{year}</a>
-        ))}
-        <a href="/release-timeline?years=upcoming">Upcoming</a>
+        <TimelineContent
+          upcomingDevices={upcomingDevices}
+          devicesGroupedByYearAndMonth={devicesGroupedByYearAndMonth}
+        />
       </div>
-
-      {renderTimeLine()}
-    </div>
+    </>
   );
 }
