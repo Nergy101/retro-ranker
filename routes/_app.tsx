@@ -1,7 +1,6 @@
 import { Head } from "$fresh/runtime.ts";
 import { type PageProps } from "$fresh/server.ts";
 import Footer from "../components/shared/Footer.tsx";
-import { Breadcrumb } from "../islands/navigation/Breadcrumb.tsx";
 import { Navbar } from "../islands/navigation/Navbar.tsx";
 import { DeviceService } from "../services/devices/device.service.ts";
 

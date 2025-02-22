@@ -8,7 +8,7 @@
     "build": "deno run -A dev.ts build",
     "preview": "deno run -A main.ts",
     "update": "deno run -A -r https://fresh.deno.dev/update .",
-    "ref resh-all": "cd scripts && deno run -A refresh-all.ts",
+    "refresh-all": "cd scripts && deno run -A refresh-all.ts",
     "sources": "cd scripts && deno run -A get-new-sources.ts",
     "generate-devices": "cd scripts && deno run -A generate-devices.ts",
     "scrape": "cd scripts && deno run -A scrape-images.ts",

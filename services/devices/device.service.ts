@@ -62,7 +62,6 @@ export class DeviceService {
         (tag, index, self) =>
           index === self.findIndex((t) => t.slug === tag.slug),
       ).sort((a, b) => a.name.localeCompare(b.name));
-
     } catch (error) {
       console.error("Failed to load devices:", error);
       this.devices = [];

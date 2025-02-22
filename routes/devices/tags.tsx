@@ -22,18 +22,21 @@ export default function DeviceTags(props: PageProps) {
   const allAvailableTags = () => {
     const allTags = deviceService.getAllTags();
     const selectedTagSlugs = selectedTags.map((tag) => tag.slug);
-    
+
     const availableTags = allTags.filter((tag) => {
       // Exclude already selected tags
       if (selectedTagSlugs.includes(tag.slug)) {
         return false;
       }
-      
+
       // Check if the tag is available in the resulting devices
-      const devicesWithTag = deviceService.getDevicesWithTags([...selectedTags, tag]);
+      const devicesWithTag = deviceService.getDevicesWithTags([
+        ...selectedTags,
+        tag,
+      ]);
       return devicesWithTag.length > 0;
     });
-    
+
     return availableTags;
   };
 

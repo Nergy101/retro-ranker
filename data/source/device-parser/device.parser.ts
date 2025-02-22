@@ -576,7 +576,11 @@ export class DeviceParser {
 
       if (tag.toLowerCase().includes("open source proprietary")) {
         tags.push(
-          { name: "Open Source Proprietary", slug: "open-source-proprietary", type: "os" } as TagModel,
+          {
+            name: "Open Source Proprietary",
+            slug: "open-source-proprietary",
+            type: "os",
+          } as TagModel,
         );
         continue;
       }

@@ -56,7 +56,7 @@ export function RatingInfo(
         };
     }
   };
-  
+
   const { color, text, textColor } = getRatingInfo(rating);
 
   return (
