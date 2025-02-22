@@ -7,12 +7,12 @@ import { Device } from "../../data/device.model.ts";
 export function Navbar(
   { pathname, allDevices }: { pathname: string; allDevices: Device[] },
 ) {
-  const isMobile = useSignal(globalThis.innerWidth <= 768);
+  const isMobile = useSignal(globalThis.innerWidth <= 1024);
   const isLoading = useSignal(true);
 
   useEffect(() => {
     const handleResize = () => {
-      isMobile.value = globalThis.innerWidth <= 768;
+      isMobile.value = globalThis.innerWidth <= 1024;
     };
 
     globalThis.addEventListener("resize", handleResize);

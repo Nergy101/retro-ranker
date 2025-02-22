@@ -38,6 +38,7 @@ export function TimelineContent(
   return (
     <div class="timeline">
       <div class="timeline-container">
+        <div class="timeline-dot-top"></div>
         <div
           class="timeline-text"
           onClick={() => {
@@ -66,6 +67,7 @@ export function TimelineContent(
           class="timeline-container"
           id={key}
         >
+          <div class="timeline-dot"></div>
           <div
             class="timeline-text"
             onClick={() => {
