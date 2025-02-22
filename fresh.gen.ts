@@ -4,10 +4,12 @@
 
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
+import * as $_layout from "./routes/_layout.tsx";
 import * as $about from "./routes/about.tsx";
 import * as $api_devices_name_ from "./routes/api/devices/[name].ts";
 import * as $api_devices_index from "./routes/api/devices/index.ts";
 import * as $charts_index from "./routes/charts/index.tsx";
+import * as $compare_layout from "./routes/compare/_layout.tsx";
 import * as $compare_index from "./routes/compare/index.tsx";
 import * as $contact from "./routes/contact.tsx";
 import * as $devices_name_ from "./routes/devices/[name].tsx";
@@ -15,6 +17,7 @@ import * as $devices_index from "./routes/devices/index.tsx";
 import * as $devices_tags from "./routes/devices/tags.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $privacy from "./routes/privacy.tsx";
+import * as $release_timeline_layout from "./routes/release-timeline/_layout.tsx";
 import * as $release_timeline_index from "./routes/release-timeline/index.tsx";
 import * as $terms from "./routes/terms.tsx";
 import * as $LayoutSelector from "./islands/LayoutSelector.tsx";
@@ -41,10 +44,12 @@ const manifest = {
   routes: {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
+    "./routes/_layout.tsx": $_layout,
     "./routes/about.tsx": $about,
     "./routes/api/devices/[name].ts": $api_devices_name_,
     "./routes/api/devices/index.ts": $api_devices_index,
     "./routes/charts/index.tsx": $charts_index,
+    "./routes/compare/_layout.tsx": $compare_layout,
     "./routes/compare/index.tsx": $compare_index,
     "./routes/contact.tsx": $contact,
     "./routes/devices/[name].tsx": $devices_name_,
@@ -52,6 +57,7 @@ const manifest = {
     "./routes/devices/tags.tsx": $devices_tags,
     "./routes/index.tsx": $index,
     "./routes/privacy.tsx": $privacy,
+    "./routes/release-timeline/_layout.tsx": $release_timeline_layout,
     "./routes/release-timeline/index.tsx": $release_timeline_index,
     "./routes/terms.tsx": $terms,
   },

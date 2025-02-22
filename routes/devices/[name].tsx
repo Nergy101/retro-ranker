@@ -1,6 +1,11 @@
 import { Head } from "$fresh/runtime.ts";
 import { PageProps } from "$fresh/server.ts";
-import { PiCalendarCheck, PiCalendarSlash, PiQuestion } from "@preact-icons/pi";
+import {
+  PiArrowLeft,
+  PiCalendarCheck,
+  PiCalendarSlash,
+  PiQuestion,
+} from "@preact-icons/pi";
 import { JSX, VNode } from "preact";
 import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
 import { DeviceLinks } from "../../components/DeviceLinks.tsx";
@@ -149,6 +154,7 @@ export default function DeviceDetail(props: PageProps) {
           }}
         />
       </Head>
+
       <div class="device-detail-header">
         <div style="display: flex; flex-direction: column; gap: 0.5rem; justify-content: center; align-items: center; padding-bottom: 0.5rem;">
           <h2
@@ -156,13 +162,18 @@ export default function DeviceDetail(props: PageProps) {
               padding: "0",
               margin: "0",
               color: "var(--pico-primary)",
-              textAlign: "center",
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5rem",
             }}
             data-tooltip={device.name.normalized != device.name.raw
               ? device.name.raw
               : undefined}
             data-placement="bottom"
           >
+            <a href="/devices" class="back-button">
+              <PiArrowLeft />
+            </a>
             {device.name.normalized}
           </h2>
           <div style="display: flex; gap: 0.5rem; align-items: flex-end;">

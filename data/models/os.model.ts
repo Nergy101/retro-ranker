@@ -3,8 +3,4 @@ export interface DeviceOs {
   list: string[];
   icons: string[];
   customFirmwares: string[];
-  links: {
-    url: string;
-    name: string;
-  }[];
 }

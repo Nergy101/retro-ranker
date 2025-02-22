@@ -112,16 +112,6 @@ export function parseOsIcons(os: string): string[] {
   return icons.length ? icons : ["ph-empty"];
 }
 
-export function getOsLinks(os: string): { url: string; name: string }[] {
-  return Object.entries(OS_CONFIGS)
-    .filter(([key]) => os.includes(key))
-    .map(([_, config]) => ({
-      url: config.url,
-      name: config.name,
-    }))
-    .filter((link) => link.url !== "");
-}
-
 interface PriceRange {
   min: number;
   max: number;

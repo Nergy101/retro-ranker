@@ -97,14 +97,7 @@ export default function App({ Component, url }: PageProps) {
       <body>
         <Navbar pathname={url.pathname} allDevices={allDevices} />
 
-        <main
-          class="container content"
-          style={{
-            padding: "1em",
-            borderRadius: "var(--pico-border-radius)",
-          }}
-        >
-          <Breadcrumb />
+        <main>
           <Component />
         </main>
 

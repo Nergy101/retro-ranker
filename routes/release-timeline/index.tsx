@@ -1,10 +1,8 @@
 import { Head } from "$fresh/runtime.ts";
-import { VNode } from "https://esm.sh/preact@10.25.4/src/index.js";
-import { PiCalendarCheck, PiCalendarSlash, PiQuestion } from "@preact-icons/pi";
-import { JSX } from "preact/jsx-runtime";
+import { PiCaretCircleDoubleLeft } from "@preact-icons/pi";
 import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
-import { DeviceService } from "../../services/devices/device.service.ts";
 import { Device } from "../../data/device.model.ts";
+import { DeviceService } from "../../services/devices/device.service.ts";
 
 export default function ReleaseTimeline() {
   const deviceService = DeviceService.getInstance();
@@ -34,43 +32,6 @@ export default function ReleaseTimeline() {
     return device.released.raw?.toLowerCase().includes("upcoming");
   });
 
-  const getReleaseDate = (
-    deviceReleased: { raw: string | null; mentionedDate: Date | null },
-  ): {
-    date: string;
-    icon: () => VNode<JSX.SVGAttributes>;
-    expected: boolean;
-  } => {
-    if (!deviceReleased.raw) {
-      return {
-        date: "Unknown",
-        icon: () => <PiQuestion />,
-        expected: false,
-      };
-    }
-
-    if (deviceReleased.mentionedDate) {
-      return {
-        date: new Date(deviceReleased.mentionedDate).toLocaleDateString(
-          "en-US",
-          {
-            month: "short",
-            day: "numeric",
-            year: "numeric",
-          },
-        ),
-        icon: () => <PiCalendarCheck />,
-        expected: false,
-      };
-    }
-
-    return {
-      date: deviceReleased.raw,
-      icon: () => <PiCalendarSlash />,
-      expected: deviceReleased.raw.toLowerCase().includes("upcoming"),
-    };
-  };
-
   return (
     <div class="release-timeline-page">
       <Head>
@@ -80,7 +41,24 @@ export default function ReleaseTimeline() {
           content="Explore the release timeline of all devices in the Retro Ranker database."
         />
       </Head>
-      <h1 style={{ textAlign: "center" }}>Device Release Timeline</h1>
+      <h1>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "10px",
+          }}
+        >
+          <span
+            data-tooltip="Scroll left to go back in time"
+            data-placement="bottom"
+          >
+            <PiCaretCircleDoubleLeft />
+          </span>
+          <span>Device Release Timeline</span>
+        </div>
+      </h1>
       <div class="timeline-container">
         <div class="timeline">
           {/* Upcoming Devices Section */}

@@ -2,7 +2,6 @@ import { Device } from "../../device.model.ts";
 import { EmulationSystem } from "../../enums/EmulationSystem.ts";
 import { RatingsService } from "../../../services/devices/ratings.service.ts";
 import {
-  getOsLinks,
   getPriceCurrency,
   getPricingCategory,
   parseOsIcons,
@@ -71,7 +70,6 @@ export function mapHandheldsColumnToDevice(
         raw: rawValue,
         icons: parseOsIcons(value),
         list: rawValue.split(/, | \/ /),
-        links: getOsLinks(value),
         customFirmwares: [],
       };
       break;

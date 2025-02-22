@@ -50,7 +50,7 @@ body.paused-animation::before {
   animation-play-state: paused !important;
 }
 
-body::before {
+/* body::before {
   content: "";
   position: fixed;
   top: 0;
@@ -62,21 +62,21 @@ body::before {
   background-size: auto 1000px, cover;
   z-index: -1;
   animation: scrollBackground 30s linear infinite;
-}
+} */
 
-@keyframes scrollBackground {
+/* [data-theme="light"] body::before {
+  background: url("/images/patternbgw.svg") repeat;
+  background-size: auto 1000px, cover;
+} */
+
+/* @keyframes scrollBackground {
   from {
     background-position: center 0, top;
   }
   to {
     background-position: center 1000px, top;
   }
-}
-
-[data-theme="light"] body::before {
-  background: url("/images/patternbgw.svg") repeat;
-  background-size: auto 1000px, cover;
-}
+} */
 
 .transition-colors {
   transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -1412,6 +1412,7 @@ h6,
 
 .content {
   flex: 1;
+  padding: 1em;
 }
 
 .no-border {
@@ -1457,6 +1458,10 @@ h6,
   border-radius: var(--pico-border-radius);
   margin-bottom: 1rem;
   border: 1px solid var(--pico-primary);
+
+  @media (max-width: 768px) {
+    font-size: 0.75rem;
+  }
 }
 
 .timeline {
@@ -1503,6 +1508,27 @@ h6,
   a {
     flex: 1;
     display: flex;
+    justify-content: center;
+  }
+}
+
+table tr {
+  /* width: calc(100% / 2); */
+  /* width: 100%; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  th {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  td {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
     justify-content: center;
   }
 }

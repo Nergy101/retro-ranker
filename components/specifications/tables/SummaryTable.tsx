@@ -12,7 +12,6 @@ export function SummaryTable({ device }: SummaryTableProps) {
         <tr>
           <th>Category</th>
           <th>Details</th>
-          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -23,8 +22,6 @@ export function SummaryTable({ device }: SummaryTableProps) {
             {device.os.customFirmwares.length > 0
               ? `(${device.os.customFirmwares.join(", ")})`
               : ""}
-          </td>
-          <td>
             <div style="display: flex; gap: 0.25rem; flex-direction: row;">
               <div>
                 <ul>
@@ -42,8 +39,9 @@ export function SummaryTable({ device }: SummaryTableProps) {
         </tr>
         <tr>
           <td>SOC</td>
-          <td>{device.systemOnChip}</td>
-          <td>{device.architecture}</td>
+          <td>
+            {device.systemOnChip} {device.architecture}
+          </td>
         </tr>
         <tr>
           <td>CPU</td>
@@ -53,12 +51,6 @@ export function SummaryTable({ device }: SummaryTableProps) {
                 {cpu.names.map((name, nameIndex) => (
                   <span key={nameIndex}>{name}</span>
                 ))}
-              </div>
-            ))}
-          </td>
-          <td>
-            {device.cpus?.map((cpu, index) => (
-              <div key={index}>
                 {cpu.cores} cores ({cpu.threads} threads) @{" "}
                 {cpu.clockSpeed?.max}
                 {cpu.clockSpeed?.unit}
@@ -69,13 +61,9 @@ export function SummaryTable({ device }: SummaryTableProps) {
         <tr>
           <td>GPU</td>
           <td>
-            {device.gpus?.map((gpu, index) => <div key={index}>{gpu.name}
-            </div>)}
-          </td>
-          <td>
             {device.gpus?.map((gpu, index) => (
               <div key={index}>
-                {gpu.cores} @ {gpu.clockSpeed?.max}
+                {gpu.name} {gpu.cores} @ {gpu.clockSpeed?.max}
                 {gpu.clockSpeed?.unit}
               </div>
             ))}
@@ -86,8 +74,6 @@ export function SummaryTable({ device }: SummaryTableProps) {
           <td>
             {device.ram?.type ??
               DeviceService.getPropertyIconByCharacter(null)}
-          </td>
-          <td>
             {device.ram?.sizes?.map((size, index) => (
               <span key={index}>
                 {size}
@@ -103,8 +89,8 @@ export function SummaryTable({ device }: SummaryTableProps) {
             {device.dimensions
               ? `${device.dimensions.length}mm x ${device.dimensions.width}mm x ${device.dimensions.height}mm`
               : DeviceService.getPropertyIconByCharacter(null)}
+            {device.weight} grams
           </td>
-          <td>{device.weight} grams</td>
         </tr>
         <tr>
           <td>Screen</td>
@@ -112,8 +98,6 @@ export function SummaryTable({ device }: SummaryTableProps) {
             {device.screen.size} {device.screen.type?.type}
             {device.screen.type?.isTouchscreen ? " (Touch)" : ""}
             {device.screen.type?.isPenCapable ? " (Pen)" : ""}
-          </td>
-          <td>
             {device.screen.resolution?.map((res) => (
               <div key={res.raw}>
                 {res.width}x{res.height}
@@ -131,8 +115,6 @@ export function SummaryTable({ device }: SummaryTableProps) {
               ? device.battery?.capacity + " " +
                 device.battery?.unit
               : DeviceService.getPropertyIconByCharacter(null)}
-          </td>
-          <td>
             Charge port: {device.chargePort?.type}{"  "}
             {device.chargePort?.numberOfPorts &&
                 device.chargePort?.numberOfPorts > 1
