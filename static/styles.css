@@ -1527,6 +1527,10 @@ table tr {
       background-color: var(--pico-primary-background);
       border-radius: 50%;
 
+      @media (max-width: 1450px) {
+        left: calc(-4.5rem + 2px);
+      }
+
       @media (max-width: 768px) {
         left: calc(-4.5rem + 4px);
       }
@@ -1543,13 +1547,17 @@ table tr {
       font-size: 2rem;
       background-color: var(--pico-primary-background);
 
-      @media (max-width: 1440px) {
+
+      @media (max-width: 1450px) {
+        top: 0.5rem;
         left: -185px;
         width: 200px;
         font-size: 1.5rem;
+        height: 4.5rem;
       }
 
       @media (max-width: 768px) {
+        top: 0.5rem;
         left: -150px;
         width: 150px;
         font-size: 1.5rem;
@@ -1557,6 +1565,7 @@ table tr {
       }
 
       @media (max-width: 425px) {
+        top: 0.5rem;
         left: -100px;
         width: 100px;
         font-size: 1rem;
