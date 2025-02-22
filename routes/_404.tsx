@@ -11,12 +11,12 @@ export default function Error404() {
           content="The page you were looking for doesn't exist."
         />
       </Head>
-      <div class="px-4 py-8 mx-auto bg-deno-green">
+      <div class="bg-rr-primary">
         <div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">
           <h1 class="text-4xl font-bold">404 - Page not found</h1>
-          <strong style={{ color: "#000" }}>
+          <span style={{ color: "var(--pico-primary-inverse)" }}>
             The page you were looking for doesn't exist.
-          </strong>
+          </span>
           <a
             role="button"
             href="/"
@@ -26,6 +26,7 @@ export default function Error404() {
               alignItems: "center",
               textDecoration: "none",
               marginTop: "1rem",
+              color: "var(--pico-primary-inverse)",
             }}
           >
             <PiGameControllerBold />

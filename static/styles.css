@@ -119,6 +119,14 @@ body.paused-animation::before {
   background-color: #86efac;
 }
 
+.bg-rr-primary {
+  background-color: var(--pico-primary-background);
+  color: var(--pico-primary-contrast);
+  border: 1px solid var(--pico-primary-contrast);
+  border-radius: var(--pico-border-radius);
+  padding: 1rem;
+}
+
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
