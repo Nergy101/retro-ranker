@@ -55,9 +55,16 @@ export function TimelineContent(
         </div>
         <div class="timeline-body">
           <div class="timeline-devices-grid">
-            {upcomingDevices.map((device) => (
-              <DeviceCardMedium device={device} />
-            ))}
+            {upcomingDevices.map((device) => {
+              return (
+                <a
+                  href={`/devices/${device.name.sanitized}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <DeviceCardMedium device={device} />
+                </a>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -82,7 +89,16 @@ export function TimelineContent(
           </div>
           <div class="timeline-body">
             <div class="timeline-devices-grid">
-              {devices.map((device) => <DeviceCardMedium device={device} />)}
+              {devices.map((device) => {
+                return (
+                  <a
+                    href={`/devices/${device.name.sanitized}`}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <DeviceCardMedium device={device} />
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>
