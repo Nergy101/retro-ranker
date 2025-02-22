@@ -156,7 +156,16 @@ export default function DeviceDetail(props: PageProps) {
       </Head>
 
       <div class="device-detail-header">
-        <div style="display: flex; flex-direction: column; gap: 0.5rem; justify-content: center; align-items: center; padding-bottom: 0.5rem;">
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "0.5rem",
+            justifyContent: "center",
+            alignItems: "center",
+            padding: "0 .5rem",
+          }}
+        >
           <h2
             style={{
               padding: "0",
@@ -171,7 +180,12 @@ export default function DeviceDetail(props: PageProps) {
               : undefined}
             data-placement="bottom"
           >
-            <a href="/devices" class="back-button">
+            <a
+              href="/devices"
+              class="back-button"
+              data-tooltip="Back to devices"
+              data-placement="right"
+            >
               <PiArrowLeft />
             </a>
             {device.name.normalized}
