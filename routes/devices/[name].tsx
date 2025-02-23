@@ -138,9 +138,11 @@ export default function DeviceDetail(props: PageProps) {
   return (
     <div class="device-detail">
       <SEO
-        title="Device Details"
-        description="Detailed information about the device."
+        title={`${device.name.raw}`}
+        description={`Detailed information about the ${device.name.raw}.`}
+        image={`https://retroranker.site${device.image?.url ?? undefined}`}
         url={`https://retroranker.site${props.url.pathname}`}
+        jsonLd={jsonLdForDevice(device)}
       />
 
       <div class="device-detail-header">

@@ -8,6 +8,7 @@ export interface SEOProps {
   image?: string;
   keywords?: string;
   robots?: string;
+  jsonLd?: string;
   children?: ComponentChildren;
 }
 
@@ -18,6 +19,7 @@ export default function SEO({
   image,
   keywords,
   robots,
+  jsonLd,
   children,
 }: SEOProps) {
   const defaultTitle = "Retro Ranker";
@@ -50,6 +52,12 @@ export default function SEO({
       <meta name="twitter:description" content={fullDescription} />
       <meta name="keywords" content={fullKeywords} />
       <meta name="robots" content={fullRobots} />
+      {jsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: jsonLd }}
+        />
+      )}
       <link rel="canonical" href={fullUrl} />
       <link rel="stylesheet" href="/styles.css" />
       <script
