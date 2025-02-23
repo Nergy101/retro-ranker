@@ -1,4 +1,4 @@
-import { Head } from "$fresh/runtime.ts";
+import SEO from "../../components/SEO.tsx";
 import { PageProps } from "$fresh/server.ts";
 import { PiChartLine, PiInfo } from "@preact-icons/pi";
 import { DeviceComparisonResult } from "../../components/comparisons/DeviceComparisonResult.tsx";
@@ -7,11 +7,11 @@ import { DeviceComparisonForm } from "../../islands/forms/DeviceComparisonForm.t
 import { DeviceService } from "../../services/devices/device.service.ts";
 import { RatingsService } from "../../services/devices/ratings.service.ts";
 
-export default function DevicesIndex(props: PageProps) {
+export default function Compare({ url }: PageProps) {
   const deviceService = DeviceService.getInstance();
   const ratingsService = RatingsService.getInstance();
 
-  const devices = props.url?.search.split("=")?.[1]?.split(",") || [];
+  const devices = url?.search.split("=")?.[1]?.split(",") || [];
 
   const devicesToCompare = devices.map((d) => deviceService.getDeviceByName(d))
     .filter((device) => device !== null);
@@ -28,13 +28,11 @@ export default function DevicesIndex(props: PageProps) {
 
   return (
     <div class="compare-page">
-      <Head>
-        <title>Retro Ranker - Compare Devices</title>
-        <meta
-          name="description"
-          content="Compare devices in the Retro Ranker database."
-        />
-      </Head>
+      <SEO
+        title="Retro Ranker - Compare Devices"
+        description="Compare your favorite retro gaming devices and view detailed comparisons on Retro Ranker."
+        url={`https://retroranker.site${url.pathname}`}
+      />
       <header>
         <hgroup style={{ textAlign: "center" }}>
           <h1>Compare Devices</h1>

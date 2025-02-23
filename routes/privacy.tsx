@@ -1,15 +1,14 @@
-import { Head } from "$fresh/runtime.ts";
+import SEO from "../components/SEO.tsx";
+import { PageProps } from "$fresh/server.ts";
 
-export default function PrivacyPolicyPage() {
+export default function Privacy({ url }: PageProps) {
   return (
     <div class="p-4 mx-auto max-w-screen-md">
-      <Head>
-        <title>Retro Ranker - Privacy Policy</title>
-        <meta
-          name="description"
-          content="Learn about how we collect, use, and protect your personal information when you use our website."
-        />
-      </Head>
+      <SEO
+        title="Privacy Policy"
+        description="Read the privacy policy for Retro Ranker."
+        url={`https://retroranker.site${url.pathname}`}
+      />
 
       <h1 class="text-4xl font-bold mb-6">Privacy Policy</h1>
 

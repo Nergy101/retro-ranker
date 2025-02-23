@@ -1,10 +1,11 @@
-import { Head } from "$fresh/runtime.ts";
+import SEO from "../../components/SEO.tsx";
+import { PageProps } from "$fresh/server.ts";
 import { PiCaretCircleDoubleDown } from "@preact-icons/pi";
 import { Device } from "../../data/device.model.ts";
 import { TimelineContent } from "../../islands/TimelineContent.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
 
-export default function ReleaseTimeline() {
+export default function ReleaseTimeline({ url }: PageProps) {
   const deviceService = DeviceService.getInstance();
   const devices = deviceService.getAllDevices();
 
@@ -33,37 +34,33 @@ export default function ReleaseTimeline() {
   }, {} as Record<string, Device[]>);
 
   return (
-    <>
-      <Head>
-        <title>Retro Ranker - Release Timeline</title>
-        <meta
-          name="description"
-          content="Retro Ranker - Release Timeline"
-        />
-      </Head>
-      <div class="release-timeline-page">
-        <h1 style={{ textAlign: "center" }}>Release Timeline</h1>
+    <div class="release-timeline-page">
+      <SEO
+        title="Retro Ranker - Release Timeline"
+        description="Explore the release timeline of devices on Retro Ranker."
+        url={`https://retroranker.site${url.pathname}`}
+      />
+      <h1 style={{ textAlign: "center" }}>Release Timeline</h1>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginBottom: "1rem",
+          fontSize: "1.5rem",
+        }}
+      >
         <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginBottom: "1rem",
-            fontSize: "1.5rem",
-          }}
+          style={{ display: "flex", alignItems: "center" }}
+          data-tooltip="Scroll down to see the timeline"
+          data-placement="bottom"
         >
-          <div
-            style={{ display: "flex", alignItems: "center" }}
-            data-tooltip="Scroll down to see the timeline"
-            data-placement="bottom"
-          >
-            <PiCaretCircleDoubleDown />
-          </div>
+          <PiCaretCircleDoubleDown />
         </div>
-        <TimelineContent
-          upcomingDevices={upcomingDevices}
-          devicesGroupedByYearAndMonth={devicesGroupedByYearAndMonth}
-        />
       </div>
-    </>
+      <TimelineContent
+        upcomingDevices={upcomingDevices}
+        devicesGroupedByYearAndMonth={devicesGroupedByYearAndMonth}
+      />
+    </div>
   );
 }

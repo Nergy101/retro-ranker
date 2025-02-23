@@ -1,15 +1,14 @@
-import { Head } from "$fresh/runtime.ts";
+import SEO from "../components/SEO.tsx";
+import { PageProps } from "$fresh/server.ts";
 
-export default function TermsPage() {
+export default function Terms({ url }: PageProps) {
   return (
     <div class="p-4 mx-auto max-w-screen-md">
-      <Head>
-        <title>Retro Ranker - Terms of Service</title>
-        <meta
-          name="description"
-          content="Read the terms of service for Retro Ranker."
-        />
-      </Head>
+      <SEO
+        title="Terms and Conditions"
+        description="Read the terms and conditions for using Retro Ranker."
+        url={`https://retroranker.site${url.pathname}`}
+      />
 
       <h1 class="text-4xl font-bold mb-6">Terms of Service</h1>
 

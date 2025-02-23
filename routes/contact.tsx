@@ -1,21 +1,20 @@
-import { Head } from "$fresh/runtime.ts";
+import SEO from "../components/SEO.tsx";
 import {
   PiChatText,
   PiCoffee,
   PiGithubLogo,
   PiLinkedinLogo,
 } from "@preact-icons/pi";
+import { PageProps } from "$fresh/server.ts";
 
-export default function ContactPage() {
+export default function Contact({ url }: PageProps) {
   return (
     <div class="mx-auto max-w-screen-md contact">
-      <Head>
-        <title>Retro Ranker - Contact</title>
-        <meta
-          name="description"
-          content="Contact the Retro Ranker team."
-        />
-      </Head>
+      <SEO
+        title="Contact"
+        description="Contact Retro Ranker for inquiries and support."
+        url={`https://retroranker.site${url.pathname}`}
+      />
 
       <h1 class="text-3xl font-bold" style={{ textAlign: "center" }}>
         Contact

@@ -1,4 +1,4 @@
-import { Head } from "$fresh/runtime.ts";
+import SEO from "../components/SEO.tsx";
 import {
   PiCookie,
   PiDatabase,
@@ -7,17 +7,16 @@ import {
   PiStack,
   PiUsers,
 } from "@preact-icons/pi";
+import { PageProps } from "$fresh/server.ts";
 
-export default function AboutPage() {
+export default function About({ url }: PageProps) {
   return (
     <div class="mx-auto max-w-screen-md about">
-      <Head>
-        <title>Retro Ranker - About</title>
-        <meta
-          name="description"
-          content="Learn about Retro Ranker, a comprehensive database and comparison platform for retro handheld gaming devices."
-        />
-      </Head>
+      <SEO
+        title="About"
+        description="Learn more about Retro Ranker and our mission."
+        url={`https://retroranker.site${url.pathname}`}
+      />
 
       <h1 class="text-3xl font-bold mb-6" style={{ textAlign: "center" }}>
         About <span style={{ color: "var(--pico-primary)" }}>Retro Ranker</span>

@@ -1,23 +1,22 @@
-import { Head } from "$fresh/runtime.ts";
+import SEO from "../../components/SEO.tsx";
+import { PageProps } from "$fresh/server.ts";
 import { DeviceService } from "../../services/devices/device.service.ts";
 
 import { DevicesPerBrandBarChart } from "../../islands/charts/DevicesPerBrandBarChart.tsx";
 import { DevicesPerRatingBarChart } from "../../islands/charts/DevicesPerRankingBarChart.tsx";
 import { DevicesPerReleaseYearLineChart } from "../../islands/charts/DevicesPerReleaseYearLineChart.tsx";
 
-export default function ChartsIndex() {
+export default function ChartsIndex({ url }: PageProps) {
   const deviceService = DeviceService.getInstance();
   const devices = deviceService.getAllDevices();
 
   return (
     <div class="charts-page">
-      <Head>
-        <title>Retro Ranker - Explore Charts</title>
-        <meta
-          name="description"
-          content="Explore charts for all devices in the Retro Ranker database."
-        />
-      </Head>
+      <SEO
+        title="Retro Ranker - Explore Charts"
+        description="Explore charts for all devices in the Retro Ranker database."
+        url={`https://retroranker.site${url.pathname}`}
+      />
       <hgroup style={{ textAlign: "center" }}>
         <h1>Explore Charts</h1>
         <p>

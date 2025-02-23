@@ -1,8 +1,8 @@
-import { Head } from "$fresh/runtime.ts";
 import { PageProps } from "$fresh/server.ts";
 import { TagModel } from "../../data/models/tag.model.ts";
 import TagTypeahead from "../../islands/TagTypeahead.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
+import SEO from "../../components/SEO.tsx";
 
 export default function DeviceTags(props: PageProps) {
   const deviceService = DeviceService.getInstance();
@@ -42,9 +42,11 @@ export default function DeviceTags(props: PageProps) {
 
   return (
     <div class="devices-by-tags-page">
-      <Head>
-        <title>Devices by Tags</title>
-      </Head>
+      <SEO
+        title="Device Tags"
+        description="Browse devices by tags on Retro Ranker."
+        url={`https://retroranker.site${props.url.pathname}`}
+      />
       <h1 style={{ textAlign: "center" }}>🚧 Devices by Tags 🚧</h1>
       <TagTypeahead
         allTags={allAvailableTags()}

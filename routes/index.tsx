@@ -1,4 +1,5 @@
-import { Head } from "$fresh/runtime.ts";
+import SEO from "../components/SEO.tsx";
+import { PageProps } from "$fresh/server.ts";
 import {
   PiCalendarHeart,
   PiRanking,
@@ -11,7 +12,7 @@ import { TagComponent } from "../components/shared/TagComponent.tsx";
 import { TagModel } from "../data/models/tag.model.ts";
 import { DeviceService } from "../services/devices/device.service.ts";
 
-export default function Home() {
+export default function Home({ url }: PageProps) {
   // Filter devices into categories
   const deviceService = DeviceService.getInstance();
   const newArrivals = deviceService.getNewArrivals();
@@ -35,10 +36,11 @@ export default function Home() {
 
   return (
     <div class="home-page">
-      <Head>
-        <title>Retro Ranker - Home</title>
-      </Head>
-
+      <SEO
+        title="Retro Ranker"
+        description="Find the handheld gaming device for your needs."
+        url={`https://retroranker.site${url.pathname}`}
+      />
       <header class="home-header">
         <hgroup style={{ textAlign: "center" }}>
           <p>

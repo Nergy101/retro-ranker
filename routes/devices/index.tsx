@@ -1,4 +1,5 @@
-import { Head, Partial } from "$fresh/runtime.ts";
+import SEO from "../../components/SEO.tsx";
+import { Partial } from "$fresh/runtime.ts";
 import { PageProps } from "$fresh/server.ts";
 import { DeviceCardLarge } from "../../components/cards/DeviceCardLarge.tsx";
 import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
@@ -121,15 +122,51 @@ export default function DevicesIndex(props: PageProps) {
   const pageResults = pagedFilteredSortedDevices.page;
   const amountOfResults = pagedFilteredSortedDevices.totalAmountOfResults;
 
+  const hasNextPage = pageNumber < Math.ceil(amountOfResults / getPageSize(activeLayout));
+
   return (
     <div class="devices-page" f-client-nav>
-      <Head>
-        <title>Retro Ranker - Device Catalog</title>
-        <meta
-          name="description"
-          content="Search through the Retro Ranker device catalog."
+      <SEO
+        title="Device Catalog"
+        description="Browse and compare retro gaming handhelds. Find detailed specifications, performance ratings, and prices for over 100 devices. Updated regularly with new releases."
+        url={`https://retroranker.site${props.url.pathname}`}
+      >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://retroranker.site"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Device Catalog",
+                  "item": "https://retroranker.site/devices"
+                }
+              ]
+            })
+          }}
         />
-      </Head>
+        {pageNumber > 1 && (
+          <link
+            rel="prev"
+            href={`/devices?page=${pageNumber - 1}&category=${searchCategory}`}
+          />
+        )}
+        {hasNextPage && (
+          <link
+            rel="next"
+            href={`/devices?page=${pageNumber + 1}&category=${searchCategory}`}
+          />
+        )}
+      </SEO>
       <header>
         <hgroup style={{ textAlign: "center" }}>
           <h1>Device Catalog</h1>

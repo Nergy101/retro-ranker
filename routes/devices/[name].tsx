@@ -1,4 +1,3 @@
-import { Head } from "$fresh/runtime.ts";
 import { PageProps } from "$fresh/server.ts";
 import { PiCalendarCheck, PiCalendarSlash, PiQuestion } from "@preact-icons/pi";
 import { JSX, VNode } from "preact";
@@ -17,6 +16,7 @@ import { CompareButton } from "../../islands/buttons/CompareButton.tsx";
 import { ShareButton } from "../../islands/buttons/ShareButton.tsx";
 import { DevicesSimilarRadarChart } from "../../islands/charts/DevicesSimilarRadarChart.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
+import SEO from "../../components/SEO.tsx";
 
 export default function DeviceDetail(props: PageProps) {
   const deviceService = DeviceService.getInstance();
@@ -137,19 +137,11 @@ export default function DeviceDetail(props: PageProps) {
 
   return (
     <div class="device-detail">
-      <Head>
-        <title>Retro Ranker - {device.name.raw}</title>
-        <meta
-          name="description"
-          content={`${device.name.raw} is a ${device.brand.raw} device. The device is ${device.pricing.category} and costs on average ${device.pricing.average} ${device.pricing.currency}.`}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: jsonLdForDevice(device),
-          }}
-        />
-      </Head>
+      <SEO
+        title="Device Details"
+        description="Detailed information about the device."
+        url={`https://retroranker.site${props.url.pathname}`}
+      />
 
       <div class="device-detail-header">
         <div style={{ margin: 0, padding: 0 }}>

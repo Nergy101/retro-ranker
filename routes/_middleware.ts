@@ -5,10 +5,14 @@ export async function handler(req: Request, ctx: FreshContext) {
 
   const response = await ctx.next();
 
-  if (url.pathname.startsWith("/devices/")) {
+  if (
+    url.pathname.startsWith("/devices/") ||
+    url.pathname.startsWith("/about") ||
+    url.pathname.startsWith("/charts")
+  ) {
     response.headers.set(
       "Cache-Control",
-      "public, max-age=31536000, immutable",
+      "public, max-age=3600, s-maxage=86400",
     );
   }
 
