@@ -1,27 +1,22 @@
 import { Head } from "$fresh/runtime.ts";
 import { PageProps } from "$fresh/server.ts";
-import {
-  PiArrowLeft,
-  PiCalendarCheck,
-  PiCalendarSlash,
-  PiQuestion,
-} from "@preact-icons/pi";
+import { PiCalendarCheck, PiCalendarSlash, PiQuestion } from "@preact-icons/pi";
 import { JSX, VNode } from "preact";
 import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
 import { DeviceLinks } from "../../components/DeviceLinks.tsx";
 import { EmulationPerformance } from "../../components/EmulationPerformance.tsx";
 import { StarRating } from "../../components/ratings/StarRating.tsx";
 import { CurrencyIcon } from "../../components/shared/CurrencyIcon.tsx";
+import { TagComponent } from "../../components/shared/TagComponent.tsx";
 import { DeviceSpecs } from "../../components/specifications/DeviceSpecs.tsx";
+import { SummaryTable } from "../../components/specifications/tables/SummaryTable.tsx";
 import { Device } from "../../data/device.model.ts";
+import { BackButton } from "../../islands/buttons/BackButton.tsx";
 import { ClipboardButton } from "../../islands/buttons/ClipboardButton.tsx";
 import { CompareButton } from "../../islands/buttons/CompareButton.tsx";
 import { ShareButton } from "../../islands/buttons/ShareButton.tsx";
 import { DevicesSimilarRadarChart } from "../../islands/charts/DevicesSimilarRadarChart.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
-import { TagComponent } from "../../components/shared/TagComponent.tsx";
-import { SummaryTable } from "../../components/specifications/tables/SummaryTable.tsx";
-import { BackButton } from "../../islands/buttons/BackButton.tsx";
 
 export default function DeviceDetail(props: PageProps) {
   const deviceService = DeviceService.getInstance();

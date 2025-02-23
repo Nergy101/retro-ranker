@@ -202,7 +202,7 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
           plugins: {
             legend: {
               display: minimalOf12DevicesProduced.value ? true : false,
-              onHover: (event, legendItem, legend) => {
+              onHover: (_, legendItem, legend) => {
                 const chart = legend.chart;
                 chart.data.datasets.forEach((dataset, index) => {
                   if (index !== legendItem.datasetIndex) {
@@ -217,7 +217,7 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
                 });
                 chart.update();
               },
-              onLeave: (event, legendItem, legend) => {
+              onLeave: (_, __, legend) => {
                 const chart = legend.chart;
                 chart.data.datasets.forEach((dataset, index) => {
                   // Restore original styles
@@ -247,7 +247,7 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
         }}
         data={{
           labels: getLineChartLabels(),
-          datasets: getLineChartData() as any,
+          datasets: getLineChartData(),
         }}
       />
     </div>

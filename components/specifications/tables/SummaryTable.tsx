@@ -22,19 +22,6 @@ export function SummaryTable({ device }: SummaryTableProps) {
             {device.os.customFirmwares.length > 0
               ? `(${device.os.customFirmwares.join(", ")})`
               : ""}
-            <div style="display: flex; gap: 0.25rem; flex-direction: row;">
-              <div>
-                <ul>
-                  {device.os.links?.map((link) => (
-                    <li>
-                      <a href={link.url} target="_blank">
-                        {link.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
           </td>
         </tr>
         <tr>

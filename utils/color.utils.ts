@@ -1,17 +1,16 @@
-export function generateBrandColor(brand: string, index: number) {
-
+export function generateBrandColor(index: number) {
   // Predefined distinct colors for first 10 brands (using HSL for consistency)
   const distinctColors = [
-    { h: 0, s: 85, l: 50 },    // Vivid Red
-    { h: 210, s: 85, l: 50 },  // Strong Blue
-    { h: 120, s: 85, l: 45 },  // Vibrant Green
-    { h: 48, s: 90, l: 50 },   // Golden Yellow
-    { h: 280, s: 85, l: 50 },  // Deep Purple
-    { h: 15, s: 85, l: 50 },   // Coral Pink
-    { h: 130, s: 85, l: 45 },  // Turquoise
-    { h: 325, s: 85, l: 50 },  // Hot Pink
-    { h: 240, s: 85, l: 50 },  // Royal Blue
-    { h: 270, s: 85, l: 50 },  // Very Blue
+    { h: 0, s: 85, l: 50 }, // Vivid Red
+    { h: 210, s: 85, l: 50 }, // Strong Blue
+    { h: 120, s: 85, l: 45 }, // Vibrant Green
+    { h: 48, s: 90, l: 50 }, // Golden Yellow
+    { h: 280, s: 85, l: 50 }, // Deep Purple
+    { h: 15, s: 85, l: 50 }, // Coral Pink
+    { h: 130, s: 85, l: 45 }, // Turquoise
+    { h: 325, s: 85, l: 50 }, // Hot Pink
+    { h: 240, s: 85, l: 50 }, // Royal Blue
+    { h: 270, s: 85, l: 50 }, // Very Blue
   ];
 
   let hue, saturation, lightness;
@@ -37,7 +36,7 @@ export function generateBrandColor(brand: string, index: number) {
 
 export function getBrandColors(brands: string[]) {
   return brands.reduce((acc, brand, index) => {
-    acc[brand] = generateBrandColor(brand, index);
+    acc[brand] = generateBrandColor(index);
     return acc;
   }, {} as Record<string, { border: string; background: string }>);
-} 
+}

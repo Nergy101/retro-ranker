@@ -1,11 +1,10 @@
 import { Head } from "$fresh/runtime.ts";
-import { PageProps } from "$fresh/server.ts";
 import { PiCaretCircleDoubleDown } from "@preact-icons/pi";
-import { DeviceService } from "../../services/devices/device.service.ts";
-import { TimelineContent } from "../../islands/TimelineContent.tsx";
 import { Device } from "../../data/device.model.ts";
+import { TimelineContent } from "../../islands/TimelineContent.tsx";
+import { DeviceService } from "../../services/devices/device.service.ts";
 
-export default function ReleaseTimeline(props: PageProps) {
+export default function ReleaseTimeline() {
   const deviceService = DeviceService.getInstance();
   const devices = deviceService.getAllDevices();
 
@@ -24,7 +23,7 @@ export default function ReleaseTimeline(props: PageProps) {
   });
 
   const devicesGroupedByYearAndMonth = sortedDevices.reduce((acc, device) => {
-    const parsedDate = new Date(device.released.mentionedDate ?? 0, );
+    const parsedDate = new Date(device.released.mentionedDate ?? 0);
 
     const year = parsedDate.getUTCFullYear();
     const month = parsedDate.getUTCMonth();

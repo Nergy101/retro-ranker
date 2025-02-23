@@ -20,8 +20,10 @@ export function DevicesPerRatingBarChart({ devices }: BarChartProps) {
   ];
 
   // Get unique brands and assign them colors
-  const uniqueBrands = Array.from(new Set(devices.map(d => d.brand.sanitized)))
-    .filter(brand => brand !== undefined && brand !== null && brand !== "");
+  const uniqueBrands = Array.from(
+    new Set(devices.map((d) => d.brand.sanitized)),
+  )
+    .filter((brand) => brand !== undefined && brand !== null && brand !== "");
 
   const brandColors = uniqueBrands.reduce((acc, brand, index) => {
     const colorIndex = index % possibleColors.length;
@@ -34,11 +36,11 @@ export function DevicesPerRatingBarChart({ devices }: BarChartProps) {
     const ratingRanges = Array.from({ length: 10 }, (_, i) => ({
       min: i,
       max: i + 1,
-      brands: {} as Record<string, number>
+      brands: {} as Record<string, number>,
     }));
 
     // Count devices for each brand within each rating range
-    devices.forEach(device => {
+    devices.forEach((device) => {
       const ratingIndex = Math.floor(device.totalRating);
       if (ratingIndex >= 0 && ratingIndex < 10) {
         const brandName = device.brand.sanitized;
@@ -51,17 +53,22 @@ export function DevicesPerRatingBarChart({ devices }: BarChartProps) {
 
     // Calculate total devices for each brand
     const brandTotals = uniqueBrands.reduce((acc, brand) => {
-      acc[brand] = ratingRanges.reduce((sum, range) => sum + (range.brands[brand] || 0), 0);
+      acc[brand] = ratingRanges.reduce(
+        (sum, range) => sum + (range.brands[brand] || 0),
+        0,
+      );
       return acc;
     }, {} as Record<string, number>);
 
     // Sort brands by their total number of devices in descending order
-    const sortedBrands = [...uniqueBrands].sort((a, b) => brandTotals[b] - brandTotals[a]);
+    const sortedBrands = [...uniqueBrands].sort((a, b) =>
+      brandTotals[b] - brandTotals[a]
+    );
 
     // Convert to Chart.js dataset format with sorted brands
-    return sortedBrands.map(brand => ({
+    return sortedBrands.map((brand) => ({
       label: brand,
-      data: ratingRanges.map(range => range.brands[brand] || 0),
+      data: ratingRanges.map((range) => range.brands[brand] || 0),
       backgroundColor: brandColors[brand][1],
       borderColor: brandColors[brand][0],
       borderWidth: 1,
@@ -76,19 +83,21 @@ export function DevicesPerRatingBarChart({ devices }: BarChartProps) {
   const barChartData = getBarChartData();
   const maxBarValue = Math.round(
     Math.max(
-      ...barChartData[0].data.map((_, i) => 
+      ...barChartData[0].data.map((_, i) =>
         barChartData.reduce((sum, dataset) => sum + dataset.data[i], 0)
-      )
-    ) / 10
+      ),
+    ) / 10,
   ) * 10;
 
   return (
     <div>
       <h2>Devices per ranking</h2>
       <p>Based on the total ranking of the device: 0-10</p>
-      <p>The ranking mostly shows the emulation performance of the device, 
+      <p>
+        The ranking mostly shows the emulation performance of the device,
         <br />
-        with some other factors mixed in.</p>
+        with some other factors mixed in.
+      </p>
       <FreshChart
         type="bar"
         options={{
@@ -97,7 +106,7 @@ export function DevicesPerRatingBarChart({ devices }: BarChartProps) {
               display: false,
             },
             tooltip: {
-              mode: 'nearest' as const,
+              mode: "nearest" as const,
               intersect: true,
               callbacks: {
                 label: (context) => {
