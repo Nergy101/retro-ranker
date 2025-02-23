@@ -122,7 +122,8 @@ export default function DevicesIndex(props: PageProps) {
   const pageResults = pagedFilteredSortedDevices.page;
   const amountOfResults = pagedFilteredSortedDevices.totalAmountOfResults;
 
-  const hasNextPage = pageNumber < Math.ceil(amountOfResults / getPageSize(activeLayout));
+  const hasNextPage =
+    pageNumber < Math.ceil(amountOfResults / getPageSize(activeLayout));
 
   return (
     <div class="devices-page" f-client-nav>
@@ -142,16 +143,16 @@ export default function DevicesIndex(props: PageProps) {
                   "@type": "ListItem",
                   "position": 1,
                   "name": "Home",
-                  "item": "https://retroranker.site"
+                  "item": "https://retroranker.site",
                 },
                 {
                   "@type": "ListItem",
                   "position": 2,
                   "name": "Device Catalog",
-                  "item": "https://retroranker.site/devices"
-                }
-              ]
-            })
+                  "item": "https://retroranker.site/devices",
+                },
+              ],
+            }),
           }}
         />
         {pageNumber > 1 && (

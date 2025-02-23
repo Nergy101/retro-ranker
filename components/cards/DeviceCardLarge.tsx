@@ -68,7 +68,7 @@ export function DeviceCardLarge({ device }: { device: Device }) {
           ? (
             <img
               loading="lazy"
-              src={device.image?.url ?? "/images/placeholder-100x100.svg"}
+              src={device.image?.webpUrl ?? "/images/placeholder-100x100.svg"}
               width={100}
               height={100}
               alt={device.image?.alt ?? "A device image"}

@@ -73,7 +73,7 @@ export default function DeviceDetail(props: PageProps) {
         "@type": "Brand",
         "name": device.brand.raw,
       },
-      "image": device.image?.url ?? "/images/placeholder-100x100.svg",
+      "image": device.image?.pngUrl ?? "/images/placeholder-100x100.svg",
       "description":
         `${device.name.raw} is a ${device.brand.raw} device. The device is ${device.pricing.category} and costs on average ${device.pricing.average} ${device.pricing.currency}.`,
       "offers": device.vendorLinks.map((link) => ({
@@ -140,7 +140,7 @@ export default function DeviceDetail(props: PageProps) {
       <SEO
         title={`${device.name.raw}`}
         description={`Detailed information about the ${device.name.raw}.`}
-        image={`https://retroranker.site${device.image?.url ?? undefined}`}
+        image={`https://retroranker.site${device.image?.pngUrl ?? undefined}`}
         url={`https://retroranker.site${props.url.pathname}`}
         jsonLd={jsonLdForDevice(device)}
       />
@@ -191,7 +191,8 @@ export default function DeviceDetail(props: PageProps) {
               ? (
                 <img
                   loading="lazy"
-                  src={device.image?.url ?? "/images/placeholder-100x100.svg"}
+                  src={device.image?.webpUrl ??
+                    "/images/placeholder-100x100.svg"}
                   width={100}
                   height={100}
                   alt={device.image?.alt ?? "A device image"}

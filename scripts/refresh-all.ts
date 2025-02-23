@@ -57,19 +57,19 @@ if (!optimizeImagesStatus.success) {
 
 console.info(chalk.green("Optimized images"));
 
-console.info("");
-console.info(chalk.blue("--- Deleting png images ---"));
+// console.info("");
+// console.info(chalk.blue("--- Deleting png images ---"));
 
-// Get all files in the devices directory
-for (const file of Deno.readDirSync("../static/devices")) {
-  // Check if file ends with .png
-  if (file.name.endsWith(".png")) {
-    // Remove the file
-    Deno.removeSync(`../static/devices/${file.name}`);
-  }
-}
+// // Get all files in the devices directory
+// for (const file of Deno.readDirSync("../static/devices")) {
+//   // Check if file ends with .png
+//   if (file.name.endsWith(".png")) {
+//     // Remove the file
+//     Deno.removeSync(`../static/devices/${file.name}`);
+//   }
+// }
 
-console.info(chalk.green("Deleted png images"));
+// console.info(chalk.green("Deleted png images"));
 
 console.info("");
 const generateSitemapCommand = new Deno.Command(Deno.execPath(), {

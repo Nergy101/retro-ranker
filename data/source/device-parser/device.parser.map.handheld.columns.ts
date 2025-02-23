@@ -32,7 +32,8 @@ export function mapHandheldsColumnToDevice(
 
       device.image = {
         ...device.image,
-        url: "/devices/" + sanitizedName + ".webp",
+        webpUrl: "/devices/" + sanitizedName + ".webp",
+        pngUrl: "/devices/" + sanitizedName + ".png",
         alt: value,
       };
       device.name = {
