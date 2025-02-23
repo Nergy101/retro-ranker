@@ -1,6 +1,7 @@
 import { Device } from "../../data/device.model.ts";
 import { useSignal } from "@preact/signals";
 import { FreshChart } from "./FreshChart.tsx";
+import { getBrandColors } from "../../utils/color.utils.ts";
 
 interface LineChartProps {
   devices: Device[];
@@ -29,6 +30,10 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
   const showTotalDevices = useSignal(false);
   const minimalOf12DevicesProduced = useSignal(true);
 
+  const brandColors = useSignal<
+    Record<string, { border: string; background: string }>
+  >({});
+
   // Filter the devices to only include those within the selected year range.
   const filteredDevices = devices.filter((d) => {
     if (d.released?.mentionedDate) {
@@ -37,6 +42,17 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
     }
     return false;
   });
+
+  const uniqueBrands = Array.from(
+    new Set(filteredDevices.map((d) => d.brand.sanitized)),
+  ).sort();
+
+  const initializeBrandColors = () => {
+    brandColors.value = getBrandColors(uniqueBrands);
+  };
+
+  // Call this right after the signals are defined
+  initializeBrandColors();
 
   // Compute the unique years from the filtered devices.
   const getAllYears = (): number[] => {
@@ -72,9 +88,6 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
     const amountOfDevicesPerBrandPerYear: Record<string, number[]> = {};
 
     // First, initialize arrays for each brand
-    const uniqueBrands = Array.from(
-      new Set(filteredDevices.map((d) => d.brand.sanitized)),
-    );
     for (const brand of uniqueBrands) {
       amountOfDevicesPerBrandPerYear[brand] = Array(years.length).fill(0);
     }
@@ -91,51 +104,36 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
       }
     }
 
-    // Generate a unique color for each brand
-    const brandColors = Object.keys(amountOfDevicesPerBrandPerYear).reduce(
-      (acc, brand, index) => {
-        // Generate HSL colors with good spacing and consistent saturation/lightness
-        const hue = (index * 137.5) % 360; // Golden angle approximation for good color distribution
-        acc[brand] = {
-          border: `hsl(${hue}, 70%, 45%)`,
-          background: `hsla(${hue}, 70%, 45%, 0.2)`,
-        };
-        return acc;
-      },
-      {} as Record<string, { border: string; background: string }>,
-    );
-
     const data = [];
 
     if (showTotalDevices.value) {
       data.push({
         label: "Total devices released",
         data: amountOfDevicesPerYear,
-        fill: false,
         borderColor: "#e48500",
-        // backgroundColor: "#e4850050",
         pointBackgroundColor: "#e48500",
         borderWidth: 3,
-        tension: 0.4,
-        pointRadius: 5,
+        tension: 0.2,
+        pointRadius: 3,
       });
     }
 
     data.push(
-      ...Object.entries(amountOfDevicesPerBrandPerYear).filter((x) => {
-        if (minimalOf12DevicesProduced.value) {
-          return x[1].reduce((acc, curr) => acc + curr, 0) >= 10;
-        }
-        return true;
-      })
+      ...Object.entries(amountOfDevicesPerBrandPerYear)
+        .filter((x) => {
+          if (minimalOf12DevicesProduced.value) {
+            return x[1].reduce((acc, curr) => acc + curr, 0) >= 10;
+          }
+          return true;
+        })
         .map(([brand, amountOfDevicesPerYear]) => ({
           label: `${brand}`,
           data: amountOfDevicesPerYear,
           fill: false,
-          borderColor: brandColors[brand].border,
-          // backgroundColor: brandColors[brand].background,
+          borderColor: brandColors.value[brand]?.border,
+          pointBackgroundColor: brandColors.value[brand]?.background,
           borderWidth: 2,
-          tension: 0.4,
+          tension: .2,
           pointRadius: 3,
         })),
     );
@@ -204,7 +202,38 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
           plugins: {
             legend: {
               display: minimalOf12DevicesProduced.value ? true : false,
+              onHover: (event, legendItem, legend) => {
+                const chart = legend.chart;
+                chart.data.datasets.forEach((dataset, index) => {
+                  if (index !== legendItem.datasetIndex) {
+                    // Reduce opacity of non-hovered datasets
+                    dataset.borderWidth = 1;
+                    dataset.borderColor = dataset.borderColor?.toString()
+                      .replace("1)", "0.1)");
+                  } else {
+                    // Emphasize hovered dataset
+                    dataset.borderWidth = 4;
+                  }
+                });
+                chart.update();
+              },
+              onLeave: (event, legendItem, legend) => {
+                const chart = legend.chart;
+                chart.data.datasets.forEach((dataset, index) => {
+                  // Restore original styles
+                  dataset.borderWidth = index === 0 ? 3 : 2;
+                  dataset.borderColor = dataset.borderColor?.toString().replace(
+                    "0.1)",
+                    "1)",
+                  );
+                });
+                chart.update();
+              },
             },
+          },
+          hover: {
+            mode: "dataset",
+            intersect: false,
           },
           scales: {
             y: {
@@ -218,7 +247,6 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
         }}
         data={{
           labels: getLineChartLabels(),
-          // deno-lint-ignore no-explicit-any
           datasets: getLineChartData() as any,
         }}
       />

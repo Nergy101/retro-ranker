@@ -48,6 +48,7 @@ export function TimelineContent(
             );
           }}
           data-tooltip="Click to copy link to this section"
+          data-placement="bottom"
         >
           <span>Upcoming</span>
           <br />
@@ -88,6 +89,7 @@ export function TimelineContent(
                 );
               }}
               data-tooltip="Click to copy link to this section"
+              data-placement="bottom"
             >
               <div>{getKeyName(year, month)}</div>
             </div>

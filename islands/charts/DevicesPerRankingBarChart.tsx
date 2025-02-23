@@ -19,59 +19,76 @@ export function DevicesPerRatingBarChart({ devices }: BarChartProps) {
     ["#FF3333", "#FF333350"], // bold red
   ];
 
-  const usedColors: string[][] = [];
-  const getNextUnusedColor = () => {
-    const color = possibleColors[usedColors.length];
-    if (usedColors.some((c) => c[0] === color[0])) {
-      return getNextUnusedColor();
-    }
-    usedColors.push(color);
-    return color;
-  };
+  // Get unique brands and assign them colors
+  const uniqueBrands = Array.from(new Set(devices.map(d => d.brand.sanitized)))
+    .filter(brand => brand !== undefined && brand !== null && brand !== "");
+
+  const brandColors = uniqueBrands.reduce((acc, brand, index) => {
+    const colorIndex = index % possibleColors.length;
+    acc[brand] = possibleColors[colorIndex];
+    return acc;
+  }, {} as Record<string, string[]>);
 
   const getBarChartData = () => {
-    const tenColors = [
-      getNextUnusedColor(),
-      getNextUnusedColor(),
-      getNextUnusedColor(),
-      getNextUnusedColor(),
-      getNextUnusedColor(),
-      getNextUnusedColor(),
-      getNextUnusedColor(),
-      getNextUnusedColor(),
-      getNextUnusedColor(),
-      getNextUnusedColor(),
-    ];
+    // Initialize data structure for each rating range
+    const ratingRanges = Array.from({ length: 10 }, (_, i) => ({
+      min: i,
+      max: i + 1,
+      brands: {} as Record<string, number>
+    }));
 
-    const data = [];
-    for (let i = 1; i <= 10; i++) {
-      const number = devices.filter((d) =>
-        d.totalRating >= i - 1 && d.totalRating < i
-      ).length;
-      data.push(number);
-    }
+    // Count devices for each brand within each rating range
+    devices.forEach(device => {
+      const ratingIndex = Math.floor(device.totalRating);
+      if (ratingIndex >= 0 && ratingIndex < 10) {
+        const brandName = device.brand.sanitized;
+        if (!ratingRanges[ratingIndex].brands[brandName]) {
+          ratingRanges[ratingIndex].brands[brandName] = 0;
+        }
+        ratingRanges[ratingIndex].brands[brandName]++;
+      }
+    });
 
-    return [{
-      label: "Devices per ranking (0-10)",
-      backgroundColor: tenColors.map((c) => c[1]),
-      borderColor: tenColors.map((c) => c[0]),
-      borderWidth: 3,
-      data,
-    }];
+    // Calculate total devices for each brand
+    const brandTotals = uniqueBrands.reduce((acc, brand) => {
+      acc[brand] = ratingRanges.reduce((sum, range) => sum + (range.brands[brand] || 0), 0);
+      return acc;
+    }, {} as Record<string, number>);
+
+    // Sort brands by their total number of devices in descending order
+    const sortedBrands = [...uniqueBrands].sort((a, b) => brandTotals[b] - brandTotals[a]);
+
+    // Convert to Chart.js dataset format with sorted brands
+    return sortedBrands.map(brand => ({
+      label: brand,
+      data: ratingRanges.map(range => range.brands[brand] || 0),
+      backgroundColor: brandColors[brand][1],
+      borderColor: brandColors[brand][0],
+      borderWidth: 1,
+      hoverBorderWidth: 3,
+    }));
   };
 
   const getBarChartLabels = () => {
-    return Array.from({ length: 10 }, (_, i) => `Ranking: ${i} - ${i + 1}`);
+    return Array.from({ length: 10 }, (_, i) => `Rating: ${i} - ${i + 1}`);
   };
 
   const barChartData = getBarChartData();
-  // round to nearest 10
-  const maxBarValue = Math.round(Math.max(...barChartData[0].data) / 10) * 10;
+  const maxBarValue = Math.round(
+    Math.max(
+      ...barChartData[0].data.map((_, i) => 
+        barChartData.reduce((sum, dataset) => sum + dataset.data[i], 0)
+      )
+    ) / 10
+  ) * 10;
 
   return (
     <div>
       <h2>Devices per ranking</h2>
       <p>Based on the total ranking of the device: 0-10</p>
+      <p>The ranking mostly shows the emulation performance of the device, 
+        <br />
+        with some other factors mixed in.</p>
       <FreshChart
         type="bar"
         options={{
@@ -79,9 +96,22 @@ export function DevicesPerRatingBarChart({ devices }: BarChartProps) {
             legend: {
               display: false,
             },
+            tooltip: {
+              mode: 'nearest' as const,
+              intersect: true,
+              callbacks: {
+                label: (context) => {
+                  return `${context.dataset.label}: ${context.raw} devices`;
+                },
+              },
+            },
           },
           scales: {
+            x: {
+              stacked: true,
+            },
             y: {
+              stacked: true,
               grid: {
                 color: "#898989",
               },
@@ -93,8 +123,7 @@ export function DevicesPerRatingBarChart({ devices }: BarChartProps) {
         }}
         data={{
           labels: getBarChartLabels(),
-          // deno-lint-ignore no-explicit-any
-          datasets: barChartData as any,
+          datasets: barChartData,
         }}
       />
     </div>

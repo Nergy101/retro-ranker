@@ -61,7 +61,8 @@ export function DevicesPerBrandBarChart({ devices }: BarChartProps) {
       label: "Devices per Brand",
       backgroundColor: colorsForAllBrands.map((c) => c[1]),
       borderColor: colorsForAllBrands.map((c) => c[0]),
-      borderWidth: 3,
+      borderWidth: 1,
+      hoverBorderWidth: 3,
       data: data.map((d) => d.amountOfDevices),
       tooltip: {
         callbacks: {
