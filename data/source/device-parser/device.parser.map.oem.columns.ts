@@ -32,7 +32,7 @@ export function mapOEMsColumnToDevice(
 
       device.image = {
         ...device.image,
-        url: "/devices/" + sanitizedName + ".png",
+        url: "/devices/" + sanitizedName + ".webp",
         alt: value,
       };
       device.name = {

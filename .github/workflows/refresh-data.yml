@@ -29,6 +29,9 @@ jobs:
         with:
           deno-version: v2.x
 
+      - name: npm install @funboxteam/optimizt
+        run: npm install --global @funboxteam/optimizt
+
       - name: Run refresh-all task
         run: deno task refresh-all
 
