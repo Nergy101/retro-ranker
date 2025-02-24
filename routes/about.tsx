@@ -11,7 +11,7 @@ import { PageProps } from "$fresh/server.ts";
 
 export default function About({ url }: PageProps) {
   return (
-    <div class="mx-auto max-w-screen-md about">
+    <div class="about">
       <SEO
         title="About"
         description="Learn more about Retro Ranker and our mission."
@@ -132,6 +132,7 @@ export default function About({ url }: PageProps) {
               Retro Handhelds
             </a>{" "}
             community.
+            <br />
             <br />
             We particularly draw from their comprehensive{" "}
             <a

@@ -1480,10 +1480,11 @@ table tr {
 
 .release-timeline-page {
   background-color: var(--pico-background-color);
-  padding: 1rem;
+  padding: 3rem;
   margin-bottom: 1rem;
 
   @media (max-width: 768px) {
+    padding: 0;
     font-size: 0.75rem;
   }
 }
