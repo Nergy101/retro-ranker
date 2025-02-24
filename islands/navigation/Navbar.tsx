@@ -15,13 +15,28 @@ export function Navbar(
       isMobile.value = globalThis.innerWidth <= 1024;
     };
 
-    globalThis.addEventListener("resize", handleResize);
+    // Set a timeout to prevent infinite loading
+    const timeoutId = setTimeout(() => {
+      isLoading.value = false;
+    }, 1000); // 1 second timeout
 
-    // Set loading to false once the initial width is determined
-    isLoading.value = false;
+    try {
+      // Add resize listener
+      globalThis.addEventListener("resize", handleResize);
+
+      // Set initial mobile state
+      isMobile.value = globalThis.innerWidth <= 1024;
+
+      // Set loading to false once initial width is determined
+      isLoading.value = false;
+    } catch {
+      // Ensure loading is set to false even if there's an error
+      isLoading.value = false;
+    }
 
     return () => {
       globalThis.removeEventListener("resize", handleResize);
+      clearTimeout(timeoutId);
     };
   }, []);
 
