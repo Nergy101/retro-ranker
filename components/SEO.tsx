@@ -41,6 +41,9 @@ export default function SEO({
   return (
     <Head>
       <title>{fullTitle}</title>
+
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+
       <meta name="description" content={fullDescription} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={fullDescription} />
