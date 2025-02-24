@@ -55,18 +55,8 @@ export default function About({ url }: PageProps) {
                 height="32"
               />
               <span>
-                &nbsp;Deno - A secure runtime for JavaScript and TypeScript
+                &nbsp;Deno (Deploy) - A secure runtime for JavaScript and TypeScript
               </span>
-            </li>
-            <li class="flex items-center gap-4">
-              <img
-                loading="lazy"
-                src="/stack/deno.gif"
-                alt="Deno"
-                width="32"
-                height="32"
-              />
-              <span>&nbsp;Deno Deploy - Global edge deployment platform</span>
             </li>
             <li class="flex items-center gap-4">
               <img
@@ -89,6 +79,18 @@ export default function About({ url }: PageProps) {
               />
               <span>
                 &nbsp;PicoCSS - Minimal CSS Framework for semantic HTML
+              </span>
+            </li>
+            <li class="flex items-center gap-4">
+              <img
+                loading="lazy"
+                src="/stack/chartjs.svg"
+                alt="Chart.js"
+                width="32"
+                height="32"
+              />
+              <span>
+                &nbsp;Chart.js - JavaScript library for building charts
               </span>
             </li>
           </ul>

@@ -1,11 +1,14 @@
-import SEO from "../components/SEO.tsx";
+import { PageProps } from "$fresh/server.ts";
 import {
+  PiBook,
   PiChatText,
+  PiCode,
+  PiCodeBlock,
   PiCoffee,
   PiGithubLogo,
   PiLinkedinLogo,
 } from "@preact-icons/pi";
-import { PageProps } from "$fresh/server.ts";
+import SEO from "../components/SEO.tsx";
 
 export default function Contact({ url }: PageProps) {
   return (
@@ -22,8 +25,8 @@ export default function Contact({ url }: PageProps) {
 
       <div>
         <section>
-          <h3>Support My Work</h3>
-          <p>
+          <h3 style={{ textAlign: "center" }}>Support My Work</h3>
+          <p style={{ textAlign: "center" }}>
             If you find Retro Ranker helpful and want to support its
             development, you can buy me a coffee or contribute to the project.
           </p>
@@ -32,7 +35,7 @@ export default function Contact({ url }: PageProps) {
               href="https://ko-fi.com/nergy"
               target="_blank"
               class="small-card"
-              style="text-decoration: none; justify-content: center;"
+              style={{ textDecoration: "none", textAlign: "center" }}
             >
               <PiCoffee class="text-4xl" />
               <span>Buy me a coffee</span>
@@ -43,7 +46,7 @@ export default function Contact({ url }: PageProps) {
               class="small-card"
               style="text-decoration: none; text-align: center; justify-content: center;"
             >
-              <PiGithubLogo class="text-4xl" />
+              <PiCode class="text-4xl" />
               <span>
                 GitHub Repository
               </span>
@@ -52,27 +55,30 @@ export default function Contact({ url }: PageProps) {
         </section>
 
         <section>
-          <h3>My Other Projects</h3>
+          <h3 style={{ textAlign: "center" }}>My Other Projects</h3>
           <div class="small-card-grid">
             <a
               href="https://portfolio.nergy.space"
               target="_blank"
               class="small-card"
+              style={{ textDecoration: "none", textAlign: "center" }}
             >
-              Portfolio
+              <PiCodeBlock class="text-4xl" />
+              <span>Portfolio</span>
             </a>
             <a
               href="https://blog.nergy.space"
               target="_blank"
               class="small-card"
             >
-              Blog
+              <PiBook class="text-4xl" />
+              <span>Blog</span>
             </a>
           </div>
         </section>
 
         <section>
-          <h3>Connect With Me</h3>
+          <h3 style={{ textAlign: "center" }}>Connect With Me</h3>
           <div class="small-card-grid">
             <a
               href="https://bsky.app/profile/nergy101.bsky.social"
@@ -87,7 +93,11 @@ export default function Contact({ url }: PageProps) {
               href="https://www.linkedin.com/in/christian-van-dijk-657069134/"
               target="_blank"
               class="small-card"
-              style="text-decoration: none; text-align: center; justify-content: center;"
+              style={{
+                textDecoration: "none",
+                textAlign: "center",
+                justifyContent: "center",
+              }}
             >
               <PiLinkedinLogo class="text-4xl" />
               <span>LinkedIn</span>
@@ -96,7 +106,11 @@ export default function Contact({ url }: PageProps) {
               href="https://github.com/Nergy101"
               target="_blank"
               class="small-card"
-              style="text-decoration: none; text-align: center; justify-content: center;"
+              style={{
+                textDecoration: "none",
+                textAlign: "center",
+                justifyContent: "center",
+              }}
             >
               <PiGithubLogo class="text-4xl" />
               <span>GitHub Profile</span>

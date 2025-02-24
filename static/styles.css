@@ -221,12 +221,12 @@ body.paused-animation::before {
 
 .small-card-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 
   @media (width <= 425px) {
-    /* grow last card horizontally to fill 2 spans */
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
 }
 
@@ -1546,7 +1546,6 @@ table tr {
       text-align: center;
       font-size: 2rem;
       background-color: var(--pico-primary-background);
-
 
       @media (max-width: 1450px) {
         top: 0.5rem;
