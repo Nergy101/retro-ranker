@@ -1619,3 +1619,7 @@ table tr {
   padding: 0.5rem 1rem !important;
   border: none !important;
 }
+
+.main-content {
+  flex: 1 0 auto;
+}

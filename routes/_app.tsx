@@ -12,7 +12,7 @@ export default function App({ Component, url }: PageProps) {
       <body>
         <Navbar pathname={url.pathname} allDevices={allDevices} />
 
-        <main>
+        <main class="main-content">
           <Component />
         </main>
 

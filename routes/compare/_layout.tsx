@@ -9,7 +9,7 @@ export const config: RouteConfig = {
 export default function Layout({ Component }: PageProps) {
   // do something with state here
   return (
-    <div class="container-fluid content">
+    <div class="container-fluid content test">
       <Component />
     </div>
   );

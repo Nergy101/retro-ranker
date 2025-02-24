@@ -12,7 +12,7 @@ import SEO from "../components/SEO.tsx";
 
 export default function Contact({ url }: PageProps) {
   return (
-    <div class="mx-auto max-w-screen-md contact">
+    <div class="contact">
       <SEO
         title="Contact"
         description="Contact Retro Ranker for inquiries and support."

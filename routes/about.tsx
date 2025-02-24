@@ -160,7 +160,10 @@ export default function About({ url }: PageProps) {
             We encourage you to join the Retro Handhelds community to contribute
             to this growing knowledge base. Their collective expertise and
             hands-on experience with these devices help maintain the accuracy
-            and reliability of our information. Visit their{" "}
+            and reliability of our information. 
+            <br />
+            <br />
+            Visit their{" "}
             <a href="https://discord.gg/retrohandhelds" class="text-primary">
               Discord
             </a>{" "}
