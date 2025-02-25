@@ -2,6 +2,7 @@ import SEO from "../components/SEO.tsx";
 import { PageProps } from "$fresh/server.ts";
 
 export default function Privacy({ url }: PageProps) {
+  console.info("Route loaded: /privacy");
   return (
     <div class="p-4 mx-auto max-w-screen-md">
       <SEO

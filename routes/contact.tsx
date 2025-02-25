@@ -11,6 +11,7 @@ import {
 import SEO from "../components/SEO.tsx";
 
 export default function Contact({ url }: PageProps) {
+  console.info("Route loaded: /contact");
   return (
     <div class="contact">
       <SEO

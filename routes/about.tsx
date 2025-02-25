@@ -10,6 +10,7 @@ import {
 import { PageProps } from "$fresh/server.ts";
 
 export default function About({ url }: PageProps) {
+  console.info("Route loaded: /about");
   return (
     <div class="about">
       <SEO

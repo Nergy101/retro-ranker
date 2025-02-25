@@ -6,6 +6,7 @@ import { TimelineContent } from "../../islands/TimelineContent.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
 
 export default function ReleaseTimeline({ url }: PageProps) {
+  console.info("Route loaded: /release-timeline");
   const deviceService = DeviceService.getInstance();
   const devices = deviceService.getAllDevices();
 

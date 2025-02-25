@@ -11,6 +11,7 @@ import { LayoutSelector } from "../../islands/LayoutSelector.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
 
 export default function DevicesIndex(props: PageProps) {
+  console.info("Route loaded: /devices");
   const deviceService = DeviceService.getInstance();
 
   const searchQuery = props.url?.searchParams?.get("search") || "";

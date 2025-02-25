@@ -13,6 +13,7 @@ import { TagModel } from "../data/models/tag.model.ts";
 import { DeviceService } from "../services/devices/device.service.ts";
 
 export default function Home({ url }: PageProps) {
+  console.info("Route loaded: /");
   // Filter devices into categories
   const deviceService = DeviceService.getInstance();
   const newArrivals = deviceService.getNewArrivals();

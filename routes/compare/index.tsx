@@ -8,6 +8,7 @@ import { DeviceService } from "../../services/devices/device.service.ts";
 import { RatingsService } from "../../services/devices/ratings.service.ts";
 
 export default function Compare({ url }: PageProps) {
+  console.info("Route loaded: /compare");
   const deviceService = DeviceService.getInstance();
   const ratingsService = RatingsService.getInstance();
 

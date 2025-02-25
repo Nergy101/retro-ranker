@@ -5,6 +5,7 @@ import { DeviceService } from "../../services/devices/device.service.ts";
 import SEO from "../../components/SEO.tsx";
 
 export default function DeviceTags(props: PageProps) {
+  console.info("Route loaded: /devices/tags");
   const deviceService = DeviceService.getInstance();
 
   const selectedTagNames = props.url?.searchParams.get("tags")?.split(",") ??

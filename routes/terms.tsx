@@ -2,6 +2,7 @@ import SEO from "../components/SEO.tsx";
 import { PageProps } from "$fresh/server.ts";
 
 export default function Terms({ url }: PageProps) {
+  console.info("Route loaded: /terms");
   return (
     <div class="p-4 mx-auto max-w-screen-md">
       <SEO
