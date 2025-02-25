@@ -25,13 +25,13 @@ export const navigationItems: NavigationItem[] = [
     isActive: (pathname) => pathname === "/",
     priority: 1,
   },
-  // {
-  //   href: "/devices",
-  //   label: "Devices",
-  //   icon: (props) => PiScroll({ ...props }),
-  //   isActive: (pathname) => pathname.startsWith("/devices"),
-  //   priority: 0.9,
-  // },
+  {
+    href: "/devices-catalog",
+    label: "Devices",
+    icon: (props) => PiScroll({ ...props }),
+    isActive: (pathname) => pathname.startsWith("/devices-catalog"),
+    priority: 0.9,
+  },
   {
     href: "/compare",
     label: "Compare",

@@ -43,10 +43,10 @@ export default function TagTypeahead(
     tagSlugs = filteredTags.map((t) => t.slug).join(",");
 
     if (tagSlugs != "") {
-      return `/devices/tags?tags=${tagSlugs}`;
+      return `/devices-catalog/tags?tags=${tagSlugs}`;
     }
 
-    return `/devices/tags`;
+    return `/devices-catalog/tags`;
   };
 
   const groupedTags = filteredTags.reduce((acc, tag) => {
