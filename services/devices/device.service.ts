@@ -32,7 +32,10 @@ import { RatingsService } from "./ratings.service.ts";
 import { personalPicks } from "../../data/personal-picks.ts";
 export class DeviceService {
   private devices: Device[] = [];
-  private tags: TagModel[] = [];
+  private tags: TagModel[] = [];  
+  private amountOfTimesDevicesLoaded = 0;
+  private amountOfTimesDevicesSearched = 0;
+  private amountOfTimesDeviceByNameSearched = 0;
 
   private static instance: DeviceService;
 
@@ -42,6 +45,7 @@ export class DeviceService {
 
   public static getInstance(): DeviceService {
     if (!DeviceService.instance) {
+      console.info("Creating new DeviceService instance");
       DeviceService.instance = new DeviceService();
     }
     return DeviceService.instance;
@@ -70,6 +74,11 @@ export class DeviceService {
   }
 
   public getAllDevices(): Device[] {
+    this.amountOfTimesDevicesLoaded++;
+    console.info(
+      "Getting all devices on instance",
+      this.amountOfTimesDevicesLoaded,
+    );
     return this.devices;
   }
 
@@ -92,6 +101,12 @@ export class DeviceService {
     pageNumber: number = 1,
     pageSize: number = 9,
   ): { page: Device[]; totalAmountOfResults: number } {
+    this.amountOfTimesDevicesSearched++;
+    console.info(
+      "Searching for devices on instance",
+      this.amountOfTimesDevicesSearched,
+    );
+
     const lowerQuery = query.toLowerCase();
 
     let filteredDevices = this.devices.filter((device) => {
@@ -215,6 +230,11 @@ export class DeviceService {
   }
 
   public getDeviceByName(sanitizedName: string): Device | null {
+    this.amountOfTimesDeviceByNameSearched++;
+    console.info(
+      "Getting device by name on instance",
+      this.amountOfTimesDeviceByNameSearched,
+    );
     return this.devices.find((device) =>
       device.name.sanitized === sanitizedName
     ) ?? null;
