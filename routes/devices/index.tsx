@@ -11,7 +11,7 @@ import { LayoutSelector } from "../../islands/LayoutSelector.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
 
 export default function DevicesIndex(props: PageProps) {
-  console.info("Route loaded: /devices-catalog");
+  console.info("Route loaded: /devices");
   const deviceService = DeviceService.getInstance();
 
   const searchQuery = props.url?.searchParams?.get("search") || "";
@@ -182,7 +182,7 @@ export default function DevicesIndex(props: PageProps) {
           <a
             f-client-nav={false}
             style={{ fontSize: "0.8rem" }}
-            href="/devices-catalog/tags"
+            href="/devices/tags"
           >
             Search devices by all tags 🚧
           </a>
