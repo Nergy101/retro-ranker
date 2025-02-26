@@ -29,6 +29,7 @@ export function mapOEMsColumnToDevice(
     }
     case 1: {
       const sanitizedName = slugify(value);
+      device.id = sanitizedName;
 
       device.image = {
         ...device.image,
@@ -59,7 +60,11 @@ export function mapOEMsColumnToDevice(
 
         device.released = {
           raw: rawValue,
-          mentionedDate: mentionedDate ? new Date(mentionedDate) : null,
+          mentionedDate: mentionedDate ? new Date(Date.UTC(
+            parseInt(mentionedDate.split("/")[0]),
+            parseInt(mentionedDate.split("/")[1]) - 1,
+            1,
+          )) : null,
         };
       }
       break;

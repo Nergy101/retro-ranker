@@ -237,7 +237,7 @@ export class DeviceParser {
         device.outputs.audioOutput?.hasUsbC ||
         false;
 
-      device.totalRating = DeviceService.calculateScore(device);
+      device.totalRating = Number(DeviceService.calculateScore(device).toFixed(2));
 
       device.tags = this.getTags(device);
 
@@ -494,7 +494,7 @@ export class DeviceParser {
         device.outputs.audioOutput?.hasUsbC ||
         false;
 
-      device.totalRating = DeviceService.calculateScore(device);
+        device.totalRating = Number(DeviceService.calculateScore(device).toFixed(2));
 
       device.tags = this.getTags(device);
 

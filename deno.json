@@ -11,6 +11,7 @@
     "refresh-all": "cd scripts && deno run -A refresh-all.ts",
     "sources": "cd scripts && deno run -A get-new-sources.ts",
     "generate-devices": "cd scripts && deno run -A generate-devices.ts",
+    "patch-devices": "cd scripts && deno run -A patch-devices.ts",
     "scrape": "cd scripts && deno run -A scrape-images.ts",
     "sitemap": "cd scripts && deno run -A generate-sitemap.ts"
   },

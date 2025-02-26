@@ -41,7 +41,7 @@ export async function downloadDeviceImages(
       );
     } else {
       console.info(
-        chalk.blue(`device ${device.name.sanitized} does not have originalUrl`),
+        chalk.yellow(`device ${device.name.sanitized} does not have originalUrl`),
       );
     }
   });
@@ -86,7 +86,7 @@ async function downloadImage(
 
     await Deno.writeFile(filePath, imageData);
 
-    console.info(chalk.green(`✅ ${deviceName}`));
+    // console.info(chalk.green(`✅ ${deviceName}`));
   } catch (error: unknown) {
     if (error instanceof Error) {
       console.error(chalk.red(`❌ ${deviceName}: ${error.message}`));

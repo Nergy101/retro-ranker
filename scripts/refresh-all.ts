@@ -45,7 +45,7 @@ if (!scrapeImagesStatus.success) {
 console.info("");
 console.info(chalk.blue("--- Optimizing images ---"));
 const optimizeImagesCommand = new Deno.Command("optimizt", {
-  args: ["--webp", "-v", "../static/devices"],
+  args: ["--webp", "../static/devices"],
   cwd: denoCwd,
 });
 
