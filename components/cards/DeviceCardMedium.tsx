@@ -48,52 +48,8 @@ export function DeviceCardMedium(
     }
   };
 
-  const getUptoSystemA = (): SystemRating | null => {
-    const systemRatings = device.systemRatings;
-    if (systemRatings.length === 0) {
-      return null;
-    }
-
-    const aRatings = systemRatings.filter((rating) =>
-      rating.ratingMark === "A"
-    );
-    if (aRatings.length === 0) {
-      return null;
-    }
-
-    const mostDifficultSystem = aRatings.reduce((prev, current) =>
-      EmulationSystemOrder[prev.system] > EmulationSystemOrder[current.system]
-        ? prev
-        : current
-    );
-
-    return mostDifficultSystem;
-  };
-
-  const getUptoSystemC = (): SystemRating | null => {
-    const systemRatings = device.systemRatings;
-    if (systemRatings.length === 0) {
-      return null;
-    }
-
-    const cRatings = systemRatings.filter((rating) =>
-      rating.ratingMark === "C"
-    );
-    if (cRatings.length === 0) {
-      return null;
-    }
-
-    const mostDifficultSystem = cRatings.reduce((prev, current) =>
-      EmulationSystemOrder[prev.system] > EmulationSystemOrder[current.system]
-        ? prev
-        : current
-    );
-
-    return mostDifficultSystem;
-  };
-
-  const upToSystemA = getUptoSystemA();
-  const upToSystemC = getUptoSystemC();
+  const upToSystemA = DeviceService.getUptoSystemA(device);
+  const upToSystemC = DeviceService.getUptoSystemC(device);
 
   return (
     <article

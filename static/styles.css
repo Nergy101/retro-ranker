@@ -1428,7 +1428,7 @@ h6,
 
 .device-card-row {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   align-items: center;
   gap: 0.5rem;
   border: 1px solid var(--pico-primary);

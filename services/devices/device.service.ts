@@ -30,6 +30,8 @@ import { Cooling } from "../../data/models/cooling.model.ts";
 import { TagModel } from "../../data/models/tag.model.ts";
 import { RatingsService } from "./ratings.service.ts";
 import { personalPicks } from "../../data/personal-picks.ts";
+import { EmulationSystemOrder } from "../../data/enums/EmulationSystem.ts";
+import { SystemRating } from "../../data/models/system-rating.model.ts";
 export class DeviceService {
   private devices: Device[] = [];
   private tags: TagModel[] = [];  
@@ -522,4 +524,48 @@ export class DeviceService {
   getTagBySlug(tagSlug: string): TagModel | null {
     return this.tags.find((tag) => tag.slug === tagSlug) ?? null;
   }
+
+  static getUptoSystemA(device: Device): SystemRating | null {
+    const systemRatings = device.systemRatings;
+    if (systemRatings.length === 0) {
+      return null;
+    }
+
+    const aRatings = systemRatings.filter((rating) =>
+      rating.ratingMark === "A"
+    );
+    if (aRatings.length === 0) {
+      return null;
+    }
+
+    const mostDifficultSystem = aRatings.reduce((prev, current) =>
+      EmulationSystemOrder[prev.system] > EmulationSystemOrder[current.system]
+        ? prev
+        : current
+    );
+
+    return mostDifficultSystem;
+  };
+
+  static getUptoSystemC(device: Device): SystemRating | null {
+    const systemRatings = device.systemRatings;
+    if (systemRatings.length === 0) {
+      return null;
+    }
+
+    const cRatings = systemRatings.filter((rating) =>
+      rating.ratingMark === "C"
+    );
+    if (cRatings.length === 0) {
+      return null;
+    }
+
+    const mostDifficultSystem = cRatings.reduce((prev, current) =>
+      EmulationSystemOrder[prev.system] > EmulationSystemOrder[current.system]
+        ? prev
+        : current
+    );
+
+    return mostDifficultSystem;
+  };
 }

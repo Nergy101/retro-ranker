@@ -1,10 +1,17 @@
+import { PiQuestion } from "@preact-icons/pi";
 import { Device } from "../../data/device.model.ts";
+import { DeviceService } from "../../services/devices/device.service.ts";
+import { RatingInfo } from "../ratings/RatingInfo.tsx";
+import { CurrencyIcon } from "../shared/CurrencyIcon.tsx";
 
 interface DeviceCardRowProps {
   device: Device;
 }
 
 export function DeviceCardRow({ device }: DeviceCardRowProps) {
+  const upToSystemA = DeviceService.getUptoSystemA(device);
+  const upToSystemC = DeviceService.getUptoSystemC(device);
+
   return (
     <div class="device-card-row">
       {/* Image Section */}
@@ -70,6 +77,33 @@ export function DeviceCardRow({ device }: DeviceCardRowProps) {
         </strong>
       </div>
 
+      {/* Rating Section */}
+      <div
+        style={{
+          marginBottom: "0.5rem",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: "0.5rem",
+        }}
+      >
+        {upToSystemA && (
+          <RatingInfo
+            rating={upToSystemA}
+            tooltipUseShortSystemName={true}
+            tooltipPosition="bottom"
+          />
+        )}
+        {upToSystemC && (
+          <RatingInfo
+            rating={upToSystemC}
+            tooltipUseShortSystemName={true}
+            tooltipPosition="bottom"
+          />
+        )}
+      </div>
+
       {/* Price Section */}
       <div
         style={{
@@ -78,14 +112,28 @@ export function DeviceCardRow({ device }: DeviceCardRowProps) {
           alignItems: "center",
         }}
       >
-        <span
-          style={{ fontSize: "0.7rem" }}
-          data-tooltip={device.pricing.range.min === device.pricing.range.max
-            ? device.pricing.average
-            : `${device.pricing.range.min} - ${device.pricing.range.max}`}
-        >
-          for {device.pricing.average} {device.pricing.currency}
-        </span>
+        {device.pricing.average !== 0
+          ? (
+            <span
+              style={{
+                fontSize: "0.7rem",
+                display: "flex",
+                alignItems: "center",
+              }}
+              data-tooltip={device.pricing.range.min ===
+                  device.pricing.range.max
+                ? device.pricing.average
+                : `${device.pricing.range.min} - ${device.pricing.range.max}`}
+            >
+              <CurrencyIcon currencyCode={device.pricing.currency} />
+              {device.pricing.average}
+            </span>
+          )
+          : (
+            <span data-tooltip="No price available">
+              <PiQuestion />
+            </span>
+          )}
       </div>
     </div>
   );

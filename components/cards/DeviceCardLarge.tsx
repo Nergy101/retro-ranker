@@ -4,6 +4,7 @@ import { DeviceService } from "../../services/devices/device.service.ts";
 import { StarRating } from "../ratings/StarRating.tsx";
 import { CurrencyIcon } from "../shared/CurrencyIcon.tsx";
 import { SummaryTable } from "../specifications/tables/SummaryTable.tsx";
+import { RatingInfo } from "../ratings/RatingInfo.tsx";
 
 export function DeviceCardLarge({ device }: { device: Device }) {
   const getPriceIndicator = () => {
@@ -38,6 +39,9 @@ export function DeviceCardLarge({ device }: { device: Device }) {
       );
     }
   };
+
+  const upToSystemA = DeviceService.getUptoSystemA(device);
+  const upToSystemC = DeviceService.getUptoSystemC(device);
 
   return (
     <article
@@ -129,59 +133,86 @@ export function DeviceCardLarge({ device }: { device: Device }) {
             <div style={{ display: "flex", justifyContent: "center" }}>
               <StarRating device={device} />
             </div>
+          </div>
+
+          <div
+            style={{
+              marginBottom: ".5rem",
+              fontSize: ".8rem",
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "baseline",
+              gap: ".5rem",
+            }}
+          >
             <div
               style={{
-                marginBottom: ".5rem",
-                fontSize: ".8rem",
                 display: "flex",
-                flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "baseline",
-                gap: ".5rem",
+                alignItems: "center",
+                flexDirection: "column",
               }}
             >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  flexDirection: "column",
-                }}
-              >
-                {!device.pricing.discontinued && device.pricing.average
-                  ? (
-                    <span
-                      style={{ display: "flex", fontSize: "1rem" }}
-                      data-tooltip={`${device.pricing.range.min}-${device.pricing.range.max} ${device.pricing.currency}`}
-                    >
-                      {getPriceIndicator()}
-                    </span>
-                  )
-                  : (
-                    <span
-                      style={{ display: "flex", fontSize: "1rem" }}
-                      data-tooltip="No pricing information available"
-                    >
-                      <CurrencyIcon currencyCode="USD" />
-                      <PiQuestion />
-                    </span>
-                  )}
-              </div>
-              <span
-                style={{
-                  display: "flex",
-                  gap: "0.25rem",
-                  fontSize: "1.2rem",
-                  marginTop: "0.5rem",
-                }}
-                data-tooltip={device.os.list.join(", ") === "?"
-                  ? "No OS information available"
-                  : device.os.list.join(", ")}
-              >
-                {device.os.icons.map((icon) =>
-                  DeviceService.getOsIconComponent(icon)
+              {!device.pricing.discontinued && device.pricing.average
+                ? (
+                  <span
+                    style={{ display: "flex", fontSize: "1rem" }}
+                    data-tooltip={`${device.pricing.range.min}-${device.pricing.range.max} ${device.pricing.currency}`}
+                  >
+                    {getPriceIndicator()}
+                  </span>
+                )
+                : (
+                  <span
+                    style={{ display: "flex", fontSize: "1rem" }}
+                    data-tooltip="No pricing information available"
+                  >
+                    <CurrencyIcon currencyCode="USD" />
+                    <PiQuestion />
+                  </span>
                 )}
-              </span>
             </div>
+            <span
+              style={{
+                display: "flex",
+                gap: "0.25rem",
+                fontSize: "1.2rem",
+                marginTop: "0.5rem",
+              }}
+              data-tooltip={device.os.list.join(", ") === "?"
+                ? "No OS information available"
+                : device.os.list.join(", ")}
+            >
+              {device.os.icons.map((icon) =>
+                DeviceService.getOsIconComponent(icon)
+              )}
+            </span>
+          </div>
+
+          <div
+            style={{
+              marginBottom: "0.5rem",
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "0.5rem",
+            }}
+          >
+            {upToSystemA && (
+              <RatingInfo
+                rating={upToSystemA}
+                tooltipUseShortSystemName={true}
+                tooltipPosition="bottom"
+              />
+            )}
+            {upToSystemC && (
+              <RatingInfo
+                rating={upToSystemC}
+                tooltipUseShortSystemName={true}
+                tooltipPosition="bottom"
+              />
+            )}
           </div>
         </hgroup>
       </header>
