@@ -28,7 +28,7 @@ jobs:
         file: Dockerfile
         push: true
         tags: nergy101/retro-ranker:latest
-        # platforms: linux/arm64
+        platforms: linux/arm64
 
     - name: Get Known Hosts value
       run: echo "KNOWN_HOSTS=$(ssh-keyscan -H ${{ secrets.SSH_HOST }})" >> $GITHUB_ENV
