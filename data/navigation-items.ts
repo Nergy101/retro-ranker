@@ -26,10 +26,10 @@ export const navigationItems: NavigationItem[] = [
     priority: 1,
   },
   {
-    href: "/devices-catalog",
+    href: "/devices",
     label: "Devices",
     icon: (props) => PiScroll({ ...props }),
-    isActive: (pathname) => pathname.startsWith("/devices-catalog"),
+    isActive: (pathname) => pathname.startsWith("/devices"),
     priority: 0.9,
   },
   {

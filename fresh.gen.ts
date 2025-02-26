@@ -13,9 +13,9 @@ import * as $charts_index from "./routes/charts/index.tsx";
 import * as $compare_layout from "./routes/compare/_layout.tsx";
 import * as $compare_index from "./routes/compare/index.tsx";
 import * as $contact from "./routes/contact.tsx";
-import * as $devices_catalog_name_ from "./routes/devices-catalog/[name].tsx";
-import * as $devices_catalog_index from "./routes/devices-catalog/index.tsx";
-import * as $devices_catalog_tags from "./routes/devices-catalog/tags.tsx";
+import * as $devices_name_ from "./routes/devices/[name].tsx";
+import * as $devices_index from "./routes/devices/index.tsx";
+import * as $devices_tags from "./routes/devices/tags.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $privacy from "./routes/privacy.tsx";
 import * as $release_timeline_layout from "./routes/release-timeline/_layout.tsx";
@@ -56,9 +56,9 @@ const manifest = {
     "./routes/compare/_layout.tsx": $compare_layout,
     "./routes/compare/index.tsx": $compare_index,
     "./routes/contact.tsx": $contact,
-    "./routes/devices-catalog/[name].tsx": $devices_catalog_name_,
-    "./routes/devices-catalog/index.tsx": $devices_catalog_index,
-    "./routes/devices-catalog/tags.tsx": $devices_catalog_tags,
+    "./routes/devices/[name].tsx": $devices_name_,
+    "./routes/devices/index.tsx": $devices_index,
+    "./routes/devices/tags.tsx": $devices_tags,
     "./routes/index.tsx": $index,
     "./routes/privacy.tsx": $privacy,
     "./routes/release-timeline/_layout.tsx": $release_timeline_layout,
