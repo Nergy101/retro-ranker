@@ -145,9 +145,9 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
     <div>
       <h2>Devices released per year</h2>
       <p>Keep in mind, the current year is not complete yet.</p>
-      <div>
-        <div>
-          Min Year: {selectedMinYear.value}
+      <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", flex: 1 }}>
+          <span>Min Year: {selectedMinYear.value}</span>
           <input
             aria-label="Minimum year"
             type="range"
@@ -160,8 +160,8 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
             }}
           />
         </div>
-        <div>
-          Max Year: {selectedMaxYear.value}
+        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", flex: 1 }}>
+          <span>Max Year: {selectedMaxYear.value}</span>
           <input
             aria-label="Maximum year"
             type="range"
@@ -174,27 +174,27 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
             }}
           />
         </div>
-        <div>
-          <label>
-            <input
-              type="checkbox"
-              checked={minimalOf12DevicesProduced.value}
-              onChange={(e) =>
-                minimalOf12DevicesProduced.value =
-                  (e.target as HTMLInputElement).checked}
-            />
-            Show brands that produced &gt; 10 devices over selected years
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              checked={showTotalDevices.value}
-              onChange={(e) =>
-                showTotalDevices.value = (e.target as HTMLInputElement).checked}
-            />
-            Show total devices line
-          </label>
-        </div>
+      </div>
+      <div>
+        <label>
+          <input
+            type="checkbox"
+            checked={minimalOf12DevicesProduced.value}
+            onChange={(e) =>
+              minimalOf12DevicesProduced.value =
+                (e.target as HTMLInputElement).checked}
+          />
+          Show brands that produced &gt; 10 devices over selected years
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            checked={showTotalDevices.value}
+            onChange={(e) =>
+              showTotalDevices.value = (e.target as HTMLInputElement).checked}
+          />
+          Show total devices line
+        </label>
       </div>
       <FreshChart
         type="line"
@@ -241,7 +241,9 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
                 color: "#898989",
               },
               min: 0,
-              ticks: {},
+              ticks: {
+                stepSize: 1,
+              },
             },
           },
         }}

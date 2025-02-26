@@ -126,7 +126,9 @@ export function DevicesPerRatingBarChart({ devices }: BarChartProps) {
               },
               min: 0,
               max: maxBarValue,
-              ticks: {},
+              ticks: {
+                stepSize: 10,
+              },
             },
           },
         }}

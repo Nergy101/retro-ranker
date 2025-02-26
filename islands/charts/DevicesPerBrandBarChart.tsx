@@ -126,7 +126,9 @@ export function DevicesPerBrandBarChart({ devices }: BarChartProps) {
               },
               min: 0,
               max: maxBarValueForChart,
-              ticks: {},
+              ticks: {
+                stepSize: 5,
+              },
             },
           },
         }}
