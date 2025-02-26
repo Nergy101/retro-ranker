@@ -132,6 +132,7 @@ export default function DevicesIndex(props: PageProps) {
         title="Device Catalog"
         description="Browse and compare retro gaming handhelds. Find detailed specifications, performance ratings, and prices for over 100 devices. Updated regularly with new releases."
         url={`https://retroranker.site${props.url.pathname}`}
+        robots="noindex, follow"
       >
         <script
           type="application/ld+json"
