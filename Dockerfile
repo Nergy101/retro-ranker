@@ -42,9 +42,10 @@ CMD ["deno", "task", "preview"]
 # docker run -p 8000:8000 retroranker:latest
 
 ### tag as ...:retroranker:latest
-# docker tag retroranker:latest .../retroranker:latest
-
 ### push to docker hub
-# docker push .../retroranker:latest
+
+# docker build -t retroranker:latest .
+# docker tag retroranker:latest nergy101/retroranker:latest
+# docker push nergy101/retroranker:latest
 
 
