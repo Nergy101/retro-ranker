@@ -34,10 +34,7 @@ import { EmulationSystemOrder } from "../../data/enums/EmulationSystem.ts";
 import { SystemRating } from "../../data/models/system-rating.model.ts";
 export class DeviceService {
   private devices: Device[] = [];
-  private tags: TagModel[] = [];  
-  private amountOfTimesDevicesLoaded = 0;
-  private amountOfTimesDevicesSearched = 0;
-  private amountOfTimesDeviceByNameSearched = 0;
+  private tags: TagModel[] = [];
 
   private static instance: DeviceService;
 
@@ -76,11 +73,7 @@ export class DeviceService {
   }
 
   public getAllDevices(): Device[] {
-    this.amountOfTimesDevicesLoaded++;
-    console.info(
-      "Getting all devices on instance",
-      this.amountOfTimesDevicesLoaded,
-    );
+    console.info("Getting all devices");
     return this.devices;
   }
 
@@ -103,12 +96,6 @@ export class DeviceService {
     pageNumber: number = 1,
     pageSize: number = 9,
   ): { page: Device[]; totalAmountOfResults: number } {
-    this.amountOfTimesDevicesSearched++;
-    console.info(
-      "Searching for devices on instance",
-      this.amountOfTimesDevicesSearched,
-    );
-
     const lowerQuery = query.toLowerCase();
 
     let filteredDevices = this.devices.filter((device) => {
@@ -232,11 +219,6 @@ export class DeviceService {
   }
 
   public getDeviceByName(sanitizedName: string): Device | null {
-    this.amountOfTimesDeviceByNameSearched++;
-    console.info(
-      "Getting device by name on instance",
-      this.amountOfTimesDeviceByNameSearched,
-    );
     return this.devices.find((device) =>
       device.name.sanitized === sanitizedName
     ) ?? null;
@@ -545,7 +527,7 @@ export class DeviceService {
     );
 
     return mostDifficultSystem;
-  };
+  }
 
   static getUptoSystemC(device: Device): SystemRating | null {
     const systemRatings = device.systemRatings;
@@ -567,5 +549,5 @@ export class DeviceService {
     );
 
     return mostDifficultSystem;
-  };
+  }
 }

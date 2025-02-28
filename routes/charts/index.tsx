@@ -7,7 +7,6 @@ import { DevicesPerRatingBarChart } from "../../islands/charts/DevicesPerRanking
 import { DevicesPerReleaseYearLineChart } from "../../islands/charts/DevicesPerReleaseYearLineChart.tsx";
 
 export default function ChartsIndex({ url }: PageProps) {
-  console.info("Route loaded: /charts");
   const deviceService = DeviceService.getInstance();
   const devices = deviceService.getAllDevices();
 
