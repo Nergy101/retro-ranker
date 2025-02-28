@@ -35,6 +35,7 @@ import { SystemRating } from "../../data/models/system-rating.model.ts";
 export class DeviceService {
   private devices: Device[] = [];
   private tags: TagModel[] = [];
+  private counter: number = 0;
 
   private static instance: DeviceService;
 
@@ -73,7 +74,8 @@ export class DeviceService {
   }
 
   public getAllDevices(): Device[] {
-    console.info("Getting all devices");
+    this.counter++;
+    console.info("Getting all devices", this.counter);
     return this.devices;
   }
 
