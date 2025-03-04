@@ -177,7 +177,7 @@ export function DeviceComparisonForm({
                 gap: "0.5rem",
               }}
             >
-              Against
+              With
             </span>
             <input
               type="search"
