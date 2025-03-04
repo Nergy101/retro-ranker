@@ -203,9 +203,6 @@ export default function DevicesIndex(props: PageProps) {
         />
 
         <hr />
-        <div style={{ textAlign: "center", fontSize: "0.8rem" }}>
-          The star rating shows the emulation performance of the device.
-        </div>
         <div f-client-nav={false}>
           <LayoutSelector
             activeLayout={activeLayout}

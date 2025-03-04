@@ -20,7 +20,7 @@ export default function Contact({ url }: PageProps) {
       />
 
       <h1 class="text-3xl font-bold" style={{ textAlign: "center" }}>
-        Contact / Support my work
+        Contact <span style={{ color: "var(--pico-primary)" }}>Retro Ranker</span>
       </h1>
 
       <div>
