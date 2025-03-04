@@ -46,7 +46,7 @@ export function DeviceCardMedium(
   };
 
   const upToSystemA = DeviceService.getUptoSystemA(device);
-  const upToSystemC = DeviceService.getUptoSystemC(device);
+  const upToSystemCOrLower = DeviceService.getUptoSystemCOrLower(device);
 
   return (
     <article
@@ -205,9 +205,9 @@ export function DeviceCardMedium(
             tooltipPosition="bottom"
           />
         )}
-        {upToSystemC && (
+        {upToSystemCOrLower && (
           <RatingInfo
-            rating={upToSystemC}
+            rating={upToSystemCOrLower}
             tooltipUseShortSystemName={true}
             tooltipPosition="bottom"
           />

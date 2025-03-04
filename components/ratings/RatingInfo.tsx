@@ -17,7 +17,14 @@ export function RatingInfo(
     const systemShort = EmulationSystemShort[rating.system];
 
     const systemName = tooltipUseShortSystemName ? systemShort : rating.system;
+
     switch (rating.ratingMark.toUpperCase()) {
+      case "ALL":
+        return {
+          color: "#16833E",
+          text: `Excellent on all systems`,
+          textColor: "white",
+        };
       case "A":
         return {
           color: "#16833E",

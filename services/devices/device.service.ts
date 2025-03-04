@@ -30,7 +30,10 @@ import { Cooling } from "../../data/models/cooling.model.ts";
 import { TagModel } from "../../data/models/tag.model.ts";
 import { RatingsService } from "./ratings.service.ts";
 import { personalPicks } from "../../data/personal-picks.ts";
-import { EmulationSystemOrder } from "../../data/enums/EmulationSystem.ts";
+import {
+  EmulationSystem,
+  EmulationSystemOrder,
+} from "../../data/enums/EmulationSystem.ts";
 import { SystemRating } from "../../data/models/system-rating.model.ts";
 export class DeviceService {
   private devices: Device[] = [];
@@ -517,6 +520,15 @@ export class DeviceService {
       return null;
     }
 
+    // if all ratings are A, return null
+    if (systemRatings.every((rating) => rating.ratingMark === "A")) {
+      return {
+        ratingMark: "all",
+        system: EmulationSystem.All,
+        ratingNumber: null,
+      };
+    }
+
     const aRatings = systemRatings.filter((rating) =>
       rating.ratingMark === "A"
     );
@@ -533,25 +545,31 @@ export class DeviceService {
     return mostDifficultSystem;
   }
 
-  static getUptoSystemC(device: Device): SystemRating | null {
+  static getUptoSystemCOrLower(device: Device): SystemRating | null {
     const systemRatings = device.systemRatings;
     if (systemRatings.length === 0) {
       return null;
     }
 
-    const cRatings = systemRatings.filter((rating) =>
-      rating.ratingMark === "C"
-    );
-    if (cRatings.length === 0) {
-      return null;
+    // Define rating priority (highest to lowest)
+    const ratingPriority = ["C", "D", "E", "F"];
+    
+    // Try each rating in priority order
+    for (const targetRating of ratingPriority) {
+      const matchingRatings = systemRatings.filter(
+        (rating) => rating.ratingMark === targetRating
+      );
+      
+      if (matchingRatings.length > 0) {
+        // If we found systems with this rating, return the easiest one
+        return matchingRatings.reduce((prev, current) =>
+          EmulationSystemOrder[prev.system] > EmulationSystemOrder[current.system]
+            ? prev
+            : current
+        );
+      }
     }
 
-    const mostDifficultSystem = cRatings.reduce((prev, current) =>
-      EmulationSystemOrder[prev.system] > EmulationSystemOrder[current.system]
-        ? prev
-        : current
-    );
-
-    return mostDifficultSystem;
+    return null;
   }
 }

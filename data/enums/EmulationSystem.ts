@@ -17,6 +17,7 @@ export enum EmulationSystem {
   PS1 = "PlayStation 1",
   PS2 = "PlayStation 2",
   PS3 = "PlayStation 3",
+  All = "Complete",
 }
 
 export const EmulationSystemShort = {
@@ -38,6 +39,7 @@ export const EmulationSystemShort = {
   [EmulationSystem.WiiU]: "Wii U",
   [EmulationSystem.Switch]: "Switch",
   [EmulationSystem.PS3]: "PS3",
+  [EmulationSystem.All]: "Complete",
 };
 
 export const EmulationSystemOrder = {
@@ -59,4 +61,5 @@ export const EmulationSystemOrder = {
   [EmulationSystem.PS2]: 16,
   [EmulationSystem.PS3]: 17,
   [EmulationSystem.Switch]: 18,
+  [EmulationSystem.All]: 19,
 };
