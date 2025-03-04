@@ -138,12 +138,6 @@ export function DeviceCardMedium(
           )}
       </div>
 
-      {
-        /* <div style={{ display: "flex", justifyContent: "center" }}>
-        <StarRating device={device} />
-      </div> */
-      }
-
       <div
         style={{
           marginBottom: ".5rem",

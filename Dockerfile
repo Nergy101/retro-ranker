@@ -1,43 +1,30 @@
-# Use the official Deno 2 image as the base stage
-FROM denoland/deno:2.2.2 as builder
+FROM denoland/deno:2.2.2
 
-# Set the working directory
+# Set working directory
 WORKDIR /app
 
-# Copy dependencies files first for caching
-COPY deno.json ./
+# Set a fixed cache directory inside the container
+ENV DENO_DIR=/deno_cache
 
-# Cache and compile dependencies
-RUN deno cache main.ts
+# Copy dependencies definition files first to leverage Docker cache
+COPY deno.json* ./
+
 
 # Copy the rest of the application
 COPY . .
 
-# Compile the application for faster startup
+# Cache dependencies at build time
+RUN deno cache main.ts
 RUN deno task build
 
-# Use a minimal Deno runtime image for production
-FROM denoland/deno:2.2.2
-
-# Set the working directory
-WORKDIR /app
-
-# Copy the compiled application from the builder stage
-COPY --from=builder /app /app
-
-# Set appropriate permissions
-RUN chmod -R 755 /app
-
-# Expose the port Fresh runs on
+# Expose any required ports (if needed)
 EXPOSE 8000
 
-# Start the application
-CMD ["deno", "task", "preview"]
+# Run the application without re-downloading dependencies
+CMD ["run", "-A", "main.ts"]
 
 
-
-
-# usage
+# Usage notes:
 # docker build -t retroranker:latest .
 # docker run -p 8000:8000 retroranker:latest
 
