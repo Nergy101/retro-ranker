@@ -265,7 +265,7 @@ export class DeviceService {
         const mentionedDate = new Date(device.released.mentionedDate);
         if (!mentionedDate) return false;
         const year = mentionedDate.getFullYear();
-        return year === currentYear || year === currentYear - 1;
+        return year === currentYear;
       })
       .sort((a, b) => {
         const aYear = a.released.mentionedDate?.getFullYear?.() || 0;

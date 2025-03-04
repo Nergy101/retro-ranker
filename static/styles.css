@@ -1611,3 +1611,79 @@ table tr {
 .main-content {
   flex: 1 0 auto;
 }
+
+/* Tag filter styling */
+.selected-tags-container {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: var(--pico-card-background-color);
+  border-radius: 8px;
+}
+
+.empty-selection {
+  color: var(--pico-contrast);
+  font-style: italic;
+}
+
+.search-container {
+  margin-bottom: 1.5rem;
+}
+
+.tag-search-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--pico-primary);
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.filter-categories {
+  margin-bottom: 2rem;
+}
+
+.filter-category {
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--pico-primary);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.category-header {
+  padding: 0.75rem 1rem;
+  background-color: var(--pico-card-background-color);
+  cursor: pointer;
+  font-weight: 600;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: flex-end;
+
+  &::after {
+    margin-left: auto;
+  }
+}
+
+.category-icon {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+
+.tag-count {
+  color: var(--pico-contrast);
+  font-weight: normal;
+}
+
+.tag-options {
+  padding: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Update FilterTag component to look more modern */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}

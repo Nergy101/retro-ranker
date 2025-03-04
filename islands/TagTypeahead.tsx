@@ -3,6 +3,7 @@ import { DeviceCardMedium } from "../components/cards/DeviceCardMedium.tsx";
 import { FilterTag } from "../components/shared/FilterTag.tsx";
 import { Device } from "../data/device.model.ts";
 import { TagModel } from "../data/models/tag.model.ts";
+import { PiTagSimple } from "@preact-icons/pi";
 
 export default function TagTypeahead(
   { allTags, initialTags, devicesWithSelectedTags }: {
@@ -59,45 +60,68 @@ export default function TagTypeahead(
 
   return (
     <div>
-      <div class="tags">
-        {selectedTags.value.map((tag) => (
-          <FilterTag
-            key={tag.slug}
-            tag={tag}
-            type="remove"
-            href={getTagsHref(
-              tag,
-              "remove",
-            )}
-          />
-        ))}
+      <div class="selected-tags-container">
+        {selectedTags.value.length > 0
+          ? (
+            <>
+              <h4 style={{ textAlign: "center" }}>
+                Selected tags to filter on
+              </h4>
+              <div class="tags">
+                {selectedTags.value.map((tag) => (
+                  <FilterTag
+                    key={tag.slug}
+                    tag={tag}
+                    type="remove"
+                    href={getTagsHref(tag, "remove")}
+                  />
+                ))}
+              </div>
+            </>
+          )
+          : (
+            <p class="empty-selection">
+              No filters selected. Select tags below to filter devices.
+            </p>
+          )}
       </div>
 
-      <input
-        type="text"
-        placeholder="Search tags..."
-        value={searchTerm}
-        onInput={(e) => searchTerm.value = e.currentTarget.value}
-      />
+      <div class="search-container">
+        <input
+          type="text"
+          placeholder="Search for tags..."
+          value={searchTerm}
+          onInput={(e) => searchTerm.value = e.currentTarget.value}
+          class="tag-search-input"
+        />
+      </div>
 
-      {Object.entries(groupedTags).map(([type, tags]) => (
-        <div key={type} class="tags-group">
-          <h3 style={{ textAlign: "center" }}>{type} ({tags.length})</h3>
-          <div class="tags">
-            {tags.map((tag) => (
-              <FilterTag
-                key={tag.slug}
-                tag={tag}
-                type="add"
-                href={getTagsHref(
-                  tag,
-                  "add",
-                )}
-              />
-            ))}
-          </div>
-        </div>
-      ))}
+      <div class="filter-categories">
+        {Object.entries(groupedTags).map(([type, tags]) => (
+          <details
+            key={type}
+            class="filter-category"
+            open={searchTerm.value.length > 0}
+          >
+            <summary class="category-header">
+              <span class="category-icon">
+                <PiTagSimple /> {type}
+              </span>
+              <span class="tag-count">({tags.length})</span>
+            </summary>
+            <div class="tag-options">
+              {tags.map((tag) => (
+                <FilterTag
+                  key={tag.slug}
+                  tag={tag}
+                  type="add"
+                  href={getTagsHref(tag, "add")}
+                />
+              ))}
+            </div>
+          </details>
+        ))}
+      </div>
 
       <h2 style={{ textAlign: "center" }}>
         Devices with selected tags: {devicesWithSelectedTags.length}
