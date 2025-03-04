@@ -55,7 +55,8 @@ export default function About({ url }: PageProps) {
                 height="32"
               />
               <span>
-                &nbsp;Deno (Deploy) - A secure runtime for JavaScript and TypeScript
+                &nbsp;Deno (Deploy) - A secure runtime for JavaScript and
+                TypeScript
               </span>
             </li>
             <li class="flex items-center gap-4">
@@ -160,7 +161,7 @@ export default function About({ url }: PageProps) {
             We encourage you to join the Retro Handhelds community to contribute
             to this growing knowledge base. Their collective expertise and
             hands-on experience with these devices help maintain the accuracy
-            and reliability of our information. 
+            and reliability of our information.
             <br />
             <br />
             Visit their{" "}

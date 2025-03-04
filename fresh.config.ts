@@ -5,5 +5,4 @@ slugify.extend({
   "?": "question-mark",
 });
 
-
 export default defineConfig({});

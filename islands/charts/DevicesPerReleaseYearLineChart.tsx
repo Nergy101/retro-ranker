@@ -146,7 +146,14 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
       <h2>Devices released per year</h2>
       <p>Keep in mind, the current year is not complete yet.</p>
       <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", flex: 1 }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            flex: 1,
+          }}
+        >
           <span>Min Year: {selectedMinYear.value}</span>
           <input
             aria-label="Minimum year"
@@ -160,7 +167,14 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
             }}
           />
         </div>
-        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", flex: 1 }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            flex: 1,
+          }}
+        >
           <span>Max Year: {selectedMaxYear.value}</span>
           <input
             aria-label="Maximum year"

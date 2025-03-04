@@ -40,7 +40,7 @@ export function MiscellaneousSpecsTable(
           <tr>
             <th>Pros</th>
             <td>
-              {device.pros.map((pro) => <span>{pro}</span>)}
+              {device.pros.map((pro) => <span key={pro}>{pro}</span>)}
             </td>
           </tr>
         )}
@@ -48,7 +48,7 @@ export function MiscellaneousSpecsTable(
           <tr>
             <th>Cons</th>
             <td>
-              {device.cons.map((con) => <span>{con}</span>)}
+              {device.cons.map((con) => <span key={con}>{con}</span>)}
             </td>
           </tr>
         )}

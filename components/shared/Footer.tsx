@@ -113,8 +113,7 @@ export default function Footer() {
                   height: "32px",
                   borderRadius: "50%",
                 }}
-              >
-              </img>
+              />
             </div>
           </div>
         </div>

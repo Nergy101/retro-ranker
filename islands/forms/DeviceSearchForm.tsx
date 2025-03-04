@@ -140,7 +140,7 @@ export function DeviceSearchForm(
             return (
               <FilterTag
                 tag={tag}
-                type={"add"}
+                type="add"
                 href={getTagsHref(tag, "add")}
               />
             );

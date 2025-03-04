@@ -311,7 +311,7 @@ export function DeviceComparisonForm({
         </button>
         <button
           class="secondary"
-          onClick={() => handleExampleComparison("RG-405M", "RG-406H")}
+          onClick={() => handleExampleComparison("Retroid Pocket 5", "RG-406H")}
           type="submit"
           style={{
             display: "flex",
@@ -320,12 +320,13 @@ export function DeviceComparisonForm({
           }}
         >
           <span style={{ display: "flex", gap: "0.25rem" }}>
-            RG-405M <PiGitDiff /> RG-406H
+            Retroid Pocket 5 <PiGitDiff /> RG-406H
           </span>
         </button>
         <button
           class="secondary"
-          onClick={() => handleExampleComparison("Switch", "Odin 2 Portal")}
+          onClick={() =>
+            handleExampleComparison("AYANEO Pocket Evo", "Odin 2 Portal")}
           type="submit"
           style={{
             display: "flex",
@@ -334,7 +335,7 @@ export function DeviceComparisonForm({
           }}
         >
           <span style={{ display: "flex", gap: "0.25rem" }}>
-            Switch <PiGitDiff /> Odin 2 Portal
+            AYANEO Pocket Evo <PiGitDiff /> Odin 2 Portal
           </span>
         </button>
       </div>

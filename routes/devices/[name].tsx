@@ -313,7 +313,7 @@ export default function DeviceDetail(props: PageProps) {
           showTitle={false}
         />
         <div class="tags">
-          {device.tags.map((tag) => <TagComponent tag={tag} />)}
+          {device.tags.map((tag) => <TagComponent key={tag.name} tag={tag} />)}
         </div>
         <div class="similar-devices-grid">
           {similarDevices.map((deviceItem) => (

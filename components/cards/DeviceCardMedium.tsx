@@ -1,10 +1,7 @@
 import { PiQuestion } from "@preact-icons/pi";
 import { Device } from "../../data/device.model.ts";
-import { EmulationSystemOrder } from "../../data/enums/EmulationSystem.ts";
-import { SystemRating } from "../../data/models/system-rating.model.ts";
 import { DeviceService } from "../../services/devices/device.service.ts";
 import { RatingInfo } from "../ratings/RatingInfo.tsx";
-import { StarRating } from "../ratings/StarRating.tsx";
 import { CurrencyIcon } from "../shared/CurrencyIcon.tsx";
 
 interface DeviceCardMediumProps {

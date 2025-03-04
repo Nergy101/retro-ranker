@@ -58,6 +58,7 @@ export default function SEO({
       {jsonLd && (
         <script
           type="application/ld+json"
+          // deno-lint-ignore react-no-danger
           dangerouslySetInnerHTML={{ __html: jsonLd }}
         />
       )}
@@ -93,6 +94,7 @@ export default function SEO({
       {/* Prevent flash of wrong theme */}
       <script
         defer
+        // deno-lint-ignore react-no-danger
         dangerouslySetInnerHTML={{
           __html: `
             (function() {

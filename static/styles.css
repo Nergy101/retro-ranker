@@ -1367,49 +1367,37 @@ h6,
 .home-page {
   background-color: var(--pico-background-color);
   padding: 1rem;
-  border-radius: var(--pico-border-radius);
   margin-bottom: 1rem;
-  border: 1px solid var(--pico-primary);
 }
 
 .charts-page {
   background-color: var(--pico-background-color);
   padding: 1rem;
-  border-radius: var(--pico-border-radius);
   margin-bottom: 1rem;
-  border: 1px solid var(--pico-primary);
 }
 
 .compare-page {
   background-color: var(--pico-background-color);
   padding: 1rem;
-  border-radius: var(--pico-border-radius);
   margin-bottom: 1rem;
-  border: 1px solid var(--pico-primary);
 }
 
 .devices-page {
   background-color: var(--pico-background-color);
   padding: 1rem;
-  border-radius: var(--pico-border-radius);
   margin-bottom: 1rem;
-  border: 1px solid var(--pico-primary);
 }
 
 .about {
   background-color: var(--pico-background-color);
   padding: 1rem;
-  border-radius: var(--pico-border-radius);
   margin-bottom: 1rem;
-  border: 1px solid var(--pico-primary);
 }
 
 .contact {
   background-color: var(--pico-background-color);
   padding: 1rem;
-  border-radius: var(--pico-border-radius);
   margin-bottom: 1rem;
-  border: 1px solid var(--pico-primary);
 }
 
 .footer {

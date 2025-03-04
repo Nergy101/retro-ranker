@@ -126,6 +126,7 @@ export function MobileNav(
           </div>
 
           <button
+            type="button"
             class="burger-menu"
             onClick={() => {
               document.querySelector(".mobile-nav-content")?.classList

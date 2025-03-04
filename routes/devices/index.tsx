@@ -135,6 +135,7 @@ export default function DevicesIndex(props: PageProps) {
       >
         <script
           type="application/ld+json"
+          // deno-lint-ignore react-no-danger
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",

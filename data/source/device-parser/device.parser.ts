@@ -30,6 +30,7 @@ export class DeviceParser {
     // Process data rows (skip header)
     rows.slice(1).each((_, row) => {
       const device: Device = {
+        id: "",
         name: {
           raw: "",
           sanitized: "",
@@ -71,7 +72,8 @@ export class DeviceParser {
         colors: [],
         image: {
           originalUrl: null,
-          url: null,
+          pngUrl: null,
+          webpUrl: null,
           alt: null,
         },
         released: {
@@ -154,7 +156,8 @@ export class DeviceParser {
           if (imageUrl) {
             device.image = {
               originalUrl: imageUrl,
-              url: null, // set later
+              pngUrl: null, // set later
+              webpUrl: null, // set later
               alt: null, // set later
             };
           }
@@ -237,7 +240,9 @@ export class DeviceParser {
         device.outputs.audioOutput?.hasUsbC ||
         false;
 
-      device.totalRating = Number(DeviceService.calculateScore(device).toFixed(2));
+      device.totalRating = Number(
+        DeviceService.calculateScore(device).toFixed(2),
+      );
 
       device.tags = this.getTags(device);
 
@@ -274,6 +279,7 @@ export class DeviceParser {
     // Process data rows (skip header)
     rows.slice(1).each((_, row) => {
       const device: Device = {
+        id: "",
         name: {
           raw: "",
           sanitized: "",
@@ -316,7 +322,8 @@ export class DeviceParser {
         colors: [],
         image: {
           originalUrl: null,
-          url: null,
+          pngUrl: null,
+          webpUrl: null,
           alt: null,
         },
         released: {
@@ -398,7 +405,8 @@ export class DeviceParser {
           if (imageUrl) {
             device.image = {
               originalUrl: imageUrl,
-              url: null, // set later
+              pngUrl: null, // set later
+              webpUrl: null, // set later
               alt: null, // set later
             };
           }
@@ -494,7 +502,9 @@ export class DeviceParser {
         device.outputs.audioOutput?.hasUsbC ||
         false;
 
-        device.totalRating = Number(DeviceService.calculateScore(device).toFixed(2));
+      device.totalRating = Number(
+        DeviceService.calculateScore(device).toFixed(2),
+      );
 
       device.tags = this.getTags(device);
 

@@ -20,12 +20,11 @@ export default function Contact({ url }: PageProps) {
       />
 
       <h1 class="text-3xl font-bold" style={{ textAlign: "center" }}>
-        Contact
+        Contact / Support my work
       </h1>
 
       <div>
         <section>
-          <h3 style={{ textAlign: "center" }}>Support My Work</h3>
           <p style={{ textAlign: "center" }}>
             If you find Retro Ranker helpful and want to support its
             development, you can buy me a coffee or contribute to the project.

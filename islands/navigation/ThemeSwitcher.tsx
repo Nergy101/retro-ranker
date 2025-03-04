@@ -34,6 +34,7 @@ export function ThemeSwitcher(
 
   return (
     <button
+      type="button"
       id="theme-switcher"
       aria-label="auto"
       aria-live="polite"

@@ -60,11 +60,13 @@ export function mapHandheldsColumnToDevice(
 
         device.released = {
           raw: rawValue,
-          mentionedDate: mentionedDate ? new Date(Date.UTC(
-            parseInt(mentionedDate.split("/")[0]),
-            parseInt(mentionedDate.split("/")[1]) - 1,
-            1,
-          )) : null,
+          mentionedDate: mentionedDate
+            ? new Date(Date.UTC(
+              parseInt(mentionedDate.split("/")[0]),
+              parseInt(mentionedDate.split("/")[1]) - 1,
+              1,
+            ))
+            : null,
         };
       }
       break;

@@ -64,7 +64,12 @@ export default function Home({ url }: PageProps) {
       >
         <div class="container-fluid">
           <div class="tags">
-            {defaultTags.map((tag) => <TagComponent tag={tag} />)}
+            {defaultTags.map((tag) => (
+              <TagComponent
+                key={tag.name}
+                tag={tag}
+              />
+            ))}
           </div>
           <hr />
 

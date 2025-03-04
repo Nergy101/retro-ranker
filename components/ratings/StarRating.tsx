@@ -38,7 +38,9 @@ export function StarRating({ device }: StarRatingProps) {
       data-tooltip={`Emulation Rating: ${fivePointRating.toFixed(1)}/5`}
     >
       {/* Full stars */}
-      {Array.from({ length: fullStars }).map(() => <PiStarFill />)}
+      {Array.from({ length: fullStars }).map((_, index) => (
+        <PiStarFill key={index} />
+      ))}
 
       {/* Half star if needed */}
       {hasHalfStar && <PiStarHalfFill />}

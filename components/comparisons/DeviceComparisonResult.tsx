@@ -19,13 +19,13 @@ import { VNode } from "https://esm.sh/preact@10.25.4/src/index.js";
 import { JSX } from "preact/jsx-runtime";
 import { Ranking } from "../../data/models/ranking.model.ts";
 import { DeviceService } from "../../services/devices/device.service.ts";
+import { TagComponent } from "../shared/TagComponent.tsx";
+import { AudioTable } from "../specifications/tables/AudioTable.tsx";
 import { ConnectivityTable } from "../specifications/tables/ConnectivityTable.tsx";
 import { ControlsTable } from "../specifications/tables/ControlsTable.tsx";
 import { MiscellaneousSpecsTable } from "../specifications/tables/MiscellaneousSpecsTable.tsx";
 import { PhysicalSpecsTable } from "../specifications/tables/PhysicalSpecsTable.tsx";
 import { ProcessingSpecsTable } from "../specifications/tables/ProcessingSpecsTable.tsx";
-import { AudioTable } from "../specifications/tables/AudioTable.tsx";
-import { TagComponent } from "../shared/TagComponent.tsx";
 
 interface DeviceComparisonResultProps {
   device: Device;
@@ -198,7 +198,8 @@ export function DeviceComparisonResult(
               ? (
                 <img
                   loading="lazy"
-                  src={device.image?.webpUrl ?? "/images/placeholder-100x100.svg"}
+                  src={device.image?.webpUrl ??
+                    "/images/placeholder-100x100.svg"}
                   width={100}
                   height={100}
                   alt={device.image?.alt ?? "A device image"}
@@ -311,7 +312,12 @@ export function DeviceComparisonResult(
             Tags
           </strong>
           <div class="tags" style={{ margin: "0 1em" }}>
-            {device.tags.map((tag) => <TagComponent tag={tag} />)}
+            {device.tags.map((tag) => (
+              <TagComponent
+                key={tag.name}
+                tag={tag}
+              />
+            ))}
           </div>
         </div>
       </div>

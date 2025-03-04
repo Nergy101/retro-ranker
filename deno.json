@@ -18,7 +18,7 @@
   "lint": {
     "rules": {
       "tags": ["fresh", "recommended"],
-      "exclude": ["require-await"],
+      "exclude": ["require-await", "jsx-boolean-value"],
       "include": ["no-console", "no-unused-vars", "no-debugger"]
     }
   },

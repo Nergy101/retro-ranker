@@ -41,7 +41,9 @@ export async function downloadDeviceImages(
       );
     } else {
       console.info(
-        chalk.yellow(`device ${device.name.sanitized} does not have originalUrl`),
+        chalk.yellow(
+          `device ${device.name.sanitized} does not have originalUrl`,
+        ),
       );
     }
   });
