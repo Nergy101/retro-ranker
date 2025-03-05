@@ -1,6 +1,3 @@
-User-agent: SemrushBot
-Disallow: /
-
 User-agent: GPTBot
 Disallow: /
 
