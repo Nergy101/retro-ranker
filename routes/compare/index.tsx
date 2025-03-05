@@ -29,15 +29,20 @@ export default function Compare({ url }: PageProps) {
 
   // Generate dynamic SEO content based on devices being compared
   let seoTitle = "Compare Retro Gaming Handhelds";
-  let seoDescription = "Compare multiple retro gaming handhelds side-by-side. View detailed specifications, performance ratings, and feature comparisons to find the perfect device for your gaming needs.";
-  
+  let seoDescription =
+    "Compare multiple retro gaming handhelds side-by-side. View detailed specifications, performance ratings, and feature comparisons to find the perfect device for your gaming needs.";
+
   if (devicesToCompare.length === 2) {
     const [device1, device2] = devicesToCompare;
-    seoTitle = `${device1.brand.raw} ${device1.name.raw} vs ${device2.brand.raw} ${device2.name.raw} - Retro Handheld Comparison`;
-    seoDescription = `Compare ${device1.brand.raw} ${device1.name.raw} vs ${device2.brand.raw} ${device2.name.raw}. Side-by-side specs comparison of screen size, battery life, performance, emulation capabilities, and price. Find which retro gaming handheld is best for you.`;
+    seoTitle =
+      `${device1.brand.raw} ${device1.name.raw} vs ${device2.brand.raw} ${device2.name.raw} - Retro Handheld Comparison`;
+    seoDescription =
+      `Compare ${device1.brand.raw} ${device1.name.raw} vs ${device2.brand.raw} ${device2.name.raw}. Side-by-side specs comparison of screen size, battery life, performance, emulation capabilities, and price. Find which retro gaming handheld is best for you.`;
   } else if (devicesToCompare.length > 0) {
     seoTitle = `Compare ${deviceNames.join(" vs ")} - Retro Gaming Handhelds`;
-    seoDescription = `Compare ${deviceNames.join(", ")}. Side-by-side specifications, performance ratings, and feature comparisons of these retro gaming handhelds.`;
+    seoDescription = `Compare ${
+      deviceNames.join(", ")
+    }. Side-by-side specifications, performance ratings, and feature comparisons of these retro gaming handhelds.`;
   }
 
   return (
@@ -81,92 +86,10 @@ export default function Compare({ url }: PageProps) {
       </div>
 
       {devicesToCompare.length === 2 && (
-        <div class="comparison-text-container" style={{ margin: "2rem 0", padding: "0 1rem" }}>
+        <div class="comparison-text-container">
           <DeviceComparisonText devices={devicesToCompare} />
         </div>
       )}
-
-      <div class="ranking-info">
-        <details>
-          <summary class="flex">
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <PiInfo />
-              &nbsp;How does this ranking work?
-            </div>
-          </summary>
-          <div>
-            <p>
-              The ranking is based on all relevant properties of the devices.
-              <br />
-              Every property is given a score and placed into a category. The
-              categories are then weighted and summed up to get the final
-              results.
-              <br />
-              Category weights:
-              <div
-                style={{ display: "flex", flexDirection: "row", gap: "0.5rem" }}
-              >
-                <ul>
-                  <li>Performance (30%)</li>
-                  <li>Monitor (10%)</li>
-                  <li>Dimensions (10%)</li>
-                </ul>
-                <ul>
-                  <li>Connectivity (20%)</li>
-                  <li>Audio (10%)</li>
-                  <li>Controls (10%)</li>
-                </ul>
-                <ul>
-                  <li>Misc (10%)</li>
-                </ul>
-              </div>
-            </p>
-            <div
-              style={{
-                display: "flex",
-                gap: "0.25rem",
-                alignItems: "center",
-              }}
-            >
-              <span
-                style={{
-                  width: "fit-content",
-                  backgroundColor: "#3952A2",
-                  color: "white",
-                  borderRadius: "0.25rem",
-                  padding: "0.25rem",
-                }}
-              >
-                Blue means equal.
-              </span>
-              <br />
-              <span
-                style={{
-                  width: "fit-content",
-                  backgroundColor: "#16833E",
-                  color: "white",
-                  borderRadius: "0.25rem",
-                  padding: "0.25rem",
-                }}
-              >
-                Green means better.
-              </span>
-              <br />
-              <span
-                style={{
-                  width: "fit-content",
-                  backgroundColor: "#AB0D0D",
-                  color: "white",
-                  borderRadius: "0.25rem",
-                  padding: "0.25rem",
-                }}
-              >
-                Red means worse.
-              </span>
-            </div>
-          </div>
-        </details>
-      </div>
 
       {devicesToCompare.length > 1 && (
         <div>
@@ -196,6 +119,84 @@ export default function Compare({ url }: PageProps) {
           </details>
         </div>
       )}
+      <details>
+        <summary class="flex">
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <PiInfo />
+            &nbsp;How does this ranking work?
+          </div>
+        </summary>
+        <div>
+          <p>
+            The ranking is based on all relevant properties of the devices.
+            <br />
+            Every property is given a score and placed into a category. The
+            categories are then weighted and summed up to get the final results.
+            <br />
+            Category weights:
+            <div
+              style={{ display: "flex", flexDirection: "row", gap: "0.5rem" }}
+            >
+              <ul>
+                <li>Performance (30%)</li>
+                <li>Monitor (10%)</li>
+                <li>Dimensions (10%)</li>
+              </ul>
+              <ul>
+                <li>Connectivity (20%)</li>
+                <li>Audio (10%)</li>
+                <li>Controls (10%)</li>
+              </ul>
+              <ul>
+                <li>Misc (10%)</li>
+              </ul>
+            </div>
+          </p>
+          <div
+            style={{
+              display: "flex",
+              gap: "0.25rem",
+              alignItems: "center",
+            }}
+          >
+            <span
+              style={{
+                width: "fit-content",
+                backgroundColor: "#3952A2",
+                color: "white",
+                borderRadius: "0.25rem",
+                padding: "0.25rem",
+              }}
+            >
+              Blue means equal.
+            </span>
+            <br />
+            <span
+              style={{
+                width: "fit-content",
+                backgroundColor: "#16833E",
+                color: "white",
+                borderRadius: "0.25rem",
+                padding: "0.25rem",
+              }}
+            >
+              Green means better.
+            </span>
+            <br />
+            <span
+              style={{
+                width: "fit-content",
+                backgroundColor: "#AB0D0D",
+                color: "white",
+                borderRadius: "0.25rem",
+                padding: "0.25rem",
+              }}
+            >
+              Red means worse.
+            </span>
+          </div>
+        </div>
+      </details>
 
       <div class="compare-container">
         {devicesToCompare.map((device) => (

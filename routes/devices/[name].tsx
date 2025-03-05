@@ -17,6 +17,7 @@ import { ShareButton } from "../../islands/buttons/ShareButton.tsx";
 import { DevicesSimilarRadarChart } from "../../islands/charts/DevicesSimilarRadarChart.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
 import SEO from "../../components/SEO.tsx";
+import { BrandWebsites } from "../../data/brand-websites.ts";
 
 export default function DeviceDetail(props: PageProps) {
   const deviceService = DeviceService.getInstance();
@@ -75,7 +76,9 @@ export default function DeviceDetail(props: PageProps) {
       },
       "image": device.image?.pngUrl ?? "/images/placeholder-100x100.svg",
       "description":
-        `${device.name.raw} is a ${device.brand.raw} retro gaming handheld device. This ${device.pricing.category} budget emulation device costs on average ${device.pricing.average} ${device.pricing.currency}. Features include ${device.ram?.sizes?.[0]} ${device.ram?.unit} RAM, ${device.storage} storage, and ${device.battery.capacity}${device.battery.unit} battery.`,
+        `${device.name.raw} is a ${device.brand.raw} retro gaming handheld device. This ${device.pricing.category} budget emulation device costs on average ${device.pricing.average} ${device.pricing.currency}. Features include ${
+          device.ram?.sizes?.[0]
+        } ${device.ram?.unit} RAM, ${device.storage} storage, and ${device.battery.capacity}${device.battery.unit} battery.`,
       "offers": device.vendorLinks.map((link) => ({
         "@type": "Offer",
         "url": link.url,
@@ -126,7 +129,9 @@ export default function DeviceDetail(props: PageProps) {
         {
           "@type": "PropertyValue",
           "name": "Screen Size",
-          "value": device.screen.size ? `${device.screen.size} inches` : "Unknown",
+          "value": device.screen.size
+            ? `${device.screen.size} inches`
+            : "Unknown",
         },
       ],
     });
@@ -149,16 +154,28 @@ export default function DeviceDetail(props: PageProps) {
   }
 
   const releaseDate = getReleaseDate(device.released);
+  const brandWebsite = BrandWebsites[device.brand.sanitized.toLowerCase() as keyof typeof BrandWebsites];
+  console.log(device.brand.sanitized , brandWebsite);
 
   return (
     <div class="device-detail">
       <SEO
         title={`${device.name.raw} - ${device.brand.raw} Retro Gaming Handheld`}
-        description={`${device.name.raw} by ${device.brand.raw}: ${device.pricing.category} budget retro gaming handheld with ${device.ram?.sizes?.[0]} ${device.ram?.unit} RAM, ${device.storage} storage, and ${device.battery.capacity}${device.battery.unit} battery. Release: ${releaseDate.expected ? "Expected" : releaseDate.date}. ${device.os.list.join(", ") !== "?" ? `Supports ${device.os.list.join(", ")}.` : ""} Compare specs and performance ratings.`}
+        description={`${device.name.raw} by ${device.brand.raw}: ${device.pricing.category} budget retro gaming handheld with ${
+          device.ram?.sizes?.[0]
+        } ${device.ram?.unit} RAM, ${device.storage} storage, and ${device.battery.capacity}${device.battery.unit} battery. Release: ${
+          releaseDate.expected ? "Expected" : releaseDate.date
+        }. ${
+          device.os.list.join(", ") !== "?"
+            ? `Supports ${device.os.list.join(", ")}.`
+            : ""
+        } Compare specs and performance ratings.`}
         image={`https://retroranker.site${device.image?.pngUrl ?? undefined}`}
         url={`https://retroranker.site${props.url.pathname}`}
         jsonLd={jsonLdForDevice(device)}
-        keywords={`${device.name.raw}, ${device.brand.raw}, ${device.os.list.join(", ")}, retro gaming handheld, emulation device, portable gaming, ${device.pricing.category} budget, retro console, handheld emulator`}
+        keywords={`${device.name.raw}, ${device.brand.raw}, ${
+          device.os.list.join(", ")
+        }, retro gaming handheld, emulation device, portable gaming, ${device.pricing.category} budget, retro console, handheld emulator`}
       />
 
       <div class="device-detail-header">
@@ -199,7 +216,19 @@ export default function DeviceDetail(props: PageProps) {
                 ? undefined
                 : device.brand.raw}
             >
-              {device.brand.normalized}
+              {brandWebsite
+                ? (
+                  <a
+                    href={brandWebsite}
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    {device.brand.normalized}
+                  </a>
+                )
+                : (
+                  device.brand.normalized
+                )}
             </span>
           </div>
           <div>

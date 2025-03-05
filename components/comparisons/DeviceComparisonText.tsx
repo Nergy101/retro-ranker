@@ -1,3 +1,4 @@
+import { PiArticle } from "@preact-icons/pi";
 import { Device } from "../../data/device.model.ts";
 
 interface DeviceComparisonTextProps {
@@ -64,19 +65,24 @@ export function DeviceComparisonText({ devices }: DeviceComparisonTextProps) {
   const formatRating = (rating: number) => rating ? rating.toFixed(1) : "N/A";
 
   return (
-    <details className="device-comparison-details">
+    <details class="device-comparison-details">
       <summary
-        className="device-comparison-summary"
-        style={{ cursor: "pointer", fontWeight: "bold" }}
+        style={{ display: "flex", alignItems: "center" }}
       >
-        <h2 style={{ display: "inline", margin: 0, fontSize: "1.2rem" }}>
-          Detailed Comparison:{" "}
-          <strong>{device1.brand.raw} {device1.name.raw}</strong> vs{" "}
-          <strong>{device2.brand.raw} {device2.name.raw}</strong>
-        </h2>
+        <span
+          style={{
+            margin: 0,
+            display: "flex",
+            alignItems: "center",
+            gap: "0.5rem",
+          }}
+        >
+          <PiArticle />
+          Textual comparison
+        </span>
       </summary>
 
-      <article className="device-comparison-text" style={{ marginTop: "1rem" }}>
+      <article class="device-comparison-text" style={{ marginTop: "1rem" }}>
         <p>
           The <strong>{device1.brand.raw} {device1.name.raw}</strong> and{" "}
           <strong>{device2.brand.raw} {device2.name.raw}</strong>{" "}

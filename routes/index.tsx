@@ -7,8 +7,7 @@ import {
   PiScroll,
   PiSparkle,
   PiTag,
-  PiTagChevron,
-  PiUserCheck,
+  PiUserCheck
 } from "@preact-icons/pi";
 import { DeviceCardMedium } from "../components/cards/DeviceCardMedium.tsx";
 import { SeeMoreCard } from "../components/cards/SeeMoreCard.tsx";
@@ -16,6 +15,7 @@ import SEO from "../components/SEO.tsx";
 import { TagComponent } from "../components/shared/TagComponent.tsx";
 import { TagModel } from "../data/models/tag.model.ts";
 import { DeviceService } from "../services/devices/device.service.ts";
+import { BrandWebsites } from "../data/brand-websites.ts";
 
 export default function Home({ url }: PageProps) {
   // Filter devices into categories
@@ -98,19 +98,14 @@ export default function Home({ url }: PageProps) {
               <h2
                 style={{ color: "var(--pico-contrast)", marginBottom: "1rem" }}
               >
-                Community-Powered Retro Gaming Resource
+                Find the Best Retro Gaming Handhelds in 2024
               </h2>
               <p style={{ marginBottom: "1rem", lineHeight: "1.6" }}>
-                Welcome to Retro Ranker, a community-made site dedicated to
-                retro gaming handhelds. Thanks to our community-maintained
-                database containing nearly 500 devices, you can easily discover
-                and compare the perfect handheld for your gaming needs.
-              </p>
-              <p style={{ marginBottom: "1rem", lineHeight: "1.6" }}>
-                Whether you're looking for budget-friendly options under $100,
-                mid-range devices with excellent emulation capabilities, or
-                high-end powerhouses that can run every system, our
-                comprehensive collection of handhelds has you covered.
+                Welcome to <strong>Retro Ranker</strong>, the community-driven database of nearly 500 <strong>retro gaming handhelds</strong> from brands like{" "}
+                <a href={BrandWebsites["anbernic"]} target="_blank" rel="noopener"><strong>Anbernic</strong></a>,{" "}
+                <a href={BrandWebsites["miyoo-bittboy"]} target="_blank" rel="noopener"><strong>Miyoo</strong></a>, and{" "}
+                <a href={BrandWebsites["powkiddy"]} target="_blank" rel="noopener"><strong>Powkiddy</strong></a>. 
+                Whether you need an <strong>affordable emulation device</strong> under $100 or a <strong>premium gaming handheld</strong> for modern systems, our comprehensive comparison tools help you find the perfect device for your needs.
               </p>
               <div
                 style={{

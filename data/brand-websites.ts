@@ -1,0 +1,15 @@
+export const BrandWebsites: { [key: string]: string } = {
+  "anbernic": "https://anbernic.com",
+  "miyoo": "https://miyooofficial.com",
+  "ayaneo": "https://www.ayaneo.com",
+  "game-kiddy": "https://game-kiddy.com",
+  "powkiddy": "https://powkiddy.com",
+  "retroid": "https://www.goretroid.com",
+  "ayn": "https://www.ayntec.com",
+  "steam": "https://www.steamdeck.com",
+  "gpd": "https://www.gpd.hk",
+  "asus": "https://rog.asus.com",
+  "lenovo": "https://www.lenovo.com",
+  "onexplayer": "https://onexplayerstore.com/",
+  "msi": "https://www.msi.com",
+};
