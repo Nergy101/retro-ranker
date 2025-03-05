@@ -1,6 +1,6 @@
 export const BrandWebsites: { [key: string]: string } = {
   "anbernic": "https://anbernic.com",
-  "miyoo": "https://miyooofficial.com",
+  "miyoo-bittboy": "https://miyooofficial.com",
   "ayaneo": "https://www.ayaneo.com",
   "game-kiddy": "https://game-kiddy.com",
   "powkiddy": "https://powkiddy.com",

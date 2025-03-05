@@ -98,7 +98,7 @@ export default function Home({ url }: PageProps) {
               <h2
                 style={{ color: "var(--pico-contrast)", marginBottom: "1rem" }}
               >
-                Find the Best Retro Gaming Handhelds in 2024
+                Community-Powered Retro Handheld Resource
               </h2>
               <p style={{ marginBottom: "1rem", lineHeight: "1.6" }}>
                 Welcome to{" "}
@@ -113,19 +113,34 @@ export default function Home({ url }: PageProps) {
                   <strong>Anbernic</strong>
                 </a>,{" "}
                 <a
+                  href={BrandWebsites["retroid"]}
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <strong>Retroid</strong>
+                </a>,{" "}
+                <a
                   href={BrandWebsites["miyoo-bittboy"]}
                   target="_blank"
                   rel="noopener"
                 >
                   <strong>Miyoo</strong>
-                </a>, and{" "}
+                </a>,{" "}
+                <a
+                  href={BrandWebsites["ayaneo"]}
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <strong>Ayaneo</strong>
+                </a>,{" "}
                 <a
                   href={BrandWebsites["powkiddy"]}
                   target="_blank"
                   rel="noopener"
                 >
                   <strong>Powkiddy</strong>
-                </a>. Whether you need an{" "}
+                </a>{" "}
+                and many more. Whether you need an{" "}
                 <strong>affordable emulation device</strong> under $100 or a
                 {" "}
                 <strong>premium gaming handheld</strong>{" "}
