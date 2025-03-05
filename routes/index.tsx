@@ -98,6 +98,7 @@ export default function Home({ url }: PageProps) {
               <hgroup>
                 <h2
                   style={{
+                    fontSize: "1.5rem",
                     color: "var(--pico-contrast)",
                   }}
                 >
@@ -212,7 +213,6 @@ export default function Home({ url }: PageProps) {
                   style={{
                     marginBottom: "1rem",
                     fontSize: "1.2rem",
-                    color: "var(--pico-primary)",
                     display: "flex",
                     alignItems: "center",
                     gap: "0.5rem",
