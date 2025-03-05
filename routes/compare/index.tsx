@@ -32,7 +32,6 @@ export default function Compare({ url }: PageProps) {
         title="Retro Ranker - Compare Devices"
         description="Compare your favorite retro gaming devices and view detailed comparisons on Retro Ranker."
         url={`https://retroranker.site${url.pathname}`}
-        robots="noindex, follow"
       />
       <header>
         <hgroup style={{ textAlign: "center" }}>

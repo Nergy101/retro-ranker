@@ -139,7 +139,7 @@ export default function DeviceDetail(props: PageProps) {
     <div class="device-detail">
       <SEO
         title={`${device.name.raw}`}
-        description={`Detailed information about the ${device.name.raw}.`}
+        description={`${device.name.raw} by ${device.brand.raw}: ${device.pricing.category} device with ${device.ram?.sizes?.[0]} ${device.ram?.unit} RAM, ${device.storage} storage, and ${device.battery.capacity}${device.battery.unit} battery. Release: ${releaseDate.expected ? "Expected" : releaseDate.date}. ${device.os.list.join(", ") !== "?" ? `Supports ${device.os.list.join(", ")}.` : ""}`}
         image={`https://retroranker.site${device.image?.pngUrl ?? undefined}`}
         url={`https://retroranker.site${props.url.pathname}`}
         jsonLd={jsonLdForDevice(device)}

@@ -4,6 +4,9 @@ Disallow: /
 User-agent: GPTBot
 Disallow: /
 
+User-agent: Googlebot
+Allow: /
+
 User-agent: *
 Disallow: 
 Crawl-delay: 120
@@ -11,5 +14,6 @@ Disallow: /cgi-bin/
 Disallow: /wp-admin/
 Disallow: /wordpress/
 Disallow: /devices/*?*
+Disallow: /devices?*
 
 Sitemap: https://retroranker.site/sitemap.xml
