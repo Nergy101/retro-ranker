@@ -41,7 +41,14 @@ export default function ReleaseTimeline({ url }: PageProps) {
         url={`https://retroranker.site${url.pathname}`}
         keywords="retro gaming timeline, handheld release dates, emulation device history, upcoming retro handhelds, retro console releases, gaming device roadmap, retro gaming calendar, handheld launch dates"
       />
-      <h1 style={{ textAlign: "center" }}>Release Timeline</h1>
+      <hgroup>
+        <h1 style={{ textAlign: "center" }}>Release Timeline</h1>
+        <p>
+          Scroll down to see the complete chronological release timeline of
+          retro gaming handhelds.
+        </p>
+      </hgroup>
+
       <div
         style={{
           display: "flex",
