@@ -95,11 +95,19 @@ export default function Home({ url }: PageProps) {
                 minWidth: "300px",
               }}
             >
-              <h2
-                style={{ color: "var(--pico-contrast)", marginBottom: "1rem" }}
-              >
-                Community-Powered Retro Handheld Resource
-              </h2>
+              <hgroup>
+                <h2
+                  style={{
+                    color: "var(--pico-contrast)",
+                  }}
+                >
+                  Retro Handheld Resource
+                </h2>
+                <p>
+                  Powered by the community
+                </p>
+              </hgroup>
+
               <p style={{ marginBottom: "1rem", lineHeight: "1.6" }}>
                 Welcome to{" "}
                 <strong>Retro Ranker</strong>, the community-driven database of
