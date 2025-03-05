@@ -40,6 +40,7 @@ export default function Home({ url }: PageProps) {
         title="Retro Ranker"
         description="Find the handheld gaming device for your needs."
         url={`https://retroranker.site${url.pathname}`}
+        keywords="retro gaming, handheld consoles, emulation devices, retro handhelds, gaming comparison"
       />
       <header class="home-header">
         <hgroup style={{ textAlign: "center" }}>

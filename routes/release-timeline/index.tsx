@@ -39,6 +39,7 @@ export default function ReleaseTimeline({ url }: PageProps) {
         title="Retro Ranker - Release Timeline"
         description="Explore the release timeline of devices on Retro Ranker."
         url={`https://retroranker.site${url.pathname}`}
+        keywords="retro gaming, handheld consoles, emulation devices, retro handhelds, gaming comparison, release timeline"
       />
       <h1 style={{ textAlign: "center" }}>Release Timeline</h1>
       <div

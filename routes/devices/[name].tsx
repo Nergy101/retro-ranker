@@ -143,6 +143,7 @@ export default function DeviceDetail(props: PageProps) {
         image={`https://retroranker.site${device.image?.pngUrl ?? undefined}`}
         url={`https://retroranker.site${props.url.pathname}`}
         jsonLd={jsonLdForDevice(device)}
+        keywords={`${device.name.raw}, ${device.brand.raw}, ${device.os.list.join(", ")}`}
       />
 
       <div class="device-detail-header">

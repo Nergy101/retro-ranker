@@ -32,6 +32,9 @@ export default function Compare({ url }: PageProps) {
         title="Retro Ranker - Compare Devices"
         description="Compare your favorite retro gaming devices and view detailed comparisons on Retro Ranker."
         url={`https://retroranker.site${url.pathname}`}
+        keywords={`${
+          deviceNames.join(", ")
+        }, compare, comparison, retro gaming, handheld consoles, emulation devices, retro handhelds, gaming comparison, device comparison`}
       />
       <header>
         <hgroup style={{ textAlign: "center" }}>
