@@ -553,17 +553,18 @@ export class DeviceService {
 
     // Define rating priority (highest to lowest)
     const ratingPriority = ["C", "D", "E", "F"];
-    
+
     // Try each rating in priority order
     for (const targetRating of ratingPriority) {
       const matchingRatings = systemRatings.filter(
-        (rating) => rating.ratingMark === targetRating
+        (rating) => rating.ratingMark === targetRating,
       );
-      
+
       if (matchingRatings.length > 0) {
         // If we found systems with this rating, return the easiest one
         return matchingRatings.reduce((prev, current) =>
-          EmulationSystemOrder[prev.system] > EmulationSystemOrder[current.system]
+          EmulationSystemOrder[prev.system] >
+              EmulationSystemOrder[current.system]
             ? prev
             : current
         );

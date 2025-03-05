@@ -7,7 +7,7 @@ import {
   PiScroll,
   PiSparkle,
   PiTag,
-  PiUserCheck
+  PiUserCheck,
 } from "@preact-icons/pi";
 import { DeviceCardMedium } from "../components/cards/DeviceCardMedium.tsx";
 import { SeeMoreCard } from "../components/cards/SeeMoreCard.tsx";
@@ -101,11 +101,36 @@ export default function Home({ url }: PageProps) {
                 Find the Best Retro Gaming Handhelds in 2024
               </h2>
               <p style={{ marginBottom: "1rem", lineHeight: "1.6" }}>
-                Welcome to <strong>Retro Ranker</strong>, the community-driven database of nearly 500 <strong>retro gaming handhelds</strong> from brands like{" "}
-                <a href={BrandWebsites["anbernic"]} target="_blank" rel="noopener"><strong>Anbernic</strong></a>,{" "}
-                <a href={BrandWebsites["miyoo-bittboy"]} target="_blank" rel="noopener"><strong>Miyoo</strong></a>, and{" "}
-                <a href={BrandWebsites["powkiddy"]} target="_blank" rel="noopener"><strong>Powkiddy</strong></a>. 
-                Whether you need an <strong>affordable emulation device</strong> under $100 or a <strong>premium gaming handheld</strong> for modern systems, our comprehensive comparison tools help you find the perfect device for your needs.
+                Welcome to{" "}
+                <strong>Retro Ranker</strong>, the community-driven database of
+                nearly 500 <strong>retro gaming handhelds</strong>{" "}
+                from brands like{" "}
+                <a
+                  href={BrandWebsites["anbernic"]}
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <strong>Anbernic</strong>
+                </a>,{" "}
+                <a
+                  href={BrandWebsites["miyoo-bittboy"]}
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <strong>Miyoo</strong>
+                </a>, and{" "}
+                <a
+                  href={BrandWebsites["powkiddy"]}
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <strong>Powkiddy</strong>
+                </a>. Whether you need an{" "}
+                <strong>affordable emulation device</strong> under $100 or a
+                {" "}
+                <strong>premium gaming handheld</strong>{" "}
+                for modern systems, our comprehensive comparison tools help you
+                find the perfect device for your needs.
               </p>
               <div
                 style={{

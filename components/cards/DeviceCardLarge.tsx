@@ -41,7 +41,7 @@ export function DeviceCardLarge({ device }: { device: Device }) {
   };
 
   const upToSystemA = DeviceService.getUptoSystemA(device);
-  const upToSystemC = DeviceService.getUptoSystemC(device);
+  const upToSystemC = DeviceService.getUptoSystemCOrLower(device);
 
   return (
     <article

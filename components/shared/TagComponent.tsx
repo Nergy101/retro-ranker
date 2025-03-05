@@ -7,7 +7,11 @@ export function TagComponent({ tag }: { tag: TagModel }) {
   const friendlyName = TAG_FRIENDLY_NAMES[tag.type];
 
   return (
-    <a href={`/devices?tags=${slug}`} class="tag-link" data-tooltip={friendlyName}>
+    <a
+      href={`/devices?tags=${slug}`}
+      class="tag-link"
+      data-tooltip={friendlyName}
+    >
       <span class="tag">
         <PiTag />
         {tag.name}

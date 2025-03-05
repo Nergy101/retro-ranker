@@ -5,10 +5,12 @@ import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
 import { DeviceLinks } from "../../components/DeviceLinks.tsx";
 import { EmulationPerformance } from "../../components/EmulationPerformance.tsx";
 import { StarRating } from "../../components/ratings/StarRating.tsx";
+import SEO from "../../components/SEO.tsx";
 import { CurrencyIcon } from "../../components/shared/CurrencyIcon.tsx";
 import { TagComponent } from "../../components/shared/TagComponent.tsx";
 import { DeviceSpecs } from "../../components/specifications/DeviceSpecs.tsx";
 import { SummaryTable } from "../../components/specifications/tables/SummaryTable.tsx";
+import { BrandWebsites } from "../../data/brand-websites.ts";
 import { Device } from "../../data/device.model.ts";
 import { BackButton } from "../../islands/buttons/BackButton.tsx";
 import { ClipboardButton } from "../../islands/buttons/ClipboardButton.tsx";
@@ -16,8 +18,6 @@ import { CompareButton } from "../../islands/buttons/CompareButton.tsx";
 import { ShareButton } from "../../islands/buttons/ShareButton.tsx";
 import { DevicesSimilarRadarChart } from "../../islands/charts/DevicesSimilarRadarChart.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
-import SEO from "../../components/SEO.tsx";
-import { BrandWebsites } from "../../data/brand-websites.ts";
 
 export default function DeviceDetail(props: PageProps) {
   const deviceService = DeviceService.getInstance();
@@ -154,8 +154,9 @@ export default function DeviceDetail(props: PageProps) {
   }
 
   const releaseDate = getReleaseDate(device.released);
-  const brandWebsite = BrandWebsites[device.brand.sanitized.toLowerCase() as keyof typeof BrandWebsites];
-  console.log(device.brand.sanitized , brandWebsite);
+  const brandWebsite = BrandWebsites[
+    device.brand.sanitized.toLowerCase() as keyof typeof BrandWebsites
+  ];
 
   return (
     <div class="device-detail">

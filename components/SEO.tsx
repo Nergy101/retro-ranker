@@ -35,7 +35,9 @@ export default function SEO({
   const fullDescription = description || defaultDescription;
   const fullUrl = url || defaultUrl;
   const fullImage = image || defaultImage;
-  const fullKeywords = keywords ? `${keywords}, ${defaultKeywords}` : defaultKeywords;
+  const fullKeywords = keywords
+    ? `${keywords}, ${defaultKeywords}`
+    : defaultKeywords;
   const fullRobots = robots || defaultRobots;
 
   return (

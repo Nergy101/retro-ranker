@@ -10,7 +10,7 @@ interface DeviceCardRowProps {
 
 export function DeviceCardRow({ device }: DeviceCardRowProps) {
   const upToSystemA = DeviceService.getUptoSystemA(device);
-  const upToSystemC = DeviceService.getUptoSystemC(device);
+  const upToSystemC = DeviceService.getUptoSystemCOrLower(device);
 
   return (
     <div class="device-card-row">
