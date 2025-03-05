@@ -15,8 +15,9 @@ export default function Contact({ url }: PageProps) {
     <div class="contact">
       <SEO
         title="Contact"
-        description="Contact Retro Ranker for inquiries and support."
+        description="Contact Retro Ranker for inquiries, support, or to contribute to our retro gaming handheld database. Connect with our team to suggest new devices or improvements."
         url={`https://retroranker.site${url.pathname}`}
+        keywords="contact retro ranker, retro gaming support, handheld device inquiries, contribute to retro database, retro gaming community"
       />
 
       <h1 class="text-3xl font-bold" style={{ textAlign: "center" }}>

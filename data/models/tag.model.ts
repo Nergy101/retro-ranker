@@ -7,5 +7,16 @@ export interface TagModel {
     | "releaseDate"
     | "price"
     | "os"
-    | "personalPick";
+    | "personalPick"
+    | "screenType";
 }
+
+export const TAG_FRIENDLY_NAMES = {
+  brand: "Brand",
+  formFactor: "Form Factor",
+  releaseDate: "Release Date",
+  price: "Price",
+  os: "OS",
+  personalPick: "Personal Pick",
+  screenType: "Screen Type",
+};

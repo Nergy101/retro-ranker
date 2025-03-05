@@ -36,10 +36,10 @@ export default function ReleaseTimeline({ url }: PageProps) {
   return (
     <div class="release-timeline-page">
       <SEO
-        title="Retro Ranker - Release Timeline"
-        description="Explore the release timeline of devices on Retro Ranker."
+        title="Retro Gaming Handheld Release Timeline"
+        description="Explore the complete chronological release timeline of retro gaming handhelds. Track upcoming releases, view historical launch dates, and discover the evolution of portable emulation devices over time."
         url={`https://retroranker.site${url.pathname}`}
-        keywords="retro gaming, handheld consoles, emulation devices, retro handhelds, gaming comparison, release timeline"
+        keywords="retro gaming timeline, handheld release dates, emulation device history, upcoming retro handhelds, retro console releases, gaming device roadmap, retro gaming calendar, handheld launch dates"
       />
       <h1 style={{ textAlign: "center" }}>Release Timeline</h1>
       <div

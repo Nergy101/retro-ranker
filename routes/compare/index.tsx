@@ -2,6 +2,7 @@ import SEO from "../../components/SEO.tsx";
 import { PageProps } from "$fresh/server.ts";
 import { PiChartLine, PiInfo } from "@preact-icons/pi";
 import { DeviceComparisonResult } from "../../components/comparisons/DeviceComparisonResult.tsx";
+import { DeviceComparisonText } from "../../components/comparisons/DeviceComparisonText.tsx";
 import { DevicesRadarChart } from "../../islands/charts/DevicesRadarChart.tsx";
 import { DeviceComparisonForm } from "../../islands/forms/DeviceComparisonForm.tsx";
 import { DeviceService } from "../../services/devices/device.service.ts";
@@ -26,15 +27,28 @@ export default function Compare({ url }: PageProps) {
 
   const ranking = ratingsService.createRanking(devicesToCompare);
 
+  // Generate dynamic SEO content based on devices being compared
+  let seoTitle = "Compare Retro Gaming Handhelds";
+  let seoDescription = "Compare multiple retro gaming handhelds side-by-side. View detailed specifications, performance ratings, and feature comparisons to find the perfect device for your gaming needs.";
+  
+  if (devicesToCompare.length === 2) {
+    const [device1, device2] = devicesToCompare;
+    seoTitle = `${device1.brand.raw} ${device1.name.raw} vs ${device2.brand.raw} ${device2.name.raw} - Retro Handheld Comparison`;
+    seoDescription = `Compare ${device1.brand.raw} ${device1.name.raw} vs ${device2.brand.raw} ${device2.name.raw}. Side-by-side specs comparison of screen size, battery life, performance, emulation capabilities, and price. Find which retro gaming handheld is best for you.`;
+  } else if (devicesToCompare.length > 0) {
+    seoTitle = `Compare ${deviceNames.join(" vs ")} - Retro Gaming Handhelds`;
+    seoDescription = `Compare ${deviceNames.join(", ")}. Side-by-side specifications, performance ratings, and feature comparisons of these retro gaming handhelds.`;
+  }
+
   return (
     <div class="compare-page">
       <SEO
-        title="Retro Ranker - Compare Devices"
-        description="Compare your favorite retro gaming devices and view detailed comparisons on Retro Ranker."
-        url={`https://retroranker.site${url.pathname}`}
+        title={seoTitle}
+        description={seoDescription}
+        url={`https://retroranker.site${url.pathname}${url.search}`}
         keywords={`${
           deviceNames.join(", ")
-        }, compare, comparison, retro gaming, handheld consoles, emulation devices, retro handhelds, gaming comparison, device comparison`}
+        }, compare retro handhelds, side-by-side comparison, retro gaming specs, emulation device comparison, handheld performance comparison, retro console features, gaming device specs, retro gaming hardware`}
       />
       <header>
         <hgroup style={{ textAlign: "center" }}>
@@ -65,6 +79,12 @@ export default function Compare({ url }: PageProps) {
           similarDevices={similarDevices}
         />
       </div>
+
+      {devicesToCompare.length === 2 && (
+        <div class="comparison-text-container" style={{ margin: "2rem 0", padding: "0 1rem" }}>
+          <DeviceComparisonText devices={devicesToCompare} />
+        </div>
+      )}
 
       <div class="ranking-info">
         <details>

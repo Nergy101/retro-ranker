@@ -6,8 +6,9 @@ export default function Privacy({ url }: PageProps) {
     <div class="p-4 mx-auto max-w-screen-md">
       <SEO
         title="Privacy Policy"
-        description="Read the privacy policy for Retro Ranker."
+        description="Read the privacy policy for Retro Ranker. Learn how we protect your data while using our retro gaming handheld comparison platform."
         url={`https://retroranker.site${url.pathname}`}
+        keywords="retro ranker privacy, gaming website privacy, retro gaming data protection, handheld comparison privacy"
       />
 
       <h1 class="text-4xl font-bold mb-6">Privacy Policy</h1>

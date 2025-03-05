@@ -13,9 +13,10 @@ export default function ChartsIndex({ url }: PageProps) {
   return (
     <div class="charts-page">
       <SEO
-        title="Retro Ranker - Explore Charts"
-        description="Explore charts for all devices in the Retro Ranker database."
+        title="Retro Gaming Handheld Analytics & Charts"
+        description="Explore interactive charts and data visualizations of retro gaming handhelds. View statistics on device brands, performance ratings, release trends, and market analysis of portable emulation systems."
         url={`https://retroranker.site${url.pathname}`}
+        keywords="retro gaming charts, handheld device statistics, emulation device analytics, retro console data, gaming hardware trends, retro gaming market analysis, handheld comparison graphs"
       />
       <hgroup style={{ textAlign: "center" }}>
         <h1>Explore Charts</h1>

@@ -6,8 +6,10 @@ export default function Error404(props: { url: URL }) {
     <>
       <SEO
         title="404 Page Not Found"
-        description="The page you were looking for doesn't exist."
+        description="The page you were looking for doesn't exist on Retro Ranker. Return to our homepage to browse retro gaming handhelds and comparison tools."
         url={`https://retroranker.site${props.url.pathname}`}
+        keywords="retro ranker 404, page not found, retro gaming site, handheld comparison platform"
+        robots="noindex, follow"
       />
       <div class="bg-rr-primary">
         <div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">

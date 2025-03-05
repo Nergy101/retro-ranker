@@ -65,6 +65,7 @@ export default function DevicesIndex(props: PageProps) {
     deviceService.getTagBySlug("horizontal"),
     deviceService.getTagBySlug("vertical"),
     deviceService.getTagBySlug("micro"),
+    deviceService.getTagBySlug("oled"),
   ].filter((tag) => tag !== null).filter((t) =>
     !initialTags.some((t2) => t2.slug === t.slug)
   ) as TagModel[];
@@ -129,9 +130,9 @@ export default function DevicesIndex(props: PageProps) {
     <div class="devices-page" f-client-nav>
       <SEO
         title="Device Catalog"
-        description="Browse and compare retro gaming handhelds. Find detailed specifications, performance ratings, and prices for over 100 devices. Updated regularly with new releases."
+        description="Browse and compare retro gaming handhelds. Find detailed specifications, performance ratings, and prices for over 100 devices. Updated regularly with new releases from Anbernic, Miyoo, and other top manufacturers."
         url={`https://retroranker.site${props.url.pathname}`}
-        keywords="retro gaming, handheld consoles, emulation devices, retro handhelds, gaming comparison"
+        keywords="retro gaming handhelds, emulation devices, retro console comparison, handheld gaming systems, retro gaming devices catalog, Anbernic devices, Miyoo handhelds, retro gaming specs, portable emulation systems"
       >
         <script
           type="application/ld+json"

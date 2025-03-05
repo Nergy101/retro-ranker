@@ -520,6 +520,7 @@ export class DeviceParser {
       this.getBrandTag(device),
       this.getPriceTag(device),
       this.getFormFactorTag(device),
+      this.getScreenTypeTag(device),
       this.getReleaseDateTag(device),
       this.getPersonalPickTag(device),
     ].filter((tag) =>
@@ -709,6 +710,51 @@ export class DeviceParser {
     }
 
     return { name: device.formFactor, slug, type: "formFactor" } as TagModel;
+  }
+
+  private static getScreenTypeTag(device: Device): TagModel | null {
+    const slug = slugify(device.screen?.type?.type ?? "").toLowerCase();
+
+    if (slug.includes("ips")) {
+      return { name: "IPS", slug: "ips", type: "screenType" } as TagModel;
+    }
+
+    if (slug.includes("ads")) {
+      return { name: "ADS", slug: "ads", type: "screenType" } as TagModel;
+    }
+
+    if (slug.includes("hips")) {
+      return { name: "HIPS", slug: "hips", type: "screenType" } as TagModel;
+    }
+
+    if (slug.includes("oled")) {
+      return { name: "OLED", slug: "oled", type: "screenType" } as TagModel;
+    }
+
+    if (slug.includes("monochrome-oled")) {
+      return {
+        name: "Monochrome OLED",
+        slug: "monochrome-oled",
+        type: "screenType",
+      } as TagModel;
+    }
+
+    if (slug.includes("lcd")) {
+      return { name: "LCD", slug: "lcd", type: "screenType" } as TagModel;
+    }
+
+    if (slug.includes("ltps")) {
+      return { name: "LTPS", slug: "ltps", type: "screenType" } as TagModel;
+    }
+
+    if (slug.includes("tft")) {
+      return { name: "TFT", slug: "tft", type: "screenType" } as TagModel;
+    }
+
+    if (slug.includes("amoled")) {
+      return { name: "AMOLED", slug: "amoled", type: "screenType" } as TagModel;
+    }
+    return null;
   }
 
   private static getReleaseDateTag(device: Device): TagModel | null {

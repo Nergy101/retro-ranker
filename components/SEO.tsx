@@ -28,14 +28,14 @@ export default function SEO({
   const defaultUrl = "https://retroranker.site";
   const defaultImage = "https://retroranker.site/logo-color.png";
   const defaultKeywords =
-    "retro gaming, handheld consoles, emulation devices, retro handhelds, gaming comparison";
+    "retro gaming, handheld consoles, emulation devices, retro handhelds, gaming comparison, retro emulation, portable gaming, retro game systems, handheld emulators, retro gaming devices";
   const defaultRobots = "index, follow";
 
   const fullTitle = title ? `${title} | ${defaultTitle}` : defaultTitle;
   const fullDescription = description || defaultDescription;
   const fullUrl = url || defaultUrl;
   const fullImage = image || defaultImage;
-  const fullKeywords = keywords || defaultKeywords;
+  const fullKeywords = keywords ? `${keywords}, ${defaultKeywords}` : defaultKeywords;
   const fullRobots = robots || defaultRobots;
 
   return (
@@ -50,6 +50,7 @@ export default function SEO({
       <meta property="og:type" content="website" />
       <meta property="og:url" content={fullUrl} />
       <meta property="og:image" content={fullImage} />
+      <meta property="og:site_name" content="Retro Ranker" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={fullDescription} />
