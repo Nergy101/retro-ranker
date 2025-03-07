@@ -1234,6 +1234,7 @@ h6,
 
 .burger-menu {
   margin-left: 1rem;
+  margin-bottom: 0 !important;
 
   min-width: 2.5rem;
   background: none;

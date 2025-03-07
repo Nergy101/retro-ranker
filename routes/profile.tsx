@@ -42,7 +42,6 @@ export default async function ProfilePage(
         {/* Collection Section */}
         <section class="collection-section">
           <h2>Your Collection</h2>
-          <p>Manage your personal collection of handheld devices.</p>
 
           <div class="collection-container">
             {/* This would be populated with actual data */}
@@ -58,8 +57,9 @@ export default async function ProfilePage(
                   gap: "0.25rem",
                   width: "fit-content",
                 }}
+                disabled
               >
-                <PiPlus /> Create your collection
+                <PiPlus /> Personal device collection 🚧 (coming soon)
               </a>
             </div>
           </div>
@@ -70,12 +70,14 @@ export default async function ProfilePage(
             buttonText="Log Out"
             className="outline secondary"
           />
-          <ShareButton
+          {
+            /* <ShareButton
             appearance="outline"
             title="Share your collection"
             shareTitle="Check out my handheld collection:"
             url={`https://retroranker.site/collection/${safeName}`}
-          />
+          /> */
+          }
         </footer>
       </article>
     </div>
