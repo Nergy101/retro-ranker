@@ -7,8 +7,13 @@ import * as $_app from "./routes/_app.tsx";
 import * as $_layout from "./routes/_layout.tsx";
 import * as $_middleware from "./routes/_middleware.ts";
 import * as $about from "./routes/about.tsx";
+import * as $api_auth_sign_in from "./routes/api/auth/sign-in.ts";
+import * as $api_auth_sign_out from "./routes/api/auth/sign-out.ts";
+import * as $api_auth_sign_up from "./routes/api/auth/sign-up.ts";
 import * as $api_devices_name_ from "./routes/api/devices/[name].ts";
 import * as $api_devices_index from "./routes/api/devices/index.ts";
+import * as $auth_sign_in from "./routes/auth/sign-in.tsx";
+import * as $auth_sign_up from "./routes/auth/sign-up.tsx";
 import * as $charts_index from "./routes/charts/index.tsx";
 import * as $compare_layout from "./routes/compare/_layout.tsx";
 import * as $compare_index from "./routes/compare/index.tsx";
@@ -18,12 +23,16 @@ import * as $devices_index from "./routes/devices/index.tsx";
 import * as $devices_tags from "./routes/devices/tags.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $privacy from "./routes/privacy.tsx";
+import * as $profile from "./routes/profile.tsx";
 import * as $release_timeline_layout from "./routes/release-timeline/_layout.tsx";
 import * as $release_timeline_index from "./routes/release-timeline/index.tsx";
 import * as $terms from "./routes/terms.tsx";
 import * as $LayoutSelector from "./islands/LayoutSelector.tsx";
 import * as $TagTypeahead from "./islands/TagTypeahead.tsx";
 import * as $TimelineContent from "./islands/TimelineContent.tsx";
+import * as $auth_sign_in_1 from "./islands/auth/sign-in.tsx";
+import * as $auth_sign_out from "./islands/auth/sign-out.tsx";
+import * as $auth_sign_up_1 from "./islands/auth/sign-up.tsx";
 import * as $buttons_BackButton from "./islands/buttons/BackButton.tsx";
 import * as $buttons_ClipboardButton from "./islands/buttons/ClipboardButton.tsx";
 import * as $buttons_CompareButton from "./islands/buttons/CompareButton.tsx";
@@ -50,8 +59,13 @@ const manifest = {
     "./routes/_layout.tsx": $_layout,
     "./routes/_middleware.ts": $_middleware,
     "./routes/about.tsx": $about,
+    "./routes/api/auth/sign-in.ts": $api_auth_sign_in,
+    "./routes/api/auth/sign-out.ts": $api_auth_sign_out,
+    "./routes/api/auth/sign-up.ts": $api_auth_sign_up,
     "./routes/api/devices/[name].ts": $api_devices_name_,
     "./routes/api/devices/index.ts": $api_devices_index,
+    "./routes/auth/sign-in.tsx": $auth_sign_in,
+    "./routes/auth/sign-up.tsx": $auth_sign_up,
     "./routes/charts/index.tsx": $charts_index,
     "./routes/compare/_layout.tsx": $compare_layout,
     "./routes/compare/index.tsx": $compare_index,
@@ -61,6 +75,7 @@ const manifest = {
     "./routes/devices/tags.tsx": $devices_tags,
     "./routes/index.tsx": $index,
     "./routes/privacy.tsx": $privacy,
+    "./routes/profile.tsx": $profile,
     "./routes/release-timeline/_layout.tsx": $release_timeline_layout,
     "./routes/release-timeline/index.tsx": $release_timeline_index,
     "./routes/terms.tsx": $terms,
@@ -69,6 +84,9 @@ const manifest = {
     "./islands/LayoutSelector.tsx": $LayoutSelector,
     "./islands/TagTypeahead.tsx": $TagTypeahead,
     "./islands/TimelineContent.tsx": $TimelineContent,
+    "./islands/auth/sign-in.tsx": $auth_sign_in_1,
+    "./islands/auth/sign-out.tsx": $auth_sign_out,
+    "./islands/auth/sign-up.tsx": $auth_sign_up_1,
     "./islands/buttons/BackButton.tsx": $buttons_BackButton,
     "./islands/buttons/ClipboardButton.tsx": $buttons_ClipboardButton,
     "./islands/buttons/CompareButton.tsx": $buttons_CompareButton,

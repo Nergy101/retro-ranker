@@ -4,12 +4,18 @@ import { useSignal } from "@preact/signals";
 import { useEffect, useRef } from "preact/hooks";
 import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
 import { Device } from "../../data/device.model.ts";
+import { ProfileImage } from "../../components/auth/profile-image.tsx";
+import { User } from "../../data/contracts/user.contract.ts";
+import { PiSignIn } from "@preact-icons/pi";
 
 export function DesktopNav(
-  { pathname, allDevices }: { pathname: string; allDevices: Device[] },
+  { pathname, allDevices, user }: {
+    pathname: string;
+    allDevices: Device[];
+    user: User | null;
+  },
 ) {
   const suggestionsRef = useRef<HTMLUListElement>(null);
-
   const selectedDevice = useSignal<Device | null>(null);
   const suggestions = useSignal<Device[]>([]);
   const query = useSignal<string>("");
@@ -113,6 +119,38 @@ export function DesktopNav(
           <li class="nav-theme-item">
             <ThemeSwitcher showNames={false} showTooltip={false} />
           </li>
+
+          {user
+            ? (
+              <li class="nav-theme-item">
+                <a
+                  href="/profile"
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    gap: "0.5rem",
+                  }}
+                >
+                  <ProfileImage name={user.nickname} />
+                  <span style={{ fontSize: "0.5rem", textWrap: "nowrap" }}>
+                    {user.nickname}
+                  </span>
+                </a>
+              </li>
+            )
+            : (
+              <li class="nav-theme-item">
+                <a
+                  href="/auth/sign-in"
+                  style={{
+                    fontSize: "1.5rem",
+                  }}
+                >
+                  <PiSignIn />
+                </a>
+              </li>
+            )}
         </ul>
       </nav>
 

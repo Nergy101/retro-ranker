@@ -5,9 +5,15 @@ import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
 import { Device } from "../../data/device.model.ts";
 import { navigationItems } from "../../data/navigation-items.ts";
 import { ThemeSwitcher } from "./ThemeSwitcher.tsx";
+import { User } from "../../data/contracts/user.contract.ts";
+import { ProfileImage } from "../../components/auth/profile-image.tsx";
 
 export function MobileNav(
-  { pathname, allDevices }: { pathname: string; allDevices: Device[] },
+  { pathname, allDevices, user }: {
+    pathname: string;
+    allDevices: Device[];
+    user: User | null;
+  },
 ) {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -164,6 +170,13 @@ export function MobileNav(
                 </a>
               </li>
             ))}
+            {user && (
+              <li>
+                <a href="/profile">
+                  <ProfileImage name={user.nickname} />
+                </a>
+              </li>
+            )}
           </ul>
         </div>
       </nav>

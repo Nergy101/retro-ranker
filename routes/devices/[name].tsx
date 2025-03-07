@@ -337,6 +337,7 @@ export default function DeviceDetail(props: PageProps) {
           />
           <ShareButton
             title={device.name.raw}
+            shareTitle={`Check out ${device.name.raw} on RetroRanker`}
             url={`https://retroranker.site/devices/${device.name.sanitized}`}
           />
           <CompareButton deviceName={device.name.sanitized} />

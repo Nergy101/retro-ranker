@@ -1,11 +1,16 @@
-import { useEffect } from "preact/hooks";
 import { useSignal } from "@preact/signals";
-import { MobileNav } from "./MobileNav.tsx";
-import { DesktopNav } from "./DesktopNav.tsx";
+import { useEffect } from "preact/hooks";
 import { Device } from "../../data/device.model.ts";
+import { DesktopNav } from "./DesktopNav.tsx";
+import { MobileNav } from "./MobileNav.tsx";
+import { User } from "../../data/contracts/user.contract.ts";
 
 export function Navbar(
-  { pathname, allDevices }: { pathname: string; allDevices: Device[] },
+  { pathname, allDevices, user }: {
+    pathname: string;
+    allDevices: Device[];
+    user: User | null;
+  },
 ) {
   const isMobile = useSignal(globalThis.innerWidth <= 1024);
   const isLoading = useSignal(true);
@@ -47,8 +52,14 @@ export function Navbar(
   return (
     <>
       {isMobile.value
-        ? <MobileNav pathname={pathname} allDevices={allDevices} />
-        : <DesktopNav pathname={pathname} allDevices={allDevices} />}
+        ? <MobileNav pathname={pathname} allDevices={allDevices} user={user} />
+        : (
+          <DesktopNav
+            pathname={pathname}
+            allDevices={allDevices}
+            user={user}
+          />
+        )}
     </>
   );
 }
