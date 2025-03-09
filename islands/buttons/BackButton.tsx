@@ -10,7 +10,6 @@ export function BackButton() {
       onClick={() => {
         globalThis.history.back();
       }}
-      style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
     >
       <PiArrowLeft />
     </button>

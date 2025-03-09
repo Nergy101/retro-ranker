@@ -7,6 +7,7 @@ import { Device } from "../../data/device.model.ts";
 import { ProfileImage } from "../../components/auth/profile-image.tsx";
 import { User } from "../../data/contracts/user.contract.ts";
 import { PiSignIn } from "@preact-icons/pi";
+import { searchDevices } from "../../utils/search.utils.ts";
 
 export function DesktopNav(
   { pathname, allDevices, user }: {
@@ -43,10 +44,7 @@ export function DesktopNav(
 
   const queryChanged = (value: string) => {
     query.value = value;
-    suggestions.value = allDevices.filter((device) =>
-      device.name.raw.toLowerCase().includes(value.trim().toLowerCase()) ||
-      device.brand.raw.toLowerCase().includes(value.trim().toLowerCase())
-    ).sort((a, b) => a.name.raw.localeCompare(b.name.raw));
+    suggestions.value = searchDevices(value.trim(), allDevices);
 
     selectedDevice.value =
       allDevices.find((device) =>
@@ -104,7 +102,7 @@ export function DesktopNav(
             <div>
               <input
                 type="search"
-                placeholder="Search"
+                placeholder="Handheld search"
                 name="search"
                 aria-label="Search"
                 onInput={(e) => queryChanged(e.currentTarget.value)}

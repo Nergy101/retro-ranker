@@ -3,6 +3,7 @@ import { useSignal } from "@preact/signals";
 import { useEffect, useRef } from "preact/hooks";
 import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
 import { Device } from "../../data/device.model.ts";
+import { searchDevices } from "../../utils/search.utils.ts";
 
 export function DeviceComparisonForm({
   allDevices,
@@ -69,15 +70,7 @@ export function DeviceComparisonForm({
 
   const queryAChanged = (value: string) => {
     queryA.value = value;
-    suggestionsA.value = allDevices.filter((device) =>
-      device.name.raw.toLowerCase().includes(value.trim().toLowerCase()) ||
-      device.brand.raw.toLowerCase().includes(value.trim().toLowerCase())
-    ).sort((a, b) => a.name.raw.localeCompare(b.name.raw))
-      .sort((a, b) => {
-        const dateA = a.released.mentionedDate ? new Date(a.released.mentionedDate).getTime() : 0;
-        const dateB = b.released.mentionedDate ? new Date(b.released.mentionedDate).getTime() : 0;
-        return dateB - dateA;
-      });
+    suggestionsA.value = searchDevices(value.trim(), allDevices);
 
     selectedDeviceA.value =
       allDevices.find((device) =>
@@ -87,15 +80,7 @@ export function DeviceComparisonForm({
 
   const queryBChanged = (value: string) => {
     queryB.value = value;
-    suggestionsB.value = allDevices.filter((device) =>
-      device.name.raw.toLowerCase().includes(value.trim().toLowerCase()) ||
-      device.brand.raw.toLowerCase().includes(value.trim().toLowerCase())
-    ).sort((a, b) => a.name.raw.localeCompare(b.name.raw))
-      .sort((a, b) => {
-        const dateA = a.released.mentionedDate ? new Date(a.released.mentionedDate).getTime() : 0;
-        const dateB = b.released.mentionedDate ? new Date(b.released.mentionedDate).getTime() : 0;
-        return dateB - dateA;
-      });
+    suggestionsB.value = searchDevices(value.trim(), allDevices);
 
     selectedDeviceB.value =
       allDevices.find((device) =>

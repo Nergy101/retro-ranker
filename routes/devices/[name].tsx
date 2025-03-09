@@ -180,9 +180,7 @@ export default function DeviceDetail(props: PageProps) {
       />
 
       <div class="device-detail-header">
-        <div style={{ margin: 0, padding: 0 }}>
-          <BackButton />
-        </div>
+        <BackButton />
         <div
           style={{
             display: "flex",

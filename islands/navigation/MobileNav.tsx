@@ -7,6 +7,7 @@ import { navigationItems } from "../../data/navigation-items.ts";
 import { ThemeSwitcher } from "./ThemeSwitcher.tsx";
 import { User } from "../../data/contracts/user.contract.ts";
 import { ProfileImage } from "../../components/auth/profile-image.tsx";
+import { searchDevices } from "../../utils/search.utils.ts";
 
 export function MobileNav(
   { pathname, allDevices, user }: {
@@ -70,10 +71,7 @@ export function MobileNav(
 
   const queryChanged = (value: string) => {
     query.value = value;
-    suggestions.value = allDevices.filter((device) =>
-      device.name.raw.toLowerCase().includes(value.trim().toLowerCase()) ||
-      device.brand.raw.toLowerCase().includes(value.trim().toLowerCase())
-    ).sort((a, b) => a.name.raw.localeCompare(b.name.raw));
+    suggestions.value = searchDevices(value, allDevices);
 
     selectedDevice.value =
       allDevices.find((device) =>

@@ -372,10 +372,10 @@ body.paused-animation::before {
   height: fit-content;
   grid-area: header;
   border-radius: var(--pico-border-radius);
+  border-top-left-radius: 1em !important;
   border-top-right-radius: 0;
 
   background-color: var(--pico-background-color);
-  /* border-bottom: 1px solid var(--pico-color); */
   border-right: 1px solid var(--pico-primary);
 
   @media (max-width: 768px) {
@@ -1107,7 +1107,7 @@ h6,
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 0.5rem;
 
   @media (max-width: 1024px) {
@@ -1837,21 +1837,20 @@ table td {
 }
 
 .back-button {
+  margin: 0 !important;
   background-color: unset !important;
   border-radius: var(--pico-border-radius) !important;
   color: var(--pico-contrast) !important;
-  padding: 0.5rem 1rem !important;
   border: none !important;
   transition: all 0.2s ease;
   border-radius: 6px;
-  padding: 0.5rem 1rem;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
 }
 
 .back-button:hover {
-  transform: translateX(-3px);
+  transform: none;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
