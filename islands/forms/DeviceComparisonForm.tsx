@@ -72,7 +72,12 @@ export function DeviceComparisonForm({
     suggestionsA.value = allDevices.filter((device) =>
       device.name.raw.toLowerCase().includes(value.trim().toLowerCase()) ||
       device.brand.raw.toLowerCase().includes(value.trim().toLowerCase())
-    ).sort((a, b) => a.name.raw.localeCompare(b.name.raw));
+    ).sort((a, b) => a.name.raw.localeCompare(b.name.raw))
+      .sort((a, b) => {
+        const dateA = a.released.mentionedDate ? new Date(a.released.mentionedDate).getTime() : 0;
+        const dateB = b.released.mentionedDate ? new Date(b.released.mentionedDate).getTime() : 0;
+        return dateB - dateA;
+      });
 
     selectedDeviceA.value =
       allDevices.find((device) =>
@@ -85,7 +90,12 @@ export function DeviceComparisonForm({
     suggestionsB.value = allDevices.filter((device) =>
       device.name.raw.toLowerCase().includes(value.trim().toLowerCase()) ||
       device.brand.raw.toLowerCase().includes(value.trim().toLowerCase())
-    ).sort((a, b) => a.name.raw.localeCompare(b.name.raw));
+    ).sort((a, b) => a.name.raw.localeCompare(b.name.raw))
+      .sort((a, b) => {
+        const dateA = a.released.mentionedDate ? new Date(a.released.mentionedDate).getTime() : 0;
+        const dateB = b.released.mentionedDate ? new Date(b.released.mentionedDate).getTime() : 0;
+        return dateB - dateA;
+      });
 
     selectedDeviceB.value =
       allDevices.find((device) =>

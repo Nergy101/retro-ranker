@@ -16,7 +16,7 @@ export function ClipboardButton({ url }: { url: string }) {
         }, 2000);
       }}
       data-tooltip="Copy link"
-      data-placement="bottom"
+      data-placement="right"
     >
       <span
         style={{

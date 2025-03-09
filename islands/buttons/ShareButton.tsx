@@ -44,7 +44,7 @@ export function ShareButton(
       class="device-detail-action-button"
       onClick={handleShare}
       data-tooltip="Share"
-      data-placement="bottom"
+      data-placement="right"
     >
       <span
         style={{

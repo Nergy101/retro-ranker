@@ -3,19 +3,19 @@ import {
   PiCalendar,
   PiCalendarHeart,
   PiGitDiff,
+  PiMagnifyingGlass,
   PiRanking,
   PiScroll,
   PiSparkle,
-  PiTag,
   PiUserCheck,
 } from "@preact-icons/pi";
 import { DeviceCardMedium } from "../components/cards/DeviceCardMedium.tsx";
 import { SeeMoreCard } from "../components/cards/SeeMoreCard.tsx";
 import SEO from "../components/SEO.tsx";
 import { TagComponent } from "../components/shared/TagComponent.tsx";
+import { BrandWebsites } from "../data/brand-websites.ts";
 import { TagModel } from "../data/models/tag.model.ts";
 import { DeviceService } from "../services/devices/device.service.ts";
-import { BrandWebsites } from "../data/brand-websites.ts";
 
 export default function Home({ url }: PageProps) {
   // Filter devices into categories
@@ -78,23 +78,8 @@ export default function Home({ url }: PageProps) {
         }}
       >
         <div class="container-fluid">
-          <section
-            class="site-introduction"
-            style={{
-              marginBottom: "2rem",
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "2rem",
-              alignItems: "flex-start",
-            }}
-          >
-            <div
-              style={{
-                flex: "1 1 500px",
-                textAlign: "left",
-                minWidth: "300px",
-              }}
-            >
+          <section class="site-introduction">
+            <div class="site-introduction-content">
               <hgroup>
                 <h2
                   style={{
@@ -200,37 +185,28 @@ export default function Home({ url }: PageProps) {
               </div>
             </div>
 
-            <div style={{ flex: "0 1 350px", minWidth: "300px" }}>
-              <div
+            <div class="popular-searches-container">
+              <h3
                 style={{
-                  background: "var(--pico-card-background-color)",
-                  padding: "1rem",
-                  borderRadius: "var(--pico-border-radius)",
-                  boxShadow: "var(--pico-card-box-shadow)",
+                  marginBottom: "1rem",
+                  fontSize: "1.2rem",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
                 }}
               >
-                <h3
-                  style={{
-                    marginBottom: "1rem",
-                    fontSize: "1.2rem",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "0.5rem",
-                  }}
-                >
-                  <PiTag /> Popular Tags
-                </h3>
+                <PiMagnifyingGlass /> Popular Searches
+              </h3>
 
-                <div
-                  style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}
-                >
-                  {defaultTags.map((tag) => (
-                    <TagComponent
-                      key={tag.name}
-                      tag={tag}
-                    />
-                  ))}
-                </div>
+              <div
+                style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}
+              >
+                {defaultTags.map((tag) => (
+                  <TagComponent
+                    key={tag.name}
+                    tag={tag}
+                  />
+                ))}
               </div>
             </div>
           </section>

@@ -71,6 +71,7 @@ export default function Contact({ url }: PageProps) {
               href="https://blog.nergy.space"
               target="_blank"
               class="small-card"
+              style={{ textDecoration: "none", textAlign: "center" }}
             >
               <PiBook class="text-4xl" />
               <span>Blog</span>

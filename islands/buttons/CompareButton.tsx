@@ -11,7 +11,7 @@ export function CompareButton({ deviceName }: CompareButtonProps) {
       style={{ textDecoration: "none" }}
       href={`/compare?devices=${deviceName}`}
       data-tooltip="Compare"
-      data-placement="bottom"
+      data-placement="right"
     >
       <div
         style={{
