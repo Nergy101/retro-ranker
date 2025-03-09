@@ -1,9 +1,9 @@
+import { PiTag } from "@preact-icons/pi";
 import { useSignal } from "@preact/signals";
 import { DeviceCardMedium } from "../components/cards/DeviceCardMedium.tsx";
 import { FilterTag } from "../components/shared/FilterTag.tsx";
 import { Device } from "../data/device.model.ts";
-import { TagModel } from "../data/models/tag.model.ts";
-import { PiTagSimple } from "@preact-icons/pi";
+import { TAG_FRIENDLY_NAMES, TagModel } from "../data/models/tag.model.ts";
 
 export default function TagTypeahead(
   { allTags, initialTags, devicesWithSelectedTags }: {
@@ -22,6 +22,10 @@ export default function TagTypeahead(
       ),
     ),
   ];
+
+  const getFriendlyTagName = (type: string) => {
+    return TAG_FRIENDLY_NAMES[type as keyof typeof TAG_FRIENDLY_NAMES] ?? type;
+  };
 
   const getTagsHref = (
     tag: TagModel,
@@ -57,6 +61,39 @@ export default function TagTypeahead(
     acc[tag.type].push(tag);
     return acc;
   }, {} as Record<string, TagModel[]>);
+
+  // First sort the tag types according to the predefined order
+  const sortedGroupedTags = Object.fromEntries(
+    Object.entries(groupedTags).sort(([a], [b]) => {
+      const order = [
+        "formFactor",
+        "price",
+        "screenType",
+        "releaseDate",
+        "os",
+        "brand",
+        "personalPick",
+      ];
+      return order.indexOf(a) - order.indexOf(b);
+    }).map(([type, tags]) => {
+
+      if (type === "price") {
+        // pick out the 1 entry with ?? in the name and put that before the others
+        const qTag = tags.find((t) => t.name.includes("??"));
+        if (qTag) {
+          tags = tags.filter((t) => t !== qTag);
+          tags.unshift(qTag);
+        }
+        return [type, tags];
+      }
+
+      // Then sort the tags within each type alphabetically by name
+      const sortedTags = [...tags].sort((a, b) => 
+        a.name.localeCompare(b.name)
+      );
+      return [type, sortedTags];
+    })
+  );
 
   return (
     <div>
@@ -97,15 +134,14 @@ export default function TagTypeahead(
       </div>
 
       <div class="filter-categories">
-        {Object.entries(groupedTags).map(([type, tags]) => (
+        {Object.entries(sortedGroupedTags).map(([type, tags]) => (
           <details
             key={type}
             class="filter-category"
-            open={searchTerm.value.length > 0}
           >
             <summary class="category-header">
               <span class="category-icon">
-                <PiTagSimple /> {type}
+                <PiTag /> {getFriendlyTagName(type)}
               </span>
               <span class="tag-count">({tags.length})</span>
             </summary>
