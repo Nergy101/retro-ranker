@@ -1,5 +1,5 @@
 import { PiPlusBold, PiTag, PiXBold } from "@preact-icons/pi";
-import { TagModel } from "../../data/models/tag.model.ts";
+import { TAG_FRIENDLY_NAMES, TagModel } from "../../data/models/tag.model.ts";
 
 export function FilterTag(
   { tag, type, href }: {
@@ -8,8 +8,10 @@ export function FilterTag(
     href: string;
   },
 ) {
+  const friendlyName = TAG_FRIENDLY_NAMES[tag.type];
+
   return (
-    <a href={href} class="tag-link" data-tooltip={tag.type}>
+    <a href={href} class="tag-link" data-tooltip={friendlyName}>
       <span class="tag">
         <PiTag />
         {tag.name}
