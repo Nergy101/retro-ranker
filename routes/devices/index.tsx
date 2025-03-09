@@ -70,8 +70,9 @@ export default function DevicesIndex(props: PageProps) {
     !initialTags.some((t2) => t2.slug === t.slug)
   ) as TagModel[];
 
-  const activeLayout = props.url?.searchParams?.get("layout") as string ||
-    "grid9";
+  // Get layout from URL params first, then localStorage, then default to "grid4"
+  const urlLayout = props.url?.searchParams?.get("layout") as string;
+  const activeLayout = urlLayout || "grid4";
 
   const getLayoutGrid = (layout: string) => {
     if (layout === "grid9") {

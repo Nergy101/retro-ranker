@@ -1,5 +1,6 @@
 import { PiGridNine, PiList, PiSquaresFour } from "@preact-icons/pi";
 import { useSignal } from "@preact/signals";
+import { useEffect } from "preact/hooks";
 
 export function LayoutSelector(
   { activeLayout, initialPageSize, defaultPageSize }: {
@@ -9,6 +10,12 @@ export function LayoutSelector(
   },
 ) {
   const pageSize = useSignal(initialPageSize);
+  useEffect(() => {
+    const layout = localStorage.getItem("preferredLayout");
+    if (layout && layout !== activeLayout) {
+      setActiveLayout(layout);
+    }
+  }, []);
 
   const handlePageSizeChange = (e: Event) => {
     const newPageSize = parseInt((e.target as HTMLSelectElement).value, 10);
@@ -29,6 +36,7 @@ export function LayoutSelector(
   const setActiveLayout = (layout: string) => {
     const url = new URL(globalThis.location.href);
     url.searchParams.set("layout", layout);
+    localStorage.setItem("preferredLayout", layout);
     // Navigate to the updated URL
     globalThis.location.href = url.toString();
   };
@@ -46,7 +54,22 @@ export function LayoutSelector(
       }}
     >
       <button
-        data-tooltip="Default View"
+        data-tooltip="List View"
+        data-placement="left"
+        type="button"
+        class="outline no-border"
+        style={{
+          color: getStyle("list"),
+          cursor: "pointer",
+          margin: 0,
+          padding: 0,
+        }}
+        onClick={() => setActiveLayout("list")}
+      >
+        <PiList class="text-3xl" />
+      </button>
+      <button
+        data-tooltip="Small View"
         data-placement="left"
         type="button"
         class="outline no-border"
@@ -74,21 +97,6 @@ export function LayoutSelector(
         onClick={() => setActiveLayout("grid4")}
       >
         <PiSquaresFour class="text-3xl" />
-      </button>
-      <button
-        data-tooltip="Quick View"
-        data-placement="left"
-        type="button"
-        class="outline no-border"
-        style={{
-          color: getStyle("list"),
-          cursor: "pointer",
-          margin: 0,
-          padding: 0,
-        }}
-        onClick={() => setActiveLayout("list")}
-      >
-        <PiList class="text-3xl" />
       </button>
       <div
         style={{

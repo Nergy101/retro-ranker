@@ -57,9 +57,9 @@ export function RatingInfo(
         };
       default:
         return {
-          color: "var(--pico-contrast)",
           text: "Unknown",
-          textColor: "black",
+          color: "var(--pico-card-background-color)",
+          textColor: "var(--pico-text)",
         };
     }
   };
@@ -72,11 +72,12 @@ export function RatingInfo(
       style={{
         backgroundColor: color,
         color: textColor,
+        border: "1px solid var(--pico-contrast)",
       }}
+      data-tooltip={text}
+      data-placement={tooltipPosition}
     >
-      <span data-tooltip={text} data-placement={tooltipPosition}>
-        {EmulationSystemShort[rating.system] ?? rating.system}
-      </span>
+      {EmulationSystemShort[rating.system] ?? rating.system}
     </div>
   );
 }

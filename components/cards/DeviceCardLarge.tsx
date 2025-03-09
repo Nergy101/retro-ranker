@@ -1,10 +1,10 @@
 import { PiQuestion } from "@preact-icons/pi";
 import { Device } from "../../data/device.model.ts";
 import { DeviceService } from "../../services/devices/device.service.ts";
+import { EmulationPerformance } from "../EmulationPerformance.tsx";
+import { RatingInfo } from "../ratings/RatingInfo.tsx";
 import { StarRating } from "../ratings/StarRating.tsx";
 import { CurrencyIcon } from "../shared/CurrencyIcon.tsx";
-import { SummaryTable } from "../specifications/tables/SummaryTable.tsx";
-import { RatingInfo } from "../ratings/RatingInfo.tsx";
 
 export function DeviceCardLarge({ device }: { device: Device }) {
   const getPriceIndicator = () => {
@@ -188,36 +188,10 @@ export function DeviceCardLarge({ device }: { device: Device }) {
               )}
             </span>
           </div>
-
-          <div
-            style={{
-              marginBottom: "0.5rem",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: "0.5rem",
-            }}
-          >
-            {upToSystemA && (
-              <RatingInfo
-                rating={upToSystemA}
-                tooltipUseShortSystemName={true}
-                tooltipPosition="bottom"
-              />
-            )}
-            {upToSystemC && (
-              <RatingInfo
-                rating={upToSystemC}
-                tooltipUseShortSystemName={true}
-                tooltipPosition="bottom"
-              />
-            )}
-          </div>
         </hgroup>
       </header>
-      <div class="overflow-auto">
-        <SummaryTable device={device} />
+      <div class="overflow-auto" style={{ overflowY: "hidden" }}>
+        <EmulationPerformance device={device} />
       </div>
     </article>
   );

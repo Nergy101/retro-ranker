@@ -33,8 +33,8 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
       return { color: "#16833E", textColor: "white", tooltip: "Excellent" };
     }
     return {
-      color: "var(--pico-contrast)",
-      textColor: "black",
+      color: "var(--pico-card-background-color)",
+      textColor: "var(--pico-text)",
       tooltip: "Unknown",
     };
   };

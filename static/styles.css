@@ -296,7 +296,6 @@ body.paused-animation::before {
   background-size: cover;
   background-position: center;
   background-blend-mode: multiply;
-  grid-column: span 4;
 
   @media (max-width: 425px) {
     grid-column: span 2;
@@ -523,11 +522,7 @@ body.paused-animation::before {
 .device-row-grid {
   display: grid;
   gap: 0.5rem;
-  grid-template-columns: repeat(4, 1fr);
-
-  /* @media (max-width: 768px) {
-    grid-template-columns: repeat(3, 1fr);
-  } */
+  grid-template-columns: repeat(5, 1fr);
 
   @media (max-width: 425px) {
     grid-template-columns: repeat(2, 1fr);
@@ -1587,10 +1582,9 @@ h6,
 
 .footer {
   background-color: var(--pico-background-color);
-  border-radius: var(--pico-border-radius);
-  padding: 2rem 1rem;
+  padding: 1em 0 0 0;
   border-top: 1px solid var(--pico-primary-focus);
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .content {
