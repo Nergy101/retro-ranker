@@ -436,6 +436,7 @@ details summary[role="button"]:not(.outline)::after {
     --pico-accordion-close-summary-color: var(--pico-color);
     --pico-accordion-open-summary-color: var(--pico-muted-color);
     --pico-card-background-color: #181c25;
+    --pico-card-background-color-darker: #12151c;
     --pico-card-border-color: var(--pico-card-background-color);
     --pico-card-box-shadow: var(--pico-box-shadow);
     --pico-card-sectioning-background-color: #1a1f28;
@@ -577,6 +578,7 @@ details summary[role="button"]:not(.outline)::after {
   --pico-accordion-close-summary-color: var(--pico-color);
   --pico-accordion-open-summary-color: var(--pico-muted-color);
   --pico-card-background-color: #181c25;
+  --pico-card-background-color-darker: #12151c;
   --pico-card-border-color: var(--pico-card-background-color);
   --pico-card-box-shadow: var(--pico-box-shadow);
   --pico-card-sectioning-background-color: #1a1f28;

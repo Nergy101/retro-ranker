@@ -2094,19 +2094,33 @@ textarea:focus {
 }
 
 .site-introduction-content {
-  flex: 1 1 calc(60% - 1rem);
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 2rem;
+  align-items: flex-start;
+
+  border: var(--pico-border-width) solid var(--pico-primary);
+  border-radius: var(--pico-border-radius);
+  background-color: var(--pico-card-background-color);
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.site-introduction-text {
   text-align: left;
-  min-width: 300px;
 }
 
 .popular-searches-container {
-  flex: 1 1 calc(40% - 1rem);
-  min-width: 300px;
-  border: var(--pico-border-width) solid var(--pico-primary);
+  background-color: var(--pico-card-background-color-darker);
   border-radius: var(--pico-border-radius);
-  background: var(--pico-card-background-color);
   padding: 1rem;
   box-shadow: var(--pico-card-box-shadow);
+
+  @media (min-width: 768px) {
+    min-width: 300px;
+  }
 }
 
 /* Suggestion Form Styles */

@@ -79,136 +79,138 @@ export default function Home({ url }: PageProps) {
       >
         <div class="container-fluid">
           <section class="site-introduction">
-            <div class="site-introduction-content">
-              <hgroup>
-                <h2
-                  style={{
-                    fontSize: "1.5rem",
-                    color: "var(--pico-contrast)",
-                  }}
-                >
-                  Retro Handheld Resource
-                </h2>
-                <p>
-                  Powered by the community
+            <article class="site-introduction-content">
+              <div class="site-introduction-text">
+                <hgroup>
+                  <h2
+                    style={{
+                      fontSize: "1.5rem",
+                      color: "var(--pico-contrast)",
+                    }}
+                  >
+                    Retro Handheld Resource
+                  </h2>
+                  <p>
+                    Powered by the community
+                  </p>
+                </hgroup>
+
+                <p style={{ marginBottom: "1rem", lineHeight: "1.6" }}>
+                  Welcome to{" "}
+                  <strong>Retro Ranker</strong>, the community-driven database
+                  of nearly 500 <strong>retro gaming handhelds</strong>{" "}
+                  from brands like{" "}
+                  <a
+                    href={BrandWebsites["anbernic"]}
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <strong>Anbernic</strong>
+                  </a>,{" "}
+                  <a
+                    href={BrandWebsites["retroid"]}
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <strong>Retroid</strong>
+                  </a>,{" "}
+                  <a
+                    href={BrandWebsites["miyoo-bittboy"]}
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <strong>Miyoo</strong>
+                  </a>,{" "}
+                  <a
+                    href={BrandWebsites["ayaneo"]}
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <strong>Ayaneo</strong>
+                  </a>,{" "}
+                  <a
+                    href={BrandWebsites["powkiddy"]}
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <strong>Powkiddy</strong>
+                  </a>{" "}
+                  and many more. Whether you need an{" "}
+                  <strong>affordable emulation device</strong> under $100 or a
+                  {" "}
+                  <strong>premium gaming handheld</strong>{" "}
+                  for modern systems, our comprehensive comparison tools help
+                  you find the perfect device for your needs.
                 </p>
-              </hgroup>
-
-              <p style={{ marginBottom: "1rem", lineHeight: "1.6" }}>
-                Welcome to{" "}
-                <strong>Retro Ranker</strong>, the community-driven database of
-                nearly 500 <strong>retro gaming handhelds</strong>{" "}
-                from brands like{" "}
-                <a
-                  href={BrandWebsites["anbernic"]}
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <strong>Anbernic</strong>
-                </a>,{" "}
-                <a
-                  href={BrandWebsites["retroid"]}
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <strong>Retroid</strong>
-                </a>,{" "}
-                <a
-                  href={BrandWebsites["miyoo-bittboy"]}
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <strong>Miyoo</strong>
-                </a>,{" "}
-                <a
-                  href={BrandWebsites["ayaneo"]}
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <strong>Ayaneo</strong>
-                </a>,{" "}
-                <a
-                  href={BrandWebsites["powkiddy"]}
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <strong>Powkiddy</strong>
-                </a>{" "}
-                and many more. Whether you need an{" "}
-                <strong>affordable emulation device</strong> under $100 or a
-                {" "}
-                <strong>premium gaming handheld</strong>{" "}
-                for modern systems, our comprehensive comparison tools help you
-                find the perfect device for your needs.
-              </p>
-              <div
-                style={{
-                  marginTop: "1.5rem",
-                  display: "flex",
-                  gap: "1rem",
-                  flexWrap: "wrap",
-                }}
-              >
-                <a
-                  href="/devices"
-                  class="button primary"
+                <div
                   style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "0.5rem",
+                    marginTop: "1.5rem",
+                    display: "flex",
+                    gap: "1rem",
+                    flexWrap: "wrap",
                   }}
                 >
-                  <PiScroll /> Browse Devices
-                </a>
-                <a
-                  href="/compare"
-                  class="button"
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "0.5rem",
-                  }}
-                >
-                  <PiGitDiff /> Compare Devices
-                </a>
-                <a
-                  href="/release-timeline"
-                  class="button"
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "0.5rem",
-                  }}
-                >
-                  <PiCalendar /> Release Timeline
-                </a>
+                  <a
+                    href="/devices"
+                    class="button primary"
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "0.5rem",
+                    }}
+                  >
+                    <PiScroll /> Browse Devices
+                  </a>
+                  <a
+                    href="/compare"
+                    class="button"
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "0.5rem",
+                    }}
+                  >
+                    <PiGitDiff /> Compare Devices
+                  </a>
+                  <a
+                    href="/release-timeline"
+                    class="button"
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "0.5rem",
+                    }}
+                  >
+                    <PiCalendar /> Release Timeline
+                  </a>
+                </div>
               </div>
-            </div>
 
-            <div class="popular-searches-container">
-              <h3
-                style={{
-                  marginBottom: "1rem",
-                  fontSize: "1.2rem",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.5rem",
-                }}
-              >
-                <PiMagnifyingGlass /> Popular Searches
-              </h3>
+              <div class="popular-searches-container">
+                <h3
+                  style={{
+                    marginBottom: "1rem",
+                    fontSize: "1.2rem",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.5rem",
+                  }}
+                >
+                  <PiMagnifyingGlass /> Popular Searches
+                </h3>
 
-              <div
-                style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}
-              >
-                {defaultTags.map((tag) => (
-                  <TagComponent
-                    key={tag.name}
-                    tag={tag}
-                  />
-                ))}
+                <div
+                  style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}
+                >
+                  {defaultTags.map((tag) => (
+                    <TagComponent
+                      key={tag.name}
+                      tag={tag}
+                    />
+                  ))}
+                </div>
               </div>
-            </div>
+            </article>
           </section>
 
           <hr />
