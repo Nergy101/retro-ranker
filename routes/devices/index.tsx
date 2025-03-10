@@ -89,7 +89,7 @@ export default function DevicesIndex(props: PageProps) {
       case "grid9":
         return 9;
       case "grid4":
-        return 4;
+        return 8;
       default:
         return 20;
     }
