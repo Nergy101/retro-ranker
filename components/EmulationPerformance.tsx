@@ -6,9 +6,14 @@ import { RatingInfo } from "./ratings/RatingInfo.tsx";
 
 interface EmulationPerformanceProps {
   device: Device;
+  tooltipUseShortSystemName?: boolean;
+  useRatingDescription?: boolean;
 }
 
-export function EmulationPerformance({ device }: EmulationPerformanceProps) {
+export function EmulationPerformance(
+  { device, tooltipUseShortSystemName = false, useRatingDescription = true }:
+    EmulationPerformanceProps,
+) {
   const ratings = device.systemRatings;
 
   const getCoolingColor = (cooling: Cooling) => {
@@ -76,9 +81,8 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
         <span style={{ display: "flex", gap: "0.25rem", fontSize: "1rem" }}>
           {DeviceService.getCoolingIcons(device.cooling).map((
             { icon, tooltip },
-          ) => (
-            <span data-tooltip={tooltip} data-placement="bottom">{icon}</span>
-          ))}
+          ) => <span data-tooltip={tooltip} data-placement="right">{icon}
+          </span>)}
         </span>
       </div>
     );
@@ -120,7 +124,12 @@ export function EmulationPerformance({ device }: EmulationPerformanceProps) {
       </h3>
       <div class="rating-info-grid">
         {ratings.map((rating) => (
-          <RatingInfo key={rating.system} rating={rating} />
+          <RatingInfo
+            key={rating.system}
+            rating={rating}
+            tooltipUseShortSystemName={tooltipUseShortSystemName}
+            useRatingDescription={useRatingDescription}
+          />
         ))}
       </div>
 

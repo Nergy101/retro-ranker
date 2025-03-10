@@ -191,7 +191,7 @@ export function DeviceCardLarge({ device }: { device: Device }) {
         </hgroup>
       </header>
       <div style={{ overflowY: "hidden", overflowX: "hidden" }}>
-        <EmulationPerformance device={device} />
+        <EmulationPerformance device={device} tooltipUseShortSystemName={true} useRatingDescription={false} />
       </div>
     </article>
   );
