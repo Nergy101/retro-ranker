@@ -1,4 +1,5 @@
 import { useSignal } from "@preact/signals";
+import { PiChat } from "@preact-icons/pi";
 
 interface SuggestionFormProps {
   userEmail: string;
@@ -52,7 +53,7 @@ export default function SuggestionForm({ userEmail }: SuggestionFormProps) {
           onClick={() => submitted.value = false}
           class="outline"
         >
-          Submit another suggestion
+          Submit another
         </button>
       </div>
     );
@@ -82,8 +83,14 @@ export default function SuggestionForm({ userEmail }: SuggestionFormProps) {
         type="submit"
         disabled={isSubmitting || !suggestion.value.trim()}
         class="primary"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "0.5rem",
+          width: "fit-content",
+        }}
       >
-        Submit Suggestion
+        <PiChat /> Submit
       </button>
     </form>
   );

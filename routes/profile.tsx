@@ -65,8 +65,13 @@ export default async function ProfilePage(
           </div>
         </section>
 
+        <hr />
+        
         {/* Suggestions Section */}
-        <section class="suggestions-section" style={{ marginTop: "2rem", marginBottom: "2rem" }}>
+        <section
+          class="suggestions-section"
+          style={{ marginTop: "2rem", marginBottom: "2rem" }}
+        >
           <h2>Feedback</h2>
           <SuggestionForm userEmail={user.email} />
         </section>
