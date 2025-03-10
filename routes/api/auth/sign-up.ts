@@ -34,8 +34,7 @@ export const handler: Handlers = {
       );
     }
 
-    const pbService = createPocketBaseService();
-
+    const pbService = await createPocketBaseService();
     const existingUser = await pbService.getList(
       "users",
       1,

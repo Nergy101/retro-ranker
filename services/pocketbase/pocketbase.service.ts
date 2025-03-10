@@ -25,7 +25,7 @@ export class PocketBaseService {
    * Get the PocketBase instance
    * @returns PocketBase instance
    */
-  public getPocketBase(): PocketBase {
+  public getPocketBaseClient(): PocketBase {
     return this.pb;
   }
 
@@ -200,12 +200,20 @@ export class PocketBaseService {
     return this.pb.authStore.record as unknown as User;
   }
 
-  public async authRefresh(authStore: LocalAuthStore): Promise<void> {
-    authStore.isValid && await this.pb.collection("users").authRefresh();
+  public async authRefresh(): Promise<void> {
+    this.pb.authStore.isValid &&
+      await this.pb.collection("users").authRefresh();
   }
 
   public getAuthStore(): LocalAuthStore {
     return this.pb.authStore as LocalAuthStore;
+  }
+
+  public async getUser(cookieHeader: string): Promise<User> {
+    const jwt = cookieHeader?.split("pb_auth=")[1]?.split(";")[0];
+    this.pb.authStore.save(jwt, null); // Store JWT in PocketBase instance
+    const user = await this.pb.collection("users").authRefresh();
+    return user.record as unknown as User;
   }
 
   /**
@@ -222,16 +230,20 @@ export class PocketBaseService {
  * making it suitable for server-side environments where state
  * should not be shared between requests
  */
-export function createPocketBaseService(
+export async function createPocketBaseService(
   url: string = "https://pocketbase.retroranker.site",
-): PocketBaseService {
-  return new PocketBaseService(url);
+): Promise<PocketBaseService> {
+  const pb = new PocketBaseService(url);
+  return pb;
 }
 
-/**
- * @deprecated Use createPocketBaseService() instead for server-side code
- * This function is maintained for backward compatibility with client-side code
- */
-export function getPocketBaseService(): PocketBaseService {
-  return createPocketBaseService();
+export async function createLoggedInPocketBaseService(
+  cookie: string,
+  url: string = "https://pocketbase.retroranker.site",
+): Promise<PocketBaseService> {
+  const pb = new PocketBaseService(url);
+  if (cookie) {
+    await pb.getUser(cookie);
+  }
+  return pb;
 }

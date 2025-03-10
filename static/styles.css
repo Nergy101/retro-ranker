@@ -2108,3 +2108,33 @@ textarea:focus {
   padding: 1rem;
   box-shadow: var(--pico-card-box-shadow);
 }
+
+/* Suggestion Form Styles */
+.suggestion-form {
+  margin-top: 1rem;
+}
+
+.suggestion-form textarea {
+  width: 100%;
+  resize: vertical;
+}
+
+.error-message {
+  color: var(--pico-del-color);
+  margin-bottom: 1rem;
+}
+
+.suggestion-success {
+  background-color: var(--pico-card-background-color);
+  padding: 1.5rem;
+  border-radius: var(--pico-border-radius);
+  margin-top: 1rem;
+  border: 1px solid var(--pico-primary);
+}
+
+.suggestion-success p {
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+/* End Suggestion Form Styles */

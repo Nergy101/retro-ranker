@@ -19,7 +19,7 @@ export const handler: Handlers = {
       );
     }
 
-    const pbService = createPocketBaseService();
+    const pbService = await createPocketBaseService();
     const user = await pbService.authWithPassword(email, password);
 
     if (!user) {

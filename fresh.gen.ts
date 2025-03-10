@@ -12,6 +12,7 @@ import * as $api_auth_sign_out from "./routes/api/auth/sign-out.ts";
 import * as $api_auth_sign_up from "./routes/api/auth/sign-up.ts";
 import * as $api_devices_name_ from "./routes/api/devices/[name].ts";
 import * as $api_devices_index from "./routes/api/devices/index.ts";
+import * as $api_suggestions from "./routes/api/suggestions.ts";
 import * as $auth_sign_in from "./routes/auth/sign-in.tsx";
 import * as $auth_sign_up from "./routes/auth/sign-up.tsx";
 import * as $charts_index from "./routes/charts/index.tsx";
@@ -28,6 +29,7 @@ import * as $release_timeline_layout from "./routes/release-timeline/_layout.tsx
 import * as $release_timeline_index from "./routes/release-timeline/index.tsx";
 import * as $terms from "./routes/terms.tsx";
 import * as $LayoutSelector from "./islands/LayoutSelector.tsx";
+import * as $SuggestionForm from "./islands/SuggestionForm.tsx";
 import * as $TagTypeahead from "./islands/TagTypeahead.tsx";
 import * as $TimelineContent from "./islands/TimelineContent.tsx";
 import * as $auth_sign_in_1 from "./islands/auth/sign-in.tsx";
@@ -64,6 +66,7 @@ const manifest = {
     "./routes/api/auth/sign-up.ts": $api_auth_sign_up,
     "./routes/api/devices/[name].ts": $api_devices_name_,
     "./routes/api/devices/index.ts": $api_devices_index,
+    "./routes/api/suggestions.ts": $api_suggestions,
     "./routes/auth/sign-in.tsx": $auth_sign_in,
     "./routes/auth/sign-up.tsx": $auth_sign_up,
     "./routes/charts/index.tsx": $charts_index,
@@ -82,6 +85,7 @@ const manifest = {
   },
   islands: {
     "./islands/LayoutSelector.tsx": $LayoutSelector,
+    "./islands/SuggestionForm.tsx": $SuggestionForm,
     "./islands/TagTypeahead.tsx": $TagTypeahead,
     "./islands/TimelineContent.tsx": $TimelineContent,
     "./islands/auth/sign-in.tsx": $auth_sign_in_1,

@@ -4,6 +4,7 @@ import { slugify } from "https://deno.land/x/slugify@0.3.0/mod.ts";
 import SEO from "../components/SEO.tsx";
 import { User } from "../data/contracts/user.contract.ts";
 import SignOut from "../islands/auth/sign-out.tsx";
+import SuggestionForm from "../islands/SuggestionForm.tsx";
 
 export default async function ProfilePage(
   req: Request,
@@ -62,6 +63,12 @@ export default async function ProfilePage(
               </a>
             </div>
           </div>
+        </section>
+
+        {/* Suggestions Section */}
+        <section class="suggestions-section" style={{ marginTop: "2rem", marginBottom: "2rem" }}>
+          <h2>Feedback</h2>
+          <SuggestionForm userEmail={user.email} />
         </section>
 
         <footer style={{ display: "flex", gap: "0.5rem" }}>
