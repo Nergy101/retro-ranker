@@ -208,7 +208,13 @@ export default function DeviceDetail(props: PageProps) {
           >
             {device.name.normalized}
           </h2>
-          <div style="display: flex; gap: 0.5rem; align-items: flex-end;">
+          <div
+            style={{
+              display: "flex",
+              gap: "0.5rem",
+              alignItems: "flex-end",
+            }}
+          >
             <span
               style={{ textAlign: "center" }}
               data-tooltip={device.brand.raw === device.brand.normalized
@@ -240,7 +246,11 @@ export default function DeviceDetail(props: PageProps) {
                   width={100}
                   height={100}
                   alt={device.image?.alt ?? "A device image"}
-                  style="width: 100%; height: 100%; object-fit: contain;"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "contain",
+                  }}
                 />
               )
               : (
@@ -263,11 +273,27 @@ export default function DeviceDetail(props: PageProps) {
                 </span>
               )}
           </div>
-          <div style="display: flex; gap: 0.5rem;">
+          <div
+            style={{
+              display: "flex",
+              gap: "0.5rem",
+            }}
+          >
             <StarRating device={device} />
           </div>
-          <div style="display: flex; align-items: center; flex-direction: column;">
-            <div style="display: flex; gap: 0.25rem;">
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              flexDirection: "column",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                gap: "0.25rem",
+              }}
+            >
               {!device.pricing.discontinued && device.pricing.average
                 ? (
                   <span
@@ -351,7 +377,7 @@ export default function DeviceDetail(props: PageProps) {
       </div>
 
       <div class="device-detail-similar-devices">
-        <h2 style="text-align: center;">Find Similar Devices</h2>
+        <h2 style={{ textAlign: "center" }}>Find Similar Devices</h2>
         <DevicesSimilarRadarChart
           device={device}
           similarDevices={similarDevices}
@@ -373,8 +399,13 @@ export default function DeviceDetail(props: PageProps) {
       </div>
 
       <div class="device-detail-specs">
-        <div style="display: flex; flex-direction: column;">
-          <div class="divider" style="padding: 0.5rem 0;"></div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <div class="divider" style={{ padding: "0.5rem 0" }}></div>
           <details open>
             <summary>
               <strong style={{ color: "var(--pico-primary)" }}>
@@ -388,7 +419,7 @@ export default function DeviceDetail(props: PageProps) {
             </section>
           </details>
 
-          <div class="divider" style="padding: 0.5rem 0;"></div>
+          <div class="divider" style={{ padding: "0.5rem 0" }}></div>
 
           <details open>
             <summary>
@@ -398,7 +429,7 @@ export default function DeviceDetail(props: PageProps) {
             </summary>
             <DeviceSpecs device={device} />
           </details>
-          <div class="divider" style="padding: 0.5rem 0 0 0;"></div>
+          <div class="divider" style={{ padding: "0.5rem 0 0 0" }}></div>
         </div>
       </div>
     </div>

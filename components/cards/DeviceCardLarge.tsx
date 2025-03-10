@@ -2,7 +2,6 @@ import { PiQuestion } from "@preact-icons/pi";
 import { Device } from "../../data/device.model.ts";
 import { DeviceService } from "../../services/devices/device.service.ts";
 import { EmulationPerformance } from "../EmulationPerformance.tsx";
-import { RatingInfo } from "../ratings/RatingInfo.tsx";
 import { StarRating } from "../ratings/StarRating.tsx";
 import { CurrencyIcon } from "../shared/CurrencyIcon.tsx";
 
@@ -40,9 +39,6 @@ export function DeviceCardLarge({ device }: { device: Device }) {
     }
   };
 
-  const upToSystemA = DeviceService.getUptoSystemA(device);
-  const upToSystemC = DeviceService.getUptoSystemCOrLower(device);
-
   return (
     <article
       class={`device-search-card`}
@@ -76,7 +72,12 @@ export function DeviceCardLarge({ device }: { device: Device }) {
               width={100}
               height={100}
               alt={device.image?.alt ?? "A device image"}
-              style="width: 100px; height: 100px; object-fit: contain;"
+              style={{
+                width: "100px",
+                height: "100px",
+                objectFit: "contain",
+                borderRadius: "1em",
+              }}
             />
           )
           : (
@@ -191,7 +192,11 @@ export function DeviceCardLarge({ device }: { device: Device }) {
         </hgroup>
       </header>
       <div style={{ overflowY: "hidden", overflowX: "hidden" }}>
-        <EmulationPerformance device={device} tooltipUseShortSystemName={true} useRatingDescription={false} />
+        <EmulationPerformance
+          device={device}
+          tooltipUseShortSystemName={true}
+          useRatingDescription={false}
+        />
       </div>
     </article>
   );

@@ -114,7 +114,12 @@ export function DeviceCardMedium(
               width={100}
               height={100}
               alt={device.image?.alt ?? "A device image"}
-              style="width: 100px; height: 100px; object-fit: contain;"
+              style={{
+                width: "100px",
+                height: "100px",
+                objectFit: "contain",
+                borderRadius: "1em",
+              }}
             />
           )
           : (

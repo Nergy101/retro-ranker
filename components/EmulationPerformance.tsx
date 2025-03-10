@@ -81,8 +81,12 @@ export function EmulationPerformance(
         <span style={{ display: "flex", gap: "0.25rem", fontSize: "1rem" }}>
           {DeviceService.getCoolingIcons(device.cooling).map((
             { icon, tooltip },
-          ) => <span data-tooltip={tooltip} data-placement="right">{icon}
-          </span>)}
+            index,
+          ) => (
+            <span data-tooltip={tooltip} key={index} data-placement="right">
+              {icon}
+            </span>
+          ))}
         </span>
       </div>
     );

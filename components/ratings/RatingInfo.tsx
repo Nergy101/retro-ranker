@@ -9,8 +9,12 @@ interface RatingInfoProps {
 }
 
 export function RatingInfo(
-  { rating, tooltipPosition = "top", tooltipUseShortSystemName = false, useRatingDescription = true }:
-    RatingInfoProps,
+  {
+    rating,
+    tooltipPosition = "top",
+    tooltipUseShortSystemName = false,
+    useRatingDescription = true,
+  }: RatingInfoProps,
 ) {
   const getRatingInfo = (
     rating: SystemRating,
@@ -29,31 +33,41 @@ export function RatingInfo(
       case "A":
         return {
           color: "#16833E",
-          text: `${systemName}: ${useRatingDescription ? "Excellent" : ""} ${rating.ratingNumber}/5`,
+          text: `${systemName}: ${
+            useRatingDescription ? "Excellent" : ""
+          } ${rating.ratingNumber}/5`,
           textColor: "white",
         };
       case "B":
         return {
           color: "#3952A2",
-          text: `${systemName}: ${useRatingDescription ? "Playable" : ""} ${rating.ratingNumber}/5`,
+          text: `${systemName}: ${
+            useRatingDescription ? "Playable" : ""
+          } ${rating.ratingNumber}/5`,
           textColor: "white",
         };
       case "C":
         return {
           color: "#EEB61B",
-          text: `${systemName}: ${useRatingDescription ? "Playable with tweaks" : ""} ${rating.ratingNumber}/5`,
+          text: `${systemName}: ${
+            useRatingDescription ? "Playable with tweaks" : ""
+          } ${rating.ratingNumber}/5`,
           textColor: "black",
         };
       case "D":
         return {
           color: "#fb923c",
-          text: `${systemName}: ${useRatingDescription ? "Barely works" : ""} ${rating.ratingNumber}/5`,
+          text: `${systemName}: ${
+            useRatingDescription ? "Barely works" : ""
+          } ${rating.ratingNumber}/5`,
           textColor: "black",
         };
       case "F":
         return {
           color: "#AB0D0D",
-          text: `${systemName}: ${useRatingDescription ? "Doesn't work" : ""} ${rating.ratingNumber}/5`,
+          text: `${systemName}: ${
+            useRatingDescription ? "Doesn't work" : ""
+          } ${rating.ratingNumber}/5`,
           textColor: "white",
         };
       default:

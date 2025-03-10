@@ -34,7 +34,13 @@ export function SummaryTable({ device }: SummaryTableProps) {
           <td>CPU</td>
           <td>
             {device.cpus?.map((cpu, index) => (
-              <div key={index} style="display: flex; gap: 0.25rem;">
+              <div
+                key={index}
+                style={{
+                  display: "flex",
+                  gap: "0.25rem",
+                }}
+              >
                 {cpu.names.map((name, nameIndex) => (
                   <span key={nameIndex}>{name}</span>
                 ))}

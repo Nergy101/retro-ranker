@@ -168,13 +168,13 @@ export function DeviceSearchForm(
             aria-label="Search devices"
           />
           <input
-            style="display: none;"
+            style={{ display: "none" }}
             name="page"
             type="number"
             value={page}
           />
           <input
-            style="display: none;"
+            style={{ display: "none" }}
             name="tags"
             type="text"
             value={initialTags.map((t) => t.slug).join(",")}
@@ -219,13 +219,13 @@ export function DeviceSearchForm(
           aria-label="Search devices"
         />
         <input
-          style="display: none;"
+          style={{ display: "none" }}
           name="page"
           type="number"
           value={page}
         />
         <input
-          style="display: none;"
+          style={{ display: "none" }}
           name="tags"
           type="text"
           value={initialTags.map((t) => t.slug).join(",")}

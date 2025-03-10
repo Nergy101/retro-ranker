@@ -9,11 +9,18 @@ export function DeviceCardSmall({ device }: DeviceCardSmallProps) {
   return (
     <div
       class="small-card"
-      style="display: flex; justify-content: center; align-items: center;"
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
     >
       <a
         href={`/devices/${device.name.sanitized}`}
-        style="font-weight: bold; text-decoration: none;"
+        style={{
+          fontWeight: "bold",
+          textDecoration: "none",
+        }}
       >
         <div
           style={{
@@ -61,7 +68,11 @@ export function DeviceCardSmall({ device }: DeviceCardSmallProps) {
                   width={100}
                   height={100}
                   alt={device.image?.alt ?? "A device image"}
-                  style="width: 100px; height: 100px; object-fit: contain;"
+                  style={{
+                    width: "100px",
+                    height: "100px",
+                    objectFit: "contain",
+                  }}
                 />
               )
               : (

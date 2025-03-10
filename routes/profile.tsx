@@ -2,9 +2,8 @@ import { FreshContext } from "$fresh/server.ts";
 import { PiPlus } from "@preact-icons/pi";
 import { slugify } from "https://deno.land/x/slugify@0.3.0/mod.ts";
 import SEO from "../components/SEO.tsx";
-import SignOut from "../islands/auth/sign-out.tsx";
-import { ShareButton } from "../islands/buttons/ShareButton.tsx";
 import { User } from "../data/contracts/user.contract.ts";
+import SignOut from "../islands/auth/sign-out.tsx";
 
 export default async function ProfilePage(
   req: Request,

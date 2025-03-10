@@ -33,7 +33,10 @@ export function StarRating({ device }: StarRatingProps) {
 
   return (
     <span
-      style="display: flex; color: var(--pico-primary);"
+      style={{
+        display: "flex",
+        color: "var(--pico-primary)",
+      }}
       data-placement="bottom"
       data-tooltip={`Emulation Rating: ${fivePointRating.toFixed(1)}/5`}
     >

@@ -229,7 +229,15 @@ export function DeviceComparisonResult(
           <div style={{ display: "flex", justifyContent: "center" }}>
             <StarRating device={device} />
           </div>
-          <div style="margin-bottom: .5rem; display: flex; flex-direction: row; justify-content: center; gap: .5rem;">
+          <div
+            style={{
+              marginBottom: ".5rem",
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+              gap: ".5rem",
+            }}
+          >
             {!device.pricing.discontinued && device.pricing.average
               ? (
                 <span

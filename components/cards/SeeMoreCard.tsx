@@ -10,7 +10,13 @@ export function SeeMoreCard({ href, text = "More devices" }: SeeMoreCardProps) {
     <a
       href={href}
       class="small-card see-more-card"
-      style="text-decoration: none; display: flex; justify-content: center; align-items: center; text-align: center;"
+      style={{
+        textDecoration: "none",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        textAlign: "center",
+      }}
     >
       <PiArrowBendDoubleUpRight
         style={{ fontSize: "2rem", color: "var(--pico-primary-text)" }}

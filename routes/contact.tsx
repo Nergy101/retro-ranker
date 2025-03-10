@@ -45,7 +45,11 @@ export default function Contact({ url }: PageProps) {
               href="https://github.com/Nergy101/retro-ranker"
               target="_blank"
               class="small-card"
-              style="text-decoration: none; text-align: center; justify-content: center;"
+              style={{
+                textDecoration: "none",
+                textAlign: "center",
+                justifyContent: "center",
+              }}
             >
               <PiCode class="text-4xl" />
               <span>
@@ -86,7 +90,11 @@ export default function Contact({ url }: PageProps) {
               href="https://bsky.app/profile/nergy101.bsky.social"
               target="_blank"
               class="small-card"
-              style="text-decoration: none; text-align: center; justify-content: center;"
+              style={{
+                textDecoration: "none",
+                textAlign: "center",
+                justifyContent: "center",
+              }}
             >
               <PiChatText class="text-4xl" />
               <span>BlueSky</span>

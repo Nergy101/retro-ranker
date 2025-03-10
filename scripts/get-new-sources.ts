@@ -15,17 +15,19 @@ const zip = await zipDownloadedFromUrl.arrayBuffer();
 
 // save zip to local file
 const zipPath = "sources.zip";
-const extractPath = "../data/source/files";
+const extractPath = "data/source/files";
 
 // create extractPath if it doesn't exist
 await Deno.mkdir(extractPath, { recursive: true });
 console.info(chalk.blue(`Created extract path: ${extractPath}`));
 
-await Deno.writeFile(zipPath, new Uint8Array(zip));
-console.info(chalk.blue(`Saved zip to: ${extractPath}/${zipPath}`));
+const fullZipPath = `${extractPath}/${zipPath}`;
+
+await Deno.writeFile(fullZipPath, new Uint8Array(zip));
+console.info(chalk.blue(`Saved zip to: ${fullZipPath}`));
 
 try {
-  const buffer = await Deno.readFile("./sources.zip");
+  const buffer = await Deno.readFile(fullZipPath);
 
   for (const { name, data } of await extract(buffer)) {
     if (name === "Handhelds.html" || name === "OEM.html") {
@@ -36,8 +38,8 @@ try {
     }
   }
 } finally {
-  await Deno.remove(zipPath);
-  console.info(chalk.blue(`Removed zip file: ${zipPath}`));
+  await Deno.remove(fullZipPath);
+  console.info(chalk.blue(`Removed zip file: ${fullZipPath}`));
 }
 
 console.info(chalk.green(`Saved Handhelds.html and OEM.html!`));

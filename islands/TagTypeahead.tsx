@@ -76,7 +76,6 @@ export default function TagTypeahead(
       ];
       return order.indexOf(a) - order.indexOf(b);
     }).map(([type, tags]) => {
-
       if (type === "price") {
         // pick out the 1 entry with ?? in the name and put that before the others
         const qTag = tags.find((t) => t.name.includes("??"));
@@ -88,11 +87,9 @@ export default function TagTypeahead(
       }
 
       // Then sort the tags within each type alphabetically by name
-      const sortedTags = [...tags].sort((a, b) => 
-        a.name.localeCompare(b.name)
-      );
+      const sortedTags = [...tags].sort((a, b) => a.name.localeCompare(b.name));
       return [type, sortedTags];
-    })
+    }),
   );
 
   return (
