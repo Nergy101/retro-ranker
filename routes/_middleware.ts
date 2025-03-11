@@ -6,7 +6,7 @@ export async function handler(req: Request, ctx: FreshContext) {
 
   const pbService = await createPocketBaseService();
   const cookieHeader = req.headers.get("cookie");
-  
+
   if (cookieHeader) {
     try {
       const user = await pbService.getUser(cookieHeader);
@@ -28,6 +28,5 @@ export async function handler(req: Request, ctx: FreshContext) {
       "public, max-age=3600, s-maxage=86400",
     );
   }
-
   return response;
 }

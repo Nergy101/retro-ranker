@@ -152,7 +152,7 @@ export function DeviceComparisonForm({
               type="search"
               value={queryA}
               onInput={(e) => queryAChanged(e.currentTarget.value)}
-              placeholder="Search for a device..."
+              placeholder="Start typing for suggestions..."
               aria-label="Search devices"
               {...(queryA.value === "" ? {} : {
                 ariaInvalid: deviceNameIsInvalid(queryA.value),
@@ -178,7 +178,7 @@ export function DeviceComparisonForm({
               type="search"
               value={queryB}
               onInput={(e) => queryBChanged(e.currentTarget.value)}
-              placeholder="Search for a device..."
+              placeholder="Start typing for suggestions..."
               aria-label="Search devices"
               {...(queryB.value === "" ? {} : {
                 ariaInvalid: deviceNameIsInvalid(queryB.value),

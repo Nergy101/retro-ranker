@@ -99,20 +99,18 @@ export function DesktopNav(
             </li>
           ))}
           <li class="nav-search-item">
-            <div>
-              <input
-                type="search"
-                placeholder="Handheld search"
-                name="search"
-                aria-label="Search"
-                onInput={(e) => queryChanged(e.currentTarget.value)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") {
-                    handleSubmit();
-                  }
-                }}
-              />
-            </div>
+            <input
+              type="search"
+              placeholder="Start typing for suggestions..."
+              name="search"
+              aria-label="Search"
+              onInput={(e) => queryChanged(e.currentTarget.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  handleSubmit();
+                }
+              }}
+            />
           </li>
           <li class="nav-theme-item">
             <ThemeSwitcher showNames={false} showTooltip={false} />

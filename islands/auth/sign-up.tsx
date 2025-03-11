@@ -1,4 +1,5 @@
 import { useSignal } from "@preact/signals";
+import { PiSignIn, PiUser, PiUserPlus } from "@preact-icons/pi";
 export default function SignUp() {
   const error = useSignal<string | null>(null);
 
@@ -164,9 +165,21 @@ export default function SignUp() {
 
   return (
     <div
+      class="auth-form"
       style={{ maxWidth: "25rem", margin: "2.5rem auto", padding: "1.25rem" }}
     >
-      <h1 style={{ textAlign: "center", marginBottom: "1.25rem" }}>Sign Up</h1>
+      <h1
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "0.5rem",
+          justifyContent: "center",
+          textAlign: "center",
+          marginBottom: "1.25rem",
+        }}
+      >
+        <PiUser /> Sign Up
+      </h1>
 
       {error.value && (
         <div
@@ -369,21 +382,27 @@ export default function SignUp() {
 
         <button
           type="submit"
+          class="bg-rr-primary"
           style={{
-            backgroundColor: "#4caf50",
-            color: "white",
             padding: "0.625rem",
             border: "none",
             borderRadius: "0.25rem",
             cursor: "pointer",
             marginTop: "0.625rem",
+            display: "flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            justifyContent: "center",
           }}
         >
-          Sign Up
+          <PiUserPlus /> Sign Up
         </button>
       </form>
 
-      <div style={{ textAlign: "center", marginTop: "1.25rem" }}>
+      <div
+        style={{ textAlign: "center", marginTop: "1.25rem" }}
+        class="auth-form-footer"
+      >
         <a
           href="/auth/sign-in"
           style={{ textDecoration: "none" }}

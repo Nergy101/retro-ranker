@@ -1,11 +1,23 @@
 import { useSignal } from "@preact/signals";
+import { PiSignIn, PiUserCheck } from "@preact-icons/pi";
 
 export default function SignIn() {
   const error = useSignal<string | null>(null);
 
   return (
     <div class="auth-form">
-      <h1>Sign In</h1>
+      <h1
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "0.5rem",
+          justifyContent: "center",
+          textAlign: "center",
+          marginBottom: "1.25rem",
+        }}
+      >
+        <PiUserCheck /> Sign In
+      </h1>
 
       {error.value && (
         <div class="auth-form-error" role="alert">
@@ -50,9 +62,15 @@ export default function SignIn() {
         <button
           type="submit"
           class="bg-rr-primary"
-          style={{ marginTop: "1rem" }}
+          style={{
+            marginTop: "1rem",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "0.5rem",
+          }}
         >
-          Sign In
+          <PiSignIn /> Sign In
         </button>
       </form>
 

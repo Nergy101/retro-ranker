@@ -1355,11 +1355,12 @@ h6,
 
 .nav-search-item {
   margin-left: auto;
-  margin-right: 1rem;
+  margin-right: auto;
 
   display: flex;
   flex-direction: row;
   align-items: center;
+  flex: 1;
 }
 
 .nav-theme-item {
@@ -1449,6 +1450,7 @@ h6,
   display: flex;
   flex-direction: row;
   align-items: center;
+  flex: 1;
 }
 
 .mobile-nav-theme-switcher {

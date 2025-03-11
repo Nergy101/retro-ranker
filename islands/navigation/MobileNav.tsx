@@ -112,21 +112,19 @@ export function MobileNav(
           </a>
 
           <div class="mobile-nav-search-item">
-            <div>
-              <input
-                type="search"
-                placeholder="Search"
-                name="search"
-                aria-label="Search"
-                style={{ margin: 0 }}
-                onInput={(e) => queryChanged(e.currentTarget.value)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") {
-                    handleSubmit();
-                  }
-                }}
-              />
-            </div>
+            <input
+              type="search"
+              placeholder="Search"
+              name="search"
+              aria-label="Search"
+              style={{ margin: 0 }}
+              onInput={(e) => queryChanged(e.currentTarget.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  handleSubmit();
+                }
+              }}
+            />
           </div>
 
           <button

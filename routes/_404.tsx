@@ -1,20 +1,18 @@
 import { PiGameControllerBold } from "@preact-icons/pi";
 import SEO from "../components/SEO.tsx";
 
-export default function Error404(props: { url: URL }) {
+export default function Error404() {
   return (
-    <>
+    <div class="not-found">
       <SEO
         title="404 Page Not Found"
         description="The page you were looking for doesn't exist on Retro Ranker. Return to our homepage to browse retro gaming handhelds and comparison tools."
-        url={`https://retroranker.site${props.url.pathname}`}
-        keywords="retro ranker 404, page not found, retro gaming site, handheld comparison platform"
-        robots="noindex, follow"
+        robots="noindex, nofollow"
       />
-      <div class="bg-rr-primary">
+      <article>
         <div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">
           <h1 class="text-4xl font-bold">404 - Page not found</h1>
-          <span style={{ color: "var(--pico-primary-inverse)" }}>
+          <span>
             The page you were looking for doesn't exist.
           </span>
           <a
@@ -26,14 +24,14 @@ export default function Error404(props: { url: URL }) {
               alignItems: "center",
               textDecoration: "none",
               marginTop: "1rem",
-              color: "var(--pico-primary-inverse)",
+              color: "var(--pico-color)",
             }}
           >
             <PiGameControllerBold />
-            &nbsp;Go back home
+            Go back home
           </a>
         </div>
-      </div>
-    </>
+      </article>
+    </div>
   );
 }

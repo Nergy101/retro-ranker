@@ -140,13 +140,14 @@ export default function DeviceDetail(props: PageProps) {
   if (!device) {
     return (
       <div>
+        <SEO></SEO>
         <article>
           <header>
-            <h1>Device Not Found</h1>
+            <h1>Device "{props.params?.name}" not found.</h1>
           </header>
           <p>Sorry, we couldn't find the device you're looking for.</p>
           <footer>
-            <a href="/" role="button">Return to Home</a>
+            <a href="/devices" role="button">Return to devices</a>
           </footer>
         </article>
       </div>
