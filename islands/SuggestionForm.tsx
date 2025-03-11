@@ -1,5 +1,5 @@
 import { useSignal } from "@preact/signals";
-import { PiChat } from "@preact-icons/pi";
+import { PiChat, PiPaperPlaneRight } from "@preact-icons/pi";
 
 interface SuggestionFormProps {
   userEmail: string;
@@ -90,7 +90,7 @@ export default function SuggestionForm({ userEmail }: SuggestionFormProps) {
           width: "fit-content",
         }}
       >
-        <PiChat /> Submit
+        <PiPaperPlaneRight /> Submit
       </button>
     </form>
   );

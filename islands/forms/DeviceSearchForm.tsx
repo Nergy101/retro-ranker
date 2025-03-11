@@ -244,7 +244,7 @@ export function DeviceSearchForm(
           <option value="alphabetical">A - Z</option>
           <option value="reverse-alphabetical">Z - A</option>
         </select>
-        <input type="submit" value="Search" />
+        <input type="submit" value="Search" aria-label="Search" />
       </form>
 
       {renderTags()}

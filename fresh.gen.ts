@@ -24,7 +24,8 @@ import * as $devices_index from "./routes/devices/index.tsx";
 import * as $devices_tags from "./routes/devices/tags.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $privacy from "./routes/privacy.tsx";
-import * as $profile from "./routes/profile.tsx";
+import * as $profile_layout from "./routes/profile/_layout.tsx";
+import * as $profile_index from "./routes/profile/index.tsx";
 import * as $release_timeline_layout from "./routes/release-timeline/_layout.tsx";
 import * as $release_timeline_index from "./routes/release-timeline/index.tsx";
 import * as $terms from "./routes/terms.tsx";
@@ -52,6 +53,7 @@ import * as $navigation_DesktopNav from "./islands/navigation/DesktopNav.tsx";
 import * as $navigation_MobileNav from "./islands/navigation/MobileNav.tsx";
 import * as $navigation_Navbar from "./islands/navigation/Navbar.tsx";
 import * as $navigation_ThemeSwitcher from "./islands/navigation/ThemeSwitcher.tsx";
+import * as $profile_DeviceCollections from "./islands/profile/DeviceCollections.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -78,7 +80,8 @@ const manifest = {
     "./routes/devices/tags.tsx": $devices_tags,
     "./routes/index.tsx": $index,
     "./routes/privacy.tsx": $privacy,
-    "./routes/profile.tsx": $profile,
+    "./routes/profile/_layout.tsx": $profile_layout,
+    "./routes/profile/index.tsx": $profile_index,
     "./routes/release-timeline/_layout.tsx": $release_timeline_layout,
     "./routes/release-timeline/index.tsx": $release_timeline_index,
     "./routes/terms.tsx": $terms,
@@ -112,6 +115,7 @@ const manifest = {
     "./islands/navigation/MobileNav.tsx": $navigation_MobileNav,
     "./islands/navigation/Navbar.tsx": $navigation_Navbar,
     "./islands/navigation/ThemeSwitcher.tsx": $navigation_ThemeSwitcher,
+    "./islands/profile/DeviceCollections.tsx": $profile_DeviceCollections,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;

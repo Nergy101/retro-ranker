@@ -250,7 +250,7 @@ export class DeviceService {
       .slice(0, limit);
   }
 
-  public getpersonalPicks(): Device[] {
+  public getPersonalPicks(): Device[] {
     return this.devices
       .filter((device) => personalPicks.includes(device.name.sanitized))
       .sort((a, b) =>

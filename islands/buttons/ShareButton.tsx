@@ -1,11 +1,12 @@
 import { PiShare } from "@preact-icons/pi";
 
 export function ShareButton(
-  { title, shareTitle, url, appearance = "default" }: {
+  { title, tooltip = "Share", shareTitle, url, appearance = "default" }: {
     title: string;
+    tooltip?: string;
     shareTitle: string;
     url: string;
-    appearance?: "default" | "outline";
+    appearance?: "default" | "outline" | "outline contrast";
   },
 ) {
   const handleShare = () => {
@@ -15,10 +16,10 @@ export function ShareButton(
     });
   };
 
-  if (appearance === "outline") {
+  if (appearance === "outline" || appearance === "outline contrast") {
     return (
       <button
-        class="button outline secondary"
+        class={`button secondary ${appearance}`}
         style={{
           display: "flex",
           alignItems: "center",
@@ -27,7 +28,7 @@ export function ShareButton(
         }}
         aria-label="Share page"
         onClick={handleShare}
-        data-tooltip="Share"
+        data-tooltip={tooltip}
         data-placement="bottom"
         role="button"
         type="button"
@@ -43,7 +44,7 @@ export function ShareButton(
       aria-label="Share page"
       class="device-detail-action-button"
       onClick={handleShare}
-      data-tooltip="Share"
+      data-tooltip={tooltip}
       data-placement="right"
     >
       <span

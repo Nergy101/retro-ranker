@@ -21,7 +21,7 @@ export default function Home({ url }: PageProps) {
   // Filter devices into categories
   const deviceService = DeviceService.getInstance();
   const newArrivals = deviceService.getNewArrivals();
-  const personalPicks = deviceService.getpersonalPicks();
+  const personalPicks = deviceService.getPersonalPicks();
   const highlyRated = deviceService.getHighlyRated();
   const upcoming = deviceService.getUpcoming();
 

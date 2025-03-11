@@ -71,40 +71,12 @@ body.paused-animation::before {
   animation-play-state: paused !important;
 }
 
-/* body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: url("/images/patternbg.svg") repeat,
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-  background-size: auto 1000px, cover;
-  z-index: -1;
-  animation: scrollBackground 30s linear infinite;
-} */
-
-/* [data-theme="light"] body::before {
-  background: url("/images/patternbgw.svg") repeat;
-  background-size: auto 1000px, cover;
-} */
-
-/* @keyframes scrollBackground {
-  from {
-    background-position: center 0, top;
-  }
-  to {
-    background-position: center 1000px, top;
-  }
-} */
-
 .transition-colors {
-  transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 500ms cubic-bezier(0.4, 0, 0.2, 1),
+  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 300ms cubic-bezier(0.4, 0, 0.2, 1),
     color 200ms cubic-bezier(0.4, 0, 0.2, 1),
-    fill 500ms cubic-bezier(0.4, 0, 0.2, 1),
-    stroke 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    fill 300ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .my-6 {
@@ -720,6 +692,10 @@ h6,
 
 .device-search-form:focus-within {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .device-search-form:focus-within {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
 }
 
 .similar-devices-grid {
