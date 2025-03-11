@@ -39,7 +39,7 @@ export default function About({ url }: PageProps) {
           </p>
         </details>
 
-        <details>
+        <details open>
           <summary class="flex items-center gap-2">
             <div style={{ display: "flex", alignItems: "center" }}>
               <PiStack class="text-3xl" />

@@ -151,8 +151,9 @@ export default function Home({ url }: PageProps) {
                   }}
                 >
                   <a
+                    role="button"
+                    class="button contrast outline"
                     href="/devices"
-                    class="button primary"
                     style={{
                       display: "inline-flex",
                       alignItems: "center",
@@ -163,7 +164,8 @@ export default function Home({ url }: PageProps) {
                   </a>
                   <a
                     href="/compare"
-                    class="button"
+                    role="button"
+                    class="button contrast outline"
                     style={{
                       display: "inline-flex",
                       alignItems: "center",
@@ -174,7 +176,8 @@ export default function Home({ url }: PageProps) {
                   </a>
                   <a
                     href="/release-timeline"
-                    class="button"
+                    role="button"
+                    class="button contrast outline"
                     style={{
                       display: "inline-flex",
                       alignItems: "center",
