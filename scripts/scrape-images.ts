@@ -1,5 +1,5 @@
 // deno-lint-ignore-file no-console
-import { Device } from "../data/device.model.ts";
+import { Device } from "../data/frontend/contracts/device.model.ts";
 // @deno-types="https://deno.land/x/chalk_deno@v4.1.1-deno/index.d.ts"
 import chalk from "https://deno.land/x/chalk_deno@v4.1.1-deno/source/index.js";
 import { slugify } from "https://deno.land/x/slugify@0.3.0/mod.ts";

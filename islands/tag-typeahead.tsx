@@ -2,8 +2,11 @@ import { PiTag } from "@preact-icons/pi";
 import { useSignal } from "@preact/signals";
 import { DeviceCardMedium } from "../components/cards/DeviceCardMedium.tsx";
 import { FilterTag } from "../components/shared/FilterTag.tsx";
-import { Device } from "../data/device.model.ts";
-import { TAG_FRIENDLY_NAMES, TagModel } from "../data/models/tag.model.ts";
+import { Device } from "../data/frontend/contracts/device.model.ts";
+import {
+  TAG_FRIENDLY_NAMES,
+  TagModel,
+} from "../data/frontend/models/tag.model.ts";
 
 export default function TagTypeahead(
   { allTags, initialTags, devicesWithSelectedTags }: {

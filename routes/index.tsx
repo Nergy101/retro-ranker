@@ -13,9 +13,9 @@ import { DeviceCardMedium } from "../components/cards/DeviceCardMedium.tsx";
 import { SeeMoreCard } from "../components/cards/SeeMoreCard.tsx";
 import SEO from "../components/SEO.tsx";
 import { TagComponent } from "../components/shared/TagComponent.tsx";
-import { BrandWebsites } from "../data/brand-websites.ts";
-import { TagModel } from "../data/models/tag.model.ts";
-import { DeviceService } from "../services/devices/device.service.ts";
+import { BrandWebsites } from "../data/frontend/enums/brand-websites.ts";
+import { TagModel } from "../data/frontend/models/tag.model.ts";
+import { DeviceService } from "../data/frontend/services/devices/device.service.ts";
 
 export default function Home({ url }: PageProps) {
   // Filter devices into categories
@@ -51,7 +51,7 @@ export default function Home({ url }: PageProps) {
   return (
     <div class="home-page">
       <SEO
-        title="Retro Ranker"
+        title="Browse and compare retro gaming handhelds"
         description="Compare retro handhelds to find your perfect gaming device."
         url={`https://retroranker.site${url.pathname}`}
         keywords="retro gaming, handheld consoles, emulation devices, retro handhelds, gaming comparison, Anbernic, Miyoo, retro game emulation, portable gaming systems, retro gaming comparison"

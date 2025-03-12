@@ -2,12 +2,12 @@ import { PiListBold } from "@preact-icons/pi";
 import { useSignal } from "@preact/signals";
 import { useEffect, useRef } from "preact/hooks";
 import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
-import { Device } from "../../data/device.model.ts";
-import { navigationItems } from "../../data/navigation-items.ts";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
+import { navigationItems } from "../../data/frontend/navigation-items.ts";
 import { ThemeSwitcher } from "./ThemeSwitcher.tsx";
-import { User } from "../../data/contracts/user.contract.ts";
+import { User } from "../../data/frontend/contracts/user.contract.ts";
 import { ProfileImage } from "../../components/auth/profile-image.tsx";
-import { searchDevices } from "../../utils/search.utils.ts";
+import { searchDevices } from "../../data/frontend/services/utils/search.utils.ts";
 
 export function MobileNav(
   { pathname, allDevices, user }: {

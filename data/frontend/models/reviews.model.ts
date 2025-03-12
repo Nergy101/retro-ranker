@@ -1,4 +1,4 @@
-import { Link } from "./Link.ts";
+import { Link } from "./link.ts";
 
 export interface DeviceReviews {
   videoReviews: Link[];

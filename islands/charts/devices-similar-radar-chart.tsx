@@ -1,6 +1,6 @@
 import { useSignal } from "@preact/signals";
-import type { Device } from "../../data/device.model.ts";
-import { DevicesRadarChart } from "./DevicesRadarChart.tsx";
+import type { Device } from "../../data/frontend/contracts/device.model.ts";
+import { DevicesRadarChart } from "./devices-radar-chart.tsx";
 
 interface DevicesSimilarRadarChartProps {
   device: Device;

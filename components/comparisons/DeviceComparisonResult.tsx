@@ -1,4 +1,4 @@
-import { Device } from "../../data/device.model.ts";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { RatingInfo } from "../ratings/RatingInfo.tsx";
 import { StarRating } from "../ratings/StarRating.tsx";
 import { CurrencyIcon } from "../shared/CurrencyIcon.tsx";
@@ -17,8 +17,8 @@ import {
 } from "@preact-icons/pi";
 import { VNode } from "https://esm.sh/preact@10.25.4/src/index.js";
 import { JSX } from "preact/jsx-runtime";
-import { Ranking } from "../../data/models/ranking.model.ts";
-import { DeviceService } from "../../services/devices/device.service.ts";
+import { Ranking } from "../../data/frontend/models/ranking.model.ts";
+import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 import { TagComponent } from "../shared/TagComponent.tsx";
 import { AudioTable } from "../specifications/tables/AudioTable.tsx";
 import { ConnectivityTable } from "../specifications/tables/ConnectivityTable.tsx";

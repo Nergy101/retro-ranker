@@ -1,10 +1,10 @@
 import SEO from "../../components/SEO.tsx";
 import { PageProps } from "$fresh/server.ts";
-import { DeviceService } from "../../services/devices/device.service.ts";
+import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 
-import { DevicesPerBrandBarChart } from "../../islands/charts/DevicesPerBrandBarChart.tsx";
-import { DevicesPerRatingBarChart } from "../../islands/charts/DevicesPerRankingBarChart.tsx";
-import { DevicesPerReleaseYearLineChart } from "../../islands/charts/DevicesPerReleaseYearLineChart.tsx";
+import { DevicesPerBrandBarChart } from "../../islands/charts/devices-per-brand-bar-chart.tsx";
+import { DevicesPerRatingBarChart } from "../../islands/charts/devices-per-ranking-bar-chart.tsx";
+import { DevicesPerReleaseYearLineChart } from "../../islands/charts/devices-per-release-year-line-chart.tsx";
 
 export default function ChartsIndex({ url }: PageProps) {
   const deviceService = DeviceService.getInstance();

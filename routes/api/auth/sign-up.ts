@@ -1,6 +1,6 @@
 import { Handlers } from "$fresh/server.ts";
-import { createPocketBaseService } from "../../../services/pocketbase/pocketbase.service.ts";
-import { ProblemDetail } from "../../../data/contracts/problem-detail.ts";
+import { createPocketBaseService } from "../../../data/pocketbase/pocketbase.service.ts";
+import { ProblemDetail } from "../../../data/frontend/contracts/problem-detail.ts";
 
 export const handler: Handlers = {
   async POST(req, _ctx) {

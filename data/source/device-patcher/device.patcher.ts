@@ -1,5 +1,5 @@
 // deno-lint-ignore-file no-console
-import { Device } from "../../device.model.ts";
+import { Device } from "../../frontend/contracts/device.model.ts";
 
 // Read the existing devices
 const filePath = "../results/handhelds.json";

@@ -25,16 +25,16 @@ import {
   PiXCircle,
 } from "@preact-icons/pi";
 import { JSX, VNode } from "preact";
-import { Device } from "../../data/device.model.ts";
-import { Cooling } from "../../data/models/cooling.model.ts";
-import { TagModel } from "../../data/models/tag.model.ts";
+import { Device } from "../../contracts/device.model.ts";
+import { Cooling } from "../../models/cooling.model.ts";
+import { TagModel } from "../../models/tag.model.ts";
 import { RatingsService } from "./ratings.service.ts";
-import { personalPicks } from "../../data/personal-picks.ts";
+import { personalPicks } from "../../enums/personal-picks.ts";
 import {
   EmulationSystem,
   EmulationSystemOrder,
-} from "../../data/enums/EmulationSystem.ts";
-import { SystemRating } from "../../data/models/system-rating.model.ts";
+} from "../../enums/emulation-system.ts";
+import { SystemRating } from "../../models/system-rating.model.ts";
 export class DeviceService {
   private devices: Device[] = [];
   private tags: TagModel[] = [];

@@ -2,7 +2,7 @@ import { PiCaretRight, PiGameController } from "@preact-icons/pi";
 import { signal } from "@preact/signals";
 import { JSX, VNode } from "preact";
 import { useEffect } from "preact/hooks";
-import { navigationItems } from "../../data/navigation-items.ts";
+import { navigationItems } from "../../data/frontend/navigation-items.ts";
 
 interface BreadcrumbProps {
   items?: {

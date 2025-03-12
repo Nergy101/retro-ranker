@@ -1,9 +1,9 @@
 import SEO from "../../components/SEO.tsx";
 import { PageProps } from "$fresh/server.ts";
 import { PiCaretCircleDoubleDown } from "@preact-icons/pi";
-import { Device } from "../../data/device.model.ts";
-import { TimelineContent } from "../../islands/TimelineContent.tsx";
-import { DeviceService } from "../../services/devices/device.service.ts";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
+import { TimelineContent } from "../../islands/timeline-content.tsx";
+import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 
 export default function ReleaseTimeline({ url }: PageProps) {
   const deviceService = DeviceService.getInstance();
@@ -36,7 +36,7 @@ export default function ReleaseTimeline({ url }: PageProps) {
   return (
     <div class="release-timeline-page">
       <SEO
-        title="Retro Gaming Handheld Release Timeline"
+        title="Gaming Handheld Release Timeline"
         description="Explore the complete chronological release timeline of retro gaming handhelds. Track upcoming releases, view historical launch dates, and discover the evolution of portable emulation devices over time."
         url={`https://retroranker.site${url.pathname}`}
         keywords="retro gaming timeline, handheld release dates, emulation device history, upcoming retro handhelds, retro console releases, gaming device roadmap, retro gaming calendar, handheld launch dates"

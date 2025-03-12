@@ -1,5 +1,5 @@
 // deno-lint-ignore-file no-console
-import { Device } from "../device.model.ts";
+import { Device } from "../frontend/contracts/device.model.ts";
 import { DeviceParser } from "./device-parser/device.parser.ts";
 import { slugify } from "https://deno.land/x/slugify@0.3.0/mod.ts";
 // @deno-types="https://deno.land/x/chalk_deno@v4.1.1-deno/index.d.ts"
@@ -37,6 +37,7 @@ const devices = allDevices
   .filter((device) => device.image.originalUrl !== "");
 
 if (await exists(filePath)) {
+  console.info(chalk.blue("Reading existing devices from: ", filePath));
   const currentDevices = JSON.parse(
     new TextDecoder().decode(await Deno.readFile(filePath)),
   ) as Device[];

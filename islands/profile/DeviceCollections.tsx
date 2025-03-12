@@ -1,6 +1,6 @@
 import { PiEye, PiPencil, PiTrash } from "@preact-icons/pi";
 import { DeviceCardSmall } from "../../components/cards/DeviceCardSmall.tsx";
-import { DeviceCollection } from "../../data/contracts/device-collection.ts";
+import { DeviceCollection } from "../../data/frontend/contracts/device-collection.ts";
 import { ShareButton } from "../buttons/ShareButton.tsx";
 
 interface DeviceCollectionsProps {
@@ -28,7 +28,8 @@ function CollectionCard({ collection }: { collection: DeviceCollection }) {
         <hgroup>
           <h3 class="text-xl font-semibold mb-2">{collection.name}</h3>
           <p class="text-sm text-gray-500">
-            Created: {collection.createdAt.toLocaleDateString()} | Last updated:{" "}
+            Created: {collection.createdAt.toLocaleDateString()} | Last updated:
+            {" "}
             {collection.updatedAt.toLocaleDateString()} |{" "}
             {collection.deviceCount}{" "}
             {collection.deviceCount === 1 ? "device" : "devices"}

@@ -1,8 +1,8 @@
 import { FreshContext } from "$fresh/server.ts";
-import { User } from "../data/contracts/user.contract.ts";
+import { User } from "../data/frontend/contracts/user.contract.ts";
 import Footer from "../components/shared/Footer.tsx";
 import { Navbar } from "../islands/navigation/Navbar.tsx";
-import { DeviceService } from "../services/devices/device.service.ts";
+import { DeviceService } from "../data/frontend/services/devices/device.service.ts";
 
 export default async function App(
   req: Request,

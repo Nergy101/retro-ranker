@@ -1,4 +1,4 @@
-import { EmulationSystem } from "../enums/EmulationSystem.ts";
+import { EmulationSystem } from "../enums/emulation-system.ts";
 
 export interface SystemRating {
   system: EmulationSystem;

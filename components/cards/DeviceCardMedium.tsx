@@ -1,6 +1,6 @@
 import { PiQuestion } from "@preact-icons/pi";
-import { Device } from "../../data/device.model.ts";
-import { DeviceService } from "../../services/devices/device.service.ts";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
+import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 import { RatingInfo } from "../ratings/RatingInfo.tsx";
 import { CurrencyIcon } from "../shared/CurrencyIcon.tsx";
 

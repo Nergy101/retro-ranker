@@ -1,9 +1,9 @@
 import { FreshContext } from "$fresh/server.ts";
-import { ProblemDetail } from "../../data/contracts/problem-detail.ts";
-import { User } from "../../data/contracts/user.contract.ts";
+import { ProblemDetail } from "../../data/frontend/contracts/problem-detail.ts";
+import { User } from "../../data/frontend/contracts/user.contract.ts";
 import {
-    createLoggedInPocketBaseService
-} from "../../services/pocketbase/pocketbase.service.ts";
+  createLoggedInPocketBaseService,
+} from "../../data/pocketbase/pocketbase.service.ts";
 
 interface SuggestionPayload {
   email: string;
@@ -60,13 +60,14 @@ export const handler = {
         "suggestions",
         1,
         MAX_SUGGESTIONS_PER_USER + 1, // Get one more than the limit to check if we're over
-        `email="${user.email}"`
+        `email="${user.email}"`,
       );
 
       if (existingSuggestions.items.length >= MAX_SUGGESTIONS_PER_USER) {
         return new Response(
-          JSON.stringify({ 
-            error: `You have reached the limit of ${MAX_SUGGESTIONS_PER_USER} suggestions. Thank you for your contributions!` 
+          JSON.stringify({
+            error:
+              `You have reached the limit of ${MAX_SUGGESTIONS_PER_USER} suggestions. Thank you for your contributions!`,
           }),
           {
             status: 400,

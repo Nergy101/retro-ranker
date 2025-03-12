@@ -1,8 +1,8 @@
 import { PageProps } from "$fresh/server.ts";
 import SEO from "../../components/SEO.tsx";
-import { TagModel } from "../../data/models/tag.model.ts";
-import TagTypeahead from "../../islands/TagTypeahead.tsx";
-import { DeviceService } from "../../services/devices/device.service.ts";
+import { TagModel } from "../../data/frontend/models/tag.model.ts";
+import TagTypeahead from "../../islands/tag-typeahead.tsx";
+import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 
 export default function DeviceTags(props: PageProps) {
   const deviceService = DeviceService.getInstance();

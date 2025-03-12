@@ -3,10 +3,10 @@ import { PageProps } from "$fresh/server.ts";
 import { PiChartLine, PiInfo } from "@preact-icons/pi";
 import { DeviceComparisonResult } from "../../components/comparisons/DeviceComparisonResult.tsx";
 import { DeviceComparisonText } from "../../components/comparisons/DeviceComparisonText.tsx";
-import { DevicesRadarChart } from "../../islands/charts/DevicesRadarChart.tsx";
+import { DevicesRadarChart } from "../../islands/charts/devices-radar-chart.tsx";
 import { DeviceComparisonForm } from "../../islands/forms/DeviceComparisonForm.tsx";
-import { DeviceService } from "../../services/devices/device.service.ts";
-import { RatingsService } from "../../services/devices/ratings.service.ts";
+import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
+import { RatingsService } from "../../data/frontend/services/devices/ratings.service.ts";
 
 export default function Compare({ url }: PageProps) {
   const deviceService = DeviceService.getInstance();
@@ -40,7 +40,9 @@ export default function Compare({ url }: PageProps) {
       `Compare ${device1.brand.raw} ${device1.name.raw} vs ${device2.brand.raw} ${device2.name.raw}.`;
   } else if (devicesToCompare.length > 0) {
     seoTitle = `Compare ${deviceNames.join(" vs ")} - Retro Gaming Handhelds`;
-    seoDescription = `Compare ${deviceNames.join(", ")} retro gaming handhelds.`;
+    seoDescription = `Compare ${
+      deviceNames.join(", ")
+    } retro gaming handhelds.`;
   }
 
   return (

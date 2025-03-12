@@ -1,8 +1,8 @@
 import { useSignal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
 import { FilterTag } from "../../components/shared/FilterTag.tsx";
-import { TagModel } from "../../data/models/tag.model.ts";
-import { UmamiService } from "../../services/umami/umami.service.ts";
+import { TagModel } from "../../data/frontend/models/tag.model.ts";
+import { UmamiService } from "../../data/frontend/services/umami/umami.service.ts";
 
 interface DeviceSearchFormProps {
   initialSearch: string;

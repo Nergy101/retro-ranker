@@ -10,14 +10,14 @@ import { CurrencyIcon } from "../../components/shared/CurrencyIcon.tsx";
 import { TagComponent } from "../../components/shared/TagComponent.tsx";
 import { DeviceSpecs } from "../../components/specifications/DeviceSpecs.tsx";
 import { SummaryTable } from "../../components/specifications/tables/SummaryTable.tsx";
-import { BrandWebsites } from "../../data/brand-websites.ts";
-import { Device } from "../../data/device.model.ts";
+import { BrandWebsites } from "../../data/frontend/enums/brand-websites.ts";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { BackButton } from "../../islands/buttons/BackButton.tsx";
 import { ClipboardButton } from "../../islands/buttons/ClipboardButton.tsx";
 import { CompareButton } from "../../islands/buttons/CompareButton.tsx";
 import { ShareButton } from "../../islands/buttons/ShareButton.tsx";
-import { DevicesSimilarRadarChart } from "../../islands/charts/DevicesSimilarRadarChart.tsx";
-import { DeviceService } from "../../services/devices/device.service.ts";
+import { DevicesSimilarRadarChart } from "../../islands/charts/devices-similar-radar-chart.tsx";
+import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 
 export default function DeviceDetail(props: PageProps) {
   const deviceService = DeviceService.getInstance();
@@ -163,7 +163,15 @@ export default function DeviceDetail(props: PageProps) {
     <div class="device-detail">
       <SEO
         title={`${device.name.raw} - ${device.brand.raw} Retro Gaming Handheld`}
-        description={`${device.name.raw} by ${device.brand.raw}: ${device.pricing.category} retro gaming handheld.`}
+        description={`${device.name.raw} by ${device.brand.raw}: ${device.pricing.category} budget retro gaming handheld with ${
+          device.ram?.sizes?.[0]
+        } ${device.ram?.unit} RAM, ${device.storage} storage, and ${device.battery.capacity}${device.battery.unit} battery. Release: ${
+          releaseDate.expected ? "Expected" : releaseDate.date
+        }. ${
+          device.os.list.join(", ") !== "?"
+            ? `Supports ${device.os.list.join(", ")}.`
+            : ""
+        } Compare specs and performance ratings.`}
         image={`https://retroranker.site${device.image?.pngUrl ?? undefined}`}
         url={`https://retroranker.site${props.url.pathname}`}
         jsonLd={jsonLdForDevice(device)}

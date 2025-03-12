@@ -1,4 +1,4 @@
-import { Device } from "../data/device.model.ts";
+import { Device } from "../../contracts/device.model.ts";
 
 export const searchDevices = (query: string, devices: Device[]) => {
   return devices.filter((device) =>

@@ -5,10 +5,10 @@ import { DeviceCardLarge } from "../../components/cards/DeviceCardLarge.tsx";
 import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
 import { DeviceCardRow } from "../../components/cards/DeviceCardRow.tsx";
 import { PaginationNav } from "../../components/shared/PaginationNav.tsx";
-import { TagModel } from "../../data/models/tag.model.ts";
+import { TagModel } from "../../data/frontend/models/tag.model.ts";
 import { DeviceSearchForm } from "../../islands/forms/DeviceSearchForm.tsx";
-import { LayoutSelector } from "../../islands/LayoutSelector.tsx";
-import { DeviceService } from "../../services/devices/device.service.ts";
+import { LayoutSelector } from "../../islands/layout-selector.tsx";
+import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 
 export default function DevicesIndex(props: PageProps) {
   const deviceService = DeviceService.getInstance();

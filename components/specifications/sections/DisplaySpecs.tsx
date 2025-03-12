@@ -1,5 +1,5 @@
 import { PiMonitor } from "@preact-icons/pi";
-import { Device } from "../../../data/device.model.ts";
+import { Device } from "../../../data/frontend/contracts/device.model.ts";
 import { DisplaySpecsTable } from "../tables/DisplaySpecsTable.tsx";
 
 interface DisplaySpecsProps {

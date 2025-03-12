@@ -4,7 +4,7 @@ import {
   PiCaretLeftBold,
   PiCaretRightBold,
 } from "@preact-icons/pi";
-import { TagModel } from "../../data/models/tag.model.ts";
+import { TagModel } from "../../data/frontend/models/tag.model.ts";
 
 interface PaginationNavProps {
   pageNumber: number;

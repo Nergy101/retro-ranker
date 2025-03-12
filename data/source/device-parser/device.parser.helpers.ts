@@ -159,3 +159,10 @@ export function getPriceCurrency(priceText: string): string {
   );
   return symbol ? CURRENCY_SYMBOLS[symbol] : "?";
 }
+
+export function unknownOrValue(value?: string | null): string {
+  if (value) {
+    return value;
+  }
+  return "Unknown";
+}

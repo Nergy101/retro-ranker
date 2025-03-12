@@ -2,12 +2,12 @@ import { FreshContext } from "$fresh/server.ts";
 import { PiChatCentered, PiPlus } from "@preact-icons/pi";
 import { slugify } from "https://deno.land/x/slugify@0.3.0/mod.ts";
 import SEO from "../../components/SEO.tsx";
-import { DeviceCollection } from "../../data/contracts/device-collection.ts";
-import { User } from "../../data/contracts/user.contract.ts";
+import { DeviceCollection } from "../../data/frontend/contracts/device-collection.ts";
+import { User } from "../../data/frontend/contracts/user.contract.ts";
 import SignOut from "../../islands/auth/sign-out.tsx";
 import DeviceCollections from "../../islands/profile/DeviceCollections.tsx";
-import SuggestionForm from "../../islands/SuggestionForm.tsx";
-import { DeviceService } from "../../services/devices/device.service.ts";
+import SuggestionForm from "../../islands/suggestion-form.tsx";
+import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 
 export default async function ProfilePage(
   req: Request,

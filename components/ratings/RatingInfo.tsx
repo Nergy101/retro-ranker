@@ -1,5 +1,5 @@
-import { EmulationSystemShort } from "../../data/enums/EmulationSystem.ts";
-import { SystemRating } from "../../data/models/system-rating.model.ts";
+import { EmulationSystemShort } from "../../data/frontend/enums/emulation-system.ts";
+import { SystemRating } from "../../data/frontend/models/system-rating.model.ts";
 
 interface RatingInfoProps {
   rating: SystemRating;

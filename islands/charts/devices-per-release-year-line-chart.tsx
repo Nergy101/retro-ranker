@@ -1,7 +1,7 @@
-import { Device } from "../../data/device.model.ts";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { useSignal } from "@preact/signals";
-import { FreshChart } from "./FreshChart.tsx";
-import { getBrandColors } from "../../utils/color.utils.ts";
+import { FreshChart } from "./fresh-chart.tsx";
+import { getBrandColors } from "../../data/frontend/services/utils/color.utils.ts";
 
 interface LineChartProps {
   devices: Device[];

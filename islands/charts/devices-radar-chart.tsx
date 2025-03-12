@@ -1,9 +1,9 @@
 import { useSignal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
-import { Device } from "../../data/device.model.ts";
-import { RatingsService } from "../../services/devices/ratings.service.ts";
-import { FreshChart } from "./FreshChart.tsx";
-import { Ranking } from "../../data/models/ranking.model.ts";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
+import { RatingsService } from "../../data/frontend/services/devices/ratings.service.ts";
+import { FreshChart } from "./fresh-chart.tsx";
+import { Ranking } from "../../data/frontend/models/ranking.model.ts";
 
 interface RadarChartProps {
   devices: Device[];

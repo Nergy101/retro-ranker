@@ -1,5 +1,5 @@
 import { PiRuler } from "@preact-icons/pi";
-import { Device } from "../../../data/device.model.ts";
+import { Device } from "../../../data/frontend/contracts/device.model.ts";
 import { PhysicalSpecsTable } from "../tables/PhysicalSpecsTable.tsx";
 
 interface PhysicalSpecsProps {

@@ -3,7 +3,7 @@ import PocketBase, {
   ClientResponseError,
   LocalAuthStore,
 } from "npm:pocketbase";
-import { User } from "../../data/contracts/user.contract.ts";
+import { User } from "../frontend/contracts/user.contract.ts";
 
 /**
  * PocketBaseService - A service to interface with PocketBase in a Deno environment
@@ -245,5 +245,22 @@ export async function createLoggedInPocketBaseService(
   if (cookie) {
     await pb.getUser(cookie);
   }
+  return pb;
+}
+
+// Create a pocketbase service from the environment variable POCKETBASE_URL
+// and make it into a super-user using the POCKETBASE_SUPERUSER_EMAIL and POCKETBASE_SUPERUSER_PASSWORD
+export async function createSuperUserPocketBaseService(
+  email: string,
+  password: string,
+  url: string = "https://pocketbase.retroranker.site",
+): Promise<PocketBaseService> {
+  const pb = new PocketBaseService(url);
+  await pb.getPocketBaseClient().collection("_superusers")
+    .authWithPassword(
+      email,
+      password,
+    );
+
   return pb;
 }

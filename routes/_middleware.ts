@@ -1,5 +1,5 @@
 import { FreshContext } from "$fresh/server.ts";
-import { createPocketBaseService } from "../services/pocketbase/pocketbase.service.ts";
+import { createPocketBaseService } from "../data/pocketbase/pocketbase.service.ts";
 
 export async function handler(req: Request, ctx: FreshContext) {
   const url = new URL(req.url);

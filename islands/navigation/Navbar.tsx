@@ -1,9 +1,9 @@
 import { useSignal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
-import { Device } from "../../data/device.model.ts";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { DesktopNav } from "./DesktopNav.tsx";
 import { MobileNav } from "./MobileNav.tsx";
-import { User } from "../../data/contracts/user.contract.ts";
+import { User } from "../../data/frontend/contracts/user.contract.ts";
 
 export function Navbar(
   { pathname, allDevices, user }: {

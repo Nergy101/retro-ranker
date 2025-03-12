@@ -1,10 +1,10 @@
 import { slugify } from "https://deno.land/x/slugify@0.3.0/mod.ts";
 import * as cheerio from "https://esm.sh/cheerio@1.0.0-rc.12";
-import { DeviceService } from "../../../services/devices/device.service.ts";
-import { Device } from "../../device.model.ts";
-import { EmulationSystemOrder } from "../../enums/EmulationSystem.ts";
-import { TagModel } from "../../models/tag.model.ts";
-import { personalPicks } from "../../personal-picks.ts";
+import { DeviceService } from "../../frontend/services/devices/device.service.ts";
+import { Device } from "../../frontend/contracts/device.model.ts";
+import { EmulationSystemOrder } from "../../frontend/enums/emulation-system.ts";
+import { TagModel } from "../../frontend/models/tag.model.ts";
+import { personalPicks } from "../../frontend/enums/personal-picks.ts";
 import { mapHandheldsColumnToDevice } from "./device.parser.map.handheld.columns.ts";
 import { mapOEMsColumnToDevice } from "./device.parser.map.oem.columns.ts";
 
@@ -250,12 +250,8 @@ export class DeviceParser {
     });
 
     // filter out devices that have too much information missing
-    return devices.filter((device) => {
-      return (
-        device.name.raw !== "" ||
-        device.brand.raw !== ""
-      );
-    });
+    return devices.filter((device) => device.brand.raw !== "Unknown"// && device.name.raw !== "Unknown"
+    );
   }
 
   public static parseOEMsHtml(fileContent: string): Device[] {
@@ -511,7 +507,8 @@ export class DeviceParser {
       devices.push(device);
     });
 
-    return devices;
+    return devices.filter((device) => device.brand.raw !== "Unknown"// && device.name.raw !== "Unknown"
+    );
   }
 
   private static getTags(device: Device): TagModel[] {

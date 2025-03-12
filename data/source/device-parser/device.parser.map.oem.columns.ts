@@ -1,11 +1,12 @@
-import { RatingsService } from "../../../services/devices/ratings.service.ts";
-import { EmulationSystem } from "../../enums/EmulationSystem.ts";
-import { Device } from "../../device.model.ts";
+import { RatingsService } from "../../frontend/services/devices/ratings.service.ts";
+import { EmulationSystem } from "../../frontend/enums/emulation-system.ts";
+import { Device } from "../../frontend/contracts/device.model.ts";
 import {
   getPriceCurrency,
   getPricingCategory,
   parseOsIcons,
   parsePriceRange,
+  unknownOrValue,
 } from "./device.parser.helpers.ts";
 import { slugify } from "https://deno.land/x/slugify@0.3.0/mod.ts";
 slugify.extend({
@@ -43,17 +44,17 @@ export function mapOEMsColumnToDevice(
         alt: value,
       };
       device.name = {
-        raw: rawValue,
-        sanitized: sanitizedName,
-        normalized: rawValue.split("(")[0].trim(),
+        raw: unknownOrValue(rawValue),
+        sanitized: unknownOrValue(sanitizedName),
+        normalized: unknownOrValue(rawValue.split("(")[0].trim()),
       };
       break;
     }
     case 3:
       device.brand = {
-        raw: rawValue,
-        sanitized: slugify(rawValue),
-        normalized: rawValue.split("(")[0].trim(),
+        raw: unknownOrValue(rawValue),
+        sanitized: unknownOrValue(slugify(rawValue)),
+        normalized: unknownOrValue(rawValue.split("(")[0].trim()),
       };
       break;
     case 4:
@@ -64,7 +65,7 @@ export function mapOEMsColumnToDevice(
         const mentionedDate = value.match(regex)?.[0];
 
         device.released = {
-          raw: rawValue,
+          raw: unknownOrValue(rawValue),
           mentionedDate: mentionedDate
             ? new Date(Date.UTC(
               parseInt(mentionedDate.split("/")[0]),

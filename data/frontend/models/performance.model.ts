@@ -1,4 +1,4 @@
-import { EmulationTier } from "../enums/EmulationTier.ts";
+import { EmulationTier } from "../enums/emulation-tier.ts";
 
 export interface DevicePerformance {
   tier: EmulationTier | null;

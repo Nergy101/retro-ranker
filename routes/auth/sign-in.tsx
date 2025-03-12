@@ -5,7 +5,7 @@ export default function SignInPage() {
   return (
     <>
       <SEO
-        title="Sign In | Retro Ranker"
+        title="Sign In"
         description="Sign in to your Retro Ranker account"
       />
       <article>

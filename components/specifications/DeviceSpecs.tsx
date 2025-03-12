@@ -1,4 +1,4 @@
-import { Device } from "../../data/device.model.ts";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { AudioSpecs } from "./sections/AudioSpecs.tsx";
 import { ConnectivitySpecs } from "./sections/ConnectivitySpecs.tsx";
 import { ControlsSpecs } from "./sections/ControlsSpecs.tsx";

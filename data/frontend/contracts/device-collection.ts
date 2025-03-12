@@ -1,10 +1,11 @@
-import { Device } from "../device.model.ts";
+import { Device } from "./device.model.ts";
 
 export interface DeviceCollection {
   id: string;
   name: string;
-  createdAt: Date;
-  updatedAt: Date;
+  created: Date;
+  updated: Date;
   devices: Device[];
   deviceCount: number;
+  description: string;
 }
