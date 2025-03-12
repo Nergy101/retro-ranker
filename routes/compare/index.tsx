@@ -30,19 +30,17 @@ export default function Compare({ url }: PageProps) {
   // Generate dynamic SEO content based on devices being compared
   let seoTitle = "Compare Retro Gaming Handhelds";
   let seoDescription =
-    "Compare multiple retro gaming handhelds side-by-side. View detailed specifications, performance ratings, and feature comparisons to find the perfect device for your gaming needs.";
+    "Compare retro handhelds side-by-side with detailed specs.";
 
   if (devicesToCompare.length === 2) {
     const [device1, device2] = devicesToCompare;
     seoTitle =
       `${device1.brand.raw} ${device1.name.raw} vs ${device2.brand.raw} ${device2.name.raw} - Retro Handheld Comparison`;
     seoDescription =
-      `Compare ${device1.brand.raw} ${device1.name.raw} vs ${device2.brand.raw} ${device2.name.raw}. Side-by-side specs comparison of screen size, battery life, performance, emulation capabilities, and price. Find which retro gaming handheld is best for you.`;
+      `Compare ${device1.brand.raw} ${device1.name.raw} vs ${device2.brand.raw} ${device2.name.raw}.`;
   } else if (devicesToCompare.length > 0) {
     seoTitle = `Compare ${deviceNames.join(" vs ")} - Retro Gaming Handhelds`;
-    seoDescription = `Compare ${
-      deviceNames.join(", ")
-    }. Side-by-side specifications, performance ratings, and feature comparisons of these retro gaming handhelds.`;
+    seoDescription = `Compare ${deviceNames.join(", ")} retro gaming handhelds.`;
   }
 
   return (

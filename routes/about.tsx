@@ -14,7 +14,7 @@ export default function About({ url }: PageProps) {
     <div class="about">
       <SEO
         title="About"
-        description="Learn more about Retro Ranker and our mission to help retro gaming enthusiasts find the perfect handheld device through comprehensive comparisons and detailed specifications."
+        description="Learn about Retro Ranker's mission and our team."
         url={`https://retroranker.site${url.pathname}`}
         keywords="retro gaming database, handheld comparison, retro gaming community, emulation device reviews, retro gaming resources"
       />

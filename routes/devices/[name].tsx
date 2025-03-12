@@ -163,15 +163,7 @@ export default function DeviceDetail(props: PageProps) {
     <div class="device-detail">
       <SEO
         title={`${device.name.raw} - ${device.brand.raw} Retro Gaming Handheld`}
-        description={`${device.name.raw} by ${device.brand.raw}: ${device.pricing.category} budget retro gaming handheld with ${
-          device.ram?.sizes?.[0]
-        } ${device.ram?.unit} RAM, ${device.storage} storage, and ${device.battery.capacity}${device.battery.unit} battery. Release: ${
-          releaseDate.expected ? "Expected" : releaseDate.date
-        }. ${
-          device.os.list.join(", ") !== "?"
-            ? `Supports ${device.os.list.join(", ")}.`
-            : ""
-        } Compare specs and performance ratings.`}
+        description={`${device.name.raw} by ${device.brand.raw}: ${device.pricing.category} retro gaming handheld.`}
         image={`https://retroranker.site${device.image?.pngUrl ?? undefined}`}
         url={`https://retroranker.site${props.url.pathname}`}
         jsonLd={jsonLdForDevice(device)}

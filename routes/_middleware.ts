@@ -27,6 +27,10 @@ export async function handler(req: Request, ctx: FreshContext) {
       "Cache-Control",
       "public, max-age=3600, s-maxage=86400",
     );
+    response.headers.set(
+      "Expires",
+      new Date(Date.now() + 86400 * 1000).toUTCString(), // tomorrow
+    );
   }
   return response;
 }

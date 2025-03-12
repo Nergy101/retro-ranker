@@ -24,7 +24,7 @@ export default function SEO({
 }: SEOProps) {
   const defaultTitle = "Retro Ranker";
   const defaultDescription =
-    "Browse and compare retro gaming handhelds. Find detailed specifications, performance ratings, and prices for devices.";
+    "Compare retro gaming handhelds with specs and ratings.";
   const defaultUrl = "https://retroranker.site";
   const defaultImage = "https://retroranker.site/logo-color.png";
   const defaultKeywords =

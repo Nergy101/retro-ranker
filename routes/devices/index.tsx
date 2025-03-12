@@ -131,7 +131,7 @@ export default function DevicesIndex(props: PageProps) {
     <div class="devices-page" f-client-nav>
       <SEO
         title="Device Catalog"
-        description="Browse and compare retro gaming handhelds. Find detailed specifications, performance ratings, and prices for over 100 devices. Updated regularly with new releases from Anbernic, Miyoo, and other top manufacturers."
+        description="Browse our catalog of retro gaming handhelds with specs."
         url={`https://retroranker.site${props.url.pathname}`}
         keywords="retro gaming handhelds, emulation devices, retro console comparison, handheld gaming systems, retro gaming devices catalog, Anbernic devices, Miyoo handhelds, retro gaming specs, portable emulation systems"
       >

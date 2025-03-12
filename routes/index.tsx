@@ -52,7 +52,7 @@ export default function Home({ url }: PageProps) {
     <div class="home-page">
       <SEO
         title="Retro Ranker"
-        description="Find the perfect retro handheld gaming device for your needs. Compare specs, prices, and performance of the latest emulation handhelds from Anbernic, Miyoo, and more."
+        description="Compare retro handhelds to find your perfect gaming device."
         url={`https://retroranker.site${url.pathname}`}
         keywords="retro gaming, handheld consoles, emulation devices, retro handhelds, gaming comparison, Anbernic, Miyoo, retro game emulation, portable gaming systems, retro gaming comparison"
       />
