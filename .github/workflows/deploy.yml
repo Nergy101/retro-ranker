@@ -29,6 +29,10 @@ jobs:
           push: true
           tags: nergy101/retro-ranker:latest
           platforms: linux/arm64
+          build-args: |
+            POCKETBASE_SUPERUSER_EMAIL=${{ secrets.POCKETBASE_SUPERUSER_EMAIL }}
+            POCKETBASE_SUPERUSER_PASSWORD=${{ secrets.POCKETBASE_SUPERUSER_PASSWORD }}
+            POCKETBASE_URL=${{ secrets.POCKETBASE_URL }}
 
       - name: Get Known Hosts value
         run: echo "KNOWN_HOSTS=$(ssh-keyscan -H ${{ secrets.SSH_HOST }})" >> $GITHUB_ENV

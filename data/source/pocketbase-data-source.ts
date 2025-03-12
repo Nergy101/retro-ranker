@@ -10,12 +10,23 @@ import { SystemRating } from "../entities/system-rating.entity.ts";
 import { TagModel } from "../entities/tag.entity.ts";
 import { unknownOrValue } from "./device-parser/device.parser.helpers.ts";
 
-const env = await load({ envPath: "../../.env" });
+// Try to load from .env file, but don't fail if it doesn't exist
+let env: Record<string, string> = {};
+try {
+  env = await load({ envPath: "../../.env", examplePath: "../../.env.example", defaultsPath: "../../.env.defaults" });
+} catch (error) {
+  console.log(chalk.yellow("No .env file found, using environment variables directly"));
+}
+
+// Use environment variables directly if not found in .env
+const POCKETBASE_SUPERUSER_EMAIL = env.POCKETBASE_SUPERUSER_EMAIL || Deno.env.get("POCKETBASE_SUPERUSER_EMAIL") || "";
+const POCKETBASE_SUPERUSER_PASSWORD = env.POCKETBASE_SUPERUSER_PASSWORD || Deno.env.get("POCKETBASE_SUPERUSER_PASSWORD") || "";
+const POCKETBASE_URL = env.POCKETBASE_URL || Deno.env.get("POCKETBASE_URL") || "";
 
 const pb = await createSuperUserPocketBaseService(
-  env.POCKETBASE_SUPERUSER_EMAIL,
-  env.POCKETBASE_SUPERUSER_PASSWORD,
-  env.POCKETBASE_URL,
+  POCKETBASE_SUPERUSER_EMAIL,
+  POCKETBASE_SUPERUSER_PASSWORD,
+  POCKETBASE_URL,
 );
 const pocketbaseClient = pb.getPocketBaseClient();
 const batch = pocketbaseClient.createBatch();
