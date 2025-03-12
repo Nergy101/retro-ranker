@@ -1,3 +1,4 @@
+// deno-lint-ignore-file no-console
 import { FreshContext } from "$fresh/server.ts";
 import { ProblemDetail } from "../../data/frontend/contracts/problem-detail.ts";
 import { User } from "../../data/frontend/contracts/user.contract.ts";

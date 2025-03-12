@@ -6,6 +6,8 @@ import { createSuperUserPocketBaseService } from "../pocketbase/pocketbase.servi
 
 // @deno-types="https://deno.land/x/chalk_deno@v4.1.1-deno/index.d.ts"
 import chalk from "https://deno.land/x/chalk_deno@v4.1.1-deno/source/index.js";
+import { SystemRating } from "../entities/system-rating.entity.ts";
+import { TagModel } from "../entities/tag.entity.ts";
 import { unknownOrValue } from "./device-parser/device.parser.helpers.ts";
 
 const env = await load({ envPath: "../../.env" });
@@ -21,7 +23,6 @@ const batch = pocketbaseClient.createBatch();
 const devicesCollection = batch.collection("devices");
 const pricingCollection = batch.collection("pricings");
 const performanceCollection = batch.collection("performances");
-const systemRatingsCollection = batch.collection("system_ratings");
 
 // Read handhelds.json
 const handhelds = JSON.parse(
@@ -78,7 +79,9 @@ async function clearCollections() {
 }
 
 // Add a new function to insert tags first
-async function insertTags(deviceEntities: DeviceContract[]) {
+async function insertTags(
+  deviceEntities: DeviceContract[],
+): Promise<Map<string, TagModel>> {
   console.log(chalk.cyan.bold("📥 Inserting unique tags..."));
 
   // Create a map to store unique tags by slug
@@ -155,15 +158,19 @@ async function insertSystemRatings(deviceEntities: DeviceContract[]) {
     Deno.exit(1);
   }
 
-  console.log(chalk.green.bold(`✅ Inserted ${uniqueSystemRatings.size} unique system ratings`));
+  console.log(
+    chalk.green.bold(
+      `✅ Inserted ${uniqueSystemRatings.size} unique system ratings`,
+    ),
+  );
 
   return uniqueSystemRatings;
 }
 
 async function insertDevices(
   deviceEntities: DeviceContract[],
-  tagMap: Map<string, any>,
-  systemRatingsMap: Map<string, any>,
+  tagMap: Map<string, TagModel>,
+  systemRatingsMap: Map<string, SystemRating>,
 ) {
   console.log(
     chalk.cyan.bold(
@@ -179,16 +186,16 @@ async function insertDevices(
     const pricingId = nanoid(15);
     const performanceId = nanoid(15);
     // Use existing tag IDs from the map
-    const tagIds = device.tags.map((tag) => tagMap.get(tag.slug).id);
+    const tagIds = device.tags.map((tag) => tagMap.get(tag.slug)?.id);
     // Use existing system rating IDs from the map with the combined key
-    const systemRatingIds = device.systemRatings.map((rating) => 
-      systemRatingsMap.get(`${rating.system}:${rating.ratingNumber}`).id
+    const systemRatingIds = device.systemRatings.map((rating) =>
+      systemRatingsMap.get(`${rating.system}:${rating.ratingNumber}`)?.id
     );
 
     try {
       // Insert Device
       if (
-        device.brand.raw === "Unknown" 
+        device.brand.raw === "Unknown"
         // && device.name.raw === "Unknown"
       ) {
         console.log(

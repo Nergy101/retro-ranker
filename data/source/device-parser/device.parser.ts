@@ -250,7 +250,7 @@ export class DeviceParser {
     });
 
     // filter out devices that have too much information missing
-    return devices.filter((device) => device.brand.raw !== "Unknown"// && device.name.raw !== "Unknown"
+    return devices.filter((device) => device.brand.raw !== "Unknown" // && device.name.raw !== "Unknown"
     );
   }
 
@@ -507,7 +507,7 @@ export class DeviceParser {
       devices.push(device);
     });
 
-    return devices.filter((device) => device.brand.raw !== "Unknown"// && device.name.raw !== "Unknown"
+    return devices.filter((device) => device.brand.raw !== "Unknown" // && device.name.raw !== "Unknown"
     );
   }
 

@@ -28,10 +28,10 @@ function CollectionCard({ collection }: { collection: DeviceCollection }) {
         <hgroup>
           <h3 class="text-xl font-semibold mb-2">{collection.name}</h3>
           <p class="text-sm text-gray-500">
-            Created: {collection.createdAt.toLocaleDateString()} | Last updated:
+            Created: {collection.created.toLocaleDateString()} | Last updated:
             {" "}
-            {collection.updatedAt.toLocaleDateString()} |{" "}
-            {collection.deviceCount}{" "}
+            {collection.updated.toLocaleDateString()} | {collection.deviceCount}
+            {" "}
             {collection.deviceCount === 1 ? "device" : "devices"}
           </p>
         </hgroup>

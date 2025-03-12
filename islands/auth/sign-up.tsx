@@ -1,5 +1,5 @@
+import { PiUser, PiUserPlus } from "@preact-icons/pi";
 import { useSignal } from "@preact/signals";
-import { PiSignIn, PiUser, PiUserPlus } from "@preact-icons/pi";
 export default function SignUp() {
   const error = useSignal<string | null>(null);
 

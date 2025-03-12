@@ -4,10 +4,10 @@ import { slugify } from "https://deno.land/x/slugify@0.3.0/mod.ts";
 import SEO from "../../components/SEO.tsx";
 import { DeviceCollection } from "../../data/frontend/contracts/device-collection.ts";
 import { User } from "../../data/frontend/contracts/user.contract.ts";
+import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 import SignOut from "../../islands/auth/sign-out.tsx";
 import DeviceCollections from "../../islands/profile/DeviceCollections.tsx";
 import SuggestionForm from "../../islands/suggestion-form.tsx";
-import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 
 export default async function ProfilePage(
   req: Request,
@@ -40,15 +40,15 @@ export default async function ProfilePage(
       id: "1",
       name: "Personal Picks",
       devices: personalPickDevices,
-      createdAt: new Date(new Date().setDate(new Date().getDate() - 2)),
-      updatedAt: new Date(new Date().setDate(new Date().getDate() - 1)),
+      created: new Date(new Date().setDate(new Date().getDate() - 2)),
+      updated: new Date(new Date().setDate(new Date().getDate() - 1)),
       deviceCount: personalPickDevices.length,
     }, {
       id: "2",
       name: "RG35XX",
       devices: rg35xxDevices,
-      createdAt: new Date(new Date().setDate(new Date().getDate() - 2)),
-      updatedAt: new Date(new Date().setDate(new Date().getDate() - 1)),
+      created: new Date(new Date().setDate(new Date().getDate() - 2)),
+      updated: new Date(new Date().setDate(new Date().getDate() - 1)),
       deviceCount: rg35xxDevices.length,
     }] as DeviceCollection[];
     return collections;

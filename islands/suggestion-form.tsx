@@ -1,5 +1,5 @@
+import { PiPaperPlaneRight } from "@preact-icons/pi";
 import { useSignal } from "@preact/signals";
-import { PiChat, PiPaperPlaneRight } from "@preact-icons/pi";
 
 interface SuggestionFormProps {
   userEmail: string;
