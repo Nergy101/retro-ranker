@@ -8,11 +8,7 @@ on:
 jobs:
   BuildPushAndDeployDockerImage:
     runs-on: ubuntu-latest
-    env:
-      POCKETBASE_SUPERUSER_EMAIL:
-      POCKETBASE_SUPERUSER_PASSWORD:
-      POCKETBASE_URL:
-
+    
     steps:
       - uses: actions/checkout@v4
 
