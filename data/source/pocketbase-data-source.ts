@@ -190,7 +190,7 @@ async function insertDevices(
   let errorCount = 0;
 
   for (const device of deviceEntities) {
-    const deviceId = nanoid(15);
+    const deviceId = device.name.sanitized; //  nanoid(15);
     const pricingId = nanoid(15);
     const performanceId = nanoid(15);
     // Use existing tag IDs from the map

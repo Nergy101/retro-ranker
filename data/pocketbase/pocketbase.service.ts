@@ -1,7 +1,9 @@
 // deno-lint-ignore-file no-console no-explicit-any
 import PocketBase, {
   ClientResponseError,
+  ListResult,
   LocalAuthStore,
+  RecordModel,
 } from "npm:pocketbase";
 import { User } from "../frontend/contracts/user.contract.ts";
 
@@ -95,10 +97,12 @@ export class PocketBaseService {
     page: number = 1,
     perPage: number = 50,
     filter: string = "",
-  ): Promise<any> {
+    expand: string = "",
+  ): Promise<ListResult<any>> {
     try {
       return await this.pb.collection(collection).getList(page, perPage, {
         filter,
+        expand,
       });
     } catch (error) {
       if (error instanceof ClientResponseError) {
@@ -114,9 +118,9 @@ export class PocketBaseService {
    * @param id Record ID
    * @returns Record data
    */
-  public async getOne(collection: string, id: string): Promise<any> {
+  public async getOne(collection: string, id: string, expand: string = ""): Promise<RecordModel> {
     try {
-      return await this.pb.collection(collection).getOne(id);
+      return await this.pb.collection(collection).getOne(id, { expand });
     } catch (error) {
       if (error instanceof ClientResponseError) {
         console.error(`Error fetching ${collection} record:`, error.message);

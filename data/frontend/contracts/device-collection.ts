@@ -6,6 +6,5 @@ export interface DeviceCollection {
   created: Date;
   updated: Date;
   devices: Device[];
-  deviceCount: number;
   description: string;
 }

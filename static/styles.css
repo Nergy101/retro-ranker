@@ -2129,4 +2129,14 @@ textarea:focus {
   font-weight: 500;
 }
 
-/* End Suggestion Form Styles */
+.collection-devices-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.collection-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}

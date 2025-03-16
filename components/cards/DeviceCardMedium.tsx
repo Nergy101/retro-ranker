@@ -207,14 +207,14 @@ export function DeviceCardMedium(
           <RatingInfo
             rating={upToSystemA}
             tooltipUseShortSystemName={true}
-            tooltipPosition="bottom"
+            tooltipPosition="top"
           />
         )}
         {upToSystemCOrLower && (
           <RatingInfo
             rating={upToSystemCOrLower}
             tooltipUseShortSystemName={true}
-            tooltipPosition="bottom"
+            tooltipPosition="top"
           />
         )}
       </div>

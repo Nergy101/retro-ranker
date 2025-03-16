@@ -2,12 +2,13 @@ import { FreshContext } from "$fresh/server.ts";
 import { PiChatCentered, PiPlus } from "@preact-icons/pi";
 import { slugify } from "https://deno.land/x/slugify@0.3.0/mod.ts";
 import SEO from "../../components/SEO.tsx";
-import { DeviceCollection } from "../../data/frontend/contracts/device-collection.ts";
 import { User } from "../../data/frontend/contracts/user.contract.ts";
-import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
+import { createLoggedInPocketBaseService } from "../../data/pocketbase/pocketbase.service.ts";
 import SignOut from "../../islands/auth/sign-out.tsx";
-import DeviceCollections from "../../islands/profile/DeviceCollections.tsx";
+import DeviceCollections from "../../islands/collections/device-collections.tsx";
 import SuggestionForm from "../../islands/suggestion-form.tsx";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
+import { DeviceCollection } from "../../data/frontend/contracts/device-collection.ts";
 
 export default async function ProfilePage(
   req: Request,
@@ -20,41 +21,39 @@ export default async function ProfilePage(
     headers.set("location", "/auth/sign-in");
     return new Response(null, { status: 303, headers });
   }
+
   const user = ctx.state.user as User;
-  const safeName = slugify(user.nickname);
 
-  const getCollections = async (_: string) => {
-    const deviceService = DeviceService.getInstance();
-    const personalPickDevices = deviceService.getPersonalPicks();
-    const rg35xxDevices = deviceService.searchDevices(
-      "rg-35xx",
-      "all",
-      "alphabetical",
-      "all",
-      [],
+  const getCollections = async (): Promise<DeviceCollection[]> => {
+    const pbService = await createLoggedInPocketBaseService(
+      req.headers.get("cookie") ?? "",
+    );
+
+    const userCollections = await pbService.getList(
+      "device_collections",
       1,
-      10,
-    ).page;
+      100,
+      `owner = "${user.id}"`,
+      "devices,owner",
+    );
 
-    const collections = [{
-      id: "1",
-      name: "Personal Picks",
-      devices: personalPickDevices,
-      created: new Date(new Date().setDate(new Date().getDate() - 2)),
-      updated: new Date(new Date().setDate(new Date().getDate() - 1)),
-      deviceCount: personalPickDevices.length,
-    }, {
-      id: "2",
-      name: "RG35XX",
-      devices: rg35xxDevices,
-      created: new Date(new Date().setDate(new Date().getDate() - 2)),
-      updated: new Date(new Date().setDate(new Date().getDate() - 1)),
-      deviceCount: rg35xxDevices.length,
-    }] as DeviceCollection[];
-    return collections;
+    return (userCollections?.items ?? []).map((d) => {
+      return {
+        id: d.id,
+        owner: d.expand?.owner.nickname,
+        name: d.name,
+        created: d.created,
+        updated: d.updated,
+        devices: (d.expand?.devices ?? []).map((de: any) => {
+          return de.deviceData as Device;
+        }),
+        deviceCount: (d.expand?.devices ?? []).length,
+        description: d.description,
+      };
+    });
   };
 
-  const collections = await getCollections(user.id);
+  const collections = await getCollections();
 
   return (
     <div>
@@ -76,30 +75,52 @@ export default async function ProfilePage(
 
         {/* Collection Section */}
         <section class="collection-section">
-          <h2>Your Collections (mock-up 🚧)</h2>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              justifyContent: "space-between",
+            }}
+          >
+            <h2>Your Collections</h2>
+            {collections.length > 0 && (
+              <a
+                href={`/collections/create`}
+                role="button"
+                type="button"
+                class="button outline contrast"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                }}
+              >
+                <PiPlus /> Create a new collection
+              </a>
+            )}
+          </div>
+
+          {collections.length === 0 && (
+            <div class="empty-collection-message">
+              <p>You haven't created any collections yet.</p>
+              <a
+                href={`/collections/create`}
+                role="button"
+                class="primary"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.25rem",
+                  width: "fit-content",
+                }}
+              >
+                <PiPlus /> Create a new collection
+              </a>
+            </div>
+          )}
 
           <div class="collection-container">
-            {/* This would be populated with actual data */}
-            {collections.length === 0 && (
-              <div class="empty-collection-message">
-                <p>You haven't created any collections yet.</p>
-                <a
-                  href={`/collections/${safeName}`}
-                  role="button"
-                  class="primary"
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "0.25rem",
-                    width: "fit-content",
-                  }}
-                  disabled
-                >
-                  <PiPlus /> Create a new collection 🚧 (coming soon)
-                </a>
-              </div>
-            )}
-
             <DeviceCollections collections={collections} />
           </div>
         </section>

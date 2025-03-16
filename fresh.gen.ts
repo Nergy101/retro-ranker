@@ -10,12 +10,16 @@ import * as $about from "./routes/about.tsx";
 import * as $api_auth_sign_in from "./routes/api/auth/sign-in.ts";
 import * as $api_auth_sign_out from "./routes/api/auth/sign-out.ts";
 import * as $api_auth_sign_up from "./routes/api/auth/sign-up.ts";
+import * as $api_collections_id_ from "./routes/api/collections/[id].ts";
+import * as $api_collections_index from "./routes/api/collections/index.ts";
 import * as $api_devices_name_ from "./routes/api/devices/[name].ts";
 import * as $api_devices_index from "./routes/api/devices/index.ts";
 import * as $api_suggestions from "./routes/api/suggestions.ts";
 import * as $auth_sign_in from "./routes/auth/sign-in.tsx";
 import * as $auth_sign_up from "./routes/auth/sign-up.tsx";
 import * as $charts_index from "./routes/charts/index.tsx";
+import * as $collections_id_ from "./routes/collections/[id].tsx";
+import * as $collections_create from "./routes/collections/create.tsx";
 import * as $compare_layout from "./routes/compare/_layout.tsx";
 import * as $compare_index from "./routes/compare/index.tsx";
 import * as $contact from "./routes/contact.tsx";
@@ -42,6 +46,9 @@ import * as $charts_devices_per_release_year_line_chart from "./islands/charts/d
 import * as $charts_devices_radar_chart from "./islands/charts/devices-radar-chart.tsx";
 import * as $charts_devices_similar_radar_chart from "./islands/charts/devices-similar-radar-chart.tsx";
 import * as $charts_fresh_chart from "./islands/charts/fresh-chart.tsx";
+import * as $collections_collection_card from "./islands/collections/collection-card.tsx";
+import * as $collections_collection_create_form from "./islands/collections/collection-create-form.tsx";
+import * as $collections_device_collections from "./islands/collections/device-collections.tsx";
 import * as $forms_DeviceComparisonForm from "./islands/forms/DeviceComparisonForm.tsx";
 import * as $forms_DeviceSearchForm from "./islands/forms/DeviceSearchForm.tsx";
 import * as $layout_selector from "./islands/layout-selector.tsx";
@@ -50,7 +57,6 @@ import * as $navigation_DesktopNav from "./islands/navigation/DesktopNav.tsx";
 import * as $navigation_MobileNav from "./islands/navigation/MobileNav.tsx";
 import * as $navigation_Navbar from "./islands/navigation/Navbar.tsx";
 import * as $navigation_ThemeSwitcher from "./islands/navigation/ThemeSwitcher.tsx";
-import * as $profile_DeviceCollections from "./islands/profile/DeviceCollections.tsx";
 import * as $suggestion_form from "./islands/suggestion-form.tsx";
 import * as $tag_typeahead from "./islands/tag-typeahead.tsx";
 import * as $timeline_content from "./islands/timeline-content.tsx";
@@ -66,12 +72,16 @@ const manifest = {
     "./routes/api/auth/sign-in.ts": $api_auth_sign_in,
     "./routes/api/auth/sign-out.ts": $api_auth_sign_out,
     "./routes/api/auth/sign-up.ts": $api_auth_sign_up,
+    "./routes/api/collections/[id].ts": $api_collections_id_,
+    "./routes/api/collections/index.ts": $api_collections_index,
     "./routes/api/devices/[name].ts": $api_devices_name_,
     "./routes/api/devices/index.ts": $api_devices_index,
     "./routes/api/suggestions.ts": $api_suggestions,
     "./routes/auth/sign-in.tsx": $auth_sign_in,
     "./routes/auth/sign-up.tsx": $auth_sign_up,
     "./routes/charts/index.tsx": $charts_index,
+    "./routes/collections/[id].tsx": $collections_id_,
+    "./routes/collections/create.tsx": $collections_create,
     "./routes/compare/_layout.tsx": $compare_layout,
     "./routes/compare/index.tsx": $compare_index,
     "./routes/contact.tsx": $contact,
@@ -104,6 +114,11 @@ const manifest = {
     "./islands/charts/devices-similar-radar-chart.tsx":
       $charts_devices_similar_radar_chart,
     "./islands/charts/fresh-chart.tsx": $charts_fresh_chart,
+    "./islands/collections/collection-card.tsx": $collections_collection_card,
+    "./islands/collections/collection-create-form.tsx":
+      $collections_collection_create_form,
+    "./islands/collections/device-collections.tsx":
+      $collections_device_collections,
     "./islands/forms/DeviceComparisonForm.tsx": $forms_DeviceComparisonForm,
     "./islands/forms/DeviceSearchForm.tsx": $forms_DeviceSearchForm,
     "./islands/layout-selector.tsx": $layout_selector,
@@ -112,7 +127,6 @@ const manifest = {
     "./islands/navigation/MobileNav.tsx": $navigation_MobileNav,
     "./islands/navigation/Navbar.tsx": $navigation_Navbar,
     "./islands/navigation/ThemeSwitcher.tsx": $navigation_ThemeSwitcher,
-    "./islands/profile/DeviceCollections.tsx": $profile_DeviceCollections,
     "./islands/suggestion-form.tsx": $suggestion_form,
     "./islands/tag-typeahead.tsx": $tag_typeahead,
     "./islands/timeline-content.tsx": $timeline_content,

@@ -57,20 +57,6 @@ if (!optimizeImagesStatus.success) {
 
 console.info(chalk.green("Optimized images"));
 
-// console.info("");
-// console.info(chalk.blue("--- Deleting png images ---"));
-
-// // Get all files in the devices directory
-// for (const file of Deno.readDirSync("../static/devices")) {
-//   // Check if file ends with .png
-//   if (file.name.endsWith(".png")) {
-//     // Remove the file
-//     Deno.removeSync(`../static/devices/${file.name}`);
-//   }
-// }
-
-// console.info(chalk.green("Deleted png images"));
-
 console.info("");
 const generateSitemapCommand = new Deno.Command(Deno.execPath(), {
   args: ["run", "--allow-all", "generate-sitemap.ts"],
@@ -82,3 +68,20 @@ const generateSitemapStatus = await generateSitemapProcess.status;
 if (!generateSitemapStatus.success) {
   Deno.exit(1);
 }
+
+console.info(chalk.green("Generated sitemap"));
+
+console.info("");
+console.info(chalk.blue("--- Refreshing pocketbase ---"));
+
+const refreshPocketbaseCommand = new Deno.Command(Deno.execPath(), {
+  args: ["run", "--allow-all", "pocketbase-data-source.ts"],
+  cwd: "../data/source",
+});
+const refreshPocketbaseProcess = refreshPocketbaseCommand.spawn();
+const refreshPocketbaseStatus = await refreshPocketbaseProcess.status;
+if (!refreshPocketbaseStatus.success) {
+  Deno.exit(1);
+}
+
+console.info(chalk.green("Refreshed pocketbase"));
