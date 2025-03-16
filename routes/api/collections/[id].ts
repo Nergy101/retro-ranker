@@ -1,16 +1,13 @@
 import { Handlers } from "$fresh/server.ts";
-import { load } from "$std/dotenv/mod.ts";
 import { User } from "../../../data/frontend/contracts/user.contract.ts";
 import { createSuperUserPocketBaseService } from "../../../data/pocketbase/pocketbase.service.ts";
 
 export const handler: Handlers = {
   async PUT(request, ctx) {
-    const env = await load({ envPath: ".env", allowEmptyValues: true });
-
     const pbService = await createSuperUserPocketBaseService(
-      env.POCKETBASE_SUPERUSER_EMAIL,
-      env.POCKETBASE_SUPERUSER_PASSWORD,
-      env.POCKETBASE_URL,
+      Deno.env.get("POCKETBASE_SUPERUSER_EMAIL")!,
+      Deno.env.get("POCKETBASE_SUPERUSER_PASSWORD")!,
+      Deno.env.get("POCKETBASE_URL")!,
     );
 
     const form = await request.formData();

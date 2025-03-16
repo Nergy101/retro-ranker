@@ -5,4 +5,9 @@ import config from "./fresh.config.ts";
 
 import "$std/dotenv/load.ts";
 
+
+import { load } from "$std/dotenv/mod.ts";
+
+await load({ envPath: ".env", allowEmptyValues: true, export: true });
+
 await dev(import.meta.url, "./main.ts", config);
