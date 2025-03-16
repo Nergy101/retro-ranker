@@ -86,14 +86,6 @@ export default function CollectionCreateForm(
       const deviceIds = selectedDevices.value.map((device) => device.id);
       formData.append("deviceIds", deviceIds.join(","));
     }
-
-    for (const pair of formData.entries()) {
-      console.log(pair[0], pair[1]);
-    }
-
-    const formDataObj = Object.fromEntries(formData.entries());
-    console.log("formData as object:", formDataObj);
-
     try {
       await fetch("/api/collections", {
         method: "POST",

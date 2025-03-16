@@ -6,7 +6,6 @@ import { ShareButton } from "../buttons/ShareButton.tsx";
 export default function CollectionCard(
   { collection }: { collection: DeviceCollection },
 ) {
-  console.log(collection);
   const isDeleteDialogOpen = signal(false);
 
   const handleDelete = async () => {
