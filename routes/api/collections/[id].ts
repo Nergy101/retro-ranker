@@ -43,12 +43,11 @@ export const handler: Handlers = {
 
   async DELETE(_, ctx) {
     const { id } = ctx.params;
-    const env = await load({ envPath: ".env", allowEmptyValues: true });
 
     const pbService = await createSuperUserPocketBaseService(
-      env.POCKETBASE_SUPERUSER_EMAIL,
-      env.POCKETBASE_SUPERUSER_PASSWORD,
-      env.POCKETBASE_URL,
+      Deno.env.get("POCKETBASE_SUPERUSER_EMAIL")!,
+      Deno.env.get("POCKETBASE_SUPERUSER_PASSWORD")!,
+      Deno.env.get("POCKETBASE_URL")!,
     );
 
     const collection = await pbService.getOne("device_collections", id);

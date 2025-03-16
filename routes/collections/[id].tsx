@@ -1,5 +1,4 @@
 import { FreshContext } from "$fresh/server.ts";
-import { load } from "$std/dotenv/mod.ts";
 import { RecordModel } from "npm:pocketbase";
 import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
 import SEO from "../../components/SEO.tsx";

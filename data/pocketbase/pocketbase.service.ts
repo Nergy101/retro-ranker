@@ -1,5 +1,6 @@
 // deno-lint-ignore-file no-console no-explicit-any
 import PocketBase, {
+  BaseAuthStore,
   ClientResponseError,
   ListResult,
   LocalAuthStore,
@@ -19,7 +20,7 @@ export class PocketBaseService {
    * @param url The URL of your PocketBase instance
    */
   public constructor(url: string) {
-    this.pb = new PocketBase(url);
+    this.pb = new PocketBase(url, new MemoryAuthStore());
     this.pb.autoCancellation(false);
   }
 
@@ -118,7 +119,11 @@ export class PocketBaseService {
    * @param id Record ID
    * @returns Record data
    */
-  public async getOne(collection: string, id: string, expand: string = ""): Promise<RecordModel> {
+  public async getOne(
+    collection: string,
+    id: string,
+    expand: string = "",
+  ): Promise<RecordModel> {
     try {
       return await this.pb.collection(collection).getOne(id, { expand });
     } catch (error) {
@@ -264,7 +269,13 @@ export async function createSuperUserPocketBaseService(
     .authWithPassword(
       email,
       password,
+      {
+        autoRefreshThreshold: 30 * 60,
+      },
     );
 
   return pb;
 }
+
+// extending the base abstract class should be sufficient
+class MemoryAuthStore extends BaseAuthStore {}
