@@ -76,7 +76,9 @@ export default async function CollectionView(req: Request, ctx: FreshContext) {
         </header>
         <div class="collection-devices-grid">
           {collection.devices.map((device) => (
-            <DeviceCardMedium device={device} key={device.id} />
+            <a href={`/devices/${device.id}`}>
+              <DeviceCardMedium device={device} key={device.id} />
+            </a>
           ))}
         </div>
       </article>
