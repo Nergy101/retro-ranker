@@ -84,4 +84,4 @@ if (!refreshPocketbaseStatus.success) {
   Deno.exit(1);
 }
 
-console.info(chalk.green("Refreshed pocketbase"));
+console.info(chalk.green("✅Refreshed pocketbase"));

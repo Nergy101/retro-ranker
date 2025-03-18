@@ -9,14 +9,14 @@ import chalk from "https://deno.land/x/chalk_deno@v4.1.1-deno/source/index.js";
 import { SystemRating } from "../entities/system-rating.entity.ts";
 import { TagModel } from "../entities/tag.entity.ts";
 import { unknownOrValue } from "./device-parser/device.parser.helpers.ts";
-
-const env = await load({ envPath: "../../.env", allowEmptyValues: true });
+const env = await load({ envPath: "../../.env", allowEmptyValues: true, export: true });
 
 if (
   env.POCKETBASE_SUPERUSER_EMAIL == "" ||
   env.POCKETBASE_SUPERUSER_PASSWORD == "" ||
   env.POCKETBASE_URL == ""
 ) {
+  console.error(chalk.red("Pocketbase environment variables are not set"));
   Deno.exit(0);
 }
 
@@ -44,14 +44,11 @@ async function clearCollections() {
 
     const collections = [
       "devices",
-      "pricings",
-      "performances",
-      "system_ratings",
-      "tags",
     ];
 
     for (const collection of collections) {
-      const deleteBatch = pocketbaseClient.createBatch();
+      // const deleteBatch = pocketbaseClient.createBatch();
+
 
       console.log(
         chalk.yellow.bold(
@@ -60,22 +57,26 @@ async function clearCollections() {
       );
       const records = await pocketbaseClient.collection(collection)
         .getFullList();
+
+      console.info(chalk.blue(`Found ${records.length} records`));
+
       for (const record of records) {
-        deleteBatch.collection(collection).delete(record.id);
+        pocketbaseClient.collection(collection).delete(record.id);
       }
-      if (records.length > 0) {
-        const deleteBatchResult = await deleteBatch.send();
-        if (
-          deleteBatchResult.filter((r) => r.status !== 200 && r.status !== 204)
-            .length > 0
-        ) {
-          console.error(
-            chalk.red.bold("❌ Failed to delete some records:"),
-            deleteBatchResult,
-          );
-          Deno.exit(1);
-        }
-      }
+
+      // if (records.length > 0) {
+      //   const deleteBatchResult = await deleteBatch.send();
+      //   if (
+      //     deleteBatchResult.filter((r) => r.status !== 200 && r.status !== 204)
+      //       .length > 0
+      //   ) {
+      //     console.error(
+      //       chalk.red.bold("❌ Failed to delete some records:"),
+      //       deleteBatchResult,
+      //     );
+      //     Deno.exit(1);
+      //   }
+      // }
     }
 
     console.log(
@@ -83,6 +84,7 @@ async function clearCollections() {
     );
   } catch (error) {
     console.error(chalk.red.bold("❌ Failed to clear collections:"), error);
+    Deno.exit(1);
   }
 }
 
@@ -180,6 +182,14 @@ async function insertDevices(
   tagMap: Map<string, TagModel>,
   systemRatingsMap: Map<string, SystemRating>,
 ) {
+
+  if (hasDoubleDevices(deviceEntities)) {
+    console.error(
+      chalk.red.bold("❌ Duplicate devices found"),
+    );
+    Deno.exit(1);
+  }
+
   console.log(
     chalk.cyan.bold(
       `📥 Starting import of ${deviceEntities.length} devices...`,
@@ -208,8 +218,7 @@ async function insertDevices(
       ) {
         console.log(
           chalk.yellow(
-            `⏭️  Skipping device with incomplete data: ${
-              device.name.raw || "Unknown"
+            `⏭️  Skipping device with incomplete data: ${device.name.raw || "Unknown"
             } - ${device.brand.raw || "Unknown"}`,
           ),
         );
@@ -259,8 +268,7 @@ async function insertDevices(
 
       console.log(
         chalk.green(
-          `✅ Inserted: ${chalk.bold(device.brand.sanitized)} ${
-            chalk.bold(device.name.sanitized)
+          `✅ Inserted: ${chalk.bold(device.brand.sanitized)} ${chalk.bold(device.name.sanitized)
           } (ID: ${chalk.dim(deviceId)})`,
         ),
       );
@@ -278,8 +286,7 @@ async function insertDevices(
 
   console.log(
     chalk.cyan.bold(
-      `📊 Import summary: ${chalk.green(`${successCount} succeeded`)} | ${
-        chalk.yellow(`${skipCount} skipped`)
+      `📊 Import summary: ${chalk.green(`${successCount} succeeded`)} | ${chalk.yellow(`${skipCount} skipped`)
       } | ${chalk.red(`${errorCount} failed`)}`,
     ),
   );
@@ -305,3 +312,19 @@ if (failed.length > 0) {
 }
 
 console.log(chalk.magenta.bold("✨ Database population process completed"));
+
+
+function hasDoubleDevices(deviceEntities: DeviceEntity[]): boolean {
+  const deviceNames = new Set<string>();
+  for (const device of deviceEntities) {
+    const name = device.name.sanitized;
+    if (deviceNames.has(name)) {
+      console.error(
+        chalk.red.bold(`❌ Duplicate device found: ${name}`),
+      );
+      return true;
+    }
+    deviceNames.add(name);
+  }
+  return false;
+}

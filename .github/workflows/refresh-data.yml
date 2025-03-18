@@ -32,12 +32,14 @@ jobs:
       - name: npm install @funboxteam/optimizt
         run: npm install --global @funboxteam/optimizt
 
+      - name: temp write .env file
+        run: |
+          echo "POCKETBASE_SUPERUSER_EMAIL=${{ secrets.POCKETBASE_SUPERUSER_EMAIL }}" > .env
+          echo "POCKETBASE_SUPERUSER_PASSWORD=${{ secrets.POCKETBASE_SUPERUSER_PASSWORD }}" >> .env
+          echo "POCKETBASE_URL=${{ secrets.POCKETBASE_URL }}" >> .env
+
       - name: Run refresh-all task
         run: deno task refresh-all
-        env:
-          POCKETBASE_SUPERUSER_EMAIL: ${{ secrets.POCKETBASE_SUPERUSER_EMAIL }}
-          POCKETBASE_SUPERUSER_PASSWORD: ${{ secrets.POCKETBASE_SUPERUSER_PASSWORD }}
-          POCKETBASE_URL: ${{ secrets.POCKETBASE_URL }}
 
       - name: Commit and push changes
         run: |
