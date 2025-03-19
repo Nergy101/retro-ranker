@@ -19,7 +19,11 @@ export default function CollectionCard(
 
   return (
     <article
-      style={{ backgroundColor: "var(--pico-card-background-color-darker)" }}
+      style={{
+        backgroundColor: "var(--pico-card-background-color-darker)",
+        display: "flex",
+        flexDirection: "column",
+      }}
     >
       <dialog open={isDeleteDialogOpen}>
         <article>
@@ -88,7 +92,7 @@ export default function CollectionCard(
         </hgroup>
       </header>
 
-      <div class="grid">
+      <div class="grid" style={{ flex: 1 }}>
         {collection.devices.slice(0, 4).map((device) => (
           <DeviceCardMedium device={device} key={device.id} />
         ))}
@@ -115,22 +119,28 @@ export default function CollectionCard(
           <PiTrash /> Delete
         </button>
 
-        <button
-          type="button"
-          role="button"
-          class="button outline secondary"
-          href={`/collections/${collection.id}/edit`}
+        <a
+          href={`/collections/${collection.id}/update`}
           style={{
+            textDecoration: "none",
             marginLeft: "auto",
-            display: "flex",
-            alignItems: "center",
-            gap: "0.5rem",
           }}
-          data-tooltip="Edit collection (coming soon)"
-          data-placement="bottom"
         >
-          <PiPencil /> Edit
-        </button>
+          <button
+            type="button"
+            role="button"
+            class="button outline secondary"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5rem",
+            }}
+            data-tooltip="Edit collection"
+            data-placement="bottom"
+          >
+            <PiPencil /> Edit
+          </button>
+        </a>
 
         <ShareButton
           appearance="outline secondary"

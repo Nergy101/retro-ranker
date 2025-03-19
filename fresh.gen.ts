@@ -19,7 +19,8 @@ import * as $api_suggestions from "./routes/api/suggestions.ts";
 import * as $auth_sign_in from "./routes/auth/sign-in.tsx";
 import * as $auth_sign_up from "./routes/auth/sign-up.tsx";
 import * as $charts_index from "./routes/charts/index.tsx";
-import * as $collections_id_ from "./routes/collections/[id].tsx";
+import * as $collections_id_index from "./routes/collections/[id]/index.tsx";
+import * as $collections_id_update from "./routes/collections/[id]/update.tsx";
 import * as $collections_create from "./routes/collections/create.tsx";
 import * as $compare_layout from "./routes/compare/_layout.tsx";
 import * as $compare_index from "./routes/compare/index.tsx";
@@ -49,6 +50,7 @@ import * as $charts_devices_similar_radar_chart from "./islands/charts/devices-s
 import * as $charts_fresh_chart from "./islands/charts/fresh-chart.tsx";
 import * as $collections_collection_card from "./islands/collections/collection-card.tsx";
 import * as $collections_collection_create_form from "./islands/collections/collection-create-form.tsx";
+import * as $collections_collection_update_form from "./islands/collections/collection-update-form.tsx";
 import * as $collections_device_collections from "./islands/collections/device-collections.tsx";
 import * as $forms_DeviceComparisonForm from "./islands/forms/DeviceComparisonForm.tsx";
 import * as $forms_DeviceSearchForm from "./islands/forms/DeviceSearchForm.tsx";
@@ -82,7 +84,8 @@ const manifest = {
     "./routes/auth/sign-in.tsx": $auth_sign_in,
     "./routes/auth/sign-up.tsx": $auth_sign_up,
     "./routes/charts/index.tsx": $charts_index,
-    "./routes/collections/[id].tsx": $collections_id_,
+    "./routes/collections/[id]/index.tsx": $collections_id_index,
+    "./routes/collections/[id]/update.tsx": $collections_id_update,
     "./routes/collections/create.tsx": $collections_create,
     "./routes/compare/_layout.tsx": $compare_layout,
     "./routes/compare/index.tsx": $compare_index,
@@ -119,6 +122,8 @@ const manifest = {
     "./islands/collections/collection-card.tsx": $collections_collection_card,
     "./islands/collections/collection-create-form.tsx":
       $collections_collection_create_form,
+    "./islands/collections/collection-update-form.tsx":
+      $collections_collection_update_form,
     "./islands/collections/device-collections.tsx":
       $collections_device_collections,
     "./islands/forms/DeviceComparisonForm.tsx": $forms_DeviceComparisonForm,

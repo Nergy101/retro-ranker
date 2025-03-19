@@ -1,10 +1,10 @@
 import { FreshContext } from "$fresh/server.ts";
 import { RecordModel } from "npm:pocketbase";
-import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
-import SEO from "../../components/SEO.tsx";
-import { DeviceCollection } from "../../data/frontend/contracts/device-collection.ts";
-import { Device } from "../../data/frontend/contracts/device.model.ts";
-import { createSuperUserPocketBaseService } from "../../data/pocketbase/pocketbase.service.ts";
+import { DeviceCardMedium } from "../../../components/cards/DeviceCardMedium.tsx";
+import SEO from "../../../components/SEO.tsx";
+import { DeviceCollection } from "../../../data/frontend/contracts/device-collection.ts";
+import { Device } from "../../../data/frontend/contracts/device.model.ts";
+import { createSuperUserPocketBaseService } from "../../../data/pocketbase/pocketbase.service.ts";
 
 export default async function CollectionView(_: Request, ctx: FreshContext) {
   const id = ctx.params.id;
@@ -77,7 +77,7 @@ export default async function CollectionView(_: Request, ctx: FreshContext) {
           </hgroup>
         </header>
         <div class="collection-devices-grid">
-          {collection.devices.map((device) => (
+          {collection.devices.map((device: Device) => (
             <a href={`/devices/${device.id}`}>
               <DeviceCardMedium device={device} key={device.id} />
             </a>
