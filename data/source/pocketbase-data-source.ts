@@ -38,141 +38,94 @@ const handhelds = JSON.parse(
 ) as DeviceContract[];
 
 // Modify insertTags
-async function insertTags(
+async function getOrCreateTags(
   deviceEntities: DeviceContract[],
 ): Promise<Map<string, TagModel>> {
   console.log(chalk.cyan.bold("\n📑 Processing Tags"));
   console.log(chalk.dim("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
 
   const existingTags = await pocketbaseClient.collection("tags").getFullList();
-  const existingTagsMap = new Map(
-    existingTags.map((tag) => [tag.slug, tag]),
-  );
+  const tagMap = new Map(existingTags.map((tag) => [tag.slug, tag]));
   console.log(chalk.blue(`Found ${existingTags.length} existing tags`));
 
-  const uniqueTags = new Map();
-  let updatedCount = 0;
   let createdCount = 0;
-  let errorCount = 0;
 
+  // Collect all unique tags from devices
   for (const device of deviceEntities) {
     for (const tag of device.tags) {
-      if (!uniqueTags.has(tag.slug)) {
+      if (!tagMap.has(tag.slug)) {
+        // Create new tag only if it doesn't exist
+        const newId = nanoid(15);
         const tagData = {
+          id: newId,
           name: tag.name,
           slug: tag.slug,
           type: tag.type,
         };
 
-        try {
-          if (existingTagsMap.has(tag.slug)) {
-            const existingTag = existingTagsMap.get(tag.slug)!;
-            await pocketbaseClient.collection("tags").update(
-              existingTag.id,
-              tagData,
-            );
-            uniqueTags.set(tag.slug, { id: existingTag.id, ...tagData });
-            updatedCount++;
-          } else {
-            const newId = nanoid(15);
-            await pocketbaseClient.collection("tags").create({
-              id: newId,
-              ...tagData,
-            });
-            uniqueTags.set(tag.slug, { id: newId, ...tagData });
-            createdCount++;
-          }
-        } catch (error) {
-          console.error(
-            chalk.red(
-              `❌ Failed to process tag "${tag.name}" (${tag.slug}):`,
-              error,
-            ),
-          );
-          errorCount++;
-        }
+        await pocketbaseClient.collection("tags").create(tagData);
+        tagMap.set(tag.slug, tagData);
+        createdCount++;
       }
     }
   }
 
-  console.log(chalk.dim("\nTag Processing Summary:"));
-  console.log(chalk.green(`✓ Created: ${createdCount}`));
-  console.log(chalk.blue(`↻ Updated: ${updatedCount}`));
-  if (errorCount > 0) console.log(chalk.red(`✕ Errors: ${errorCount}`));
+  if (createdCount > 0) {
+    console.log(chalk.green(`Created ${createdCount} new tags`));
+  }
   console.log(chalk.dim("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"));
 
-  return uniqueTags;
+  return tagMap;
 }
 
 // Modify insertSystemRatings
-async function insertSystemRatings(deviceEntities: DeviceContract[]) {
+async function getOrCreateSystemRatings(
+  deviceEntities: DeviceContract[],
+): Promise<Map<string, SystemRating>> {
   console.log(chalk.cyan.bold("\n🎮 Processing System Ratings"));
   console.log(chalk.dim("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
 
   const existingRatings = await pocketbaseClient.collection("system_ratings")
     .getFullList();
-  const existingRatingsMap = new Map(
-    existingRatings.map(
-      (rating) => [`${rating.system}:${rating.rating}`, rating],
-    ),
+  const ratingsMap = new Map(
+    existingRatings.map((
+      rating,
+    ) => [`${rating.system}:${rating.rating}`, rating]),
   );
   console.log(
     chalk.blue(`Found ${existingRatings.length} existing system ratings`),
   );
 
-  const uniqueSystemRatings = new Map();
-  let updatedCount = 0;
   let createdCount = 0;
-  let errorCount = 0;
 
+  // Collect all unique system ratings from devices
   for (const device of deviceEntities) {
     for (const rating of device.systemRatings) {
       const key = `${rating.system}:${rating.ratingNumber}`;
-      if (!uniqueSystemRatings.has(key)) {
+
+      if (!ratingsMap.has(key)) {
+        // Create new rating only if it doesn't exist
+        const newId = nanoid(15);
         const ratingData = {
+          id: newId,
           system: rating.system,
           rating: rating.ratingNumber,
+          ratingNumber: rating.ratingNumber,
         };
 
-        try {
-          if (existingRatingsMap.has(key)) {
-            const existingRating = existingRatingsMap.get(key)!;
-            await pocketbaseClient.collection("system_ratings").update(
-              existingRating.id,
-              ratingData,
-            );
-            uniqueSystemRatings.set(key, {
-              id: existingRating.id,
-              ...ratingData,
-            });
-            updatedCount++;
-          } else {
-            const newId = nanoid(15);
-            await pocketbaseClient.collection("system_ratings").create({
-              id: newId,
-              ...ratingData,
-            });
-            uniqueSystemRatings.set(key, { id: newId, ...ratingData });
-            createdCount++;
-          }
-        } catch (error) {
-          console.error(
-            chalk.red(`❌ Failed to process system rating ${key}:`),
-            error,
-          );
-          errorCount++;
-        }
+        await pocketbaseClient.collection("system_ratings").create(ratingData);
+        ratingsMap.set(key, ratingData);
+        createdCount++;
       }
     }
   }
 
-  console.log(chalk.dim("\nSystem Ratings Processing Summary:"));
-  console.log(chalk.green(`✓ Created: ${createdCount}`));
-  console.log(chalk.blue(`↻ Updated: ${updatedCount}`));
-  if (errorCount > 0) console.log(chalk.red(`✕ Errors: ${errorCount}`));
+  if (createdCount > 0) {
+    console.log(chalk.green(`Created ${createdCount} new system ratings`));
+  }
   console.log(chalk.dim("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"));
 
-  return uniqueSystemRatings;
+  return ratingsMap;
 }
 
 // Modify insertDevices
@@ -233,39 +186,12 @@ async function insertDevices(
         tier: device.performance.tier,
       };
 
-      let pricingId, performanceId;
-
       if (existingDevice) {
-        // Update existing records
-        if (existingDevice.pricing) {
-          await pocketbaseClient.collection("pricings").update(
-            existingDevice.pricing,
-            pricingData,
-          );
-          pricingId = existingDevice.pricing;
-        } else {
-          pricingId = nanoid(15);
-          await pocketbaseClient.collection("pricings").create({
-            id: pricingId,
-            ...pricingData,
-          });
-        }
+        // Use existing pricing and performance IDs
+        const pricingId = existingDevice.pricing;
+        const performanceId = existingDevice.performance;
 
-        if (existingDevice.performance) {
-          await pocketbaseClient.collection("performances").update(
-            existingDevice.performance,
-            performanceData,
-          );
-          performanceId = existingDevice.performance;
-        } else {
-          performanceId = nanoid(15);
-          await pocketbaseClient.collection("performances").create({
-            id: performanceId,
-            ...performanceData,
-          });
-        }
-
-        // Update device
+        // Update device only
         await pocketbaseClient.collection("devices").update(deviceId, {
           nameRaw: unknownOrValue(device.name.raw),
           nameSanitized: unknownOrValue(device.name.sanitized),
@@ -292,9 +218,9 @@ async function insertDevices(
           ),
         );
       } else {
-        // Create new records
-        pricingId = nanoid(15);
-        performanceId = nanoid(15);
+        // Create new records only for new devices
+        const pricingId = nanoid(15);
+        const performanceId = nanoid(15);
 
         await pocketbaseClient.collection("pricings").create({
           id: pricingId,
@@ -348,7 +274,15 @@ async function insertDevices(
   console.log(chalk.dim("\nDevice Processing Summary:"));
   console.log(chalk.green(`✓ Created: ${createdCount}`));
   console.log(chalk.blue(`↻ Updated: ${updatedCount}`));
-  console.log(chalk.yellow(`⏭️  Skipped: ${skipCount}`));
+  console.log(chalk.yellow(`⏭️  Skipped (incomplete): ${skipCount}`));
+  console.log(
+    chalk.dim(
+      `• Skipped (no changes): ${
+        deviceEntities.length - createdCount - updatedCount - skipCount -
+        errorCount
+      }`,
+    ),
+  );
   if (errorCount > 0) console.log(chalk.red(`✕ Errors: ${errorCount}`));
   console.log(chalk.dim("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"));
 }
@@ -399,8 +333,8 @@ const startTime = Date.now();
 
 try {
   await updateOrCreateRecords();
-  const tagMap = await insertTags(handhelds);
-  const systemRatingsMap = await insertSystemRatings(handhelds);
+  const tagMap = await getOrCreateTags(handhelds);
+  const systemRatingsMap = await getOrCreateSystemRatings(handhelds);
   await insertDevices(handhelds, tagMap, systemRatingsMap);
 
   const duration = ((Date.now() - startTime) / 1000).toFixed(2);
