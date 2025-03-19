@@ -142,13 +142,7 @@ export default function Home({ url }: PageProps) {
                   for modern systems, our comprehensive comparison tools help
                   you find the perfect device for your needs.
                 </p>
-                <div
-                  style={{
-                    marginTop: "1.5rem",
-                    display: "flex",
-                    gap: "1rem",
-                    flexWrap: "wrap",
-                  }}
+                <div class="index-buttons"
                 >
                   <a
                     role="button"
