@@ -4,7 +4,6 @@ import { createSuperUserPocketBaseService } from "../../../data/pocketbase/pocke
 
 export const handler: Handlers = {
   async POST(request, ctx) {
-
     const pbService = await createSuperUserPocketBaseService(
       Deno.env.get("POCKETBASE_SUPERUSER_EMAIL")!,
       Deno.env.get("POCKETBASE_SUPERUSER_PASSWORD")!,

@@ -1,14 +1,14 @@
 import { FreshContext } from "$fresh/server.ts";
 import { PiChatCentered, PiPlus } from "@preact-icons/pi";
-import { slugify } from "https://deno.land/x/slugify@0.3.0/mod.ts";
+import { RecordModel } from "npm:pocketbase";
 import SEO from "../../components/SEO.tsx";
+import { DeviceCollection } from "../../data/frontend/contracts/device-collection.ts";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { User } from "../../data/frontend/contracts/user.contract.ts";
 import { createLoggedInPocketBaseService } from "../../data/pocketbase/pocketbase.service.ts";
 import SignOut from "../../islands/auth/sign-out.tsx";
 import DeviceCollections from "../../islands/collections/device-collections.tsx";
 import SuggestionForm from "../../islands/suggestion-form.tsx";
-import { Device } from "../../data/frontend/contracts/device.model.ts";
-import { DeviceCollection } from "../../data/frontend/contracts/device-collection.ts";
 
 export default async function ProfilePage(
   req: Request,
@@ -44,7 +44,7 @@ export default async function ProfilePage(
         name: d.name,
         created: d.created,
         updated: d.updated,
-        devices: (d.expand?.devices ?? []).map((de: any) => {
+        devices: (d.expand?.devices ?? []).map((de: RecordModel) => {
           return de.deviceData as Device;
         }),
         deviceCount: (d.expand?.devices ?? []).length,

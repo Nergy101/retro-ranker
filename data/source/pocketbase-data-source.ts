@@ -9,7 +9,12 @@ import chalk from "https://deno.land/x/chalk_deno@v4.1.1-deno/source/index.js";
 import { SystemRating } from "../entities/system-rating.entity.ts";
 import { TagModel } from "../entities/tag.entity.ts";
 import { unknownOrValue } from "./device-parser/device.parser.helpers.ts";
-const env = await load({ envPath: "../../.env", allowEmptyValues: true, export: true });
+
+const env = await load({
+  envPath: "../../.env",
+  allowEmptyValues: true,
+  export: true,
+});
 
 if (
   env.POCKETBASE_SUPERUSER_EMAIL == "" ||
@@ -26,305 +31,384 @@ const pb = await createSuperUserPocketBaseService(
   env.POCKETBASE_URL,
 );
 const pocketbaseClient = pb.getPocketBaseClient();
-const batch = pocketbaseClient.createBatch();
-
-const devicesCollection = batch.collection("devices");
-const pricingCollection = batch.collection("pricings");
-const performanceCollection = batch.collection("performances");
 
 // Read handhelds.json
 const handhelds = JSON.parse(
   new TextDecoder().decode(await Deno.readFile("results/handhelds.json")),
 ) as DeviceContract[];
 
-// Delete all existing records from collections before inserting new data
-async function clearCollections() {
-  try {
-    console.log(chalk.yellow.bold("🗑️  Deleting all existing records..."));
-
-    const collections = [
-      "devices",
-    ];
-
-    for (const collection of collections) {
-      // const deleteBatch = pocketbaseClient.createBatch();
-
-
-      console.log(
-        chalk.yellow.bold(
-          `🗑️  Deleting all existing records from ${collection}...`,
-        ),
-      );
-      const records = await pocketbaseClient.collection(collection)
-        .getFullList();
-
-      console.info(chalk.blue(`Found ${records.length} records`));
-
-      for (const record of records) {
-        pocketbaseClient.collection(collection).delete(record.id);
-      }
-
-      // if (records.length > 0) {
-      //   const deleteBatchResult = await deleteBatch.send();
-      //   if (
-      //     deleteBatchResult.filter((r) => r.status !== 200 && r.status !== 204)
-      //       .length > 0
-      //   ) {
-      //     console.error(
-      //       chalk.red.bold("❌ Failed to delete some records:"),
-      //       deleteBatchResult,
-      //     );
-      //     Deno.exit(1);
-      //   }
-      // }
-    }
-
-    console.log(
-      chalk.green.bold("🔥 All existing records deleted successfully"),
-    );
-  } catch (error) {
-    console.error(chalk.red.bold("❌ Failed to clear collections:"), error);
-    Deno.exit(1);
-  }
-}
-
-// Add a new function to insert tags first
+// Modify insertTags
 async function insertTags(
   deviceEntities: DeviceContract[],
 ): Promise<Map<string, TagModel>> {
-  console.log(chalk.cyan.bold("📥 Inserting unique tags..."));
+  console.log(chalk.cyan.bold("\n📑 Processing Tags"));
+  console.log(chalk.dim("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
 
-  // Create a map to store unique tags by slug
+  const existingTags = await pocketbaseClient.collection("tags").getFullList();
+  const existingTagsMap = new Map(
+    existingTags.map((tag) => [tag.slug, tag]),
+  );
+  console.log(chalk.blue(`Found ${existingTags.length} existing tags`));
+
   const uniqueTags = new Map();
+  let updatedCount = 0;
+  let createdCount = 0;
+  let errorCount = 0;
 
-  // Collect all unique tags from all devices
   for (const device of deviceEntities) {
     for (const tag of device.tags) {
       if (!uniqueTags.has(tag.slug)) {
-        uniqueTags.set(tag.slug, {
-          id: nanoid(15),
+        const tagData = {
           name: tag.name,
           slug: tag.slug,
           type: tag.type,
-        });
+        };
+
+        try {
+          if (existingTagsMap.has(tag.slug)) {
+            const existingTag = existingTagsMap.get(tag.slug)!;
+            await pocketbaseClient.collection("tags").update(
+              existingTag.id,
+              tagData,
+            );
+            uniqueTags.set(tag.slug, { id: existingTag.id, ...tagData });
+            updatedCount++;
+          } else {
+            const newId = nanoid(15);
+            await pocketbaseClient.collection("tags").create({
+              id: newId,
+              ...tagData,
+            });
+            uniqueTags.set(tag.slug, { id: newId, ...tagData });
+            createdCount++;
+          }
+        } catch (error) {
+          console.error(
+            chalk.red(
+              `❌ Failed to process tag "${tag.name}" (${tag.slug}):`,
+              error,
+            ),
+          );
+          errorCount++;
+        }
       }
     }
   }
 
-  const tagsBatch = pocketbaseClient.createBatch();
-  for (const tag of uniqueTags.values()) {
-    tagsBatch.collection("tags").create(tag);
-  }
-
-  const tagsBatchResult = await tagsBatch.send();
-
-  if (tagsBatchResult.filter((r) => r.status !== 200).length > 0) {
-    console.error(
-      chalk.red.bold("❌ Failed to insert some tags:"),
-      tagsBatchResult,
-    );
-    Deno.exit(1);
-  }
-
-  console.log(chalk.green.bold(`✅ Inserted ${uniqueTags.size} unique tags`));
+  console.log(chalk.dim("\nTag Processing Summary:"));
+  console.log(chalk.green(`✓ Created: ${createdCount}`));
+  console.log(chalk.blue(`↻ Updated: ${updatedCount}`));
+  if (errorCount > 0) console.log(chalk.red(`✕ Errors: ${errorCount}`));
+  console.log(chalk.dim("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"));
 
   return uniqueTags;
 }
 
-// Add a new function to insert system ratings first
+// Modify insertSystemRatings
 async function insertSystemRatings(deviceEntities: DeviceContract[]) {
-  console.log(chalk.cyan.bold("📥 Inserting unique system ratings..."));
+  console.log(chalk.cyan.bold("\n🎮 Processing System Ratings"));
+  console.log(chalk.dim("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
 
-  // Create a map to store unique system ratings by system+rating combination
+  const existingRatings = await pocketbaseClient.collection("system_ratings")
+    .getFullList();
+  const existingRatingsMap = new Map(
+    existingRatings.map(
+      (rating) => [`${rating.system}:${rating.rating}`, rating],
+    ),
+  );
+  console.log(
+    chalk.blue(`Found ${existingRatings.length} existing system ratings`),
+  );
+
   const uniqueSystemRatings = new Map();
+  let updatedCount = 0;
+  let createdCount = 0;
+  let errorCount = 0;
 
-  // Collect all unique system ratings from all devices
   for (const device of deviceEntities) {
     for (const rating of device.systemRatings) {
-      // Create a unique key combining system and rating
       const key = `${rating.system}:${rating.ratingNumber}`;
       if (!uniqueSystemRatings.has(key)) {
-        uniqueSystemRatings.set(key, {
-          id: nanoid(15),
+        const ratingData = {
           system: rating.system,
           rating: rating.ratingNumber,
-        });
+        };
+
+        try {
+          if (existingRatingsMap.has(key)) {
+            const existingRating = existingRatingsMap.get(key)!;
+            await pocketbaseClient.collection("system_ratings").update(
+              existingRating.id,
+              ratingData,
+            );
+            uniqueSystemRatings.set(key, {
+              id: existingRating.id,
+              ...ratingData,
+            });
+            updatedCount++;
+          } else {
+            const newId = nanoid(15);
+            await pocketbaseClient.collection("system_ratings").create({
+              id: newId,
+              ...ratingData,
+            });
+            uniqueSystemRatings.set(key, { id: newId, ...ratingData });
+            createdCount++;
+          }
+        } catch (error) {
+          console.error(
+            chalk.red(`❌ Failed to process system rating ${key}:`),
+            error,
+          );
+          errorCount++;
+        }
       }
     }
   }
 
-  const systemRatingsBatch = pocketbaseClient.createBatch();
-  for (const systemRating of uniqueSystemRatings.values()) {
-    systemRatingsBatch.collection("system_ratings").create(systemRating);
-  }
-
-  const systemRatingsBatchResult = await systemRatingsBatch.send();
-
-  if (systemRatingsBatchResult.filter((r) => r.status !== 200).length > 0) {
-    console.error(
-      chalk.red.bold("❌ Failed to insert some system ratings:"),
-      systemRatingsBatchResult,
-    );
-    Deno.exit(1);
-  }
-
-  console.log(
-    chalk.green.bold(
-      `✅ Inserted ${uniqueSystemRatings.size} unique system ratings`,
-    ),
-  );
+  console.log(chalk.dim("\nSystem Ratings Processing Summary:"));
+  console.log(chalk.green(`✓ Created: ${createdCount}`));
+  console.log(chalk.blue(`↻ Updated: ${updatedCount}`));
+  if (errorCount > 0) console.log(chalk.red(`✕ Errors: ${errorCount}`));
+  console.log(chalk.dim("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"));
 
   return uniqueSystemRatings;
 }
 
+// Modify insertDevices
 async function insertDevices(
   deviceEntities: DeviceContract[],
   tagMap: Map<string, TagModel>,
   systemRatingsMap: Map<string, SystemRating>,
 ) {
+  console.log(chalk.cyan.bold("\n📱 Processing Devices"));
+  console.log(chalk.dim("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
 
-  if (hasDoubleDevices(deviceEntities)) {
-    console.error(
-      chalk.red.bold("❌ Duplicate devices found"),
-    );
-    Deno.exit(1);
-  }
+  const existingDevices = await pocketbaseClient.collection("devices")
+    .getFullList();
+  console.log(chalk.blue(`Found ${existingDevices.length} existing devices`));
+  console.log(chalk.yellow(`Processing ${deviceEntities.length} devices...\n`));
 
-  console.log(
-    chalk.cyan.bold(
-      `📥 Starting import of ${deviceEntities.length} devices...`,
-    ),
-  );
-  let successCount = 0;
+  let createdCount = 0;
+  let updatedCount = 0;
   let skipCount = 0;
   let errorCount = 0;
 
+  const existingDevicesMap = new Map(
+    existingDevices.map((device) => [device.id, device]),
+  );
+
   for (const device of deviceEntities) {
-    const deviceId = device.name.sanitized; //  nanoid(15);
-    const pricingId = nanoid(15);
-    const performanceId = nanoid(15);
-    // Use existing tag IDs from the map
-    const tagIds = device.tags.map((tag) => tagMap.get(tag.slug)?.id);
-    // Use existing system rating IDs from the map with the combined key
-    const systemRatingIds = device.systemRatings.map((rating) =>
-      systemRatingsMap.get(`${rating.system}:${rating.ratingNumber}`)?.id
-    );
+    const deviceId = device.name.sanitized;
+    const existingDevice = existingDevicesMap.get(deviceId);
+
+    // Skip incomplete devices
+    if (device.brand.raw === "Unknown") {
+      console.log(
+        chalk.yellow(
+          `⏭️  Skipping incomplete device: ${
+            chalk.dim(device.name.raw || "Unknown")
+          }`,
+        ),
+      );
+      skipCount++;
+      continue;
+    }
 
     try {
-      // Insert Device
-      if (
-        device.brand.raw === "Unknown"
-        // && device.name.raw === "Unknown"
-      ) {
-        console.log(
-          chalk.yellow(
-            `⏭️  Skipping device with incomplete data: ${device.name.raw || "Unknown"
-            } - ${device.brand.raw || "Unknown"}`,
-          ),
-        );
-        skipCount++;
-        continue;
-      }
-
-      // Insert Pricing
-      pricingCollection.create({
-        id: pricingId,
+      const pricingData = {
         average: device.pricing.average,
         min: device.pricing.range.min,
         max: device.pricing.range.max,
         currency: device.pricing.currency,
         category: device.pricing.category,
         discontinued: device.pricing.discontinued,
-      });
+      };
 
-      // Insert Performance
-      performanceCollection.create({
-        id: performanceId,
+      const performanceData = {
         emulationLimit: device.performance.emulationLimit,
         maxEmulation: device.performance.maxEmulation,
         normalizedRating: device.performance.normalizedRating,
         rating: device.performance.rating,
         tier: device.performance.tier,
-      });
+      };
 
-      // No longer inserting tags or system ratings here, as they're already inserted
+      let pricingId, performanceId;
 
-      devicesCollection.create({
-        id: deviceId,
-        nameRaw: unknownOrValue(device.name.raw),
-        nameSanitized: unknownOrValue(device.name.sanitized),
-        brandRaw: unknownOrValue(device.brand.raw),
-        brandSanitized: unknownOrValue(device.brand.sanitized),
-        released: device.released.mentionedDate,
-        totalRating: device.totalRating ?? 0,
+      if (existingDevice) {
+        // Update existing records
+        if (existingDevice.pricing) {
+          await pocketbaseClient.collection("pricings").update(
+            existingDevice.pricing,
+            pricingData,
+          );
+          pricingId = existingDevice.pricing;
+        } else {
+          pricingId = nanoid(15);
+          await pocketbaseClient.collection("pricings").create({
+            id: pricingId,
+            ...pricingData,
+          });
+        }
 
-        deviceData: JSON.stringify(device),
+        if (existingDevice.performance) {
+          await pocketbaseClient.collection("performances").update(
+            existingDevice.performance,
+            performanceData,
+          );
+          performanceId = existingDevice.performance;
+        } else {
+          performanceId = nanoid(15);
+          await pocketbaseClient.collection("performances").create({
+            id: performanceId,
+            ...performanceData,
+          });
+        }
 
-        pricing: pricingId,
-        performance: performanceId,
-        systemRatings: systemRatingIds,
-        tags: tagIds,
-      });
+        // Update device
+        await pocketbaseClient.collection("devices").update(deviceId, {
+          nameRaw: unknownOrValue(device.name.raw),
+          nameSanitized: unknownOrValue(device.name.sanitized),
+          brandRaw: unknownOrValue(device.brand.raw),
+          brandSanitized: unknownOrValue(device.brand.sanitized),
+          released: device.released.mentionedDate,
+          totalRating: device.totalRating ?? 0,
+          deviceData: JSON.stringify(device),
+          systemRatings: device.systemRatings.map((rating) =>
+            systemRatingsMap.get(`${rating.system}:${rating.ratingNumber}`)?.id
+          ).filter(Boolean),
+          tags: device.tags.map((tag) => tagMap.get(tag.slug)?.id).filter(
+            Boolean,
+          ),
+          pricing: pricingId,
+          performance: performanceId,
+        });
+        updatedCount++;
+        console.log(
+          chalk.blue(
+            `↻ Updated: ${chalk.bold(device.brand.sanitized)} ${
+              chalk.bold(device.name.sanitized)
+            }`,
+          ),
+        );
+      } else {
+        // Create new records
+        pricingId = nanoid(15);
+        performanceId = nanoid(15);
 
-      console.log(
-        chalk.green(
-          `✅ Inserted: ${chalk.bold(device.brand.sanitized)} ${chalk.bold(device.name.sanitized)
-          } (ID: ${chalk.dim(deviceId)})`,
-        ),
-      );
-      successCount++;
+        await pocketbaseClient.collection("pricings").create({
+          id: pricingId,
+          ...pricingData,
+        });
+        await pocketbaseClient.collection("performances").create({
+          id: performanceId,
+          ...performanceData,
+        });
+
+        await pocketbaseClient.collection("devices").create({
+          id: deviceId,
+          nameRaw: unknownOrValue(device.name.raw),
+          nameSanitized: unknownOrValue(device.name.sanitized),
+          brandRaw: unknownOrValue(device.brand.raw),
+          brandSanitized: unknownOrValue(device.brand.sanitized),
+          released: device.released.mentionedDate,
+          totalRating: device.totalRating ?? 0,
+          deviceData: JSON.stringify(device),
+          systemRatings: device.systemRatings.map((rating) =>
+            systemRatingsMap.get(`${rating.system}:${rating.ratingNumber}`)?.id
+          ).filter(Boolean),
+          tags: device.tags.map((tag) => tagMap.get(tag.slug)?.id).filter(
+            Boolean,
+          ),
+          pricing: pricingId,
+          performance: performanceId,
+        });
+        createdCount++;
+        console.log(
+          chalk.green(
+            `✓ Created: ${chalk.bold(device.brand.sanitized)} ${
+              chalk.bold(device.name.sanitized)
+            }`,
+          ),
+        );
+      }
     } catch (error) {
-      console.error(
-        chalk.red.bold(
-          `❌ Failed to insert ${device.name.sanitized || "Unknown device"}`,
-        ),
-        chalk.red(error),
-      );
       errorCount++;
-    }
-  }
-
-  console.log(
-    chalk.cyan.bold(
-      `📊 Import summary: ${chalk.green(`${successCount} succeeded`)} | ${chalk.yellow(`${skipCount} skipped`)
-      } | ${chalk.red(`${errorCount} failed`)}`,
-    ),
-  );
-}
-
-// Clear all collections before inserting new data
-console.log(chalk.magenta.bold("🚀 Starting database population process..."));
-
-await clearCollections();
-
-const tagMap = await insertTags(handhelds);
-const systemRatingsMap = await insertSystemRatings(handhelds);
-await insertDevices(handhelds, tagMap, systemRatingsMap);
-
-const batchResult = await batch.send();
-
-const failed = batchResult.filter((r) => r.status !== 200);
-
-if (failed.length > 0) {
-  console.error(chalk.red.bold("❌ Failed to insert some records:"), failed);
-} else {
-  console.log(chalk.green.bold("🎉 All records inserted successfully!"));
-}
-
-console.log(chalk.magenta.bold("✨ Database population process completed"));
-
-
-function hasDoubleDevices(deviceEntities: DeviceEntity[]): boolean {
-  const deviceNames = new Set<string>();
-  for (const device of deviceEntities) {
-    const name = device.name.sanitized;
-    if (deviceNames.has(name)) {
       console.error(
-        chalk.red.bold(`❌ Duplicate device found: ${name}`),
+        chalk.red(
+          `✕ Error processing: ${
+            chalk.bold(device.name.sanitized || "Unknown device")
+          }`,
+        ),
       );
-      return true;
+      console.error(chalk.dim(error));
     }
-    deviceNames.add(name);
   }
-  return false;
+
+  console.log(chalk.dim("\nDevice Processing Summary:"));
+  console.log(chalk.green(`✓ Created: ${createdCount}`));
+  console.log(chalk.blue(`↻ Updated: ${updatedCount}`));
+  console.log(chalk.yellow(`⏭️  Skipped: ${skipCount}`));
+  if (errorCount > 0) console.log(chalk.red(`✕ Errors: ${errorCount}`));
+  console.log(chalk.dim("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"));
+}
+
+// Fix the updateOrCreateRecords function - it was returning a map outside the loop
+async function updateOrCreateRecords() {
+  try {
+    console.log(chalk.yellow.bold("🔄 Starting update/create process..."));
+
+    const collectionMaps = new Map();
+    const collections = ["devices", "pricings", "performances"];
+
+    for (const collection of collections) {
+      console.log(
+        chalk.yellow.bold(
+          `📝 Fetching existing records from ${collection}...`,
+        ),
+      );
+      const existingRecords = await pocketbaseClient.collection(collection)
+        .getFullList();
+
+      // Create a map of existing records by ID for quick lookup
+      const existingRecordsMap = new Map(
+        existingRecords.map((record) => [record.id, record]),
+      );
+
+      collectionMaps.set(collection, existingRecordsMap);
+      console.info(
+        chalk.blue(`Found ${existingRecords.length} existing records`),
+      );
+    }
+
+    return collectionMaps;
+  } catch (error) {
+    console.error(
+      chalk.red.bold("❌ Failed to fetch existing records:"),
+      error,
+    );
+    Deno.exit(1);
+  }
+}
+
+// Main execution
+console.log(chalk.magenta.bold("\n🚀 Starting Database Update Process"));
+console.log(chalk.dim("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
+
+const startTime = Date.now();
+
+try {
+  await updateOrCreateRecords();
+  const tagMap = await insertTags(handhelds);
+  const systemRatingsMap = await insertSystemRatings(handhelds);
+  await insertDevices(handhelds, tagMap, systemRatingsMap);
+
+  const duration = ((Date.now() - startTime) / 1000).toFixed(2);
+  console.log(chalk.magenta.bold("\n✨ Database Update Complete"));
+  console.log(chalk.dim("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
+  console.log(chalk.white(`Total time: ${duration} seconds`));
+} catch (error) {
+  console.error(chalk.red.bold("\n❌ Database Update Failed"));
+  console.error(chalk.red(error));
+  Deno.exit(1);
 }

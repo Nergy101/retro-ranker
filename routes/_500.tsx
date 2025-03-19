@@ -1,8 +1,7 @@
-import { PageProps } from "$fresh/server.ts";
 import { PiGameControllerBold } from "@preact-icons/pi";
 import SEO from "../components/SEO.tsx";
 
-export default function Error500Page(props: PageProps) {
+export default function Error500Page(_: Request) {
   return (
     <div class="not-found">
       <SEO

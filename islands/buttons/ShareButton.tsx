@@ -6,7 +6,11 @@ export function ShareButton(
     tooltip?: string;
     shareTitle: string;
     url: string;
-    appearance?: "default" | "outline" | "outline contrast" | "outline secondary";
+    appearance?:
+      | "default"
+      | "outline"
+      | "outline contrast"
+      | "outline secondary";
   },
 ) {
   const handleShare = () => {
@@ -16,7 +20,10 @@ export function ShareButton(
     });
   };
 
-  if (appearance === "outline" || appearance === "outline contrast" || appearance === "outline secondary") {
+  if (
+    appearance === "outline" || appearance === "outline contrast" ||
+    appearance === "outline secondary"
+  ) {
     return (
       <button
         class={`button secondary ${appearance}`}

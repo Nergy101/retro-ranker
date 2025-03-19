@@ -6,7 +6,7 @@ import { DeviceCollection } from "../../data/frontend/contracts/device-collectio
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { createSuperUserPocketBaseService } from "../../data/pocketbase/pocketbase.service.ts";
 
-export default async function CollectionView(req: Request, ctx: FreshContext) {
+export default async function CollectionView(_: Request, ctx: FreshContext) {
   const id = ctx.params.id;
 
   const pbService = await createSuperUserPocketBaseService(
@@ -23,7 +23,9 @@ export default async function CollectionView(req: Request, ctx: FreshContext) {
   ) as RecordModel & DeviceCollection;
 
   collection.devices =
-    collection.expand?.devices.map((d: any) => d.deviceData as Device) ?? [];
+    collection.expand?.devices.map((d: RecordModel) =>
+      d.deviceData as Device
+    ) ?? [];
   collection.owner = collection.expand?.owner.nickname as string;
 
   if (!collection) {

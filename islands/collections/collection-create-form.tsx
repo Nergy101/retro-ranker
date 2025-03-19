@@ -1,8 +1,7 @@
-import { PiFloppyDisk, PiTrash } from "@preact-icons/pi";
+import { PiFloppyDisk } from "@preact-icons/pi";
 import { useSignal } from "@preact/signals";
 import { useEffect, useRef } from "preact/hooks";
 import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
-import { DeviceCardRow } from "../../components/cards/DeviceCardRow.tsx";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { searchDevices } from "../../data/frontend/services/utils/search.utils.ts";
 
@@ -93,6 +92,7 @@ export default function CollectionCreateForm(
       });
       globalThis.location.href = "/profile";
     } catch (error) {
+      // deno-lint-ignore no-console
       console.error("Error submitting form:", error);
     } finally {
       isSubmitting.value = false;
