@@ -1,6 +1,6 @@
 // deno-lint-ignore-file no-console
 import { load } from "$std/dotenv/mod.ts";
-import { nanoid } from "https://deno.land/x/nanoid/mod.ts";
+import { nanoid } from "https://deno.land/x/nanoid@v3.0.0/mod.ts";
 import { Device as DeviceContract } from "../frontend/contracts/device.model.ts";
 import { createSuperUserPocketBaseService } from "../pocketbase/pocketbase.service.ts";
 
