@@ -101,7 +101,7 @@ async function getOrCreateSystemRatings(
   // Collect all unique system ratings from devices
   for (const device of deviceEntities) {
     for (const rating of device.systemRatings) {
-      const key = `${rating.system}:${rating.ratingNumber}`;
+      const key = `${rating.system}:${rating.ratingNumber ?? 0}`;
 
       if (!ratingsMap.has(key)) {
         // Create new rating only if it doesn't exist
