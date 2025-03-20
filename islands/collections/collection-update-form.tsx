@@ -2,7 +2,6 @@ import { PiFloppyDisk, PiTrash } from "@preact-icons/pi";
 import { useSignal } from "@preact/signals";
 import { useEffect, useRef } from "preact/hooks";
 import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
-import { DeviceCardRow } from "../../components/cards/DeviceCardRow.tsx";
 import { DeviceCollection } from "../../data/frontend/contracts/device-collection.ts";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { searchDevices } from "../../data/frontend/services/utils/search.utils.ts";
@@ -26,7 +25,7 @@ export default function CollectionUpdateForm(
   const description = useSignal<string>(collection.description);
 
   const selectedDevice = useSignal<Device | null>(null);
-  const suggestionsRef = useRef<HTMLUListElement>(null);
+  const suggestionsRef = useRef<HTMLDivElement | null>(null);
   const suggestions = useSignal<Device[]>([]);
   const query = useSignal<string>("");
 

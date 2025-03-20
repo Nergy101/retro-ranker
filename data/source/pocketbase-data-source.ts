@@ -1,4 +1,4 @@
-// deno-lint-ignore-file no-console
+// deno-lint-ignore-file no-console no-explicit-any
 import { load } from "$std/dotenv/mod.ts";
 import { nanoid } from "https://deno.land/x/nanoid@v3.0.0/mod.ts";
 import { Device as DeviceContract } from "../frontend/contracts/device.model.ts";
@@ -45,7 +45,9 @@ async function getOrCreateTags(
   console.log(chalk.dim("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
 
   const existingTags = await pocketbaseClient.collection("tags").getFullList();
-  const tagMap = new Map(existingTags.map((tag) => [tag.slug, tag]));
+  const tagMap: Map<string, any> = new Map(
+    existingTags.map((tag) => [tag.slug, tag]),
+  );
   console.log(chalk.blue(`Found ${existingTags.length} existing tags`));
 
   let createdCount = 0;
@@ -87,7 +89,7 @@ async function getOrCreateSystemRatings(
 
   const existingRatings = await pocketbaseClient.collection("system_ratings")
     .getFullList();
-  const ratingsMap = new Map(
+  const ratingsMap: Map<string, any> = new Map(
     existingRatings.map((
       rating,
     ) => [`${rating.system}:${rating.rating}`, rating]),
@@ -106,7 +108,7 @@ async function getOrCreateSystemRatings(
       if (!ratingsMap.has(key)) {
         // Create new rating only if it doesn't exist
         const newId = nanoid(15);
-        const ratingData = {
+        const ratingData: any = {
           id: newId,
           system: rating.system,
           rating: rating.ratingNumber,

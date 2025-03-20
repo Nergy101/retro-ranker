@@ -142,8 +142,7 @@ export default function Home({ url }: PageProps) {
                   for modern systems, our comprehensive comparison tools help
                   you find the perfect device for your needs.
                 </p>
-                <div class="index-buttons"
-                >
+                <div class="index-buttons">
                   <a
                     role="button"
                     class="button contrast outline"
