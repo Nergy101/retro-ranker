@@ -17,14 +17,6 @@ on:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      max-parallel: 1
-      matrix:
-        job: [1]
-    retry:
-      max-attempts: 3
-      interval: 180
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
