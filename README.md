@@ -1,82 +1,145 @@
 # Retro Ranker 🎮
 
-Live site: [Retro Ranker](https://retroranker.site)
-
-A comprehensive database and comparison tool for retro handheld gaming devices,
-built with Fresh framework.
-
 ![Retro Ranker](https://retroranker.site/logo-no-background.svg)
 
-## Built with Deno and Fresh
+## Overview
 
-- [Deno](https://deno.land/) - A secure runtime for JavaScript and TypeScript.
-- [Deno Deploy](https://deno.com/deploy) - A platform for deploying Deno
-  applications.
-- [Fresh](https://fresh.deno.dev/) - A framework for building modern web
-  applications.
-- [PicoCSS](https://picocss.com/) - A minimal CSS framework.
+Retro Ranker is a comprehensive comparison tool for retro handheld gaming
+devices that helps enthusiasts make informed purchase decisions. Our database
+provides detailed specifications, performance metrics, and side-by-side
+comparisons of the latest handhelds.
 
-## 🌟 Features
+Also there is work in progress on:
 
-- Detailed technical specifications for retro gaming handhelds
-- Performance ratings and emulation capabilities
-- Side-by-side device comparisons
-- Real-world performance metrics
-- Up-to-date pricing information
-- Advanced search functionality
-- Modern, accessible UI with dark mode support
-- Responsive design for all devices
+- [ ] User accounts
+  - [x] Non-SSO sign-up & log-in (using Pocketbase)
+  - [ ] SSO
+    - [ ] Discord
+    - [ ] GitHub and others...
+- [ ] Community Handheld leaderboards
+  - [ ] Liking devices
+  - [ ] Leaving comments on devices
+- [x] Maintaining and showcasing (your own) collections of handhelds
+  - [ ] More features to come
 
-## 🚀 Getting Started
+[Or see the trello board here.](https://trello.com/invite/b/678ef0a0da4f850675889b50/ATTIc9374d330560a0a058af22a41386dff245955816/retroranker)
+
+**[Visit Retro Ranker](https://retroranker.site)**
+
+## ✨ Features
+
+- **Comprehensive Database**: Detailed technical specifications for popular
+  retro gaming handhelds
+- **Performance Analysis**: Accurate ratings and emulation capabilities for
+  different systems
+- **Compare Tool**: Side-by-side device comparisons to find your perfect
+  handheld
+- **Real Performance Metrics**: Actual gameplay benchmarks rather than just
+  specs
+- **Price Tracking**: Current pricing from major retailers
+- **Advanced Search**: Filter devices by capabilities, price range, and features
+- **Modern UI**: Clean, accessible interface with dark mode support
+- **Mobile-Friendly**: Responsive design works on all your devices
+
+## 🛠️ Tech Stack
+
+- **[Deno](https://deno.land/)**: Secure JavaScript/TypeScript runtime
+- **[Fresh](https://fresh.deno.dev/)**: Modern web framework for Deno
+- **[Deno Deploy](https://deno.com/deploy)**: Serverless deployment platform
+- **[PicoCSS](https://picocss.com/)**: Lightweight, semantic CSS framework
+
+## 🚀 Development
 
 ### Prerequisites
 
-- Install [Deno](https://deno.land/manual/getting_started/installation)
-- Git (for cloning the repository)
+- [Deno](https://deno.land/manual/getting_started/installation)
+- Git
 
-### Installation
+### Local Setup
 
-1. Clone the repository:
-   - `git clone https://github.com/Nergy101/retro-ranker.git`
-   - `cd retro-ranker`
-2. Start the development server:
-   - `deno task start`
-3. Format, lint and type-check code
-   - `deno task check`
-4. Build for production
-   - `deno task build`
-5. Preview production build
-   - `deno task preview`
+```bash
+# Clone the repository
+git clone https://github.com/Nergy101/retro-ranker.git
+cd retro-ranker
 
-## 📜 Scripts
+# Start the development server
+deno task start
 
-- `deno task start` - Start the development server
-- `deno task check` - Format, lint and type-check code
+# Format, lint and type-check code
+deno task check
+```
+
+### Available Tasks
+
+#### Development Tasks
+
+- `deno task start` - Run development server with hot reload
+- `deno task dev` - Clean and start development server
 - `deno task build` - Build for production
 - `deno task preview` - Preview production build
-- `deno task update` - Update Fresh framework
+- `deno task deploy` - Build and deploy to Deno Deploy
+
+#### Code Quality Tasks
+
+- `deno task check` - Run all code quality checks (format, lint, type-check)
+- `deno fmt` - Format code
+- `deno lint` - Run linter
+
+#### Data Management Tasks
+
+- `deno task refresh-all` - Refresh all data sources
+- `deno task sources` - Update data sources
+- `deno task generate-devices` - Generate device data
+- `deno task patch-devices` - Patch device data
 - `deno task scrape` - Scrape device images
 - `deno task sitemap` - Generate sitemap.xml
 
-## 📁 Project Structure
+### Development Workflow
+
+1. Start development:
+
+   ```bash
+   deno task dev
+   ```
+
+2. Before committing changes:
+
+   ```bash
+   deno task validate
+   ```
+
+3. For production deployment:
+
+   ```bash
+   deno task prod
+   ```
+
+4. To update dependencies:
+   ```bash
+   deno task update-deps
+   ```
+
+### Project Structure
 
 ```
 retro-ranker/
 ├── components/ # Reusable UI components
-├── data/ # Data models and services
-├── islands/ # Interactive client-side components
-├── routes/ # Page components and API endpoints
-├── scripts/ # Utility scripts
-├── static/ # Static assets (images, styles)
-└── main.ts # Application entry point
+├── data/       # Data models and services
+├── islands/    # Interactive client-side components
+├── routes/     # Page components and API endpoints
+├── scripts/    # Utility scripts
+├── static/     # Static assets (images, styles)
+└── main.ts     # Application entry point
 ```
 
 ## 🤝 Contributing
 
+Contributions are welcome! To contribute:
+
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m '✨ Add amazing feature'`)
+4. Push to your branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
 ## 📝 License
@@ -87,10 +150,11 @@ details.
 ## 🙏 Acknowledgments
 
 - Data powered by the [Retro Handhelds](https://retro-handhelds.com) community
-- Device specifications from the Handhelds Overview database
+  -
+- Device specifications from: [Handheld Overview Datasheet](https://docs.google.com/spreadsheets/d/1irg60f9qsZOkhp0cwOU7Cy4rJQeyusEUzTNQzhoTYTU/edit?gid=0#gid=0)
 - Community contributions and feedback
 
-## 📱 Connect With Us
+## 📱 Connect With Me
 
 - [GitHub](https://github.com/nergy101)
 - [BlueSky](https://bsky.app/profile/nergy101.bsky.social)
