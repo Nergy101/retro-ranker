@@ -17,7 +17,14 @@ on:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        job: [1]
+    retry:
+      max-attempts: 3
+      interval: 180
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -39,7 +46,11 @@ jobs:
           echo "POCKETBASE_URL=${{ secrets.POCKETBASE_URL }}" >> .env
 
       - name: Run refresh-all task
-        run: deno task refresh-all
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: deno task refresh-all
 
       - name: Commit and push changes
         run: |
