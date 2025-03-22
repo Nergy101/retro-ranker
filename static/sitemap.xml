@@ -101,6 +101,10 @@
         </url>
         
         <url>
+            <loc>https://retroranker.site/devices/rgb50</loc>
+        </url>
+        
+        <url>
             <loc>https://retroranker.site/devices/onexplayer-g1</loc>
         </url>
         
@@ -226,6 +230,10 @@
         
         <url>
             <loc>https://retroranker.site/devices/m22-pro</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/sf3000</loc>
         </url>
         
         <url>
@@ -1614,10 +1622,6 @@
         
         <url>
             <loc>https://retroranker.site/devices/powkiddy-v2</loc>
-        </url>
-        
-        <url>
-            <loc>https://retroranker.site/devices/sf3000</loc>
         </url>
         
         <url>
