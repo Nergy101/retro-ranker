@@ -45,10 +45,6 @@
         </url>
         
         <url>
-            <loc>https://retroranker.site/devices/ayaneo-pocket-micro-classic</loc>
-        </url>
-        
-        <url>
             <loc>https://retroranker.site/devices/retroid-pocket-classic</loc>
         </url>
         
@@ -102,6 +98,14 @@
         
         <url>
             <loc>https://retroranker.site/devices/rgb50-x45-(question-mark)</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/pocket-ace</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/ayaneo-pocket-micro-classic</loc>
         </url>
         
         <url>
