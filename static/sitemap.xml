@@ -49,10 +49,6 @@
         </url>
         
         <url>
-            <loc>https://retroranker.site/devices/k560</loc>
-        </url>
-        
-        <url>
             <loc>https://retroranker.site/devices/abxylute-one-pro</loc>
         </url>
         
@@ -89,11 +85,15 @@
         </url>
         
         <url>
-            <loc>https://retroranker.site/devices/rgb50-x45-(question-mark)</loc>
+            <loc>https://retroranker.site/devices/rgb50</loc>
         </url>
         
         <url>
             <loc>https://retroranker.site/devices/pocket-ace</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/action-</loc>
         </url>
         
         <url>
