@@ -2007,10 +2007,10 @@ textarea:focus {
     background-color: #ffebee;
     color: #c62828;
     padding: 0.625rem;
-    margin-bottom: 1.25rem;
     border-radius: 0.25rem;
     border-left: 4px solid #c62828;
     animation: shake 0.5s ease;
+    text-align: center;
 }
 
 @keyframes shake {

@@ -242,6 +242,7 @@ export class PocketBaseService {
 export async function createPocketBaseService(
   url: string = "https://pocketbase.retroranker.site",
 ): Promise<PocketBaseService> {
+  console.log("Creating pocketbase service", url);
   const pb = new PocketBaseService(url);
   return pb;
 }

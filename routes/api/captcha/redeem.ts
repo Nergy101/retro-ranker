@@ -4,10 +4,7 @@ import cap from "../../../data/cap/cap.service.ts";
 export const handler: Handlers = {
   async POST(req) {
     try {
-      console.log("Redeeming challenge");
       const { token, solutions } = await req.json();
-      console.log("Token:", token);
-      console.log("Solutions:", solutions);
       
       if (!token || !solutions) {
         return new Response(JSON.stringify({ success: false }), {
@@ -17,9 +14,6 @@ export const handler: Handlers = {
       }
 
       const result = await cap.redeemChallenge({ token, solutions });
-      console.log("Result:", result);
-
-      console.log("This expires at:", new Date(result.expires ?? 0 * 1000));
 
       if (!result.success) {
         return new Response(JSON.stringify(result), {

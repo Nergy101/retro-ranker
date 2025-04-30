@@ -1,9 +1,10 @@
 import { IS_BROWSER } from "$fresh/runtime.ts";
 import { PiUser, PiUserPlus } from "@preact-icons/pi";
-import { useSignal } from "@preact/signals";
+import { effect, useSignal } from "@preact/signals";
 
 export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
   const error = useSignal<string | null>(null);
+  const mounted = useSignal(false);
 
   // Track both validation state and whether field has been touched
   const nicknameTouched = useSignal<boolean>(false);
@@ -15,22 +16,34 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
   const emailValid = useSignal<boolean | null>(null);
   const passwordValid = useSignal<boolean | null>(null);
   const confirmPasswordValid = useSignal<boolean | null>(null);
+  const capSolution = useSignal<{ success: boolean; token: string } | null>(
+    null,
+  );
 
-  // Initialize Cap widget only in browser environment
-  if (IS_BROWSER) {
-    import("@cap.js/widget").then(async ({ default: Cap }) => {
-      const capInstance = new Cap({
-        apiEndpoint: baseApiUrl + "/captcha/",
+  // Initialize Cap widget only once when component mounts
+  effect(() => {
+    if (IS_BROWSER && !mounted.value) {
+      mounted.value = true;
+      import("@cap.js/widget").then(async ({ default: Cap }) => {
+        const capInstance = new Cap({
+          apiEndpoint: baseApiUrl + "/captcha/",
+        });
+
+        capInstance.addEventListener(
+          "progress",
+          (event: { detail: { progress: number } }) => {
+            console.log(`Solving Captcha: ${event.detail.progress}%`);
+          },
+        );
+
+        capSolution.value = await capInstance.solve() as {
+          success: boolean;
+          token: string;
+        };
+        console.log("Captcha state:", capSolution.value);
       });
-
-      capInstance.addEventListener("progress", (event: any) => {
-        console.log(`Solving... ${event.detail.progress}% done`);
-      });
-
-      const solution = await capInstance.solve();
-      console.log(solution);
-    });
-  }
+    }
+  });
 
   const validateNickname = (e: Event) => {
     const input = e.target as HTMLInputElement;
@@ -167,9 +180,24 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
 
     if (hasInvalidFields || hasEmptyRequiredFields) {
       error.value = "Please fill in all required fields correctly";
-    } else {
-      (e.target as HTMLFormElement).submit();
+      return;
     }
+
+    // check if cap was successful
+    if (capSolution.value?.success === false) {
+      error.value = "Please solve the captcha";
+      return;
+    }
+
+    const form = e.target as HTMLFormElement;
+
+    const hidden = document.createElement("input");
+    hidden.type = "hidden";
+    hidden.name = "capToken";
+    hidden.value = capSolution.value?.token ?? "";
+    form.appendChild(hidden);
+
+    form.submit();
   };
 
   // Helper function to determine aria-invalid state

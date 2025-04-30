@@ -3,7 +3,7 @@ import SEO from "../../components/SEO.tsx";
 import SignUp from "../../islands/auth/sign-up.tsx";
 
 
-export default function SignUpPage({ url }: { url: URL }) {
+export default function SignUpPage() {
   const baseApiUrl = Deno.env.get("BASE_API_URL")!;
 
   return (

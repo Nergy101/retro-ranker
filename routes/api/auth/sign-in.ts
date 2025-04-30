@@ -4,7 +4,13 @@ import { ProblemDetail } from "../../../data/frontend/contracts/problem-detail.t
 import { createPocketBaseService } from "../../../data/pocketbase/pocketbase.service.ts";
 
 export const handler: Handlers = {
+  async GET(req, _ctx) {
+    // render the sign-in page
+    return new Response(null, { status: 200 });
+  },
   async POST(req, _ctx) {
+    const headers = new Headers();
+
     const url = new URL(req.url);
     const form = await req.formData();
     const email = form.get("email")?.toString();
@@ -20,18 +26,25 @@ export const handler: Handlers = {
     }
 
     const pbService = await createPocketBaseService();
-    const user = await pbService.authWithPassword(email, password);
+
+    let user = null;
+    try {
+      user = await pbService.authWithPassword(email, password);
+    } catch (error) {
+      console.error(error);
+    }
 
     if (!user) {
+      headers.set("location", "/auth/sign-in?error=invalid-credentials");
+
       return new Response(
         JSON.stringify(
           ProblemDetail.forbidden("Invalid email or password"),
         ),
-        { status: 403 },
+        { status: 303, headers },
       );
     }
 
-    const headers = new Headers();
     headers.set("location", "/profile");
 
     setCookie(headers, {

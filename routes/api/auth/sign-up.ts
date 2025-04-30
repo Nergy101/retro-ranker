@@ -2,6 +2,8 @@ import { Handlers } from "$fresh/server.ts";
 import { createPocketBaseService } from "../../../data/pocketbase/pocketbase.service.ts";
 import { ProblemDetail } from "../../../data/frontend/contracts/problem-detail.ts";
 
+import cap from "../../../data/cap/cap.service.ts";
+
 export const handler: Handlers = {
   async POST(req, _ctx) {
     const form = await req.formData();
@@ -9,9 +11,10 @@ export const handler: Handlers = {
     const email = form.get("email")?.toString();
     const password = form.get("password")?.toString();
     const confirmPassword = form.get("confirmPassword")?.toString();
+    const capToken = form.get("capToken")?.toString();
 
     // Basic validation
-    if (!nickname || !email || !password || !confirmPassword) {
+    if (!nickname || !email || !password || !confirmPassword || !capToken) {
       return new Response(
         JSON.stringify(
           ProblemDetail.badRequest("Missing required fields"),
@@ -22,6 +25,15 @@ export const handler: Handlers = {
             "Content-Type": "application/problem+json",
           },
         },
+      );
+    }
+
+    const capResponse = await cap.validateToken(capToken);
+
+    if (!capResponse.success) {
+      return new Response(
+        JSON.stringify(ProblemDetail.badRequest("Invalid CAPTCHA token")),
+        { status: 400 },
       );
     }
 
