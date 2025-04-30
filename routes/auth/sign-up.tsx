@@ -2,7 +2,8 @@ import { Handlers } from "$fresh/server.ts";
 import SEO from "../../components/SEO.tsx";
 import SignUp from "../../islands/auth/sign-up.tsx";
 
-export default function SignUpPage() {
+export default function SignUpPage({ url }: { url: URL }) {
+  const baseUrl = url.origin;
   return (
     <>
       <SEO
@@ -10,7 +11,7 @@ export default function SignUpPage() {
         description="Create your Retro Ranker account"
       />
       <article>
-        <SignUp />
+        <SignUp baseUrl={baseUrl} />
       </article>
     </>
   );
