@@ -11,6 +11,9 @@ import * as $about from "./routes/about.tsx";
 import * as $api_auth_sign_in from "./routes/api/auth/sign-in.ts";
 import * as $api_auth_sign_out from "./routes/api/auth/sign-out.ts";
 import * as $api_auth_sign_up from "./routes/api/auth/sign-up.ts";
+import * as $api_captcha_challenge from "./routes/api/captcha/challenge.ts";
+import * as $api_captcha_redeem from "./routes/api/captcha/redeem.ts";
+import * as $api_captcha_validate from "./routes/api/captcha/validate.ts";
 import * as $api_collections_id_ from "./routes/api/collections/[id].ts";
 import * as $api_collections_index from "./routes/api/collections/index.ts";
 import * as $api_devices_name_ from "./routes/api/devices/[name].ts";
@@ -76,6 +79,9 @@ const manifest = {
     "./routes/api/auth/sign-in.ts": $api_auth_sign_in,
     "./routes/api/auth/sign-out.ts": $api_auth_sign_out,
     "./routes/api/auth/sign-up.ts": $api_auth_sign_up,
+    "./routes/api/captcha/challenge.ts": $api_captcha_challenge,
+    "./routes/api/captcha/redeem.ts": $api_captcha_redeem,
+    "./routes/api/captcha/validate.ts": $api_captcha_validate,
     "./routes/api/collections/[id].ts": $api_collections_id_,
     "./routes/api/collections/index.ts": $api_collections_index,
     "./routes/api/devices/[name].ts": $api_devices_name_,

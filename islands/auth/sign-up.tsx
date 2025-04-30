@@ -1,5 +1,8 @@
 import { PiUser, PiUserPlus } from "@preact-icons/pi";
 import { useSignal } from "@preact/signals";
+import { useEffect } from "preact/hooks";
+import { IS_BROWSER } from "$fresh/runtime.ts";
+
 export default function SignUp() {
   const error = useSignal<string | null>(null);
 
@@ -13,6 +16,22 @@ export default function SignUp() {
   const emailValid = useSignal<boolean | null>(null);
   const passwordValid = useSignal<boolean | null>(null);
   const confirmPasswordValid = useSignal<boolean | null>(null);
+
+  // Initialize Cap widget only in browser environment
+  if (IS_BROWSER) {
+    import("@cap.js/widget").then(async ({ default: Cap }) => {
+      const capInstance = new Cap({
+        apiEndpoint: "http://localhost:8000/api/captcha/",
+      });
+
+      capInstance.addEventListener("progress", (event: any) => {
+        console.log(`Solving... ${event.detail.progress}% done`);
+      });
+
+      const solution = await capInstance.solve();
+      console.log(solution);
+    });
+  }
 
   const validateNickname = (e: Event) => {
     const input = e.target as HTMLInputElement;
