@@ -2,8 +2,10 @@ import { Handlers } from "$fresh/server.ts";
 import SEO from "../../components/SEO.tsx";
 import SignUp from "../../islands/auth/sign-up.tsx";
 
+
 export default function SignUpPage({ url }: { url: URL }) {
-  const baseUrl = url.origin;
+  const baseApiUrl = Deno.env.get("BASE_API_URL")!;
+
   return (
     <>
       <SEO
@@ -11,7 +13,7 @@ export default function SignUpPage({ url }: { url: URL }) {
         description="Create your Retro Ranker account"
       />
       <article>
-        <SignUp baseUrl={baseUrl} />
+        <SignUp baseApiUrl={baseApiUrl} />
       </article>
     </>
   );

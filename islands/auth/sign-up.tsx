@@ -2,7 +2,7 @@ import { IS_BROWSER } from "$fresh/runtime.ts";
 import { PiUser, PiUserPlus } from "@preact-icons/pi";
 import { useSignal } from "@preact/signals";
 
-export default function SignUp({ baseUrl }: { baseUrl: string }) {
+export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
   const error = useSignal<string | null>(null);
 
   // Track both validation state and whether field has been touched
@@ -20,7 +20,7 @@ export default function SignUp({ baseUrl }: { baseUrl: string }) {
   if (IS_BROWSER) {
     import("@cap.js/widget").then(async ({ default: Cap }) => {
       const capInstance = new Cap({
-        apiEndpoint: baseUrl + "/api/captcha/",
+        apiEndpoint: baseApiUrl + "/captcha/",
       });
 
       capInstance.addEventListener("progress", (event: any) => {
