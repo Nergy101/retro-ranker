@@ -51,4 +51,8 @@ jobs:
             docker pull nergy101/retro-ranker:latest
             docker stop retro-ranker
             docker rm retro-ranker
-            docker run --restart unless-stopped -p 9000:8000 -d --name retro-ranker nergy101/retro-ranker:latest
+            cd /root/code/retroranker
+            docker compose down
+            docker compose pull
+            docker compose up -d
+# docker run --restart unless-stopped -p 9000:8000 -d --name retro-ranker nergy101/retro-ranker:latest
