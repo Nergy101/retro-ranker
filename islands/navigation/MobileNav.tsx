@@ -1,4 +1,4 @@
-import { PiListBold } from "@preact-icons/pi";
+import { PiListBold, PiSignIn, PiUserPlus } from "@preact-icons/pi";
 import { useSignal } from "@preact/signals";
 import { useEffect, useRef } from "preact/hooks";
 import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
@@ -166,13 +166,61 @@ export function MobileNav(
                 </a>
               </li>
             ))}
-            {user && (
-              <li>
-                <a href="/profile">
-                  <ProfileImage name={user.nickname} />
-                </a>
-              </li>
-            )}
+            {user
+              ? (
+                <li class="nav-theme-item">
+                  <a
+                    href="/profile"
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      gap: "0.5rem",
+                    }}
+                  >
+                    <ProfileImage name={user.nickname} />
+                    <span style={{ fontSize: "0.5rem", textWrap: "nowrap" }}>
+                      {user.nickname}
+                    </span>
+                  </a>
+                </li>
+              )
+              : (
+                <li
+                  class="nav-theme-item"
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    width: "100%",
+                  }}
+                >
+                  <a
+                    href="/auth/sign-up"
+                    style={{
+                      fontSize: "1.5rem",
+                      display: "flex",
+                      justifyContent: "center",
+                      gap: "0.5rem",
+                      width: "50%",
+                    }}
+                  >
+                    <PiUserPlus /> Sign up
+                  </a>
+                  <a
+                    href="/auth/sign-in"
+                    style={{
+                      fontSize: "1.5rem",
+                      display: "flex",
+                      justifyContent: "center",
+                      gap: "0.5rem",
+                      width: "50%",
+                    }}
+                  >
+                    <PiSignIn /> Login
+                  </a>
+                </li>
+              )}
           </ul>
         </div>
       </nav>

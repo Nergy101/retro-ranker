@@ -14,7 +14,7 @@ export default function SignIn({ error }: { error: string | null }) {
           marginBottom: "1.25rem",
         }}
       >
-        <PiUserCheck /> Sign In
+        <PiUserCheck /> Sign in
       </h1>
 
       <form
@@ -62,7 +62,7 @@ export default function SignIn({ error }: { error: string | null }) {
             gap: "0.5rem",
           }}
         >
-          <PiSignIn /> Sign In
+          <PiSignIn /> Sign in
         </button>
       </form>
       {error && (
@@ -71,8 +71,8 @@ export default function SignIn({ error }: { error: string | null }) {
         </div>
       )}
       <div class="auth-form-footer">
-        <a href="/auth/sign-up">
-          Don't have an account? Sign up
+        <a href="/auth/sign-up" role="button" class="outline">
+          Don't have an account? <br /> Sign up now!
         </a>
       </div>
     </div>

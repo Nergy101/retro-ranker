@@ -9,7 +9,7 @@ export default function SignUpPage() {
   return (
     <>
       <SEO
-        title="Sign Up"
+        title="Sign up"
         description="Create your Retro Ranker account"
       />
       <article>

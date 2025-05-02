@@ -81,7 +81,8 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
       return;
     }
 
-    passwordValid.value = input.value.length >= 8;
+    const isValid = input.value.length >= 8;
+    passwordValid.value = isValid;
 
     // Only validate confirm password if it's been touched and has a value
     if (confirmPasswordTouched.value) {
@@ -111,8 +112,8 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
     const passwordInput = document.getElementById(
       "password",
     ) as HTMLInputElement;
-    const passwordsMatch = input.value === passwordInput.value;
-    confirmPasswordValid.value = input.value.length >= 8 && passwordsMatch;
+    const isValid = input.value.length >= 8 && input.value === passwordInput.value;
+    confirmPasswordValid.value = isValid;
   };
 
   // Handle input changes to reset validation when field is emptied
@@ -224,7 +225,7 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
           marginBottom: "1.25rem",
         }}
       >
-        <PiUser /> Sign Up
+        <PiUser /> Sign up
       </h1>
 
       {error.value && (
@@ -272,7 +273,7 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
               padding: "0.5rem",
               border: `0.0625rem solid ${
                 !nicknameTouched.value || nicknameValid.value !== false
-                  ? "#ccc"
+                  ? "none"
                   : "#c62828"
               }`,
               borderRadius: "0.25rem",
@@ -287,7 +288,7 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
                 marginTop: "0.5rem",
               }}
             >
-              Nickname must be at least 3 characters
+              Nickname must be at least 3 characters.
             </div>
           )}
         </div>
@@ -313,7 +314,7 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
               padding: "0.5rem",
               border: `0.0625rem solid ${
                 !emailTouched.value || emailValid.value !== false
-                  ? "#ccc"
+                  ? "none"
                   : "#c62828"
               }`,
               borderRadius: "0.25rem",
@@ -328,7 +329,7 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
                 marginTop: "0.3125rem",
               }}
             >
-              Please enter a valid email address
+              Please enter a valid email address.
             </div>
           )}
         </div>
@@ -356,9 +357,11 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
               width: "100%",
               padding: "0.5rem",
               border: `0.0625rem solid ${
-                !passwordTouched.value || passwordValid.value !== false
-                  ? "#ccc"
-                  : "#c62828"
+                !passwordTouched.value || passwordValid.value === null
+                  ? "none"
+                  : passwordValid.value === false
+                  ? "#c62828"
+                  : "#4caf50"
               }`,
               borderRadius: "0.25rem",
             }}
@@ -372,7 +375,7 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
                 marginTop: "0.3125rem",
               }}
             >
-              Password must be at least 8 characters
+              Password must be at least 8 characters.
             </div>
           )}
         </div>
@@ -400,10 +403,11 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
               width: "100%",
               padding: "0.5rem",
               border: `0.0625rem solid ${
-                !confirmPasswordTouched.value ||
-                  confirmPasswordValid.value !== false
-                  ? "#ccc"
-                  : "#c62828"
+                !confirmPasswordTouched.value || confirmPasswordValid.value === null
+                  ? "none"
+                  : confirmPasswordValid.value === false
+                  ? "#c62828"
+                  : "#4caf50"
               }`,
               borderRadius: "0.25rem",
             }}
@@ -418,10 +422,9 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
                 marginTop: "0.3125rem",
               }}
             >
-              {document.getElementById("confirmPassword")?.nodeValue ===
-                  document.getElementById("password")?.nodeValue
-                ? "Password must be at least 8 characters"
-                : "Passwords do not match"}
+              {passwordValid.value === false
+                ? "Password must be at least 8 characters."
+                : "Passwords do not match."}
             </div>
           )}
         </div>
@@ -441,7 +444,7 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
             justifyContent: "center",
           }}
         >
-          <PiUserPlus /> Sign Up
+          <PiUserPlus /> Sign up
         </button>
       </form>
 
@@ -452,8 +455,10 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
         <a
           href="/auth/sign-in"
           style={{ textDecoration: "none" }}
+          role="button"
+          class="outline"
         >
-          Already have an account? Sign in
+          Already have an account? <br /> Sign in instead.
         </a>
       </div>
     </div>
