@@ -39,7 +39,14 @@ export function LikeButton(
   };
 
   return (
-    <>
+    <div 
+    data-tooltip={isLoggedIn ? undefined : "Log in to like devices"}
+    style={{
+      textDecoration: "none",
+      border: "none",
+      background: "none",
+      cursor: isLoggedIn ? "pointer" : "not-allowed",
+    }}>
       <style>
         {`
           @keyframes bounce {
@@ -66,13 +73,12 @@ export function LikeButton(
           background: "transparent",
           opacity: isLoggedIn ? 1 : 0.5,
         }}
-        data-tooltip={isLoggedIn ? undefined : "Log in to like devices"}
       >
         {liked.value
           ? <PiThumbsUpFill color="var(--pico-primary)" class={isAnimating.value ? "thumbs-up-animation" : ""} />
           : <PiThumbsUp class={isAnimating.value ? "thumbs-up-animation" : ""} />}
         <span>{likes.value}</span>
       </button>
-    </>
+    </div>
   );
 }
