@@ -19,7 +19,7 @@ export async function handler(req: Request, ctx: FreshContext) {
   const response = await ctx.next();
 
   if (
-    url.pathname.startsWith("/devices/") ||
+    url.pathname.endsWith("/devices") ||
     url.pathname.startsWith("/about") ||
     url.pathname.startsWith("/charts")
   ) {
