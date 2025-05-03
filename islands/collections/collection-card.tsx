@@ -147,7 +147,7 @@ export default function CollectionCard(
           title="Share"
           tooltip="Share collection"
           shareTitle="Check out my handheld collection:"
-          url={`https://retroranker.site/collection/${collection.id}`}
+          url={`https://retroranker.site/collections/${collection.id}`}
         />
 
         <a
