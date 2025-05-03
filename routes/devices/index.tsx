@@ -9,9 +9,11 @@ import { TagModel } from "../../data/frontend/models/tag.model.ts";
 import { DeviceSearchForm } from "../../islands/forms/DeviceSearchForm.tsx";
 import { LayoutSelector } from "../../islands/layout-selector.tsx";
 import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
+import { User } from "../../data/frontend/contracts/user.contract.ts";
 
 export default function DevicesIndex(props: PageProps) {
   const deviceService = DeviceService.getInstance();
+  const user = props.state.user as User | null;
 
   const searchQuery = props.url?.searchParams?.get("search") || "";
   const searchCategory = props.url?.searchParams?.get("category") || "all";
@@ -253,7 +255,7 @@ export default function DevicesIndex(props: PageProps) {
                     }}
                   >
                     {activeLayout === "grid9" && (
-                      <DeviceCardMedium device={device} isActive={false} />
+                      <DeviceCardMedium device={device} isActive={false} user={user} />
                     )}
 
                     {activeLayout === "grid4" && (

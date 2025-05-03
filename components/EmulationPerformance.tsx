@@ -1,20 +1,28 @@
 import { PiQuestionFill, PiVibrate } from "@preact-icons/pi";
+import { useSignal } from "@preact/signals";
 import { Device } from "../data/frontend/contracts/device.model.ts";
+import { User } from "../data/frontend/contracts/user.contract.ts";
 import { Cooling } from "../data/frontend/models/cooling.model.ts";
 import { DeviceService } from "../data/frontend/services/devices/device.service.ts";
+import { LikeButton } from "../islands/buttons/LikeButton.tsx";
 import { RatingInfo } from "./ratings/RatingInfo.tsx";
 
 interface EmulationPerformanceProps {
   device: Device;
   tooltipUseShortSystemName?: boolean;
   useRatingDescription?: boolean;
+  user: User | null;
+  likes: number;
+  isLiked: boolean;
 }
 
+
 export function EmulationPerformance(
-  { device, tooltipUseShortSystemName = false, useRatingDescription = true }:
+  { device, tooltipUseShortSystemName = false, useRatingDescription = true, user, likes, isLiked }:
     EmulationPerformanceProps,
 ) {
   const ratings = device.systemRatings;
+
 
   const getCoolingColor = (cooling: Cooling) => {
     // count the number of true values
@@ -148,6 +156,18 @@ export function EmulationPerformance(
       >
         {renderCoolingSection()}
         {renderRumbleSection()}
+      </div>
+
+      <h3 style={{ textAlign: "center", padding: 0, margin: 0 }}>
+        Stats
+      </h3>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <LikeButton
+          deviceId={device.id}
+          initialLikes={likes}
+          isLiked={isLiked}
+          isLoggedIn={!!user}
+        />
       </div>
     </div>
   );

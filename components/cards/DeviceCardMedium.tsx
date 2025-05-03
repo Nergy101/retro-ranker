@@ -3,15 +3,39 @@ import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 import { RatingInfo } from "../ratings/RatingInfo.tsx";
 import { CurrencyIcon } from "../shared/CurrencyIcon.tsx";
+import { LikeButton } from "../../islands/buttons/LikeButton.tsx";
+import { useSignal } from "@preact/signals";
+import { useEffect } from "preact/hooks";
 
 interface DeviceCardMediumProps {
   device: Device;
   isActive?: boolean;
+  user?: { id: string } | null;
 }
 
 export function DeviceCardMedium(
-  { device, isActive = false }: DeviceCardMediumProps,
+  { device, isActive = false, user }: DeviceCardMediumProps,
 ) {
+  const likes = useSignal(0);
+  const isLiked = useSignal(false);
+
+  useEffect(() => {
+    const fetchLikes = async () => {
+      try {
+        const response = await fetch(`/api/devices/${device.id}/likes`);
+        if (response.ok) {
+          const data = await response.json();
+          likes.value = data.count;
+          isLiked.value = data.isLiked;
+        }
+      } catch (error) {
+        console.error("Error fetching likes:", error);
+      }
+    };
+
+    fetchLikes();
+  }, [device.id]);
+
   const getPriceIndicator = () => {
     if (device.pricing.discontinued) {
       return (

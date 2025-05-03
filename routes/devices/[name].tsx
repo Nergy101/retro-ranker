@@ -1,4 +1,4 @@
-import { PageProps } from "$fresh/server.ts";
+import { FreshContext, Handlers, PageProps } from "$fresh/server.ts";
 import { PiCalendarCheck, PiCalendarSlash, PiQuestion } from "@preact-icons/pi";
 import { JSX, VNode } from "preact";
 import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
@@ -18,8 +18,45 @@ import { CompareButton } from "../../islands/buttons/CompareButton.tsx";
 import { ShareButton } from "../../islands/buttons/ShareButton.tsx";
 import { DevicesSimilarRadarChart } from "../../islands/charts/devices-similar-radar-chart.tsx";
 import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
+import { User } from "../../data/frontend/contracts/user.contract.ts";
+import { createSuperUserPocketBaseService } from "../../data/pocketbase/pocketbase.service.ts";
+
+export const handler: Handlers = {
+  async GET(request: Request, ctx: FreshContext) {
+    const deviceId = ctx.params.name;
+    const user = ctx.state.user as User | null;
+
+    const pb = await createSuperUserPocketBaseService(
+      Deno.env.get("POCKETBASE_SUPERUSER_EMAIL")!,
+      Deno.env.get("POCKETBASE_SUPERUSER_PASSWORD")!,
+      Deno.env.get("POCKETBASE_URL")!,
+    );
+
+    const likes = await pb.getAll(
+      "device_likes",
+      `deviceId="${deviceId}"`,
+      undefined,
+    );
+
+    let userLiked = false;
+    if (user) {
+      const userLike = await pb.getList(
+        "device_likes",
+        1,
+        1,
+        `deviceId="${deviceId}" && userId="${user.id}"`,
+      );
+      userLiked = userLike.items.length > 0;
+    }
+    return await ctx.render({ user: ctx.state.user, likesCount: likes.length, userLiked });
+  },
+};
 
 export default function DeviceDetail(props: PageProps) {
+  const user = props.data.user as User | null;
+  const likesCount = props.data.likesCount;
+  const userLiked = props.data.userLiked;
+
   const deviceService = DeviceService.getInstance();
   const device = deviceService.getDeviceByName(props.params?.name);
   const similarDevices = deviceService.getSimilarDevices(
@@ -370,7 +407,7 @@ export default function DeviceDetail(props: PageProps) {
       </div>
 
       <div class="device-detail-performance">
-        <EmulationPerformance device={device} />
+        <EmulationPerformance device={device} user={user} likes={likesCount} isLiked={userLiked} />
       </div>
 
       <div class="device-detail-links">
@@ -389,10 +426,14 @@ export default function DeviceDetail(props: PageProps) {
         </div>
         <div class="similar-devices-grid">
           {similarDevices.map((deviceItem) => (
-            <a href={`/devices/${deviceItem.name.sanitized}`}>
+            <a
+              href={`/devices/${deviceItem.name.sanitized}`}
+              style={{ textDecoration: "none" }}
+            >
               <DeviceCardMedium
                 device={deviceItem}
                 isActive={false}
+                user={user}
               />
             </a>
           ))}

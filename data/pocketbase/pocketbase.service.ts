@@ -85,6 +85,24 @@ export class PocketBaseService {
     }
   }
 
+  public async getAll(
+    collection: string,
+    filter: string = "",
+    expand: string = "",
+  ): Promise<any[]> {
+    try {
+      return await this.pb.collection(collection).getFullList({
+        filter,
+        expand,
+      });
+    } catch (error) {
+      if (error instanceof ClientResponseError) {
+        console.error(`Error fetching ${collection}:`, error.message);
+      }
+      throw error;
+    }
+  }
+
   /**
    * Fetch records from a collection
    * @param collection Collection name
@@ -242,7 +260,6 @@ export class PocketBaseService {
 export async function createPocketBaseService(
   url: string = "https://pocketbase.retroranker.site",
 ): Promise<PocketBaseService> {
-  console.log("Creating pocketbase service", url);
   const pb = new PocketBaseService(url);
   return pb;
 }

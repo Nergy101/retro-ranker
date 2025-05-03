@@ -1,4 +1,4 @@
-import { PageProps } from "$fresh/server.ts";
+import { FreshContext, Handlers, PageProps } from "$fresh/server.ts";
 import {
   PiCalendar,
   PiCalendarHeart,
@@ -13,11 +13,20 @@ import { DeviceCardMedium } from "../components/cards/DeviceCardMedium.tsx";
 import { SeeMoreCard } from "../components/cards/SeeMoreCard.tsx";
 import SEO from "../components/SEO.tsx";
 import { TagComponent } from "../components/shared/TagComponent.tsx";
+import { User } from "../data/frontend/contracts/user.contract.ts";
 import { BrandWebsites } from "../data/frontend/enums/brand-websites.ts";
 import { TagModel } from "../data/frontend/models/tag.model.ts";
 import { DeviceService } from "../data/frontend/services/devices/device.service.ts";
 
-export default function Home({ url }: PageProps) {
+export const handler: Handlers = {
+  async GET(_: Request, ctx: FreshContext) {
+    return await ctx.render({ user: ctx.state.user });
+  },
+};
+
+export default function Home({ url, data }: PageProps<{ user: User | null }>) {
+  const user = data.user;
+
   // Filter devices into categories
   const deviceService = DeviceService.getInstance();
   const newArrivals = deviceService.getNewArrivals();
@@ -225,6 +234,7 @@ export default function Home({ url }: PageProps) {
                   <DeviceCardMedium
                     device={device}
                     isActive={false}
+                    user={user}
                   />
                 </a>
               ))}
@@ -249,6 +259,7 @@ export default function Home({ url }: PageProps) {
                   <DeviceCardMedium
                     device={device}
                     isActive={false}
+                    user={user}
                   />
                 </a>
               ))}
@@ -279,6 +290,7 @@ export default function Home({ url }: PageProps) {
                   <DeviceCardMedium
                     device={device}
                     isActive={false}
+                    user={user}
                   />
                 </a>
               ))}
@@ -300,7 +312,11 @@ export default function Home({ url }: PageProps) {
                   href={`/devices/${device.name.sanitized}`}
                   style={{ textDecoration: "none" }}
                 >
-                  <DeviceCardMedium device={device} isActive={false} />
+                  <DeviceCardMedium
+                    device={device}
+                    isActive={false}
+                    user={user}
+                  />
                 </a>
               ))}
               <SeeMoreCard
