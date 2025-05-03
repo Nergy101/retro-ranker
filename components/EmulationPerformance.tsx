@@ -18,7 +18,7 @@ interface EmulationPerformanceProps {
 
 
 export function EmulationPerformance(
-  { device, tooltipUseShortSystemName = false, useRatingDescription = true, user, likes, isLiked }:
+  { device, tooltipUseShortSystemName = false, useRatingDescription = true, user, likes, isLiked, hideLikeButton = false }:
     EmulationPerformanceProps,
 ) {
   const ratings = device.systemRatings;
@@ -157,18 +157,22 @@ export function EmulationPerformance(
         {renderCoolingSection()}
         {renderRumbleSection()}
       </div>
-
-      <h3 style={{ textAlign: "center", padding: 0, margin: 0 }}>
-        Stats
-      </h3>
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <LikeButton
-          deviceId={device.id}
-          initialLikes={likes}
-          isLiked={isLiked}
-          isLoggedIn={!!user}
-        />
-      </div>
+      {!hideLikeButton && (
+        <>
+          <h3 style={{ textAlign: "center", padding: 0, margin: 0 }}>
+            Stats
+          </h3>
+     
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <LikeButton
+            deviceId={device.id}
+            initialLikes={likes}
+            isLiked={isLiked}
+            isLoggedIn={!!user}
+            />
+          </div>
+        </>
+      )}
     </div>
   );
 }

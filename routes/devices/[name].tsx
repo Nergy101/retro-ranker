@@ -22,7 +22,7 @@ import { User } from "../../data/frontend/contracts/user.contract.ts";
 import { createSuperUserPocketBaseService } from "../../data/pocketbase/pocketbase.service.ts";
 
 export const handler: Handlers = {
-  async GET(request: Request, ctx: FreshContext) {
+  async GET(_: Request, ctx: FreshContext) {
     const deviceId = ctx.params.name;
     const user = ctx.state.user as User | null;
 
