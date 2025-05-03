@@ -1,15 +1,15 @@
 import { PiThumbsUp, PiThumbsUpFill } from "@preact-icons/pi";
 import { useSignal } from "@preact/signals";
 
-interface LikeButtonProps {
+interface ThumbsUpProps {
   deviceId: string;
   initialLikes: number;
   isLiked: boolean;
   isLoggedIn: boolean;
 }
 
-export function LikeButton(
-  { deviceId, initialLikes, isLiked, isLoggedIn }: LikeButtonProps,
+export function ThumbsUp(
+  { deviceId, initialLikes, isLiked, isLoggedIn }: ThumbsUpProps,
 ) {
   const likes = useSignal(initialLikes);
   const liked = useSignal(isLiked);

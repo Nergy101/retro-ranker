@@ -78,9 +78,9 @@ export class DeviceService {
 
   public getAllDevices(): Device[] {
     this.counter++;
-    console.info(
-      `${new Date().toISOString()} - Getting all devices ${this.counter}`,
-    );
+    // console.info(
+    //   `${new Date().toISOString()} - Getting all devices ${this.counter}`,
+    // );
     return this.devices;
   }
 

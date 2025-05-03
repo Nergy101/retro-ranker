@@ -17,10 +17,29 @@ import { User } from "../data/frontend/contracts/user.contract.ts";
 import { BrandWebsites } from "../data/frontend/enums/brand-websites.ts";
 import { TagModel } from "../data/frontend/models/tag.model.ts";
 import { DeviceService } from "../data/frontend/services/devices/device.service.ts";
+import { tracer } from "../data/tracing/tracer.ts";
 
 export const handler: Handlers = {
   async GET(_: Request, ctx: FreshContext) {
-    return await ctx.render({ user: ctx.state.user });
+    return await tracer.startActiveSpan("route:index", async (span) => {
+      try {
+        const user = ctx.state.user as User | null;
+        span.setAttribute("user.authenticated", !!user);
+        if (user && 'email' in user) {
+          span.setAttribute("user.email", user.email);
+        }
+
+        const result = await ctx.render({ user });
+        span.setStatus({ code: 0 }); // OK
+        return result;
+      } catch (error: unknown) {
+        const errorMessage = error instanceof Error ? error.message : "Unknown error";
+        span.setStatus({ code: 2, message: errorMessage }); // ERROR
+        throw error;
+      } finally {
+        span.end();
+      }
+    });
   },
 };
 

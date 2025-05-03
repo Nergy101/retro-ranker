@@ -46,8 +46,8 @@ import * as $auth_sign_up_1 from "./islands/auth/sign-up.tsx";
 import * as $buttons_BackButton from "./islands/buttons/BackButton.tsx";
 import * as $buttons_ClipboardButton from "./islands/buttons/ClipboardButton.tsx";
 import * as $buttons_CompareButton from "./islands/buttons/CompareButton.tsx";
-import * as $buttons_LikeButton from "./islands/buttons/LikeButton.tsx";
 import * as $buttons_ShareButton from "./islands/buttons/ShareButton.tsx";
+import * as $buttons_ThumbsUp from "./islands/buttons/ThumbsUp.tsx";
 import * as $charts_devices_per_brand_bar_chart from "./islands/charts/devices-per-brand-bar-chart.tsx";
 import * as $charts_devices_per_ranking_bar_chart from "./islands/charts/devices-per-ranking-bar-chart.tsx";
 import * as $charts_devices_per_release_year_line_chart from "./islands/charts/devices-per-release-year-line-chart.tsx";
@@ -119,8 +119,8 @@ const manifest = {
     "./islands/buttons/BackButton.tsx": $buttons_BackButton,
     "./islands/buttons/ClipboardButton.tsx": $buttons_ClipboardButton,
     "./islands/buttons/CompareButton.tsx": $buttons_CompareButton,
-    "./islands/buttons/LikeButton.tsx": $buttons_LikeButton,
     "./islands/buttons/ShareButton.tsx": $buttons_ShareButton,
+    "./islands/buttons/ThumbsUp.tsx": $buttons_ThumbsUp,
     "./islands/charts/devices-per-brand-bar-chart.tsx":
       $charts_devices_per_brand_bar_chart,
     "./islands/charts/devices-per-ranking-bar-chart.tsx":

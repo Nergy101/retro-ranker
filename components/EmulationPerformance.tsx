@@ -1,10 +1,9 @@
 import { PiQuestionFill, PiVibrate } from "@preact-icons/pi";
-import { useSignal } from "@preact/signals";
 import { Device } from "../data/frontend/contracts/device.model.ts";
 import { User } from "../data/frontend/contracts/user.contract.ts";
 import { Cooling } from "../data/frontend/models/cooling.model.ts";
 import { DeviceService } from "../data/frontend/services/devices/device.service.ts";
-import { LikeButton } from "../islands/buttons/LikeButton.tsx";
+import { ThumbsUp } from "../islands/buttons/ThumbsUp.tsx";
 import { RatingInfo } from "./ratings/RatingInfo.tsx";
 
 interface EmulationPerformanceProps {
@@ -14,6 +13,7 @@ interface EmulationPerformanceProps {
   user: User | null;
   likes: number;
   isLiked: boolean;
+  hideLikeButton?: boolean;
 }
 
 
@@ -164,7 +164,7 @@ export function EmulationPerformance(
           </h3>
      
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <LikeButton
+          <ThumbsUp
             deviceId={device.id}
             initialLikes={likes}
             isLiked={isLiked}

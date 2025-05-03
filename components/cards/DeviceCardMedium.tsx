@@ -1,11 +1,10 @@
 import { PiQuestion } from "@preact-icons/pi";
+import { useSignal } from "@preact/signals";
+import { useEffect } from "preact/hooks";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 import { RatingInfo } from "../ratings/RatingInfo.tsx";
 import { CurrencyIcon } from "../shared/CurrencyIcon.tsx";
-import { LikeButton } from "../../islands/buttons/LikeButton.tsx";
-import { useSignal } from "@preact/signals";
-import { useEffect } from "preact/hooks";
 
 interface DeviceCardMediumProps {
   device: Device;
@@ -14,28 +13,8 @@ interface DeviceCardMediumProps {
 }
 
 export function DeviceCardMedium(
-  { device, isActive = false, user }: DeviceCardMediumProps,
+  { device, isActive = false }: DeviceCardMediumProps,
 ) {
-  const likes = useSignal(0);
-  const isLiked = useSignal(false);
-
-  useEffect(() => {
-    const fetchLikes = async () => {
-      try {
-        const response = await fetch(`/api/devices/${device.id}/likes`);
-        if (response.ok) {
-          const data = await response.json();
-          likes.value = data.count;
-          isLiked.value = data.isLiked;
-        }
-      } catch (error) {
-        console.error("Error fetching likes:", error);
-      }
-    };
-
-    fetchLikes();
-  }, [device.id]);
-
   const getPriceIndicator = () => {
     if (device.pricing.discontinued) {
       return (

@@ -21,7 +21,7 @@ RUN deno task build
 EXPOSE 8000
 
 # Run the application without re-downloading dependencies
-CMD ["run", "-A", "main.ts"]
+CMD ["run", "-A", "--unstable-otel", "main.ts"]
 
 
 # Usage notes:
