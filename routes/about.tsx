@@ -23,6 +23,62 @@ export default function About({ url }: PageProps) {
         About <span style={{ color: "var(--pico-primary)" }}>Retro Ranker</span>
       </h1>
 
+      <div class="flex justify-center mb-8">
+        <figure
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            gap: "2rem",
+          }}
+        >
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "1rem" }}>
+            <img
+              src="/logo-color.png"
+              alt="Retro Ranker Logo"
+              width="200"
+              height="200"
+              class="max-w-full h-auto"
+              style={{
+                borderRadius: "1rem",
+              }}
+            />
+            <figcaption>
+              <a href="/" target="_blank">
+                Retro Ranker
+              </a>
+            </figcaption>
+          </div>
+          
+          <div style={{ 
+            fontSize: "5rem", 
+            color: "var(--pico-primary)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            margin: "0 1rem"
+          }}>+</div>
+          
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "1rem" }}>
+            <img
+              src="/images/rh-logo-color.png"
+              alt="Retro Handhelds Community Logo"
+              width="200"
+              height="200"
+              class="max-w-full h-auto"
+              style={{
+                borderRadius: "1rem",
+              }}
+            />
+            <figcaption>
+              <a href="https://retro-handhelds.com" target="_blank">
+                Retro Handhelds
+              </a>
+            </figcaption>
+          </div>
+        </figure>
+      </div>
+
       <div>
         <details open>
           <summary class="flex items-center gap-2">
