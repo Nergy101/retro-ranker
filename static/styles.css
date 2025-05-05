@@ -308,8 +308,9 @@ body.paused-animation::before {
     grid-template-areas:
         "header performance"
         "radar similar"
-        "specs specs"
-        "links links";
+        "links links"
+        "comments comments"
+        "specs specs";
     grid-template-columns: 1fr 3fr;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
@@ -332,9 +333,16 @@ body.paused-animation::before {
             "similar"
             "radar"
             "links"
+            "comments"
             "specs";
         grid-template-columns: 1fr;
     }
+}
+
+.device-detail-comments {
+    grid-area: comments;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .device-detail-performance {

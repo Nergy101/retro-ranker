@@ -24,7 +24,7 @@ export const handler: Handlers = {
         1,
         1,
         {
-          filter: `deviceId="${deviceId}" && userId="${user.id}"`,
+          filter: `device="${deviceId}" && user="${user.id}"`,
           sort: "",
           expand: "",
         },
@@ -39,8 +39,8 @@ export const handler: Handlers = {
 
       // Create new like
       await pb.create("device_likes", {
-        deviceId,
-        userId: user.id,
+        device: deviceId,
+        user: user.id,
       });
 
       return new Response(null, { status: 201 });
@@ -75,7 +75,7 @@ export const handler: Handlers = {
         1,
         1,
         {
-          filter: `deviceId="${deviceId}" && userId="${user.id}"`,
+          filter: `device="${deviceId}" && user="${user.id}"`,
           sort: "",
           expand: "",
         },

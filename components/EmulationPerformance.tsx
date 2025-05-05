@@ -1,11 +1,11 @@
-import { PiQuestionFill, PiStarFill, PiVibrate } from "@preact-icons/pi";
+import { PiQuestionFill, PiVibrate } from "@preact-icons/pi";
 import { Device } from "../data/frontend/contracts/device.model.ts";
 import { User } from "../data/frontend/contracts/user.contract.ts";
 import { Cooling } from "../data/frontend/models/cooling.model.ts";
 import { DeviceService } from "../data/frontend/services/devices/device.service.ts";
+import { FavoriteButton } from "../islands/buttons/FavoriteButton.tsx";
 import { ThumbsUp } from "../islands/buttons/ThumbsUp.tsx";
 import RatingInfo from "../islands/RatingInfo.tsx";
-import { FavoriteButton } from "../islands/buttons/FavoriteButton.tsx";
 
 interface EmulationPerformanceProps {
   device: Device;

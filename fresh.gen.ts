@@ -20,6 +20,7 @@ import * as $api_devices_id_favorite from "./routes/api/devices/[id]/favorite.ts
 import * as $api_devices_id_like from "./routes/api/devices/[id]/like.ts";
 import * as $api_devices_id_likes from "./routes/api/devices/[id]/likes.ts";
 import * as $api_devices_name_ from "./routes/api/devices/[name].ts";
+import * as $api_devices_comments_index from "./routes/api/devices/comments/index.ts";
 import * as $api_devices_index from "./routes/api/devices/index.ts";
 import * as $api_suggestions from "./routes/api/suggestions.ts";
 import * as $auth_sign_in from "./routes/auth/sign-in.tsx";
@@ -62,6 +63,7 @@ import * as $collections_collection_card from "./islands/collections/collection-
 import * as $collections_collection_create_form from "./islands/collections/collection-create-form.tsx";
 import * as $collections_collection_update_form from "./islands/collections/collection-update-form.tsx";
 import * as $collections_device_collections from "./islands/collections/device-collections.tsx";
+import * as $forms_AddDeviceCommentForm from "./islands/forms/AddDeviceCommentForm.tsx";
 import * as $forms_DeviceComparisonForm from "./islands/forms/DeviceComparisonForm.tsx";
 import * as $forms_DeviceSearchForm from "./islands/forms/DeviceSearchForm.tsx";
 import * as $layout_selector from "./islands/layout-selector.tsx";
@@ -95,6 +97,7 @@ const manifest = {
     "./routes/api/devices/[id]/like.ts": $api_devices_id_like,
     "./routes/api/devices/[id]/likes.ts": $api_devices_id_likes,
     "./routes/api/devices/[name].ts": $api_devices_name_,
+    "./routes/api/devices/comments/index.ts": $api_devices_comments_index,
     "./routes/api/devices/index.ts": $api_devices_index,
     "./routes/api/suggestions.ts": $api_suggestions,
     "./routes/auth/sign-in.tsx": $auth_sign_in,
@@ -146,6 +149,7 @@ const manifest = {
       $collections_collection_update_form,
     "./islands/collections/device-collections.tsx":
       $collections_device_collections,
+    "./islands/forms/AddDeviceCommentForm.tsx": $forms_AddDeviceCommentForm,
     "./islands/forms/DeviceComparisonForm.tsx": $forms_DeviceComparisonForm,
     "./islands/forms/DeviceSearchForm.tsx": $forms_DeviceSearchForm,
     "./islands/layout-selector.tsx": $layout_selector,

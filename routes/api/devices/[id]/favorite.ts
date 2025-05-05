@@ -1,6 +1,9 @@
 import { Handlers } from "$fresh/server.ts";
 import { ProblemDetail } from "../../../../data/frontend/contracts/problem-detail.ts";
-import { createLoggedInPocketBaseService, createSuperUserPocketBaseService } from "../../../../data/pocketbase/pocketbase.service.ts";
+import {
+  createLoggedInPocketBaseService,
+  createSuperUserPocketBaseService,
+} from "../../../../data/pocketbase/pocketbase.service.ts";
 
 export const handler: Handlers = {
   async POST(req, ctx) {
@@ -30,7 +33,7 @@ export const handler: Handlers = {
         1,
         1,
         {
-          filter: `deviceId="${deviceId}" && userId="${user.id}"`,
+          filter: `device="${deviceId}" && user="${user.id}"`,
           sort: "",
           expand: "",
         },
@@ -45,8 +48,8 @@ export const handler: Handlers = {
 
       // Create new favorite
       await adminPb.create("device_favorites", {
-        deviceId,
-        userId: user.id,
+        device: deviceId,
+        user: user.id,
       });
 
       return new Response(null, { status: 201 });
@@ -81,7 +84,7 @@ export const handler: Handlers = {
         1,
         1,
         {
-          filter: `deviceId="${deviceId}" && userId="${user.id}"`,
+          filter: `device="${deviceId}" && user="${user.id}"`,
           sort: "",
           expand: "",
         },
@@ -106,4 +109,4 @@ export const handler: Handlers = {
       );
     }
   },
-}; 
+};

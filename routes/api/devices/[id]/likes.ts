@@ -18,7 +18,7 @@ export const handler: Handlers = {
       const likes = await pb.getAll(
         "device_likes",
         {
-          filter: `deviceId="${deviceId}"`,
+          filter: `device="${deviceId}"`,
           expand: "",
           sort: "",
         },
@@ -32,7 +32,7 @@ export const handler: Handlers = {
           const userLike = await pb.getAll(
             "device_likes",
             {
-              filter: `deviceId="${deviceId}" && userId="${user.id}"`,
+              filter: `device="${deviceId}" && user="${user.id}"`,
               sort: "",
               expand: "",
             },

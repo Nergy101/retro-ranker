@@ -67,14 +67,14 @@ export default async function ProfilePage(
       1,
       100,
       {
-        filter: `userId = "${user.id}"`,
-        expand: "deviceId",
+        filter: `user = "${user.id}"`,
+        expand: "device",
         sort: "-created",
       },
     );
 
     return (favorites?.items ?? []).map((f) => {
-      return (f.expand?.deviceId as RecordModel).deviceData as Device;
+      return (f.expand?.device as RecordModel).deviceData as Device;
     });
   };
 
@@ -108,7 +108,10 @@ export default async function ProfilePage(
           {favoritedDevices.length === 0 && (
             <div class="empty-favorites-message">
               <p>You haven't favorited any devices yet.</p>
-              <p>Browse devices and click the heart icon to add them to your favorites!</p>
+              <p>
+                Browse devices and click the heart icon to add them to your
+                favorites!
+              </p>
             </div>
           )}
 

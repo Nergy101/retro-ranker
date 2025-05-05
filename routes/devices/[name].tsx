@@ -20,6 +20,9 @@ import { DevicesSimilarRadarChart } from "../../islands/charts/devices-similar-r
 import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 import { User } from "../../data/frontend/contracts/user.contract.ts";
 import { createSuperUserPocketBaseService } from "../../data/pocketbase/pocketbase.service.ts";
+import { CommentContract } from "../../data/frontend/contracts/comment.contract.ts";
+import AddDeviceCommentForm from "../../islands/forms/AddDeviceCommentForm.tsx";
+import { DeviceCommentCard } from "../../components/cards/DeviceCommentCard.tsx";
 
 export const handler: Handlers = {
   async GET(_: Request, ctx: FreshContext) {
@@ -35,7 +38,7 @@ export const handler: Handlers = {
     const likes = await pb.getAll(
       "device_likes",
       {
-        filter: `deviceId="${deviceId}"`,
+        filter: `device="${deviceId}"`,
         expand: "",
         sort: "",
       },
@@ -49,27 +52,35 @@ export const handler: Handlers = {
         1,
         1,
         {
-          filter: `deviceId="${deviceId}" && userId="${user.id}"`,
+          filter: `device="${deviceId}" && user="${user.id}"`,
           sort: "",
           expand: "",
         },
       );
       userLiked = userLike.items.length > 0;
-
-      console.log("user", user.id);
-      console.log("device", deviceId)
       const userFavorite = await pb.getList(
         "device_favorites",
         1,
         1,
         {
-          filter: `deviceId="${deviceId}" && userId="${user.id}"`,
+          filter: `device="${deviceId}" && user="${user.id}"`,
           sort: "",
           expand: "",
         },
       );
       userFavorited = userFavorite.items.length > 0;
     }
+
+    const comments = (await pb.getList(
+      "device_comments",
+      1,
+      100,
+      {
+        filter: `device="${deviceId}"`,
+        sort: "-created",
+        expand: "user",
+      },
+    )).items;
 
     const deviceService = await DeviceService.getInstance();
     const device = await deviceService.getDeviceByName(deviceId);
@@ -84,6 +95,7 @@ export const handler: Handlers = {
       userFavorited,
       device,
       similarDevices,
+      comments,
     });
   },
 };
@@ -95,6 +107,7 @@ export default function DeviceDetail(props: PageProps) {
   const userFavorited = props.data.userFavorited;
   const device = props.data.device as Device | null;
   const similarDevices = props.data.similarDevices as Device[];
+  const comments = props.data.comments as CommentContract[];
 
   const getReleaseDate = (
     deviceReleased: { raw: string | null; mentionedDate: Date | null },
@@ -455,6 +468,35 @@ export default function DeviceDetail(props: PageProps) {
           isLiked={userLiked}
           userFavorited={userFavorited}
         />
+      </div>
+
+      <div class="device-detail-comments">
+        <h2 style={{ textAlign: "center" }}>Comments by users</h2>
+        {user == null && (
+          <p style={{ textAlign: "center" }}>
+            <a href="/auth/sign-in">Sign in</a> to add your thoughts!
+          </p>
+        )}
+
+        {user && <AddDeviceCommentForm device={device} user={user} />}
+
+        {comments?.length > 0
+          ? (
+            <>
+              {comments.map((comment) => (
+                <DeviceCommentCard
+                  comment={comment}
+                />
+              ))}
+            </>
+          )
+          : (
+            <>
+              <p style={{ textAlign: "center" }}>
+                No comments yet. Be the first to add your thoughts!
+              </p>
+            </>
+          )}
       </div>
 
       <div class="device-detail-links">

@@ -116,7 +116,9 @@ export class DeviceService {
     // Add filter for personal picks
     if (filter === "personal-picks") {
       if (filterString) filterString += " && ";
-      filterString += personalPicks.map((pick) => `id = "${pick}"`).join(" || ");
+      filterString += personalPicks.map((pick) => `id = "${pick}"`).join(
+        " || ",
+      );
     }
     console.log("test1", filterString);
 
