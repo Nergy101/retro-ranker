@@ -5,6 +5,19 @@ interface DeviceCommentCardProps {
   comment: CommentContract;
 }
 
+// Basic HTML sanitization function
+function sanitizeHTML(html: string): string {
+  // Remove potentially dangerous tags and attributes
+  return html
+    .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+    .replace(/<iframe\b[^<]*(?:(?!<\/iframe>)<[^<]*)*<\/iframe>/gi, '')
+    .replace(/<object\b[^<]*(?:(?!<\/object>)<[^<]*)*<\/object>/gi, '')
+    .replace(/<embed\b[^<]*(?:(?!<\/embed>)<[^<]*)*<\/embed>/gi, '')
+    .replace(/on\w+="[^"]*"/g, '')
+    .replace(/on\w+='[^']*'/g, '')
+    .replace(/javascript:/gi, '');
+}
+
 export function DeviceCommentCard({ comment }: DeviceCommentCardProps) {
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -68,9 +81,8 @@ export function DeviceCommentCard({ comment }: DeviceCommentCardProps) {
           width: "100%",
           textAlign: "left",
         }}
-      >
-        {comment.content}
-      </div>
+        dangerouslySetInnerHTML={{ __html: sanitizeHTML(comment.content) }}
+      />
       <div
         style={{
           display: "flex",
