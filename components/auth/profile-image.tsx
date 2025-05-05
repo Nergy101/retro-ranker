@@ -29,6 +29,13 @@ export function ProfileImage({
         alt={`${name}'s profile`}
         width={size}
         height={size}
+        style={{
+          width: `${size}px`,
+          height: `${size}px`,
+          borderRadius: "50%",
+          border: "2px solid var(--pico-primary-border)",
+          boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+        }}
       />
     </div>
   );

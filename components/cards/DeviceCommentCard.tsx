@@ -1,4 +1,5 @@
 import { CommentContract } from "../../data/frontend/contracts/comment.contract.ts";
+import { ProfileImage } from "../auth/profile-image.tsx";
 
 interface DeviceCommentCardProps {
   comment: CommentContract;
@@ -45,17 +46,7 @@ export function DeviceCommentCard({ comment }: DeviceCommentCardProps) {
           marginRight: "auto",
         }}
       >
-        <img
-          src={getAvatarUrl(comment.expand.user.nickname)}
-          alt={`${comment.expand.user.nickname}'s avatar`}
-          style={{
-            width: "32px",
-            height: "32px",
-            borderRadius: "50%",
-            border: "2px solid var(--pico-primary-border)",
-            boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-          }}
-        />
+        <ProfileImage name={comment.expand.user.nickname} size={32} />
         <span
           style={{
             fontWeight: "600",
