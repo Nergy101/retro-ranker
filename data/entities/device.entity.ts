@@ -3,7 +3,7 @@ import { Pricing } from "./pricing.entity.ts";
 import { SystemRating } from "./system-rating.entity.ts";
 import { TagModel } from "./tag.entity.ts";
 import { Performance } from "./performance.entity.ts";
-export interface Device extends BaseEntity {
+export interface DeviceEntity extends BaseEntity {
   // the id of the device is the same as the name.sanitized
   nameRaw: string;
   nameSanitized: string;

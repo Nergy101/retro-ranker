@@ -5,7 +5,7 @@ import { DeviceService } from "../../../data/frontend/services/devices/device.se
 
 export const handler = {
   async GET(_: Request, ctx: FreshContext) {
-    const deviceService = DeviceService.getInstance();
+    const deviceService = await DeviceService.getInstance();
 
     const params = new URLSearchParams(ctx.url.search);
     const searchQuery = params.get("search");
@@ -29,9 +29,9 @@ export const handler = {
     const pageSize = Number.parseInt(params.get("pageSize") || "9");
     const tagsParam = params.get("tags")?.split(",") || [];
 
-    const tags = tagsParam.map((tag) => {
-      return deviceService.getTagBySlug(tag);
-    }).filter((tag) => tag !== null) as TagModel[];
+    const tags = (await Promise.all(
+      tagsParam.map((tag) => deviceService.getTagBySlug(tag)),
+    )).filter((tag) => tag !== null) as TagModel[];
 
     if (searchQuery || category || sortBy || filter || pageNumber || pageSize) {
       const devices = deviceService.searchDevices(

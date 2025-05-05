@@ -5,9 +5,9 @@ import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { TimelineContent } from "../../islands/timeline-content.tsx";
 import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 
-export default function ReleaseTimeline({ url }: PageProps) {
-  const deviceService = DeviceService.getInstance();
-  const devices = deviceService.getAllDevices();
+export default async function ReleaseTimeline({ url }: PageProps) {
+  const deviceService = await DeviceService.getInstance();
+  const devices = await deviceService.getAllDevices();
 
   const sortedDevices = devices.sort((a, b) => {
     const dateA = a.released.mentionedDate

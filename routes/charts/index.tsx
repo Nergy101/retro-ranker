@@ -6,9 +6,9 @@ import { DevicesPerBrandBarChart } from "../../islands/charts/devices-per-brand-
 import { DevicesPerRatingBarChart } from "../../islands/charts/devices-per-ranking-bar-chart.tsx";
 import { DevicesPerReleaseYearLineChart } from "../../islands/charts/devices-per-release-year-line-chart.tsx";
 
-export default function ChartsIndex({ url }: PageProps) {
-  const deviceService = DeviceService.getInstance();
-  const devices = deviceService.getAllDevices();
+export default async function ChartsIndex({ url }: PageProps) {
+  const deviceService = await DeviceService.getInstance();
+  const devices = await deviceService.getAllDevices();
 
   return (
     <div class="charts-page">

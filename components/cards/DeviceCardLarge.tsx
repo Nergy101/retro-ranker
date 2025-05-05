@@ -197,6 +197,9 @@ export function DeviceCardLarge({ device }: { device: Device }) {
           tooltipUseShortSystemName={true}
           useRatingDescription={false}
           hideLikeButton={true}
+          user={null}
+          likes={null}
+          isLiked={false}
         />
       </div>
     </article>

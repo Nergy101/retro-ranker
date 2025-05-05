@@ -25,7 +25,7 @@ export const handler: Handlers = {
       try {
         const user = ctx.state.user as User | null;
         span.setAttribute("user.authenticated", !!user);
-        if (user && 'email' in user) {
+        if (user && "email" in user) {
           span.setAttribute("user.email", user.email);
         }
 
@@ -33,7 +33,9 @@ export const handler: Handlers = {
         span.setStatus({ code: 0 }); // OK
         return result;
       } catch (error: unknown) {
-        const errorMessage = error instanceof Error ? error.message : "Unknown error";
+        const errorMessage = error instanceof Error
+          ? error.message
+          : "Unknown error";
         span.setStatus({ code: 2, message: errorMessage }); // ERROR
         throw error;
       } finally {
@@ -43,37 +45,39 @@ export const handler: Handlers = {
   },
 };
 
-export default function Home({ url, data }: PageProps<{ user: User | null }>) {
-  const user = data.user;
+export default async function Home(
+  { url, data }: PageProps<{ user: User | null }>,
+) {
+  const user = data?.user ?? null;
 
   // Filter devices into categories
-  const deviceService = DeviceService.getInstance();
-  const newArrivals = deviceService.getNewArrivals();
-  const personalPicks = deviceService.getPersonalPicks();
-  const highlyRated = deviceService.getHighlyRated();
-  const upcoming = deviceService.getUpcoming();
+  const deviceService = await DeviceService.getInstance();
+  const newArrivals = await deviceService.getNewArrivals();
+  const personalPicks = await deviceService.getPersonalPicks();
+  const highlyRated = await deviceService.getHighlyRated();
+  const upcoming = await deviceService.getUpcoming();
 
   const defaultTags = [
-    deviceService.getTagBySlug("low"),
-    deviceService.getTagBySlug("mid"),
-    deviceService.getTagBySlug("high"),
-    deviceService.getTagBySlug("oled"),
-    deviceService.getTagBySlug("year-2024"),
-    deviceService.getTagBySlug("year-2025"),
-    deviceService.getTagBySlug("upcoming"),
-    deviceService.getTagBySlug("anbernic"),
-    deviceService.getTagBySlug("miyoo-bittboy"),
-    deviceService.getTagBySlug("ayaneo"),
-    deviceService.getTagBySlug("powkiddy"),
-    deviceService.getTagBySlug("clamshell"),
-    deviceService.getTagBySlug("horizontal"),
-    deviceService.getTagBySlug("vertical"),
-    deviceService.getTagBySlug("micro"),
-    deviceService.getTagBySlug("windows"),
-    deviceService.getTagBySlug("steam-os"),
-    deviceService.getTagBySlug("linux"),
-    deviceService.getTagBySlug("android"),
-    deviceService.getTagBySlug("personal-pick"),
+    await deviceService.getTagBySlug("low"),
+    await deviceService.getTagBySlug("mid"),
+    await deviceService.getTagBySlug("high"),
+    await deviceService.getTagBySlug("oled"),
+    await deviceService.getTagBySlug("year-2024"),
+    await deviceService.getTagBySlug("year-2025"),
+    await deviceService.getTagBySlug("upcoming"),
+    await deviceService.getTagBySlug("anbernic"),
+    await deviceService.getTagBySlug("miyoo-bittboy"),
+    await deviceService.getTagBySlug("ayaneo"),
+    await deviceService.getTagBySlug("powkiddy"),
+    await deviceService.getTagBySlug("clamshell"),
+    await deviceService.getTagBySlug("horizontal"),
+    await deviceService.getTagBySlug("vertical"),
+    await deviceService.getTagBySlug("micro"),
+    await deviceService.getTagBySlug("windows"),
+    await deviceService.getTagBySlug("steam-os"),
+    await deviceService.getTagBySlug("linux"),
+    await deviceService.getTagBySlug("android"),
+    await deviceService.getTagBySlug("personal-pick"),
   ].filter((tag) => tag !== null) as TagModel[];
 
   return (

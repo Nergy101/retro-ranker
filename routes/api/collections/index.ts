@@ -26,7 +26,11 @@ export const handler: Handlers = {
     }
 
     const filter = deviceIds.map((id) => `nameSanitized="${id}"`).join("||");
-    const devices = await pbService.getList("devices", 1, 100, filter);
+    const devices = await pbService.getList("devices", 1, 100, {
+      filter,
+      sort: "",
+      expand: "",
+    });
 
     const collection = await pbService.create("device_collections", {
       name,

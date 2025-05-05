@@ -34,8 +34,11 @@ export const handler: Handlers = {
 
     const likes = await pb.getAll(
       "device_likes",
-      `deviceId="${deviceId}"`,
-      undefined,
+      {
+        filter: `deviceId="${deviceId}"`,
+        expand: "",
+        sort: "",
+      },
     );
 
     let userLiked = false;
@@ -44,11 +47,28 @@ export const handler: Handlers = {
         "device_likes",
         1,
         1,
-        `deviceId="${deviceId}" && userId="${user.id}"`,
+        {
+          filter: `deviceId="${deviceId}" && userId="${user.id}"`,
+          sort: "",
+          expand: "",
+        },
       );
       userLiked = userLike.items.length > 0;
     }
-    return await ctx.render({ user: ctx.state.user, likesCount: likes.length, userLiked });
+
+    const deviceService = await DeviceService.getInstance();
+    const device = await deviceService.getDeviceByName(deviceId);
+    const similarDevices = (await deviceService.getSimilarDevices(
+      device?.name.sanitized ?? null,
+    )).sort((a, b) => b.totalRating - a.totalRating);
+
+    return await ctx.render({
+      user: ctx.state.user,
+      likesCount: likes.length,
+      userLiked,
+      device,
+      similarDevices,
+    });
   },
 };
 
@@ -56,12 +76,8 @@ export default function DeviceDetail(props: PageProps) {
   const user = props.data.user as User | null;
   const likesCount = props.data.likesCount;
   const userLiked = props.data.userLiked;
-
-  const deviceService = DeviceService.getInstance();
-  const device = deviceService.getDeviceByName(props.params?.name);
-  const similarDevices = deviceService.getSimilarDevices(
-    device?.name.sanitized ?? null,
-  ).sort((a, b) => b.totalRating - a.totalRating);
+  const device = props.data.device as Device | null;
+  const similarDevices = props.data.similarDevices as Device[];
 
   const getReleaseDate = (
     deviceReleased: { raw: string | null; mentionedDate: Date | null },
@@ -407,7 +423,12 @@ export default function DeviceDetail(props: PageProps) {
       </div>
 
       <div class="device-detail-performance">
-        <EmulationPerformance device={device} user={user} likes={likesCount} isLiked={userLiked} />
+        <EmulationPerformance
+          device={device}
+          user={user}
+          likes={likesCount}
+          isLiked={userLiked}
+        />
       </div>
 
       <div class="device-detail-links">

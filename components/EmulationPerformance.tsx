@@ -11,18 +11,23 @@ interface EmulationPerformanceProps {
   tooltipUseShortSystemName?: boolean;
   useRatingDescription?: boolean;
   user: User | null;
-  likes: number;
-  isLiked: boolean;
+  likes: number | null;
+  isLiked: boolean | null;
   hideLikeButton?: boolean;
 }
 
-
 export function EmulationPerformance(
-  { device, tooltipUseShortSystemName = false, useRatingDescription = true, user, likes, isLiked, hideLikeButton = false }:
-    EmulationPerformanceProps,
+  {
+    device,
+    tooltipUseShortSystemName = false,
+    useRatingDescription = true,
+    user,
+    likes,
+    isLiked,
+    hideLikeButton = false,
+  }: EmulationPerformanceProps,
 ) {
   const ratings = device.systemRatings;
-
 
   const getCoolingColor = (cooling: Cooling) => {
     // count the number of true values
@@ -162,13 +167,13 @@ export function EmulationPerformance(
           <h3 style={{ textAlign: "center", padding: 0, margin: 0 }}>
             Stats
           </h3>
-     
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <ThumbsUp
-            deviceId={device.id}
-            initialLikes={likes}
-            isLiked={isLiked}
-            isLoggedIn={!!user}
+
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <ThumbsUp
+              deviceId={device.id}
+              initialLikes={likes ?? 0}
+              isLiked={isLiked ?? false}
+              isLoggedIn={!!user}
             />
           </div>
         </>

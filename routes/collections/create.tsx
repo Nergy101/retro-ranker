@@ -2,8 +2,9 @@ import SEO from "../../components/SEO.tsx";
 import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 import CollectionCreateForm from "../../islands/collections/collection-create-form.tsx";
 
-export default function CreateCollection() {
-  const devices = DeviceService.getInstance().getAllDevices();
+export default async function CreateCollection() {
+  const deviceService = await DeviceService.getInstance();
+  const devices = await deviceService.getAllDevices();
 
   return (
     <div>

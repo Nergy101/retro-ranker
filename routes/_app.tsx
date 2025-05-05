@@ -12,8 +12,7 @@ export default async function App(
 
   const user = ctx.state.user as User | null;
 
-  const allDevices = DeviceService.getInstance().getAllDevices()
-    .sort((a, b) => a.name.raw.localeCompare(b.name.raw));
+  const allDevices = await (await DeviceService.getInstance()).getAllDevices();
 
   return (
     <html class="transition-colors" lang="en">

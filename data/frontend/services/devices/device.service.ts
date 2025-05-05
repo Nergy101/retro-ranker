@@ -25,66 +25,55 @@ import {
   PiXCircle,
 } from "@preact-icons/pi";
 import { JSX, VNode } from "preact";
+import {
+  createSuperUserPocketBaseService,
+  PocketBaseService,
+} from "../../../pocketbase/pocketbase.service.ts";
 import { Device } from "../../contracts/device.model.ts";
-import { Cooling } from "../../models/cooling.model.ts";
-import { TagModel } from "../../models/tag.model.ts";
-import { RatingsService } from "./ratings.service.ts";
-import { personalPicks } from "../../enums/personal-picks.ts";
 import {
   EmulationSystem,
   EmulationSystemOrder,
 } from "../../enums/emulation-system.ts";
+import { personalPicks } from "../../enums/personal-picks.ts";
+import { Cooling } from "../../models/cooling.model.ts";
 import { SystemRating } from "../../models/system-rating.model.ts";
-export class DeviceService {
-  private devices: Device[] = [];
-  private tags: TagModel[] = [];
-  private counter: number = 0;
+import { TagModel } from "../../models/tag.model.ts";
+import { RatingsService } from "./ratings.service.ts";
 
+export class DeviceService {
+  private pocketBaseService: PocketBaseService;
   private static instance: DeviceService;
 
-  private constructor() {
-    this.loadDevices();
+  private constructor(pocketBaseService: PocketBaseService) {
+    this.pocketBaseService = pocketBaseService;
   }
 
-  public static getInstance(): DeviceService {
+  public static async getInstance(): Promise<DeviceService> {
     if (!DeviceService.instance) {
       console.info("Creating new DeviceService instance");
-      DeviceService.instance = new DeviceService();
+
+      const pbService = await createSuperUserPocketBaseService(
+        Deno.env.get("POCKETBASE_SUPERUSER_EMAIL")!,
+        Deno.env.get("POCKETBASE_SUPERUSER_PASSWORD")!,
+        Deno.env.get("POCKETBASE_URL")!,
+      );
+
+      DeviceService.instance = new DeviceService(pbService);
     }
     return DeviceService.instance;
   }
 
-  private async loadDevices(): Promise<void> {
-    try {
-      const projectPathToData = Deno.cwd() + "/data";
-      const filePath = projectPathToData + "/source/results/handhelds.json";
-
-      // sync to force the file to be read before showing any pages
-      this.devices = JSON.parse(
-        Deno.readTextFileSync(filePath),
-      );
-
-      // deduplicate tags
-      this.tags = this.devices.flatMap((device) => device.tags).filter(
-        (tag, index, self) =>
-          index === self.findIndex((t) => t.slug === tag.slug),
-      ).sort((a, b) => a.name.localeCompare(b.name));
-    } catch (error) {
-      console.error("Failed to load devices:", error);
-      this.devices = [];
-    }
-    console.info("Loaded devices:", this.devices.length);
+  public async getAllDevices(): Promise<Device[]> {
+    return (await this.pocketBaseService.getAll("devices")).map((device) =>
+      device.deviceData
+    );
   }
 
-  public getAllDevices(): Device[] {
-    this.counter++;
-    // console.info(
-    //   `${new Date().toISOString()} - Getting all devices ${this.counter}`,
-    // );
-    return this.devices;
+  public async getAllTags(): Promise<TagModel[]> {
+    return await this.pocketBaseService.getAll("tags");
   }
 
-  public searchDevices(
+  public async searchDevices(
     query: string,
     category: "all" | "low" | "mid" | "high" = "all",
     sortBy:
@@ -102,145 +91,110 @@ export class DeviceService {
     tags: TagModel[] = [],
     pageNumber: number = 1,
     pageSize: number = 9,
-  ): { page: Device[]; totalAmountOfResults: number } {
+  ): Promise<{ page: Device[]; totalAmountOfResults: number }> {
     const lowerQuery = query.toLowerCase();
+    let filterString = "";
 
-    let filteredDevices = this.devices.filter((device) => {
-      if (category === "low") {
-        return device.pricing.category === "low" && (
-          device.name.sanitized.toLowerCase().includes(lowerQuery) ||
-          device.name.raw.toLowerCase().includes(lowerQuery) ||
-          device.brand.raw.toLowerCase().includes(lowerQuery) ||
-          device.os.raw.toLowerCase().includes(lowerQuery)
-        );
-      }
+    // Build filter string based on category
+    if (category !== "all") {
+      filterString += `deviceData.pricing.category = "${category}"`;
+    }
 
-      if (category === "mid") {
-        return device.pricing.category === "mid" && (
-          device.name.sanitized.toLowerCase().includes(lowerQuery) ||
-          device.name.raw.toLowerCase().includes(lowerQuery) ||
-          device.brand.raw.toLowerCase().includes(lowerQuery) ||
-          device.os.raw.toLowerCase().includes(lowerQuery)
-        );
-      }
+    // Add search query filter
+    if (query) {
+      if (filterString) filterString += " && ";
+      filterString +=
+        `(deviceData.name.sanitized ~ "${lowerQuery}" || deviceData.name.raw ~ "${lowerQuery}" || deviceData.brand.raw ~ "${lowerQuery}" || deviceData.os.raw ~ "${lowerQuery}")`;
+    }
 
-      if (category === "high") {
-        return (
-          device.pricing.category === "high" &&
-          (device.name.sanitized.toLowerCase().includes(lowerQuery) ||
-            device.name.raw.toLowerCase().includes(lowerQuery) ||
-            device.brand.raw.toLowerCase().includes(lowerQuery) ||
-            device.os.raw.toLowerCase().includes(lowerQuery))
-        );
-      }
-
-      return (
-        device.name.sanitized.toLowerCase().includes(lowerQuery) ||
-        device.name.raw.toLowerCase().includes(lowerQuery) ||
-        device.brand.raw.toLowerCase().includes(lowerQuery) ||
-        device.os.raw.toLowerCase().includes(lowerQuery)
-      );
-    });
-
+    // Add filter for upcoming devices
     if (filter === "upcoming") {
-      filteredDevices = filteredDevices.filter((device) =>
-        device.released.raw?.toLowerCase().includes("upcoming")
-      );
+      if (filterString) filterString += " && ";
+      filterString += `deviceData.released.raw ~ "upcoming"`;
     }
 
+    // Add filter for personal picks
     if (filter === "personal-picks") {
-      filteredDevices = filteredDevices.filter((device) =>
-        personalPicks.includes(device.name.sanitized)
-      );
+      if (filterString) filterString += " && ";
+      filterString += `deviceData.name.sanitized = ${
+        personalPicks.map((pick) => `"${pick}"`).join(" || ")
+      }`;
     }
 
-    const currentYear = new Date().getFullYear();
-    if (sortBy === "new-arrivals") {
-      // filter on last 2 years
-      filteredDevices = filteredDevices.filter((device) => {
-        // where mentionedDate is a valid date
-        if (!device.released.mentionedDate) return false;
-
-        const mentionedDate = new Date(device.released.mentionedDate);
-        if (!mentionedDate) return false;
-
-        const year = mentionedDate.getFullYear();
-        return year === currentYear || year === currentYear - 1;
-      });
-    }
-
-    if (sortBy === "high-low-price") {
-      filteredDevices = filteredDevices.filter((device) =>
-        device.pricing.average
-      );
-    }
-
-    if (sortBy === "low-high-price") {
-      filteredDevices = filteredDevices.filter((device) =>
-        device.pricing.average
-      );
-    }
-
-    // filter by tags. Device must have all tags in the array.
+    // Add tag filters
     if (tags.length > 0) {
-      filteredDevices = filteredDevices.filter((device) =>
-        tags.every((tag) => device.tags.some((t) => t.slug === tag.slug))
-      );
+      console.log("test1", tags);
+      if (filterString) filterString += " && ";
+      filterString += `(${tags.map((tag) => `tags~"${tag.id}"`).join(" && ")})`;
     }
 
-    const sortedDevices = filteredDevices.sort((a, b) => {
-      switch (sortBy) {
-        case "new-arrivals":
-          return (
-            (new Date(b.released.mentionedDate ?? new Date())).getTime() -
-            (new Date(a.released.mentionedDate ?? new Date())).getTime()
-          );
-        case "highly-ranked":
-          return (b.totalRating) -
-            (a.totalRating);
-        case "alphabetical":
-          return a.name.raw.localeCompare(b.name.raw);
-        case "reverse-alphabetical":
-          return b.name.raw.localeCompare(a.name.raw);
-        case "high-low-price":
-          return (b.pricing.average ?? -1) - (a.pricing.average ?? -1);
-        case "low-high-price":
-          return (a.pricing.average ?? -1) - (b.pricing.average ?? -1);
-        default:
-          return query !== ""
-            ? (new Date(b.released.mentionedDate ?? new Date())).getTime() -
-              (new Date(a.released.mentionedDate ?? new Date())).getTime()
-            : 0;
-      }
-    });
+    // Build sort string
+    let sortString = "";
+    switch (sortBy) {
+      case "new-arrivals":
+        sortString = "-deviceData.released.mentionedDate";
+        break;
+      case "highly-ranked":
+        sortString = "-deviceData.totalRating";
+        break;
+      case "alphabetical":
+        sortString = "deviceData.name.raw";
+        break;
+      case "reverse-alphabetical":
+        sortString = "-deviceData.name.raw";
+        break;
+      case "high-low-price":
+        sortString = "-deviceData.pricing.average";
+        break;
+      case "low-high-price":
+        sortString = "deviceData.pricing.average";
+        break;
+      default:
+        sortString = "-deviceData.released.mentionedDate";
+    }
 
-    const devicesToReturn = sortedDevices.slice(
-      (pageNumber - 1) * pageSize,
-      pageNumber * pageSize,
+    const result = await this.pocketBaseService.getList(
+      "devices",
+      pageNumber,
+      pageSize,
+      {
+        filter: filterString,
+        sort: sortString,
+        expand: "",
+      },
     );
 
     return {
-      page: devicesToReturn,
-      totalAmountOfResults: sortedDevices.length,
+      page: result.items.map((device) => device.deviceData),
+      totalAmountOfResults: result.totalItems,
     };
   }
 
-  public getDeviceByName(sanitizedName: string): Device | null {
-    return this.devices.find((device) =>
-      device.name.sanitized === sanitizedName
-    ) ?? null;
+  public async getDeviceByName(sanitizedName: string): Promise<Device | null> {
+    const result = await this.pocketBaseService.getList(
+      "devices",
+      1,
+      1,
+      {
+        filter: `deviceData.name.sanitized = "${sanitizedName}"`,
+        sort: "",
+        expand: "",
+      },
+    );
+    return result.items[0]?.deviceData || null;
   }
 
-  public getSimilarDevices(
+  public async getSimilarDevices(
     sanitizedName: string | null,
     limit: number = 4,
-  ): Device[] {
+  ): Promise<Device[]> {
     if (!sanitizedName) return [];
 
-    const currentDevice = this.getDeviceByName(sanitizedName);
+    const currentDevice = await this.getDeviceByName(sanitizedName);
     if (!currentDevice) return [];
 
-    return this.devices
+    const allDevices = await this.getAllDevices();
+    return allDevices
       .filter((device) => device.name.sanitized !== sanitizedName)
       .sort((a, b) => {
         const scoreA = RatingsService.getSimilarityScore(a, currentDevice);
@@ -250,52 +204,65 @@ export class DeviceService {
       .slice(0, limit);
   }
 
-  public getPersonalPicks(): Device[] {
-    return this.devices
-      .filter((device) => personalPicks.includes(device.name.sanitized))
-      .sort((a, b) =>
-        personalPicks.indexOf(a.name.sanitized) -
-        personalPicks.indexOf(b.name.sanitized)
-      )
-      .slice(0, 4);
+  public async getPersonalPicks(): Promise<Device[]> {
+    const personalPickTag = await this.getTagBySlug("personal-pick");
+    const personalPickTagId = personalPickTag!.id;
+
+    const result = await this.pocketBaseService.getList(
+      "devices",
+      1,
+      4,
+      {
+        filter: `tags~"${personalPickTagId}"`,
+        sort: "-deviceData.released.mentionedDate",
+        expand: "",
+      },
+    );
+    return result.items.map((device) => device.deviceData);
   }
 
-  public getNewArrivals(): Device[] {
+  public async getNewArrivals(): Promise<Device[]> {
     const currentYear = new Date().getFullYear();
-    return this.devices
-      .filter((device) => {
-        if (!device.released.mentionedDate) return false;
-        const mentionedDate = new Date(device.released.mentionedDate);
-        if (!mentionedDate) return false;
-        const year = mentionedDate.getFullYear();
-        return year === currentYear;
-      })
-      .sort((a, b) => {
-        const aYear = a.released.mentionedDate?.getFullYear?.() || 0;
-        const bYear = b.released.mentionedDate?.getFullYear?.() || 0;
-        return bYear - aYear;
-      })
-      .slice(0, 4);
+    const result = await this.pocketBaseService.getList(
+      "devices",
+      1,
+      4,
+      {
+        filter: `deviceData.released.mentionedDate >= "${currentYear}-01-01"`,
+        sort: "-deviceData.released.mentionedDate",
+        expand: "",
+      },
+    );
+    return result.items.map((device) => device.deviceData);
   }
 
-  public getUpcoming(): Device[] {
-    return this.devices
-      .filter((device) =>
-        device.released.raw?.toLowerCase().includes("upcoming")
-      )
-      .slice(0, 4);
+  public async getUpcoming(): Promise<Device[]> {
+    const result = await this.pocketBaseService.getList(
+      "devices",
+      1,
+      4,
+      {
+        filter: `deviceData.released ~ 'upcoming'`,
+        sort: "",
+        expand: "",
+      },
+    );
+    return result.items.map((device) => device.deviceData);
   }
 
-  public getHighlyRated(): Device[] {
-    // get the 4 highest rated devices that are not upcoming and have a price under $500
-    return this.devices
-      .filter((device) =>
-        device.totalRating &&
-        device.pricing.category === "mid" &&
-        !device.released.raw?.toLowerCase().includes("upcoming")
-      )
-      .sort((a, b) => b.totalRating - a.totalRating)
-      .slice(0, 4);
+  public async getHighlyRated(): Promise<Device[]> {
+    const result = await this.pocketBaseService.getList(
+      "devices",
+      1,
+      4,
+      {
+        filter:
+          `totalRating > 0 && pricing.category = "mid" && deviceData.released.raw!~"upcoming"`,
+        sort: "-totalRating",
+        expand: "",
+      },
+    );
+    return result.items.map((device) => device.deviceData);
   }
 
   static getOsIconComponent(os: string): VNode<JSX.SVGAttributes> | string {
@@ -433,11 +400,6 @@ export class DeviceService {
     return url;
   }
 
-  // Calculate a score for the device based on its performance and features.
-  // The score is a combination of the performance rating and the features score.
-  // The performance rating is between 0 and 10, and the features score is between 0 and 10.
-  // The final score is a combination of the performance rating and the features score.
-  // The final score is between 0 and 10.
   static calculateScore(device: Device): number {
     // Use the device's performance rating (assumed to be between 0 and 10)
     const performanceScore = device.performance?.normalizedRating ?? 1;
@@ -500,18 +462,47 @@ export class DeviceService {
     return Math.max(0, Math.min(10, finalScore));
   }
 
-  getAllTags(): TagModel[] {
-    return this.tags;
-  }
-
-  getDevicesWithTags(tags: TagModel[]): Device[] {
-    return this.devices.filter((device) =>
-      tags.every((tag) => device.tags.some((t) => t.slug === tag.slug))
+  public async getDevicesWithTags(tags: TagModel[]): Promise<Device[]> {
+    const filterString = tags.map((tag) => `tags ~ "${tag.id}"`).join(
+      " && ",
     );
+    const result = await this.pocketBaseService.getAll(
+      "devices",
+      {
+        filter: filterString,
+        expand: "",
+        sort: "",
+      },
+    );
+    return result.map((device) => device.deviceData);
   }
 
-  getTagBySlug(tagSlug: string): TagModel | null {
-    return this.tags.find((tag) => tag.slug === tagSlug) ?? null;
+  public async getTagBySlug(tagSlug: string): Promise<TagModel | null> {
+    const result = await this.pocketBaseService.getList(
+      "tags",
+      1,
+      1,
+      {
+        filter: `slug = "${tagSlug}"`,
+        sort: "",
+        expand: "",
+      },
+    );
+    return result.items[0] || null;
+  }
+
+  public async getTagsBySlugs(slugs: string[]): Promise<TagModel[]> {
+    const result = await this.pocketBaseService.getList(
+      "tags",
+      1,
+      1,
+      {
+        filter: `slug ~ "${slugs.join(" || ")}"`,
+        sort: "",
+        expand: "",
+      },
+    );
+    return result.items;
   }
 
   static getUptoSystemA(device: Device): SystemRating | null {

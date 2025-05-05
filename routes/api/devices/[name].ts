@@ -14,8 +14,8 @@ export const handler = {
       return Response.json({ error: "Name is required" }, { status: 400 });
     }
 
-    const deviceService = DeviceService.getInstance();
-    const device = deviceService.getDeviceByName(name);
+    const deviceService = await DeviceService.getInstance();
+    const device = await deviceService.getDeviceByName(name);
 
     if (!device) {
       console.warn(

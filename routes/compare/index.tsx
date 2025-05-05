@@ -1,33 +1,56 @@
-import SEO from "../../components/SEO.tsx";
-import { PageProps } from "$fresh/server.ts";
+import { FreshContext, PageProps } from "$fresh/server.ts";
 import { PiChartLine, PiInfo } from "@preact-icons/pi";
 import { DeviceComparisonResult } from "../../components/comparisons/DeviceComparisonResult.tsx";
 import { DeviceComparisonText } from "../../components/comparisons/DeviceComparisonText.tsx";
-import { DevicesRadarChart } from "../../islands/charts/devices-radar-chart.tsx";
-import { DeviceComparisonForm } from "../../islands/forms/DeviceComparisonForm.tsx";
+import SEO from "../../components/SEO.tsx";
 import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 import { RatingsService } from "../../data/frontend/services/devices/ratings.service.ts";
+import { DevicesRadarChart } from "../../islands/charts/devices-radar-chart.tsx";
+import { DeviceComparisonForm } from "../../islands/forms/DeviceComparisonForm.tsx";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
 
-export default function Compare({ url }: PageProps) {
-  const deviceService = DeviceService.getInstance();
-  const ratingsService = RatingsService.getInstance();
+export const handler = {
+  async GET(_: Request, ctx: FreshContext) {
+    const deviceService = await DeviceService.getInstance();
+    const ratingsService = RatingsService.getInstance();
 
-  const devices = url?.search.split("=")?.[1]?.split(",") || [];
+    const searchParams = new URLSearchParams(ctx.url.search);
+    const devices = searchParams.get("devices")?.split(",") || [];
 
-  const devicesToCompare = devices.map((d) => deviceService.getDeviceByName(d))
-    .filter((device) => device !== null);
+    const devicesToCompare =
+      (await Promise.all(devices.map((d) => deviceService.getDeviceByName(d))))
+        .filter((device) => device !== null);
 
-  const deviceNames = devicesToCompare.map((device) => device.name.raw);
-  const allDevices = deviceService.getAllDevices()
-    .sort((a, b) => a.name.raw.localeCompare(b.name.raw));
+    const deviceNames = devicesToCompare.map((device) => device.name.raw);
+    const allDevices = (await deviceService.getAllDevices())
+      .sort((a, b) => a.name.raw.localeCompare(b.name.raw));
 
-  const similarDevices = devicesToCompare.flatMap((device) =>
-    deviceService.getSimilarDevices(device.name.sanitized, 8)
-  );
+    const similarDevices = (await Promise.all(
+      devicesToCompare.map((device) =>
+        deviceService.getSimilarDevices(device.name.sanitized, 8)
+      ),
+    )).flat();
 
-  const ranking = ratingsService.createRanking(devicesToCompare);
+    const ranking = ratingsService.createRanking(devicesToCompare);
 
+    return ctx.render({
+      devicesToCompare,
+      deviceNames,
+      allDevices,
+      similarDevices,
+      ranking,
+    });
+  },
+};
+export default function Compare({ url, data }: PageProps) {
   // Generate dynamic SEO content based on devices being compared
+
+  const devicesToCompare = data.devicesToCompare as Device[];
+  const deviceNames = data.deviceNames;
+  const allDevices = data.allDevices;
+  const similarDevices = data.similarDevices;
+  const ranking = data.ranking;
+
   let seoTitle = "Compare Retro Gaming Handhelds";
   let seoDescription =
     "Compare retro handhelds side-by-side with detailed specs.";

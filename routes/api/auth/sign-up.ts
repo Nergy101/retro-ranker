@@ -51,7 +51,11 @@ export const handler: Handlers = {
       "users",
       1,
       1,
-      `email="${email}"`,
+      {
+        filter: `email="${email}"`,
+        sort: "",
+        expand: "",
+      },
     );
 
     if (existingUser.items.length > 0) {

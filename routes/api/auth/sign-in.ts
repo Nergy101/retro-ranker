@@ -4,7 +4,7 @@ import { ProblemDetail } from "../../../data/frontend/contracts/problem-detail.t
 import { createPocketBaseService } from "../../../data/pocketbase/pocketbase.service.ts";
 
 export const handler: Handlers = {
-  async GET(req, _ctx) {
+  async GET(_, _ctx) {
     // render the sign-in page
     return new Response(null, { status: 200 });
   },
@@ -30,8 +30,8 @@ export const handler: Handlers = {
     let user = null;
     try {
       user = await pbService.authWithPassword(email, password);
-    } catch (error) {
-      console.error(error);
+    } catch {
+      // do nothing
     }
 
     if (!user) {

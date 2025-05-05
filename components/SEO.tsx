@@ -73,7 +73,7 @@ export default function SEO({
         data-website-id="34d0e3cb-e9cf-4554-8b1c-27541fb877c0"
         data-domains="retroranker.site"
       >
-      <script src="https://cdn.jsdelivr.net/npm/@cap.js/widget"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@cap.js/widget"></script>
       </script>
       <link
         defer

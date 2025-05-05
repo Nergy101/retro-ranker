@@ -1,80 +1,167 @@
-import SEO from "../../components/SEO.tsx";
 import { Partial } from "$fresh/runtime.ts";
-import { PageProps } from "$fresh/server.ts";
+import { FreshContext, PageProps } from "$fresh/server.ts";
 import { DeviceCardLarge } from "../../components/cards/DeviceCardLarge.tsx";
 import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
 import { DeviceCardRow } from "../../components/cards/DeviceCardRow.tsx";
+import SEO from "../../components/SEO.tsx";
 import { PaginationNav } from "../../components/shared/PaginationNav.tsx";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { TagModel } from "../../data/frontend/models/tag.model.ts";
+import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 import { DeviceSearchForm } from "../../islands/forms/DeviceSearchForm.tsx";
 import { LayoutSelector } from "../../islands/layout-selector.tsx";
-import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
-import { User } from "../../data/frontend/contracts/user.contract.ts";
 
-export default function DevicesIndex(props: PageProps) {
-  const deviceService = DeviceService.getInstance();
-  const user = props.state.user as User | null;
+export const handler = {
+  async GET(_: Request, ctx: FreshContext) {
+    const deviceService = await DeviceService.getInstance();
+    const searchParams = new URLSearchParams(ctx.url.search);
 
-  const searchQuery = props.url?.searchParams?.get("search") || "";
-  const searchCategory = props.url?.searchParams?.get("category") || "all";
-  const pageNumber = parseInt(props.url?.searchParams?.get("page") || "1");
-  const sortBy = props.url?.searchParams?.get("sort") as
-    | "all"
-    | "highly-ranked"
-    | "new-arrivals"
-    | "high-low-price"
-    | "low-high-price"
-    | "alphabetical"
-    | "reverse-alphabetical" ||
-    "all";
+    const searchQuery = searchParams.get("search") || "";
+    const searchCategory = searchParams.get("category") || "all";
+    const pageNumber = parseInt(searchParams.get("page") || "1");
+    const sortBy = searchParams.get("sort") as
+      | "all"
+      | "highly-ranked"
+      | "new-arrivals"
+      | "high-low-price"
+      | "low-high-price"
+      | "alphabetical"
+      | "reverse-alphabetical" ||
+      "all";
 
-  const filter = props.url?.searchParams?.get("filter") as
-    | "all"
-    | "upcoming"
-    | "personal-picks" ||
-    "all";
+    const filter = searchParams.get("filter") as
+      | "all"
+      | "upcoming"
+      | "personal-picks" ||
+      "all";
 
-  const tagsParam = props.url?.searchParams?.get("tags") || "";
-  const parsedTags = tagsParam.split(",");
+    const tagsParam = searchParams.get("tags");
+    const parsedTags = tagsParam ? tagsParam.split(",") : [];
 
-  const initialTags = parsedTags.map((slug) => deviceService.getTagBySlug(slug))
-    .filter((tag) => tag !== null && tag.slug !== "") as TagModel[];
+    const initialTags = (await Promise.all(
+      parsedTags.map((slug) => deviceService.getTagBySlug(slug)),
+    )).filter((tag) => tag !== null && tag.slug !== "") as TagModel[];
 
-  const allDevices = deviceService.getAllDevices()
-    .sort((a, b) => {
-      const dateA = a.released.mentionedDate
-        ? new Date(a.released.mentionedDate)
-        : new Date(0);
-      const dateB = b.released.mentionedDate
-        ? new Date(b.released.mentionedDate)
-        : new Date(0);
-      return dateB.getTime() - dateA.getTime();
+    const allDevices = (await deviceService.getAllDevices())
+      .sort((a, b) => {
+        const dateA = a.released.mentionedDate
+          ? new Date(a.released.mentionedDate)
+          : new Date(0);
+        const dateB = b.released.mentionedDate
+          ? new Date(b.released.mentionedDate)
+          : new Date(0);
+        return dateB.getTime() - dateA.getTime();
+      });
+
+    const defaultTags = [
+      ...(await deviceService.getTagsBySlugs(
+        [
+          "low",
+          "mid",
+          "high",
+          "upcoming",
+          "personal-pick",
+          "year-2025",
+          "year-2024",
+          "anbernic",
+          "miyoo-bittboy",
+          "ayaneo",
+          "steam-os",
+          "clamshell",
+          "horizontal",
+          "vertical",
+          "micro",
+          "oled",
+        ],
+      )),
+    ];
+
+    // Get layout from URL params first, then localStorage, then default to "grid4"
+    const urlLayout = searchParams.get("layout") as string;
+    const activeLayout = urlLayout || "grid9";
+
+    const getPageSize = (activeLayout: string) => {
+      switch (activeLayout) {
+        case "grid9":
+          return 9;
+        case "grid4":
+          return 8;
+        default:
+          return 20;
+      }
+    };
+
+    const pageSize = searchParams.get("pageSize")
+      ? parseInt(
+        searchParams.get("pageSize") ??
+          getPageSize(activeLayout).toString(),
+      )
+      : getPageSize(activeLayout);
+
+    const getMaxPageSize = () => {
+      if (pageSize > 100) {
+        return 10;
+      }
+
+      return pageSize;
+    };
+
+    const pagedFilteredSortedDevices = await deviceService.searchDevices(
+      searchQuery,
+      searchCategory as "all" | "low" | "mid" | "high",
+      sortBy,
+      filter,
+      initialTags,
+      pageNumber,
+      getMaxPageSize(),
+    );
+
+    const hasResults = pagedFilteredSortedDevices.page.length > 0;
+    const pageResults = pagedFilteredSortedDevices.page;
+    const amountOfResults = pagedFilteredSortedDevices.totalAmountOfResults;
+
+    const hasNextPage =
+      pageNumber < Math.ceil(amountOfResults / getPageSize(activeLayout));
+
+    return ctx.render({
+      pageSize,
+      maxPageSize: getMaxPageSize(),
+      searchQuery,
+      searchCategory,
+      sortBy,
+      filter,
+      initialTags,
+      pageNumber,
+      defaultTags,
+      activeLayout,
+      allDevices,
+      hasResults,
+      devices: pageResults,
+      totalAmountOfResults: amountOfResults,
+      hasNextPage,
+      hasPreviousPage: pageNumber > 1,
+      user: ctx.state.user,
     });
+  },
+};
 
-  const defaultTags = [
-    deviceService.getTagBySlug("low"),
-    deviceService.getTagBySlug("mid"),
-    deviceService.getTagBySlug("high"),
-    deviceService.getTagBySlug("upcoming"),
-    deviceService.getTagBySlug("personal-pick"),
-    deviceService.getTagBySlug("year-2025"),
-    deviceService.getTagBySlug("year-2024"),
-    deviceService.getTagBySlug("anbernic"),
-    deviceService.getTagBySlug("miyoo-bittboy"),
-    deviceService.getTagBySlug("ayaneo"),
-    deviceService.getTagBySlug("steam-os"),
-    deviceService.getTagBySlug("clamshell"),
-    deviceService.getTagBySlug("horizontal"),
-    deviceService.getTagBySlug("vertical"),
-    deviceService.getTagBySlug("micro"),
-    deviceService.getTagBySlug("oled"),
-  ].filter((tag) => tag !== null).filter((t) =>
-    !initialTags.some((t2) => t2.slug === t.slug)
-  ) as TagModel[];
-
-  // Get layout from URL params first, then localStorage, then default to "grid4"
-  const urlLayout = props.url?.searchParams?.get("layout") as string;
-  const activeLayout = urlLayout || "grid4";
+export default function DevicesIndex({ url, data }: PageProps) {
+  const maxPageSize = data.maxPageSize;
+  const pageSize = data.pageSize;
+  const hasNextPage = data.hasNextPage;
+  const searchQuery = data.searchQuery;
+  const searchCategory = data.searchCategory;
+  const sortBy = data.sortBy;
+  const filter = data.filter;
+  const initialTags = data.initialTags;
+  const pageNumber = data.pageNumber;
+  const defaultTags = data.defaultTags;
+  const activeLayout = data.activeLayout;
+  const allDevices = data.allDevices;
+  const hasResults = data.hasResults;
+  const pageResults = data.devices as Device[];
+  const amountOfResults = data.totalAmountOfResults;
+  const user = data.user;
 
   const getLayoutGrid = (layout: string) => {
     if (layout === "grid9") {
@@ -97,44 +184,12 @@ export default function DevicesIndex(props: PageProps) {
     }
   };
 
-  const pageSize = props.url?.searchParams?.get("pageSize")
-    ? parseInt(
-      props.url?.searchParams?.get("pageSize") ??
-        getPageSize(activeLayout).toString(),
-    )
-    : getPageSize(activeLayout);
-
-  const getMaxPageSize = () => {
-    if (pageSize > 100) {
-      return 10;
-    }
-
-    return pageSize;
-  };
-
-  const pagedFilteredSortedDevices = deviceService.searchDevices(
-    searchQuery,
-    searchCategory as "all" | "low" | "mid" | "high",
-    sortBy,
-    filter,
-    initialTags,
-    pageNumber,
-    getMaxPageSize(),
-  );
-
-  const hasResults = pagedFilteredSortedDevices.page.length > 0;
-  const pageResults = pagedFilteredSortedDevices.page;
-  const amountOfResults = pagedFilteredSortedDevices.totalAmountOfResults;
-
-  const hasNextPage =
-    pageNumber < Math.ceil(amountOfResults / getPageSize(activeLayout));
-
   return (
     <div class="devices-page" f-client-nav>
       <SEO
         title="Device Catalog"
         description="Browse our catalog of retro gaming handhelds with specs."
-        url={`https://retroranker.site${props.url.pathname}`}
+        url={`https://retroranker.site${url.pathname}`}
         keywords="retro gaming handhelds, emulation devices, retro console comparison, handheld gaming systems, retro gaming devices catalog, Anbernic devices, Miyoo handhelds, retro gaming specs, portable emulation systems"
       >
         <script
@@ -208,18 +263,20 @@ export default function DevicesIndex(props: PageProps) {
 
         <hr />
         <div f-client-nav={false}>
-          <LayoutSelector
-            activeLayout={activeLayout}
-            initialPageSize={pageSize}
-            defaultPageSize={getPageSize(activeLayout)}
-          />
+          {
+            <LayoutSelector
+              activeLayout={activeLayout}
+              initialPageSize={pageSize}
+              defaultPageSize={getPageSize(activeLayout)}
+            />
+          }
         </div>
 
         {hasResults
           ? (
             <PaginationNav
               pageNumber={pageNumber}
-              pageSize={getMaxPageSize()}
+              pageSize={maxPageSize}
               totalResults={amountOfResults}
               searchQuery={searchQuery}
               searchCategory={searchCategory}
@@ -255,7 +312,11 @@ export default function DevicesIndex(props: PageProps) {
                     }}
                   >
                     {activeLayout === "grid9" && (
-                      <DeviceCardMedium device={device} isActive={false} user={user} />
+                      <DeviceCardMedium
+                        device={device}
+                        isActive={false}
+                        user={user}
+                      />
                     )}
 
                     {activeLayout === "grid4" && (
@@ -282,7 +343,7 @@ export default function DevicesIndex(props: PageProps) {
             >
               <PaginationNav
                 pageNumber={pageNumber}
-                pageSize={getMaxPageSize()}
+                pageSize={maxPageSize}
                 totalResults={amountOfResults}
                 searchQuery={searchQuery}
                 searchCategory={searchCategory}

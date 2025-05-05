@@ -1,4 +1,3 @@
-import { useSignal } from "@preact/signals";
 import { PiSignIn, PiUserCheck } from "@preact-icons/pi";
 
 export default function SignIn({ error }: { error: string | null }) {

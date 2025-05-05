@@ -24,7 +24,7 @@ export function ThumbsUp(
       const response = await fetch(`/api/devices/${deviceId}/like`, {
         method: liked.value ? "DELETE" : "POST",
       });
-      
+
       if (response.ok) {
         isAnimating.value = true;
         liked.value = !liked.value;
@@ -33,20 +33,21 @@ export function ThumbsUp(
           isAnimating.value = false;
         }, 500);
       }
-    } catch (error) {
-      console.error("Error toggling like:", error);
+    } catch {
+      // do nothing
     }
   };
 
   return (
-    <div 
-    data-tooltip={isLoggedIn ? undefined : "Log in to like devices"}
-    style={{
-      textDecoration: "none",
-      border: "none",
-      background: "none",
-      cursor: isLoggedIn ? "pointer" : "not-allowed",
-    }}>
+    <div
+      data-tooltip={isLoggedIn ? undefined : "Log in to like devices"}
+      style={{
+        textDecoration: "none",
+        border: "none",
+        background: "none",
+        cursor: isLoggedIn ? "pointer" : "not-allowed",
+      }}
+    >
       <style>
         {`
           @keyframes bounce {
@@ -75,8 +76,17 @@ export function ThumbsUp(
         }}
       >
         {liked.value
-          ? <PiThumbsUpFill color="var(--pico-primary)" class={isAnimating.value ? "thumbs-up-animation" : ""} />
-          : <PiThumbsUp class={isAnimating.value ? "thumbs-up-animation" : ""} />}
+          ? (
+            <PiThumbsUpFill
+              color="var(--pico-primary)"
+              class={isAnimating.value ? "thumbs-up-animation" : ""}
+            />
+          )
+          : (
+            <PiThumbsUp
+              class={isAnimating.value ? "thumbs-up-animation" : ""}
+            />
+          )}
         <span>{likes.value}</span>
       </button>
     </div>

@@ -4,33 +4,34 @@ import { TagModel } from "../../data/frontend/models/tag.model.ts";
 import TagTypeahead from "../../islands/tag-typeahead.tsx";
 import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 
-export default function DeviceTags(props: PageProps) {
-  const deviceService = DeviceService.getInstance();
+export default async function DeviceTags(props: PageProps) {
+  const deviceService = await DeviceService.getInstance();
 
-  const selectedTagNames = props.url?.searchParams.get("tags")?.split(",") ??
-    [];
-  const allTags = deviceService.getAllTags();
+  const selectedTagNames =
+    new URL(props.url).searchParams.get("tags")?.split(",") ??
+      [];
+  const allTags = await deviceService.getAllTags();
 
   const selectedTags = selectedTagNames.map((tag) =>
     allTags.find((t) => t.slug === tag) ?? null
   ).filter((tag) => tag !== null) as TagModel[];
 
-  const devicesWithSelectedTags = deviceService.getDevicesWithTags(
+  const devicesWithSelectedTags = await deviceService.getDevicesWithTags(
     selectedTags.filter((tag) => tag !== null) as TagModel[],
   );
 
-  const allAvailableTags = () => {
-    const allTags = deviceService.getAllTags();
+  const getAvailableTags = async () => {
+    const allTags = await deviceService.getAllTags();
     const selectedTagSlugs = selectedTags.map((tag) => tag.slug);
 
-    const availableTags = allTags.filter((tag) => {
+    const availableTags = allTags.filter(async (tag) => {
       // Exclude already selected tags
       if (selectedTagSlugs.includes(tag.slug)) {
         return false;
       }
 
       // Check if the tag is available in the resulting devices
-      const devicesWithTag = deviceService.getDevicesWithTags([
+      const devicesWithTag = await deviceService.getDevicesWithTags([
         ...selectedTags,
         tag,
       ]);
@@ -39,6 +40,8 @@ export default function DeviceTags(props: PageProps) {
 
     return availableTags;
   };
+
+  const allAvailableTags = await getAvailableTags();
 
   return (
     <div class="devices-by-tags-page">
@@ -49,7 +52,7 @@ export default function DeviceTags(props: PageProps) {
       />
       <h1 style={{ textAlign: "center" }}>🚧 Devices by Tags 🚧</h1>
       <TagTypeahead
-        allTags={allAvailableTags()}
+        allTags={allAvailableTags}
         initialTags={selectedTags}
         devicesWithSelectedTags={devicesWithSelectedTags}
       />

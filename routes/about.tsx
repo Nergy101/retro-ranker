@@ -32,7 +32,14 @@ export default function About({ url }: PageProps) {
             gap: "2rem",
           }}
         >
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "1rem" }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "1rem",
+            }}
+          >
             <img
               src="/logo-color.png"
               alt="Retro Ranker Logo"
@@ -49,17 +56,28 @@ export default function About({ url }: PageProps) {
               </a>
             </figcaption>
           </div>
-          
-          <div style={{ 
-            fontSize: "5rem", 
-            color: "var(--pico-primary)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            margin: "0 1rem"
-          }}>+</div>
-          
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "1rem" }}>
+
+          <div
+            style={{
+              fontSize: "5rem",
+              color: "var(--pico-primary)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              margin: "0 1rem",
+            }}
+          >
+            +
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "1rem",
+            }}
+          >
             <img
               src="/images/rh-logo-color.png"
               alt="Retro Handhelds Community Logo"

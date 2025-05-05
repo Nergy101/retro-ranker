@@ -1,3 +1,4 @@
+// deno-lint-ignore-file no-console
 import { FreshContext } from "$fresh/server.ts";
 import { createPocketBaseService } from "../data/pocketbase/pocketbase.service.ts";
 import { tracer } from "../data/tracing/tracer.ts";
@@ -60,7 +61,8 @@ export async function handler(req: Request, ctx: FreshContext) {
           timestamp: new Date().toISOString(),
           userAgent: req.headers.get("user-agent"),
           referer: req.headers.get("referer"),
-          ip: req.headers.get("x-forwarded-for") || req.headers.get("x-real-ip"),
+          ip: req.headers.get("x-forwarded-for") ||
+            req.headers.get("x-real-ip"),
           query: Object.fromEntries(url.searchParams),
         });
       }
@@ -70,7 +72,11 @@ export async function handler(req: Request, ctx: FreshContext) {
       span.setAttribute("http.path", path);
       span.setAttribute("http.user_agent", req.headers.get("user-agent") || "");
       span.setAttribute("http.referer", req.headers.get("referer") || "");
-      span.setAttribute("http.ip", req.headers.get("x-forwarded-for") || req.headers.get("x-real-ip") || "");
+      span.setAttribute(
+        "http.ip",
+        req.headers.get("x-forwarded-for") || req.headers.get("x-real-ip") ||
+          "",
+      );
 
       const pbService = await createPocketBaseService();
       const cookieHeader = req.headers.get("cookie");
@@ -119,7 +125,9 @@ export async function handler(req: Request, ctx: FreshContext) {
       span.setStatus({ code: 0 }); // OK
       return response;
     } catch (error: unknown) {
-      const errorMessage = error instanceof Error ? error.message : "Unknown error";
+      const errorMessage = error instanceof Error
+        ? error.message
+        : "Unknown error";
       span.setStatus({ code: 2, message: errorMessage }); // ERROR
       if (shouldLogVisit(path)) {
         console.error(`[Page Visit Error] ${path}:`, error);

@@ -1,6 +1,6 @@
 import { Handlers } from "$fresh/server.ts";
-import { createLoggedInPocketBaseService } from "../../../../data/pocketbase/pocketbase.service.ts";
 import { ProblemDetail } from "../../../../data/frontend/contracts/problem-detail.ts";
+import { createLoggedInPocketBaseService } from "../../../../data/pocketbase/pocketbase.service.ts";
 
 export const handler: Handlers = {
   async POST(req, ctx) {
@@ -23,7 +23,11 @@ export const handler: Handlers = {
         "device_likes",
         1,
         1,
-        `deviceId="${deviceId}" && userId="${user.id}"`,
+        {
+          filter: `deviceId="${deviceId}" && userId="${user.id}"`,
+          sort: "",
+          expand: "",
+        },
       );
 
       if (existingLike.items.length > 0) {
@@ -40,10 +44,11 @@ export const handler: Handlers = {
       });
 
       return new Response(null, { status: 201 });
-    } catch (error) {
-      console.error("Error creating like:", error);
+    } catch {
       return new Response(
-        JSON.stringify(ProblemDetail.internalServerError("Failed to like device")),
+        JSON.stringify(
+          ProblemDetail.internalServerError("Failed to like device"),
+        ),
         { status: 500 },
       );
     }
@@ -69,7 +74,11 @@ export const handler: Handlers = {
         "device_likes",
         1,
         1,
-        `deviceId="${deviceId}" && userId="${user.id}"`,
+        {
+          filter: `deviceId="${deviceId}" && userId="${user.id}"`,
+          sort: "",
+          expand: "",
+        },
       );
 
       if (existingLike.items.length === 0) {
@@ -82,12 +91,13 @@ export const handler: Handlers = {
       await pb.delete("device_likes", existingLike.items[0].id);
 
       return new Response(null, { status: 204 });
-    } catch (error) {
-      console.error("Error deleting like:", error);
+    } catch {
       return new Response(
-        JSON.stringify(ProblemDetail.internalServerError("Failed to unlike device")),
+        JSON.stringify(
+          ProblemDetail.internalServerError("Failed to unlike device"),
+        ),
         { status: 500 },
       );
     }
   },
-}; 
+};

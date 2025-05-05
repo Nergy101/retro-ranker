@@ -13,7 +13,8 @@ export default async function UpdateCollection(
     request.headers.get("cookie") ?? "",
   );
 
-  const devices = DeviceService.getInstance().getAllDevices();
+  const deviceService = await DeviceService.getInstance();
+  const devices = await deviceService.getAllDevices();
 
   const existingCollection = await pocketbaseClient.getOne(
     "device_collections",

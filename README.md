@@ -149,9 +149,9 @@ details.
 
 ## 🙏 Acknowledgments
 
-- Data powered by the [Retro Handhelds](https://retro-handhelds.com) community
-  -
-- Device specifications from: [Handheld Overview Datasheet](https://docs.google.com/spreadsheets/d/1irg60f9qsZOkhp0cwOU7Cy4rJQeyusEUzTNQzhoTYTU/edit?gid=0#gid=0)
+- ## Data powered by the [Retro Handhelds](https://retro-handhelds.com) community
+- Device specifications from:
+  [Handheld Overview Datasheet](https://docs.google.com/spreadsheets/d/1irg60f9qsZOkhp0cwOU7Cy4rJQeyusEUzTNQzhoTYTU/edit?gid=0#gid=0)
 - Community contributions and feedback
 
 ## 📱 Connect With Me

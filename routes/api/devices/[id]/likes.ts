@@ -17,8 +17,11 @@ export const handler: Handlers = {
       // Get total like count
       const likes = await pb.getAll(
         "device_likes",
-        `deviceId="${deviceId}"`,
-        undefined,
+        {
+          filter: `deviceId="${deviceId}"`,
+          expand: "",
+          sort: "",
+        },
       );
 
       let isLiked = false;
@@ -26,13 +29,15 @@ export const handler: Handlers = {
         const user = pb.getCurrentUser();
         if (user) {
           // Check if current user has liked this device
-          const userLike = await pb.getList(
+          const userLike = await pb.getAll(
             "device_likes",
-            1,
-            1,
-            `deviceId="${deviceId}" && userId="${user.id}"`,
+            {
+              filter: `deviceId="${deviceId}" && userId="${user.id}"`,
+              sort: "",
+              expand: "",
+            },
           );
-          isLiked = userLike.items.length > 0;
+          isLiked = userLike.length > 0;
         }
       }
 
@@ -46,12 +51,13 @@ export const handler: Handlers = {
           headers: { "Content-Type": "application/json" },
         },
       );
-    } catch (error) {
-      console.error("Error getting likes:", error);
+    } catch {
       return new Response(
-        JSON.stringify(ProblemDetail.internalServerError("Failed to get likes")),
+        JSON.stringify(
+          ProblemDetail.internalServerError("Failed to get likes"),
+        ),
         { status: 500 },
       );
     }
   },
-}; 
+};

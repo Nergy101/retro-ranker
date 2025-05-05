@@ -33,8 +33,11 @@ export default async function ProfilePage(
       "device_collections",
       1,
       100,
-      `owner = "${user.id}"`,
-      "devices,owner",
+      {
+        filter: `owner = "${user.id}"`,
+        expand: "devices,owner",
+        sort: "-created",
+      },
     );
 
     return (userCollections?.items ?? []).map((d) => {

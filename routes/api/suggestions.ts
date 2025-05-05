@@ -61,7 +61,11 @@ export const handler = {
         "suggestions",
         1,
         MAX_SUGGESTIONS_PER_USER + 1, // Get one more than the limit to check if we're over
-        `email="${user.email}"`,
+        {
+          filter: `email="${user.email}"`,
+          sort: "",
+          expand: "",
+        },
       );
 
       if (existingSuggestions.items.length >= MAX_SUGGESTIONS_PER_USER) {

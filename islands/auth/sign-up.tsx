@@ -29,18 +29,10 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
           apiEndpoint: baseApiUrl + "/captcha/",
         });
 
-        capInstance.addEventListener(
-          "progress",
-          (event: { detail: { progress: number } }) => {
-            console.log(`Solving Captcha: ${event.detail.progress}%`);
-          },
-        );
-
         capSolution.value = await capInstance.solve() as {
           success: boolean;
           token: string;
         };
-        console.log("Captcha state:", capSolution.value);
       });
     }
   });
@@ -112,7 +104,8 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
     const passwordInput = document.getElementById(
       "password",
     ) as HTMLInputElement;
-    const isValid = input.value.length >= 8 && input.value === passwordInput.value;
+    const isValid = input.value.length >= 8 &&
+      input.value === passwordInput.value;
     confirmPasswordValid.value = isValid;
   };
 
@@ -403,7 +396,8 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
               width: "100%",
               padding: "0.5rem",
               border: `0.0625rem solid ${
-                !confirmPasswordTouched.value || confirmPasswordValid.value === null
+                !confirmPasswordTouched.value ||
+                  confirmPasswordValid.value === null
                   ? "none"
                   : confirmPasswordValid.value === false
                   ? "#c62828"
