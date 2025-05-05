@@ -16,6 +16,7 @@ import * as $api_captcha_redeem from "./routes/api/captcha/redeem.ts";
 import * as $api_captcha_validate from "./routes/api/captcha/validate.ts";
 import * as $api_collections_id_ from "./routes/api/collections/[id].ts";
 import * as $api_collections_index from "./routes/api/collections/index.ts";
+import * as $api_devices_id_favorite from "./routes/api/devices/[id]/favorite.ts";
 import * as $api_devices_id_like from "./routes/api/devices/[id]/like.ts";
 import * as $api_devices_id_likes from "./routes/api/devices/[id]/likes.ts";
 import * as $api_devices_name_ from "./routes/api/devices/[name].ts";
@@ -48,6 +49,7 @@ import * as $auth_sign_up_1 from "./islands/auth/sign-up.tsx";
 import * as $buttons_BackButton from "./islands/buttons/BackButton.tsx";
 import * as $buttons_ClipboardButton from "./islands/buttons/ClipboardButton.tsx";
 import * as $buttons_CompareButton from "./islands/buttons/CompareButton.tsx";
+import * as $buttons_FavoriteButton from "./islands/buttons/FavoriteButton.tsx";
 import * as $buttons_ShareButton from "./islands/buttons/ShareButton.tsx";
 import * as $buttons_ThumbsUp from "./islands/buttons/ThumbsUp.tsx";
 import * as $charts_devices_per_brand_bar_chart from "./islands/charts/devices-per-brand-bar-chart.tsx";
@@ -89,6 +91,7 @@ const manifest = {
     "./routes/api/captcha/validate.ts": $api_captcha_validate,
     "./routes/api/collections/[id].ts": $api_collections_id_,
     "./routes/api/collections/index.ts": $api_collections_index,
+    "./routes/api/devices/[id]/favorite.ts": $api_devices_id_favorite,
     "./routes/api/devices/[id]/like.ts": $api_devices_id_like,
     "./routes/api/devices/[id]/likes.ts": $api_devices_id_likes,
     "./routes/api/devices/[name].ts": $api_devices_name_,
@@ -123,6 +126,7 @@ const manifest = {
     "./islands/buttons/BackButton.tsx": $buttons_BackButton,
     "./islands/buttons/ClipboardButton.tsx": $buttons_ClipboardButton,
     "./islands/buttons/CompareButton.tsx": $buttons_CompareButton,
+    "./islands/buttons/FavoriteButton.tsx": $buttons_FavoriteButton,
     "./islands/buttons/ShareButton.tsx": $buttons_ShareButton,
     "./islands/buttons/ThumbsUp.tsx": $buttons_ThumbsUp,
     "./islands/charts/devices-per-brand-bar-chart.tsx":

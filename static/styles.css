@@ -430,7 +430,6 @@ body.paused-animation::before {
 }
 
 .device-detail-similar-devices {
-    /* width: 100cqw; */
     grid-area: similar;
     display: flex;
     flex-direction: column;

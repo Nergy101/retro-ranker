@@ -1,34 +1,31 @@
-import { PiThumbsUp, PiThumbsUpFill } from "@preact-icons/pi";
+import { PiHeart, PiHeartFill } from "@preact-icons/pi";
 import { useSignal } from "@preact/signals";
 
-interface ThumbsUpProps {
+interface FavoriteButtonProps {
   deviceId: string;
-  initialLikes: number;
-  isLiked: boolean;
+  isFavorited: boolean;
   isLoggedIn: boolean;
 }
 
-export function ThumbsUp(
-  { deviceId, initialLikes, isLiked, isLoggedIn }: ThumbsUpProps,
+export function FavoriteButton(
+  { deviceId, isFavorited, isLoggedIn }: FavoriteButtonProps,
 ) {
-  const likes = useSignal(initialLikes);
-  const liked = useSignal(isLiked);
+  const favorited = useSignal(isFavorited);
   const isAnimating = useSignal(false);
 
-  const handleLike = async () => {
+  const handleFavorite = async () => {
     if (!isLoggedIn) {
       return;
     }
 
     try {
-      const response = await fetch(`/api/devices/${deviceId}/like`, {
-        method: liked.value ? "DELETE" : "POST",
+      const response = await fetch(`/api/devices/${deviceId}/favorite`, {
+        method: favorited.value ? "DELETE" : "POST",
       });
 
       if (response.ok) {
         isAnimating.value = true;
-        liked.value = !liked.value;
-        likes.value = liked.value ? likes.value + 1 : likes.value - 1;
+        favorited.value = !favorited.value;
         setTimeout(() => {
           isAnimating.value = false;
         }, 500);
@@ -40,7 +37,7 @@ export function ThumbsUp(
 
   return (
     <div
-      data-tooltip={isLoggedIn ? "Like" : "Log in to like devices"}
+      data-tooltip={isLoggedIn ? "Favorite" : "Log in to favorite devices"}
       style={{
         textDecoration: "none",
         border: "none",
@@ -54,14 +51,14 @@ export function ThumbsUp(
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.2); }
           }
-          .thumbs-up-animation {
+          .favorite-animation {
             animation: bounce 0.5s ease;
           }
         `}
       </style>
       <button
         type="button"
-        onClick={handleLike}
+        onClick={handleFavorite}
         disabled={!isLoggedIn}
         style={{
           display: "flex",
@@ -74,23 +71,22 @@ export function ThumbsUp(
           borderRadius: "0.25rem",
           background: "transparent",
           opacity: isLoggedIn ? 1 : 0.5,
-          width: "3rem",
+          width: "2rem",
           height: "2rem",
         }}
       >
-        {liked.value
+        {favorited.value
           ? (
-            <PiThumbsUpFill
+            <PiHeartFill
               color="var(--pico-primary)"
-              class={isAnimating.value ? "thumbs-up-animation" : ""}
+              class={isAnimating.value ? "favorite-animation" : ""}
             />
           )
           : (
-            <PiThumbsUp
-              class={isAnimating.value ? "thumbs-up-animation" : ""}
+            <PiHeart
+              class={isAnimating.value ? "favorite-animation" : ""}
             />
           )}
-        <span>{likes.value}</span>
       </button>
     </div>
   );

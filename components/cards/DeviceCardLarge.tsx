@@ -200,6 +200,7 @@ export function DeviceCardLarge({ device }: { device: Device }) {
           user={null}
           likes={null}
           isLiked={false}
+          userFavorited={false}
         />
       </div>
     </article>

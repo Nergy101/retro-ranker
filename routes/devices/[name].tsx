@@ -42,6 +42,7 @@ export const handler: Handlers = {
     );
 
     let userLiked = false;
+    let userFavorited = false;
     if (user) {
       const userLike = await pb.getList(
         "device_likes",
@@ -54,6 +55,20 @@ export const handler: Handlers = {
         },
       );
       userLiked = userLike.items.length > 0;
+
+      console.log("user", user.id);
+      console.log("device", deviceId)
+      const userFavorite = await pb.getList(
+        "device_favorites",
+        1,
+        1,
+        {
+          filter: `deviceId="${deviceId}" && userId="${user.id}"`,
+          sort: "",
+          expand: "",
+        },
+      );
+      userFavorited = userFavorite.items.length > 0;
     }
 
     const deviceService = await DeviceService.getInstance();
@@ -66,6 +81,7 @@ export const handler: Handlers = {
       user: ctx.state.user,
       likesCount: likes.length,
       userLiked,
+      userFavorited,
       device,
       similarDevices,
     });
@@ -76,6 +92,7 @@ export default function DeviceDetail(props: PageProps) {
   const user = props.data.user as User | null;
   const likesCount = props.data.likesCount;
   const userLiked = props.data.userLiked;
+  const userFavorited = props.data.userFavorited;
   const device = props.data.device as Device | null;
   const similarDevices = props.data.similarDevices as Device[];
 
@@ -436,6 +453,7 @@ export default function DeviceDetail(props: PageProps) {
           user={user}
           likes={likesCount}
           isLiked={userLiked}
+          userFavorited={userFavorited}
         />
       </div>
 
@@ -445,7 +463,7 @@ export default function DeviceDetail(props: PageProps) {
 
       <div class="device-detail-similar-devices">
         <h2 style={{ textAlign: "center" }}>Find Similar Devices</h2>
-      
+
         <div class="tags">
           {device.tags.map((tag) => <TagComponent key={tag.name} tag={tag} />)}
         </div>
@@ -464,7 +482,6 @@ export default function DeviceDetail(props: PageProps) {
           ))}
         </div>
       </div>
-
       <div class="device-detail-specs">
         <div
           style={{

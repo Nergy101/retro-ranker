@@ -1,5 +1,5 @@
 import { FreshContext } from "$fresh/server.ts";
-import { PiChatCentered, PiPlus } from "@preact-icons/pi";
+import { PiChatCentered, PiHeartFill, PiPlus } from "@preact-icons/pi";
 import { RecordModel } from "npm:pocketbase";
 import SEO from "../../components/SEO.tsx";
 import { DeviceCollection } from "../../data/frontend/contracts/device-collection.ts";
@@ -9,6 +9,7 @@ import { createLoggedInPocketBaseService } from "../../data/pocketbase/pocketbas
 import SignOut from "../../islands/auth/sign-out.tsx";
 import DeviceCollections from "../../islands/collections/device-collections.tsx";
 import SuggestionForm from "../../islands/suggestion-form.tsx";
+import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
 
 export default async function ProfilePage(
   req: Request,
@@ -56,7 +57,29 @@ export default async function ProfilePage(
     });
   };
 
+  const getFavoritedDevices = async (): Promise<Device[]> => {
+    const pbService = await createLoggedInPocketBaseService(
+      req.headers.get("cookie") ?? "",
+    );
+
+    const favorites = await pbService.getList(
+      "device_favorites",
+      1,
+      100,
+      {
+        filter: `userId = "${user.id}"`,
+        expand: "deviceId",
+        sort: "-created",
+      },
+    );
+
+    return (favorites?.items ?? []).map((f) => {
+      return (f.expand?.deviceId as RecordModel).deviceData as Device;
+    });
+  };
+
   const collections = await getCollections();
+  const favoritedDevices = await getFavoritedDevices();
 
   return (
     <div>
@@ -75,6 +98,39 @@ export default async function ProfilePage(
             </span>
           </h1>
         </header>
+
+        {/* Favorites Section */}
+        <section class="favorites-section">
+          <h2 style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+            <PiHeartFill /> Your Favorites
+          </h2>
+
+          {favoritedDevices.length === 0 && (
+            <div class="empty-favorites-message">
+              <p>You haven't favorited any devices yet.</p>
+              <p>Browse devices and click the heart icon to add them to your favorites!</p>
+            </div>
+          )}
+
+          {favoritedDevices.length > 0 && (
+            <div class="device-row-grid">
+              {favoritedDevices.map((device) => (
+                <a
+                  href={`/devices/${device.name.sanitized}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <DeviceCardMedium
+                    device={device}
+                    isActive={false}
+                    user={user}
+                  />
+                </a>
+              ))}
+            </div>
+          )}
+        </section>
+
+        <hr />
 
         {/* Collection Section */}
         <section class="collection-section">
