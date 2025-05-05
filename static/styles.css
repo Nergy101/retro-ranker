@@ -575,6 +575,7 @@ body.paused-animation::before {
     align-items: stretch;
     justify-items: center;
     margin: 0 auto;
+    width: 100%;
     max-width: 1200px;
 
     a {
@@ -617,7 +618,7 @@ body.paused-animation::before {
 }
 
 .device-search-card {
-    width: 100%;
+    min-width: 100%;
     max-width: 400px;
     height: 100%;
     margin: 0;
