@@ -494,7 +494,8 @@ body.paused-animation::before {
 .device-row-grid {
     display: grid;
     gap: 0.5rem;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
 
     @media (max-width: 425px) {
         grid-template-columns: repeat(2, 1fr);

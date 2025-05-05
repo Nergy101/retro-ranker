@@ -116,14 +116,12 @@ export class DeviceService {
     // Add filter for personal picks
     if (filter === "personal-picks") {
       if (filterString) filterString += " && ";
-      filterString += `deviceData.name.sanitized = ${
-        personalPicks.map((pick) => `"${pick}"`).join(" || ")
-      }`;
+      filterString += personalPicks.map((pick) => `id = "${pick}"`).join(" || ");
     }
+    console.log("test1", filterString);
 
     // Add tag filters
     if (tags.length > 0) {
-      console.log("test1", tags);
       if (filterString) filterString += " && ";
       filterString += `(${tags.map((tag) => `tags~"${tag.id}"`).join(" && ")})`;
     }
@@ -211,7 +209,7 @@ export class DeviceService {
     const result = await this.pocketBaseService.getList(
       "devices",
       1,
-      4,
+      5,
       {
         filter: `tags~"${personalPickTagId}"`,
         sort: "-deviceData.released.mentionedDate",
@@ -226,7 +224,7 @@ export class DeviceService {
     const result = await this.pocketBaseService.getList(
       "devices",
       1,
-      4,
+      5,
       {
         filter: `deviceData.released.mentionedDate >= "${currentYear}-01-01"`,
         sort: "-deviceData.released.mentionedDate",
@@ -240,7 +238,7 @@ export class DeviceService {
     const result = await this.pocketBaseService.getList(
       "devices",
       1,
-      4,
+      5,
       {
         filter: `deviceData.released ~ 'upcoming'`,
         sort: "",
@@ -254,7 +252,7 @@ export class DeviceService {
     const result = await this.pocketBaseService.getList(
       "devices",
       1,
-      4,
+      5,
       {
         filter:
           `totalRating > 0 && pricing.category = "mid" && deviceData.released.raw!~"upcoming"`,
