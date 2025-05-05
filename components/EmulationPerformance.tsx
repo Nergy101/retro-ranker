@@ -4,7 +4,7 @@ import { User } from "../data/frontend/contracts/user.contract.ts";
 import { Cooling } from "../data/frontend/models/cooling.model.ts";
 import { DeviceService } from "../data/frontend/services/devices/device.service.ts";
 import { ThumbsUp } from "../islands/buttons/ThumbsUp.tsx";
-import { RatingInfo } from "./ratings/RatingInfo.tsx";
+import RatingInfo from "../islands/RatingInfo.tsx";
 
 interface EmulationPerformanceProps {
   device: Device;
@@ -39,16 +39,16 @@ export function EmulationPerformance(
     ].filter(Boolean)
       .length;
     if (trueCount === 0) {
-      return { color: "#AB0D0D", textColor: "white", tooltip: "None" };
+      return { color: "#FFE5E5", textColor: "#B71C1C", tooltip: "None" };
     }
     if (trueCount === 1) {
-      return { color: "#EEB61B", textColor: "black", tooltip: "Moderate" };
+      return { color: "#FFF3E0", textColor: "#E65100", tooltip: "Moderate" };
     }
     if (trueCount === 2) {
-      return { color: "#3952A2", textColor: "white", tooltip: "Good" };
+      return { color: "#E3F2FD", textColor: "#1565C0", tooltip: "Good" };
     }
     if (trueCount >= 3) {
-      return { color: "#16833E", textColor: "white", tooltip: "Excellent" };
+      return { color: "#E8F5E9", textColor: "#2E7D32", tooltip: "Excellent" };
     }
     return {
       color: "var(--pico-card-background-color)",
@@ -60,16 +60,16 @@ export function EmulationPerformance(
   const getRumbleColor = (rumble: boolean | null) => {
     if (rumble === null) {
       return {
-        color: "#EEB61B",
-        textColor: "black",
+        color: "#FFF3E0",
+        textColor: "#E65100",
         tooltip: "Unknown",
       };
     }
     if (rumble) {
-      return { color: "#16833E", textColor: "white", tooltip: "Present" };
+      return { color: "#E8F5E9", textColor: "#2E7D32", tooltip: "Present" };
     }
 
-    return { color: "#AB0D0D", textColor: "white", tooltip: "Not present" };
+    return { color: "#FFE5E5", textColor: "#B71C1C", tooltip: "Not present" };
   };
 
   const renderCoolingSection = () => {

@@ -437,11 +437,7 @@ export default function DeviceDetail(props: PageProps) {
 
       <div class="device-detail-similar-devices">
         <h2 style={{ textAlign: "center" }}>Find Similar Devices</h2>
-        <DevicesSimilarRadarChart
-          device={device}
-          similarDevices={similarDevices}
-          showTitle={false}
-        />
+      
         <div class="tags">
           {device.tags.map((tag) => <TagComponent key={tag.name} tag={tag} />)}
         </div>
@@ -459,6 +455,11 @@ export default function DeviceDetail(props: PageProps) {
             </a>
           ))}
         </div>
+        <DevicesSimilarRadarChart
+          device={device}
+          similarDevices={similarDevices}
+          showTitle={false}
+        />
       </div>
 
       <div class="device-detail-specs">

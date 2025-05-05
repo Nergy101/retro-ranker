@@ -31,6 +31,7 @@ import * as $compare_layout from "./routes/compare/_layout.tsx";
 import * as $compare_index from "./routes/compare/index.tsx";
 import * as $contact from "./routes/contact.tsx";
 import * as $devices_name_ from "./routes/devices/[name].tsx";
+import * as $devices_layout from "./routes/devices/_layout.tsx";
 import * as $devices_index from "./routes/devices/index.tsx";
 import * as $devices_tags from "./routes/devices/tags.tsx";
 import * as $index from "./routes/index.tsx";
@@ -40,6 +41,7 @@ import * as $profile_index from "./routes/profile/index.tsx";
 import * as $release_timeline_layout from "./routes/release-timeline/_layout.tsx";
 import * as $release_timeline_index from "./routes/release-timeline/index.tsx";
 import * as $terms from "./routes/terms.tsx";
+import * as $RatingInfo from "./islands/RatingInfo.tsx";
 import * as $auth_sign_in_1 from "./islands/auth/sign-in.tsx";
 import * as $auth_sign_out from "./islands/auth/sign-out.tsx";
 import * as $auth_sign_up_1 from "./islands/auth/sign-up.tsx";
@@ -102,6 +104,7 @@ const manifest = {
     "./routes/compare/index.tsx": $compare_index,
     "./routes/contact.tsx": $contact,
     "./routes/devices/[name].tsx": $devices_name_,
+    "./routes/devices/_layout.tsx": $devices_layout,
     "./routes/devices/index.tsx": $devices_index,
     "./routes/devices/tags.tsx": $devices_tags,
     "./routes/index.tsx": $index,
@@ -113,6 +116,7 @@ const manifest = {
     "./routes/terms.tsx": $terms,
   },
   islands: {
+    "./islands/RatingInfo.tsx": $RatingInfo,
     "./islands/auth/sign-in.tsx": $auth_sign_in_1,
     "./islands/auth/sign-out.tsx": $auth_sign_out,
     "./islands/auth/sign-up.tsx": $auth_sign_up_1,

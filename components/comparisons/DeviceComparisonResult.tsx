@@ -1,5 +1,5 @@
 import { Device } from "../../data/frontend/contracts/device.model.ts";
-import { RatingInfo } from "../ratings/RatingInfo.tsx";
+import RatingInfo from "../../islands/RatingInfo.tsx";
 import { StarRating } from "../ratings/StarRating.tsx";
 import { CurrencyIcon } from "../shared/CurrencyIcon.tsx";
 import { DisplaySpecsTable } from "../specifications/tables/DisplaySpecsTable.tsx";

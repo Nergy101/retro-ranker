@@ -307,9 +307,9 @@ body.paused-animation::before {
     gap: 0.5rem;
     grid-template-areas:
         "header performance"
-        "links links"
         "similar similar"
-        "specs specs";
+        "specs specs"
+        "links links";
     grid-template-columns: 1fr 3fr;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
