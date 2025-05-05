@@ -1,7 +1,8 @@
-import { PiGameControllerBold } from "@preact-icons/pi";
+import { PageProps } from "$fresh/server.ts";
+import { PiArrowClockwise, PiGameControllerBold } from "@preact-icons/pi";
 import SEO from "../components/SEO.tsx";
 
-export default function Error404() {
+export default function Error404(props: PageProps) {
   return (
     <div class="not-found">
       <SEO
@@ -29,6 +30,22 @@ export default function Error404() {
           >
             <PiGameControllerBold />
             Go back home
+          </a>
+          <a
+            type="button"
+            role="button"
+            href={props.url.pathname}
+            class="outline"
+            style={{
+              display: "flex",
+              gap: "0.5rem",
+              alignItems: "center",
+              textDecoration: "none",
+              marginTop: "1rem",
+            }}
+          >
+            <PiArrowClockwise />
+            Reload page
           </a>
         </div>
       </article>

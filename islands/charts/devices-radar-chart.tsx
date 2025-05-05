@@ -36,11 +36,11 @@ export function DevicesRadarChart(
 
   const setChartSize = (): void => {
     if (viewportWidth.value <= 425) {
-      chartSize.value = { width: "350px", height: "350px" };
+      chartSize.value = { width: "250px", height: "250px" };
     } else if (viewportWidth.value <= 768) {
-      chartSize.value = { width: "500px", height: "500px" };
+      chartSize.value = { width: "350px", height: "350px" };
     } else {
-      chartSize.value = { width: "700px", height: "700px" };
+      chartSize.value = { width: "400px", height: "400px" };
     }
   };
 

@@ -422,6 +422,14 @@ export default function DeviceDetail(props: PageProps) {
         </div>
       </div>
 
+      <div class="device-detail-radar-chart">
+        <DevicesSimilarRadarChart
+          device={device}
+          similarDevices={similarDevices}
+          showTitle={false}
+        />
+      </div>
+
       <div class="device-detail-performance">
         <EmulationPerformance
           device={device}
@@ -455,11 +463,6 @@ export default function DeviceDetail(props: PageProps) {
             </a>
           ))}
         </div>
-        <DevicesSimilarRadarChart
-          device={device}
-          similarDevices={similarDevices}
-          showTitle={false}
-        />
       </div>
 
       <div class="device-detail-specs">
