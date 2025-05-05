@@ -65,6 +65,8 @@ export function DeviceCommentCard({ comment }: DeviceCommentCardProps) {
           color: "var(--pico-contrast)",
           fontSize: "0.9375rem",
           padding: "0.5rem 0",
+          width: "100%",
+          textAlign: "left",
         }}
       >
         {comment.content}
