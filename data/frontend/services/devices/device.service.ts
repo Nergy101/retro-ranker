@@ -204,14 +204,14 @@ export class DeviceService {
       .slice(0, limit);
   }
 
-  public async getPersonalPicks(): Promise<Device[]> {
+  public async getPersonalPicks(amount: number = 5): Promise<Device[]> {
     const personalPickTag = await this.getTagBySlug("personal-pick");
     const personalPickTagId = personalPickTag!.id;
 
     const result = await this.pocketBaseService.getList(
       "devices",
       1,
-      5,
+      amount,
       {
         filter: `tags~"${personalPickTagId}"`,
         sort: "-deviceData.released.mentionedDate",
@@ -221,12 +221,12 @@ export class DeviceService {
     return result.items.map((device) => device.deviceData);
   }
 
-  public async getNewArrivals(): Promise<Device[]> {
+  public async getNewArrivals(amount: number = 5): Promise<Device[]> {
     const currentYear = new Date().getFullYear();
     const result = await this.pocketBaseService.getList(
       "devices",
       1,
-      5,
+      amount,
       {
         filter: `deviceData.released.mentionedDate >= "${currentYear}-01-01"`,
         sort: "-deviceData.released.mentionedDate",
@@ -236,11 +236,11 @@ export class DeviceService {
     return result.items.map((device) => device.deviceData);
   }
 
-  public async getUpcoming(): Promise<Device[]> {
+  public async getUpcoming(amount: number = 5): Promise<Device[]> {
     const result = await this.pocketBaseService.getList(
       "devices",
       1,
-      5,
+      amount,
       {
         filter: `deviceData.released ~ 'upcoming'`,
         sort: "",
@@ -250,11 +250,11 @@ export class DeviceService {
     return result.items.map((device) => device.deviceData);
   }
 
-  public async getHighlyRated(): Promise<Device[]> {
+  public async getHighlyRated(amount: number = 5): Promise<Device[]> {
     const result = await this.pocketBaseService.getList(
       "devices",
       1,
-      5,
+      amount,
       {
         filter:
           `totalRating > 0 && pricing.category = "mid" && deviceData.released.raw!~"upcoming"`,

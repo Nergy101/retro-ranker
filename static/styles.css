@@ -270,7 +270,6 @@ body.paused-animation::before {
     background-blend-mode: multiply;
 
     @media (max-width: 425px) {
-        grid-column: span 2;
         width: auto;
     }
 }
@@ -518,6 +517,7 @@ body.paused-animation::before {
 
     @media (max-width: 425px) {
         grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
     }
 }
 
