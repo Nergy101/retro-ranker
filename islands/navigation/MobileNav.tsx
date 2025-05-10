@@ -191,22 +191,10 @@ export function MobileNav(
                   style={{
                     display: "flex",
                     flexDirection: "row",
-                    justifyContent: "space-between",
+                    justifyContent: "center",
                     width: "100%",
                   }}
                 >
-                  <a
-                    href="/auth/sign-up"
-                    style={{
-                      fontSize: "1.5rem",
-                      display: "flex",
-                      justifyContent: "center",
-                      gap: "0.5rem",
-                      width: "50%",
-                    }}
-                  >
-                    <PiUserPlus /> Sign up
-                  </a>
                   <a
                     href="/auth/sign-in"
                     style={{
@@ -217,7 +205,7 @@ export function MobileNav(
                       width: "50%",
                     }}
                   >
-                    <PiSignIn /> Login
+                    <PiSignIn /> Sign in
                   </a>
                 </li>
               )}

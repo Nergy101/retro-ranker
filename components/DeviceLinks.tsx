@@ -43,6 +43,7 @@ export function DeviceLinks({ device }: { device: Device }) {
                 ).map((review) => (
                   <div
                     key={review.url}
+                    class="video-review"
                     style={{
                       textDecoration: "none",
                       listStyle: "none",

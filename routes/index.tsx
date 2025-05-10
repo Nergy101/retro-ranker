@@ -177,7 +177,7 @@ export default async function Home(
                 <div class="index-buttons">
                   <a
                     role="button"
-                    class="button contrast outline"
+                    class="button outline"
                     href="/devices"
                     style={{
                       display: "inline-flex",
@@ -190,7 +190,7 @@ export default async function Home(
                   <a
                     href="/compare"
                     role="button"
-                    class="button contrast outline"
+                    class="button outline"
                     style={{
                       display: "inline-flex",
                       alignItems: "center",
@@ -202,7 +202,7 @@ export default async function Home(
                   <a
                     href="/release-timeline"
                     role="button"
-                    class="button contrast outline"
+                    class="button outline"
                     style={{
                       display: "inline-flex",
                       alignItems: "center",

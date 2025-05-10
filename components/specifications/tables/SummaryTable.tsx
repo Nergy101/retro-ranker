@@ -7,7 +7,10 @@ interface SummaryTableProps {
 
 export function SummaryTable({ device }: SummaryTableProps) {
   return (
-    <table class="striped">
+    <table
+      class="striped"
+      style={{ border: "1px solid var(--pico-secondary)" }}
+    >
       <thead>
         <tr>
           <th>Category</th>
