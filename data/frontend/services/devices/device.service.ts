@@ -120,7 +120,6 @@ export class DeviceService {
         " || ",
       );
     }
-    console.log("test1", filterString);
 
     // Add tag filters
     if (tags.length > 0) {

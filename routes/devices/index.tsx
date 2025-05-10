@@ -1,4 +1,3 @@
-import { Partial } from "$fresh/runtime.ts";
 import { FreshContext, PageProps } from "$fresh/server.ts";
 import { DeviceCardLarge } from "../../components/cards/DeviceCardLarge.tsx";
 import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
@@ -185,7 +184,7 @@ export default function DevicesIndex({ url, data }: PageProps) {
   };
 
   return (
-    <div class="devices-page" f-client-nav>
+    <div class="devices-page">
       <SEO
         title="Device Catalog"
         description="Browse our catalog of retro gaming handhelds with specs."
@@ -249,113 +248,108 @@ export default function DevicesIndex({ url, data }: PageProps) {
         </hgroup>
       </header>
 
-      <Partial name="search-results">
-        <DeviceSearchForm
-          initialSearch={searchQuery}
-          initialCategory={searchCategory}
-          initialSort={sortBy}
-          initialFilter={filter}
-          initialPage={pageNumber}
-          initialTags={initialTags}
-          defaultTags={defaultTags}
+      {/* <Partial name="search-results"> */}
+      <DeviceSearchForm
+        initialSearch={searchQuery}
+        initialCategory={searchCategory}
+        initialSort={sortBy}
+        initialFilter={filter}
+        initialPage={pageNumber}
+        initialTags={initialTags}
+        defaultTags={defaultTags}
+        activeLayout={activeLayout}
+      />
+
+      <hr />
+      <div>
+        {
+          <LayoutSelector
+            activeLayout={activeLayout}
+            initialPageSize={pageSize}
+            defaultPageSize={getPageSize(activeLayout)}
+          />
+        }
+      </div>
+
+      {hasResults && (
+        <PaginationNav
+          pageNumber={pageNumber}
+          pageSize={maxPageSize}
+          totalResults={amountOfResults}
+          searchQuery={searchQuery}
+          searchCategory={searchCategory}
+          sortBy={sortBy}
+          filter={filter}
           activeLayout={activeLayout}
+          tags={initialTags}
         />
+      )}
 
-        <hr />
-        <div f-client-nav={false}>
-          {
-            <LayoutSelector
-              activeLayout={activeLayout}
-              initialPageSize={pageSize}
-              defaultPageSize={getPageSize(activeLayout)}
-            />
-          }
+      {!hasResults
+        ? (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "1rem",
+            }}
+          >
+            <p>No results found for your search criteria.</p>
+          </div>
+        )
+        : (
+          <div class={getLayoutGrid(activeLayout)} f-client-nav={false}>
+            {pageResults.map((device) => (
+              <>
+                <a
+                  href={`/devices/${device.name.sanitized}`}
+                  style={{
+                    textDecoration: "none",
+                    width: "100%",
+                  }}
+                >
+                  {activeLayout === "grid9" && (
+                    <DeviceCardMedium
+                      device={device}
+                      isActive={false}
+                      user={user}
+                    />
+                  )}
+
+                  {activeLayout === "grid4" && (
+                    <DeviceCardLarge device={device} />
+                  )}
+
+                  {activeLayout === "list" && <DeviceCardRow device={device} />}
+                </a>
+              </>
+            ))}
+          </div>
+        )}
+
+      {hasResults && (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "1rem",
+          }}
+        >
+          <PaginationNav
+            pageNumber={pageNumber}
+            pageSize={maxPageSize}
+            totalResults={amountOfResults}
+            searchQuery={searchQuery}
+            searchCategory={searchCategory}
+            sortBy={sortBy}
+            filter={filter}
+            activeLayout={activeLayout}
+            tags={initialTags}
+          />
         </div>
+      )}
 
-        {hasResults
-          ? (
-            <PaginationNav
-              pageNumber={pageNumber}
-              pageSize={maxPageSize}
-              totalResults={amountOfResults}
-              searchQuery={searchQuery}
-              searchCategory={searchCategory}
-              sortBy={sortBy}
-              filter={filter}
-              activeLayout={activeLayout}
-              tags={initialTags}
-            />
-          )
-          : null}
-
-        {!hasResults
-          ? (
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginTop: "1rem",
-              }}
-            >
-              <p>No results found for your search criteria.</p>
-            </div>
-          )
-          : (
-            <div class={getLayoutGrid(activeLayout)} f-client-nav={false}>
-              {pageResults.map((device) => (
-                <>
-                  <a
-                    href={`/devices/${device.name.sanitized}`}
-                    style={{
-                      textDecoration: "none",
-                      width: "100%",
-                    }}
-                  >
-                    {activeLayout === "grid9" && (
-                      <DeviceCardMedium
-                        device={device}
-                        isActive={false}
-                        user={user}
-                      />
-                    )}
-
-                    {activeLayout === "grid4" && (
-                      <DeviceCardLarge device={device} />
-                    )}
-
-                    {activeLayout === "list" && (
-                      <DeviceCardRow device={device} />
-                    )}
-                  </a>
-                </>
-              ))}
-            </div>
-          )}
-
-        {hasResults
-          ? (
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginTop: "1rem",
-              }}
-            >
-              <PaginationNav
-                pageNumber={pageNumber}
-                pageSize={maxPageSize}
-                totalResults={amountOfResults}
-                searchQuery={searchQuery}
-                searchCategory={searchCategory}
-                sortBy={sortBy}
-                filter={filter}
-                activeLayout={activeLayout}
-                tags={initialTags}
-              />
-            </div>
-          )
-          : null}
-      </Partial>
+      {/* </Partial> */}
     </div>
   );
 }
