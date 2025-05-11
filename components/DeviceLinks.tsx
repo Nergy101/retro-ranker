@@ -7,6 +7,9 @@ export function DeviceLinks({ device }: { device: Device }) {
     <>
       {(device.reviews.videoReviews.length > 0) && (
         <>
+          <hr
+            style={{ border: "1px solid var(--pico-muted-border-color)" }}
+          />
           {device.reviews.videoReviews.length > 0 && (
             <div
               style={{
@@ -15,9 +18,6 @@ export function DeviceLinks({ device }: { device: Device }) {
                 gap: "0.5rem",
               }}
             >
-              <hr
-                style={{ border: "1px solid var(--pico-muted-border-color)" }}
-              />
               <div
                 style={{
                   display: "flex",

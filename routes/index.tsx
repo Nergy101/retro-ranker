@@ -183,6 +183,7 @@ export default async function Home(
                       display: "inline-flex",
                       alignItems: "center",
                       gap: "0.5rem",
+                      color: "var(--pico-contrast)",
                     }}
                   >
                     <PiScroll /> Browse Devices
@@ -195,6 +196,7 @@ export default async function Home(
                       display: "inline-flex",
                       alignItems: "center",
                       gap: "0.5rem",
+                      color: "var(--pico-contrast)",
                     }}
                   >
                     <PiGitDiff /> Compare Devices
@@ -207,6 +209,7 @@ export default async function Home(
                       display: "inline-flex",
                       alignItems: "center",
                       gap: "0.5rem",
+                      color: "var(--pico-contrast)",
                     }}
                   >
                     <PiCalendar /> Release Timeline

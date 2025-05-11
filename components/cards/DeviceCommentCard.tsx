@@ -93,12 +93,11 @@ export function DeviceCommentCard({ comment }: DeviceCommentCardProps) {
           marginLeft: "auto",
         }}
       >
-        {comment.updated !== comment.created && (
-          <span style={{ fontStyle: "italic", marginRight: "1rem" }}>
-            Last updated: {formatDate(comment.updated)}
-          </span>
-        )}
-        <span>{formatDate(comment.created)}</span>
+        <span
+          data-tooltip={comment.updated !== comment.created ? `Created: ${formatDate(comment.created)}` : undefined}
+        >
+          {comment.updated !== comment.created ? `Updated: ${formatDate(comment.updated)}` : formatDate(comment.created)}
+        </span>
       </div>
     </article>
   );

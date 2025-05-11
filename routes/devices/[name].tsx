@@ -470,7 +470,7 @@ export default function DeviceDetail(props: PageProps) {
         />
       </div>
 
-      <div class="device-detail-comments">
+      <div class="device-detail-comments container">
         <h2 style={{ textAlign: "center" }}>Comments by users</h2>
         {user == null && (
           <p style={{ textAlign: "center" }}>
