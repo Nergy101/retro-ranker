@@ -1259,7 +1259,10 @@ h6,
   height: 15em;
   overflow-x: scroll;
   overflow-y: scroll;
+
   display: grid;
+  justify-items: center;
+
   gap: 0.5rem;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 
@@ -1271,12 +1274,11 @@ h6,
 
   @media (width <=1024px) {
     grid-template-columns: repeat(2, 1fr);
-    height: 15em;
   }
 
   @media (width < 768px) {
     grid-template-columns: repeat(1, 1fr);
-    height: 15em;
+    height: 20em;
   }
 }
 
