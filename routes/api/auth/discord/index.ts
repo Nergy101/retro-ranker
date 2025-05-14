@@ -21,7 +21,7 @@ export const handler: Handlers = {
         let protocol = url.protocol;
         const hostname = url.hostname;
         if (hostname === "retroranker.site") {
-          protocol = "https";
+          protocol = "https:";
         }
         const port = url.port;
         const fullHost = port
