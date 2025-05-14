@@ -73,6 +73,7 @@ export const handler: Handlers = {
       } catch (error) {
         logJson("error", "Error in Discord OAuth2 callback", { error: error instanceof Error ? error.message : String(error), state });
         span.setStatus({ code: 2, message: error instanceof Error ? error.message : String(error) });
+        console.error(error);
         return new Response(null, { status: 500 });
       } finally {
         span.end();
