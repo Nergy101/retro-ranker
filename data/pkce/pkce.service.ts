@@ -14,31 +14,31 @@ class PkceSessionService {
     return PkceSessionService.instance;
   }
 
-  storeInSession(userId: string, codeVerifier: string) {
+  storeInSession(stateId: string, codeVerifier: string) {
     return tracer.startActiveSpan("pkce.storeInSession", (span) => {
-      span.setAttribute("user.id", userId);
-      logJson('info', 'Storing codeVerifier in session', { userId });
-      console.log(`[PkceSessionService] Storing codeVerifier for userId: ${userId}`);
-      this.sessions.set(userId, codeVerifier);
+      span.setAttribute("state.id", stateId);
+      logJson('info', 'Storing codeVerifier in session', { stateId });
+      console.log(`[PkceSessionService] Storing codeVerifier for stateId: ${stateId}`);
+      this.sessions.set(stateId, codeVerifier);
       span.end();
     });
   }
 
-  getFromSession(userId: string, options?: { remove?: boolean }): string | undefined {
+  getFromSession(stateId: string, options?: { remove?: boolean }): string | undefined {
     return tracer.startActiveSpan("pkce.getFromSession", (span) => {
-      span.setAttribute("user.id", userId);
-      const codeVerifier = this.sessions.get(userId);
+      span.setAttribute("state.id", stateId);
+      const codeVerifier = this.sessions.get(stateId);
       if (codeVerifier) {
-        logJson('info', 'Retrieved codeVerifier from session', { userId });
-        console.log(`[PkceSessionService] Retrieved codeVerifier for userId: ${userId}`);
+        logJson('info', 'Retrieved codeVerifier from session', { stateId, codeVerifier });
+        console.log(`[PkceSessionService] Retrieved codeVerifier for stateId: ${stateId}`);
       } else {
-        logJson('warn', 'No codeVerifier found in session', { userId });
-        console.log(`[PkceSessionService] No codeVerifier found for userId: ${userId}`);
+        logJson('warn', 'No codeVerifier found in session', { stateId });
+        console.log(`[PkceSessionService] No codeVerifier found for stateId: ${stateId}`);
       }
       if (options?.remove) {
-        this.sessions.delete(userId);
-        logJson('info', 'Removed codeVerifier from session', { userId });
-        console.log(`[PkceSessionService] Removed codeVerifier for userId: ${userId}`);
+        this.sessions.delete(stateId);
+        logJson('info', 'Removed codeVerifier from session', { stateId });
+        console.log(`[PkceSessionService] Removed codeVerifier for stateId: ${stateId}`);
       }
       span.setAttribute("pkce.codeVerifier.found", !!codeVerifier);
       span.setAttribute("pkce.codeVerifier.removed", !!options?.remove);

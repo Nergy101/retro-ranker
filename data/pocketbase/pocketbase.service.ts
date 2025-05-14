@@ -42,17 +42,26 @@ export class PocketBaseService {
   ): Promise<any> {
     return await tracer.startActiveSpan("authWithOAuth2", async (span) => {
 
-      const result = await this.pb.collection("users").authWithOAuth2Code(
-        provider,
-        code,
-        codeVerifier,
-        redirectUrl,
-        createData,
+      try {
+        logJson("info", "PocketBase OAuth2 parameters", { provider, code, codeVerifier, redirectUrl, createData });
+        const result = await this.pb.collection("users").authWithOAuth2Code(
+          provider,
+          code,
+          codeVerifier,
+          redirectUrl,
+          createData,
       );
       logJson("info", "PocketBase OAuth2 result", { provider, result });
 
-      span.setStatus({ code: 0 }); // OK
-      return result;
+        span.setStatus({ code: 0 }); // OK
+        return result;
+      } catch (error: unknown) {
+        logJson("error", "PocketBase OAuth2 error", { error: error instanceof Error ? error.message : String(error) });
+        span.setStatus({ code: 2, message: error instanceof Error ? error.message : String(error) });
+        throw error;
+      } finally {
+        span.end();
+      }
     });
   }
 

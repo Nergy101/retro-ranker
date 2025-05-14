@@ -27,13 +27,13 @@ export const handler: Handlers = {
         const fullHost = port
           ? `${protocol}//${hostname}:${port}`
           : `${protocol}//${hostname}`;
-
-        const discordUrl =
+          
+         const discordUrl =
           "https://discord.com/oauth2/authorize?client_id=1371560910706966638&response_type=code&redirect_uri=" +
           encodeURIComponent(
             `${fullHost}/api/auth/discord/callback`,
           ) +
-          "&scope=identify%20email" +
+          "&scope=identify+email" +
           `&code_challenge=${codeChallenge}` +
           `&code_challenge_method=S256` +
           `&state=${randomId}`;
