@@ -38,6 +38,8 @@ export default function SignOut({
         alignItems: "center",
         gap: "0.25rem",
         cursor: "pointer",
+        color: "var(--pico-del-color)",
+        border: "1px solid var(--pico-del-color)",
       }}
       onClick={handleSignOut}
       type="button"

@@ -3,7 +3,13 @@ import { useSignal } from "@preact/signals";
 
 export function ClipboardButton({ url }: { url: string }) {
   const success = useSignal(false);
-
+  const getIconSizeBasedOnDevice = () => {
+    if (globalThis.innerWidth < 768) {
+      return 32;
+    }
+    return 16;
+  };
+  
   return (
     <div
       aria-label="Copy URL of current page"
@@ -28,13 +34,13 @@ export function ClipboardButton({ url }: { url: string }) {
       >
         {!success.value && (
           <>
-            <PiClipboard />
+            <PiClipboard size={getIconSizeBasedOnDevice()} />
             <span class="device-detail-action-button-label">Link</span>
           </>
         )}
         {success.value && (
           <>
-            <PiCheck />
+            <PiCheck size={getIconSizeBasedOnDevice()} />
             <span class="device-detail-action-button-label">Copied!</span>
           </>
         )}

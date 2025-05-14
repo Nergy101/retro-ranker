@@ -182,6 +182,7 @@ export default async function Home(
                     style={{
                       display: "inline-flex",
                       alignItems: "center",
+                      justifyContent: "center",
                       gap: "0.5rem",
                       color: "var(--pico-contrast)",
                     }}
@@ -195,6 +196,7 @@ export default async function Home(
                     style={{
                       display: "inline-flex",
                       alignItems: "center",
+                      justifyContent: "center",
                       gap: "0.5rem",
                       color: "var(--pico-contrast)",
                     }}
@@ -208,6 +210,7 @@ export default async function Home(
                     style={{
                       display: "inline-flex",
                       alignItems: "center",
+                      justifyContent: "center",
                       gap: "0.5rem",
                       color: "var(--pico-contrast)",
                     }}

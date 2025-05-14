@@ -1,7 +1,7 @@
 // deno-lint-ignore-file no-console
 import { FreshContext } from "$fresh/server.ts";
 import { createPocketBaseService } from "../data/pocketbase/pocketbase.service.ts";
-import { tracer } from "../data/tracing/tracer.ts";
+import { tracer, logJson } from "../data/tracing/tracer.ts";
 
 // List of file extensions to ignore for logging
 const IGNORED_EXTENSIONS = new Set([
@@ -57,12 +57,13 @@ export async function handler(req: Request, ctx: FreshContext) {
       // Only log actual page visits, not asset requests
       if (shouldLogVisit(path)) {
         // Log page visit details
-        console.log(`[Page Visit] ${req.method} ${path}`, {
+        logJson("info", "Page Visit", {
+          method: req.method,
+          path,
           timestamp: new Date().toISOString(),
           userAgent: req.headers.get("user-agent"),
           referer: req.headers.get("referer"),
-          ip: req.headers.get("x-forwarded-for") ||
-            req.headers.get("x-real-ip"),
+          ip: req.headers.get("x-forwarded-for") || req.headers.get("x-real-ip"),
           query: Object.fromEntries(url.searchParams),
         });
       }
@@ -88,19 +89,19 @@ export async function handler(req: Request, ctx: FreshContext) {
           span.setAttribute("user.authenticated", true);
           span.setAttribute("user.email", user.email);
           if (shouldLogVisit(path)) {
-            console.log(`[Page Visit] User: ${user.email} visited ${path}`);
+            logJson("info", "User visited page", { user: user.email, path });
           }
         } catch (_) {
           ctx.state.user = null; // Token invalid or not logged in
           span.setAttribute("user.authenticated", false);
           if (shouldLogVisit(path)) {
-            console.log(`[Page Visit] Anonymous user visited ${path}`);
+            logJson("info", "Anonymous user visited page", { path });
           }
         }
       } else {
         span.setAttribute("user.authenticated", false);
         if (shouldLogVisit(path)) {
-          console.log(`[Page Visit] Anonymous user visited ${path}`);
+          logJson("info", "Anonymous user visited page", { path });
         }
       }
 
@@ -130,7 +131,7 @@ export async function handler(req: Request, ctx: FreshContext) {
         : "Unknown error";
       span.setStatus({ code: 2, message: errorMessage }); // ERROR
       if (shouldLogVisit(path)) {
-        console.error(`[Page Visit Error] ${path}:`, error);
+        logJson("error", "Page Visit Error", { path, error: errorMessage });
       }
       throw error;
     } finally {

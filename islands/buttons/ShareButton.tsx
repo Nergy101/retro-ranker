@@ -13,6 +13,14 @@ export function ShareButton(
       | "outline secondary";
   },
 ) {
+
+  const getIconSizeBasedOnDevice = () => {
+    if (globalThis.innerWidth < 768) {
+      return 32;
+    }
+    return 16;
+  };
+
   const handleShare = () => {
     navigator.share({
       title: shareTitle,
@@ -40,7 +48,7 @@ export function ShareButton(
         role="button"
         type="button"
       >
-        <PiShare />
+        <PiShare size={getIconSizeBasedOnDevice()} />
         <span class="device-detail-action-button-label">{title}</span>
       </button>
     );
@@ -62,7 +70,7 @@ export function ShareButton(
           cursor: "pointer",
         }}
       >
-        <PiShare />
+        <PiShare size={getIconSizeBasedOnDevice()} />
         <span class="device-detail-action-button-label">Share</span>
       </span>
     </div>

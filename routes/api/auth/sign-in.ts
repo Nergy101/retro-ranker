@@ -51,7 +51,7 @@ export const handler: Handlers = {
       name: "pb_auth",
       value: user.token,
       maxAge: 3600,
-      sameSite: "Lax",
+      sameSite: "Strict",
       domain: url.hostname,
       path: "/",
       secure: true,

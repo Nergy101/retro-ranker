@@ -7,7 +7,12 @@ export default function CollectionCard(
   { collection }: { collection: DeviceCollection },
 ) {
   const isDeleteDialogOpen = signal(false);
-
+  const getIconSizeBasedOnDevice = () => {
+    if (globalThis.innerWidth < 768) {
+      return 32;
+    }
+    return 16;
+  };
   const handleDelete = async () => {
     isDeleteDialogOpen.value = false;
     // do delete call from frontend code
@@ -23,6 +28,7 @@ export default function CollectionCard(
         backgroundColor: "var(--pico-card-background-color-darker)",
         display: "flex",
         flexDirection: "column",
+        width: "100%",
       }}
     >
       <dialog open={isDeleteDialogOpen}>
@@ -103,45 +109,34 @@ export default function CollectionCard(
           </div>
         )}
       </div>
-      <footer style={{ display: "flex", gap: "0.5rem" }}>
+      <footer class="collection-card-footer">
         <button
           type="button"
-          class="button outline secondary"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "0.5rem",
-          }}
+          role="button"
+          class="button outline secondary delete-btn"
           data-tooltip="Delete permanently"
           data-placement="bottom"
           onClick={() => isDeleteDialogOpen.value = true}
         >
-          <PiTrash /> Delete
+          <PiTrash size={getIconSizeBasedOnDevice()} /> Delete
         </button>
 
         <a
           href={`/collections/${collection.id}/update`}
           style={{
             textDecoration: "none",
-            marginLeft: "auto",
           }}
         >
           <button
             type="button"
             role="button"
             class="button outline secondary"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "0.5rem",
-            }}
             data-tooltip="Edit collection"
             data-placement="bottom"
           >
-            <PiPencil /> Edit
+            <PiPencil size={getIconSizeBasedOnDevice()} /> Edit
           </button>
         </a>
-
         <ShareButton
           appearance="outline secondary"
           title="Share"
@@ -155,19 +150,15 @@ export default function CollectionCard(
           style={{
             textDecoration: "none",
           }}
-          data-tooltip="View collection"
-          data-placement="bottom"
         >
           <button
             type="button"
+            role="button"
             class="button outline secondary"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "0.5rem",
-            }}
+            data-tooltip="View collection"
+            data-placement="bottom"
           >
-            <PiEye /> View
+            <PiEye size={getIconSizeBasedOnDevice()} /> View
           </button>
         </a>
       </footer>

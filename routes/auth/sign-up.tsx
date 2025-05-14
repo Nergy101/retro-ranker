@@ -18,21 +18,15 @@ export default function SignUpPage() {
   );
 }
 
-// Server-side handler to redirect authenticated users
-export const handler: Handlers = {
-  GET(req: Request, ctx) {
-    // Check if user is already authenticated
-    const authCookie = req.headers.get("cookie")?.match(/auth=([^;]+)/)?.[1];
 
-    // If authenticated, redirect to home page
-    if (authCookie) {
+export const handler: Handlers = {
+  GET(_, ctx) {
+    if (ctx.state.user) {
       return new Response(null, {
         status: 303,
         headers: { location: "/profile" },
       });
     }
-
-    // Otherwise, render the sign-up page
     return ctx.render();
   },
 };

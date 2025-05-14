@@ -7,6 +7,9 @@
 * {
   margin: 0;
 }
+.grid > * {
+  min-width: 100% !important;
+}
 
 button {
   color: inherit;
@@ -324,7 +327,7 @@ body.paused-animation::before {
   overflow: hidden;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .device-detail {
     grid-template-areas:
       "header"
@@ -723,10 +726,6 @@ h6,
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
-
-  .device-search-card {
-    padding: 1rem;
-  }
 
   @media (max-width: 500px) {
     grid-template-columns: repeat(2, 1fr);
@@ -2182,6 +2181,10 @@ textarea:focus {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .index-buttons {
@@ -2199,4 +2202,26 @@ textarea:focus {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem;
+}
+
+.collection-card-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 0.5rem;
+  align-items: center;
+  justify-items: center;
+
+  .delete-btn {
+    color: var(--pico-del-color);
+    border-color: var(--pico-del-color);
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: auto;
+  }
 }

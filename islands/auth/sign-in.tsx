@@ -1,8 +1,55 @@
-import { PiSignIn, PiUserCheck } from "@preact-icons/pi";
+import {
+  PiDiscordLogo,
+  PiSignIn,
+  PiSpinner,
+  PiUserCheck,
+} from "@preact-icons/pi";
+import { useEffect } from "preact/hooks";
 
-export default function SignIn({ error }: { error: string | null }) {
+export default function SignIn(
+  { error, pleaseWait }: { error: string | null; pleaseWait: boolean },
+) {
+  useEffect(() => {
+    const checkAuth = () => {
+      // Simple cookie parser
+      const cookies = document.cookie.split(";").reduce((acc, cookie) => {
+        const [key, value] = cookie.trim().split("=");
+        acc[key] = value;
+        return acc;
+      }, {} as Record<string, string>);
+
+      if (cookies["pb_auth"] && cookies["pb_auth"].length > 0) {
+        clearInterval(interval);
+        
+        // simulate click to /profile
+        const profileLink = document.createElement("a");
+        profileLink.href = "/profile";
+        profileLink.click();
+      }
+    };
+    const interval = setInterval(checkAuth, 500);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div class="auth-form">
+      {pleaseWait && (
+        <article
+          class="auth-form-wait"
+          aria-busy="true"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "0.5rem",
+            textAlign: "center",
+            width: "100%",
+            height: "100%",
+          }}
+        >
+          <PiDiscordLogo /> Logging in...
+        </article>
+      )}
       <h1
         style={{
           display: "flex",
@@ -69,6 +116,21 @@ export default function SignIn({ error }: { error: string | null }) {
           Invalid email or password
         </div>
       )}
+      <div>
+        <a
+          href="/api/auth/discord"
+          role="button"
+          class="outline"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "0.5rem",
+          }}
+        >
+          <PiDiscordLogo /> Login with Discord
+        </a>
+      </div>
       <div class="auth-form-footer">
         <a href="/auth/sign-up" role="button" class="outline">
           Don't have an account? <br /> Sign up now!
