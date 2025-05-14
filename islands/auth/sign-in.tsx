@@ -1,8 +1,4 @@
-import {
-  PiDiscordLogo,
-  PiSignIn,
-  PiUserCheck
-} from "@preact-icons/pi";
+import { PiDiscordLogo, PiSignIn, PiUserCheck } from "@preact-icons/pi";
 import { useEffect } from "preact/hooks";
 
 export default function SignIn(
@@ -32,23 +28,6 @@ export default function SignIn(
 
   return (
     <div class="auth-form">
-      {pleaseWait && (
-        <article
-          class="auth-form-wait"
-          aria-busy="true"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "0.5rem",
-            textAlign: "center",
-            width: "100%",
-            height: "100%",
-          }}
-        >
-          <PiDiscordLogo /> Logging in...
-        </article>
-      )}
       <h1
         style={{
           display: "flex",
@@ -61,7 +40,44 @@ export default function SignIn(
       >
         <PiUserCheck /> Sign in
       </h1>
-
+      <div>
+        {pleaseWait
+          ? (
+            <article
+              class="auth-form-wait"
+              aria-busy="true"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "0.5rem",
+                textAlign: "center",
+                width: "100%",
+                height: "100%",
+                border: "1px solid var(--pico-primary)",
+                borderRadius: "var(--pico-border-radius)",
+                boxShadow: "0 0 1rem 0 var(--pico-primary)",
+              }}
+            >
+              <PiDiscordLogo /> Logging in...
+            </article>
+          )
+          : (
+            <a
+              href="/api/auth/discord"
+              role="button"
+              class="outline"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "0.5rem",
+              }}
+            >
+              <PiDiscordLogo /> Sign in with Discord
+            </a>
+          )}
+      </div>
       <form
         method="POST"
         action="/api/auth/sign-in"
@@ -78,6 +94,7 @@ export default function SignIn(
             name="nickname"
             type="text"
             required
+            disabled={pleaseWait}
           />
         </div>
 
@@ -93,6 +110,7 @@ export default function SignIn(
             name="password"
             type="password"
             required
+            disabled={pleaseWait}
           />
         </div>
 
@@ -106,6 +124,7 @@ export default function SignIn(
             justifyContent: "center",
             gap: "0.5rem",
           }}
+          disabled={pleaseWait}
         >
           <PiSignIn /> Sign in
         </button>
@@ -115,23 +134,13 @@ export default function SignIn(
           Invalid nickname and password combination
         </div>
       )}
-      <div>
+      <div class="auth-form-footer">
         <a
-          href="/api/auth/discord"
+          href="/auth/sign-up"
           role="button"
           class="outline"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "0.5rem",
-          }}
+          disabled={pleaseWait}
         >
-          <PiDiscordLogo /> Login with Discord
-        </a>
-      </div>
-      <div class="auth-form-footer">
-        <a href="/auth/sign-up" role="button" class="outline">
           Don't have an account? <br /> Sign up now!
         </a>
       </div>
