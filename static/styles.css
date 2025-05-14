@@ -42,6 +42,10 @@ video {
   height: auto;
 }
 
+svg {
+  max-width: unset;
+}
+
 html,
 body {
   font-family: "Azeret Mono", system-ui, -apple-system, BlinkMacSystemFont,
@@ -306,7 +310,7 @@ body.paused-animation::before {
   border: 1px solid var(--pico-primary);
   border-radius: 10px;
   display: grid;
-  gap: 0.5rem;
+  gap: 1rem;
   grid-template-areas:
     "header performance"
     "radar similar"
@@ -332,11 +336,11 @@ body.paused-animation::before {
     grid-template-areas:
       "header"
       "performance"
-      "similar"
-      "radar"
       "links"
       "comments"
-      "specs";
+      "specs"
+      "similar"
+      "radar";
     grid-template-columns: 1fr;
   }
 }

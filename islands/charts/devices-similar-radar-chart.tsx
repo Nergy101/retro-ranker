@@ -13,7 +13,7 @@ export function DevicesSimilarRadarChart({
   similarDevices,
   showTitle = true,
 }: DevicesSimilarRadarChartProps) {
-  const showSimilarDevices = useSignal(false);
+  const showSimilarDevices = useSignal(true);
 
   const toggleShow = (e: Event) => {
     // For checkboxes, read the new "checked" value from the event target
