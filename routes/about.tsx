@@ -23,7 +23,7 @@ export default function About({ url }: PageProps) {
         About <span style={{ color: "var(--pico-primary)" }}>Retro Ranker</span>
       </h1>
 
-      <div class="flex justify-center mb-8">
+      <div class="flex justify-center" style={{ marginBottom: "2rem" }}>
         <figure
           style={{
             display: "flex",
@@ -50,11 +50,6 @@ export default function About({ url }: PageProps) {
                 borderRadius: "1rem",
               }}
             />
-            <figcaption>
-              <a href="/" target="_blank">
-                Retro Ranker
-              </a>
-            </figcaption>
           </div>
 
           <div
@@ -78,21 +73,18 @@ export default function About({ url }: PageProps) {
               gap: "1rem",
             }}
           >
-            <img
-              src="/images/rh-logo-color.png"
-              alt="Retro Handhelds Community Logo"
-              width="200"
-              height="200"
-              class="max-w-full h-auto"
-              style={{
-                borderRadius: "1rem",
-              }}
-            />
-            <figcaption>
-              <a href="https://retro-handhelds.com" target="_blank">
-                Retro Handhelds
-              </a>
-            </figcaption>
+            <a href="https://retro-handhelds.com" target="_blank">
+              <img
+                src="/images/rh-logo-text.png"
+                alt="Retro Handhelds Community Logo"
+                width="200"
+                height="200"
+                class="max-w-full h-auto"
+                style={{
+                  borderRadius: "1rem",
+                }}
+              />
+            </a>
           </div>
         </figure>
       </div>
