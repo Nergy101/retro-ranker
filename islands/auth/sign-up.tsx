@@ -8,12 +8,10 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
 
   // Track both validation state and whether field has been touched
   const nicknameTouched = useSignal<boolean>(false);
-  const emailTouched = useSignal<boolean>(false);
   const passwordTouched = useSignal<boolean>(false);
   const confirmPasswordTouched = useSignal<boolean>(false);
 
   const nicknameValid = useSignal<boolean | null>(null);
-  const emailValid = useSignal<boolean | null>(null);
   const passwordValid = useSignal<boolean | null>(null);
   const confirmPasswordValid = useSignal<boolean | null>(null);
   const capSolution = useSignal<{ success: boolean; token: string } | null>(
@@ -48,19 +46,6 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
     }
 
     nicknameValid.value = input.value.trim().length >= 3;
-  };
-
-  const validateEmail = (e: Event) => {
-    const input = e.target as HTMLInputElement;
-    emailTouched.value = true;
-
-    // Reset validation state if field is empty
-    if (!input.value.trim()) {
-      emailValid.value = null;
-      return;
-    }
-
-    emailValid.value = input.validity.valid;
   };
 
   const validatePassword = (e: Event) => {
@@ -127,7 +112,6 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
 
     // Mark all fields as touched
     nicknameTouched.value = true;
-    emailTouched.value = true;
     passwordTouched.value = true;
     confirmPasswordTouched.value = true;
 
@@ -135,7 +119,6 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
     const nicknameInput = document.getElementById(
       "nickname",
     ) as HTMLInputElement;
-    const emailInput = document.getElementById("email") as HTMLInputElement;
     const passwordInput = document.getElementById(
       "password",
     ) as HTMLInputElement;
@@ -146,9 +129,6 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
     // Reset validation for empty fields
     nicknameValid.value = nicknameInput.value.trim()
       ? nicknameInput.value.trim().length >= 3
-      : null;
-    emailValid.value = emailInput.value.trim()
-      ? emailInput.validity.valid
       : null;
     passwordValid.value = passwordInput.value
       ? passwordInput.value.length >= 8
@@ -163,12 +143,10 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
 
     // Check if any fields are invalid (false) or empty (null)
     const hasInvalidFields = nicknameValid.value === false ||
-      emailValid.value === false ||
       passwordValid.value === false ||
       confirmPasswordValid.value === false;
 
     const hasEmptyRequiredFields = nicknameValid.value === null ||
-      emailValid.value === null ||
       passwordValid.value === null ||
       confirmPasswordValid.value === null;
 
@@ -282,47 +260,6 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
               }}
             >
               Nickname must be at least 3 characters.
-            </div>
-          )}
-        </div>
-
-        <div>
-          <label
-            for="email"
-            style={{ display: "block", marginBottom: "0.5rem" }}
-          >
-            Email address
-          </label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            aria-required="true"
-            aria-invalid={getAriaInvalid(emailTouched.value, emailValid.value)}
-            onBlur={validateEmail}
-            onChange={(e) => handleInputChange(e, validateEmail)}
-            style={{
-              width: "100%",
-              padding: "0.5rem",
-              border: `0.0625rem solid ${
-                !emailTouched.value || emailValid.value !== false
-                  ? "none"
-                  : "#c62828"
-              }`,
-              borderRadius: "0.25rem",
-            }}
-          />
-          {emailTouched.value && emailValid.value === false && (
-            <div
-              role="alert"
-              style={{
-                color: "#c62828",
-                fontSize: "0.875rem",
-                marginTop: "0.3125rem",
-              }}
-            >
-              Please enter a valid email address.
             </div>
           )}
         </div>

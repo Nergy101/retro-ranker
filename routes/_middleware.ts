@@ -87,9 +87,9 @@ export async function handler(req: Request, ctx: FreshContext) {
           const user = await pbService.getUser(cookieHeader);
           ctx.state.user = user; // Attach user to context
           span.setAttribute("user.authenticated", true);
-          span.setAttribute("user.email", user.email);
+          span.setAttribute("user.nickname", user.nickname);
           if (shouldLogVisit(path)) {
-            logJson("info", "User visited page", { user: user.email, path });
+            logJson("info", "User visited page", { user: user.nickname, path });
           }
         } catch (_) {
           ctx.state.user = null; // Token invalid or not logged in

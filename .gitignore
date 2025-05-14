@@ -15,7 +15,7 @@ node_modules/
 .vscode/
 
 # CAP tokens
-/.data
+.data/
 tokensList.json
 
 # Docker compose and such

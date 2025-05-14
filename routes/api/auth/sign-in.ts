@@ -13,13 +13,13 @@ export const handler: Handlers = {
 
     const url = new URL(req.url);
     const form = await req.formData();
-    const email = form.get("email")?.toString();
+    const nickname = form.get("nickname")?.toString();
     const password = form.get("password")?.toString();
 
-    if (!email || !password) {
+    if (!nickname || !password) {
       return new Response(
         JSON.stringify(
-          ProblemDetail.badRequest("Missing email or password"),
+          ProblemDetail.badRequest("Missing nickname or password"),
         ),
         { status: 400 },
       );
@@ -29,7 +29,7 @@ export const handler: Handlers = {
 
     let user = null;
     try {
-      user = await pbService.authWithPassword(email, password);
+      user = await pbService.authWithPassword(nickname, password);
     } catch {
       // do nothing
     }
@@ -39,7 +39,7 @@ export const handler: Handlers = {
 
       return new Response(
         JSON.stringify(
-          ProblemDetail.forbidden("Invalid email or password"),
+          ProblemDetail.forbidden("Invalid nickname or password"),
         ),
         { status: 303, headers },
       );

@@ -1,8 +1,7 @@
 import {
   PiDiscordLogo,
   PiSignIn,
-  PiSpinner,
-  PiUserCheck,
+  PiUserCheck
 } from "@preact-icons/pi";
 import { useEffect } from "preact/hooks";
 
@@ -20,7 +19,7 @@ export default function SignIn(
 
       if (cookies["pb_auth"] && cookies["pb_auth"].length > 0) {
         clearInterval(interval);
-        
+
         // simulate click to /profile
         const profileLink = document.createElement("a");
         profileLink.href = "/profile";
@@ -69,15 +68,15 @@ export default function SignIn(
       >
         <div>
           <label
-            for="email"
+            for="nickname"
             style={{ display: "block", marginBottom: "0.5rem" }}
           >
-            Email address
+            Nickname
           </label>
           <input
-            id="email"
-            name="email"
-            type="email"
+            id="nickname"
+            name="nickname"
+            type="text"
             required
           />
         </div>
@@ -113,7 +112,7 @@ export default function SignIn(
       </form>
       {error && (
         <div class="auth-form-error" role="alert">
-          Invalid email or password
+          Invalid nickname and password combination
         </div>
       )}
       <div>

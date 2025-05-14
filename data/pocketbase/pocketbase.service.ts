@@ -82,17 +82,17 @@ export class PocketBaseService {
   // }
 
   /**
-   * Authenticate a user with email and password
-   * @param email User email
+   * Authenticate a user with nickname and password
+   * @param nickname User nickname
    * @param password User password
    * @returns Authentication data
    */
-  public async authWithPassword(email: string, password: string): Promise<any> {
+  public async authWithPassword(nickname: string, password: string): Promise<any> {
     return await tracer.startActiveSpan("authWithPassword", async (span) => {
       try {
         const result = await this.pb.collection("users").authWithPassword(
-          email,
-          password,
+          nickname,
+          password
         );
         span.setStatus({ code: 0 }); // OK
         return result;
@@ -113,7 +113,6 @@ export class PocketBaseService {
 
   /**
    * Register a new user
-   * @param email User email
    * @param password User password
    * @param passwordConfirm Password confirmation
    * @param additionalData Additional user data
@@ -121,18 +120,16 @@ export class PocketBaseService {
    */
   public async createUser(
     nickname: string,
-    email: string,
     password: string,
     passwordConfirm: string,
   ): Promise<any> {
     return await tracer.startActiveSpan("createUser", async (span) => {
       try {
         const data = {
-          email,
+          nickname,
           password,
           passwordConfirm,
-          nickname,
-          emailVisibility: true,
+          emailVisibility: false,
           verified: false,
         };
 

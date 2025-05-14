@@ -8,13 +8,12 @@ export const handler: Handlers = {
   async POST(req, _ctx) {
     const form = await req.formData();
     const nickname = form.get("nickname")?.toString();
-    const email = form.get("email")?.toString();
     const password = form.get("password")?.toString();
     const confirmPassword = form.get("confirmPassword")?.toString();
     const capToken = form.get("capToken")?.toString();
 
     // Basic validation
-    if (!nickname || !email || !password || !confirmPassword || !capToken) {
+    if (!nickname || !password || !confirmPassword || !capToken) {
       return new Response(
         JSON.stringify(
           ProblemDetail.badRequest("Missing required fields"),
@@ -52,7 +51,7 @@ export const handler: Handlers = {
       1,
       1,
       {
-        filter: `email="${email}"`,
+        filter: `nickname="${nickname}"`,
         sort: "",
         expand: "",
       },
@@ -68,7 +67,6 @@ export const handler: Handlers = {
     }
     await pbService.createUser(
       nickname,
-      email,
       password,
       confirmPassword,
     );

@@ -33,7 +33,7 @@ export const handler: Handlers = {
           encodeURIComponent(
             `${fullHost}/api/auth/discord/callback`,
           ) +
-          "&scope=identify+email" +
+          "&scope=identify" +
           `&code_challenge=${codeChallenge}` +
           `&code_challenge_method=S256` +
           `&state=${randomId}`;
