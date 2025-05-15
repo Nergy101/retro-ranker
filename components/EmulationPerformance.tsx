@@ -32,73 +32,47 @@ export function EmulationPerformance(
 ) {
   const ratings = device.systemRatings;
 
-  const getCoolingColor = (cooling: Cooling) => {
-    // count the number of true values
+  const getCoolingRatingMark = (cooling: Cooling) => {
     const trueCount = [
       cooling.hasHeatsink,
       cooling.hasHeatPipe,
       cooling.hasFan,
       cooling.hasVentilationCutouts,
-    ].filter(Boolean)
-      .length;
-    if (trueCount === 0) {
-      return { color: "#FFE5E5", textColor: "#B71C1C", tooltip: "None" };
-    }
-    if (trueCount === 1) {
-      return { color: "#FFF3E0", textColor: "#E65100", tooltip: "Moderate" };
-    }
-    if (trueCount === 2) {
-      return { color: "#E3F2FD", textColor: "#1565C0", tooltip: "Good" };
-    }
-    if (trueCount >= 3) {
-      return { color: "#E8F5E9", textColor: "#2E7D32", tooltip: "Excellent" };
-    }
-    return {
-      color: "var(--pico-card-background-color)",
-      textColor: "var(--pico-text)",
-      tooltip: "Unknown",
-    };
+    ].filter(Boolean).length;
+    if (trueCount === 0) return "F";
+    if (trueCount === 1) return "C";
+    if (trueCount === 2) return "B";
+    if (trueCount >= 3) return "A";
+    return "F";
   };
 
-  const getRumbleColor = (rumble: boolean | null) => {
-    if (rumble === null) {
-      return {
-        color: "#FFF3E0",
-        textColor: "#E65100",
-        tooltip: "Unknown",
-      };
-    }
-    if (rumble) {
-      return { color: "#E8F5E9", textColor: "#2E7D32", tooltip: "Present" };
-    }
-
-    return { color: "#FFE5E5", textColor: "#B71C1C", tooltip: "Not present" };
+  const getRumbleRatingMark = (rumble: boolean | null) => {
+    if (rumble === null) return "C";
+    if (rumble) return "A";
+    return "F";
   };
 
   const renderCoolingSection = () => {
-    const coolingData = getCoolingColor(device.cooling);
+    const ratingMark = getCoolingRatingMark(device.cooling);
+    const ratingClass = `rating-info rating-${ratingMark}`;
     return (
       <div
+        class={ratingClass}
         style={{
-          backgroundColor: coolingData.color,
           padding: "0.25rem",
           borderRadius: "0.5em",
           textAlign: "center",
           fontSize: "0.75rem",
-          color: coolingData.textColor,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
         }}
-        data-tooltip={coolingData.tooltip}
+        data-tooltip={ratingMark === "A" ? "Excellent" : ratingMark === "B" ? "Good" : ratingMark === "C" ? "Moderate" : "None"}
       >
         <strong>Cooling</strong>
         <span style={{ display: "flex", gap: "0.25rem", fontSize: "1rem" }}>
-          {DeviceService.getCoolingIcons(device.cooling).map((
-            { icon, tooltip },
-            index,
-          ) => (
+          {DeviceService.getCoolingIcons(device.cooling).map(({ icon, tooltip }, index) => (
             <span data-tooltip={tooltip} key={index} data-placement="right">
               {icon}
             </span>
@@ -109,12 +83,12 @@ export function EmulationPerformance(
   };
 
   const renderRumbleSection = () => {
-    const rumbleData = getRumbleColor(device.rumble);
+    const ratingMark = getRumbleRatingMark(device.rumble);
+    const ratingClass = `rating-info rating-${ratingMark}`;
     return (
       <div
+        class={ratingClass}
         style={{
-          backgroundColor: rumbleData.color,
-          color: rumbleData.textColor,
           padding: "0.25rem",
           borderRadius: "0.5em",
           textAlign: "center",
@@ -124,7 +98,7 @@ export function EmulationPerformance(
           alignItems: "center",
           justifyContent: "center",
         }}
-        data-tooltip={rumbleData.tooltip}
+        data-tooltip={ratingMark === "A" ? "Present" : ratingMark === "C" ? "Unknown" : "Not present"}
       >
         <strong>Rumble</strong>
         <span style={{ display: "flex", gap: "0.25rem", fontSize: "1rem" }}>
