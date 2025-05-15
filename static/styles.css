@@ -338,9 +338,9 @@ body.paused-animation::before {
       "performance"
       "links"
       "comments"
-      "specs"
       "similar"
-      "radar";
+      "radar"
+      "specs";
     grid-template-columns: 1fr;
   }
 }
@@ -2119,9 +2119,8 @@ textarea:focus {
 
 .site-introduction-content {
   display: grid;
-  grid-template-columns: 3fr 1fr;
-  gap: 2rem;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
 
   border: var(--pico-border-width) solid var(--pico-primary);
   border-radius: var(--pico-border-radius);
@@ -2137,6 +2136,7 @@ textarea:focus {
 }
 
 .popular-searches-container {
+  border: 1px solid var(--pico-primary);
   background-color: var(--pico-card-background-color-darker);
   border-radius: var(--pico-border-radius);
   padding: 1rem;
@@ -2195,6 +2195,7 @@ textarea:focus {
   display: flex;
   gap: 1rem;
   flex-wrap: nowrap;
+  justify-content: center;
 
   @media (max-width: 768px) {
     flex-wrap: wrap;
@@ -2228,4 +2229,70 @@ textarea:focus {
     gap: 0.5rem;
     width: auto;
   }
+}
+
+.rating-info {
+  border: 1px solid var(--pico-contrast) !important;
+  /* border-bottom: none !important; */
+  text-decoration: none !important;
+
+  transition: background 0.2s, color 0.2s;
+  background: var(--rating-default-bg);
+  color: var(--rating-default-color);
+}
+
+.rating-info.rating-ALL,
+.rating-info.rating-A {
+  background: var(--rating-A-bg);
+  color: var(--rating-A-color);
+}
+
+.rating-info.rating-B {
+  background: var(--rating-B-bg);
+  color: var(--rating-B-color);
+}
+
+.rating-info.rating-C,
+.rating-info.rating-D {
+  background: var(--rating-C-bg);
+  color: var(--rating-C-color);
+}
+
+.rating-info.rating-F {
+  background: var(--rating-F-bg);
+  color: var(--rating-F-color);
+}
+
+:root {
+  --rating-ALL-bg: #e8f5e9;
+  --rating-ALL-color: #2e7d32;
+  --rating-A-bg: #e8f5e9;
+  --rating-A-color: #2e7d32;
+  --rating-B-bg: #e3f2fd;
+  --rating-B-color: #1565c0;
+  --rating-C-bg: #fff3e0;
+  --rating-C-color: #e65100;
+  --rating-D-bg: #fff3e0;
+  --rating-D-color: #e65100;
+  --rating-F-bg: #ffe5e5;
+  --rating-F-color: #b71c1c;
+  --rating-default-bg: var(--pico-card-background-color);
+  --rating-default-color: var(--pico-text);
+}
+
+[data-theme="dark"] {
+  --rating-ALL-bg: #1b5e20;
+  --rating-ALL-color: #a5d6a7;
+  --rating-A-bg: #1b5e20;
+  --rating-A-color: #a5d6a7;
+  --rating-B-bg: #0d47a1;
+  --rating-B-color: #90caf9;
+  --rating-C-bg: #e65100;
+  --rating-C-color: #ffcc80;
+  --rating-D-bg: #e65100;
+  --rating-D-color: #ffcc80;
+  --rating-F-bg: #b71c1c;
+  --rating-F-color: #ef9a9a;
+  --rating-default-bg: var(--pico-card-background-color);
+  --rating-default-color: var(--pico-text);
 }

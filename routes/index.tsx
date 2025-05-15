@@ -112,137 +112,154 @@ export default async function Home(
       >
         <div class="container-fluid">
           <section>
-            <article>
-              <div class="popular-searches-container">
-                <h3
-                  style={{
-                    marginBottom: "1rem",
-                    fontSize: "1.2rem",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "0.5rem",
-                  }}
-                >
-                  <PiMagnifyingGlass /> Popular Searches
-                </h3>
+            <article class="popular-searches-container">
+              <h3
+                style={{
+                  marginBottom: "1rem",
+                  fontSize: "1.2rem",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "0.5rem",
+                }}
+              >
+                <PiMagnifyingGlass /> Popular Searches
+              </h3>
 
-                <div
-                  style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}
-                >
-                  {defaultTags.map((tag) => (
-                    <TagComponent
-                      key={tag.name}
-                      tag={tag}
-                    />
-                  ))}
-                </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: "0.5rem",
+                  justifyContent: "center",
+                }}
+              >
+                {defaultTags.map((tag) => (
+                  <TagComponent
+                    key={tag.name}
+                    tag={tag}
+                  />
+                ))}
               </div>
             </article>
           </section>
 
+          <hr />
+
           <section class="home-section">
-            <h2 class="home-section-title">
-              <PiSparkle /> New Arrivals
-            </h2>
-            <div class="device-row-grid">
-              {newArrivals.map((device) => (
-                <a
-                  href={`/devices/${device.name.sanitized}`}
-                  style={{ textDecoration: "none" }}
-                >
-                  <DeviceCardMedium
-                    device={device}
-                    isActive={false}
-                    user={user}
-                  />
-                </a>
-              ))}
-              <SeeMoreCard
-                href="/devices?sort=new-arrivals"
-                text="More New Arrivals"
-              />
-            </div>
+            <article class="home-section-content">
+              <h2 class="home-section-title">
+                <PiSparkle /> New Arrivals
+              </h2>
+              <div class="device-row-grid">
+                {newArrivals.map((device) => (
+                  <a
+                    href={`/devices/${device.name.sanitized}`}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <DeviceCardMedium
+                      device={device}
+                      isActive={false}
+                      user={user}
+                    />
+                  </a>
+                ))}
+                <SeeMoreCard
+                  href="/devices?sort=new-arrivals"
+                  text="More New Arrivals"
+                />
+              </div>
+            </article>
           </section>
 
-          <hr />
           {/* Upcoming Section */}
           <section class="home-section">
-            <h2 class="home-section-title">
-              <PiCalendarHeart /> Upcoming
-            </h2>
-            <div class="device-row-grid">
-              {upcoming.map((device) => (
-                <a
-                  href={`/devices/${device.name.sanitized}`}
-                  style={{ textDecoration: "none" }}
-                >
-                  <DeviceCardMedium
-                    device={device}
-                    isActive={false}
-                    user={user}
-                  />
-                </a>
-              ))}
-              <SeeMoreCard
-                href="/devices?filter=upcoming"
-                text="More Upcoming"
-              />
-            </div>
+            <article>
+              <h2 class="home-section-title">
+                <PiCalendarHeart /> Upcoming
+              </h2>
+              <div class="device-row-grid">
+                {upcoming.map((device) => (
+                  <a
+                    href={`/devices/${device.name.sanitized}`}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <DeviceCardMedium
+                      device={device}
+                      isActive={false}
+                      user={user}
+                    />
+                  </a>
+                ))}
+                <SeeMoreCard
+                  href="/devices?filter=upcoming"
+                  text="More Upcoming"
+                />
+              </div>
+            </article>
           </section>
           {/* personal Picks Section */}
           <section class="home-section">
-            <h2 class="home-section-title">
-              <PiUserCheck /> Personal Picks
-            </h2>
-            <div class="device-row-grid">
-              {personalPicks.map((device) => (
-                <a
-                  href={`/devices/${device.name.sanitized}`}
-                  style={{ textDecoration: "none" }}
-                >
-                  <DeviceCardMedium
-                    device={device}
-                    isActive={false}
-                    user={user}
-                  />
-                </a>
-              ))}
-              <SeeMoreCard
-                href="/devices?filter=personal-picks"
-                text="More Personal Picks"
-              />
-            </div>
+            <article>
+              <h2 class="home-section-title">
+                <PiUserCheck /> Personal Picks
+              </h2>
+              <div class="device-row-grid">
+                {personalPicks.map((device) => (
+                  <a
+                    href={`/devices/${device.name.sanitized}`}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <DeviceCardMedium
+                      device={device}
+                      isActive={false}
+                      user={user}
+                    />
+                  </a>
+                ))}
+                <SeeMoreCard
+                  href="/devices?filter=personal-picks"
+                  text="More Personal Picks"
+                />
+              </div>
+            </article>
           </section>
 
           {/* Highly Rated Section */}
           <section class="home-section">
-            <h2 class="home-section-title">
-              <PiRanking />
-              <div
-                style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}
-              >
-                Highly Ranked
-                <span style={{ fontSize: "0.8rem" }}>($$)</span>
-              </div>
-            </h2>
-            <div class="device-row-grid">
-              {highlyRated.map((device) => (
-                <a
-                  href={`/devices/${device.name.sanitized}`}
-                  style={{ textDecoration: "none" }}
+            <article>
+              <h2 class="home-section-title">
+                <PiRanking />
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "0.5rem",
+                    alignItems: "center",
+                  }}
                 >
-                  <DeviceCardMedium
-                    device={device}
-                    isActive={false}
-                    user={user}
-                  />
-                </a>
-              ))}
-              <SeeMoreCard
-                href="/devices?search=&page=1&tags=mid&sort=highly-ranked"
-                text="More Highly Ranked"
-              />
-            </div>
+                  Highly Ranked
+                  <span style={{ fontSize: "0.8rem" }}>($$)</span>
+                </div>
+              </h2>
+              <div class="device-row-grid">
+                {highlyRated.map((device) => (
+                  <a
+                    href={`/devices/${device.name.sanitized}`}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <DeviceCardMedium
+                      device={device}
+                      isActive={false}
+                      user={user}
+                    />
+                  </a>
+                ))}
+                <SeeMoreCard
+                  href="/devices?search=&page=1&tags=mid&sort=highly-ranked"
+                  text="More Highly Ranked"
+                />
+              </div>
+            </article>
           </section>
 
           <hr />
@@ -254,16 +271,23 @@ export default async function Home(
                     style={{
                       fontSize: "1.5rem",
                       color: "var(--pico-contrast)",
+                      textAlign: "center",
                     }}
                   >
                     A Handheld Database
                   </h2>
-                  <p>
+                  <p style={{ textAlign: "center" }}>
                     Powered by the Retro Handhelds community
                   </p>
                 </hgroup>
 
-                <p style={{ marginBottom: "1rem", lineHeight: "1.6" }}>
+                <p
+                  style={{
+                    marginBottom: "1rem",
+                    lineHeight: "1.6",
+                    textAlign: "center",
+                  }}
+                >
                   Welcome to{" "}
                   <strong style={{ color: "var(--pico-primary)" }}>
                     Retro Ranker

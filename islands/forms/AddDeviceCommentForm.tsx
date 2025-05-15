@@ -58,13 +58,12 @@ export default function AddDeviceCommentForm({
         </div>
         <button
           type="submit"
+          role="button"
+          class="primary"
           style={{
             padding: "0.5rem 1rem",
             borderRadius: "0.25rem",
-            border: "1px solid var(--pico-primary)",
-            backgroundColor: "var(--pico-primary)",
-            color: "var(--pico-primary-inverse)",
-            cursor: "pointer",
+            color: "var(--pico-color)",
             width: "fit-content",
           }}
         >

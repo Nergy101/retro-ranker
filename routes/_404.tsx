@@ -16,37 +16,7 @@ export default function Error404(props: PageProps) {
           <span>
             The page you were looking for doesn't exist.
           </span>
-          <a
-            role="button"
-            href="/"
-            style={{
-              display: "flex",
-              gap: "0.5rem",
-              alignItems: "center",
-              textDecoration: "none",
-              marginTop: "1rem",
-              color: "var(--pico-color)",
-            }}
-          >
-            <PiGameControllerBold />
-            Go back home
-          </a>
-          <a
-            type="button"
-            role="button"
-            href={props.url.pathname}
-            class="outline"
-            style={{
-              display: "flex",
-              gap: "0.5rem",
-              alignItems: "center",
-              textDecoration: "none",
-              marginTop: "1rem",
-            }}
-          >
-            <PiArrowClockwise />
-            Reload page
-          </a>
+          <h2>Return to our homepage to browse retro gaming handhelds and comparison tools.</h2>
         </div>
       </article>
     </div>

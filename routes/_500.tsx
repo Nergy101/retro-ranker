@@ -16,37 +16,7 @@ export default function Error500Page(props: PageProps) {
           <span>
             An error occurred on Retro Ranker. Please try again later.
           </span>
-          <a
-            role="button"
-            href="/"
-            style={{
-              display: "flex",
-              gap: "0.5rem",
-              alignItems: "center",
-              textDecoration: "none",
-              marginTop: "1rem",
-              color: "var(--pico-color)",
-            }}
-          >
-            <PiGameControllerBold />
-            Go back home
-          </a>
-          <a
-            type="button"
-            role="button"
-            href={props.url.pathname}
-            class="outline"
-            style={{
-              display: "flex",
-              gap: "0.5rem",
-              alignItems: "center",
-              textDecoration: "none",
-              marginTop: "1rem",
-            }}
-          >
-            <PiArrowClockwise />
-            Reload page
-          </a>
+          <h2>Refresh the page or try again later.</h2>
         </div>
       </article>
     </div>
