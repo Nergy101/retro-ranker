@@ -10,6 +10,8 @@ import * as $_middleware from "./routes/_middleware.ts";
 import * as $about from "./routes/about.tsx";
 import * as $api_auth_discord_callback from "./routes/api/auth/discord/callback.ts";
 import * as $api_auth_discord_index from "./routes/api/auth/discord/index.ts";
+import * as $api_auth_google_callback from "./routes/api/auth/google/callback.ts";
+import * as $api_auth_google_index from "./routes/api/auth/google/index.ts";
 import * as $api_auth_sign_in from "./routes/api/auth/sign-in.ts";
 import * as $api_auth_sign_out from "./routes/api/auth/sign-out.ts";
 import * as $api_auth_sign_up from "./routes/api/auth/sign-up.ts";
@@ -89,6 +91,8 @@ const manifest = {
     "./routes/about.tsx": $about,
     "./routes/api/auth/discord/callback.ts": $api_auth_discord_callback,
     "./routes/api/auth/discord/index.ts": $api_auth_discord_index,
+    "./routes/api/auth/google/callback.ts": $api_auth_google_callback,
+    "./routes/api/auth/google/index.ts": $api_auth_google_index,
     "./routes/api/auth/sign-in.ts": $api_auth_sign_in,
     "./routes/api/auth/sign-out.ts": $api_auth_sign_out,
     "./routes/api/auth/sign-up.ts": $api_auth_sign_up,

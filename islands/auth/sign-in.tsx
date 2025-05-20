@@ -1,4 +1,9 @@
-import { PiDiscordLogo, PiSignIn, PiUserCheck } from "@preact-icons/pi";
+import {
+  PiDiscordLogo,
+  PiGoogleLogo,
+  PiSignIn,
+  PiUserCheck,
+} from "@preact-icons/pi";
 import { useEffect } from "preact/hooks";
 
 export default function SignIn(
@@ -63,19 +68,34 @@ export default function SignIn(
             </article>
           )
           : (
-            <a
-              href="/api/auth/discord"
-              role="button"
-              class="outline"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "0.5rem",
-              }}
-            >
-              <PiDiscordLogo /> Sign in with Discord
-            </a>
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+              <a
+                href="/api/auth/discord"
+                role="button"
+                class="outline"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "0.5rem",
+                }}
+              >
+                <PiDiscordLogo /> Sign in with Discord
+              </a>
+              <a
+                href="/api/auth/google"
+                role="button"
+                class="outline"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "0.5rem",
+                }}
+              >
+                <PiGoogleLogo /> Sign in with Google
+              </a>
+            </div>
           )}
       </div>
       <form

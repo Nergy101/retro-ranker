@@ -17,7 +17,7 @@ export function ProfileImage({
 
   // Construct the DiceBear API URL
   const imageUrl =
-    `https://api.dicebear.com/9.x/fun-emoji/svg?seed=${safeName}&backgroundType=${backgroundType}`;
+    `https://api.dicebear.com/9.x/bottts-neutral/svg?seed=${safeName}&backgroundType=${backgroundType}`;
 
   return (
     <div

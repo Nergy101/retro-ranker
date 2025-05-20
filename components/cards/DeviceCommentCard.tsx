@@ -9,13 +9,13 @@ interface DeviceCommentCardProps {
 function sanitizeHTML(html: string): string {
   // Remove potentially dangerous tags and attributes
   return html
-    .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
-    .replace(/<iframe\b[^<]*(?:(?!<\/iframe>)<[^<]*)*<\/iframe>/gi, '')
-    .replace(/<object\b[^<]*(?:(?!<\/object>)<[^<]*)*<\/object>/gi, '')
-    .replace(/<embed\b[^<]*(?:(?!<\/embed>)<[^<]*)*<\/embed>/gi, '')
-    .replace(/on\w+="[^"]*"/g, '')
-    .replace(/on\w+='[^']*'/g, '')
-    .replace(/javascript:/gi, '');
+    .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "")
+    .replace(/<iframe\b[^<]*(?:(?!<\/iframe>)<[^<]*)*<\/iframe>/gi, "")
+    .replace(/<object\b[^<]*(?:(?!<\/object>)<[^<]*)*<\/object>/gi, "")
+    .replace(/<embed\b[^<]*(?:(?!<\/embed>)<[^<]*)*<\/embed>/gi, "")
+    .replace(/on\w+="[^"]*"/g, "")
+    .replace(/on\w+='[^']*'/g, "")
+    .replace(/javascript:/gi, "");
 }
 
 export function DeviceCommentCard({ comment }: DeviceCommentCardProps) {
@@ -28,12 +28,6 @@ export function DeviceCommentCard({ comment }: DeviceCommentCardProps) {
       hour: "2-digit",
       minute: "2-digit",
     });
-  };
-
-  const getAvatarUrl = (nickname: string) => {
-    const seed = encodeURIComponent(nickname);
-    const backgroundType = "solid,gradientLinear";
-    return `https://api.dicebear.com/9.x/fun-emoji/svg?seed=${seed}&backgroundType=${backgroundType}`;
   };
 
   return (
@@ -94,9 +88,13 @@ export function DeviceCommentCard({ comment }: DeviceCommentCardProps) {
         }}
       >
         <span
-          data-tooltip={comment.updated !== comment.created ? `Created: ${formatDate(comment.created)}` : undefined}
+          data-tooltip={comment.updated !== comment.created
+            ? `Created: ${formatDate(comment.created)}`
+            : undefined}
         >
-          {comment.updated !== comment.created ? `Updated: ${formatDate(comment.updated)}` : formatDate(comment.created)}
+          {comment.updated !== comment.created
+            ? `Updated: ${formatDate(comment.updated)}`
+            : formatDate(comment.created)}
         </span>
       </div>
     </article>
