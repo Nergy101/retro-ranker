@@ -84,9 +84,13 @@ export default function Footer() {
             </strong>
             <small>
               © {new Date().getFullYear()}{" "}
-              <span style={{ color: "var(--pico-primary)" }}>
+              <a
+                style={{ color: "var(--pico-primary)" }}
+                href="https://retroranker.site"
+                target="_blank"
+              >
                 Retro Ranker
-              </span>. All rights reserved.
+              </a>. All rights reserved.
             </small>
             <div
               style={{

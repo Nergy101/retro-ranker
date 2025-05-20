@@ -288,11 +288,10 @@ export default async function Home(
                     textAlign: "center",
                   }}
                 >
-                  Welcome to{" "}
                   <strong style={{ color: "var(--pico-primary)" }}>
-                    Retro Ranker
+                    Retro Ranker {" "}
                   </strong>
-                  , the community-driven database of nearly 500{" "}
+                  is a community-driven database of nearly 500{" "}
                   <strong>retro gaming handhelds</strong> from brands like{" "}
                   <a
                     href={BrandWebsites["anbernic"]}
