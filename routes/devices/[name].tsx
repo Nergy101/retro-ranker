@@ -162,7 +162,8 @@ export default function DeviceDetail(props: PageProps) {
         `${device.name.raw} is a ${device.brand.raw} retro gaming handheld device. This ${device.pricing.category} budget emulation device costs on average ${device.pricing.average} ${device.pricing.currency}. Features include ${
           device.ram?.sizes?.[0]
         } ${device.ram?.unit} RAM, ${device.storage} storage, and ${device.battery.capacity}${device.battery.unit} battery.`,
-      "offers": device.vendorLinks.map((link) => ({
+      "offers": device.vendorLinks.length > 0 ? 
+      device.vendorLinks.map((link) => ({
         "@type": "Offer",
         "url": link.url,
         "price": device.pricing?.average ?? "0",
@@ -171,7 +172,13 @@ export default function DeviceDetail(props: PageProps) {
           "price": device.pricing?.average ?? "0",
           "priceCurrency": device.pricing?.currency ?? "USD",
         },
-      })),
+      })) : {
+        "@type": "AggregateOffer",
+        "offerCount": device.vendorLinks.length,
+        "lowPrice": device.pricing.range?.min ?? 0,
+        "highPrice": device.pricing.range?.max ?? 0,
+        "priceCurrency": device.pricing?.currency ?? "USD",
+      },
       "manufacturer": {
         "@type": "Organization",
         "name": device.brand.raw,
