@@ -791,6 +791,13 @@ h6,
   }
 }
 
+.home-section-content {
+  border: 1px solid var(--pico-primary);
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
 .home-section-title {
   display: flex;
   align-items: center;

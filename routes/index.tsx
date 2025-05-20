@@ -174,7 +174,7 @@ export default async function Home(
 
           {/* Upcoming Section */}
           <section class="home-section">
-            <article>
+            <article class="home-section-content">
               <h2 class="home-section-title">
                 <PiCalendarHeart /> Upcoming
               </h2>
@@ -200,7 +200,7 @@ export default async function Home(
           </section>
           {/* personal Picks Section */}
           <section class="home-section">
-            <article>
+            <article class="home-section-content">
               <h2 class="home-section-title">
                 <PiUserCheck /> Personal Picks
               </h2>
@@ -227,7 +227,7 @@ export default async function Home(
 
           {/* Highly Rated Section */}
           <section class="home-section">
-            <article>
+            <article class="home-section-content">
               <h2 class="home-section-title">
                 <PiRanking />
                 <div
