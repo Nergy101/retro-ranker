@@ -7,4 +7,6 @@ export interface DeviceCollection {
   updated: Date;
   devices: Device[];
   description: string;
+  type: "Normal" | "Ranked";
+  order: Array<Record<string, number>>;
 }

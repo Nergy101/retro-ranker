@@ -46,6 +46,8 @@ export default async function ProfilePage(
         id: d.id,
         owner: d.expand?.owner.nickname,
         name: d.name,
+        type: d.type,
+        order: d.order,
         created: d.created,
         updated: d.updated,
         devices: (d.expand?.devices ?? []).map((de: RecordModel) => {

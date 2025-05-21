@@ -44,6 +44,14 @@ export default async function CollectionView(_: Request, ctx: FreshContext) {
     return `${collection.owner}'s`;
   };
 
+  if (collection.type === "Ranked") {
+    collection.devices = collection.devices.sort((a, b) => {
+      const aOrder = collection.order?.find((o) => o[a.id])?.[a.id];
+      const bOrder = collection.order?.find((o) => o[b.id])?.[b.id];
+      return (aOrder ?? 0) - (bOrder ?? 0);
+    });
+  }
+
   return (
     <div>
       <SEO
@@ -54,7 +62,12 @@ export default async function CollectionView(_: Request, ctx: FreshContext) {
         image={collection.devices[0].image?.pngUrl ?? undefined}
         robots="index, follow"
       />
-      <article style={{ border: "1px solid var(--pico-primary)" }}>
+      <article
+        style={{
+          border: "1px solid var(--pico-primary)",
+          paddingBottom: "3rem",
+        }}
+      >
         <header style={{ textAlign: "center" }}>
           <hgroup>
             <h1>
@@ -80,6 +93,14 @@ export default async function CollectionView(_: Request, ctx: FreshContext) {
           {collection.devices.map((device: Device) => (
             <a href={`/devices/${device.id}`}>
               <DeviceCardMedium device={device} key={device.id} />
+
+              {collection.type === "Ranked" && (
+                <p style={{ fontSize: "0.8rem", textAlign: "center" }}>
+                  # {collection.order?.find((o) =>
+                    o[device.id]
+                  )?.[device.id]}
+                </p>
+              )}
             </a>
           ))}
         </div>

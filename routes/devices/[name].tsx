@@ -23,6 +23,8 @@ import { createSuperUserPocketBaseService } from "../../data/pocketbase/pocketba
 import { CommentContract } from "../../data/frontend/contracts/comment.contract.ts";
 import AddDeviceCommentForm from "../../islands/forms/AddDeviceCommentForm.tsx";
 import { DeviceCommentCard } from "../../components/cards/DeviceCommentCard.tsx";
+import AddDeviceReviewForm from "../../islands/forms/AddDeviceReviewForm.tsx";
+import { DeviceReviewCard } from "../../components/cards/DeviceReviewCard.tsx";
 
 export const handler: Handlers = {
   async GET(_: Request, ctx: FreshContext) {
@@ -82,6 +84,17 @@ export const handler: Handlers = {
       },
     )).items;
 
+    const reviews = (await pb.getList(
+      "device_reviews",
+      1,
+      100,
+      {
+        filter: `device="${deviceId}"`,
+        sort: "-created",
+        expand: "user",
+      },
+    )).items;
+
     const deviceService = await DeviceService.getInstance();
     const device = await deviceService.getDeviceByName(deviceId);
     const similarDevices = (await deviceService.getSimilarDevices(
@@ -96,6 +109,7 @@ export const handler: Handlers = {
       device,
       similarDevices,
       comments,
+      reviews,
     });
   },
 };
@@ -108,6 +122,7 @@ export default function DeviceDetail(props: PageProps) {
   const device = props.data.device as Device | null;
   const similarDevices = props.data.similarDevices as Device[];
   const comments = props.data.comments as CommentContract[];
+  const reviews = props.data.reviews || [];
 
   const getReleaseDate = (
     deviceReleased: { raw: string | null; mentionedDate: Date | null },
@@ -162,23 +177,24 @@ export default function DeviceDetail(props: PageProps) {
         `${device.name.raw} is a ${device.brand.raw} retro gaming handheld device. This ${device.pricing.category} budget emulation device costs on average ${device.pricing.average} ${device.pricing.currency}. Features include ${
           device.ram?.sizes?.[0]
         } ${device.ram?.unit} RAM, ${device.storage} storage, and ${device.battery.capacity}${device.battery.unit} battery.`,
-      "offers": device.vendorLinks.length > 0 ? 
-      device.vendorLinks.map((link) => ({
-        "@type": "Offer",
-        "url": link.url,
-        "price": device.pricing?.average ?? "0",
-        "priceCurrency": device.pricing?.currency ?? "USD",
-        "priceSpecification": {
+      "offers": device.vendorLinks.length > 0
+        ? device.vendorLinks.map((link) => ({
+          "@type": "Offer",
+          "url": link.url,
           "price": device.pricing?.average ?? "0",
           "priceCurrency": device.pricing?.currency ?? "USD",
+          "priceSpecification": {
+            "price": device.pricing?.average ?? "0",
+            "priceCurrency": device.pricing?.currency ?? "USD",
+          },
+        }))
+        : {
+          "@type": "AggregateOffer",
+          "offerCount": device.vendorLinks.length,
+          "lowPrice": device.pricing.range?.min ?? 0,
+          "highPrice": device.pricing.range?.max ?? 0,
+          "priceCurrency": device.pricing?.currency ?? "USD",
         },
-      })) : {
-        "@type": "AggregateOffer",
-        "offerCount": device.vendorLinks.length,
-        "lowPrice": device.pricing.range?.min ?? 0,
-        "highPrice": device.pricing.range?.max ?? 0,
-        "priceCurrency": device.pricing?.currency ?? "USD",
-      },
       "manufacturer": {
         "@type": "Organization",
         "name": device.brand.raw,
@@ -477,33 +493,126 @@ export default function DeviceDetail(props: PageProps) {
         />
       </div>
 
-      <div class="device-detail-comments container">
-        <h2 style={{ textAlign: "center" }}>Comments by users</h2>
-        {user == null && (
-          <p style={{ textAlign: "center" }}>
-            <a href="/auth/sign-in">Sign in</a> to add your thoughts!
-          </p>
-        )}
-
-        {user && <AddDeviceCommentForm device={device} user={user} />}
-
-        {comments?.length > 0
-          ? (
-            <>
-              {comments.map((comment) => (
-                <DeviceCommentCard
-                  comment={comment}
-                />
-              ))}
-            </>
-          )
-          : (
-            <>
+      {/* Device Reviews Section */}
+      <div class="device-detail-reviews">
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <div class="divider" style={{ padding: "0.5rem 0" }}></div>
+          <details>
+            <summary>
+              <strong style={{ color: "var(--pico-primary)" }}>
+                User Reviews
+              </strong>
+            </summary>
+            <h2 style={{ textAlign: "center" }}>User Reviews</h2>
+            <p
+              style={{
+                textAlign: "center",
+                color: "var(--pico-muted-color)",
+                fontSize: "0.95em",
+              }}
+            >
+              Share your experience with this device! Reviews help others decide
+              if it's right for them. Please be honest, constructive, and
+              respectful. All reviews are subject to moderation.
+            </p>
+            <div style={{ textAlign: "center", marginBottom: "0.5em" }}>
+              <strong>{reviews.length}</strong>{" "}
+              review{reviews.length === 1 ? "" : "s"} submitted
+              {device.totalRating && (
+                <span style={{ marginLeft: "1em" }}>
+                  Average rating:{" "}
+                  <strong>{device.totalRating.toFixed(1)}</strong>/5
+                </span>
+              )}
+            </div>
+            {user == null && (
               <p style={{ textAlign: "center" }}>
-                No comments yet. Be the first to add your thoughts!
+                <a href="/auth/sign-in">Sign in</a> to add your review!
               </p>
-            </>
-          )}
+            )}
+            {user && <AddDeviceReviewForm device={device} user={user} />}
+            {reviews?.length > 0
+              ? (
+                <>
+                  {reviews.map((review: any) => (
+                    <DeviceReviewCard review={review} />
+                  ))}
+                </>
+              )
+              : (
+                <>
+                  <p style={{ textAlign: "center" }}>
+                    No reviews yet. Be the first to add your review!
+                  </p>
+                </>
+              )}
+          </details>
+        </div>
+      </div>
+
+      {/* Comments Section */}
+      <div class="device-detail-comments">
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <div class="divider" style={{ padding: "0.5rem 0" }}></div>
+          <details>
+            <summary>
+              <strong style={{ color: "var(--pico-primary)" }}>
+                Comments by users
+              </strong>
+            </summary>
+            <h2 style={{ textAlign: "center" }}>Comments by users</h2>
+            <p
+              style={{
+                textAlign: "center",
+                color: "var(--pico-muted-color)",
+                fontSize: "0.95em",
+              }}
+            >
+              Ask questions, share tips, or discuss your experience with this
+              device. Please keep comments relevant and respectful. Comments are
+              moderated for quality and safety.
+            </p>
+            <div style={{ textAlign: "center", marginBottom: "0.5em" }}>
+              <strong>{comments.length}</strong>{" "}
+              comment{comments.length === 1 ? "" : "s"} so far
+            </div>
+            {user == null && (
+              <p style={{ textAlign: "center" }}>
+                <a href="/auth/sign-in">Sign in</a> to add your thoughts!
+              </p>
+            )}
+
+            {user && <AddDeviceCommentForm device={device} user={user} />}
+
+            {comments?.length > 0
+              ? (
+                <>
+                  {comments.map((comment) => (
+                    <DeviceCommentCard
+                      comment={comment}
+                    />
+                  ))}
+                </>
+              )
+              : (
+                <>
+                  <p style={{ textAlign: "center" }}>
+                    No comments yet. Be the first to add your thoughts!
+                  </p>
+                </>
+              )}
+          </details>
+        </div>
       </div>
 
       <div class="device-detail-links">
@@ -539,7 +648,7 @@ export default function DeviceDetail(props: PageProps) {
           }}
         >
           <div class="divider" style={{ padding: "0.5rem 0" }}></div>
-          <details open>
+          <details>
             <summary>
               <strong style={{ color: "var(--pico-primary)" }}>
                 Specifications Summary
@@ -554,7 +663,7 @@ export default function DeviceDetail(props: PageProps) {
 
           <div class="divider" style={{ padding: "0.5rem 0" }}></div>
 
-          <details open>
+          <details>
             <summary>
               <strong style={{ color: "var(--pico-primary)" }}>
                 Full Specifications

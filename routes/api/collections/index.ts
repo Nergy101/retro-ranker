@@ -13,6 +13,16 @@ export const handler: Handlers = {
     const form = await request.formData();
     const name = form.get("name")?.toString();
     const description = form.get("description")?.toString();
+    const type = form.get("type")?.toString();
+    const orderRaw = form.get("order")?.toString();
+    let order: Array<Record<string, number>> | undefined = undefined;
+    if (orderRaw) {
+      try {
+        order = JSON.parse(orderRaw);
+      } catch (e) {
+        return new Response("Invalid order format", { status: 400 });
+      }
+    }
     const deviceIds: string[] = form.get("deviceIds")?.toString().split(",") ??
       [];
 
@@ -37,6 +47,8 @@ export const handler: Handlers = {
       description,
       owner: user.id,
       devices: devices.items.map((device) => device.id),
+      type,
+      order,
     });
 
     return new Response(JSON.stringify(collection), {

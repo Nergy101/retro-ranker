@@ -315,6 +315,7 @@ body.paused-animation::before {
     "header performance"
     "radar similar"
     "links links"
+    "reviews reviews"
     "comments comments"
     "specs specs";
   grid-template-columns: 1fr 3fr;
@@ -337,6 +338,7 @@ body.paused-animation::before {
       "header"
       "performance"
       "links"
+      "reviews"
       "comments"
       "similar"
       "radar"
@@ -347,6 +349,12 @@ body.paused-animation::before {
 
 .device-detail-comments {
   grid-area: comments;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.device-detail-reviews {
+  grid-area: reviews;
   max-width: 100%;
   overflow: hidden;
 }
@@ -2188,7 +2196,7 @@ textarea:focus {
 .collection-devices-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .collection-container {
@@ -2305,4 +2313,9 @@ textarea:focus {
   --rating-F-color: #ef9a9a;
   --rating-default-bg: var(--pico-card-background-color);
   --rating-default-color: var(--pico-text);
+}
+
+.collection-device-card {
+  transition: transform 1s cubic-bezier(0.4, 0.2, 0.2, 1), box-shadow 0.2s;
+  will-change: transform;
 }

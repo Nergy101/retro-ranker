@@ -54,8 +54,8 @@
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.8.0",
     "$std/": "https://deno.land/std@0.216.0/",
     "@cap.js/server": "npm:@cap.js/server",
-    "@cap.js/solver": "npm:@cap.js/solver",
-    "@cap.js/widget": "npm:@cap.js/widget"
+    "@cap.js/widget": "npm:@cap.js/widget",
+    "pocketbase": "npm:pocketbase"
   },
   "compilerOptions": {
     "jsx": "react-jsx",
