@@ -25,8 +25,8 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
   const initialMax = new Date().getFullYear();
 
   // Signals to store the current filter values for minimum and maximum year
-  const selectedMinYear = useSignal(2017);
-  const selectedMaxYear = useSignal(initialMax - 1);
+  const selectedMinYear = useSignal(2020);
+  const selectedMaxYear = useSignal(initialMax);
   const showTotalDevices = useSignal(false);
   const minimalOf12DevicesProduced = useSignal(true);
 
