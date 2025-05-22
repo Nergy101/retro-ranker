@@ -135,17 +135,19 @@ export function DeviceSearchForm(
             ))}
           </div>
         )}
-        <div class="tags">
-          {defaultTags.map((tag) => {
-            return (
-              <FilterTag
-                tag={tag}
-                type="add"
-                href={getTagsHref(tag, "add")}
-              />
-            );
-          })}
-        </div>
+        {defaultTags.length > 0 && (
+          <div class="tags">
+            {defaultTags.map((tag) => {
+              return (
+                <FilterTag
+                  tag={tag}
+                  type="add"
+                  href={getTagsHref(tag, "add")}
+                />
+              );
+            })}
+          </div>
+        )}
       </>
     );
   };
@@ -156,6 +158,7 @@ export function DeviceSearchForm(
         style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
       >
         <form
+          style={{ padding: "0" }}
           method="get"
           class="device-search-form-mobile"
           f-client-nav={false}
@@ -206,6 +209,7 @@ export function DeviceSearchForm(
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
       <form
+        style={{ padding: "0" }}
         role="search"
         method="get"
         class="device-search-form"

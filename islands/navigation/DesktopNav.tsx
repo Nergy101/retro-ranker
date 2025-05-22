@@ -100,8 +100,17 @@ export function DesktopNav(
           ))}
           <li class="nav-search-item">
             <input
+              style={{
+                width: "3em",
+                transition: "width 0.3s ease-in-out",
+              }}
+              onFocus={(e) => {
+                e.currentTarget.style.width = "12em";
+              }}
+              onBlur={(e) => {
+                e.currentTarget.style.width = "3em";
+              }}
               type="search"
-              placeholder="Start typing for suggestions..."
               name="search"
               aria-label="Search"
               onInput={(e) => queryChanged(e.currentTarget.value)}
@@ -128,10 +137,15 @@ export function DesktopNav(
                     gap: "0.5rem",
                   }}
                 >
-                  <ProfileImage name={user.nickname} />
-                  <span style={{ fontSize: "0.5rem", textWrap: "nowrap" }}>
-                    {user.nickname}
-                  </span>
+                  <div
+                    data-tooltip={user.nickname}
+                    data-placement="left"
+                    style={{
+                      border: "none",
+                    }}
+                  >
+                    <ProfileImage name={user.nickname} />
+                  </div>
                 </a>
               </li>
             )

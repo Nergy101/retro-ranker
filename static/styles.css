@@ -360,7 +360,6 @@ body.paused-animation::before {
   border-radius: 8px;
 }
 
-
 .device-detail-reviews {
   max-width: 100cqw;
   grid-area: reviews;
@@ -455,7 +454,6 @@ body.paused-animation::before {
   border-radius: 8px;
 }
 
-
 .device-detail-comments summary {
   cursor: pointer;
   padding: 0.75rem;
@@ -466,7 +464,6 @@ body.paused-animation::before {
 .device-detail-comments summary:hover {
   background-color: var(--pico-primary-focus);
 }
-
 
 .device-detail-reviews summary {
   cursor: pointer;
@@ -1382,6 +1379,7 @@ h6,
   flex-direction: row;
   align-items: center;
   height: 100%;
+  padding: 0.5rem 0.75rem;
 
   .nav-item-label {
     display: flex;
@@ -1427,12 +1425,6 @@ h6,
 
 .nav-search-item {
   margin-left: auto;
-  margin-right: auto;
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  flex: 1;
 }
 
 .nav-theme-item {
@@ -1637,8 +1629,6 @@ h6,
 
 .devices-page {
   background-color: var(--pico-background-color);
-  padding: 1rem;
-  margin-bottom: 1rem;
 }
 
 .about {
