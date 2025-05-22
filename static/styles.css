@@ -348,15 +348,30 @@ body.paused-animation::before {
 }
 
 .device-detail-comments {
+  max-width: 100cqw;
   grid-area: comments;
-  max-width: 100%;
-  overflow: hidden;
+
+  summary,
+  section {
+    margin: 1rem;
+  }
+
+  transition: all 0.3s ease;
+  border-radius: 8px;
 }
 
+
 .device-detail-reviews {
+  max-width: 100cqw;
   grid-area: reviews;
-  max-width: 100%;
-  overflow: hidden;
+
+  summary,
+  section {
+    margin: 1rem;
+  }
+
+  transition: all 0.3s ease;
+  border-radius: 8px;
 }
 
 .device-detail-performance {
@@ -438,6 +453,30 @@ body.paused-animation::before {
 
   transition: all 0.3s ease;
   border-radius: 8px;
+}
+
+
+.device-detail-comments summary {
+  cursor: pointer;
+  padding: 0.75rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.device-detail-comments summary:hover {
+  background-color: var(--pico-primary-focus);
+}
+
+
+.device-detail-reviews summary {
+  cursor: pointer;
+  padding: 0.75rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.device-detail-reviews summary:hover {
+  background-color: var(--pico-primary-focus);
 }
 
 .device-detail-specs summary {

@@ -2,7 +2,9 @@ import { ProfileImage } from "../auth/profile-image.tsx";
 
 interface DeviceReviewCardProps {
   review: {
-    user: { id: string; nickname: string };
+    expand: {
+      user: { id: string; nickname: string };
+    };
     content: string;
     performance_rating: number;
     monitor_rating: number;
@@ -26,6 +28,12 @@ const RATING_FIELDS = [
 ];
 
 export function DeviceReviewCard({ review }: DeviceReviewCardProps) {
+  // Calculate average score
+  const ratingValues = RATING_FIELDS.map((field) =>
+    review[field.name as keyof typeof review] as number
+  );
+  const average = ratingValues.reduce((a, b) => a + b, 0) / ratingValues.length;
+
   return (
     <div
       style={{
@@ -37,11 +45,32 @@ export function DeviceReviewCard({ review }: DeviceReviewCardProps) {
         display: "flex",
         flexDirection: "column",
         gap: "0.75rem",
+        position: "relative",
       }}
     >
+      {/* Average Score in Top Right */}
+      <div
+        style={{
+          position: "absolute",
+          top: "1rem",
+          right: "1rem",
+          backgroundColor: "var(--pico-primary-background)",
+          color: "#fff",
+          borderRadius: "1em",
+          padding: "0.25em 0.75em",
+          fontWeight: "bold",
+          fontSize: "1.1em",
+          boxShadow: "0 1px 4px rgba(0,0,0,0.08)",
+        }}
+        title="Average score"
+      >
+        {average.toFixed(1)} / 10
+      </div>
       <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-        <ProfileImage name={review.user.nickname} size={32} />
-        <span style={{ fontWeight: "bold" }}>{review.user.nickname}</span>
+        <ProfileImage name={review.expand.user.nickname} size={32} />
+        <span style={{ fontWeight: "bold" }}>
+          {review.expand.user.nickname}
+        </span>
         {review.created && (
           <span style={{ fontSize: "0.9em", marginLeft: "0.5em" }}>
             {new Date(review.created).toLocaleString()}
@@ -50,20 +79,34 @@ export function DeviceReviewCard({ review }: DeviceReviewCardProps) {
       </div>
       <div
         style={{
-          borderRadius: "0.25rem",
           padding: "0.5rem",
           color: "var(--pico-color)",
+          border: "1px solid var(--pico-muted-color)",
+          borderRadius: "var(--pico-border-radius)",
+          margin: "0.5rem 0",
+          backgroundColor: "var(--pico-background)",
         }}
       >
         {review.content}
       </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: "0.5em" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "0.5em",
+          padding: "0.5rem",
+          border: "1px solid var(--pico-muted-color)",
+          borderRadius: "var(--pico-border-radius)",
+          margin: "0.5rem 0",
+          backgroundColor: "var(--pico-background)",
+        }}
+      >
         {RATING_FIELDS.map((field) => (
           <div
             key={field.name}
             style={{ display: "flex", alignItems: "center", gap: "1em" }}
           >
-            <label style={{ minWidth: "120px" }}>{field.label}:</label>
+            <label style={{ minWidth: "120px" }}>{field.label}</label>
             <input
               type="range"
               min="0"
@@ -72,7 +115,9 @@ export function DeviceReviewCard({ review }: DeviceReviewCardProps) {
               value={review[field.name as keyof typeof review] as number}
               readOnly
               disabled
-              style={{ flex: 1 }}
+              style={{
+                flex: 1,
+              }}
             />
             <span style={{ width: "2em", textAlign: "center" }}>
               {review[field.name as keyof typeof review]}
@@ -84,4 +129,4 @@ export function DeviceReviewCard({ review }: DeviceReviewCardProps) {
   );
 }
 
-export default DeviceReviewCard; 
+export default DeviceReviewCard;

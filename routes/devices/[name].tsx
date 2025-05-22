@@ -1,5 +1,11 @@
 import { FreshContext, Handlers, PageProps } from "$fresh/server.ts";
-import { PiCalendarCheck, PiCalendarSlash, PiQuestion } from "@preact-icons/pi";
+import {
+  PiCalendarCheck,
+  PiCalendarSlash,
+  PiChatCircleText,
+  PiQuestion,
+  PiStar,
+} from "@preact-icons/pi";
 import { JSX, VNode } from "preact";
 import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
 import { DeviceLinks } from "../../components/DeviceLinks.tsx";
@@ -502,55 +508,75 @@ export default function DeviceDetail(props: PageProps) {
           }}
         >
           <div class="divider" style={{ padding: "0.5rem 0" }}></div>
-          <details>
-            <summary>
+          <details open>
+            <summary
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                justifyContent: "space-between",
+              }}
+            >
               <strong style={{ color: "var(--pico-primary)" }}>
                 User Reviews
               </strong>
+              <span
+                style={{
+                  color: "var(--pico-muted-color)",
+                  fontSize: "0.8rem",
+                  fontStyle: "italic",
+                }}
+              >
+                Share your experience and help others decide if this device is
+                right for them.
+              </span>
             </summary>
-            <h2 style={{ textAlign: "center" }}>User Reviews</h2>
-            <p
-              style={{
-                textAlign: "center",
-                color: "var(--pico-muted-color)",
-                fontSize: "0.95em",
-              }}
-            >
-              Share your experience with this device! Reviews help others decide
-              if it's right for them. Please be honest, constructive, and
-              respectful. All reviews are subject to moderation.
-            </p>
-            <div style={{ textAlign: "center", marginBottom: "0.5em" }}>
-              <strong>{reviews.length}</strong>{" "}
-              review{reviews.length === 1 ? "" : "s"} submitted
-              {device.totalRating && (
-                <span style={{ marginLeft: "1em" }}>
-                  Average rating:{" "}
-                  <strong>{device.totalRating.toFixed(1)}</strong>/5
+            <section>
+              <div style={{ textAlign: "center", marginBottom: "0.5em" }}>
+                <span
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "0.5em",
+                  }}
+                >
                 </span>
+                {reviews.length === 0 &&
+                  (
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: "0.5em",
+                      }}
+                    >
+                      <PiStar
+                        size={20}
+                        style={{ color: "var(--pico-primary)" }}
+                      />
+                      <strong>No reviews yet.</strong>
+                      <span style={{ marginLeft: "0.5em" }}>
+                        Be the first to add yours.
+                      </span>
+                    </div>
+                  )}
+              </div>
+              {user == null && (
+                <p style={{ textAlign: "center" }}>
+                  <a href="/auth/sign-in">Sign in</a> to add yours.
+                </p>
               )}
-            </div>
-            {user == null && (
-              <p style={{ textAlign: "center" }}>
-                <a href="/auth/sign-in">Sign in</a> to add your review!
-              </p>
-            )}
-            {user && <AddDeviceReviewForm device={device} user={user} />}
-            {reviews?.length > 0
-              ? (
+              {user && <AddDeviceReviewForm device={device} user={user} />}
+              {reviews?.length > 0 && (
                 <>
                   {reviews.map((review: any) => (
-                    <DeviceReviewCard review={review} />
+                    <DeviceReviewCard review={review}  />
                   ))}
                 </>
-              )
-              : (
-                <>
-                  <p style={{ textAlign: "center" }}>
-                    No reviews yet. Be the first to add your review!
-                  </p>
-                </>
               )}
+            </section>
           </details>
         </div>
       </div>
@@ -564,53 +590,88 @@ export default function DeviceDetail(props: PageProps) {
           }}
         >
           <div class="divider" style={{ padding: "0.5rem 0" }}></div>
-          <details>
-            <summary>
+          <details open>
+            <summary
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                justifyContent: "space-between",
+              }}
+            >
               <strong style={{ color: "var(--pico-primary)" }}>
                 Comments by users
               </strong>
+              <span
+                style={{
+                  color: "var(--pico-muted-color)",
+                  fontSize: "0.8rem",
+                  fontStyle: "italic",
+                }}
+              >
+                Ask questions, share tips, or discuss your experience with this
+                device.
+              </span>
             </summary>
-            <h2 style={{ textAlign: "center" }}>Comments by users</h2>
-            <p
-              style={{
-                textAlign: "center",
-                color: "var(--pico-muted-color)",
-                fontSize: "0.95em",
-              }}
-            >
-              Ask questions, share tips, or discuss your experience with this
-              device. Please keep comments relevant and respectful. Comments are
-              moderated for quality and safety.
-            </p>
-            <div style={{ textAlign: "center", marginBottom: "0.5em" }}>
-              <strong>{comments.length}</strong>{" "}
-              comment{comments.length === 1 ? "" : "s"} so far
-            </div>
-            {user == null && (
-              <p style={{ textAlign: "center" }}>
-                <a href="/auth/sign-in">Sign in</a> to add your thoughts!
-              </p>
-            )}
-
-            {user && <AddDeviceCommentForm device={device} user={user} />}
-
-            {comments?.length > 0
-              ? (
-                <>
-                  {comments.map((comment) => (
-                    <DeviceCommentCard
-                      comment={comment}
-                    />
-                  ))}
-                </>
-              )
-              : (
-                <>
-                  <p style={{ textAlign: "center" }}>
-                    No comments yet. Be the first to add your thoughts!
-                  </p>
-                </>
+            <section>
+              <div style={{ textAlign: "center", marginBottom: "0.5em" }}>
+                <span
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "0.5em",
+                  }}
+                >
+                  <PiChatCircleText
+                    size={20}
+                    style={{ color: "var(--pico-primary)" }}
+                  />
+                  {comments.length === 0
+                    ? (
+                      <>
+                        <strong>No comments yet.</strong>
+                        <span style={{ marginLeft: "0.5em" }}>
+                          Be the first to share your thoughts!
+                        </span>
+                      </>
+                    )
+                    : (
+                      <>
+                        <strong>{comments.length}</strong>{" "}
+                        comment{comments.length !== 1 && "s"} so far.
+                      </>
+                    )}
+                </span>
+              </div>
+              {user == null && (
+                <p style={{ textAlign: "center" }}>
+                  <a href="/auth/sign-in">Sign in</a> to add yours.
+                </p>
               )}
+
+              {user && <AddDeviceCommentForm device={device} user={user} />}
+
+              {comments?.length > 0
+                ? (
+                  <>
+                    {comments.map((comment) => (
+                      <DeviceCommentCard
+                        comment={comment}
+                      />
+                    ))}
+                  </>
+                )
+                : (
+                  <>
+                    {
+                      /* <p style={{ textAlign: "center" }}>
+                      No comments yet. Be the first to add your thoughts!
+                    </p> */
+                    }
+                  </>
+                )}
+            </section>
           </details>
         </div>
       </div>
@@ -649,10 +710,26 @@ export default function DeviceDetail(props: PageProps) {
         >
           <div class="divider" style={{ padding: "0.5rem 0" }}></div>
           <details>
-            <summary>
+            <summary
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                justifyContent: "space-between",
+              }}
+            >
               <strong style={{ color: "var(--pico-primary)" }}>
                 Specifications Summary
               </strong>
+              <span
+                style={{
+                  color: "var(--pico-muted-color)",
+                  fontSize: "0.8rem",
+                  fontStyle: "italic",
+                }}
+              >
+                Just the most important stuff.
+              </span>
             </summary>
             <section>
               <div class="overflow-auto">
@@ -664,10 +741,26 @@ export default function DeviceDetail(props: PageProps) {
           <div class="divider" style={{ padding: "0.5rem 0" }}></div>
 
           <details>
-            <summary>
+            <summary
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                justifyContent: "space-between",
+              }}
+            >
               <strong style={{ color: "var(--pico-primary)" }}>
                 Full Specifications
               </strong>
+              <span
+                style={{
+                  color: "var(--pico-muted-color)",
+                  fontSize: "0.8rem",
+                  fontStyle: "italic",
+                }}
+              >
+                All the stuff.
+              </span>
             </summary>
             <DeviceSpecs device={device} />
           </details>
