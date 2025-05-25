@@ -105,7 +105,7 @@ export function MobileNav(
           <a href="/">
             <img
               loading="lazy"
-              src="/rr-logo-v3.svg"
+              src="/logos/retro-ranker/rr-logo.svg"
               alt="logo"
               width="100"
               style={{
@@ -211,7 +211,7 @@ export function MobileNav(
                       width: "50%",
                     }}
                   >
-                    <PiSignIn /> Sign in
+                    <PiSignIn /> {getSignInText()}
                   </a>
                 </li>
               )}

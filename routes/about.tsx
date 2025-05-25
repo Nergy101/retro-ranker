@@ -75,7 +75,7 @@ export default function About({ url }: PageProps) {
           >
             <a href="https://retro-handhelds.com" target="_blank">
               <img
-                src="/images/rh-logo-text.png"
+                src="/logos/retro-handhelds/rh-logo-text.png"
                 alt="Retro Handhelds Community Logo"
                 width="200"
                 height="200"

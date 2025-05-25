@@ -31,8 +31,26 @@ export default function SignIn(
     return () => clearInterval(interval);
   }, []);
 
+  const getSignInText = () => {
+    const texts = [
+      "Press Start",
+      "Insert Cartridge",
+      "Boot Up",
+      "Load Save",
+      "Continue Game",
+      "Join the Party",
+      "Enter the Dungeon",
+      "Link Up",
+      "Power On",
+      "Select Player",
+      "Unlock Console",
+      "UpUpDownDownLeftRightLeftRightBA",
+    ];
+    return texts[Math.floor(Math.random() * texts.length)];
+  };
+
   return (
-    <div class="auth-form">
+    <article class="auth-form">
       <h1
         style={{
           display: "flex",
@@ -68,32 +86,24 @@ export default function SignIn(
             </article>
           )
           : (
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+            <div class="auth-signin-btn-row">
               <a
                 href="/api/auth/discord"
                 role="button"
-                class="outline"
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: "0.5rem",
-                }}
+                class="auth-signin-btn auth-signin-btn--discord"
+                aria-label="Sign in with Discord"
+                data-tooltip="Sign in with Discord"
               >
-                <PiDiscordLogo /> Sign in with Discord
+                <PiDiscordLogo size={32} />
               </a>
               <a
                 href="/api/auth/google"
                 role="button"
-                class="outline"
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: "0.5rem",
-                }}
+                class="auth-signin-btn auth-signin-btn--google"
+                aria-label="Sign in with Google"
+                data-tooltip="Sign in with Google"
               >
-                <PiGoogleLogo /> Sign in with Google
+                <PiGoogleLogo size={32} />
               </a>
             </div>
           )}
@@ -143,10 +153,17 @@ export default function SignIn(
             alignItems: "center",
             justifyContent: "center",
             gap: "0.5rem",
+            border: "none",
           }}
           disabled={pleaseWait}
+          data-tooltip="Sign in"
         >
-          <PiSignIn /> Sign in
+          <PiSignIn />{" "}
+          <span
+            style={{ color: "var(--pico-color)" }}
+          >
+            {getSignInText()}
+          </span>
         </button>
       </form>
       {error && (
@@ -164,6 +181,6 @@ export default function SignIn(
           Don't have an account? <br /> Sign up now!
         </a>
       </div>
-    </div>
+    </article>
   );
 }

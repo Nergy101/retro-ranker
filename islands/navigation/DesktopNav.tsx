@@ -80,7 +80,7 @@ export function DesktopNav(
               <span class="nav-item-label">
                 <img
                   loading="lazy"
-                  src="/rr-logo-v3.svg"
+                  src="/logos/retro-ranker/rr-logo.svg"
                   alt="logo"
                   width="100"
                   style={{

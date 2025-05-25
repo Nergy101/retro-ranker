@@ -10,6 +10,7 @@ export function Hero() {
           marginBottom: "0.5rem",
           letterSpacing: "-1px",
           textAlign: "center",
+          color: "#F0F1F3"
         }}
       >
         Welcome to{" "}
@@ -35,7 +36,7 @@ export function Hero() {
         Join the 👾🎮⭐ Community
       </a>
       <img
-        src="/rr-welcome.png"
+        src="/images/rr-star.png"
         alt="Retro Ranker"
         class="hero-image"
         

@@ -12,9 +12,26 @@ export default function SignInPage(pageProps: PageProps) {
         title="Sign In"
         description="Sign in to your Retro Ranker account"
       />
-      <article>
+      <div class="sign-in-article">
+        <div style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}>
+          <img
+            src="/images/rr-star.png"
+            alt="Retro Ranker"
+            class="hero-image sign-in sign-in-image-mobile"
+          />
+        </div>
         <SignIn error={error} pleaseWait={!!loggedIn} />
-      </article>
+
+        <img
+          src="/images/rr-star.png"
+          alt="Retro Ranker"
+          class="hero-image sign-in"
+        />
+      </div>
     </>
   );
 }

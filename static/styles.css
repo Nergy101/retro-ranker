@@ -193,17 +193,21 @@ body.paused-animation::before {
   max-width: 35%;
   max-height: 90%;
   height: auto;
-  opacity: 0.5;
   pointer-events: none;
   object-fit: contain;
-}
 
-@media (max-width: 768px) {
-  .hero-image {
+  @media (max-width: 768px) {
     max-width: 60%;
     max-height: 40%;
     bottom: -20px;
     right: 0px;
+  }
+
+  &.sign-in {
+    max-width: 50%;
+    max-height: 50%;
+    bottom: 0;
+    right: 0;
   }
 }
 
@@ -2149,10 +2153,10 @@ textarea:focus {
   flex-direction: column;
   gap: 1rem;
   max-width: 25rem;
-  margin: 2.5rem auto;
+  margin: 1rem auto;
   padding: 1.5rem 2rem;
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 10px 5px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
   background-color: var(--pico-background-color);
   animation: fadeIn 0.5s ease;
@@ -2238,9 +2242,10 @@ textarea:focus {
 }
 
 .auth-form-footer a:hover {
-  background-color: var(--pico-primary-focus);
-  color: var(--pico-primary);
+  background-color: var(--pico-primary-background);
   transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.8);
+  color: var(--pico-muted-border-color);
 }
 
 .site-introduction {
@@ -2440,4 +2445,116 @@ textarea:focus {
 .collection-device-card {
   transition: transform 1s cubic-bezier(0.4, 0.2, 0.2, 1), box-shadow 0.2s;
   will-change: transform;
+}
+
+/* Sign-in button gradients and animation */
+.auth-signin-btn-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.auth-signin-btn--discord {
+  background: #5865f2 !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 8px;
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 8px 36px #5865f2;
+}
+.auth-signin-btn--discord:hover,
+.auth-signin-btn--discord:focus {
+  background: #4752c4;
+  color: #fff;
+  box-shadow: 0 4px 16px 0 #5865f2;
+  transform: translateY(-2px) scale(1.03);
+  text-decoration: none;
+  border: none;
+}
+
+.auth-signin-btn--google {
+  background: linear-gradient(
+    135deg,
+    #4285f4 0%,
+    #4285f4 25%,
+    #34a853 25%,
+    #34a853 50%,
+    #f4b400 50%,
+    #f4b400 75%,
+    #ea4335 75%,
+    #ea4335 100%
+  );
+  color: #fff !important;
+  border: none !important;
+  border-radius: 8px;
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.auth-signin-btn--google:hover,
+.auth-signin-btn--google:focus {
+  background: linear-gradient(
+    135deg,
+    #4285f4 0%,
+    #4285f4 25%,
+    #34a853 25%,
+    #34a853 50%,
+    #f4b400 50%,
+    #f4b400 75%,
+    #ea4335 75%,
+    #ea4335 100%
+  );
+
+  color: white;
+  box-shadow: 0 4px 16px #ea4335;
+  transform: translateY(-2px) scale(1.03);
+  text-decoration: none;
+  border: none;
+}
+
+.sign-in-article {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-image.sign-in {
+  opacity: 0.8;
+  max-width: 50%;
+  max-height: 50%;
+  bottom: 0;
+  right: 0;
+}
+
+@media (max-width: 768px) {
+  .hero-image.sign-in {
+    position: static !important;
+    display: block;
+    max-width: 10%;
+    max-height: 10%;
+    width: 100%;
+    height: auto;
+    bottom: unset;
+    right: unset;
+  }
+  .sign-in-article .hero-image.sign-in {
+    display: none;
+  }
+  .sign-in-image-mobile {
+    display: block !important;
+  }
+}
+
+.sign-in-image-mobile {
+  display: none;
 }

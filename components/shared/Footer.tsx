@@ -111,7 +111,7 @@ export default function Footer() {
               <img
                 loading="lazy"
                 alt="nergy logo"
-                src="/nergy-logo.png"
+                src="/logos/nergy/nergy-logo.png"
                 style={{
                   width: "32px",
                   height: "32px",
