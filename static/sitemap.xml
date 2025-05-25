@@ -41,10 +41,6 @@
         </url>
         
         <url>
-            <loc>https://retroranker.site/devices/zero-40</loc>
-        </url>
-        
-        <url>
             <loc>https://retroranker.site/devices/pocket-ace</loc>
         </url>
         
@@ -62,6 +58,10 @@
         
         <url>
             <loc>https://retroranker.site/devices/onexsugar-sugar-1</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/zero-40</loc>
         </url>
         
         <url>
@@ -1714,10 +1714,6 @@
         
         <url>
             <loc>https://retroranker.site/devices/r36xx</loc>
-        </url>
-        
-        <url>
-            <loc>https://retroranker.site/devices/rg34xxsp</loc>
         </url>
         
         <url>
