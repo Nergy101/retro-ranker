@@ -144,6 +144,8 @@ body.paused-animation::before {
   position: relative;
   transition: background 1s ease-in-out;
   overflow: hidden;
+  background-size: 200% 200%;
+  animation: gradientMove 5s ease-in-out infinite;
 }
 
 .hero-section::before {
@@ -2557,4 +2559,16 @@ textarea:focus {
 
 .sign-in-image-mobile {
   display: none;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
