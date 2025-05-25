@@ -41,10 +41,10 @@ export default function About({ url }: PageProps) {
             }}
           >
             <img
-              src="/logo-color.png"
+              src="/logos/retro-ranker/rr-logo.svg"
               alt="Retro Ranker Logo"
-              width="200"
-              height="200"
+              width="150"
+              height="150"
               class="max-w-full h-auto"
               style={{
                 borderRadius: "1rem",
