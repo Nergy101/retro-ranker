@@ -68,11 +68,20 @@ export function EmulationPerformance(
           alignItems: "center",
           justifyContent: "center",
         }}
-        data-tooltip={ratingMark === "A" ? "Excellent" : ratingMark === "B" ? "Good" : ratingMark === "C" ? "Moderate" : "None"}
+        data-tooltip={ratingMark === "A"
+          ? "Excellent"
+          : ratingMark === "B"
+          ? "Good"
+          : ratingMark === "C"
+          ? "Moderate"
+          : "None"}
       >
         <strong>Cooling</strong>
         <span style={{ display: "flex", gap: "0.25rem", fontSize: "1rem" }}>
-          {DeviceService.getCoolingIcons(device.cooling).map(({ icon, tooltip }, index) => (
+          {DeviceService.getCoolingIcons(device.cooling).map((
+            { icon, tooltip },
+            index,
+          ) => (
             <span data-tooltip={tooltip} key={index} data-placement="right">
               {icon}
             </span>
@@ -98,7 +107,11 @@ export function EmulationPerformance(
           alignItems: "center",
           justifyContent: "center",
         }}
-        data-tooltip={ratingMark === "A" ? "Present" : ratingMark === "C" ? "Unknown" : "Not present"}
+        data-tooltip={ratingMark === "A"
+          ? "Present"
+          : ratingMark === "C"
+          ? "Unknown"
+          : "Not present"}
       >
         <strong>Rumble</strong>
         <span style={{ display: "flex", gap: "0.25rem", fontSize: "1rem" }}>

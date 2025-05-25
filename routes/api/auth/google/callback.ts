@@ -10,7 +10,7 @@ import {
 } from "npm:unique-names-generator";
 
 export const handler: Handlers = {
-  async GET(req, ctx) {
+  async GET(req, _ctx) {
     return await tracer.startActiveSpan(
       "google-auth-callback",
       async (span) => {

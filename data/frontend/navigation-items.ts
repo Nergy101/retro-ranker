@@ -2,7 +2,6 @@ import {
   PiCalendar,
   PiChartLine,
   PiChatText,
-  PiGameController,
   PiGitDiff,
   PiInfo,
   PiScroll,

@@ -1,8 +1,6 @@
-import { PageProps } from "$fresh/server.ts";
-import { PiArrowClockwise, PiGameControllerBold } from "@preact-icons/pi";
 import SEO from "../components/SEO.tsx";
 
-export default function Error404(props: PageProps) {
+export default function Error404() {
   return (
     <div class="not-found">
       <SEO
@@ -16,7 +14,10 @@ export default function Error404(props: PageProps) {
           <span>
             The page you were looking for doesn't exist.
           </span>
-          <h2>Return to our homepage to browse retro gaming handhelds and comparison tools.</h2>
+          <h2>
+            Return to our homepage to browse retro gaming handhelds and
+            comparison tools.
+          </h2>
         </div>
       </article>
     </div>

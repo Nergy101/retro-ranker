@@ -1,8 +1,6 @@
 export function Hero() {
   return (
-    <section
-      class="hero-section"
-    >
+    <section class="hero-section">
       <h1
         style={{
           fontSize: "2.8rem",
@@ -10,7 +8,7 @@ export function Hero() {
           marginBottom: "0.5rem",
           letterSpacing: "-1px",
           textAlign: "center",
-          color: "#F0F1F3"
+          color: "#F0F1F3",
         }}
       >
         Welcome to{" "}
@@ -39,7 +37,6 @@ export function Hero() {
         src="/images/rr-star.png"
         alt="Retro Ranker"
         class="hero-image"
-        
       />
     </section>
   );

@@ -5,7 +5,7 @@ import pkceSessionService from "../../../../data/pkce/pkce.service.ts";
 import { logJson, tracer } from "../../../../data/tracing/tracer.ts";
 
 export const handler: Handlers = {
-  async GET(req, ctx) {
+  async GET(req, _ctx) {
     return await tracer.startActiveSpan(
       "discord-auth-callback",
       async (span) => {
@@ -93,7 +93,6 @@ export const handler: Handlers = {
             code: 2,
             message: error instanceof Error ? error.message : String(error),
           });
-          console.error(error);
           return new Response(null, { status: 500 });
         } finally {
           span.end();

@@ -1,6 +1,7 @@
 import { FreshContext } from "$fresh/server.ts";
-import { PiChatCentered, PiHeartFill, PiPlus } from "@preact-icons/pi";
+import { PiChatCentered, PiPlus } from "@preact-icons/pi";
 import { RecordModel } from "npm:pocketbase";
+import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
 import SEO from "../../components/SEO.tsx";
 import { DeviceCollection } from "../../data/frontend/contracts/device-collection.ts";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
@@ -9,7 +10,6 @@ import { createLoggedInPocketBaseService } from "../../data/pocketbase/pocketbas
 import SignOut from "../../islands/auth/sign-out.tsx";
 import DeviceCollections from "../../islands/collections/device-collections.tsx";
 import SuggestionForm from "../../islands/suggestion-form.tsx";
-import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
 
 export default async function ProfilePage(
   req: Request,

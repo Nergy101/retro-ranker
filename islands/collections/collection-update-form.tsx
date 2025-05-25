@@ -16,7 +16,9 @@ export default function CollectionUpdateForm(
 ) {
   const isSubmitting = useSignal(false);
 
-  const collectionType = useSignal<"Normal" | "Ranked">(collection.type || "Normal");
+  const collectionType = useSignal<"Normal" | "Ranked">(
+    collection.type || "Normal",
+  );
   const initialOrder: { [deviceId: string]: number } = {};
   if (collection.order && Array.isArray(collection.order)) {
     collection.order.forEach((orderObj) => {
@@ -31,9 +33,14 @@ export default function CollectionUpdateForm(
   const deviceOrder = useSignal<{ [deviceId: string]: number }>(initialOrder);
 
   const sortedDevices = (() => {
-    if ((collection.type || "Normal") === "Ranked" && collection.order && Array.isArray(collection.order)) {
+    if (
+      (collection.type || "Normal") === "Ranked" && collection.order &&
+      Array.isArray(collection.order)
+    ) {
       const deviceMap: { [id: string]: Device } = {};
-      allDevices.forEach((device) => { deviceMap[device.id] = device; });
+      allDevices.forEach((device) => {
+        deviceMap[device.id] = device;
+      });
       return collection.order
         .map((orderObj) => {
           const deviceId = Object.keys(orderObj)[0];
@@ -120,7 +127,9 @@ export default function CollectionUpdateForm(
   const handleOrderChange = (deviceId: string, value: string) => {
     const newOrder = parseInt(value, 10);
     if (!isNaN(newOrder) && newOrder >= 1) {
-      const currentDevices = selectedDevices.value.filter((d) => d.id !== deviceId);
+      const currentDevices = selectedDevices.value.filter((d) =>
+        d.id !== deviceId
+      );
       const insertAt = Math.min(newOrder - 1, currentDevices.length);
       const movedDevice = selectedDevices.value.find((d) => d.id === deviceId);
       if (!movedDevice) return;
@@ -250,7 +259,8 @@ export default function CollectionUpdateForm(
               type="text"
               id="device-search"
               value={query.value}
-              onInput={(e) => queryChanged((e.target as HTMLInputElement).value)}
+              onInput={(e) =>
+                queryChanged((e.target as HTMLInputElement).value)}
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
                   e.preventDefault();
@@ -269,7 +279,8 @@ export default function CollectionUpdateForm(
                   class="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
                   style={{
                     display: "grid",
-                    gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
+                    gridTemplateColumns:
+                      "repeat(auto-fill, minmax(200px, 1fr))",
                     gap: "1rem",
                   }}
                 >
@@ -306,7 +317,14 @@ export default function CollectionUpdateForm(
                 <DeviceCardMedium device={device} />
               </div>
               {collectionType.value === "Ranked" && (
-                <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginTop: "0.5rem" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.5rem",
+                    marginTop: "0.5rem",
+                  }}
+                >
                   <span>#</span>
                   <input
                     type="number"
@@ -317,15 +335,24 @@ export default function CollectionUpdateForm(
                       const val = (e.currentTarget as HTMLInputElement).value;
                       const order = parseInt(val, 10);
                       if (!isNaN(order)) {
-                        deviceOrder.value = { ...deviceOrder.value, [device.id]: order };
+                        deviceOrder.value = {
+                          ...deviceOrder.value,
+                          [device.id]: order,
+                        };
                       }
                     }}
                     onBlur={(e) => {
-                      handleOrderChange(device.id, (e.currentTarget as HTMLInputElement).value);
+                      handleOrderChange(
+                        device.id,
+                        (e.currentTarget as HTMLInputElement).value,
+                      );
                     }}
                     onKeyDown={(e) => {
                       if (e.key === "Enter") {
-                        handleOrderChange(device.id, (e.currentTarget as HTMLInputElement).value);
+                        handleOrderChange(
+                          device.id,
+                          (e.currentTarget as HTMLInputElement).value,
+                        );
                       }
                     }}
                   />

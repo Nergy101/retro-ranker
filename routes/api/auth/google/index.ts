@@ -7,7 +7,7 @@ import pkceSessionService from "../../../../data/pkce/pkce.service.ts";
 import { logJson, tracer } from "../../../../data/tracing/tracer.ts";
 
 export const handler: Handlers = {
-  async GET(req, ctx) {
+  async GET(req, _ctx) {
     return await tracer.startActiveSpan("google-auth-start", async (span) => {
       try {
         const codeVerifier = generateCodeVerifier();

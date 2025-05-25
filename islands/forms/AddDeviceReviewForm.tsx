@@ -68,9 +68,9 @@ export default function AddDeviceReviewForm({
             placeholder="Write your review here..."
             name="content"
             value={review.value}
-            onInput={(e) =>
-              (review.value = (e.target as HTMLTextAreaElement).value)
-            }
+            onInput={(
+              e,
+            ) => (review.value = (e.target as HTMLTextAreaElement).value)}
             style={{
               flex: 1,
               padding: "0.5rem",

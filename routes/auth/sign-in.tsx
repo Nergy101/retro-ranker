@@ -13,11 +13,13 @@ export default function SignInPage(pageProps: PageProps) {
         description="Sign in to your Retro Ranker account"
       />
       <div class="sign-in-article">
-        <div style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <img
             src="/images/rr-star.png"
             alt="Retro Ranker"

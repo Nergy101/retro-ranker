@@ -19,7 +19,7 @@ export const handler: Handlers = {
     if (orderRaw) {
       try {
         order = JSON.parse(orderRaw);
-      } catch (e) {
+      } catch (_e) {
         return new Response("Invalid order format", { status: 400 });
       }
     }

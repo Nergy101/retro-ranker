@@ -1,13 +1,13 @@
-import { PiListBold, PiSignIn, PiUserPlus } from "@preact-icons/pi";
+import { PiListBold, PiSignIn } from "@preact-icons/pi";
 import { useSignal } from "@preact/signals";
 import { useEffect, useRef } from "preact/hooks";
+import { ProfileImage } from "../../components/auth/profile-image.tsx";
 import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
-import { navigationItems } from "../../data/frontend/navigation-items.ts";
-import { ThemeSwitcher } from "./ThemeSwitcher.tsx";
 import { User } from "../../data/frontend/contracts/user.contract.ts";
-import { ProfileImage } from "../../components/auth/profile-image.tsx";
+import { navigationItems } from "../../data/frontend/navigation-items.ts";
 import { searchDevices } from "../../data/frontend/services/utils/search.utils.ts";
+import { ThemeSwitcher } from "./ThemeSwitcher.tsx";
 
 export function MobileNav(
   { pathname, allDevices, user }: {

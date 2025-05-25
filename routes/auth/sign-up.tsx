@@ -18,7 +18,6 @@ export default function SignUpPage() {
   );
 }
 
-
 export const handler: Handlers = {
   GET(_, ctx) {
     if (ctx.state.user) {

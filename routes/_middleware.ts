@@ -1,7 +1,7 @@
-// deno-lint-ignore-file no-console
+// deno-lint-ignore-file
 import { FreshContext } from "$fresh/server.ts";
 import { createPocketBaseService } from "../data/pocketbase/pocketbase.service.ts";
-import { tracer, logJson } from "../data/tracing/tracer.ts";
+import { logJson, tracer } from "../data/tracing/tracer.ts";
 
 // List of file extensions to ignore for logging
 const IGNORED_EXTENSIONS = new Set([
@@ -63,7 +63,8 @@ export async function handler(req: Request, ctx: FreshContext) {
           timestamp: new Date().toISOString(),
           userAgent: req.headers.get("user-agent"),
           referer: req.headers.get("referer"),
-          ip: req.headers.get("x-forwarded-for") || req.headers.get("x-real-ip"),
+          ip: req.headers.get("x-forwarded-for") ||
+            req.headers.get("x-real-ip"),
           query: Object.fromEntries(url.searchParams),
         });
       }

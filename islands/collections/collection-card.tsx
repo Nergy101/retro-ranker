@@ -79,7 +79,7 @@ export default function CollectionCard(
                 display: "flex",
                 alignItems: "center",
                 gap: "0.5rem",
-                margin: 0
+                margin: 0,
               }}
             >
               <PiTrash />

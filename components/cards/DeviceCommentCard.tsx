@@ -75,6 +75,7 @@ export function DeviceCommentCard({ comment }: DeviceCommentCardProps) {
           width: "100%",
           textAlign: "left",
         }}
+        // deno-lint-ignore react-no-danger
         dangerouslySetInnerHTML={{ __html: sanitizeHTML(comment.content) }}
       />
       <div

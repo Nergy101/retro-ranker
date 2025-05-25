@@ -87,7 +87,9 @@ export default function CollectionCreateForm(
     const newOrder = parseInt(value, 10);
     if (!isNaN(newOrder) && newOrder >= 1) {
       // Remove the device from its current position
-      const currentDevices = selectedDevices.value.filter((d) => d.id !== deviceId);
+      const currentDevices = selectedDevices.value.filter((d) =>
+        d.id !== deviceId
+      );
       // Clamp the new position to the array bounds
       const insertAt = Math.min(newOrder - 1, currentDevices.length);
       // Find the device object
@@ -171,7 +173,8 @@ export default function CollectionCreateForm(
           node.style.transform = `translate(${dx}px, ${dy}px)`;
           // Force reflow
           node.getBoundingClientRect();
-          node.style.transition = "transform 1000ms cubic-bezier(0.22, 1, 0.36, 1)";
+          node.style.transition =
+            "transform 1000ms cubic-bezier(0.22, 1, 0.36, 1)";
           node.style.transform = "";
         }
       }
@@ -312,7 +315,9 @@ export default function CollectionCreateForm(
                   <div
                     class="collection-device-card"
                     key={device.id}
-                    ref={(el) => { cardRefs.current[device.id] = el; }}
+                    ref={(el) => {
+                      cardRefs.current[device.id] = el;
+                    }}
                     style={{
                       marginBottom: "1.5rem",
                       display: "flex",
@@ -323,7 +328,13 @@ export default function CollectionCreateForm(
                     <DeviceCardMedium
                       device={device}
                     />
-                    <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "0.5rem",
+                      }}
+                    >
                       {collectionType.value === "Ranked" && (
                         <div
                           style={{
@@ -341,18 +352,28 @@ export default function CollectionCreateForm(
                             onClick={(e) => e.stopPropagation()}
                             onInput={(e) => {
                               // Just update the order value for this device, don't reorder yet
-                              const val = (e.currentTarget as HTMLInputElement).value;
+                              const val =
+                                (e.currentTarget as HTMLInputElement).value;
                               const order = parseInt(val, 10);
                               if (!isNaN(order)) {
-                                deviceOrder.value = { ...deviceOrder.value, [device.id]: order };
+                                deviceOrder.value = {
+                                  ...deviceOrder.value,
+                                  [device.id]: order,
+                                };
                               }
                             }}
                             onBlur={(e) => {
-                              handleOrderChange(device.id, (e.currentTarget as HTMLInputElement).value);
+                              handleOrderChange(
+                                device.id,
+                                (e.currentTarget as HTMLInputElement).value,
+                              );
                             }}
                             onKeyDown={(e) => {
                               if (e.key === "Enter") {
-                                handleOrderChange(device.id, (e.currentTarget as HTMLInputElement).value);
+                                handleOrderChange(
+                                  device.id,
+                                  (e.currentTarget as HTMLInputElement).value,
+                                );
                               }
                             }}
                           />

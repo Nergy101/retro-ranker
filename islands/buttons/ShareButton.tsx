@@ -13,7 +13,6 @@ export function ShareButton(
       | "outline secondary";
   },
 ) {
-
   const getIconSizeBasedOnDevice = () => {
     if (globalThis.innerWidth < 768) {
       return 32;

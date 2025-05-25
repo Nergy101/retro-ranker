@@ -1,13 +1,12 @@
 import { Handlers } from "$fresh/server.ts";
-import {
+import pkceSessionService, {
   generateCodeChallenge,
   generateCodeVerifier,
 } from "../../../../data/pkce/pkce.service.ts";
-import pkceSessionService from "../../../../data/pkce/pkce.service.ts";
 import { logJson, tracer } from "../../../../data/tracing/tracer.ts";
 
 export const handler: Handlers = {
-  async GET(req, ctx) {
+  async GET(req, _ctx) {
     return await tracer.startActiveSpan("discord-auth-start", async (span) => {
       try {
         const codeVerifier = generateCodeVerifier();
@@ -27,8 +26,8 @@ export const handler: Handlers = {
         const fullHost = port
           ? `${protocol}//${hostname}:${port}`
           : `${protocol}//${hostname}`;
-          
-         const discordUrl =
+
+        const discordUrl =
           "https://discord.com/oauth2/authorize?client_id=1371560910706966638&response_type=code&redirect_uri=" +
           encodeURIComponent(
             `${fullHost}/api/auth/discord/callback`,

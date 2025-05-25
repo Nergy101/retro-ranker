@@ -1,4 +1,4 @@
-// deno-lint-ignore-file no-console no-explicit-any
+// deno-lint-ignore-file no-explicit-any
 import PocketBase, {
   BaseAuthStore,
   ClientResponseError,
@@ -7,7 +7,7 @@ import PocketBase, {
   RecordModel,
 } from "npm:pocketbase";
 import { User } from "../frontend/contracts/user.contract.ts";
-import { tracer, logJson } from "../tracing/tracer.ts";
+import { logJson, tracer } from "../tracing/tracer.ts";
 
 /**
  * PocketBaseService - A service to interface with PocketBase in a Deno environment
@@ -41,23 +41,33 @@ export class PocketBaseService {
     createData: Record<string, any>,
   ): Promise<any> {
     return await tracer.startActiveSpan("authWithOAuth2", async (span) => {
-
       try {
-        logJson("info", "PocketBase OAuth2 parameters", { provider, code, codeVerifier, redirectUrl, createData });
+        logJson("info", "PocketBase OAuth2 parameters", {
+          provider,
+          code,
+          codeVerifier,
+          redirectUrl,
+          createData,
+        });
         const result = await this.pb.collection("users").authWithOAuth2Code(
           provider,
           code,
           codeVerifier,
           redirectUrl,
           createData,
-      );
-      logJson("info", "PocketBase OAuth2 result", { provider, result });
+        );
+        logJson("info", "PocketBase OAuth2 result", { provider, result });
 
         span.setStatus({ code: 0 }); // OK
         return result;
       } catch (error: unknown) {
-        logJson("error", "PocketBase OAuth2 error", { error: error instanceof Error ? error.message : String(error) });
-        span.setStatus({ code: 2, message: error instanceof Error ? error.message : String(error) });
+        logJson("error", "PocketBase OAuth2 error", {
+          error: error instanceof Error ? error.message : String(error),
+        });
+        span.setStatus({
+          code: 2,
+          message: error instanceof Error ? error.message : String(error),
+        });
         throw error;
       } finally {
         span.end();
@@ -87,12 +97,15 @@ export class PocketBaseService {
    * @param password User password
    * @returns Authentication data
    */
-  public async authWithPassword(nickname: string, password: string): Promise<any> {
+  public async authWithPassword(
+    nickname: string,
+    password: string,
+  ): Promise<any> {
     return await tracer.startActiveSpan("authWithPassword", async (span) => {
       try {
         const result = await this.pb.collection("users").authWithPassword(
           nickname,
-          password
+          password,
         );
         span.setStatus({ code: 0 }); // OK
         return result;
@@ -180,7 +193,9 @@ export class PocketBaseService {
           : "Unknown error";
         span.setStatus({ code: 2, message: errorMessage }); // ERROR
         if (error instanceof ClientResponseError) {
-          logJson("error", `Error fetching ${collection}`, { error: error.message });
+          logJson("error", `Error fetching ${collection}`, {
+            error: error.message,
+          });
         }
         throw error;
       } finally {
@@ -237,7 +252,9 @@ export class PocketBaseService {
           : "Unknown error";
         span.setStatus({ code: 2, message: errorMessage }); // ERROR
         if (error instanceof ClientResponseError) {
-          logJson("error", `Error fetching ${collection}`, { error: error.message });
+          logJson("error", `Error fetching ${collection}`, {
+            error: error.message,
+          });
         }
         throw error;
       } finally {
@@ -274,7 +291,9 @@ export class PocketBaseService {
           : "Unknown error";
         span.setStatus({ code: 2, message: errorMessage }); // ERROR
         if (error instanceof ClientResponseError) {
-          logJson("error", `Error fetching ${collection} record`, { error: error.message });
+          logJson("error", `Error fetching ${collection} record`, {
+            error: error.message,
+          });
         }
         throw error;
       } finally {
@@ -306,7 +325,9 @@ export class PocketBaseService {
           : "Unknown error";
         span.setStatus({ code: 2, message: errorMessage }); // ERROR
         if (error instanceof ClientResponseError) {
-          logJson("error", `Error creating ${collection} record`, { error: error.message });
+          logJson("error", `Error creating ${collection} record`, {
+            error: error.message,
+          });
         }
         throw error;
       } finally {
@@ -341,7 +362,9 @@ export class PocketBaseService {
           : "Unknown error";
         span.setStatus({ code: 2, message: errorMessage }); // ERROR
         if (error instanceof ClientResponseError) {
-          logJson("error", `Error updating ${collection} record`, { error: error.message });
+          logJson("error", `Error updating ${collection} record`, {
+            error: error.message,
+          });
         }
         throw error;
       } finally {
@@ -370,7 +393,9 @@ export class PocketBaseService {
           : "Unknown error";
         span.setStatus({ code: 2, message: errorMessage }); // ERROR
         if (error instanceof ClientResponseError) {
-          logJson("error", `Error deleting ${collection} record`, { error: error.message });
+          logJson("error", `Error deleting ${collection} record`, {
+            error: error.message,
+          });
         }
         throw error;
       } finally {

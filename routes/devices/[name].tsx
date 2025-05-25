@@ -31,6 +31,7 @@ import AddDeviceCommentForm from "../../islands/forms/AddDeviceCommentForm.tsx";
 import { DeviceCommentCard } from "../../components/cards/DeviceCommentCard.tsx";
 import AddDeviceReviewForm from "../../islands/forms/AddDeviceReviewForm.tsx";
 import { DeviceReviewCard } from "../../components/cards/DeviceReviewCard.tsx";
+import { ReviewContract } from "../../data/frontend/contracts/review.contract.ts";
 
 export const handler: Handlers = {
   async GET(_: Request, ctx: FreshContext) {
@@ -571,8 +572,8 @@ export default function DeviceDetail(props: PageProps) {
               {user && <AddDeviceReviewForm device={device} user={user} />}
               {reviews?.length > 0 && (
                 <>
-                  {reviews.map((review: any) => (
-                    <DeviceReviewCard review={review}  />
+                  {reviews.map((review: ReviewContract) => (
+                    <DeviceReviewCard review={review} />
                   ))}
                 </>
               )}

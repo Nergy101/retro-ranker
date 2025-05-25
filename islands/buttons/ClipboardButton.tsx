@@ -9,7 +9,7 @@ export function ClipboardButton({ url }: { url: string }) {
     }
     return 16;
   };
-  
+
   return (
     <div
       aria-label="Copy URL of current page"
