@@ -34,7 +34,13 @@ export default function CollectionCard(
       <dialog open={isDeleteDialogOpen}>
         <article>
           <header>
-            <button type="button" role="button" aria-label="Close" rel="prev">
+            <button
+              type="button"
+              role="button"
+              aria-label="Close"
+              rel="prev"
+              onClick={() => isDeleteDialogOpen.value = false}
+            >
             </button>
             <p>
               <strong>⚠️ Confirm Deletion</strong>
@@ -49,6 +55,7 @@ export default function CollectionCard(
               display: "flex",
               gap: "0.5rem",
               justifyContent: "space-between",
+              alignItems: "center",
             }}
           >
             <button
@@ -66,13 +73,13 @@ export default function CollectionCard(
             </button>
             <button
               type="button"
-              role="button"
-              class="outline primary"
+              class="outline delete-btn"
               onClick={handleDelete}
               style={{
                 display: "flex",
                 alignItems: "center",
                 gap: "0.5rem",
+                margin: 0
               }}
             >
               <PiTrash />

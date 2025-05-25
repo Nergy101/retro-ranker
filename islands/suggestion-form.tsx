@@ -82,7 +82,7 @@ export default function SuggestionForm({ userEmail }: SuggestionFormProps) {
       <button
         type="submit"
         disabled={isSubmitting || !suggestion.value.trim()}
-        class="primary"
+        class="outline insert-btn"
         style={{
           display: "flex",
           alignItems: "center",

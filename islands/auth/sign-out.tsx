@@ -32,7 +32,7 @@ export default function SignOut({
 
   return (
     <button
-      class={className}
+      class={`${className} outline delete-btn`}
       style={{
         display: "flex",
         alignItems: "center",

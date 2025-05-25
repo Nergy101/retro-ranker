@@ -83,6 +83,26 @@ export default async function ProfilePage(
   const collections = await getCollections();
   const favoritedDevices = await getFavoritedDevices();
 
+  const getWelcomeText = () => {
+    const texts = [
+      "Player One.",
+      "Welcome back, hero!",
+      "Continue? > YES >",
+      "Back for more pixels?",
+      "Let's-a go!",
+      "Back online — systems are green.",
+      "Link re-established -",
+      "You've respawned!",
+      "Insert snacks, not coins.",
+      "Boot sequence complete.",
+      "Memory card detected. Welcome back!",
+      "Ready to collect some Retro XP?",
+      "Retro vibes restored.",
+      "Back in the handheld dimension.",
+    ];
+    return texts[Math.floor(Math.random() * texts.length)];
+  };
+
   return (
     <div>
       <SEO
@@ -96,7 +116,7 @@ export default async function ProfilePage(
         <header>
           <h1>
             <span style={{ color: "var(--pico-primary)" }}>
-              Hello there, {user.nickname}!
+              {getWelcomeText()} Welcome back, {user.nickname}.
             </span>
           </h1>
         </header>
@@ -104,7 +124,17 @@ export default async function ProfilePage(
         {/* Favorites Section */}
         <section class="favorites-section">
           <h2 style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-            <PiHeartFill /> Your Favorites
+            <img
+              src="/images/rr-heart.png"
+              alt="Retro Ranker Heart"
+              style={{
+                width: "auto",
+                height: "4em",
+                marginLeft: "0.5rem",
+                transform: "scaleX(-1)",
+              }}
+            />
+            Your Favorites
           </h2>
 
           {favoritedDevices.length === 0 && (
@@ -153,7 +183,7 @@ export default async function ProfilePage(
                 href={`/collections/create`}
                 role="button"
                 type="button"
-                class="button outline contrast"
+                class="button outline insert-btn"
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -171,7 +201,7 @@ export default async function ProfilePage(
               <a
                 href={`/collections/create`}
                 role="button"
-                class="primary"
+                class="outline insert-btn"
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -179,7 +209,7 @@ export default async function ProfilePage(
                   width: "fit-content",
                 }}
               >
-                <PiPlus /> Create a new collection
+                <PiPlus />Create a new collection
               </a>
             </div>
           )}
@@ -202,7 +232,9 @@ export default async function ProfilePage(
           <SuggestionForm userEmail={user.email} />
         </section>
 
-        <footer style={{ display: "flex", gap: "0.5rem" }}>
+        <footer
+          style={{ display: "flex", gap: "0.5rem" }}
+        >
           <SignOut
             buttonText="Log Out"
             className="outline secondary"

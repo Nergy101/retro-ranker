@@ -2364,11 +2364,6 @@ textarea:focus {
   align-items: center;
   justify-items: center;
 
-  .delete-btn {
-    color: var(--pico-del-color);
-    border-color: var(--pico-del-color);
-  }
-
   button {
     display: flex;
     align-items: center;
@@ -2570,5 +2565,25 @@ textarea:focus {
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+
+.delete-btn {
+  color: var(--pico-del-color) !important;
+  border-color: var(--pico-del-color) !important;
+
+  &:hover {
+    background-color: var(--pico-del-color) !important;
+    color: var(--pico-contrast) !important;
+  }
+}
+
+.insert-btn {
+  color: var(--pico-ins-color) !important;
+  border-color: var(--pico-ins-color) !important;
+
+  &:hover {
+    background-color: var(--pico-ins-color) !important;
+    color: var(--pico-contrast) !important;
   }
 }

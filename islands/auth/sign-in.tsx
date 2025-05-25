@@ -49,6 +49,19 @@ export default function SignIn(
     return texts[Math.floor(Math.random() * texts.length)];
   };
 
+  const getLoggingInText = () => {
+    const texts = [
+      "Pressing Start",
+      "Inserting Cartridge",
+      "Booting Up",
+      "Loading Save",
+      "Continuing Game",
+      "Joining Party",
+      "Entering Dungeon",
+    ];
+    return texts[Math.floor(Math.random() * texts.length)];
+  };
+
   return (
     <article class="auth-form">
       <h1
@@ -82,7 +95,7 @@ export default function SignIn(
                 boxShadow: "0 0 1rem 0 var(--pico-primary)",
               }}
             >
-              <PiDiscordLogo /> Logging in...
+              <PiDiscordLogo /> {getLoggingInText()}...
             </article>
           )
           : (

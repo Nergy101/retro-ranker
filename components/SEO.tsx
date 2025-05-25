@@ -67,6 +67,7 @@ export default function SEO({
       )}
       <link rel="canonical" href={fullUrl} />
       <link rel="stylesheet" href="/styles.css" />
+      <script defer src="/scripts/konami.js" />
       <script
         defer
         src="https://umami.nergy.space/script.js"
