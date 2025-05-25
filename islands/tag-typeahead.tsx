@@ -138,6 +138,7 @@ export default function TagTypeahead(
           <details
             key={type}
             class="filter-category"
+            open={searchTerm.value.length > 0}
           >
             <summary class="category-header">
               <span class="category-icon">
