@@ -211,7 +211,7 @@ export function MobileNav(
                       width: "50%",
                     }}
                   >
-                    <PiSignIn /> {getSignInText()}
+                    <PiSignIn /> Sign in
                   </a>
                 </li>
               )}
