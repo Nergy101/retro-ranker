@@ -18,13 +18,13 @@ export interface NavigationItem {
 }
 
 export const navigationItems: NavigationItem[] = [
-  {
-    href: "/",
-    label: "Home",
-    icon: (props) => PiGameController({ ...props }),
-    isActive: (pathname) => pathname === "/",
-    priority: 1,
-  },
+  // {
+  //   href: "/",
+  //   label: "Home",
+  //   icon: (props) => PiGameController({ ...props }),
+  //   isActive: (pathname) => pathname === "/",
+  //   priority: 1,
+  // },
   {
     href: "/devices",
     label: "Devices",

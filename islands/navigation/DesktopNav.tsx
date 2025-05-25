@@ -75,14 +75,21 @@ export function DesktopNav(
     <div style={{ display: "flex", flexDirection: "column" }}>
       <nav class="desktop-nav">
         <ul class="desktop-nav-ul">
-          <li class="logo-nav-item">
-            <a href="/">
-              <img
-                loading="lazy"
-                src="/logo-no-background.svg"
-                alt="logo"
-                width="120"
-              />
+          <li class="nav-item">
+            <a href="/" class={pathname === "/" ? "nav-a active" : "nav-a"}>
+              <span class="nav-item-label">
+                <img
+                  loading="lazy"
+                  src="/rr-logo-v3.svg"
+                  alt="logo"
+                  width="100"
+                  style={{
+                    height: "2.5em",
+                    width: "2.5em",
+                    objectFit: "contain",
+                  }}
+                />
+              </span>
             </a>
           </li>
           {navigationItems.map((item) => (
@@ -142,6 +149,7 @@ export function DesktopNav(
                     data-placement="left"
                     style={{
                       border: "none",
+                      cursor: "pointer",
                     }}
                   >
                     <ProfileImage name={user.nickname} />

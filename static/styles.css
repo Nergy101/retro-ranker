@@ -1366,12 +1366,27 @@ h6,
   flex-direction: row;
   list-style: none;
   padding: 0;
+  align-items: center;
+
+  &:first-child {
+    margin-left: 0.5rem;
+  }
+
+  &:last-child {
+    margin-right: 0.5rem;
+  }
 }
 
 .logo-nav-item {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.logo-nav-item .active {
+  background-color: var(--pico-primary-focus);
+  border-radius: 4px;
+  padding: 0.25rem;
 }
 
 .nav-item {
@@ -1449,7 +1464,7 @@ h6,
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 1rem;
+  padding: 0.25em;
 }
 
 .burger-menu {

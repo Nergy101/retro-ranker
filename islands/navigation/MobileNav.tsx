@@ -105,9 +105,15 @@ export function MobileNav(
           <a href="/">
             <img
               loading="lazy"
-              src="/logo-no-background.svg"
+              src="/rr-logo-v3.svg"
               alt="logo"
-              width="120"
+              width="100"
+              style={{
+                height: "3em",
+                width: "3em",
+                objectFit: "contain",
+                padding: "0.5rem 0",
+              }}
             />
           </a>
 

@@ -92,13 +92,13 @@ export default async function Home(
       <header class="home-header">
         <hgroup style={{ textAlign: "center" }}>
           <p>
-            Welcome to
+            Find the retro gaming device for your needs with
           </p>
           <h1>
             <span style={{ color: "var(--pico-primary)" }}>Retro Ranker</span>
           </h1>
           <p>
-            Find the handheld gaming device for your needs.
+            Explore 500+ Retro Handhelds with the Community
           </p>
         </hgroup>
       </header>
