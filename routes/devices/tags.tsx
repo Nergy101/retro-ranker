@@ -16,9 +16,15 @@ export default async function DeviceTags(props: PageProps) {
     allTags.find((t) => t.slug === tag) ?? null
   ).filter((tag) => tag !== null) as TagModel[];
 
-  const devicesWithSelectedTags = await deviceService.getDevicesWithTags(
+  const devicesWithSelectedTags = (await deviceService.getDevicesWithTags(
     selectedTags.filter((tag) => tag !== null) as TagModel[],
-  );
+  )).sort((a, b) => {
+    if (a.released?.mentionedDate && b.released?.mentionedDate) {
+      return new Date(b.released?.mentionedDate).getTime() -
+        new Date(a.released?.mentionedDate).getTime();
+    }
+    return 0;
+  });
 
   const getAvailableTags = async () => {
     const allTags = await deviceService.getAllTags();
