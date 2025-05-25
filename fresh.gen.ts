@@ -48,6 +48,7 @@ import * as $profile_index from "./routes/profile/index.tsx";
 import * as $release_timeline_layout from "./routes/release-timeline/_layout.tsx";
 import * as $release_timeline_index from "./routes/release-timeline/index.tsx";
 import * as $terms from "./routes/terms.tsx";
+import * as $Hero from "./islands/Hero.tsx";
 import * as $RatingInfo from "./islands/RatingInfo.tsx";
 import * as $auth_sign_in_1 from "./islands/auth/sign-in.tsx";
 import * as $auth_sign_out from "./islands/auth/sign-out.tsx";
@@ -133,6 +134,7 @@ const manifest = {
     "./routes/terms.tsx": $terms,
   },
   islands: {
+    "./islands/Hero.tsx": $Hero,
     "./islands/RatingInfo.tsx": $RatingInfo,
     "./islands/auth/sign-in.tsx": $auth_sign_in_1,
     "./islands/auth/sign-out.tsx": $auth_sign_out,

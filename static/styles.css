@@ -129,6 +129,84 @@ body.paused-animation::before {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.hero-section {
+  position: relative;
+  background: linear-gradient(135deg, var(--pico-primary) 0%, #23272a 100%);
+  color: #fff;
+  border-radius: 1.5rem;
+  padding: 3rem 1.5rem 2.5rem 1.5rem;
+  margin: 2rem auto 2.5rem auto;
+  max-width: 900px;
+  box-shadow: 0 8px 32px 0 rgba(40, 60, 120, 0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: background 1s ease-in-out;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(135deg, #23272a 0%, var(--pico-primary) 100%);
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  pointer-events: none;
+}
+
+.hero-section:hover::before {
+  opacity: 1;
+}
+
+.hero-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-button {
+  border: 1px solid var(--pico-primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.15rem;
+  padding: 0.85rem 2.5rem;
+  border-radius: var(--pico-border-radius);
+  box-shadow: 0 2px 12px 0 rgba(88, 101, 242, 0.18);
+  text-decoration: none;
+  transition: background 0.2s, box-shadow 0.2s;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+
+  &:hover {
+    background-color: var(--pico-primary);
+    color: var(--pico-primary-contrast);
+  }
+}
+
+.hero-image {
+  position: absolute;
+  bottom: -100px;
+  right: -10px;
+  z-index: 0;
+  max-width: 35%;
+  max-height: 90%;
+  height: auto;
+  opacity: 0.5;
+  pointer-events: none;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .hero-image {
+    max-width: 60%;
+    max-height: 40%;
+    bottom: -20px;
+    right: 0px;
+  }
+}
+
 .bg-rr-primary:hover {
   /* transform: translateY(-3px); */
   transform: none;

@@ -19,6 +19,7 @@ import { BrandWebsites } from "../data/frontend/enums/brand-websites.ts";
 import { TagModel } from "../data/frontend/models/tag.model.ts";
 import { DeviceService } from "../data/frontend/services/devices/device.service.ts";
 import { tracer } from "../data/tracing/tracer.ts";
+import { Hero } from "../islands/Hero.tsx";
 
 export const handler: Handlers = {
   async GET(_: Request, ctx: FreshContext) {
@@ -89,20 +90,9 @@ export default async function Home(
         url={`https://retroranker.site${url.pathname}`}
         keywords="retro gaming, handheld consoles, emulation devices, retro handhelds, gaming comparison, Anbernic, Miyoo, retro game emulation, portable gaming systems, retro gaming comparison"
       />
-      <header class="home-header">
-        <hgroup style={{ textAlign: "center" }}>
-          <p>
-            Find the retro gaming device for your needs with
-          </p>
-          <h1>
-            <span style={{ color: "var(--pico-primary)" }}>Retro Ranker</span>
-          </h1>
-          <p>
-            Explore 500+ Retro Handhelds with the Community
-          </p>
-        </hgroup>
-      </header>
-
+      {/* Hero Section Start */}
+      <Hero />
+      {/* Hero Section End */}
       <div
         style={{
           display: "flex",
