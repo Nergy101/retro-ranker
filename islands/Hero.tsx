@@ -26,7 +26,7 @@ export function Hero() {
         }}
       >
         Join a vibrant community of retro gaming fans. Discover, rank, and
-        discuss <b>500+ handhelds</b>{" "}
+        discuss <b>400+ handhelds</b>{" "}
         together. Your next favorite device is just a click away!
       </p>
       <a
