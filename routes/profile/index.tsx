@@ -86,7 +86,7 @@ export default async function ProfilePage(
   const getWelcomeText = () => {
     const texts = [
       "Player One.",
-      "Welcome back, hero!",
+      "Hero of the pixelverse!",
       "Continue? > YES >",
       "Back for more pixels?",
       "Let's-a go!",
@@ -95,7 +95,7 @@ export default async function ProfilePage(
       "You've respawned!",
       "Insert snacks, not coins.",
       "Boot sequence complete.",
-      "Memory card detected. Welcome back!",
+      "Memory card detected.",
       "Ready to collect some Retro XP?",
       "Retro vibes restored.",
       "Back in the handheld dimension.",
