@@ -101,7 +101,7 @@ export default function LeaderboardPage(
         <h1>Leaderboard</h1>
         <p>
           The leaderboard is a list of the top rated retro handheld devices <br />
-          based on user reviews from users like you!
+          based on reviews from users like you!
         </p>
         <img src="/images/rr-medal.png" alt="Leaderboard" class="leaderboard-medal" />
         {/* Arrange top3: 1st (center, highest), 2nd (left), 3rd (right, lowest) */}
