@@ -15,10 +15,8 @@ on:
     - cron: "0 0 * * *" # Runs daily at midnight UTC
 
 jobs:
-  refresh-data:
+  refresh:
     runs-on: ubuntu-latest
-    outputs:
-      changes: ${{ steps.check-changes.outputs.changes }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -46,43 +44,20 @@ jobs:
           max_attempts: 3
           command: deno task refresh-all
 
-      - name: Check for changes
-        id: check-changes
-        run: |
-          git add .
-          if ! git diff-index --quiet HEAD; then
-            echo "::set-output name=changes::true"
-          else
-            echo "::set-output name=changes::false"
-          fi
-
-  commit-changes:
-    runs-on: ubuntu-latest
-    needs: refresh-data
-    outputs:
-      changes: ${{ needs.refresh-data.outputs.changes }}
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          persist-credentials: true
-
       - name: Commit and push changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add .
-          git commit -m "🤖 $(date +'%Y-%m-%d %H:%M:%S'): ${{ github.event.inputs.commitMessage }}" || true
-          git push origin main
+          if ! git diff-index --quiet HEAD; then
+            git commit -m "🤖 $(date +'%Y-%m-%d %H:%M:%S'): ${{ github.event.inputs.commitMessage }}"
+            git push origin main
+          else
+            echo "No changes to commit"
+          fi
 
-  trigger-deploy:
-    runs-on: ubuntu-latest
-    needs: commit-changes
-    steps:
-      - name: Debug changes output
-        run: echo "changes=${{ needs.commit-changes.outputs.changes }}"
       - name: Trigger deploy workflow
-        if: needs.commit-changes.outputs.changes == 'true'
+        if: success()
         uses: actions/github-script@v7
         with:
           script: |
@@ -92,6 +67,3 @@ jobs:
               workflow_id: 'deploy.yml',
               ref: 'main'
             })
-      - name: No changes, skipping deploy
-        if: needs.commit-changes.outputs.changes != 'true'
-        run: echo 'No changes detected, skipping deploy.'
