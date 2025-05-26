@@ -59,7 +59,6 @@ jobs:
   commit-changes:
     runs-on: ubuntu-latest
     needs: refresh-data
-    if: needs.refresh-data.outputs.changes == 'true'
     outputs:
       changes: ${{ needs.refresh-data.outputs.changes }}
     steps:
@@ -79,9 +78,9 @@ jobs:
   trigger-deploy:
     runs-on: ubuntu-latest
     needs: commit-changes
-    if: needs.commit-changes.outputs.changes == 'true'
     steps:
       - name: Trigger deploy workflow
+        if: needs.commit-changes.outputs.changes == 'true'
         uses: actions/github-script@v7
         with:
           script: |
@@ -91,3 +90,6 @@ jobs:
               workflow_id: 'deploy.yml',
               ref: 'main'
             })
+      - name: No changes, skipping deploy
+        if: needs.commit-changes.outputs.changes != 'true'
+        run: echo 'No changes detected, skipping deploy.'
