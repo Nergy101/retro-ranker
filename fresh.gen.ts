@@ -42,6 +42,7 @@ import * as $devices_layout from "./routes/devices/_layout.tsx";
 import * as $devices_index from "./routes/devices/index.tsx";
 import * as $devices_tags from "./routes/devices/tags.tsx";
 import * as $index from "./routes/index.tsx";
+import * as $leaderboard from "./routes/leaderboard.tsx";
 import * as $privacy from "./routes/privacy.tsx";
 import * as $profile_layout from "./routes/profile/_layout.tsx";
 import * as $profile_index from "./routes/profile/index.tsx";
@@ -126,6 +127,7 @@ const manifest = {
     "./routes/devices/index.tsx": $devices_index,
     "./routes/devices/tags.tsx": $devices_tags,
     "./routes/index.tsx": $index,
+    "./routes/leaderboard.tsx": $leaderboard,
     "./routes/privacy.tsx": $privacy,
     "./routes/profile/_layout.tsx": $profile_layout,
     "./routes/profile/index.tsx": $profile_index,

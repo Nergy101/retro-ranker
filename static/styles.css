@@ -129,10 +129,13 @@ body.paused-animation::before {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-
 .hero-section {
   position: relative;
-  background: linear-gradient(135deg, var(--pico-primary-background) 0%, #23272a 100%);
+  background: linear-gradient(
+    135deg,
+    var(--pico-primary-background) 0%,
+    #23272a 100%
+  );
   color: #fff;
   border-radius: 1.5rem;
   padding: 3rem 1.5rem 2.5rem 1.5rem;
@@ -154,7 +157,11 @@ body.paused-animation::before {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: linear-gradient(135deg, #23272a 0%, var(--pico-primary-background) 100%);
+  background: linear-gradient(
+    135deg,
+    #23272a 0%,
+    var(--pico-primary-background) 100%
+  );
   opacity: 0;
   transition: opacity 1s ease-in-out;
   pointer-events: none;
@@ -2601,5 +2608,73 @@ textarea:focus {
   &:hover {
     background-color: var(--pico-ins-color) !important;
     color: var(--pico-contrast) !important;
+  }
+}
+
+.leaderboard-page {
+  position: relative; /* Ensure the parent is relative */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.leaderboard-page h1,
+.leaderboard-page h2 {
+  text-align: center;
+}
+
+.leaderboard-rank {
+  text-align: center;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.2rem;
+  background-color: var(--pico-primary-background);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--pico-border-radius);
+  width: fit-content;
+  margin: 1rem auto;
+}
+
+.leaderboard-medal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  max-height: 10em;
+  max-width: 10em;
+  margin: 0;
+
+  @media (max-width: 425px) {
+    max-height: 8em;
+    max-width: 8em;
+    top: 2em;
+  }
+}
+
+@media (max-width: 768px) {
+  .leaderboard-top3-row {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+  }
+  .leaderboard-top3-row > div {
+    margin-bottom: 0 !important;
+    min-width: 0 !important;
+    width: 100%;
+    max-width: 400px;
+
+    .device-search-card {
+      max-width: 100%;
+    }
+  }
+  .leaderboard-top3-item-1 {
+    order: 1;
+  }
+  .leaderboard-top3-item-2 {
+    order: 2;
+  }
+  .leaderboard-top3-item-3 {
+    order: 3;
   }
 }
