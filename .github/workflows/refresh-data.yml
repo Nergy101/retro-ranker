@@ -60,6 +60,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: refresh-data
     if: needs.refresh-data.outputs.changes == 'true'
+    outputs:
+      changes: ${{ needs.refresh-data.outputs.changes }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -77,7 +79,7 @@ jobs:
   trigger-deploy:
     runs-on: ubuntu-latest
     needs: commit-changes
-    if: always() && needs.commit-changes.result == 'success'
+    if: needs.commit-changes.outputs.changes == 'true'
     steps:
       - name: Trigger deploy workflow
         uses: actions/github-script@v7
