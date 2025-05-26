@@ -4,6 +4,7 @@ import {
   PiChatText,
   PiGitDiff,
   PiInfo,
+  PiRanking,
   PiScroll,
 } from "@preact-icons/pi";
 import { JSX, VNode } from "preact";
@@ -17,13 +18,13 @@ export interface NavigationItem {
 }
 
 export const navigationItems: NavigationItem[] = [
-  // {
-  //   href: "/",
-  //   label: "Home",
-  //   icon: (props) => PiGameController({ ...props }),
-  //   isActive: (pathname) => pathname === "/",
-  //   priority: 1,
-  // },
+  {
+    href: "/leaderboard",
+    label: "Leaderboard",
+    icon: (props) => PiRanking({ ...props }),
+    isActive: (pathname) => pathname.startsWith("/leaderboard"),
+    priority: 0.9,
+  },
   {
     href: "/devices",
     label: "Devices",
