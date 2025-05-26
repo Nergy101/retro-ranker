@@ -2621,7 +2621,8 @@ textarea:focus {
 }
 
 .leaderboard-page h1,
-.leaderboard-page h2 {
+.leaderboard-page h2,
+.leaderboard-page p {
   text-align: center;
 }
 
