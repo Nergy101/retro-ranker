@@ -15,8 +15,10 @@ on:
     - cron: "0 0 * * *" # Runs daily at midnight UTC
 
 jobs:
-  refresh:
+  refresh-data:
     runs-on: ubuntu-latest
+    outputs:
+      changes: ${{ steps.check-changes.outputs.changes }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -44,20 +46,40 @@ jobs:
           max_attempts: 3
           command: deno task refresh-all
 
+      - name: Check for changes
+        id: check-changes
+        run: |
+          git add .
+          if ! git diff-index --quiet HEAD; then
+            echo "changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "changes=false" >> $GITHUB_OUTPUT
+          fi
+
+  commit-changes:
+    runs-on: ubuntu-latest
+    needs: refresh-data
+    if: needs.refresh-data.outputs.changes == 'true'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
       - name: Commit and push changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add .
-          if ! git diff-index --quiet HEAD; then
-            git commit -m "🤖 $(date +'%Y-%m-%d %H:%M:%S'): ${{ github.event.inputs.commitMessage }}"
-            git push origin main
-          else
-            echo "No changes to commit"
-          fi
+          git commit -m "🤖 $(date +'%Y-%m-%d %H:%M:%S'): ${{ github.event.inputs.commitMessage }}"
+          git push origin main
 
+  trigger-deploy:
+    runs-on: ubuntu-latest
+    needs: commit-changes
+    if: always() && needs.commit-changes.result == 'success'
+    steps:
       - name: Trigger deploy workflow
-        if: success()
         uses: actions/github-script@v7
         with:
           script: |
