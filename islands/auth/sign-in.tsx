@@ -74,7 +74,14 @@ export default function SignIn(
           marginBottom: "1.25rem",
         }}
       >
-        <PiUserCheck /> Sign in
+        <img
+          src="/images/rr-star.png"
+          alt="Retro Ranker"
+          class="hero-sign-in-image"
+          style={{
+            transform: "scaleX(-1)",
+          }}
+        />Sign in
       </h1>
       <div>
         {pleaseWait
