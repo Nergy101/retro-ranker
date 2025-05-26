@@ -191,7 +191,9 @@ export default function LeaderboardPage(
         >
           {data.rest.map(({ device, avgScore }, idx) => (
             <div>
-              <DeviceCardSmall device={{ ...device, totalRating: avgScore }} />
+              <a href={`/devices/${device.id}`}>
+                <DeviceCardSmall device={{ ...device, totalRating: avgScore }} />
+              </a>
               <div
                 style={{
                   textAlign: "center",
