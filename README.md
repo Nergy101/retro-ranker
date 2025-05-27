@@ -54,7 +54,7 @@ comparisons of the latest handhelds.
 - [x] Device favorites (curate your own favorite list)
 - [x] Release timeline (historical & upcoming)
 - [x] Charts & analytics (brand, rating, release trends, etc.)
-  - [] More charts come
+  - [ ] More charts to come!
 - [x] Device comparisons
 - [x] User profiles (manage your activity)
 - [ ] Manual moderation step for device data 
