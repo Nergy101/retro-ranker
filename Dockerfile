@@ -1,10 +1,11 @@
-FROM denoland/deno:2.2.2
+FROM denoland/deno:alpine
 
 # Set working directory
 WORKDIR /app
 
 # Set a fixed cache directory inside the container
 ENV DENO_DIR=/deno_cache
+ENV DENO_ENV=production
 
 # Copy dependencies definition files first to leverage Docker cache
 COPY deno.json* ./
@@ -21,7 +22,7 @@ RUN deno task build
 EXPOSE 8000
 
 # Run the application without re-downloading dependencies
-CMD ["run", "-A", "--unstable-otel", "main.ts"]
+CMD ["run", "-A", "main.ts"]
 
 
 # Usage notes:
