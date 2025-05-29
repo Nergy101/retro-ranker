@@ -19,4 +19,12 @@ node_modules/
 tokensList.json
 
 # Docker compose and such
-/lgtm
+volumes/
+
+# Deno cache
+deno_cache/
+
+# Deno build
+build/
+
+# Deno lock

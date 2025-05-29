@@ -10,7 +10,6 @@ ENV DENO_ENV=production
 # Copy dependencies definition files first to leverage Docker cache
 COPY deno.json* ./
 
-
 # Copy the rest of the application
 COPY . .
 
@@ -24,7 +23,6 @@ EXPOSE 8000
 # Run the application without re-downloading dependencies
 CMD ["run", "-A", "main.ts"]
 
-
 # Usage notes:
 # docker build -t retroranker:latest .
 # docker run -p 8000:8000 retroranker:latest
@@ -35,5 +33,3 @@ CMD ["run", "-A", "main.ts"]
 # docker build -t retroranker:latest .
 # docker tag retroranker:latest nergy101/retroranker:latest
 # docker push nergy101/retroranker:latest
-
-
