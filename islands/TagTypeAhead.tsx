@@ -117,6 +117,12 @@ export default function TagTypeahead(
         return [type, tags];
       }
 
+      if (type === "releaseDate") {
+        // sort by release year, newest to oldest
+        tags = tags.sort((a, b) => b.name.localeCompare(a.name));
+        return [type, tags];
+      }
+
       // Then sort the tags within each type alphabetically by name
       const sortedTags = [...tags].sort((a, b) => a.name.localeCompare(b.name));
       return [type, sortedTags];
@@ -150,9 +156,9 @@ export default function TagTypeahead(
             </>
           )
           : (
-            <p class="empty-selection">
-              No filters selected. Select tags below to filter devices.
-            </p>
+            <div class="empty-selection">
+              <span>Select tags below to filter.</span>
+            </div>
           )}
       </div>
 

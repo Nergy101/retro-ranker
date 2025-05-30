@@ -122,8 +122,7 @@ export function DeviceSearchForm(
               value={sort}
               onChange={handleSortChange}
             >
-              <option value="all">No sorting</option>
-              <option value="new-arrivals">Newest to Oldest</option>
+              <option value="all">Newest to Oldest</option>
               <option value="high-low-price">Expensive to Cheapest</option>
               <option value="low-high-price">Cheapest to Expensive</option>
               <option value="alphabetical">A to Z</option>
@@ -170,12 +169,11 @@ export function DeviceSearchForm(
           value={sort}
           onChange={handleSortChange}
         >
-          <option value="all">No sorting</option>
-          <option value="new-arrivals">New arrivals (released)</option>
-          <option value="high-low-price">Expensive - Cheapest</option>
-          <option value="low-high-price">Cheapest - Expensive</option>
-          <option value="alphabetical">A - Z</option>
-          <option value="reverse-alphabetical">Z - A</option>
+          <option value="all">Newest to Oldest</option>
+          <option value="high-low-price">Expensive to Cheapest</option>
+          <option value="low-high-price">Cheapest to Expensive</option>
+          <option value="alphabetical">A to Z</option>
+          <option value="reverse-alphabetical">Z to A</option>
         </select>
         <input type="submit" value="Search" aria-label="Search" />
       </form>
