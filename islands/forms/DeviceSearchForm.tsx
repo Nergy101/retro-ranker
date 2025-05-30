@@ -122,7 +122,7 @@ export function DeviceSearchForm(
               value={sort}
               onChange={handleSortChange}
             >
-              <option value="all">Newest to Oldest</option>
+              <option value="new-arrivals">Newest to Oldest</option>
               <option value="high-low-price">Expensive to Cheapest</option>
               <option value="low-high-price">Cheapest to Expensive</option>
               <option value="alphabetical">A to Z</option>
@@ -169,7 +169,7 @@ export function DeviceSearchForm(
           value={sort}
           onChange={handleSortChange}
         >
-          <option value="all">Newest to Oldest</option>
+          <option value="new-arrivals">Newest to Oldest</option>
           <option value="high-low-price">Expensive to Cheapest</option>
           <option value="low-high-price">Cheapest to Expensive</option>
           <option value="alphabetical">A to Z</option>
