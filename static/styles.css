@@ -2710,6 +2710,22 @@ textarea:focus {
 
 .devices-catalog-sidebar {
   grid-area: sidebar;
+
+  position: sticky;
+  top: 1rem;
+  align-self: flex-start;
+
+  @media (width < 768px) {
+    position: static;
+    top: 0;
+
+    grid-template-areas:
+      "sidebar"
+      "main";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 0;
+  }
 }
 
 .devices-catalog-main {
