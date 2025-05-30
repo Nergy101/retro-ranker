@@ -1,6 +1,7 @@
 import { useEffect } from "preact/hooks";
 import { DeviceCardMedium } from "../components/cards/DeviceCardMedium.tsx";
 import { Device } from "../data/frontend/contracts/device.model.ts";
+import { useSignal } from "@preact/signals";
 
 interface TimelineContentProps {
   upcomingDevices: Device[];
@@ -10,6 +11,8 @@ interface TimelineContentProps {
 export function TimelineContent(
   { upcomingDevices, devicesGroupedByYearAndMonth }: TimelineContentProps,
 ) {
+  const includeUpcoming = useSignal(false);
+
   useEffect(() => {
     const hash = globalThis.location?.hash?.slice(1);
     // Get the hash from the URL (without the #)
@@ -37,38 +40,50 @@ export function TimelineContent(
 
   return (
     <div class="timeline">
-      <div class="timeline-container">
-        <div class="timeline-dot-top"></div>
-        <div
-          class="timeline-text"
-          onClick={() => {
-            globalThis.location.hash = "upcoming";
-            globalThis.navigator.clipboard.writeText(
-              `${globalThis.location.origin}/release-timeline#upcoming`,
-            );
-          }}
-          data-tooltip="Click to copy link to this section"
-          data-placement="bottom"
-        >
-          <span>Upcoming</span>
-          <br />
-          <span>Devices</span>
-        </div>
-        <div class="timeline-body">
-          <div class="timeline-devices-grid">
-            {upcomingDevices.map((device) => {
-              return (
-                <a
-                  href={`/devices/${device.name.sanitized}`}
-                  style={{ textDecoration: "none" }}
-                >
-                  <DeviceCardMedium device={device} />
-                </a>
+      <div style={{ marginBottom: "1rem" }}>
+        <label style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <input
+            type="checkbox"
+            checked={includeUpcoming.value}
+            onChange={(e) => (includeUpcoming.value = (e.currentTarget as HTMLInputElement).checked)}
+          />
+          Include upcoming devices
+        </label>
+      </div>
+      {includeUpcoming.value && (
+        <div class="timeline-container">
+          <div class="timeline-dot-top"></div>
+          <div
+            class="timeline-text"
+            onClick={() => {
+              globalThis.location.hash = "upcoming";
+              globalThis.navigator.clipboard.writeText(
+                `${globalThis.location.origin}/release-timeline#upcoming`,
               );
-            })}
+            }}
+            data-tooltip="Click to copy link to this section"
+            data-placement="bottom"
+          >
+            <span>Upcoming</span>
+            <br />
+            <span>Devices</span>
+          </div>
+          <div class="timeline-body">
+            <div class="timeline-devices-grid">
+              {upcomingDevices.map((device) => {
+                return (
+                  <a
+                    href={`/devices/${device.name.sanitized}`}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <DeviceCardMedium device={device} />
+                  </a>
+                );
+              })}
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       {Object.entries(devicesGroupedByYearAndMonth).map(([key, devices]) => {
         const year = parseInt(key.split("-")[0]);

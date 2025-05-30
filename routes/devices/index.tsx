@@ -7,78 +7,26 @@ import { PaginationNav } from "../../components/shared/PaginationNav.tsx";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { TagModel } from "../../data/frontend/models/tag.model.ts";
 import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
-import { DeviceSearchForm } from "../../islands/forms/DeviceSearchForm.tsx";
 import { LayoutSelector } from "../../islands/layout-selector.tsx";
+import TagTypeahead from "../../islands/tag-typeahead.tsx";
 
 export const handler = {
   async GET(_: Request, ctx: FreshContext) {
     const deviceService = await DeviceService.getInstance();
     const searchParams = new URLSearchParams(ctx.url.search);
 
-    const searchQuery = searchParams.get("search") || "";
-    const searchCategory = searchParams.get("category") || "all";
-    const pageNumber = parseInt(searchParams.get("page") || "1");
-    const sortBy = searchParams.get("sort") as
-      | "all"
-      | "highly-ranked"
-      | "new-arrivals"
-      | "high-low-price"
-      | "low-high-price"
-      | "alphabetical"
-      | "reverse-alphabetical" ||
-      "all";
-
-    const filter = searchParams.get("filter") as
-      | "all"
-      | "upcoming"
-      | "personal-picks" ||
-      "all";
-
+    // Tag selection logic (Advanced Tag Search)
     const tagsParam = searchParams.get("tags");
     const parsedTags = tagsParam ? tagsParam.split(",") : [];
+    const allTags = await deviceService.getAllTags();
+    const selectedTags = parsedTags
+      .map((slug) => allTags.find((t) => t.slug === slug) ?? null)
+      .filter((tag) => tag !== null) as TagModel[];
 
-    const initialTags = (await Promise.all(
-      parsedTags.map((slug) => deviceService.getTagBySlug(slug)),
-    )).filter((tag) => tag !== null && tag.slug !== "") as TagModel[];
-
-    const allDevices = (await deviceService.getAllDevices())
-      .sort((a, b) => {
-        const dateA = a.released.mentionedDate
-          ? new Date(a.released.mentionedDate)
-          : new Date(0);
-        const dateB = b.released.mentionedDate
-          ? new Date(b.released.mentionedDate)
-          : new Date(0);
-        return dateB.getTime() - dateA.getTime();
-      });
-
-    const defaultTags = [
-      ...(await deviceService.getTagsBySlugs(
-        [
-          "low",
-          "mid",
-          "high",
-          "upcoming",
-          "personal-pick",
-          "year-2025",
-          "year-2024",
-          "anbernic",
-          "miyoo-bittboy",
-          "ayaneo",
-          "steam-os",
-          "clamshell",
-          "horizontal",
-          "vertical",
-          "micro",
-          "oled",
-        ],
-      )),
-    ];
-
-    // Get layout from URL params first, then localStorage, then default to "grid4"
+    // Layout and pagination
     const urlLayout = searchParams.get("layout") as string;
     const activeLayout = urlLayout || "grid9";
-
+    const pageNumber = parseInt(searchParams.get("page") || "1");
     const getPageSize = (activeLayout: string) => {
       switch (activeLayout) {
         case "grid9":
@@ -89,77 +37,86 @@ export const handler = {
           return 20;
       }
     };
-
     const pageSize = searchParams.get("pageSize")
       ? parseInt(
         searchParams.get("pageSize") ??
           getPageSize(activeLayout).toString(),
       )
       : getPageSize(activeLayout);
-
     const getMaxPageSize = () => {
       if (pageSize > 100) {
-        return 10;
+        return 20;
       }
-
       return pageSize;
     };
 
-    const pagedFilteredSortedDevices = await deviceService.searchDevices(
-      searchQuery,
-      searchCategory as "all" | "low" | "mid" | "high",
-      sortBy,
-      filter,
-      initialTags,
-      pageNumber,
-      getMaxPageSize(),
+    // Devices filtered by selected tags
+    const allDevicesWithTags = await deviceService.getDevicesWithTags(
+      selectedTags.filter((tag) => tag !== null) as TagModel[],
     );
 
-    const hasResults = pagedFilteredSortedDevices.page.length > 0;
-    const pageResults = pagedFilteredSortedDevices.page;
-    const amountOfResults = pagedFilteredSortedDevices.totalAmountOfResults;
+    const totalAmountOfResults = allDevicesWithTags.length;
+    const startIdx = (pageNumber - 1) * getMaxPageSize();
+    const endIdx = startIdx + getMaxPageSize();
 
+    const pageResults = allDevicesWithTags.slice(startIdx, endIdx);
+
+    const hasResults = pageResults.length > 0;
     const hasNextPage =
-      pageNumber < Math.ceil(amountOfResults / getPageSize(activeLayout));
+      pageNumber < Math.ceil(totalAmountOfResults / getPageSize(activeLayout));
+
+    // For TagTypeahead
+    const getAvailableTags = async () => {
+      const allTags = await deviceService.getAllTags();
+      const selectedTagSlugs = selectedTags.map((tag) => tag.slug);
+
+      const availableTags = allTags.filter(async (tag) => {
+        // Exclude already selected tags
+        if (selectedTagSlugs.includes(tag.slug)) {
+          return false;
+        }
+
+        // // Check if the tag is available in the resulting devices
+        // const devicesWithTag = await deviceService.getDevicesWithTags([
+        //   ...selectedTags,
+        //   tag,
+        // ]);
+        // return devicesWithTag.length > 0;
+        return true;
+      });
+
+      return availableTags;
+    };
+
+    const allAvailableTags = await getAvailableTags();
 
     return ctx.render({
-      pageSize,
-      maxPageSize: getMaxPageSize(),
-      searchQuery,
-      searchCategory,
-      sortBy,
-      filter,
-      initialTags,
+      allAvailableTags,
+      selectedTags,
+      devicesWithSelectedTags: allDevicesWithTags, // for TagTypeahead
+      // For paginated view
+      pageResults,
+      totalAmountOfResults,
       pageNumber,
-      defaultTags,
+      pageSize: getMaxPageSize(),
       activeLayout,
-      allDevices,
       hasResults,
-      devices: pageResults,
-      totalAmountOfResults: amountOfResults,
       hasNextPage,
-      hasPreviousPage: pageNumber > 1,
       user: ctx.state.user,
     });
   },
 };
 
-export default function DevicesIndex({ url, data }: PageProps) {
-  const maxPageSize = data.maxPageSize;
-  const pageSize = data.pageSize;
-  const hasNextPage = data.hasNextPage;
-  const searchQuery = data.searchQuery;
-  const searchCategory = data.searchCategory;
-  const sortBy = data.sortBy;
-  const filter = data.filter;
-  const initialTags = data.initialTags;
+export default function CatalogPage({ url, data }: PageProps) {
+  const allAvailableTags = data.allAvailableTags;
+  const selectedTags = data.selectedTags;
+  const pageResults = data.pageResults as Device[];
+  const totalAmountOfResults = data.totalAmountOfResults;
   const pageNumber = data.pageNumber;
-  const defaultTags = data.defaultTags;
+  const pageSize = data.pageSize;
   const activeLayout = data.activeLayout;
-  const allDevices = data.allDevices;
   const hasResults = data.hasResults;
-  const pageResults = data.devices as Device[];
-  const amountOfResults = data.totalAmountOfResults;
+  const hasNextPage = data.hasNextPage;
   const user = data.user;
 
   const getLayoutGrid = (layout: string) => {
@@ -171,7 +128,6 @@ export default function DevicesIndex({ url, data }: PageProps) {
     }
     return "device-search-list";
   };
-
   const getPageSize = (activeLayout: string) => {
     switch (activeLayout) {
       case "grid9":
@@ -190,166 +146,109 @@ export default function DevicesIndex({ url, data }: PageProps) {
         description="Browse our catalog of retro gaming handhelds with specs."
         url={`https://retroranker.site${url.pathname}`}
         keywords="retro gaming handhelds, emulation devices, retro console comparison, handheld gaming systems, retro gaming devices catalog, Anbernic devices, Miyoo handhelds, retro gaming specs, portable emulation systems"
-      >
-        <script
-          type="application/ld+json"
-          // deno-lint-ignore react-no-danger
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "BreadcrumbList",
-              "itemListElement": [
-                {
-                  "@type": "ListItem",
-                  "position": 1,
-                  "name": "Home",
-                  "item": "https://retroranker.site",
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 2,
-                  "name": "Device Catalog",
-                  "item": "https://retroranker.site/devices",
-                },
-              ],
-            }),
-          }}
-        />
-        {pageNumber > 1 && (
-          <link
-            rel="prev"
-            href={`/devices?page=${pageNumber - 1}&category=${searchCategory}`}
-          />
-        )}
-        {hasNextPage && (
-          <link
-            rel="next"
-            href={`/devices?page=${pageNumber + 1}&category=${searchCategory}`}
-          />
-        )}
-      </SEO>
-      <header>
-        <hgroup style={{ textAlign: "center" }}>
+      />
+      <header style={{ textAlign: "center", marginBottom: "1.5rem" }}>
+        <hgroup>
           <h1>Device Catalog</h1>
           <p>
-            Search through{" "}
-            <span style={{ color: "var(--pico-primary)" }}>
-              {allDevices.length}
-            </span>{" "}
-            devices
+            Filter by tags to find devices. Combine tags for advanced filtering.
           </p>
-          <a
-            f-client-nav={false}
-            style={{ fontSize: "0.8rem" }}
-            href="/devices/tags"
-          >
-            Search devices by all tags 🚧
-          </a>
         </hgroup>
       </header>
-
-      {/* <Partial name="search-results"> */}
-      <DeviceSearchForm
-        initialSearch={searchQuery}
-        initialCategory={searchCategory}
-        initialSort={sortBy}
-        initialFilter={filter}
-        initialPage={pageNumber}
-        initialTags={initialTags}
-        defaultTags={defaultTags}
-        activeLayout={activeLayout}
-      />
-
-      <hr />
-      <div>
-        {
-          <LayoutSelector
-            activeLayout={activeLayout}
-            initialPageSize={pageSize}
-            defaultPageSize={getPageSize(activeLayout)}
-          />
-        }
+      <div class="devices-catalog-flex">
+        {/* Sidebar */}
+        <aside class="devices-catalog-sidebar">
+          <div style={{ marginBottom: "2rem" }}>
+            <TagTypeahead
+              allTags={allAvailableTags}
+              initialSelectedTags={selectedTags}
+            />
+          </div>
+          {/* Add more filters here in the future */}
+        </aside>
+        {/* Main Content */}
+        <main class="devices-catalog-main">
+          <div style={{ marginBottom: "1rem" }}>
+            <LayoutSelector
+              activeLayout={activeLayout}
+              initialPageSize={pageSize}
+              defaultPageSize={getPageSize(activeLayout)}
+            />
+          </div>
+          {hasResults && (
+            <PaginationNav
+              pageNumber={pageNumber}
+              pageSize={pageSize}
+              totalResults={totalAmountOfResults}
+              searchQuery=""
+              searchCategory="all"
+              sortBy="all"
+              filter="all"
+              activeLayout={activeLayout}
+              tags={selectedTags}
+            />
+          )}
+          {!hasResults
+            ? (
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  marginTop: "1rem",
+                }}
+              >
+                <p>No results found for your selected tags.</p>
+              </div>
+            )
+            : (
+              <div class={getLayoutGrid(activeLayout)} f-client-nav={false}>
+                {pageResults.map((device) => (
+                  <a
+                    href={`/devices/${device.name.sanitized}`}
+                    style={{ textDecoration: "none", width: "100%" }}
+                  >
+                    {activeLayout === "grid9" && (
+                      <DeviceCardMedium
+                        device={device}
+                        isActive={false}
+                        user={user}
+                      />
+                    )}
+                    {activeLayout === "grid4" && (
+                      <DeviceCardLarge
+                        device={device}
+                      />
+                    )}
+                    {activeLayout === "list" && (
+                      <DeviceCardRow device={device} />
+                    )}
+                  </a>
+                ))}
+              </div>
+            )}
+          {hasResults && (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginTop: "1rem",
+              }}
+            >
+              <PaginationNav
+                pageNumber={pageNumber}
+                pageSize={pageSize}
+                totalResults={totalAmountOfResults}
+                searchQuery=""
+                searchCategory="all"
+                sortBy="all"
+                filter="all"
+                activeLayout={activeLayout}
+                tags={selectedTags}
+              />
+            </div>
+          )}
+        </main>
       </div>
-
-      {hasResults && (
-        <PaginationNav
-          pageNumber={pageNumber}
-          pageSize={maxPageSize}
-          totalResults={amountOfResults}
-          searchQuery={searchQuery}
-          searchCategory={searchCategory}
-          sortBy={sortBy}
-          filter={filter}
-          activeLayout={activeLayout}
-          tags={initialTags}
-        />
-      )}
-
-      {!hasResults
-        ? (
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              marginTop: "1rem",
-            }}
-          >
-            <p>No results found for your search criteria.</p>
-          </div>
-        )
-        : (
-          <div class={getLayoutGrid(activeLayout)} f-client-nav={false}>
-            {pageResults.map((device) => (
-              <>
-                <a
-                  href={`/devices/${device.name.sanitized}`}
-                  style={{
-                    textDecoration: "none",
-                    width: "100%",
-                  }}
-                >
-                  {activeLayout === "grid9" && (
-                    <DeviceCardMedium
-                      device={device}
-                      isActive={false}
-                      user={user}
-                    />
-                  )}
-
-                  {activeLayout === "grid4" && (
-                    <DeviceCardLarge device={device} />
-                  )}
-
-                  {activeLayout === "list" && <DeviceCardRow device={device} />}
-                </a>
-              </>
-            ))}
-          </div>
-        )}
-
-      {hasResults && (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginTop: "1rem",
-          }}
-        >
-          <PaginationNav
-            pageNumber={pageNumber}
-            pageSize={maxPageSize}
-            totalResults={amountOfResults}
-            searchQuery={searchQuery}
-            searchCategory={searchCategory}
-            sortBy={sortBy}
-            filter={filter}
-            activeLayout={activeLayout}
-            tags={initialTags}
-          />
-        </div>
-      )}
-
-      {/* </Partial> */}
     </div>
   );
 }

@@ -388,6 +388,9 @@ export default async function Home(
               </div>
             </article>
           </section>
+
+          {/* FAQ Section Start */}
+          {/* FAQ Section End */}
         </div>
       </div>
     </div>

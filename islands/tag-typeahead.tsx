@@ -1,21 +1,18 @@
 import { PiTag } from "@preact-icons/pi";
 import { useSignal } from "@preact/signals";
-import { DeviceCardMedium } from "../components/cards/DeviceCardMedium.tsx";
 import { FilterTag } from "../components/shared/FilterTag.tsx";
-import { Device } from "../data/frontend/contracts/device.model.ts";
 import {
   TAG_FRIENDLY_NAMES,
   TagModel,
 } from "../data/frontend/models/tag.model.ts";
 
 export default function TagTypeahead(
-  { allTags, initialTags, devicesWithSelectedTags }: {
+  { allTags, initialSelectedTags }: {
     allTags: TagModel[];
-    initialTags: TagModel[];
-    devicesWithSelectedTags: Device[];
+    initialSelectedTags: TagModel[];
   },
 ) {
-  const selectedTags = useSignal<TagModel[]>(initialTags);
+  const selectedTags = useSignal<TagModel[]>(initialSelectedTags);
   const searchTerm = useSignal<string>("");
 
   const filteredTags = [
@@ -39,11 +36,11 @@ export default function TagTypeahead(
     let filteredTags = [];
 
     if (type === "add") {
-      filteredTags = initialTags.filter((t) => t.type !== tag.type)
+      filteredTags = initialSelectedTags.filter((t) => t.type !== tag.type)
         .concat(tag)
         .filter((t) => t.slug !== "");
     } else {
-      filteredTags = initialTags.filter((t) => t.type !== tag.type).filter((
+      filteredTags = initialSelectedTags.filter((t) => t.type !== tag.type).filter((
         t,
       ) => t.slug !== "");
     }
@@ -51,10 +48,10 @@ export default function TagTypeahead(
     tagSlugs = filteredTags.map((t) => t.slug).join(",");
 
     if (tagSlugs != "") {
-      return `/devices/tags?tags=${tagSlugs}`;
+      return `/devices?tags=${tagSlugs}`;
     }
 
-    return `/devices/tags`;
+    return `/devices`;
   };
 
   const groupedTags = filteredTags.reduce((acc, tag) => {
@@ -141,8 +138,9 @@ export default function TagTypeahead(
             open={searchTerm.value.length > 0}
           >
             <summary class="category-header">
-              <span class="category-icon">
-                <PiTag /> {getFriendlyTagName(type)}
+              <span class="category-icon" style={{ display: "inline-flex", alignItems: "space-between", gap: "0.4em" }}>
+                <span style={{ fontSize: "20px", display: "flex", alignItems: "center" }}><PiTag /></span>
+                <span class="category-label" style={{ fontSize: "0.95em", fontWeight: "bold" }}>{getFriendlyTagName(type)}</span>
               </span>
               <span class="tag-count">({tags.length})</span>
             </summary>
@@ -157,23 +155,6 @@ export default function TagTypeahead(
               ))}
             </div>
           </details>
-        ))}
-      </div>
-
-      <h2 style={{ textAlign: "center" }}>
-        Devices with selected tags: {devicesWithSelectedTags.length}
-      </h2>
-      <div class="device-search-grid-9">
-        {devicesWithSelectedTags.map((device) => (
-          <a
-            href={`/devices/${device.name.sanitized}`}
-            style={{
-              textDecoration: "none",
-              width: "100%",
-            }}
-          >
-            <DeviceCardMedium device={device} isActive={false} />
-          </a>
         ))}
       </div>
     </div>

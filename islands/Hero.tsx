@@ -33,7 +33,7 @@ export function Hero() {
         >
           Join a vibrant community of retro gaming fans. Discover, rank, and
           discuss <b>400+ handhelds</b>{" "}
-          together. Your next favorite device is just a click away!
+          together. Your next favorite device is only a click away!
         </p>
         <a
           href="/auth/sign-in"

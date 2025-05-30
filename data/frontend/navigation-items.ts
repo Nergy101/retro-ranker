@@ -6,6 +6,7 @@ import {
   PiInfo,
   PiRanking,
   PiScroll,
+  PiQuestion,
 } from "@preact-icons/pi";
 import { JSX, VNode } from "preact";
 
@@ -58,6 +59,13 @@ export const navigationItems: NavigationItem[] = [
     label: "About",
     icon: (props) => PiInfo({ ...props }),
     isActive: (pathname) => pathname === "/about",
+    priority: 0.5,
+  },
+  {
+    href: "/faq",
+    label: "FAQ",
+    icon: (props) => PiQuestion({ ...props }),
+    isActive: (pathname) => pathname === "/faq",
     priority: 0.5,
   },
   {

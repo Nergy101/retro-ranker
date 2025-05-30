@@ -39,8 +39,10 @@ import * as $compare_index from "./routes/compare/index.tsx";
 import * as $contact from "./routes/contact.tsx";
 import * as $devices_name_ from "./routes/devices/[name].tsx";
 import * as $devices_layout from "./routes/devices/_layout.tsx";
+import * as $devices_old_index from "./routes/devices/_old_index.tsx";
+import * as $devices_old_tags from "./routes/devices/_old_tags.tsx";
 import * as $devices_index from "./routes/devices/index.tsx";
-import * as $devices_tags from "./routes/devices/tags.tsx";
+import * as $faq from "./routes/faq.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $leaderboard from "./routes/leaderboard.tsx";
 import * as $privacy from "./routes/privacy.tsx";
@@ -124,8 +126,10 @@ const manifest = {
     "./routes/contact.tsx": $contact,
     "./routes/devices/[name].tsx": $devices_name_,
     "./routes/devices/_layout.tsx": $devices_layout,
+    "./routes/devices/_old_index.tsx": $devices_old_index,
+    "./routes/devices/_old_tags.tsx": $devices_old_tags,
     "./routes/devices/index.tsx": $devices_index,
-    "./routes/devices/tags.tsx": $devices_tags,
+    "./routes/faq.tsx": $faq,
     "./routes/index.tsx": $index,
     "./routes/leaderboard.tsx": $leaderboard,
     "./routes/privacy.tsx": $privacy,

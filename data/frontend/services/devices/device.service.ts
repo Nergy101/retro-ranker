@@ -465,6 +465,7 @@ export class DeviceService {
     const filterString = tags.map((tag) => `tags ~ "${tag.id}"`).join(
       " && ",
     );
+
     const result = await this.pocketBaseService.getAll(
       "devices",
       {
