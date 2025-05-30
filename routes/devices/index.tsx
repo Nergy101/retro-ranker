@@ -9,6 +9,8 @@ import { TagModel } from "../../data/frontend/models/tag.model.ts";
 import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 import { LayoutSelector } from "../../islands/layout-selector.tsx";
 import TagTypeahead from "../../islands/tag-typeahead.tsx";
+import { DeviceSearchForm } from "../../islands/forms/DeviceSearchForm.tsx";
+import { FilterTag } from "../../components/shared/FilterTag.tsx";
 
 export const handler = {
   async GET(_: Request, ctx: FreshContext) {
@@ -22,6 +24,38 @@ export const handler = {
     const selectedTags = parsedTags
       .map((slug) => allTags.find((t) => t.slug === slug) ?? null)
       .filter((tag) => tag !== null) as TagModel[];
+
+    const defaultTags = [
+      ...(await deviceService.getTagsBySlugs([
+        "low",
+        "mid",
+        "high",
+        "upcoming",
+        "personal-pick",
+        "year-2025",
+        "year-2024",
+        "anbernic",
+        "miyoo-bittboy",
+        "ayaneo",
+        "steam-os",
+        "clamshell",
+        "horizontal",
+        "vertical",
+        "micro",
+        "oled",
+      ])),
+    ];
+
+    const searchQuery = searchParams.get("search") || "";
+    const searchCategory = searchParams.get("category") || "all";
+    const sortBy = searchParams.get("sort") as
+      | "new-arrivals"
+      | "high-low-price"
+      | "low-high-price"
+      | "alphabetical"
+      | "reverse-alphabetical"
+      | undefined;
+    const filter = searchParams.get("filter") || "all";
 
     // Layout and pagination
     const urlLayout = searchParams.get("layout") as string;
@@ -53,6 +87,8 @@ export const handler = {
     // Devices filtered by selected tags
     const allDevicesWithTags = await deviceService.getDevicesWithTags(
       selectedTags.filter((tag) => tag !== null) as TagModel[],
+      searchQuery,
+      sortBy,
     );
 
     const totalAmountOfResults = allDevicesWithTags.length;
@@ -75,13 +111,6 @@ export const handler = {
         if (selectedTagSlugs.includes(tag.slug)) {
           return false;
         }
-
-        // // Check if the tag is available in the resulting devices
-        // const devicesWithTag = await deviceService.getDevicesWithTags([
-        //   ...selectedTags,
-        //   tag,
-        // ]);
-        // return devicesWithTag.length > 0;
         return true;
       });
 
@@ -101,23 +130,32 @@ export const handler = {
       pageSize: getMaxPageSize(),
       activeLayout,
       hasResults,
-      hasNextPage,
       user: ctx.state.user,
+      // Add for DeviceSearchForm
+      defaultTags,
+      searchQuery,
+      searchCategory,
+      sortBy,
+      filter,
     });
   },
 };
 
 export default function CatalogPage({ url, data }: PageProps) {
   const allAvailableTags = data.allAvailableTags;
-  const selectedTags = data.selectedTags;
+  const selectedTags = data.selectedTags as TagModel[];
   const pageResults = data.pageResults as Device[];
   const totalAmountOfResults = data.totalAmountOfResults;
   const pageNumber = data.pageNumber;
   const pageSize = data.pageSize;
   const activeLayout = data.activeLayout;
   const hasResults = data.hasResults;
-  const hasNextPage = data.hasNextPage;
   const user = data.user;
+  const defaultTags = data.defaultTags as TagModel[];
+  const searchQuery = data.searchQuery;
+  const searchCategory = data.searchCategory;
+  const sortBy = data.sortBy;
+  const filter = data.filter;
 
   const getLayoutGrid = (layout: string) => {
     if (layout === "grid9") {
@@ -139,6 +177,53 @@ export default function CatalogPage({ url, data }: PageProps) {
     }
   };
 
+  const getTagsHref = (
+    tag: TagModel,
+    type: "add" | "remove",
+  ) => {
+    // if a tag with the same type is present, filter it out and insert the new one
+    let tagSlugs = "";
+    let filteredTags = [];
+
+    if (type === "add") {
+      filteredTags = selectedTags.filter((t) => t.type !== tag.type)
+        .concat(tag)
+        .filter((t) => t.slug !== "");
+    } else {
+      filteredTags = selectedTags.filter((t) => t.type !== tag.type).filter((
+        t,
+      ) => t.slug !== "");
+    }
+
+    tagSlugs = filteredTags.map((t) => t.slug).join(",");
+
+    if (tagSlugs != "") {
+      return `/devices?tags=${tagSlugs}&sort=${sortBy}&filter=${filter}&page=${pageNumber}&layout=${activeLayout}&search=${searchQuery}`;
+    }
+
+    return `/devices?sort=${sortBy}&filter=${filter}&page=${pageNumber}&layout=${activeLayout}&search=${searchQuery}`;
+  };
+
+  const renderTags = () => {
+    return (
+      <>
+        {defaultTags.length > 0 && (
+          <div class="tags">
+            {defaultTags.map((tag) => {
+              return (
+                <FilterTag
+                  tag={tag}
+                  type="add"
+                  href={getTagsHref(tag, "add")}
+                />
+              );
+            })}
+          </div>
+        )}
+      </>
+    );
+  };
+
   return (
     <div class="devices-page">
       <SEO
@@ -158,32 +243,57 @@ export default function CatalogPage({ url, data }: PageProps) {
       <div class="devices-catalog-flex">
         {/* Sidebar */}
         <aside class="devices-catalog-sidebar">
-          <div style={{ marginBottom: "2rem" }}>
-            <TagTypeahead
-              allTags={allAvailableTags}
-              initialSelectedTags={selectedTags}
-            />
-          </div>
-          {/* Add more filters here in the future */}
-        </aside>
-        {/* Main Content */}
-        <main class="devices-catalog-main">
-          <div style={{ marginBottom: "1rem" }}>
+          <div style={{ flex: 1, minWidth: "100%" }}>
             <LayoutSelector
               activeLayout={activeLayout}
               initialPageSize={pageSize}
               defaultPageSize={getPageSize(activeLayout)}
             />
           </div>
+          <div style={{ marginBottom: "2rem" }}>
+            <TagTypeahead
+              allTags={allAvailableTags}
+              initialSelectedTags={selectedTags}
+            />
+          </div>
+        </aside>
+        {/* Main Content */}
+        <main class="devices-catalog-main">
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "1rem",
+              marginBottom: "1rem",
+              flexWrap: "wrap",
+            }}
+          >
+            <div style={{ flex: 1 }}>
+              <DeviceSearchForm
+                initialSearch={searchQuery}
+                initialCategory={searchCategory}
+                initialPage={pageNumber}
+                initialSort={sortBy}
+                initialFilter={filter}
+                initialTags={selectedTags}
+                activeLayout={activeLayout}
+              />
+            </div>
+          </div>
+
+          <div style={{ marginBottom: "1rem", backgroundColor: "red" }}>
+            {renderTags()}
+          </div>
+
           {hasResults && (
             <PaginationNav
               pageNumber={pageNumber}
               pageSize={pageSize}
               totalResults={totalAmountOfResults}
-              searchQuery=""
-              searchCategory="all"
-              sortBy="all"
-              filter="all"
+              searchQuery={searchQuery}
+              searchCategory={searchCategory}
+              sortBy={sortBy}
+              filter={filter}
               activeLayout={activeLayout}
               tags={selectedTags}
             />

@@ -461,17 +461,60 @@ export class DeviceService {
     return Math.max(0, Math.min(10, finalScore));
   }
 
-  public async getDevicesWithTags(tags: TagModel[]): Promise<Device[]> {
-    const filterString = tags.map((tag) => `tags ~ "${tag.id}"`).join(
+  public async getDevicesWithTags(
+    tags: TagModel[],
+    searchQuery: string = "",
+    sortBy:
+      | "new-arrivals"
+      | "high-low-price"
+      | "low-high-price"
+      | "alphabetical"
+      | "reverse-alphabetical"
+      | undefined,
+  ): Promise<Device[]> {
+    let filterString = tags.map((tag) => `tags ~ "${tag.id}"`).join(
       " && ",
     );
+
+    if (searchQuery) {
+      const lowerQuery = searchQuery.toLowerCase();
+      if (filterString) {
+        filterString += " && ";
+      }
+      filterString +=
+        `(deviceData.name.sanitized ~ "${lowerQuery}" || deviceData.name.raw ~ "${lowerQuery}" || deviceData.brand.raw ~ "${lowerQuery}" || deviceData.os.raw ~ "${lowerQuery}")`;
+    }
+
+    // Build sort string
+    let sortString = "";
+    switch (sortBy) {
+      case "new-arrivals":
+        sortString = "-deviceData.released.mentionedDate";
+        break;
+      case "alphabetical":
+        sortString = "deviceData.name.raw";
+        break;
+      case "reverse-alphabetical":
+        sortString = "-deviceData.name.raw";
+        break;
+      case "high-low-price":
+        sortString = "-deviceData.pricing.average";
+        break;
+      case "low-high-price":
+        sortString = "deviceData.pricing.average";
+        break;
+      default:
+        sortString = "-deviceData.released.mentionedDate";
+    }
+
+    console.log(filterString, sortString);
 
     const result = await this.pocketBaseService.getAll(
       "devices",
       {
         filter: filterString,
         expand: "",
-        sort: "",
+        sort: sortString,
       },
     );
     return result.map((device) => device.deviceData);

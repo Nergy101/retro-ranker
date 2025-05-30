@@ -11,7 +11,6 @@ interface DeviceSearchFormProps {
   initialSort: string;
   initialFilter: string;
   initialTags: TagModel[];
-  defaultTags: TagModel[];
   activeLayout: string;
 }
 
@@ -23,7 +22,6 @@ export function DeviceSearchForm(
     initialSort,
     initialFilter,
     initialTags,
-    defaultTags,
     activeLayout,
   }: DeviceSearchFormProps,
 ) {
@@ -90,68 +88,6 @@ export function DeviceSearchForm(
     };
   }, []);
 
-  const getTagsHref = (
-    tag: TagModel,
-    type: "add" | "remove",
-  ) => {
-    // if a tag with the same type is present, filter it out and insert the new one
-    let tagSlugs = "";
-    let filteredTags = [];
-
-    if (type === "add") {
-      filteredTags = initialTags.filter((t) => t.type !== tag.type)
-        .concat(tag)
-        .filter((t) => t.slug !== "");
-    } else {
-      filteredTags = initialTags.filter((t) => t.type !== tag.type).filter((
-        t,
-      ) => t.slug !== "");
-    }
-
-    tagSlugs = filteredTags.map((t) => t.slug).join(",");
-
-    if (tagSlugs != "") {
-      return `/devices?tags=${tagSlugs}&sort=${sort.value}&filter=${filter.value}&page=${page.value}&layout=${activeLayout}&search=${searchQuery.value}`;
-    }
-
-    return `/devices?sort=${sort.value}&filter=${filter.value}&page=${page.value}&layout=${activeLayout}&search=${searchQuery.value}`;
-  };
-
-  const renderTags = () => {
-    return (
-      <>
-        {initialTags.length > 0 && (
-          <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
-            <span>Filtered on:</span>
-            {initialTags.map((tag) => (
-              <FilterTag
-                tag={tag}
-                type="remove"
-                href={getTagsHref(
-                  tag,
-                  "remove",
-                )}
-              />
-            ))}
-          </div>
-        )}
-        {defaultTags.length > 0 && (
-          <div class="tags">
-            {defaultTags.map((tag) => {
-              return (
-                <FilterTag
-                  tag={tag}
-                  type="add"
-                  href={getTagsHref(tag, "add")}
-                />
-              );
-            })}
-          </div>
-        )}
-      </>
-    );
-  };
-
   if (viewportWidth.value < 800) {
     return (
       <div
@@ -190,18 +126,15 @@ export function DeviceSearchForm(
               onChange={handleSortChange}
             >
               <option value="all">No sorting</option>
-              <option value="highly-ranked">Ranking</option>
-              <option value="new-arrivals">New arrivals (released)</option>
-              <option value="high-low-price">Expensive - Cheapest</option>
-              <option value="low-high-price">Cheapest - Expensive</option>
-              <option value="alphabetical">A - Z</option>
-              <option value="reverse-alphabetical">Z - A</option>
+              <option value="new-arrivals">Newest to Oldest</option>
+              <option value="high-low-price">Expensive to Cheapest</option>
+              <option value="low-high-price">Cheapest to Expensive</option>
+              <option value="alphabetical">A to Z</option>
+              <option value="reverse-alphabetical">Z to A</option>
             </select>
           </div>
           <input type="submit" value="Search" style={{ borderRadius: "2em" }} />
         </form>
-
-        {renderTags()}
       </div>
     );
   }
@@ -241,7 +174,6 @@ export function DeviceSearchForm(
           onChange={handleSortChange}
         >
           <option value="all">No sorting</option>
-          <option value="highly-ranked">Ranking</option>
           <option value="new-arrivals">New arrivals (released)</option>
           <option value="high-low-price">Expensive - Cheapest</option>
           <option value="low-high-price">Cheapest - Expensive</option>
@@ -250,8 +182,6 @@ export function DeviceSearchForm(
         </select>
         <input type="submit" value="Search" aria-label="Search" />
       </form>
-
-      {renderTags()}
     </div>
   );
 }
