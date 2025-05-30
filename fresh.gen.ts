@@ -52,7 +52,10 @@ import * as $release_timeline_layout from "./routes/release-timeline/_layout.tsx
 import * as $release_timeline_index from "./routes/release-timeline/index.tsx";
 import * as $terms from "./routes/terms.tsx";
 import * as $Hero from "./islands/Hero.tsx";
+import * as $LayoutSelector from "./islands/LayoutSelector.tsx";
 import * as $RatingInfo from "./islands/RatingInfo.tsx";
+import * as $TagTypeAhead from "./islands/TagTypeAhead.tsx";
+import * as $TimelineContent from "./islands/TimelineContent.tsx";
 import * as $auth_sign_in_1 from "./islands/auth/sign-in.tsx";
 import * as $auth_sign_out from "./islands/auth/sign-out.tsx";
 import * as $auth_sign_up_1 from "./islands/auth/sign-up.tsx";
@@ -76,15 +79,12 @@ import * as $forms_AddDeviceCommentForm from "./islands/forms/AddDeviceCommentFo
 import * as $forms_AddDeviceReviewForm from "./islands/forms/AddDeviceReviewForm.tsx";
 import * as $forms_DeviceComparisonForm from "./islands/forms/DeviceComparisonForm.tsx";
 import * as $forms_DeviceSearchForm from "./islands/forms/DeviceSearchForm.tsx";
-import * as $layout_selector from "./islands/layout-selector.tsx";
 import * as $navigation_Breadcrumb from "./islands/navigation/Breadcrumb.tsx";
 import * as $navigation_DesktopNav from "./islands/navigation/DesktopNav.tsx";
 import * as $navigation_MobileNav from "./islands/navigation/MobileNav.tsx";
 import * as $navigation_Navbar from "./islands/navigation/Navbar.tsx";
 import * as $navigation_ThemeSwitcher from "./islands/navigation/ThemeSwitcher.tsx";
 import * as $suggestion_form from "./islands/suggestion-form.tsx";
-import * as $tag_typeahead from "./islands/tag-typeahead.tsx";
-import * as $timeline_content from "./islands/timeline-content.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -141,7 +141,10 @@ const manifest = {
   },
   islands: {
     "./islands/Hero.tsx": $Hero,
+    "./islands/LayoutSelector.tsx": $LayoutSelector,
     "./islands/RatingInfo.tsx": $RatingInfo,
+    "./islands/TagTypeAhead.tsx": $TagTypeAhead,
+    "./islands/TimelineContent.tsx": $TimelineContent,
     "./islands/auth/sign-in.tsx": $auth_sign_in_1,
     "./islands/auth/sign-out.tsx": $auth_sign_out,
     "./islands/auth/sign-up.tsx": $auth_sign_up_1,
@@ -172,15 +175,12 @@ const manifest = {
     "./islands/forms/AddDeviceReviewForm.tsx": $forms_AddDeviceReviewForm,
     "./islands/forms/DeviceComparisonForm.tsx": $forms_DeviceComparisonForm,
     "./islands/forms/DeviceSearchForm.tsx": $forms_DeviceSearchForm,
-    "./islands/layout-selector.tsx": $layout_selector,
     "./islands/navigation/Breadcrumb.tsx": $navigation_Breadcrumb,
     "./islands/navigation/DesktopNav.tsx": $navigation_DesktopNav,
     "./islands/navigation/MobileNav.tsx": $navigation_MobileNav,
     "./islands/navigation/Navbar.tsx": $navigation_Navbar,
     "./islands/navigation/ThemeSwitcher.tsx": $navigation_ThemeSwitcher,
     "./islands/suggestion-form.tsx": $suggestion_form,
-    "./islands/tag-typeahead.tsx": $tag_typeahead,
-    "./islands/timeline-content.tsx": $timeline_content,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;

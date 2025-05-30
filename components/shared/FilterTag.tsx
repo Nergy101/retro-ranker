@@ -9,7 +9,7 @@ export function FilterTag(
   { tag, type, href }: {
     tag: TagModel;
     type: "add" | "remove";
-    href: string;
+    href: URL;
   },
 ) {
   const friendlyName = TAG_FRIENDLY_NAMES[tag.type];
@@ -17,7 +17,7 @@ export function FilterTag(
   const ariaBusy = useSignal(false);
 
   return (
-    <a href={href} class="tag-link" data-tooltip={friendlyName}>
+    <a href={href.toString()} class="tag-link" data-tooltip={friendlyName}>
       <span
         class="tag"
         onClick={() => {

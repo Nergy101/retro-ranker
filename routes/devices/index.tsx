@@ -7,10 +7,9 @@ import { PaginationNav } from "../../components/shared/PaginationNav.tsx";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { TagModel } from "../../data/frontend/models/tag.model.ts";
 import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
-import { LayoutSelector } from "../../islands/layout-selector.tsx";
-import TagTypeahead from "../../islands/tag-typeahead.tsx";
 import { DeviceSearchForm } from "../../islands/forms/DeviceSearchForm.tsx";
-import { FilterTag } from "../../components/shared/FilterTag.tsx";
+import { LayoutSelector } from "../../islands/LayoutSelector.tsx";
+import TagTypeahead from "../../islands/TagTypeAhead.tsx";
 
 export const handler = {
   async GET(_: Request, ctx: FreshContext) {
@@ -24,27 +23,6 @@ export const handler = {
     const selectedTags = parsedTags
       .map((slug) => allTags.find((t) => t.slug === slug) ?? null)
       .filter((tag) => tag !== null) as TagModel[];
-
-    const defaultTags = [
-      ...(await deviceService.getTagsBySlugs([
-        "low",
-        "mid",
-        "high",
-        "upcoming",
-        "personal-pick",
-        "year-2025",
-        "year-2024",
-        "anbernic",
-        "miyoo-bittboy",
-        "ayaneo",
-        "steam-os",
-        "clamshell",
-        "horizontal",
-        "vertical",
-        "micro",
-        "oled",
-      ])),
-    ];
 
     const searchQuery = searchParams.get("search") || "";
     const searchCategory = searchParams.get("category") || "all";
@@ -120,8 +98,7 @@ export const handler = {
     return ctx.render({
       allAvailableTags,
       selectedTags,
-      devicesWithSelectedTags: allDevicesWithTags, // for TagTypeahead
-      // For paginated view
+      devicesWithSelectedTags: allDevicesWithTags,
       pageResults,
       totalAmountOfResults,
       pageNumber,
@@ -129,9 +106,8 @@ export const handler = {
       activeLayout,
       hasResults,
       user: ctx.state.user,
-      // Add for DeviceSearchForm
-      defaultTags,
       searchQuery,
+      searchParams,
       searchCategory,
       sortBy,
       filter,
@@ -149,7 +125,6 @@ export default function CatalogPage({ url, data }: PageProps) {
   const activeLayout = data.activeLayout;
   const hasResults = data.hasResults;
   const user = data.user;
-  const defaultTags = data.defaultTags as TagModel[];
   const searchQuery = data.searchQuery;
   const searchCategory = data.searchCategory;
   const sortBy = data.sortBy;
@@ -173,53 +148,6 @@ export default function CatalogPage({ url, data }: PageProps) {
       default:
         return 20;
     }
-  };
-
-  const getTagsHref = (
-    tag: TagModel,
-    type: "add" | "remove",
-  ) => {
-    // if a tag with the same type is present, filter it out and insert the new one
-    let tagSlugs = "";
-    let filteredTags = [];
-
-    if (type === "add") {
-      filteredTags = selectedTags.filter((t) => t.type !== tag.type)
-        .concat(tag)
-        .filter((t) => t.slug !== "");
-    } else {
-      filteredTags = selectedTags.filter((t) => t.type !== tag.type).filter((
-        t,
-      ) => t.slug !== "");
-    }
-
-    tagSlugs = filteredTags.map((t) => t.slug).join(",");
-
-    if (tagSlugs != "") {
-      return `/devices?tags=${tagSlugs}&sort=${sortBy}&filter=${filter}&page=${pageNumber}&layout=${activeLayout}&search=${searchQuery}`;
-    }
-
-    return `/devices?sort=${sortBy}&filter=${filter}&page=${pageNumber}&layout=${activeLayout}&search=${searchQuery}`;
-  };
-
-  const renderTags = () => {
-    return (
-      <>
-        {defaultTags.length > 0 && (
-          <div class="tags">
-            {defaultTags.map((tag) => {
-              return (
-                <FilterTag
-                  tag={tag}
-                  type="add"
-                  href={getTagsHref(tag, "add")}
-                />
-              );
-            })}
-          </div>
-        )}
-      </>
-    );
   };
 
   return (
@@ -252,6 +180,7 @@ export default function CatalogPage({ url, data }: PageProps) {
             <TagTypeahead
               allTags={allAvailableTags}
               initialSelectedTags={selectedTags}
+              baseUrl={url.origin}
             />
           </div>
         </aside>
@@ -277,11 +206,6 @@ export default function CatalogPage({ url, data }: PageProps) {
               />
             </div>
           </div>
-
-          <div style={{ marginBottom: "1rem", backgroundColor: "red" }}>
-            {renderTags()}
-          </div>
-
           {hasResults && (
             <PaginationNav
               pageNumber={pageNumber}

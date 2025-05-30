@@ -5,15 +5,41 @@ import {
   TAG_FRIENDLY_NAMES,
   TagModel,
 } from "../data/frontend/models/tag.model.ts";
+import { useEffect } from "preact/hooks";
+
+interface TagTypeaheadProps {
+  allTags: TagModel[];
+  initialSelectedTags: TagModel[];
+  baseUrl: string;
+}
 
 export default function TagTypeahead(
-  { allTags, initialSelectedTags }: {
-    allTags: TagModel[];
-    initialSelectedTags: TagModel[];
-  },
+  { allTags, initialSelectedTags, baseUrl }: TagTypeaheadProps,
 ) {
   const selectedTags = useSignal<TagModel[]>(initialSelectedTags);
   const searchTerm = useSignal<string>("");
+
+  // Use a signal for currentSearchParams to keep it in sync with the browser location
+  const currentSearchParamsSignal = useSignal<URLSearchParams | undefined>(
+    undefined,
+  );
+
+  useEffect(() => {
+    const updateSearchParams = () => {
+      currentSearchParamsSignal.value = new URLSearchParams(
+        globalThis.location.search,
+      );
+    };
+    globalThis.addEventListener("popstate", updateSearchParams);
+    globalThis.addEventListener("pushstate", updateSearchParams);
+    globalThis.addEventListener("replacestate", updateSearchParams);
+    updateSearchParams();
+    return () => {
+      globalThis.removeEventListener("popstate", updateSearchParams);
+      globalThis.removeEventListener("pushstate", updateSearchParams);
+      globalThis.removeEventListener("replacestate", updateSearchParams);
+    };
+  }, []);
 
   const filteredTags = [
     ...new Set(
@@ -26,33 +52,37 @@ export default function TagTypeahead(
   const getFriendlyTagName = (type: string) => {
     return TAG_FRIENDLY_NAMES[type as keyof typeof TAG_FRIENDLY_NAMES] ?? type;
   };
-
   const getTagsHref = (
     tag: TagModel,
     type: "add" | "remove",
-  ) => {
-    // if a tag with the same type is present, filter it out and insert the new one
+    currentSearchParams: URLSearchParams,
+    selectedTagsList: TagModel[],
+  ): URL => {
     let tagSlugs = "";
     let filteredTags = [];
 
     if (type === "add") {
-      filteredTags = initialSelectedTags.filter((t) => t.type !== tag.type)
+      filteredTags = selectedTagsList.filter((t) => t.type !== tag.type)
         .concat(tag)
         .filter((t) => t.slug !== "");
     } else {
-      filteredTags = initialSelectedTags.filter((t) => t.type !== tag.type)
-        .filter((
-          t,
-        ) => t.slug !== "");
+      filteredTags = selectedTagsList.filter((t) => t.type !== tag.type)
+        .filter((t) => t.slug !== "");
     }
 
     tagSlugs = filteredTags.map((t) => t.slug).join(",");
 
+    const newSearchParams = new URLSearchParams(currentSearchParams);
+
     if (tagSlugs != "") {
-      return `/devices?tags=${tagSlugs}`;
+      newSearchParams.set("tags", tagSlugs);
+    } else {
+      newSearchParams.delete("tags");
     }
 
-    return `/devices`;
+    const url = new URL(`${baseUrl}/devices`);
+    url.search = newSearchParams.toString().replaceAll("%2C", ",");
+    return url;
   };
 
   const groupedTags = filteredTags.reduce((acc, tag) => {
@@ -100,7 +130,7 @@ export default function TagTypeahead(
           ? (
             <>
               <h4 style={{ textAlign: "center" }}>
-                Selected tags to filter on
+                Selected tags
               </h4>
               <div class="tags">
                 {selectedTags.value.map((tag) => (
@@ -108,7 +138,12 @@ export default function TagTypeahead(
                     key={tag.slug}
                     tag={tag}
                     type="remove"
-                    href={getTagsHref(tag, "remove")}
+                    href={getTagsHref(
+                      tag,
+                      "remove",
+                      currentSearchParamsSignal.value ?? new URLSearchParams(),
+                      selectedTags.value,
+                    )}
                   />
                 ))}
               </div>
@@ -171,7 +206,12 @@ export default function TagTypeahead(
                   key={tag.slug}
                   tag={tag}
                   type="add"
-                  href={getTagsHref(tag, "add")}
+                  href={getTagsHref(
+                    tag,
+                    "add",
+                    currentSearchParamsSignal.value ?? new URLSearchParams(),
+                    selectedTags.value,
+                  )}
                 />
               ))}
             </div>

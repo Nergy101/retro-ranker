@@ -2,7 +2,7 @@ import SEO from "../../components/SEO.tsx";
 import { PageProps } from "$fresh/server.ts";
 import { PiCaretCircleDoubleDown } from "@preact-icons/pi";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
-import { TimelineContent } from "../../islands/timeline-content.tsx";
+import { TimelineContent } from "../../islands/TimelineContent.tsx";
 import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 
 export default async function ReleaseTimeline({ url }: PageProps) {

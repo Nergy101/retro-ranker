@@ -507,8 +507,6 @@ export class DeviceService {
         sortString = "-deviceData.released.mentionedDate";
     }
 
-    console.log(filterString, sortString);
-
     const result = await this.pocketBaseService.getAll(
       "devices",
       {
