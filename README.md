@@ -26,29 +26,35 @@ comparisons of the latest handhelds.
 - **Modern UI**: Clean, accessible interface with dark mode support
 - **Mobile-Friendly**: Responsive design works on all your devices
 - **Leaderboard**: Community-driven leaderboard of top-rated handhelds
-- **Charts & Analytics**: Interactive charts and data visualizations for brands, ratings, release trends, and more
-- **Release Timeline**: Chronological timeline of handheld releases and upcoming devices
+- **Charts & Analytics**: Interactive charts and data visualizations for brands,
+  ratings, release trends, and more
+- **Release Timeline**: Chronological timeline of handheld releases and upcoming
+  devices
 - **Device Reviews**: Users can leave and browse reviews for each device
-- **Device Likes & Favorites**: Like and favorite devices to curate your own list and influence rankings
+- **Device Likes & Favorites**: Like and favorite devices to curate your own
+  list and influence rankings
 - **Device Comments**: Comment on devices and join the discussion
 - **User Collections**: Maintain and showcase your own collection of handhelds
-- **SSO Authentication**: Sign in with Discord or Google, in addition to email/password
-- **User Profiles**: View and manage your reviews, comments, likes, favorites, and collections
-- **Community Features**: Engage with other users through comments, reviews, and leaderboards
+- **SSO Authentication**: Sign in with Discord or Google, in addition to
+  email/password
+- **User Profiles**: View and manage your reviews, comments, likes, favorites,
+  and collections
+- **Community Features**: Engage with other users through comments, reviews, and
+  leaderboards
 
 ## 🚀 Current State & Roadmap
 
 - [x] Search devices
   - [x] Filter devices
   - [ ] Filter devices on multiple tags (possible, but WIP)
-  - [ ] 
+  - [ ]
 - [x] User accounts
   - [x] Non-SSO sign-up & log-in (using Pocketbase)
   - [x] SSO (Discord, Google)
 - [x] Community Handheld leaderboards
   - [x] Liking devices
   - [x] Leaving comments on devices
-  - [x] Leaving reviews on devices 
+  - [x] Leaving reviews on devices
 - [x] Maintaining and showcasing (your own) collections of handhelds
   - [ ] More properties and data to add
 - [x] Device favorites (curate your own favorite list)
@@ -57,7 +63,7 @@ comparisons of the latest handhelds.
   - [ ] More charts to come!
 - [x] Device comparisons
 - [x] User profiles (manage your activity)
-- [ ] Manual moderation step for device data 
+- [ ] Manual moderation step for device data
 - [ ] More features to come!
 
 [Or see the trello board here.](https://trello.com/invite/b/678ef0a0da4f850675889b50/ATTIc9374d330560a0a058af22a41386dff245955816/retroranker)

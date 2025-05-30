@@ -40,9 +40,10 @@ export default function TagTypeahead(
         .concat(tag)
         .filter((t) => t.slug !== "");
     } else {
-      filteredTags = initialSelectedTags.filter((t) => t.type !== tag.type).filter((
-        t,
-      ) => t.slug !== "");
+      filteredTags = initialSelectedTags.filter((t) => t.type !== tag.type)
+        .filter((
+          t,
+        ) => t.slug !== "");
     }
 
     tagSlugs = filteredTags.map((t) => t.slug).join(",");
@@ -138,9 +139,29 @@ export default function TagTypeahead(
             open={searchTerm.value.length > 0}
           >
             <summary class="category-header">
-              <span class="category-icon" style={{ display: "inline-flex", alignItems: "space-between", gap: "0.4em" }}>
-                <span style={{ fontSize: "20px", display: "flex", alignItems: "center" }}><PiTag /></span>
-                <span class="category-label" style={{ fontSize: "0.95em", fontWeight: "bold" }}>{getFriendlyTagName(type)}</span>
+              <span
+                class="category-icon"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "space-between",
+                  gap: "0.4em",
+                }}
+              >
+                <span
+                  style={{
+                    fontSize: "20px",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
+                  <PiTag />
+                </span>
+                <span
+                  class="category-label"
+                  style={{ fontSize: "0.95em", fontWeight: "bold" }}
+                >
+                  {getFriendlyTagName(type)}
+                </span>
               </span>
               <span class="tag-count">({tags.length})</span>
             </summary>

@@ -1,7 +1,7 @@
 {
   "lock": false,
   "tasks": {
-    "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
+    "check": "deno fmt --check && deno lint && deno check data/**/*.ts && deno check scripts/**/*.ts && deno check **/*.tsx",
     "cli": "echo \"import '\\$fresh/src/dev/cli.ts'\" | deno run --unstable -A -",
     "manifest": "deno task cli manifest $(pwd)",
     "start": "deno run -A --watch=static/,routes/ dev.ts",
@@ -39,7 +39,8 @@
     "data/source/data-source.ipynb",
     "static/pico.pumpkin.min.css",
     "static/styles.css",
-    "**/node_modules/*"
+    "**/node_modules/*",
+    "**/volumes/*"
   ],
   "imports": {
     "$fresh/": "https://deno.land/x/fresh@1.7.3/",

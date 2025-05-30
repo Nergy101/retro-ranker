@@ -98,8 +98,6 @@ export const handler = {
     const pageResults = allDevicesWithTags.slice(startIdx, endIdx);
 
     const hasResults = pageResults.length > 0;
-    const hasNextPage =
-      pageNumber < Math.ceil(totalAmountOfResults / getPageSize(activeLayout));
 
     // For TagTypeahead
     const getAvailableTags = async () => {
@@ -276,7 +274,6 @@ export default function CatalogPage({ url, data }: PageProps) {
                 initialSort={sortBy}
                 initialFilter={filter}
                 initialTags={selectedTags}
-                activeLayout={activeLayout}
               />
             </div>
           </div>

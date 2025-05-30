@@ -100,10 +100,15 @@ export default function LeaderboardPage(
       <div>
         <h1>Leaderboard</h1>
         <p>
-          The leaderboard is a list of the top rated retro handheld devices <br />
+          The leaderboard is a list of the top rated retro handheld devices{" "}
+          <br />
           based on reviews from users like you!
         </p>
-        <img src="/images/rr-medal.png" alt="Leaderboard" class="leaderboard-medal" />
+        <img
+          src="/images/rr-medal.png"
+          alt="Leaderboard"
+          class="leaderboard-medal"
+        />
         {/* Arrange top3: 1st (center, highest), 2nd (left), 3rd (right, lowest) */}
         <div
           class="leaderboard-top3-row"
@@ -115,7 +120,10 @@ export default function LeaderboardPage(
           }}
         >
           {/* 1st place - center, highest */}
-          <div class="leaderboard-top3-item leaderboard-top3-item-1" style={{ flex: 1, minWidth: 0, marginBottom: "5rem" }}>
+          <div
+            class="leaderboard-top3-item leaderboard-top3-item-1"
+            style={{ flex: 1, minWidth: 0, marginBottom: "5rem" }}
+          >
             <div
               style={{
                 textAlign: "center",
@@ -137,7 +145,10 @@ export default function LeaderboardPage(
             </a>
           </div>
           {/* 2nd place - left */}
-          <div class="leaderboard-top3-item leaderboard-top3-item-2" style={{ flex: 1, minWidth: 0, marginBottom: "2.5rem" }}>
+          <div
+            class="leaderboard-top3-item leaderboard-top3-item-2"
+            style={{ flex: 1, minWidth: 0, marginBottom: "2.5rem" }}
+          >
             <div
               style={{
                 textAlign: "center",
@@ -159,7 +170,10 @@ export default function LeaderboardPage(
             </a>
           </div>
           {/* 3rd place - right, lowest */}
-          <div class="leaderboard-top3-item leaderboard-top3-item-3" style={{ flex: 1, minWidth: 0, marginBottom: 0 }}>
+          <div
+            class="leaderboard-top3-item leaderboard-top3-item-3"
+            style={{ flex: 1, minWidth: 0, marginBottom: 0 }}
+          >
             <div
               style={{
                 textAlign: "center",
@@ -196,7 +210,9 @@ export default function LeaderboardPage(
           {data.rest.map(({ device, avgScore }, idx) => (
             <div>
               <a href={`/devices/${device.id}`}>
-                <DeviceCardSmall device={{ ...device, totalRating: avgScore }} />
+                <DeviceCardSmall
+                  device={{ ...device, totalRating: avgScore }}
+                />
               </a>
               <div
                 style={{

@@ -1,6 +1,5 @@
 import { useSignal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
-import { FilterTag } from "../../components/shared/FilterTag.tsx";
 import { TagModel } from "../../data/frontend/models/tag.model.ts";
 import { UmamiService } from "../../data/frontend/services/umami/umami.service.ts";
 
@@ -11,7 +10,6 @@ interface DeviceSearchFormProps {
   initialSort: string;
   initialFilter: string;
   initialTags: TagModel[];
-  activeLayout: string;
 }
 
 export function DeviceSearchForm(
@@ -22,7 +20,6 @@ export function DeviceSearchForm(
     initialSort,
     initialFilter,
     initialTags,
-    activeLayout,
   }: DeviceSearchFormProps,
 ) {
   const umamiService = UmamiService.getInstance();

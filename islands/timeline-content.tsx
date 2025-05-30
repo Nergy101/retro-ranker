@@ -45,7 +45,10 @@ export function TimelineContent(
           <input
             type="checkbox"
             checked={includeUpcoming.value}
-            onChange={(e) => (includeUpcoming.value = (e.currentTarget as HTMLInputElement).checked)}
+            onChange={(
+              e,
+            ) => (includeUpcoming.value =
+              (e.currentTarget as HTMLInputElement).checked)}
           />
           Include upcoming devices
         </label>

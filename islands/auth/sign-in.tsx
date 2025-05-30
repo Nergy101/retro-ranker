@@ -1,9 +1,4 @@
-import {
-  PiDiscordLogo,
-  PiGoogleLogo,
-  PiSignIn,
-  PiUserCheck,
-} from "@preact-icons/pi";
+import { PiDiscordLogo, PiGoogleLogo, PiSignIn } from "@preact-icons/pi";
 import { useEffect } from "preact/hooks";
 
 export default function SignIn(

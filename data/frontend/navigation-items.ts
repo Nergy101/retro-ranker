@@ -4,9 +4,9 @@ import {
   PiChatText,
   PiGitDiff,
   PiInfo,
+  PiQuestion,
   PiRanking,
   PiScroll,
-  PiQuestion,
 } from "@preact-icons/pi";
 import { JSX, VNode } from "preact";
 

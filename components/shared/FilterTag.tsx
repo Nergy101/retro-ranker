@@ -18,9 +18,13 @@ export function FilterTag(
 
   return (
     <a href={href} class="tag-link" data-tooltip={friendlyName}>
-      <span class="tag" onClick={() => {
-        ariaBusy.value = true;
-      }} aria-busy={ariaBusy.value}>
+      <span
+        class="tag"
+        onClick={() => {
+          ariaBusy.value = true;
+        }}
+        aria-busy={ariaBusy.value}
+      >
         <PiTag />
         {tag.name}
         {type === "remove" && <PiXBold />}
