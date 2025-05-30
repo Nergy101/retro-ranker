@@ -113,16 +113,8 @@ export default function FAQ({ url }: PageProps) {
                   </li>
                   <li>
                     <strong>
-                      <a href="/devices">Simple:</a>
-                    </strong>{" "}
-                    You can also use the search bar at the top of the catalog
-                    {" "}
-                    to find devices by name, brand, or features.
-                  </li>
-                  <li>
-                    <strong>
-                      <a href="/devices/tags">Advanced:</a>
-                    </strong>{" "}
+                      <a href="/devices">Advanced</a>
+                    </strong>:{" "}
                     You can also use the filters and sorting options to narrow
                     down devices by price, release year, brand, and more in the
                     {" "}
@@ -139,7 +131,7 @@ export default function FAQ({ url }: PageProps) {
               <p class="pl-8">
                 Yes, use the filters and sorting options to narrow down devices
                 by price, release year, brand, and more in the{" "}
-                <a href="/devices/tags">device catalog</a>.
+                <a href="/devices">device catalog</a>.
               </p>
             </details>
             <details class="faq-details">
