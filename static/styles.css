@@ -1744,7 +1744,7 @@ h6,
 .home-page {
   background-color: var(--pico-background-color);
   border-radius: var(--pico-border-radius);
-  padding-top: 1rem;
+  padding: 1rem;
   margin-bottom: 1rem;
 }
 
@@ -1780,7 +1780,7 @@ h6,
 .contact {
   background-color: var(--pico-background-color);
   border-radius: var(--pico-border-radius);
-  padding-top: 1rem;
+  padding: 1rem;
   margin-bottom: 1rem;
 }
 
