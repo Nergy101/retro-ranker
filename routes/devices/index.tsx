@@ -270,10 +270,10 @@ export default function CatalogPage({ url, data }: PageProps) {
                 pageNumber={pageNumber}
                 pageSize={pageSize}
                 totalResults={totalAmountOfResults}
-                searchQuery=""
-                searchCategory="all"
-                sortBy="all"
-                filter="all"
+                searchQuery={searchQuery}
+                searchCategory={searchCategory}
+                sortBy={sortBy}
+                filter={filter}
                 activeLayout={activeLayout}
                 tags={selectedTags}
               />
