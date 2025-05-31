@@ -1743,33 +1743,44 @@ h6,
 
 .home-page {
   background-color: var(--pico-background-color);
+  border-radius: var(--pico-border-radius);
+  padding-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .charts-page {
   background-color: var(--pico-background-color);
+  border-radius: var(--pico-border-radius);
   padding: 1rem;
   margin-bottom: 1rem;
 }
 
 .compare-page {
   background-color: var(--pico-background-color);
+  border-radius: var(--pico-border-radius);
   padding: 1rem;
   margin-bottom: 1rem;
 }
 
 .devices-page {
   background-color: var(--pico-background-color);
+  border-radius: var(--pico-border-radius);
+  padding-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .about {
   background-color: var(--pico-background-color);
+  border-radius: var(--pico-border-radius);
+  border-radius: var(--pico-border-radius);
   padding: 1rem;
   margin-bottom: 1rem;
 }
 
 .contact {
   background-color: var(--pico-background-color);
-  padding: 1rem;
+  border-radius: var(--pico-border-radius);
+  padding-top: 1rem;
   margin-bottom: 1rem;
 }
 
