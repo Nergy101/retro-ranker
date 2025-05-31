@@ -21,7 +21,9 @@ export const handler = {
     const parsedTags = tagsParam ? tagsParam.split(",") : [];
     const allTags = await deviceService.getAllTags();
     const selectedTags = parsedTags
-      .map((slug) => allTags.find((t) => t.slug.toLowerCase() === slug.toLowerCase()) ?? null)
+      .map((slug) =>
+        allTags.find((t) => t.slug.toLowerCase() === slug.toLowerCase()) ?? null
+      )
       .filter((tag) => tag !== null) as TagModel[];
 
     const searchQuery = searchParams.get("search") || "";

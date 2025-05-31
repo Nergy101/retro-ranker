@@ -89,7 +89,7 @@ export function Breadcrumb({ items, showNames }: BreadcrumbProps) {
 
   return (
     <div class="bread-crumb">
-      <a href="/" target="_self">
+      <a href="/" target="_self" aria-label="Home">
         <div style={{ display: "inline-flex" }}>
           <PiGameController />
           {showNames && <span>&nbsp;Home</span>}
@@ -107,7 +107,7 @@ export function Breadcrumb({ items, showNames }: BreadcrumbProps) {
         >
           {item.href
             ? (
-              <a href={item.href} target="_self">
+              <a href={item.href} target="_self" aria-label={item.label}>
                 <div style={{ display: "inline-flex" }}>
                   <PiCaretRight style={{ marginRight: "0.5rem" }} />
                   {item.icon && item.icon({ style: { marginRight: "0.5rem" } })}

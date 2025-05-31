@@ -2441,9 +2441,9 @@ textarea:focus {
   --rating-B-bg: #e3f2fd;
   --rating-B-color: #1565c0;
   --rating-C-bg: #fff3e0;
-  --rating-C-color: #e65100;
+  --rating-C-color: #b03d00;
   --rating-D-bg: #fff3e0;
-  --rating-D-color: #e65100;
+  --rating-D-color: #b03d00;
   --rating-F-bg: #ffe5e5;
   --rating-F-color: #b71c1c;
   --rating-default-bg: var(--pico-card-background-color);
@@ -2457,10 +2457,10 @@ textarea:focus {
   --rating-A-color: #a5d6a7;
   --rating-B-bg: #0d47a1;
   --rating-B-color: #90caf9;
-  --rating-C-bg: #e65100;
-  --rating-C-color: #ffcc80;
-  --rating-D-bg: #e65100;
-  --rating-D-color: #ffcc80;
+  --rating-C-bg: #b03d00;
+  --rating-C-color: #f7ead7;
+  --rating-D-bg: #b03d00;
+  --rating-D-color: #f7ead7;
   --rating-F-bg: #b71c1c;
   --rating-F-color: #ef9a9a;
   --rating-default-bg: var(--pico-card-background-color);

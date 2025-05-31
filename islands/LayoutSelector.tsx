@@ -57,6 +57,7 @@ export function LayoutSelector(
         data-tooltip="List View"
         data-placement="left"
         type="button"
+        aria-label="List View"
         class="outline no-border"
         style={{
           color: getStyle("list"),
@@ -72,6 +73,7 @@ export function LayoutSelector(
         data-tooltip="Small View"
         data-placement="left"
         type="button"
+        aria-label="Small View"
         class="outline no-border"
         style={{
           color: getStyle("grid9"),
@@ -87,6 +89,7 @@ export function LayoutSelector(
         data-tooltip="Detailed View"
         data-placement="left"
         type="button"
+        aria-label="Detailed View"
         class="outline no-border"
         style={{
           color: getStyle("grid4"),

@@ -20,17 +20,17 @@ export interface NavigationItem {
 
 export const navigationItems: NavigationItem[] = [
   {
-    href: "/leaderboard",
-    label: "Leaderboard",
-    icon: (props) => PiRanking({ ...props }),
-    isActive: (pathname) => pathname.startsWith("/leaderboard"),
-    priority: 0.9,
-  },
-  {
     href: "/devices",
     label: "Devices",
     icon: (props) => PiScroll({ ...props }),
     isActive: (pathname) => pathname.startsWith("/devices"),
+    priority: 0.9,
+  },
+  {
+    href: "/release-timeline",
+    label: "Releases",
+    icon: (props) => PiCalendar({ ...props }),
+    isActive: (pathname) => pathname.startsWith("/release-timeline"),
     priority: 0.9,
   },
   {
@@ -41,10 +41,10 @@ export const navigationItems: NavigationItem[] = [
     priority: 0.9,
   },
   {
-    href: "/release-timeline",
-    label: "Releases",
-    icon: (props) => PiCalendar({ ...props }),
-    isActive: (pathname) => pathname.startsWith("/release-timeline"),
+    href: "/leaderboard",
+    label: "Leaderboard",
+    icon: (props) => PiRanking({ ...props }),
+    isActive: (pathname) => pathname.startsWith("/leaderboard"),
     priority: 0.9,
   },
   {

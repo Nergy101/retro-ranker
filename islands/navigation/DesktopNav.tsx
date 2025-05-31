@@ -76,7 +76,11 @@ export function DesktopNav(
       <nav class="desktop-nav">
         <ul class="desktop-nav-ul">
           <li class="nav-item">
-            <a href="/" class={pathname === "/" ? "nav-a active" : "nav-a"}>
+            <a
+              href="/"
+              class={pathname === "/" ? "nav-a active" : "nav-a"}
+              aria-label="Home"
+            >
               <span class="nav-item-label">
                 <img
                   loading="lazy"
@@ -97,6 +101,7 @@ export function DesktopNav(
               <a
                 href={item.href}
                 class={item.isActive(pathname) ? "nav-a active" : "nav-a"}
+                aria-label={item.label}
               >
                 <span class="nav-item-label">
                   {item.icon && item.icon({ style: { minWidth: "1rem" } })}
@@ -137,6 +142,7 @@ export function DesktopNav(
               <li class="nav-theme-item">
                 <a
                   href="/profile"
+                  aria-label="Profile"
                   style={{
                     display: "flex",
                     flexDirection: "column",
@@ -161,6 +167,7 @@ export function DesktopNav(
               <li class="nav-theme-item">
                 <a
                   href="/auth/sign-in"
+                  aria-label="Sign In"
                   style={{
                     fontSize: "1.5rem",
                   }}
@@ -180,6 +187,7 @@ export function DesktopNav(
                 key={device.name.sanitized}
                 onClick={() => setQuerySuggestion(device.name.raw)}
                 class="suggestions-list-item"
+                aria-label={device.name.raw}
               >
                 <DeviceCardMedium
                   device={device}

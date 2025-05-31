@@ -102,7 +102,7 @@ export function MobileNav(
     <div>
       <nav class="mobile-nav">
         <div class="mobile-nav-header">
-          <a href="/">
+          <a href="/" aria-label="Home">
             <img
               loading="lazy"
               src="/logos/retro-ranker/rr-logo.svg"
@@ -164,6 +164,7 @@ export function MobileNav(
                   class={item.isActive(pathname)
                     ? "mobile-active mobile-nav-button"
                     : "mobile-nav-button"}
+                  aria-label={item.label}
                 >
                   <span style={{ display: "flex", alignItems: "center" }}>
                     {item.icon && item.icon({ style: { fontSize: "1.3rem" } })}
@@ -177,6 +178,7 @@ export function MobileNav(
                 <li class="nav-theme-item">
                   <a
                     href="/profile"
+                    aria-label="Profile"
                     style={{
                       display: "flex",
                       flexDirection: "column",
