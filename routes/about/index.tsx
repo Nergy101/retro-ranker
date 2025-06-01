@@ -215,13 +215,13 @@ export default function About({ url }: PageProps) {
             <li class="flex items-center gap-4">
               <img
                 loading="lazy"
-                src="/stack/hezner.svg"
-                alt="Hezner"
+                src="/stack/hetzner.svg"
+                alt="Hetzner"
                 width="32"
                 height="32"
               />
               <span>
-                &nbsp;<b>Hezner</b> - <b>Cloud</b> hosting
+                &nbsp;<b>Hetzner</b> - <b>Cloud</b> hosting
               </span>
             </li>
           </ul>
