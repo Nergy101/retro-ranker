@@ -2101,7 +2101,7 @@ table td {
 }
 
 .search-container {
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .tag-search-input {
@@ -2122,6 +2122,13 @@ table td {
 
 .filter-categories {
   margin-bottom: 2rem;
+
+  @media (max-width: 425px) {
+    display: grid;
+    align-items: start;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
 }
 
 .filter-category {

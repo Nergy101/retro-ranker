@@ -1,4 +1,4 @@
-import { useSignal } from "@preact/signals";
+import { useComputed, useSignal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
 import { TagModel } from "../../data/frontend/models/tag.model.ts";
 import { UmamiService } from "../../data/frontend/services/umami/umami.service.ts";
@@ -46,6 +46,22 @@ export function DeviceSearchForm(
     submitForm();
   };
 
+  const getSearchPlaceholder = () => {
+    const random = Math.random();
+    const placeholders = [
+      "Name, Brand or OS...",
+      "Try 'Anbernic'...",
+      "Try 'Miyoo'...",
+      "Try 'Pocket'...",
+      "Try 'Flip'...",
+      "Try 'Plus'...",
+      "Try 'Mini'...",
+      "Try 'Android'...",
+      "Try 'Batocera'...",
+    ];
+    return placeholders[Math.floor(random * placeholders.length)];
+  };
+
   const submitForm = async () => {
     await umamiService.sendEvent("search", {
       search: searchQuery.value,
@@ -85,7 +101,7 @@ export function DeviceSearchForm(
     };
   }, []);
 
-  if (viewportWidth.value < 800) {
+  if (viewportWidth.value <= 1024) {
     return (
       <div
         style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
@@ -99,7 +115,7 @@ export function DeviceSearchForm(
           <input
             name="search"
             type="search"
-            placeholder="Name, Brand or OS..."
+            placeholder={getSearchPlaceholder()}
             value={searchQuery.value}
             aria-label="Search devices"
           />
@@ -147,7 +163,7 @@ export function DeviceSearchForm(
         <input
           name="search"
           type="search"
-          placeholder="Name, Brand or OS..."
+          placeholder={getSearchPlaceholder()}
           value={searchQuery.value}
           aria-label="Search devices"
         />

@@ -1,5 +1,5 @@
 import { PiTag } from "@preact-icons/pi";
-import { useSignal } from "@preact/signals";
+import { useComputed, useSignal } from "@preact/signals";
 import { FilterTag } from "../components/shared/FilterTag.tsx";
 import {
   TAG_FRIENDLY_NAMES,
@@ -18,6 +18,28 @@ export default function TagTypeahead(
 ) {
   const selectedTags = useSignal<TagModel[]>(initialSelectedTags);
   const searchTerm = useSignal<string>("");
+
+  const viewportWidth = useSignal(globalThis.innerWidth);
+  const computedPlaceholder = useComputed(() => {
+    if (viewportWidth.value >= 768 && viewportWidth.value <= 1024) {
+      return "Search...";
+    }
+    return "Search for tags...";
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      viewportWidth.value = globalThis.innerWidth;
+    };
+
+    // Add event listener
+    globalThis.addEventListener("resize", handleResize);
+
+    // Cleanup
+    return () => {
+      globalThis.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   // Use a signal for currentSearchParams to keep it in sync with the browser location
   const currentSearchParamsSignal = useSignal<URLSearchParams | undefined>(
@@ -164,8 +186,8 @@ export default function TagTypeahead(
 
       <div class="search-container">
         <input
-          type="text"
-          placeholder="Search for tags..."
+          type="search"
+          placeholder={computedPlaceholder.value}
           value={searchTerm}
           onInput={(e) => searchTerm.value = e.currentTarget.value}
           class="tag-search-input"

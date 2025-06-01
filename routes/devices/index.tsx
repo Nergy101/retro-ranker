@@ -194,6 +194,7 @@ export default function CatalogPage({ url, data }: PageProps) {
               gap: "1rem",
               marginBottom: "1rem",
               flexWrap: "wrap",
+              justifyContent: "center",
             }}
           >
             <div style={{ flex: 1 }}>
