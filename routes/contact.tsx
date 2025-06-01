@@ -55,10 +55,10 @@ export default function Contact({ url }: PageProps) {
               gap: "0.5em",
             }}
           >
-            Contact{" "}
+            <span style={{ color: "#F0F1F3" }}>Contact</span>{" "}
             <span style={{ color: "var(--pico-primary)", marginLeft: 8 }}>
               Retro Ranker
-            </span>
+            </span>{" "}
           </h1>
           <p
             style={{

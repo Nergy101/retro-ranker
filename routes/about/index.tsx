@@ -82,7 +82,13 @@ export default function About({ url }: PageProps) {
               gap: "0.5em",
             }}
           >
-            About{" "}
+            <span
+              style={{
+                color: "#F0F1F3",
+              }}
+            >
+              About
+            </span>{" "}
             <span style={{ color: "var(--pico-primary)", marginLeft: 8 }}>
               Retro Ranker
             </span>
@@ -136,8 +142,8 @@ export default function About({ url }: PageProps) {
                 height="32"
               />
               <span>
-                &nbsp;Deno (Deploy) - A secure runtime for JavaScript and
-                TypeScript
+                &nbsp;Deno - A secure runtime for <b>JavaScript</b> and{" "}
+                <b>TypeScript</b>
               </span>
             </li>
             <li class="flex items-center gap-4">
@@ -148,9 +154,22 @@ export default function About({ url }: PageProps) {
                 width="32"
                 height="32"
               />
-              <span>&nbsp;Fresh - The next-gen web framework</span>
+              <span>&nbsp;Fresh - The <b>next-gen web framework</b></span>
             </li>
 
+            <li class="flex items-center gap-4">
+              <img
+                loading="lazy"
+                src="/stack/pocketbase.svg"
+                alt="PocketBase"
+                width="32"
+                height="32"
+              />
+              <span>
+                &nbsp;PocketBase - A <b>lightweight</b>, open-source{" "}
+                <b>database</b>
+              </span>
+            </li>
             <li class="flex items-center gap-4">
               <img
                 loading="lazy"
@@ -160,7 +179,7 @@ export default function About({ url }: PageProps) {
                 height="32"
               />
               <span>
-                &nbsp;PicoCSS - Minimal CSS Framework for semantic HTML
+                &nbsp;PicoCSS - <b>Minimal CSS Framework</b> for semantic HTML
               </span>
             </li>
             <li class="flex items-center gap-4">
@@ -172,7 +191,8 @@ export default function About({ url }: PageProps) {
                 height="32"
               />
               <span>
-                &nbsp;Chart.js - JavaScript library for building charts
+                &nbsp;Chart.js - JavaScript library for building{" "}
+                <b>charts</b>
               </span>
             </li>
           </ul>
@@ -186,11 +206,16 @@ export default function About({ url }: PageProps) {
             </div>
           </summary>
           <ul>
-            <li>Detailed technical specifications for each device</li>
-            <li>Performance ratings for different emulation capabilities</li>
-            <li>Side-by-side device comparisons</li>
             <li>
-              Charts and graphs to visualize device performance and
+              <b>400+</b> retro handhelds to search through
+            </li>
+            <li>Save your <b>favorite devices</b> and <b>manage collections</b></li>
+            <li>Leave <b>comments, reviews and ratings</b> for devices</li> 
+            <li><b>Detailed technical specifications</b> for each device</li>
+            <li><b>Performance ratings</b> for different emulation capabilities</li>
+            <li>Side-by-side <b>device comparisons</b></li> 
+            <li>
+              <b>Charts and graphs</b> to visualize device performance and
               specifications
             </li>
           </ul>

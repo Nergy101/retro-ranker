@@ -40,6 +40,7 @@ export default function FAQ({ url }: PageProps) {
             class="text-3xl font-bold"
             style={{
               textAlign: "center",
+              color: "#F0F1F3",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
