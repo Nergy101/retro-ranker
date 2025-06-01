@@ -170,7 +170,7 @@ export default function CatalogPage({ url, data }: PageProps) {
       <div class="devices-catalog-flex">
         {/* Sidebar */}
         <aside class="devices-catalog-sidebar">
-          <div style={{ flex: 1, minWidth: "100%" }}>
+          <div style={{ flex: 1 }}>
             <LayoutSelector
               activeLayout={activeLayout}
               initialPageSize={pageSize}

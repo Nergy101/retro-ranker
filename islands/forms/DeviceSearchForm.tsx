@@ -118,6 +118,7 @@ export function DeviceSearchForm(
             placeholder={getSearchPlaceholder()}
             value={searchQuery.value}
             aria-label="Search devices"
+            class="tag-search-input"
           />
           <input
             style={{ display: "none" }}
@@ -166,6 +167,7 @@ export function DeviceSearchForm(
           placeholder={getSearchPlaceholder()}
           value={searchQuery.value}
           aria-label="Search devices"
+          class="tag-search-input"
         />
         <input
           style={{ display: "none" }}
@@ -184,6 +186,7 @@ export function DeviceSearchForm(
           aria-label="Sort by"
           value={sort}
           onChange={handleSortChange}
+          class="tag-search-input"
         >
           <option value="new-arrivals">Newest to Oldest</option>
           <option value="high-low-price">Expensive to Cheapest</option>
