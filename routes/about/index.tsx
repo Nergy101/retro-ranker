@@ -120,12 +120,13 @@ export default function About({ url }: PageProps) {
           <p>
             Retro Ranker is a comprehensive database and comparison platform
             dedicated to retro handheld gaming devices. Our mission is to help
-            enthusiasts discover and compare various retro gaming handhelds,
-            making it easier to find the perfect device for your gaming needs.
+            enthusiasts rank, discover and compare various retro gaming
+            handhelds, making it easier to find the perfect device for your
+            gaming needs.
           </p>
         </details>
 
-        <details open>
+        <details>
           <summary class="flex items-center gap-2">
             <div style={{ display: "flex", alignItems: "center" }}>
               <PiStack class="text-3xl" />
@@ -142,7 +143,8 @@ export default function About({ url }: PageProps) {
                 height="32"
               />
               <span>
-                &nbsp;Deno - A secure runtime for <b>JavaScript</b> and{" "}
+                &nbsp;<b>Deno</b> - A secure runtime for <b>JavaScript</b> and
+                {" "}
                 <b>TypeScript</b>
               </span>
             </li>
@@ -154,7 +156,9 @@ export default function About({ url }: PageProps) {
                 width="32"
                 height="32"
               />
-              <span>&nbsp;Fresh - The <b>next-gen web framework</b></span>
+              <span>
+                &nbsp;<b>Fresh</b> - The next-gen <b>web framework</b>
+              </span>
             </li>
 
             <li class="flex items-center gap-4">
@@ -166,7 +170,7 @@ export default function About({ url }: PageProps) {
                 height="32"
               />
               <span>
-                &nbsp;PocketBase - A <b>lightweight</b>, open-source{" "}
+                &nbsp;<b>PocketBase</b> - A <b>lightweight</b>, open-source{" "}
                 <b>database</b>
               </span>
             </li>
@@ -179,7 +183,8 @@ export default function About({ url }: PageProps) {
                 height="32"
               />
               <span>
-                &nbsp;PicoCSS - <b>Minimal CSS Framework</b> for semantic HTML
+                &nbsp;<b>PicoCSS</b> - <b>Minimal CSS Framework</b>{" "}
+                for semantic HTML
               </span>
             </li>
             <li class="flex items-center gap-4">
@@ -191,8 +196,32 @@ export default function About({ url }: PageProps) {
                 height="32"
               />
               <span>
-                &nbsp;Chart.js - JavaScript library for building{" "}
+                &nbsp;<b>Chart.js</b> - JavaScript library for building{" "}
                 <b>charts</b>
+              </span>
+            </li>
+            <li class="flex items-center gap-4">
+              <img
+                loading="lazy"
+                src="/stack/docker.svg"
+                alt="Docker"
+                width="32"
+                height="32"
+              />
+              <span>
+                &nbsp;<b>Docker</b> - Containerization for <b>deployment</b>
+              </span>
+            </li>
+            <li class="flex items-center gap-4">
+              <img
+                loading="lazy"
+                src="/stack/hezner.svg"
+                alt="Hezner"
+                width="32"
+                height="32"
+              />
+              <span>
+                &nbsp;<b>Hezner</b> - <b>Cloud</b> hosting
               </span>
             </li>
           </ul>
@@ -209,14 +238,56 @@ export default function About({ url }: PageProps) {
             <li>
               <b>400+</b> retro handhelds to search through
             </li>
-            <li>Save your <b>favorite devices</b> and <b>manage collections</b></li>
-            <li>Leave <b>comments, reviews and ratings</b> for devices</li> 
-            <li><b>Detailed technical specifications</b> for each device</li>
-            <li><b>Performance ratings</b> for different emulation capabilities</li>
-            <li>Side-by-side <b>device comparisons</b></li> 
             <li>
-              <b>Charts and graphs</b> to visualize device performance and
-              specifications
+              Save your <b>favorite devices</b> and <b>manage collections</b>
+            </li>
+            <li>
+              Leave <b>comments, reviews and ratings</b> for devices
+            </li>
+            <li>
+              <b>Detailed technical specifications</b> for each device
+            </li>
+            <li>
+              <b>Performance ratings</b> for different emulation capabilities
+            </li>
+            <li>
+              Side-by-side <b>device comparisons</b>
+            </li>
+            <li>
+              <b>Charts and graphs</b>{" "}
+              to visualize device performance and specifications
+            </li>
+          </ul>
+        </details>
+
+        <details>
+          <summary class="flex items-center gap-2">
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <PiQuestion class="text-3xl" />
+              &nbsp;Community websites made by others
+            </div>
+          </summary>
+          <ul>
+            <li>
+              I'm a big fan of <em>Jipsony's</em> website{" "}
+              <a
+                href="https://retrocatalog.com/"
+                target="_blank"
+                class="text-primary"
+              >
+                Retro Catalog
+              </a>. <br /> The original inspiration for this website.
+            </li>
+            <li>
+              Looking for accurate size comparisons?<br />
+              <a
+                href="https://retrosizer.com/"
+                target="_blank"
+                class="text-primary"
+              >
+                RetroSizer
+              </a>{" "}
+              by <em>beetlefeet/jackcasey</em> should help you out.
             </li>
           </ul>
         </details>
@@ -275,26 +346,6 @@ export default function About({ url }: PageProps) {
               Discord
             </a>{" "}
             to connect with fellow enthusiasts and share your experiences.
-          </p>
-        </details>
-
-        <details>
-          <summary class="flex items-center gap-2">
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <PiQuestion class="text-3xl" />
-              &nbsp;This website looks a lot like...
-            </div>
-          </summary>
-          <p>
-            I'm a big fan of the work done by Jipsony on his website{" "}
-            <a href="https://retrocatalog.com/" class="text-primary">
-              Retro Catalog
-            </a>
-            .
-            <br />
-            I've borrowed some of his ideas for this website.
-            <br />
-            In the end, I'm just hoping to be of some help to the community.
           </p>
         </details>
 
