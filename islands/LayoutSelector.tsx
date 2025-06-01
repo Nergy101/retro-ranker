@@ -113,6 +113,7 @@ export function LayoutSelector(
           <select
             style={{
               textAlign: "center",
+              width: "auto",
             }}
             value={pageSize.value}
             onChange={handlePageSizeChange}
