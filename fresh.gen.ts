@@ -7,7 +7,8 @@ import * as $_500 from "./routes/_500.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $_layout from "./routes/_layout.tsx";
 import * as $_middleware from "./routes/_middleware.ts";
-import * as $about from "./routes/about.tsx";
+import * as $about_layout from "./routes/about/_layout.tsx";
+import * as $about_index from "./routes/about/index.tsx";
 import * as $api_auth_discord_callback from "./routes/api/auth/discord/callback.ts";
 import * as $api_auth_discord_index from "./routes/api/auth/discord/index.ts";
 import * as $api_auth_google_callback from "./routes/api/auth/google/callback.ts";
@@ -39,10 +40,9 @@ import * as $compare_index from "./routes/compare/index.tsx";
 import * as $contact from "./routes/contact.tsx";
 import * as $devices_name_ from "./routes/devices/[name].tsx";
 import * as $devices_layout from "./routes/devices/_layout.tsx";
-import * as $devices_old_index from "./routes/devices/_old_index.tsx";
-import * as $devices_old_tags from "./routes/devices/_old_tags.tsx";
 import * as $devices_index from "./routes/devices/index.tsx";
-import * as $faq from "./routes/faq.tsx";
+import * as $faq_layout from "./routes/faq/_layout.tsx";
+import * as $faq_index from "./routes/faq/index.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $leaderboard from "./routes/leaderboard.tsx";
 import * as $privacy from "./routes/privacy.tsx";
@@ -94,7 +94,8 @@ const manifest = {
     "./routes/_app.tsx": $_app,
     "./routes/_layout.tsx": $_layout,
     "./routes/_middleware.ts": $_middleware,
-    "./routes/about.tsx": $about,
+    "./routes/about/_layout.tsx": $about_layout,
+    "./routes/about/index.tsx": $about_index,
     "./routes/api/auth/discord/callback.ts": $api_auth_discord_callback,
     "./routes/api/auth/discord/index.ts": $api_auth_discord_index,
     "./routes/api/auth/google/callback.ts": $api_auth_google_callback,
@@ -126,10 +127,9 @@ const manifest = {
     "./routes/contact.tsx": $contact,
     "./routes/devices/[name].tsx": $devices_name_,
     "./routes/devices/_layout.tsx": $devices_layout,
-    "./routes/devices/_old_index.tsx": $devices_old_index,
-    "./routes/devices/_old_tags.tsx": $devices_old_tags,
     "./routes/devices/index.tsx": $devices_index,
-    "./routes/faq.tsx": $faq,
+    "./routes/faq/_layout.tsx": $faq_layout,
+    "./routes/faq/index.tsx": $faq_index,
     "./routes/index.tsx": $index,
     "./routes/leaderboard.tsx": $leaderboard,
     "./routes/privacy.tsx": $privacy,

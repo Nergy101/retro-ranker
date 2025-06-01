@@ -20,13 +20,85 @@ export default function Contact({ url }: PageProps) {
         keywords="contact retro ranker, retro gaming support, handheld device inquiries, contribute to retro database, retro gaming community"
       />
 
-      <h1 class="text-3xl font-bold" style={{ textAlign: "center" }}>
-        Contact{" "}
-        <span style={{ color: "var(--pico-primary)" }}>Retro Ranker</span>
-      </h1>
+      {/* Hero Section */}
+      <section
+        class="hero-section"
+        style={{
+          color: "#fff",
+          marginBottom: "2.5rem",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        <img
+          src="/images/rr-heart.png"
+          alt="Retro Ranker Welcome"
+          style={{
+            position: "absolute",
+            right: -100,
+            bottom: -200,
+            maxWidth: "350px",
+            width: "40vw",
+            opacity: 0.18,
+            zIndex: 0,
+            pointerEvents: "none",
+          }}
+        />
+        <div style={{ position: "relative", zIndex: 1, textAlign: "center" }}>
+          <h1
+            class="text-3xl font-bold"
+            style={{
+              textAlign: "center",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "0.5em",
+            }}
+          >
+            Contact{" "}
+            <span style={{ color: "var(--pico-primary)", marginLeft: 8 }}>
+              Retro Ranker
+            </span>
+          </h1>
+          <p
+            style={{
+              fontSize: "1.2rem",
+              marginTop: "1rem",
+              marginBottom: "0.5rem",
+              color: "#fff",
+              opacity: 0.95,
+            }}
+          >
+            Have a question, want to contribute, or just want to say hi? <br />
+            We love hearing from fellow retro fans!
+          </p>
+        </div>
+      </section>
 
       <div>
-        <section>
+        {/* Support Section */}
+        <section style={{ marginBottom: "2rem" }}>
+          <h3
+            style={{
+              textAlign: "center",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "0.5em",
+            }}
+          >
+            <img
+              src="/logos/retro-ranker/rr-logo.png"
+              alt="Coffee"
+              style={{ width: 32, height: 48 }}
+            />
+            Support Retro Ranker
+            <img
+              src="/logos/retro-ranker/rr-logo.png"
+              alt="Coffee"
+              style={{ width: 32, height: 48 }}
+            />
+          </h3>
           <p style={{ textAlign: "center" }}>
             If you find Retro Ranker helpful and want to support its
             development, you can buy me a coffee or contribute to the project.
@@ -52,15 +124,34 @@ export default function Contact({ url }: PageProps) {
               }}
             >
               <PiCode class="text-4xl" />
-              <span>
-                GitHub Repository
-              </span>
+              <span>GitHub Repository</span>
             </a>
           </div>
         </section>
 
-        <section>
-          <h3 style={{ textAlign: "center" }}>My Other Projects</h3>
+        {/* Other Projects Section */}
+        <section style={{ marginBottom: "2rem" }}>
+          <h3
+            style={{
+              textAlign: "center",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "0.5em",
+            }}
+          >
+            <img
+              src="/logos/nergy/nergy-n.png"
+              alt="Star"
+              style={{ width: 32, height: 32 }}
+            />
+            My Other Projects
+            <img
+              src="/logos/nergy/nergy-n.png"
+              alt="Heart"
+              style={{ width: 32, height: 32 }}
+            />
+          </h3>
           <div class="small-card-grid">
             <a
               href="https://portfolio.nergy.space"
@@ -83,8 +174,19 @@ export default function Contact({ url }: PageProps) {
           </div>
         </section>
 
+        {/* Connect Section */}
         <section>
-          <h3 style={{ textAlign: "center" }}>Connect With Me</h3>
+          <h3
+            style={{
+              textAlign: "center",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "0.5em",
+            }}
+          >
+            Connect With Me
+          </h3>
           <div class="small-card-grid">
             <a
               href="https://bsky.app/profile/nergy101.bsky.social"

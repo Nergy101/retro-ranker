@@ -1,24 +1,70 @@
-import SEO from "../components/SEO.tsx";
+import SEO from "../../components/SEO.tsx";
 import { PiChartLine, PiInfo, PiQuestion } from "@preact-icons/pi";
 import { PageProps } from "$fresh/server.ts";
 
 export default function FAQ({ url }: PageProps) {
   return (
-    <div
-      class="faq about"
-      style={{ maxWidth: 800, margin: "0 auto", padding: "2rem 1rem" }}
-    >
+    <div class="faq">
       <SEO
         title="Frequently Asked Questions (FAQ)"
         description="Find answers to common questions about Retro Ranker, device comparisons, reviews, and more."
         url={`https://retroranker.site${url.pathname}`}
         keywords="retro ranker faq, retro gaming questions, handheld comparison help, device catalog faq, emulation device questions"
       />
-      <h1 class="text-3xl font-bold mb-6" style={{ textAlign: "center" }}>
-        Frequently Asked Questions
-      </h1>
+      {/* Hero Section */}
+      <section
+        class="hero-section"
+        style={{
+          color: "#fff",
+          marginBottom: "2.5rem",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        <img
+          src="/images/rr-star.png"
+          alt="Retro Ranker Welcome"
+          style={{
+            position: "absolute",
+            right: -100,
+            bottom: -200,
+            maxWidth: "350px",
+            width: "40vw",
+            opacity: 0.18,
+            zIndex: 0,
+            pointerEvents: "none",
+          }}
+        />
+        <div style={{ position: "relative", zIndex: 1, textAlign: "center" }}>
+          <h1
+            class="text-3xl font-bold"
+            style={{
+              textAlign: "center",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "0.5em",
+            }}
+          >
+            Frequently Asked Questions
+          </h1>
+          <p
+            style={{
+              fontSize: "1.2rem",
+              marginTop: "1rem",
+              marginBottom: "0.5rem",
+              color: "#fff",
+              opacity: 0.95,
+            }}
+          >
+            Find answers to common questions about Retro Ranker, device
+            comparisons, reviews, and more.
+          </p>
+        </div>
+      </section>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+      {/* Main FAQ Content */}
+      <div class="faq-content">
         <section>
           <h2
             class="text-xl font-semibold mb-3"

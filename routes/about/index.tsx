@@ -1,4 +1,4 @@
-import SEO from "../components/SEO.tsx";
+import SEO from "../../components/SEO.tsx";
 import {
   PiCookie,
   PiDatabase,
@@ -19,77 +19,91 @@ export default function About({ url }: PageProps) {
         keywords="retro gaming database, handheld comparison, retro gaming community, emulation device reviews, retro gaming resources"
       />
 
-      <h1 class="text-3xl font-bold mb-6" style={{ textAlign: "center" }}>
-        About <span style={{ color: "var(--pico-primary)" }}>Retro Ranker</span>
-      </h1>
-
-      <div class="flex justify-center" style={{ marginBottom: "2rem" }}>
-        <figure
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            gap: "2rem",
-          }}
-        >
+      {/* Hero Section */}
+      <section
+        class="hero-section"
+        style={{
+          color: "#fff",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        <div style={{ position: "relative", zIndex: 1, textAlign: "center" }}>
           <div
+            class="flex justify-center"
             style={{
-              display: "flex",
-              flexDirection: "column",
+              marginBottom: "1.5rem",
+              gap: "2rem",
               alignItems: "center",
-              gap: "1rem",
-            }}
-          >
-            <img
-              src="/logos/retro-ranker/rr-logo.svg"
-              alt="Retro Ranker Logo"
-              width="150"
-              height="150"
-              class="max-w-full h-auto"
-              style={{
-                borderRadius: "1rem",
-              }}
-            />
-          </div>
-
-          <div
-            style={{
-              fontSize: "5rem",
-              color: "var(--pico-primary)",
               display: "flex",
-              alignItems: "center",
+              flexDirection: "row",
               justifyContent: "center",
-              margin: "0 1rem",
-            }}
-          >
-            +
-          </div>
-
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: "1rem",
             }}
           >
             <a href="https://retro-handhelds.com" target="_blank">
               <img
                 src="/logos/retro-handhelds/rh-logo-text.png"
                 alt="Retro Handhelds Community Logo"
-                width="200"
-                height="200"
+                width="160"
+                height="160"
                 class="max-w-full h-auto"
-                style={{
-                  borderRadius: "1rem",
-                }}
+                style={{ borderRadius: "1rem" }}
               />
             </a>
-          </div>
-        </figure>
-      </div>
+            <div
+              style={{
+                fontSize: "4rem",
+                color: "var(--pico-primary)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                margin: "0 1rem",
+              }}
+            >
+              +
+            </div>
 
-      <div>
+            <img
+              src="/logos/retro-ranker/rr-logo.svg"
+              alt="Retro Ranker Logo"
+              width="120"
+              height="120"
+              class="max-w-full h-auto"
+              style={{ borderRadius: "1rem" }}
+            />
+          </div>
+          <h1
+            class="text-3xl font-bold"
+            style={{
+              textAlign: "center",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "0.5em",
+            }}
+          >
+            About{" "}
+            <span style={{ color: "var(--pico-primary)", marginLeft: 8 }}>
+              Retro Ranker
+            </span>
+          </h1>
+          <p
+            style={{
+              fontSize: "1.2rem",
+              marginTop: "1rem",
+              marginBottom: "0.5rem",
+              color: "#fff",
+              opacity: 0.95,
+            }}
+          >
+            Learn about our mission, our partnership with the Retro Handhelds
+            community, and what makes this project special.
+          </p>
+        </div>
+      </section>
+
+      {/* Main Content */}
+      <div class="about-content">
         <details open>
           <summary class="flex items-center gap-2">
             <div style={{ display: "flex", alignItems: "center" }}>

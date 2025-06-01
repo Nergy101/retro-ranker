@@ -90,14 +90,14 @@ export default function Footer() {
                 target="_blank"
               >
                 Retro Ranker
-              </a>. All rights reserved.
+              </a>.
+              All rights reserved.
             </small>
             <div
               style={{
                 display: "flex",
                 alignItems: "center",
                 gap: "0.5rem",
-                marginTop: "1rem",
               }}
             >
               <small>
@@ -111,7 +111,7 @@ export default function Footer() {
               <img
                 loading="lazy"
                 alt="nergy logo"
-                src="/logos/nergy/nergy-logo.png"
+                src="/logos/nergy/nergy-square.png"
                 style={{
                   width: "32px",
                   height: "32px",
