@@ -1,5 +1,5 @@
 // deno-lint-ignore-file no-console
-import { FreshContext } from "$fresh/server.ts";
+import { FreshContext } from "fresh";
 import { ProblemDetail } from "../../data/frontend/contracts/problem-detail.ts";
 import { User } from "../../data/frontend/contracts/user.contract.ts";
 import {
@@ -15,7 +15,9 @@ interface SuggestionPayload {
 const MAX_SUGGESTIONS_PER_USER = 5;
 
 export const handler = {
-  async POST(req: Request, ctx: FreshContext) {
+  async POST(ctx: FreshContext) {
+    const req = ctx.req;
+
     try {
       const cookie = req.headers.get("cookie");
 

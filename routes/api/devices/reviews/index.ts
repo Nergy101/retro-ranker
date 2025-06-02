@@ -1,7 +1,10 @@
 import { createSuperUserPocketBaseService } from "../../../../data/pocketbase/pocketbase.service.ts";
+import { FreshContext } from "fresh";
 
 export const handler = {
-  async POST(req: Request) {
+  async POST(ctx: FreshContext) {
+    const req = ctx.req;
+
     try {
       const form = await req.formData();
 

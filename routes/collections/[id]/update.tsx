@@ -1,16 +1,27 @@
-import SEO from "../../../components/SEO.tsx";
+import { FreshContext, page } from "fresh";
 import { DeviceCollection } from "../../../data/frontend/contracts/device-collection.ts";
 import { Device } from "../../../data/frontend/contracts/device.model.ts";
 import { DeviceService } from "../../../data/frontend/services/devices/device.service.ts";
 import { createLoggedInPocketBaseService } from "../../../data/pocketbase/pocketbase.service.ts";
 import CollectionUpdateForm from "../../../islands/collections/collection-update-form.tsx";
+import { CustomFreshState } from "../../../interfaces/state.ts";
+
+export const handler = {
+  GET(ctx: FreshContext) {
+    (ctx.state as CustomFreshState).seo = {
+      title: "Create Device Collection",
+      description: "Create a new device collection",
+      robots: "noindex, nofollow",
+    };
+    return page(ctx);
+  },
+};
 
 export default async function UpdateCollection(
-  request: Request,
-  { params }: { params: { id: string } },
+  ctx: FreshContext,
 ) {
   const pocketbaseClient = await createLoggedInPocketBaseService(
-    request.headers.get("cookie") ?? "",
+    ctx.req.headers.get("cookie") ?? "",
   );
 
   const deviceService = await DeviceService.getInstance();
@@ -18,7 +29,7 @@ export default async function UpdateCollection(
 
   const existingCollection = await pocketbaseClient.getOne(
     "device_collections",
-    params.id,
+    ctx.params.id,
     "devices",
   );
 
@@ -33,11 +44,13 @@ export default async function UpdateCollection(
 
   return (
     <div>
-      <SEO
+      {
+        /* <SEO
         title="Create Device Collection"
         description="Create a new device collection"
         robots="noindex, nofollow"
-      />
+      /> */
+      }
 
       <h1>Update Device Collection</h1>
       <CollectionUpdateForm

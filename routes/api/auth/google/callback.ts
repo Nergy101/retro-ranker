@@ -1,4 +1,3 @@
-import { Handlers } from "$fresh/server.ts";
 import { setCookie } from "@std/http/cookie";
 import { createPocketBaseService } from "../../../../data/pocketbase/pocketbase.service.ts";
 import pkceSessionService from "../../../../data/pkce/pkce.service.ts";
@@ -8,9 +7,12 @@ import {
   NumberDictionary,
   uniqueNamesGenerator,
 } from "npm:unique-names-generator";
+import { Handlers } from "fresh/compat";
 
 export const handler: Handlers = {
-  async GET(req, _ctx) {
+  async GET(_ctx) {
+    const req = ctx.req;
+
     return await tracer.startActiveSpan(
       "google-auth-callback",
       async (span) => {

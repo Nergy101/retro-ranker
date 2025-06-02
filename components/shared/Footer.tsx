@@ -90,8 +90,7 @@ export default function Footer() {
                 target="_blank"
               >
                 Retro Ranker
-              </a>.
-              All rights reserved.
+              </a>. All rights reserved.
             </small>
             <div
               style={{

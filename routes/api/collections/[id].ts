@@ -1,9 +1,10 @@
-import { Handlers } from "$fresh/server.ts";
 import { User } from "../../../data/frontend/contracts/user.contract.ts";
 import { createSuperUserPocketBaseService } from "../../../data/pocketbase/pocketbase.service.ts";
+import { Handlers } from "fresh/compat";
 
 export const handler: Handlers = {
-  async PUT(request, ctx) {
+  async PUT(ctx) {
+    const request = ctx.req;
     const pbService = await createSuperUserPocketBaseService(
       Deno.env.get("POCKETBASE_SUPERUSER_EMAIL")!,
       Deno.env.get("POCKETBASE_SUPERUSER_PASSWORD")!,
@@ -41,7 +42,7 @@ export const handler: Handlers = {
     return new Response(JSON.stringify(updatedCollection), { status: 200 });
   },
 
-  async DELETE(_, ctx) {
+  async DELETE(ctx) {
     const { id } = ctx.params;
 
     const pbService = await createSuperUserPocketBaseService(

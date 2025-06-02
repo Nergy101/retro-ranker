@@ -1,13 +1,15 @@
-import { Handlers } from "$fresh/server.ts";
 import {
   generateCodeChallenge,
   generateCodeVerifier,
 } from "../../../../data/pkce/pkce.service.ts";
 import pkceSessionService from "../../../../data/pkce/pkce.service.ts";
 import { logJson, tracer } from "../../../../data/tracing/tracer.ts";
+import { Handlers } from "fresh/compat";
 
 export const handler: Handlers = {
-  async GET(req, _ctx) {
+  async GET(_ctx) {
+    const req = ctx.req;
+
     return await tracer.startActiveSpan("google-auth-start", async (span) => {
       try {
         const codeVerifier = generateCodeVerifier();

@@ -1,11 +1,12 @@
-import { Handlers } from "$fresh/server.ts";
 import { createPocketBaseService } from "../../../data/pocketbase/pocketbase.service.ts";
 import { ProblemDetail } from "../../../data/frontend/contracts/problem-detail.ts";
 
 import cap from "../../../data/cap/cap.service.ts";
+import { Handlers } from "fresh/compat";
 
 export const handler: Handlers = {
-  async POST(req, _ctx) {
+  async POST(_ctx) {
+    const req = ctx.req;
     const form = await req.formData();
     const nickname = form.get("nickname")?.toString();
     const password = form.get("password")?.toString();

@@ -1,4 +1,4 @@
-import { PageProps } from "$fresh/server.ts";
+import { FreshContext, page, PageProps } from "fresh";
 import {
   PiBook,
   PiChatText,
@@ -8,17 +8,29 @@ import {
   PiGithubLogo,
   PiLinkedinLogo,
 } from "@preact-icons/pi";
-import SEO from "../components/SEO.tsx";
+import { CustomFreshState } from "../interfaces/state.ts";
+// import SEO from "../components/SEO.tsx";
+
+export const handler = {
+  GET(ctx: FreshContext) {
+    (ctx.state as CustomFreshState).seo = {
+      title: "Contact",
+      description: "Contact us for inquiries or to contribute to our database.",
+      keywords: "contact retro ranker, retro gaming support, handheld device inquiries, contribute to retro database, retro gaming community",
+    };
+    return page(ctx);
+  },
+};
 
 export default function Contact({ url }: PageProps) {
   return (
     <div class="contact">
-      <SEO
+      {/* <SEO
         title="Contact"
         description="Contact us for inquiries or to contribute to our database."
         url={`https://retroranker.site${url.pathname}`}
         keywords="contact retro ranker, retro gaming support, handheld device inquiries, contribute to retro database, retro gaming community"
-      />
+      /> */}
 
       {/* Hero Section */}
       <section
@@ -58,7 +70,8 @@ export default function Contact({ url }: PageProps) {
             <span style={{ color: "#F0F1F3" }}>Contact</span>{" "}
             <span style={{ color: "var(--pico-primary)", marginLeft: 8 }}>
               Retro Ranker
-            </span>{" "}
+            </span>
+            {" "}
           </h1>
           <p
             style={{

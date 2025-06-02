@@ -1,5 +1,5 @@
-import { useSignal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
+import { signal } from "@preact/signals";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { DesktopNav } from "./DesktopNav.tsx";
 import { MobileNav } from "./MobileNav.tsx";
@@ -12,8 +12,8 @@ export function Navbar(
     user: User | null;
   },
 ) {
-  const isMobile = useSignal(globalThis.innerWidth <= 1024);
-  const isLoading = useSignal(true);
+  const isMobile = signal(globalThis.innerWidth <= 1024);
+  const isLoading = signal(true);
 
   useEffect(() => {
     const handleResize = () => {

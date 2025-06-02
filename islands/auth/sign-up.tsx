@@ -1,4 +1,4 @@
-import { IS_BROWSER } from "$fresh/runtime.ts";
+import { IS_BROWSER } from "fresh/runtime";
 import { PiUser, PiUserPlus } from "@preact-icons/pi";
 import { effect, useSignal } from "@preact/signals";
 

@@ -1,9 +1,24 @@
-import SEO from "../../components/SEO.tsx";
-import { PageProps } from "$fresh/server.ts";
 import { PiCaretCircleDoubleDown } from "@preact-icons/pi";
+import { FreshContext, page, PageProps } from "fresh";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
-import { TimelineContent } from "../../islands/TimelineContent.tsx";
 import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
+import { TimelineContent } from "../../islands/TimelineContent.tsx";
+import { CustomFreshState } from "../../interfaces/state.ts";
+
+export const handler = {
+  async GET(ctx: FreshContext) {
+    (ctx.state as CustomFreshState).seo = {
+      title: "Gaming Handheld Release Timeline",
+      description:
+        "Explore the complete chronological release timeline of retro gaming handhelds. Track upcoming releases, view historical launch dates, and discover the evolution of portable emulation devices over time.",
+      url: `https://retroranker.site${ctx.url.pathname}`,
+      keywords:
+        "retro gaming timeline, handheld release dates, emulation device history, upcoming retro handhelds, retro console releases, gaming device roadmap, retro gaming calendar, handheld launch dates",
+    };
+
+    return page(ctx);
+  },
+};
 
 export default async function ReleaseTimeline({ url }: PageProps) {
   const deviceService = await DeviceService.getInstance();
@@ -35,12 +50,14 @@ export default async function ReleaseTimeline({ url }: PageProps) {
 
   return (
     <div class="release-timeline-page">
-      <SEO
+      {
+        /* <SEO
         title="Gaming Handheld Release Timeline"
         description="Explore the complete chronological release timeline of retro gaming handhelds. Track upcoming releases, view historical launch dates, and discover the evolution of portable emulation devices over time."
         url={`https://retroranker.site${url.pathname}`}
         keywords="retro gaming timeline, handheld release dates, emulation device history, upcoming retro handhelds, retro console releases, gaming device roadmap, retro gaming calendar, handheld launch dates"
-      />
+      /> */
+      }
       <hgroup>
         <h1 style={{ textAlign: "center" }}>Release Timeline</h1>
         <p>

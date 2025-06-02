@@ -1,12 +1,13 @@
-import { Handlers } from "$fresh/server.ts";
 import { ProblemDetail } from "../../../../data/frontend/contracts/problem-detail.ts";
 import {
   createLoggedInPocketBaseService,
   createSuperUserPocketBaseService,
 } from "../../../../data/pocketbase/pocketbase.service.ts";
+import { Handlers } from "fresh/compat";
 
 export const handler: Handlers = {
-  async POST(req, ctx) {
+  async POST(ctx) {
+    const req = ctx.req;
     const deviceId = ctx.params.id;
     const cookie = req.headers.get("cookie");
 
@@ -63,7 +64,8 @@ export const handler: Handlers = {
     }
   },
 
-  async DELETE(req, ctx) {
+  async DELETE(ctx) {
+    const req = ctx.req;
     const deviceId = ctx.params.id;
     const cookie = req.headers.get("cookie");
 

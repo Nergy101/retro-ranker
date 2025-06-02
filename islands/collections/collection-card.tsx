@@ -1,5 +1,5 @@
 import { PiEye, PiPencil, PiTrash, PiX } from "@preact-icons/pi";
-import { signal } from "@preact/signals-core";
+import { signal } from "@preact/signals";
 import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
 import { DeviceCollection } from "../../data/frontend/contracts/device-collection.ts";
 import { ShareButton } from "../buttons/ShareButton.tsx";

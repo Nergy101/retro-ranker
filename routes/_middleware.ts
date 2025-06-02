@@ -1,5 +1,5 @@
 // deno-lint-ignore-file
-import { FreshContext } from "$fresh/server.ts";
+import { FreshContext } from "fresh";
 import { createPocketBaseService } from "../data/pocketbase/pocketbase.service.ts";
 import { logJson, tracer } from "../data/tracing/tracer.ts";
 
@@ -48,7 +48,8 @@ function shouldLogVisit(path: string): boolean {
   return true;
 }
 
-export async function handler(req: Request, ctx: FreshContext) {
+export async function handler(ctx: FreshContext) {
+  const req = ctx.req;
   const url = new URL(req.url);
   const path = url.pathname;
 

@@ -1,16 +1,27 @@
-import SEO from "../../components/SEO.tsx";
 import { PiChartLine, PiInfo, PiQuestion } from "@preact-icons/pi";
-import { PageProps } from "$fresh/server.ts";
+import { FreshContext, page, PageProps } from "fresh";
+import { CustomFreshState } from "../../interfaces/state.ts";
+
+export const handler = {
+  GET(ctx: FreshContext) {
+    (ctx.state as CustomFreshState).seo = {
+      title: "Frequently Asked Questions (FAQ)",
+      description: "Find answers to common questions about Retro Ranker, device comparisons, reviews, and more.",
+      keywords: "retro ranker faq, retro gaming questions, handheld comparison help, device catalog faq, emulation device questions",
+    };
+    return page(ctx);
+  },
+};
 
 export default function FAQ({ url }: PageProps) {
   return (
     <div class="faq">
-      <SEO
+      {/* <SEO
         title="Frequently Asked Questions (FAQ)"
         description="Find answers to common questions about Retro Ranker, device comparisons, reviews, and more."
         url={`https://retroranker.site${url.pathname}`}
         keywords="retro ranker faq, retro gaming questions, handheld comparison help, device catalog faq, emulation device questions"
-      />
+      /> */}
       {/* Hero Section */}
       <section
         class="hero-section"

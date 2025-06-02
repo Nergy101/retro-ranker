@@ -1,4 +1,3 @@
-import { FreshContext, Handlers, PageProps } from "$fresh/server.ts";
 import {
   PiCalendar,
   PiCalendarHeart,
@@ -10,28 +9,75 @@ import {
   PiSparkle,
   PiUserCheck,
 } from "@preact-icons/pi";
+import { FreshContext, page } from "fresh";
 import { DeviceCardMedium } from "../components/cards/DeviceCardMedium.tsx";
 import { SeeMoreCard } from "../components/cards/SeeMoreCard.tsx";
-import SEO from "../components/SEO.tsx";
 import { TagComponent } from "../components/shared/TagComponent.tsx";
+import { Device } from "../data/frontend/contracts/device.model.ts";
 import { User } from "../data/frontend/contracts/user.contract.ts";
 import { BrandWebsites } from "../data/frontend/enums/brand-websites.ts";
 import { TagModel } from "../data/frontend/models/tag.model.ts";
 import { DeviceService } from "../data/frontend/services/devices/device.service.ts";
 import { tracer } from "../data/tracing/tracer.ts";
+import { CustomFreshState } from "../interfaces/state.ts";
 import { Hero } from "../islands/Hero.tsx";
 
-export const handler: Handlers = {
-  async GET(_: Request, ctx: FreshContext) {
+export const handler = {
+  async GET(ctx: FreshContext) {
+    (ctx.state as CustomFreshState).seo = {
+      title: "Browse and compare retro gaming handhelds",
+      description:
+        "Compare retro handhelds to find your perfect gaming device.",
+      keywords:
+        "retro gaming, handheld consoles, emulation devices, retro handhelds, gaming comparison, Anbernic, Miyoo, retro game emulation, portable gaming systems, retro gaming comparison",
+    };
+
+    const deviceService = await DeviceService.getInstance();
+    const newArrivals = await deviceService.getNewArrivals();
+    const personalPicks = await deviceService.getPersonalPicks();
+    const highlyRated = await deviceService.getHighlyRated();
+    const upcoming = await deviceService.getUpcoming();
+
+    const defaultTags = [
+      await deviceService.getTagBySlug("low"),
+      await deviceService.getTagBySlug("mid"),
+      await deviceService.getTagBySlug("high"),
+      await deviceService.getTagBySlug("oled"),
+      await deviceService.getTagBySlug("year-2024"),
+      await deviceService.getTagBySlug("year-2025"),
+      await deviceService.getTagBySlug("upcoming"),
+      await deviceService.getTagBySlug("anbernic"),
+      await deviceService.getTagBySlug("miyoo-bittboy"),
+      await deviceService.getTagBySlug("ayaneo"),
+      await deviceService.getTagBySlug("powkiddy"),
+      await deviceService.getTagBySlug("clamshell"),
+      await deviceService.getTagBySlug("horizontal"),
+      await deviceService.getTagBySlug("vertical"),
+      await deviceService.getTagBySlug("micro"),
+      await deviceService.getTagBySlug("windows"),
+      await deviceService.getTagBySlug("steam-os"),
+      await deviceService.getTagBySlug("linux"),
+      await deviceService.getTagBySlug("android"),
+      await deviceService.getTagBySlug("personal-pick"),
+    ].filter((tag) => tag !== null) as TagModel[];
+
+    (ctx.state as CustomFreshState).data = {
+      newArrivals,
+      personalPicks,
+      highlyRated,
+      upcoming,
+      defaultTags,
+    };
+
     return await tracer.startActiveSpan("route:index", async (span) => {
       try {
-        const user = ctx.state.user as User | null;
+        const user = (ctx.state as CustomFreshState)?.user as User | null;
         span.setAttribute("user.authenticated", !!user);
         if (user && "email" in user) {
           span.setAttribute("user.email", user.email);
         }
 
-        const result = await ctx.render({ user });
+        const result = page(ctx);
         span.setStatus({ code: 0 }); // OK
         return result;
       } catch (error: unknown) {
@@ -47,52 +93,31 @@ export const handler: Handlers = {
   },
 };
 
-export default async function Home(
-  { url, data }: PageProps<{ user: User | null }>,
+export default function Home(
+  ctx: FreshContext,
 ) {
-  const user = data?.user ?? null;
+  console.log("TEEEEEEST");
+  console.log(
+    "ctx state first defaultTags",
+    (ctx.state as CustomFreshState).data.defaultTags[0],
+  );
+  const state = ctx.state as CustomFreshState;
+  const user = state.user as User | null;
+  const data = state.data;
 
-  // Filter devices into categories
-  const deviceService = await DeviceService.getInstance();
-  const newArrivals = await deviceService.getNewArrivals();
-  const personalPicks = await deviceService.getPersonalPicks();
-  const highlyRated = await deviceService.getHighlyRated();
-  const upcoming = await deviceService.getUpcoming();
+  const newArrivals = data.newArrivals as Device[];
+  const personalPicks = data.personalPicks as Device[];
+  const highlyRated = data.highlyRated as Device[];
+  const upcoming = data.upcoming as Device[];
+  const defaultTags = data.defaultTags as TagModel[];
 
-  const defaultTags = [
-    await deviceService.getTagBySlug("low"),
-    await deviceService.getTagBySlug("mid"),
-    await deviceService.getTagBySlug("high"),
-    await deviceService.getTagBySlug("oled"),
-    await deviceService.getTagBySlug("year-2024"),
-    await deviceService.getTagBySlug("year-2025"),
-    await deviceService.getTagBySlug("upcoming"),
-    await deviceService.getTagBySlug("anbernic"),
-    await deviceService.getTagBySlug("miyoo-bittboy"),
-    await deviceService.getTagBySlug("ayaneo"),
-    await deviceService.getTagBySlug("powkiddy"),
-    await deviceService.getTagBySlug("clamshell"),
-    await deviceService.getTagBySlug("horizontal"),
-    await deviceService.getTagBySlug("vertical"),
-    await deviceService.getTagBySlug("micro"),
-    await deviceService.getTagBySlug("windows"),
-    await deviceService.getTagBySlug("steam-os"),
-    await deviceService.getTagBySlug("linux"),
-    await deviceService.getTagBySlug("android"),
-    await deviceService.getTagBySlug("personal-pick"),
-  ].filter((tag) => tag !== null) as TagModel[];
+  // // const user = (ctx.state as CustomFreshState)?.user as User | null;
+
+  // // Filter devices into categories
 
   return (
     <div class="home-page">
-      <SEO
-        title="Browse and compare retro gaming handhelds"
-        description="Compare retro handhelds to find your perfect gaming device."
-        url={`https://retroranker.site${url.pathname}`}
-        keywords="retro gaming, handheld consoles, emulation devices, retro handhelds, gaming comparison, Anbernic, Miyoo, retro game emulation, portable gaming systems, retro gaming comparison"
-      />
-      {/* Hero Section Start */}
       <Hero />
-      {/* Hero Section End */}
       <div
         style={{
           display: "flex",
@@ -113,7 +138,7 @@ export default async function Home(
                   gap: "0.5rem",
                 }}
               >
-                <PiMagnifyingGlass /> Popular Searches
+                {/* <PiMagnifyingGlass /> Popular Searches */}
               </h3>
 
               <div
@@ -124,12 +149,12 @@ export default async function Home(
                   justifyContent: "center",
                 }}
               >
-                {defaultTags.map((tag) => (
+                {/* {defaultTags.map((tag) => (
                   <TagComponent
                     key={tag.name}
                     tag={tag}
                   />
-                ))}
+                ))} */}
               </div>
             </article>
           </section>
@@ -139,7 +164,7 @@ export default async function Home(
           <section class="home-section">
             <article class="home-section-content">
               <h2 class="home-section-title">
-                <PiSparkle /> New Arrivals
+                {/* <PiSparkle /> New Arrivals */}
               </h2>
               <div class="device-row-grid">
                 {newArrivals.map((device) => (
@@ -166,7 +191,7 @@ export default async function Home(
           <section class="home-section">
             <article class="home-section-content">
               <h2 class="home-section-title">
-                <PiCalendarHeart /> Upcoming
+                {/* <PiCalendarHeart /> Upcoming */}
               </h2>
               <div class="device-row-grid">
                 {upcoming.map((device) => (
@@ -174,11 +199,11 @@ export default async function Home(
                     href={`/devices/${device.name.sanitized}`}
                     style={{ textDecoration: "none" }}
                   >
-                    <DeviceCardMedium
+                    {/* <DeviceCardMedium
                       device={device}
                       isActive={false}
                       user={user}
-                    />
+                    /> */}
                   </a>
                 ))}
                 <SeeMoreCard
@@ -188,11 +213,12 @@ export default async function Home(
               </div>
             </article>
           </section>
+
           {/* personal Picks Section */}
           <section class="home-section">
             <article class="home-section-content">
               <h2 class="home-section-title">
-                <PiUserCheck /> Personal Picks
+                {/* <PiUserCheck /> Personal Picks */}
               </h2>
               <div class="device-row-grid">
                 {personalPicks.map((device) => (
@@ -200,11 +226,11 @@ export default async function Home(
                     href={`/devices/${device.name.sanitized}`}
                     style={{ textDecoration: "none" }}
                   >
-                    <DeviceCardMedium
+                    {/* <DeviceCardMedium
                       device={device}
                       isActive={false}
                       user={user}
-                    />
+                    /> */}
                   </a>
                 ))}
                 <SeeMoreCard
@@ -219,7 +245,7 @@ export default async function Home(
           <section class="home-section">
             <article class="home-section-content">
               <h2 class="home-section-title">
-                <PiRanking />
+                {/* <PiRanking /> */}
                 <div
                   style={{
                     display: "flex",
@@ -237,11 +263,11 @@ export default async function Home(
                     href={`/devices/${device.name.sanitized}`}
                     style={{ textDecoration: "none" }}
                   >
-                    <DeviceCardMedium
+                    {/* <DeviceCardMedium
                       device={device}
                       isActive={false}
                       user={user}
-                    />
+                    /> */}
                   </a>
                 ))}
                 <SeeMoreCard
@@ -253,6 +279,7 @@ export default async function Home(
           </section>
 
           <hr />
+
           <section class="site-introduction">
             <article class="site-introduction-content">
               <div class="site-introduction-text">
@@ -388,9 +415,6 @@ export default async function Home(
               </div>
             </article>
           </section>
-
-          {/* FAQ Section Start */}
-          {/* FAQ Section End */}
         </div>
       </div>
     </div>

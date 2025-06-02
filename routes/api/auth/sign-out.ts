@@ -1,8 +1,9 @@
-import { Handlers } from "$fresh/server.ts";
 import { deleteCookie } from "@std/http/cookie";
+import { Handlers } from "fresh/compat";
 
 export const handler: Handlers = {
-  GET(req) {
+  GET(ctx) {
+    const req = ctx.req;
     const url = new URL(req.url);
     const headers = new Headers(req.headers);
 

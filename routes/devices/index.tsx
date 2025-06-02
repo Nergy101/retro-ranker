@@ -1,8 +1,8 @@
-import { FreshContext, PageProps } from "$fresh/server.ts";
+import { FreshContext, page, PageProps } from "fresh";
 import { DeviceCardLarge } from "../../components/cards/DeviceCardLarge.tsx";
 import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
 import { DeviceCardRow } from "../../components/cards/DeviceCardRow.tsx";
-import SEO from "../../components/SEO.tsx";
+// import SEO from "../../components/SEO.tsx";
 import { PaginationNav } from "../../components/shared/PaginationNav.tsx";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { TagModel } from "../../data/frontend/models/tag.model.ts";
@@ -10,9 +10,15 @@ import { DeviceService } from "../../data/frontend/services/devices/device.servi
 import { DeviceSearchForm } from "../../islands/forms/DeviceSearchForm.tsx";
 import { LayoutSelector } from "../../islands/LayoutSelector.tsx";
 import TagTypeahead from "../../islands/TagTypeAhead.tsx";
+import { CustomFreshState } from "../../interfaces/state.ts";
 
 export const handler = {
-  async GET(_: Request, ctx: FreshContext) {
+  async GET(ctx: FreshContext) {
+    (ctx.state as CustomFreshState).seo = {
+      title: "Device Catalog",
+      description: "Browse our catalog of retro gaming handhelds with specs.",
+      keywords: "retro gaming handhelds, emulation devices, retro console comparison, handheld gaming systems, retro gaming devices catalog, Anbernic devices, Miyoo handhelds, retro gaming specs, portable emulation systems",
+    };
     const deviceService = await DeviceService.getInstance();
     const searchParams = new URLSearchParams(ctx.url.search);
 
@@ -96,7 +102,7 @@ export const handler = {
 
     const allAvailableTags = await getAvailableTags();
 
-    return ctx.render({
+    (ctx.state as CustomFreshState).data = {
       allAvailableTags,
       selectedTags,
       devicesWithSelectedTags: allDevicesWithTags,
@@ -106,17 +112,20 @@ export const handler = {
       pageSize: getMaxPageSize(),
       activeLayout,
       hasResults,
-      user: ctx.state.user,
+      user: (ctx.state as CustomFreshState).user,
       searchQuery,
       searchParams,
       searchCategory,
       sortBy,
       filter,
-    });
+    };
+
+    return page(ctx);
   },
 };
 
-export default function CatalogPage({ url, data }: PageProps) {
+export default function CatalogPage(ctx: FreshContext) {
+  const data = (ctx.state as CustomFreshState).data;
   const allAvailableTags = data.allAvailableTags;
   const selectedTags = data.selectedTags as TagModel[];
   const pageResults = data.pageResults as Device[];
@@ -130,6 +139,7 @@ export default function CatalogPage({ url, data }: PageProps) {
   const searchCategory = data.searchCategory;
   const sortBy = data.sortBy;
   const filter = data.filter;
+  const url = new URL(ctx.req.url);
 
   const getLayoutGrid = (layout: string) => {
     if (layout === "grid9") {
@@ -153,12 +163,12 @@ export default function CatalogPage({ url, data }: PageProps) {
 
   return (
     <div class="devices-page">
-      <SEO
+      {/* <SEO
         title="Device Catalog"
         description="Browse our catalog of retro gaming handhelds with specs."
         url={`https://retroranker.site${url.pathname}`}
         keywords="retro gaming handhelds, emulation devices, retro console comparison, handheld gaming systems, retro gaming devices catalog, Anbernic devices, Miyoo handhelds, retro gaming specs, portable emulation systems"
-      />
+      /> */}
       <header style={{ textAlign: "center", marginBottom: "1.5rem" }}>
         <hgroup>
           <h1>Device Catalog</h1>
