@@ -1,7 +1,7 @@
 import { PiQuestion } from "@preact-icons/pi";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
-import { EmulationPerformance } from "../emulation-performance.tsx";
+import { EmulationPerformance } from "../devices/emulation-performance.tsx";
 import { StarRating } from "../ratings/star-rating.tsx";
 import { CurrencyIcon } from "../shared/currency-icon.tsx";
 
