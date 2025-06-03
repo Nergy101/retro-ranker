@@ -1,11 +1,10 @@
 import { PiFloppyDisk, PiTrash } from "@preact-icons/pi";
-import { useSignal } from "@preact/signals";
-import { useEffect, useRef } from "preact/hooks";
-import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
+import { useEffect, useRef, useState } from "preact/hooks";
 import { DeviceCollection } from "../../data/frontend/contracts/device-collection.ts";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { searchDevices } from "../../data/frontend/services/utils/search.utils.ts";
 import { createLoggedInPocketBaseService } from "../../data/pocketbase/pocketbase.service.ts";
+import DeviceCardMedium from "../../components/cards/device-card-medium.tsx";
 
 export default function CollectionUpdateForm(
   { allDevices, existingCollectionDevices, collection }: {
@@ -14,9 +13,9 @@ export default function CollectionUpdateForm(
     collection: DeviceCollection;
   },
 ) {
-  const isSubmitting = useSignal(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const collectionType = useSignal<"Normal" | "Ranked">(
+  const [collectionType, setCollectionType] = useState<"Normal" | "Ranked">(
     collection.type || "Normal",
   );
   const initialOrder: { [deviceId: string]: number } = {};
@@ -30,7 +29,9 @@ export default function CollectionUpdateForm(
       initialOrder[device.id] = idx + 1;
     });
   }
-  const deviceOrder = useSignal<{ [deviceId: string]: number }>(initialOrder);
+  const [deviceOrder, setDeviceOrder] = useState<
+    { [deviceId: string]: number }
+  >(initialOrder);
 
   const sortedDevices = (() => {
     if (
@@ -54,18 +55,22 @@ export default function CollectionUpdateForm(
     }
   })();
 
-  const selectedDevices = useSignal<Device[]>(sortedDevices);
-  const name = useSignal<string>(collection.name);
-  const description = useSignal<string>(collection.description);
+  const [selectedDevices, setSelectedDevices] = useState<Device[]>(
+    sortedDevices,
+  );
+  const [name, setName] = useState<string>(collection.name);
+  const [description, setDescription] = useState<string>(
+    collection.description,
+  );
 
-  const selectedDevice = useSignal<Device | null>(null);
+  const [selectedDevice, setSelectedDevice] = useState<Device | null>(null);
   const suggestionsRef = useRef<HTMLDivElement | null>(null);
-  const suggestions = useSignal<Device[]>([]);
-  const query = useSignal<string>("");
+  const [suggestions, setSuggestions] = useState<Device[]>([]);
+  const [query, setQuery] = useState<string>("");
 
   const isActive = (deviceName: string) => {
     return deviceName.toLowerCase() ===
-      selectedDevice.value?.name.raw.toLowerCase();
+      selectedDevice?.name.raw.toLowerCase();
   };
 
   useEffect(() => {
@@ -74,7 +79,7 @@ export default function CollectionUpdateForm(
         suggestionsRef.current &&
         !suggestionsRef.current.contains(event.target as Node)
       ) {
-        suggestions.value = [];
+        setSuggestions([]);
       }
     };
 
@@ -83,75 +88,74 @@ export default function CollectionUpdateForm(
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
-  }, []);
+  });
 
   const queryChanged = (value: string) => {
-    query.value = value;
-    suggestions.value = searchDevices(value.trim(), allDevices);
+    setQuery(value);
+    setSuggestions(searchDevices(value.trim(), allDevices));
 
-    selectedDevice.value =
+    setSelectedDevice(
       allDevices.find((device) =>
         device.name.raw.toLowerCase() === value.toLowerCase()
-      ) ?? null;
+      ) ?? null,
+    );
   };
 
   const setQuerySuggestion = (value: string) => {
-    query.value = value;
-    suggestions.value = [];
+    setQuery(value);
+    setSuggestions([]);
   };
 
   const handleDeviceSelect = (device: Device) => {
-    if (!selectedDevices.value.find((d) => d.id === device.id)) {
-      selectedDevices.value = [...selectedDevices.value, device];
-      if (collectionType.value === "Ranked") {
-        deviceOrder.value = {
-          ...deviceOrder.value,
-          [device.id]: Object.keys(deviceOrder.value).length + 1,
-        };
+    if (!selectedDevices.find((d) => d.id === device.id)) {
+      setSelectedDevices([...selectedDevices, device]);
+      if (collectionType === "Ranked") {
+        setDeviceOrder({
+          ...deviceOrder,
+          [device.id]: Object.keys(deviceOrder).length + 1,
+        });
       }
     }
-    query.value = "";
-    suggestions.value = [];
+    setQuery("");
+    setSuggestions([]);
   };
 
   const handleDeviceRemove = (deviceId: string) => {
-    selectedDevices.value = selectedDevices.value.filter(
+    setSelectedDevices(selectedDevices.filter(
       (device) => device.id !== deviceId,
-    );
-    if (collectionType.value === "Ranked") {
-      const { [deviceId]: _, ...rest } = deviceOrder.value;
-      deviceOrder.value = rest;
+    ));
+    if (collectionType === "Ranked") {
+      const { [deviceId]: _, ...rest } = deviceOrder;
+      setDeviceOrder(rest);
     }
   };
 
   const handleOrderChange = (deviceId: string, value: string) => {
     const newOrder = parseInt(value, 10);
     if (!isNaN(newOrder) && newOrder >= 1) {
-      const currentDevices = selectedDevices.value.filter((d) =>
-        d.id !== deviceId
-      );
+      const currentDevices = selectedDevices.filter((d) => d.id !== deviceId);
       const insertAt = Math.min(newOrder - 1, currentDevices.length);
-      const movedDevice = selectedDevices.value.find((d) => d.id === deviceId);
+      const movedDevice = selectedDevices.find((d) => d.id === deviceId);
       if (!movedDevice) return;
       currentDevices.splice(insertAt, 0, movedDevice);
       const updatedDeviceOrder: { [deviceId: string]: number } = {};
       currentDevices.forEach((device, idx) => {
         updatedDeviceOrder[device.id] = idx + 1;
       });
-      selectedDevices.value = currentDevices;
-      deviceOrder.value = updatedDeviceOrder;
+      setSelectedDevices(currentDevices);
+      setDeviceOrder(updatedDeviceOrder);
     }
   };
 
   const isDisabled = () => {
-    return name.value.trim() === "" || selectedDevices.value.length === 0;
+    return name.trim() === "" || selectedDevices.length === 0;
   };
 
   const handleSubmit = async (event: Event) => {
     event.preventDefault();
     if (isDisabled()) return;
 
-    isSubmitting.value = true;
+    setIsSubmitting(true);
 
     try {
       const pocketbaseClient = await createLoggedInPocketBaseService(
@@ -159,17 +163,17 @@ export default function CollectionUpdateForm(
       );
 
       let orderArr: Array<Record<string, number>> = [];
-      if (collectionType.value === "Ranked") {
-        orderArr = selectedDevices.value.map((device) => ({
-          [device.id]: deviceOrder.value[device.id] || 1,
+      if (collectionType === "Ranked") {
+        orderArr = selectedDevices.map((device) => ({
+          [device.id]: deviceOrder[device.id] || 1,
         }));
       }
 
       await pocketbaseClient.update("device_collections", collection.id, {
-        name: name.value.trim(),
-        description: description.value.trim(),
-        devices: selectedDevices.value.map((device) => device.id),
-        type: collectionType.value,
+        name: name.trim(),
+        description: description.trim(),
+        devices: selectedDevices.map((device) => device.id),
+        type: collectionType,
         order: orderArr,
       });
 
@@ -179,16 +183,16 @@ export default function CollectionUpdateForm(
       console.error("Failed to update collection:", error);
       alert("Failed to update collection. Please try again.");
     } finally {
-      isSubmitting.value = false;
+      setIsSubmitting(false);
     }
   };
 
-  const setName = (value: string) => {
-    name.value = value;
+  const adjustName = (value: string) => {
+    setName(value);
   };
 
-  const setDescription = (value: string) => {
-    description.value = value;
+  const adjustDescription = (value: string) => {
+    setDescription(value);
   };
 
   return (
@@ -199,8 +203,8 @@ export default function CollectionUpdateForm(
             type="radio"
             name="collectionType"
             value="Normal"
-            checked={collectionType.value === "Normal"}
-            onChange={() => collectionType.value = "Normal"}
+            checked={collectionType === "Normal"}
+            onChange={() => setCollectionType("Normal")}
           />
           Normal
         </label>
@@ -209,8 +213,8 @@ export default function CollectionUpdateForm(
             type="radio"
             name="collectionType"
             value="Ranked"
-            checked={collectionType.value === "Ranked"}
-            onChange={() => collectionType.value = "Ranked"}
+            checked={collectionType === "Ranked"}
+            onChange={() => setCollectionType("Ranked")}
           />
           Ranked
         </label>
@@ -223,8 +227,8 @@ export default function CollectionUpdateForm(
           <input
             type="text"
             id="name"
-            value={name.value}
-            onInput={(e) => setName((e.target as HTMLInputElement).value)}
+            value={name}
+            onInput={(e) => adjustName((e.target as HTMLInputElement).value)}
             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
             required
           />
@@ -239,9 +243,9 @@ export default function CollectionUpdateForm(
           </label>
           <textarea
             id="description"
-            value={description.value}
+            value={description}
             onInput={(e) =>
-              setDescription((e.target as HTMLTextAreaElement).value)}
+              adjustDescription((e.target as HTMLTextAreaElement).value)}
             rows={3}
             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           />
@@ -258,21 +262,21 @@ export default function CollectionUpdateForm(
             <input
               type="text"
               id="device-search"
-              value={query.value}
+              value={query}
               onInput={(e) =>
                 queryChanged((e.target as HTMLInputElement).value)}
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
                   e.preventDefault();
-                  if (selectedDevice.value) {
-                    handleDeviceSelect(selectedDevice.value);
+                  if (selectedDevice) {
+                    handleDeviceSelect(selectedDevice);
                   }
                 }
               }}
               class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
               placeholder="Search devices..."
             />
-            {suggestions.value.length > 0 && (
+            {suggestions.length > 0 && (
               <div>
                 <div
                   ref={suggestionsRef}
@@ -284,7 +288,7 @@ export default function CollectionUpdateForm(
                     gap: "1rem",
                   }}
                 >
-                  {suggestions.value.map((device) => (
+                  {suggestions.map((device) => (
                     <div
                       key={device.id}
                       onClick={() => {
@@ -311,12 +315,12 @@ export default function CollectionUpdateForm(
         </div>
 
         <div class="edit-collection-devices-grid">
-          {selectedDevices.value.map((device) => (
+          {selectedDevices.map((device) => (
             <div key={device.id} class="relative h-full">
               <div>
                 <DeviceCardMedium device={device} />
               </div>
-              {collectionType.value === "Ranked" && (
+              {collectionType === "Ranked" && (
                 <div
                   style={{
                     display: "flex",
@@ -329,16 +333,16 @@ export default function CollectionUpdateForm(
                   <input
                     type="number"
                     min={1}
-                    value={deviceOrder.value[device.id] || 1}
+                    value={deviceOrder[device.id] || 1}
                     onClick={(e) => e.stopPropagation()}
                     onInput={(e) => {
                       const val = (e.currentTarget as HTMLInputElement).value;
                       const order = parseInt(val, 10);
                       if (!isNaN(order)) {
-                        deviceOrder.value = {
-                          ...deviceOrder.value,
+                        setDeviceOrder({
+                          ...deviceOrder,
                           [device.id]: order,
-                        };
+                        });
                       }
                     }}
                     onBlur={(e) => {
@@ -386,10 +390,10 @@ export default function CollectionUpdateForm(
         >
           <button
             type="submit"
-            disabled={isDisabled() || isSubmitting.value}
+            disabled={isDisabled() || isSubmitting}
             class="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50"
           >
-            {isSubmitting.value
+            {isSubmitting
               ? (
                 "Updating..."
               )

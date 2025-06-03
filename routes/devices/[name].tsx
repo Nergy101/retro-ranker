@@ -6,18 +6,17 @@ import {
   PiStar,
 } from "@preact-icons/pi";
 import { FreshContext, page } from "fresh";
-import { JSX, VNode } from "preact";
-import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
-import { DeviceCommentCard } from "../../components/cards/DeviceCommentCard.tsx";
-import { DeviceReviewCard } from "../../components/cards/DeviceReviewCard.tsx";
-import { DeviceLinks } from "../../components/DeviceLinks.tsx";
-import { EmulationPerformance } from "../../components/EmulationPerformance.tsx";
-import { StarRating } from "../../components/ratings/StarRating.tsx";
+import DeviceCardMedium from "../../components/cards/device-card-medium.tsx";
+import DeviceCommentCard from "../../components/cards/device-comment-card.tsx";
+import DeviceReviewCard from "../../components/cards/device-review-card.tsx";
+import DeviceLinks from "../../components/device-links.tsx";
+import EmulationPerformance from "../../components/emulation-performance.tsx";
+import StarRating from "../../components/ratings/star-rating.tsx";
 // import SEO from "../../components/SEO.tsx";
-import { CurrencyIcon } from "../../components/shared/CurrencyIcon.tsx";
-import { TagComponent } from "../../components/shared/TagComponent.tsx";
-import { DeviceSpecs } from "../../components/specifications/DeviceSpecs.tsx";
-import { SummaryTable } from "../../components/specifications/tables/SummaryTable.tsx";
+import CurrencyIcon from "../../components/shared/currency-icon.tsx";
+import TagComponent from "../../components/shared/tag-component.tsx";
+import DeviceSpecs from "../../components/specifications/device-specs.tsx";
+import SummaryTable from "../../components/specifications/tables/summary-table.tsx";
 import { CommentContract } from "../../data/frontend/contracts/comment.contract.ts";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { ReviewContract } from "../../data/frontend/contracts/review.contract.ts";
@@ -26,13 +25,15 @@ import { BrandWebsites } from "../../data/frontend/enums/brand-websites.ts";
 import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 import { createSuperUserPocketBaseService } from "../../data/pocketbase/pocketbase.service.ts";
 import { CustomFreshState } from "../../interfaces/state.ts";
-import { BackButton } from "../../islands/buttons/BackButton.tsx";
-import { ClipboardButton } from "../../islands/buttons/ClipboardButton.tsx";
-import { CompareButton } from "../../islands/buttons/CompareButton.tsx";
-import { ShareButton } from "../../islands/buttons/ShareButton.tsx";
+import BackButton from "../../islands/buttons/back-button.tsx";
+import ClipboardButton from "../../islands/buttons/clipboard-button.tsx";
+import CompareButton from "../../islands/buttons/compare-button.tsx";
+import ShareButton from "../../islands/buttons/share-button.tsx";
 import { DevicesSimilarRadarChart } from "../../islands/charts/devices-similar-radar-chart.tsx";
-import AddDeviceCommentForm from "../../islands/forms/AddDeviceCommentForm.tsx";
-import AddDeviceReviewForm from "../../islands/forms/AddDeviceReviewForm.tsx";
+import AddDeviceCommentForm from "../../islands/forms/add-device-comment-form.tsx";
+import AddDeviceReviewForm from "../../islands/forms/add-device-review-form.tsx";
+// import AddDeviceCommentForm from "../../islands/forms/AddDeviceCommentForm.tsx";
+// import AddDeviceReviewForm from "../../islands/forms/AddDeviceReviewForm.tsx";
 
 export const handler = {
   async GET(ctx: FreshContext) {
@@ -105,7 +106,7 @@ export const handler = {
 
     const jsonLdForDevice = (device: Device | null) => {
       if (!device) return "";
-  
+
       return JSON.stringify({
         "@context": "https://schema.org/",
         "@type": "Product",
@@ -184,44 +185,43 @@ export const handler = {
         ],
       });
     };
-    
-  const getReleaseDate = (
-    deviceReleased: { raw: string | null; mentionedDate: Date | null },
-  ): {
-    date: string;
-    icon: () => VNode<JSX.SVGAttributes>;
-    expected: boolean;
-  } => {
-    if (!deviceReleased.raw) {
-      return {
-        date: "Unknown",
-        icon: () => <PiQuestion />,
-        expected: false,
-      };
-    }
 
-    if (deviceReleased.mentionedDate) {
-      return {
-        date: new Date(deviceReleased.mentionedDate).toLocaleDateString(
-          "en-US",
-          {
-            month: "short",
-            day: "numeric",
-            year: "numeric",
-          },
-        ),
-        icon: () => <PiCalendarCheck />,
-        expected: false,
-      };
-    }
+    const getReleaseDate = (
+      deviceReleased: { raw: string | null; mentionedDate: Date | null },
+    ): {
+      date: string;
+      icon: () => any;
+      expected: boolean;
+    } => {
+      if (!deviceReleased.raw) {
+        return {
+          date: "Unknown",
+          icon: () => PiQuestion({}),
+          expected: false,
+        };
+      }
 
-    return {
-      date: deviceReleased.raw,
-      icon: () => <PiCalendarSlash />,
-      expected: deviceReleased.raw.toLowerCase().includes("upcoming"),
+      if (deviceReleased.mentionedDate) {
+        return {
+          date: new Date(deviceReleased.mentionedDate).toLocaleDateString(
+            "en-US",
+            {
+              month: "short",
+              day: "numeric",
+              year: "numeric",
+            },
+          ),
+          icon: () => <PiCalendarCheck />,
+          expected: false,
+        };
+      }
+
+      return {
+        date: deviceReleased.raw,
+        icon: () => <PiCalendarSlash />,
+        expected: deviceReleased.raw.toLowerCase().includes("upcoming"),
+      };
     };
-  };
-
 
     const deviceService = await DeviceService.getInstance();
     const device = await deviceService.getDeviceByName(deviceId);
@@ -229,19 +229,25 @@ export const handler = {
       device?.name.sanitized ?? null,
     )).sort((a, b) => b.totalRating - a.totalRating);
 
-    const releaseDate = getReleaseDate(device.released);
+    const releaseDate = getReleaseDate(
+      device?.released ?? {
+        raw: null,
+        mentionedDate: null,
+      },
+    );
 
     (ctx.state as CustomFreshState).seo = {
       title: `${device?.name.raw} - ${device?.brand.raw} Retro Gaming Handheld`,
-      description: `${device?.name.raw} by ${device?.brand.raw}: ${device?.pricing.category} budget retro gaming handheld with ${
-        device?.ram?.sizes?.[0]
-      } ${device?.ram?.unit} RAM, ${device?.storage} storage, and ${device?.battery.capacity}${device?.battery.unit} battery. Release: ${
-        releaseDate.expected ? "Expected" : releaseDate.date
-      }. ${
-        device?.os.list.join(", ") !== "?"
-          ? `Supports ${device?.os.list.join(", ")}.`
-          : ""
-      } Compare specs and performance ratings.`,
+      description:
+        `${device?.name.raw} by ${device?.brand.raw}: ${device?.pricing.category} budget retro gaming handheld with ${
+          device?.ram?.sizes?.[0]
+        } ${device?.ram?.unit} RAM, ${device?.storage} storage, and ${device?.battery.capacity}${device?.battery.unit} battery. Release: ${
+          releaseDate.expected ? "Expected" : releaseDate.date
+        }. ${
+          device?.os.list.join(", ") !== "?"
+            ? `Supports ${device?.os.list.join(", ")}.`
+            : ""
+        } Compare specs and performance ratings.`,
       keywords: `${device?.name.raw}, ${device?.brand.raw}, ${
         device?.os.list.join(", ")
       }, retro gaming handheld, emulation device, portable gaming, ${device?.pricing.category} budget, retro console, handheld emulator`,
@@ -259,6 +265,7 @@ export const handler = {
       similarDevices,
       comments,
       reviews,
+      releaseDate,
     };
 
     return page(ctx);
@@ -300,8 +307,6 @@ export default function DeviceDetail(ctx: FreshContext) {
 
   return (
     <div class="device-detail">
-
-
       <div class="device-detail-header">
         <BackButton />
         <div
@@ -705,7 +710,6 @@ export default function DeviceDetail(ctx: FreshContext) {
               <DeviceCardMedium
                 device={deviceItem}
                 isActive={false}
-                user={user}
               />
             </a>
           ))}

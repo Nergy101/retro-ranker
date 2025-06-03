@@ -1,16 +1,16 @@
 import { setCookie } from "@std/http/cookie";
-import { createPocketBaseService } from "../../../../data/pocketbase/pocketbase.service.ts";
-import pkceSessionService from "../../../../data/pkce/pkce.service.ts";
-import { logJson, tracer } from "../../../../data/tracing/tracer.ts";
+import { Handlers } from "fresh/compat";
 import {
   animals,
   NumberDictionary,
   uniqueNamesGenerator,
-} from "npm:unique-names-generator";
-import { Handlers } from "fresh/compat";
+} from "unique-names-generator";
+import pkceSessionService from "../../../../data/pkce/pkce.service.ts";
+import { createPocketBaseService } from "../../../../data/pocketbase/pocketbase.service.ts";
+import { logJson, tracer } from "../../../../data/tracing/tracer.ts";
 
 export const handler: Handlers = {
-  async GET(_ctx) {
+  async GET(ctx) {
     const req = ctx.req;
 
     return await tracer.startActiveSpan(

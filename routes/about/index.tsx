@@ -7,17 +7,19 @@ import {
   PiUsers,
 } from "@preact-icons/pi";
 import { FreshContext } from "fresh";
+import { CustomFreshState } from "../../interfaces/state.ts";
 
 export const handler = {
   GET(ctx: FreshContext) {
-    ctx.state.seo = {
+    (ctx.state as CustomFreshState).seo = {
       title: "About",
       description: "Learn about Retro Ranker's mission and our team.",
       url: "https://retroranker.site/about",
-      keywords: "retro gaming database, handheld comparison, retro gaming community, emulation device reviews, retro gaming resources",
+      keywords:
+        "retro gaming database, handheld comparison, retro gaming community, emulation device reviews, retro gaming resources",
     };
     return page();
-  }
+  },
 };
 
 export default function page() {

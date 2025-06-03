@@ -1,7 +1,6 @@
 import { FreshContext, page } from "fresh";
 import { RecordModel } from "npm:pocketbase";
-import { DeviceCardMedium } from "../../../components/cards/DeviceCardMedium.tsx";
-// import SEO from "../../../components/SEO.tsx";
+import DeviceCardMedium from "../../../components/cards/device-card-medium.tsx";
 import { DeviceCollection } from "../../../data/frontend/contracts/device-collection.ts";
 import { Device } from "../../../data/frontend/contracts/device.model.ts";
 import { createSuperUserPocketBaseService } from "../../../data/pocketbase/pocketbase.service.ts";
@@ -48,13 +47,13 @@ export default async function CollectionView(ctx: FreshContext) {
     );
   }
 
-  const getOwnerNameText = (): string => {
-    // if last character is s then use the correct possessive form
-    if (collection.owner.endsWith("s")) {
-      return `${collection.owner}'`;
-    }
-    return `${collection.owner}'s`;
-  };
+  // const getOwnerNameText = (): string => {
+  //   // if last character is s then use the correct possessive form
+  //   if (collection.owner.endsWith("s")) {
+  //     return `${collection.owner}'`;
+  //   }
+  //   return `${collection.owner}'s`;
+  // };
 
   if (collection.type === "Ranked") {
     collection.devices = collection.devices.sort((a, b) => {
@@ -66,14 +65,16 @@ export default async function CollectionView(ctx: FreshContext) {
 
   return (
     <div>
-      {/* <SEO
+      {
+        /* <SEO
         title={`See ${getOwnerNameText()}'s collection: ${collection.name}`}
         description={collection.description}
         url={`https://retroranker.site/collections/${id}`}
         keywords={`${collection.name}, ${collection.description}, ${collection.owner}, ${collection.deviceCount} devices`}
         image={collection.devices[0].image?.pngUrl ?? undefined}
         robots="index, follow"
-      /> */}
+      /> */
+      }
       <article
         style={{
           border: "1px solid var(--pico-primary)",

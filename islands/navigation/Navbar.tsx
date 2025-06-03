@@ -1,28 +1,27 @@
-import { useEffect } from "preact/hooks";
-import { signal } from "@preact/signals";
+import { useEffect, useState } from "preact/hooks";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
-import { DesktopNav } from "./DesktopNav.tsx";
-import { MobileNav } from "./MobileNav.tsx";
 import { User } from "../../data/frontend/contracts/user.contract.ts";
+import DesktopNav from "./desktop-nav.tsx";
+import MobileNav from "./mobile-nav.tsx";
 
-export function Navbar(
+export default function Navbar(
   { pathname, allDevices, user }: {
     pathname: string;
     allDevices: Device[];
     user: User | null;
   },
 ) {
-  const isMobile = signal(globalThis.innerWidth <= 1024);
-  const isLoading = signal(true);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const handleResize = () => {
-      isMobile.value = globalThis.innerWidth <= 1024;
+      setIsMobile(globalThis.innerWidth <= 1024);
     };
 
     // Set a timeout to prevent infinite loading
     const timeoutId = setTimeout(() => {
-      isLoading.value = false;
+      setIsLoading(false);
     }, 1000); // 1 second timeout
 
     try {
@@ -30,28 +29,28 @@ export function Navbar(
       globalThis.addEventListener("resize", handleResize);
 
       // Set initial mobile state
-      isMobile.value = globalThis.innerWidth <= 1024;
+      setIsMobile(globalThis.innerWidth <= 1024);
 
       // Set loading to false once initial width is determined
-      isLoading.value = false;
+      setIsLoading(false);
     } catch {
       // Ensure loading is set to false even if there's an error
-      isLoading.value = false;
+      setIsLoading(false);
     }
 
     return () => {
       globalThis.removeEventListener("resize", handleResize);
       clearTimeout(timeoutId);
     };
-  }, []);
+  });
 
-  if (isLoading.value) {
+  if (isLoading) {
     return <article aria-busy="true" aria-live="polite" />;
   }
 
   return (
     <>
-      {isMobile.value
+      {isMobile
         ? <MobileNav pathname={pathname} allDevices={allDevices} user={user} />
         : (
           <DesktopNav

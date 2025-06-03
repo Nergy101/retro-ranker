@@ -1,7 +1,7 @@
 import { PiChatCentered, PiPlus } from "@preact-icons/pi";
 import { FreshContext, page } from "fresh";
 import { RecordModel } from "npm:pocketbase";
-import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
+import DeviceCardMedium from "../../components/cards/device-card-medium.tsx";
 // import SEO from "../../components/SEO.tsx";
 import { DeviceCollection } from "../../data/frontend/contracts/device-collection.ts";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
@@ -26,7 +26,6 @@ export default async function ProfilePage(
   ctx: FreshContext,
 ) {
   const req = ctx.req;
-  const url = new URL(req.url);
   const state = ctx.state as CustomFreshState;
 
   if (!state.user) {
@@ -171,7 +170,6 @@ export default async function ProfilePage(
                   <DeviceCardMedium
                     device={device}
                     isActive={false}
-                    user={user}
                   />
                 </a>
               ))}

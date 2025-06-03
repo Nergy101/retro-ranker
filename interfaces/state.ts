@@ -1,4 +1,3 @@
-import { ComponentChildren } from "preact";
 import type { User } from "../data/frontend/contracts/user.contract.ts";
 
 export interface SeoData {
@@ -9,7 +8,7 @@ export interface SeoData {
   keywords?: string;
   robots?: string;
   jsonLd?: string;
-  children?: ComponentChildren;
+  // children?: ComponentChildren;
 }
 
 export interface CustomFreshState {

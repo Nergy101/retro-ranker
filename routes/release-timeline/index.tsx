@@ -2,8 +2,8 @@ import { PiCaretCircleDoubleDown } from "@preact-icons/pi";
 import { FreshContext, page, PageProps } from "fresh";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
-import { TimelineContent } from "../../islands/TimelineContent.tsx";
 import { CustomFreshState } from "../../interfaces/state.ts";
+import TimelineContent from "../../islands/timeline-content.tsx";
 
 export const handler = {
   async GET(ctx: FreshContext) {
@@ -20,7 +20,7 @@ export const handler = {
   },
 };
 
-export default async function ReleaseTimeline({ url }: PageProps) {
+export default async function ReleaseTimeline({ url: _url }: PageProps) {
   const deviceService = await DeviceService.getInstance();
   const devices = await deviceService.getAllDevices();
 

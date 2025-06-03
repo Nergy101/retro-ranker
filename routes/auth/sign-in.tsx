@@ -1,8 +1,7 @@
 // import SEO from "../../components/SEO.tsx";
-import SignIn from "../../islands/auth/sign-in.tsx";
 import { FreshContext, page, PageProps } from "fresh";
-import { Handlers } from "fresh/compat";
 import { CustomFreshState } from "../../interfaces/state.ts";
+import SignIn from "../../islands/auth/sign-in.tsx";
 
 export default function SignInPage(pageProps: PageProps) {
   const error = pageProps.url.searchParams.get("error");

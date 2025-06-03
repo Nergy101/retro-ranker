@@ -8,12 +8,11 @@ import {
   PiRanking,
   PiScroll,
 } from "@preact-icons/pi";
-import { JSX, VNode } from "preact";
 
 export interface NavigationItem {
   label: string;
   href: string;
-  icon?: (props: { style?: JSX.CSSProperties }) => VNode<JSX.SVGAttributes>;
+  icon?: (props: { style?: any }) => any;
   isActive: (pathname: string) => boolean;
   priority?: number;
 }

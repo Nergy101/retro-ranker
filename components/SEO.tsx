@@ -1,8 +1,6 @@
 // import { Head } from "fresh/runtime";
 // import { ComponentChildren } from "preact";
 
-
-
 // export function getSEOData({
 //   title,
 //   description,

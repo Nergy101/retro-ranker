@@ -1,26 +1,29 @@
 import { PiFloppyDisk } from "@preact-icons/pi";
-import { useSignal } from "@preact/signals";
-import { useEffect, useRef } from "preact/hooks";
-import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
+import { useEffect, useRef, useState } from "preact/hooks";
+import DeviceCardMedium from "../../components/cards/device-card-medium.tsx";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { searchDevices } from "../../data/frontend/services/utils/search.utils.ts";
 
 export default function CollectionCreateForm(
   { devices }: { devices: Device[] },
 ) {
-  const isSubmitting = useSignal(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const selectedDevices = useSignal<Device[]>([]);
-  const name = useSignal<string>("");
-  const description = useSignal<string>("");
+  const [selectedDevices, setSelectedDevices] = useState<Device[]>([]);
+  const [name, setName] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
 
-  const selectedDevice = useSignal<Device | null>(null);
+  const [selectedDevice, setSelectedDevice] = useState<Device | null>(null);
   const suggestionsRef = useRef<HTMLUListElement>(null);
-  const suggestions = useSignal<Device[]>([]);
-  const query = useSignal<string>("");
+  const [suggestions, setSuggestions] = useState<Device[]>([]);
+  const [_, setQuery] = useState<string>("");
 
-  const collectionType = useSignal<"Normal" | "Ranked">("Normal");
-  const deviceOrder = useSignal<{ [deviceId: string]: number }>({});
+  const [collectionType, setCollectionType] = useState<"Normal" | "Ranked">(
+    "Normal",
+  );
+  const [deviceOrder, setDeviceOrder] = useState<
+    { [deviceId: string]: number }
+  >({});
 
   // FLIP animation refs
   const cardRefs = useRef<{ [id: string]: HTMLDivElement | null }>({});
@@ -28,7 +31,7 @@ export default function CollectionCreateForm(
 
   const isActive = (deviceName: string) => {
     return deviceName.toLowerCase() ===
-      selectedDevice.value?.name.raw.toLowerCase();
+      selectedDevice?.name.raw.toLowerCase();
   };
 
   useEffect(() => {
@@ -37,7 +40,7 @@ export default function CollectionCreateForm(
         suggestionsRef.current &&
         !suggestionsRef.current.contains(event.target as Node)
       ) {
-        suggestions.value = [];
+        setSuggestions([]);
       }
     };
 
@@ -46,40 +49,41 @@ export default function CollectionCreateForm(
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
-  }, []);
+  });
 
   const queryChanged = (value: string) => {
-    query.value = value;
-    suggestions.value = searchDevices(value.trim(), devices);
+    setQuery(value);
+    setSuggestions(searchDevices(value.trim(), devices));
 
-    selectedDevice.value =
+    setSelectedDevice(
       devices.find((device) =>
         device.name.raw.toLowerCase() === value.toLowerCase()
-      ) ?? null;
+      ) ?? null,
+    );
   };
 
   const setQuerySuggestion = (value: string) => {
     queryChanged(value);
-    suggestions.value = [];
+    setSuggestions([]);
   };
 
   const handleDeviceSelect = (device: Device) => {
-    selectedDevices.value = [...selectedDevices.value, device];
-    if (collectionType.value === "Ranked") {
-      deviceOrder.value = {
-        ...deviceOrder.value,
-        [device.id]: Object.keys(deviceOrder.value).length + 1,
-      };
+    setSelectedDevices([...selectedDevices, device]);
+    if (collectionType === "Ranked") {
+      setDeviceOrder({
+        ...deviceOrder,
+        [device.id]: Object.keys(deviceOrder).length + 1,
+      });
     }
   };
 
   const handleDeviceRemove = (deviceId: string) => {
-    selectedDevices.value = selectedDevices.value.filter((device) =>
-      device.id !== deviceId
+    setSelectedDevices(
+      selectedDevices.filter((device) => device.id !== deviceId),
     );
-    if (collectionType.value === "Ranked") {
-      const { [deviceId]: _, ...rest } = deviceOrder.value;
-      deviceOrder.value = rest;
+    if (collectionType === "Ranked") {
+      const { [deviceId]: _, ...rest } = deviceOrder;
+      setDeviceOrder(rest);
     }
   };
 
@@ -87,13 +91,11 @@ export default function CollectionCreateForm(
     const newOrder = parseInt(value, 10);
     if (!isNaN(newOrder) && newOrder >= 1) {
       // Remove the device from its current position
-      const currentDevices = selectedDevices.value.filter((d) =>
-        d.id !== deviceId
-      );
+      const currentDevices = selectedDevices.filter((d) => d.id !== deviceId);
       // Clamp the new position to the array bounds
       const insertAt = Math.min(newOrder - 1, currentDevices.length);
       // Find the device object
-      const movedDevice = selectedDevices.value.find((d) => d.id === deviceId);
+      const movedDevice = selectedDevices.find((d) => d.id === deviceId);
       if (!movedDevice) return;
       // Insert the device at the new position
       currentDevices.splice(insertAt, 0, movedDevice);
@@ -103,31 +105,31 @@ export default function CollectionCreateForm(
         updatedDeviceOrder[device.id] = idx + 1;
       });
       // Update the signals
-      selectedDevices.value = currentDevices;
-      deviceOrder.value = updatedDeviceOrder;
+      setSelectedDevices(currentDevices);
+      setDeviceOrder(updatedDeviceOrder);
     }
   };
 
   const isDisabled = () => {
-    return isSubmitting.value || name.value === "" || name.value.length <= 3;
+    return isSubmitting || name === "" || name.length <= 3;
   };
 
   const handleSubmit = async (event: Event) => {
     event.preventDefault();
-    isSubmitting.value = true;
+    setIsSubmitting(true);
 
     const formData = new FormData();
-    formData.append("name", name.value);
-    formData.append("type", collectionType.value);
-    if (description.value) {
-      formData.append("description", description.value);
+    formData.append("name", name);
+    formData.append("type", collectionType);
+    if (description) {
+      formData.append("description", description);
     }
-    if (selectedDevices.value.length > 0) {
-      const deviceIds = selectedDevices.value.map((device) => device.id);
+    if (selectedDevices.length > 0) {
+      const deviceIds = selectedDevices.map((device) => device.id);
       formData.append("deviceIds", deviceIds.join(","));
-      if (collectionType.value === "Ranked") {
-        const orderArr = selectedDevices.value.map((device) => ({
-          [device.id]: deviceOrder.value[device.id] || 1,
+      if (collectionType === "Ranked") {
+        const orderArr = selectedDevices.map((device) => ({
+          [device.id]: deviceOrder[device.id] || 1,
         }));
         formData.append("order", JSON.stringify(orderArr));
       }
@@ -142,18 +144,14 @@ export default function CollectionCreateForm(
       // deno-lint-ignore no-console
       console.error("Error submitting form:", error);
     } finally {
-      isSubmitting.value = false;
+      setIsSubmitting(false);
     }
-  };
-
-  const setName = (value: string) => {
-    name.value = value;
   };
 
   // Animate card movement on order change
   useEffect(() => {
     const newPositions: { [id: string]: DOMRect } = {};
-    selectedDevices.value.forEach((device) => {
+    selectedDevices.forEach((device) => {
       const node = cardRefs.current[device.id];
       if (node) {
         newPositions[device.id] = node.getBoundingClientRect();
@@ -182,7 +180,7 @@ export default function CollectionCreateForm(
 
     // Save new positions for next time
     prevPositions.current = newPositions;
-  }, [selectedDevices.value.map((d) => d.id).join(",")]);
+  }); //, [selectedDevices.value.map((d) => d.id).join(",")]);
 
   return (
     <>
@@ -192,8 +190,8 @@ export default function CollectionCreateForm(
             type="radio"
             name="collectionType"
             value="Normal"
-            checked={collectionType.value === "Normal"}
-            onChange={() => collectionType.value = "Normal"}
+            checked={collectionType === "Normal"}
+            onChange={() => setCollectionType("Normal")}
           />
           Normal
         </label>
@@ -202,8 +200,8 @@ export default function CollectionCreateForm(
             type="radio"
             name="collectionType"
             value="Ranked"
-            checked={collectionType.value === "Ranked"}
-            onChange={() => collectionType.value = "Ranked"}
+            checked={collectionType === "Ranked"}
+            onChange={() => setCollectionType("Ranked")}
           />
           Ranked
         </label>
@@ -218,7 +216,7 @@ export default function CollectionCreateForm(
             id="name"
             name="name"
             required
-            value={name.value}
+            value={name}
             onChange={(e) => setName(e.currentTarget.value)}
             onKeyDown={(e) => {
               setName(e.currentTarget.value);
@@ -234,13 +232,13 @@ export default function CollectionCreateForm(
             id="description"
             name="description"
             rows={3}
-            value={description.value}
-            onChange={(e) => description.value = e.currentTarget.value}
+            value={description}
+            onChange={(e) => setDescription(e.currentTarget.value)}
           />
         </div>
 
         {/* Hidden input for device IDs */}
-        {selectedDevices.value.map((device) => (
+        {selectedDevices.map((device) => (
           <input
             key={device.id}
             type="hidden"
@@ -269,9 +267,9 @@ export default function CollectionCreateForm(
           />
 
           <div id="suggestions-container">
-            {suggestions.value.length > 0 && (
+            {suggestions.length > 0 && (
               <ul class="suggestions-list" ref={suggestionsRef}>
-                {suggestions.value.map((device) => (
+                {suggestions.map((device) => (
                   <li
                     key={device.name.sanitized}
                     onClick={() => setQuerySuggestion(device.name.raw)}
@@ -297,7 +295,7 @@ export default function CollectionCreateForm(
           </div>
         </div>
 
-        {selectedDevices.value.length === 0 && (
+        {selectedDevices.length === 0 && (
           <div>
             <p>No devices selected</p>
             <p>
@@ -306,11 +304,11 @@ export default function CollectionCreateForm(
           </div>
         )}
 
-        {selectedDevices.value.length > 0 && (
+        {selectedDevices.length > 0 && (
           <div style={{ padding: "2rem" }}>
             <h2>Selected Devices</h2>
             <div class="collection-devices-grid">
-              {selectedDevices.value.map((device) => {
+              {selectedDevices.map((device) => {
                 return (
                   <div
                     class="collection-device-card"
@@ -335,7 +333,7 @@ export default function CollectionCreateForm(
                         gap: "0.5rem",
                       }}
                     >
-                      {collectionType.value === "Ranked" && (
+                      {collectionType === "Ranked" && (
                         <div
                           style={{
                             marginTop: "0.5rem",
@@ -348,7 +346,7 @@ export default function CollectionCreateForm(
                           <input
                             type="number"
                             min={1}
-                            value={deviceOrder.value[device.id] || 1}
+                            value={deviceOrder[device.id] || 1}
                             onClick={(e) => e.stopPropagation()}
                             onInput={(e) => {
                               // Just update the order value for this device, don't reorder yet
@@ -356,10 +354,10 @@ export default function CollectionCreateForm(
                                 (e.currentTarget as HTMLInputElement).value;
                               const order = parseInt(val, 10);
                               if (!isNaN(order)) {
-                                deviceOrder.value = {
-                                  ...deviceOrder.value,
+                                setDeviceOrder({
+                                  ...deviceOrder,
                                   [device.id]: order,
-                                };
+                                });
                               }
                             }}
                             onBlur={(e) => {
@@ -418,7 +416,7 @@ export default function CollectionCreateForm(
           disabled={isDisabled()}
         >
           <PiFloppyDisk />
-          {isSubmitting.value ? "Saving..." : "Save Collection"}
+          {isSubmitting ? "Saving..." : "Save Collection"}
         </button>
       </form>
     </>

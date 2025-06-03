@@ -1,6 +1,6 @@
 import { FreshContext, page } from "fresh";
-import { DeviceCardLarge } from "../components/cards/DeviceCardLarge.tsx";
-import { DeviceCardSmall } from "../components/cards/DeviceCardSmall.tsx";
+import DeviceCardLarge from "../components/cards/device-card-large.tsx";
+import DeviceCardSmall from "../components/cards/device-card-small.tsx";
 import { Device } from "../data/frontend/contracts/device.model.ts";
 import { ReviewContract } from "../data/frontend/contracts/review.contract.ts";
 import { createSuperUserPocketBaseService } from "../data/pocketbase/pocketbase.service.ts";
@@ -12,7 +12,8 @@ export const handler = {
     (ctx.state as CustomFreshState).seo = {
       title: "Leaderboard - Top Rated Handhelds",
       description: "See the top rated retro handhelds based on user reviews.",
-      keywords: "leaderboard, top rated handhelds, retro gaming, handheld devices, user reviews",
+      keywords:
+        "leaderboard, top rated handhelds, retro gaming, handheld devices, user reviews",
     };
     // Instantiate PocketBase with admin credentials
     const pb = await createSuperUserPocketBaseService(
@@ -100,11 +101,13 @@ export default function LeaderboardPage(
 
   return (
     <div class="leaderboard-page">
-      {/* <SEO
+      {
+        /* <SEO
         title="Leaderboard - Top Rated Handhelds"
         description="See the top rated retro handhelds based on user reviews."
         url="https://retroranker.site/leaderboard"
-      /> */}
+      /> */
+      }
       <div>
         <h1>Leaderboard</h1>
         <p>

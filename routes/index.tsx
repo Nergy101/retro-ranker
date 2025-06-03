@@ -1,18 +1,13 @@
 import {
   PiCalendar,
-  PiCalendarHeart,
   PiChartLine,
   PiGitDiff,
   PiMagnifyingGlass,
-  PiRanking,
   PiScroll,
-  PiSparkle,
-  PiUserCheck,
 } from "@preact-icons/pi";
 import { FreshContext, page } from "fresh";
-import { DeviceCardMedium } from "../components/cards/DeviceCardMedium.tsx";
-import { SeeMoreCard } from "../components/cards/SeeMoreCard.tsx";
-import { TagComponent } from "../components/shared/TagComponent.tsx";
+import SeeMoreCard from "../components/cards/see-more-card.tsx";
+import TagComponent from "../components/shared/tag-component.tsx";
 import { Device } from "../data/frontend/contracts/device.model.ts";
 import { User } from "../data/frontend/contracts/user.contract.ts";
 import { BrandWebsites } from "../data/frontend/enums/brand-websites.ts";
@@ -20,7 +15,8 @@ import { TagModel } from "../data/frontend/models/tag.model.ts";
 import { DeviceService } from "../data/frontend/services/devices/device.service.ts";
 import { tracer } from "../data/tracing/tracer.ts";
 import { CustomFreshState } from "../interfaces/state.ts";
-import { Hero } from "../islands/Hero.tsx";
+import DeviceCardMedium from "../components/cards/device-card-medium.tsx";
+import Hero from "../islands/hero.tsx";
 
 export const handler = {
   async GET(ctx: FreshContext) {
@@ -96,13 +92,8 @@ export const handler = {
 export default function Home(
   ctx: FreshContext,
 ) {
-  console.log("TEEEEEEST");
-  console.log(
-    "ctx state first defaultTags",
-    (ctx.state as CustomFreshState).data.defaultTags[0],
-  );
   const state = ctx.state as CustomFreshState;
-  const user = state.user as User | null;
+  // const user = state.user as User | null;
   const data = state.data;
 
   const newArrivals = data.newArrivals as Device[];
@@ -138,7 +129,7 @@ export default function Home(
                   gap: "0.5rem",
                 }}
               >
-                {/* <PiMagnifyingGlass /> Popular Searches */}
+                <PiMagnifyingGlass /> Popular Searches
               </h3>
 
               <div
@@ -149,12 +140,12 @@ export default function Home(
                   justifyContent: "center",
                 }}
               >
-                {/* {defaultTags.map((tag) => (
+                {defaultTags.map((tag) => (
                   <TagComponent
                     key={tag.name}
                     tag={tag}
                   />
-                ))} */}
+                ))}
               </div>
             </article>
           </section>
@@ -175,7 +166,6 @@ export default function Home(
                     <DeviceCardMedium
                       device={device}
                       isActive={false}
-                      user={user}
                     />
                   </a>
                 ))}
@@ -199,11 +189,10 @@ export default function Home(
                     href={`/devices/${device.name.sanitized}`}
                     style={{ textDecoration: "none" }}
                   >
-                    {/* <DeviceCardMedium
+                    <DeviceCardMedium
                       device={device}
                       isActive={false}
-                      user={user}
-                    /> */}
+                    />
                   </a>
                 ))}
                 <SeeMoreCard
@@ -226,11 +215,10 @@ export default function Home(
                     href={`/devices/${device.name.sanitized}`}
                     style={{ textDecoration: "none" }}
                   >
-                    {/* <DeviceCardMedium
+                    <DeviceCardMedium
                       device={device}
                       isActive={false}
-                      user={user}
-                    /> */}
+                    />
                   </a>
                 ))}
                 <SeeMoreCard
@@ -263,11 +251,10 @@ export default function Home(
                     href={`/devices/${device.name.sanitized}`}
                     style={{ textDecoration: "none" }}
                   >
-                    {/* <DeviceCardMedium
+                    <DeviceCardMedium
                       device={device}
                       isActive={false}
-                      user={user}
-                    /> */}
+                    />
                   </a>
                 ))}
                 <SeeMoreCard

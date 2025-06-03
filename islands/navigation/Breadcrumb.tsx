@@ -1,20 +1,18 @@
 import { PiCaretRight, PiGameController } from "@preact-icons/pi";
-import { signal } from "@preact/signals";
-import { JSX, VNode } from "preact";
-import { useEffect } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 import { navigationItems } from "../../data/frontend/navigation-items.ts";
 
 interface BreadcrumbProps {
   items?: {
     label: string;
     href?: string;
-    icon?: (props: { style?: JSX.CSSProperties }) => VNode<JSX.SVGAttributes>;
+    icon?: (props: { style?: any }) => any;
   }[];
   showNames?: boolean;
 }
 
 export function Breadcrumb({ items, showNames }: BreadcrumbProps) {
-  const viewportWidth = signal(globalThis.innerWidth);
+  const [viewportWidth, setViewportWidth] = useState(globalThis.innerWidth);
 
   const replaceTokens = (sanitizedDeviceName: string) => {
     return sanitizedDeviceName
@@ -32,12 +30,12 @@ export function Breadcrumb({ items, showNames }: BreadcrumbProps) {
   };
 
   if (!showNames) {
-    showNames = viewportWidth.value > 500;
+    showNames = viewportWidth > 500;
   }
 
   useEffect(() => {
     const handleResize = () => {
-      viewportWidth.value = globalThis.innerWidth;
+      setViewportWidth(globalThis.innerWidth);
     };
 
     // Add event listener
@@ -47,7 +45,7 @@ export function Breadcrumb({ items, showNames }: BreadcrumbProps) {
     return () => {
       globalThis.removeEventListener("resize", handleResize);
     };
-  }, []);
+  });
 
   const pathSegments = globalThis.location?.pathname
     .split("/")

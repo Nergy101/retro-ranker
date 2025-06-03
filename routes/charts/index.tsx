@@ -3,33 +3,37 @@ import { FreshContext, page, PageProps } from "fresh";
 import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 
 import { CustomFreshState } from "../../interfaces/state.ts";
-import { DevicesPerBrandBarChart } from "../../islands/charts/devices-per-brand-bar-chart.tsx";
-import { DevicesPerRatingBarChart } from "../../islands/charts/devices-per-ranking-bar-chart.tsx";
-import { DevicesPerReleaseYearLineChart } from "../../islands/charts/devices-per-release-year-line-chart.tsx";
+import DevicesPerBrandBarChart from "../../islands/charts/devices-per-brand-bar-chart.tsx";
+import DevicesPerRatingBarChart from "../../islands/charts/devices-per-ranking-bar-chart.tsx";
+import DevicesPerReleaseYearLineChart from "../../islands/charts/devices-per-release-year-line-chart.tsx";
 
 export const handler = {
   GET(ctx: FreshContext) {
     (ctx.state as CustomFreshState).seo = {
       title: "Retro Gaming Handheld Analytics & Charts",
-      description: "Explore interactive charts and data visualizations of retro gaming handhelds. View statistics on device brands, performance ratings, release trends, and market analysis of portable emulation systems.",
-      keywords: "retro gaming charts, handheld device statistics, emulation device analytics, retro console data, gaming hardware trends, retro gaming market analysis, handheld comparison graphs",
+      description:
+        "Explore interactive charts and data visualizations of retro gaming handhelds. View statistics on device brands, performance ratings, release trends, and market analysis of portable emulation systems.",
+      keywords:
+        "retro gaming charts, handheld device statistics, emulation device analytics, retro console data, gaming hardware trends, retro gaming market analysis, handheld comparison graphs",
     };
     return page(ctx);
   },
 };
 
-export default async function ChartsIndex({ url }: PageProps) {
+export default async function ChartsIndex({ url: _url }: PageProps) {
   const deviceService = await DeviceService.getInstance();
   const devices = await deviceService.getAllDevices();
 
   return (
     <div class="charts-page">
-      {/* <SEO
+      {
+        /* <SEO
         title="Retro Gaming Handheld Analytics & Charts"
         description="Explore interactive charts and data visualizations of retro gaming handhelds. View statistics on device brands, performance ratings, release trends, and market analysis of portable emulation systems."
         url={`https://retroranker.site${url.pathname}`}
         keywords="retro gaming charts, handheld device statistics, emulation device analytics, retro console data, gaming hardware trends, retro gaming market analysis, handheld comparison graphs"
-      /> */}
+      /> */
+      }
       <hgroup style={{ textAlign: "center" }}>
         <h1>Explore Charts</h1>
         <p>
