@@ -4,8 +4,13 @@ import {
   PiGithubLogo,
   PiShield,
 } from "@preact-icons/pi";
+import { useState } from "preact/hooks";
 
 export function Footer() {
+  const [version, _] = useState<string | null>(
+    Deno.readTextFileSync("static/version.txt")
+  );
+
   return (
     <footer
       style={{ borderTop: "1px solid var(--pico-primary)" }}
@@ -117,6 +122,22 @@ export function Footer() {
                   borderRadius: "50%",
                 }}
               />
+              {version && (
+                <span
+                  style={{
+                    background: "var(--pico-primary)",
+                    color: "white",
+                    borderRadius: "6px",
+                    fontSize: "0.75rem",
+                    padding: "2px 8px",
+                    fontWeight: 600,
+                    letterSpacing: "0.05em",
+                  }}
+                  title="Deployment version"
+                >
+                  {version}
+                </span>
+              )}
             </div>
           </div>
         </div>

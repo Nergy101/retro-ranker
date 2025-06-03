@@ -13,6 +13,11 @@ COPY deno.json* ./
 # Copy the rest of the application
 COPY . .
 
+# Accept a build argument for version
+ARG VERSION="docker"
+# Write the version to version.txt
+RUN echo "$VERSION" > static/version.txt
+
 # Cache dependencies at build time
 RUN deno cache main.ts
 RUN deno task build
