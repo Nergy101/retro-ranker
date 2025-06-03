@@ -1,13 +1,19 @@
-import { FreshContext, Handlers, PageProps } from "$fresh/server.ts";
+import { FreshContext, page } from "fresh";
+import { DeviceCardLarge } from "../components/cards/device-card-large.tsx";
+import { DeviceCardSmall } from "../components/cards/device-card-small.tsx";
 import { Device } from "../data/frontend/contracts/device.model.ts";
 import { ReviewContract } from "../data/frontend/contracts/review.contract.ts";
 import { createSuperUserPocketBaseService } from "../data/pocketbase/pocketbase.service.ts";
-import { DeviceCardLarge } from "../components/cards/DeviceCardLarge.tsx";
-import { DeviceCardSmall } from "../components/cards/DeviceCardSmall.tsx";
-import SEO from "../components/SEO.tsx";
+import { CustomFreshState } from "../interfaces/state.ts";
 
-export const handler: Handlers = {
-  async GET(_req: Request, ctx: FreshContext) {
+export const handler = {
+  async GET(ctx: FreshContext) {
+    (ctx.state as CustomFreshState).seo = {
+      title: "Leaderboard - Top Rated Handhelds",
+      description: "See the top rated retro handhelds based on user reviews.",
+      keywords:
+        "leaderboard, top rated handhelds, retro gaming, handheld devices, user reviews",
+    };
     // Instantiate PocketBase with admin credentials
     const pb = await createSuperUserPocketBaseService(
       Deno.env.get("POCKETBASE_SUPERUSER_EMAIL")!,
@@ -75,28 +81,32 @@ export const handler: Handlers = {
     const top3 = scoredDevices.slice(0, 3);
     const rest = scoredDevices.slice(3);
 
-    return ctx.render({
+    (ctx.state as CustomFreshState).data = {
       top3,
       rest,
-    });
+    };
+
+    return page(ctx);
   },
 };
 
 export default function LeaderboardPage(
-  { data }: PageProps<
-    {
-      top3: { device: Device; avgScore: number }[];
-      rest: { device: Device; avgScore: number }[];
-    }
-  >,
+  ctx: FreshContext,
 ) {
+  const data = (ctx.state as CustomFreshState).data as {
+    top3: { device: Device; avgScore: number }[];
+    rest: { device: Device; avgScore: number }[];
+  };
+
   return (
     <div class="leaderboard-page">
-      <SEO
+      {
+        /* <SEO
         title="Leaderboard - Top Rated Handhelds"
         description="See the top rated retro handhelds based on user reviews."
         url="https://retroranker.site/leaderboard"
-      />
+      /> */
+      }
       <div>
         <h1>Leaderboard</h1>
         <p>

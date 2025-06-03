@@ -1,4 +1,3 @@
-import SEO from "../../components/SEO.tsx";
 import {
   PiCookie,
   PiDatabase,
@@ -7,18 +6,25 @@ import {
   PiStack,
   PiUsers,
 } from "@preact-icons/pi";
-import { PageProps } from "$fresh/server.ts";
+import { FreshContext } from "fresh";
+import { CustomFreshState } from "../../interfaces/state.ts";
 
-export default function About({ url }: PageProps) {
+export const handler = {
+  GET(ctx: FreshContext) {
+    (ctx.state as CustomFreshState).seo = {
+      title: "About",
+      description: "Learn about Retro Ranker's mission and our team.",
+      url: "https://retroranker.site/about",
+      keywords:
+        "retro gaming database, handheld comparison, retro gaming community, emulation device reviews, retro gaming resources",
+    };
+    return page();
+  },
+};
+
+export default function page() {
   return (
     <div class="about">
-      <SEO
-        title="About"
-        description="Learn about Retro Ranker's mission and our team."
-        url={`https://retroranker.site${url.pathname}`}
-        keywords="retro gaming database, handheld comparison, retro gaming community, emulation device reviews, retro gaming resources"
-      />
-
       {/* Hero Section */}
       <section
         class="hero-section"

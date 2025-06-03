@@ -1,13 +1,13 @@
+import { useState } from "preact/hooks";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { FreshChart } from "./fresh-chart.tsx";
-import { useSignal } from "@preact/signals";
 
 interface BarChartProps {
   devices: Device[];
 }
 
 export function DevicesPerBrandBarChart({ devices }: BarChartProps) {
-  const minAmountOfDevices = useSignal(10);
+  const [minAmountOfDevices, setMinAmountOfDevices] = useState(10);
 
   // Get unique brands from the devices array
   const getAllBrands = () => {
@@ -27,7 +27,7 @@ export function DevicesPerBrandBarChart({ devices }: BarChartProps) {
     }
 
     data = data
-      .filter((d) => d.amountOfDevices >= minAmountOfDevices.value)
+      .filter((d) => d.amountOfDevices >= minAmountOfDevices)
       .sort((a, b) => a.amountOfDevices - b.amountOfDevices);
 
     return data;
@@ -86,15 +86,15 @@ export function DevicesPerBrandBarChart({ devices }: BarChartProps) {
   );
   const maxBarValueForChart = Math.ceil(maxBarValue / 5) * 5;
 
-  const setMinAmountOfDevices = (e: Event) => {
+  const handleMinAmountOfDevicesChange = (e: Event) => {
     const value = (e.target as HTMLInputElement)?.value;
-    minAmountOfDevices.value = parseInt(value ?? "5");
+    setMinAmountOfDevices(parseInt(value ?? "5"));
   };
 
   return (
     <div>
       <h2>Devices released per brand</h2>
-      <p>Minimum of {minAmountOfDevices.value} devices</p>
+      <p>Minimum of {minAmountOfDevices} devices</p>
       <div style={{ display: "flex", alignItems: "baseline", gap: ".5rem" }}>
         <span>0</span>
         <input
@@ -105,8 +105,8 @@ export function DevicesPerBrandBarChart({ devices }: BarChartProps) {
           max={maxBarValue}
           step="1"
           list="markers"
-          value={minAmountOfDevices.value}
-          onInput={setMinAmountOfDevices}
+          value={minAmountOfDevices}
+          onInput={handleMinAmountOfDevicesChange}
         />
         <span>{maxBarValue}</span>
       </div>

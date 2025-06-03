@@ -1,13 +1,15 @@
+import { useState } from "preact/hooks";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
-import { useSignal } from "@preact/signals";
-import { FreshChart } from "./fresh-chart.tsx";
 import { getBrandColors } from "../../data/frontend/services/utils/color.utils.ts";
+import { FreshChart } from "./fresh-chart.tsx";
 
 interface LineChartProps {
   devices: Device[];
 }
 
-export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
+export function DevicesPerReleaseYearLineChart(
+  { devices }: LineChartProps,
+) {
   // Compute the full range of years from the devices
   const fullYears = Array.from(
     new Set(
@@ -25,12 +27,14 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
   const initialMax = new Date().getFullYear();
 
   // Signals to store the current filter values for minimum and maximum year
-  const selectedMinYear = useSignal(2020);
-  const selectedMaxYear = useSignal(initialMax);
-  const showTotalDevices = useSignal(false);
-  const minimalOf12DevicesProduced = useSignal(true);
+  const [selectedMinYear, setSelectedMinYear] = useState(2020);
+  const [selectedMaxYear, setSelectedMaxYear] = useState(initialMax);
+  const [showTotalDevices, setShowTotalDevices] = useState(false);
+  const [minimalOf12DevicesProduced, setMinimalOf12DevicesProduced] = useState(
+    true,
+  );
 
-  const brandColors = useSignal<
+  const [brandColors, setBrandColors] = useState<
     Record<string, { border: string; background: string }>
   >({});
 
@@ -38,7 +42,7 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
   const filteredDevices = devices.filter((d) => {
     if (d.released?.mentionedDate) {
       const year = new Date(d.released.mentionedDate).getFullYear();
-      return year >= selectedMinYear.value && year <= selectedMaxYear.value;
+      return year >= selectedMinYear && year <= selectedMaxYear;
     }
     return false;
   });
@@ -48,7 +52,7 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
   ).sort();
 
   const initializeBrandColors = () => {
-    brandColors.value = getBrandColors(uniqueBrands);
+    setBrandColors(getBrandColors(uniqueBrands));
   };
 
   // Call this right after the signals are defined
@@ -106,7 +110,7 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
 
     const data = [];
 
-    if (showTotalDevices.value) {
+    if (showTotalDevices) {
       data.push({
         label: "Total devices released",
         data: amountOfDevicesPerYear,
@@ -121,7 +125,7 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
     data.push(
       ...Object.entries(amountOfDevicesPerBrandPerYear)
         .filter((x) => {
-          if (minimalOf12DevicesProduced.value) {
+          if (minimalOf12DevicesProduced) {
             return x[1].reduce((acc, curr) => acc + curr, 0) >= 10;
           }
           return true;
@@ -130,8 +134,8 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
           label: `${brand}`,
           data: amountOfDevicesPerYear,
           fill: false,
-          borderColor: brandColors.value[brand]?.border,
-          pointBackgroundColor: brandColors.value[brand]?.background,
+          borderColor: brandColors[brand]?.border,
+          pointBackgroundColor: brandColors[brand]?.background,
           borderWidth: 2,
           tension: .2,
           pointRadius: 3,
@@ -154,16 +158,16 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
             flex: 1,
           }}
         >
-          <span>Min Year: {selectedMinYear.value}</span>
+          <span>Min Year: {selectedMinYear}</span>
           <input
             aria-label="Minimum year"
             type="range"
             min={initialMin}
-            max={selectedMaxYear.value}
-            value={selectedMinYear.value}
+            max={selectedMaxYear}
+            value={selectedMinYear}
             onInput={(e: Event) => {
               const value = parseInt((e.target as HTMLInputElement).value);
-              selectedMinYear.value = value;
+              setSelectedMinYear(value);
             }}
           />
         </div>
@@ -175,16 +179,16 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
             flex: 1,
           }}
         >
-          <span>Max Year: {selectedMaxYear.value}</span>
+          <span>Max Year: {selectedMaxYear}</span>
           <input
             aria-label="Maximum year"
             type="range"
-            min={selectedMinYear.value}
+            min={selectedMinYear}
             max={initialMax}
-            value={selectedMaxYear.value}
+            value={selectedMaxYear}
             onInput={(e: Event) => {
               const value = parseInt((e.target as HTMLInputElement).value);
-              selectedMaxYear.value = value;
+              setSelectedMaxYear(value);
             }}
           />
         </div>
@@ -193,19 +197,20 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
         <label>
           <input
             type="checkbox"
-            checked={minimalOf12DevicesProduced.value}
+            checked={minimalOf12DevicesProduced}
             onChange={(e) =>
-              minimalOf12DevicesProduced.value =
-                (e.target as HTMLInputElement).checked}
+              setMinimalOf12DevicesProduced(
+                (e.target as HTMLInputElement).checked,
+              )}
           />
           Show brands that produced &gt; 10 devices over selected years
         </label>
         <label>
           <input
             type="checkbox"
-            checked={showTotalDevices.value}
+            checked={showTotalDevices}
             onChange={(e) =>
-              showTotalDevices.value = (e.target as HTMLInputElement).checked}
+              setShowTotalDevices((e.target as HTMLInputElement).checked)}
           />
           Show total devices line
         </label>
@@ -215,7 +220,7 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
         options={{
           plugins: {
             legend: {
-              display: minimalOf12DevicesProduced.value ? true : false,
+              display: minimalOf12DevicesProduced,
               onHover: (_, legendItem, legend) => {
                 const chart = legend.chart;
                 chart.data.datasets.forEach((dataset, index) => {

@@ -1,6 +1,5 @@
-import { Handlers } from "$fresh/server.ts";
-
 import cap from "../../../data/cap/cap.service.ts";
+import { Handlers } from "fresh/compat";
 
 export const handler: Handlers = {
   async POST() {

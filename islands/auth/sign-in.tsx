@@ -1,7 +1,7 @@
 import { PiDiscordLogo, PiGoogleLogo, PiSignIn } from "@preact-icons/pi";
 import { useEffect } from "preact/hooks";
 
-export default function SignIn(
+export function SignIn(
   { error, pleaseWait }: { error: string | null; pleaseWait: boolean },
 ) {
   useEffect(() => {
@@ -24,7 +24,7 @@ export default function SignIn(
     };
     const interval = setInterval(checkAuth, 500);
     return () => clearInterval(interval);
-  }, []);
+  });
 
   const getSignInText = () => {
     const texts = [
@@ -191,7 +191,7 @@ export default function SignIn(
           href="/auth/sign-up"
           role="button"
           class="outline"
-          disabled={pleaseWait}
+          // disabled={pleaseWait}
         >
           Don't have an account? <br /> Sign up now!
         </a>

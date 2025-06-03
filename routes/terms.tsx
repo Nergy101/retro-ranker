@@ -1,16 +1,24 @@
-import SEO from "../components/SEO.tsx";
-import { PageProps } from "$fresh/server.ts";
+import { FreshContext, page, PageProps } from "fresh";
+// import SEO from "../components/SEO.tsx";
+import { CustomFreshState } from "../interfaces/state.ts";
 
-export default function Terms({ url }: PageProps) {
+export const handler = {
+  async GET(ctx: FreshContext) {
+    (ctx.state as CustomFreshState).seo = {
+      title: "Terms and Conditions",
+      description:
+        "Read the terms and conditions for using Retro Ranker, your comprehensive retro gaming handheld comparison platform. Understand your rights and responsibilities when using our service.",
+      url: `https://retroranker.site${ctx.url.pathname}`,
+      keywords:
+        "retro ranker terms, gaming website terms, retro gaming legal, handheld comparison terms of service, retro gaming platform rules",
+    };
+    return page(ctx);
+  },
+};
+
+export default function Terms({ url: _url }: PageProps) {
   return (
     <div class="p-4 mx-auto max-w-screen-md">
-      <SEO
-        title="Terms and Conditions"
-        description="Read the terms and conditions for using Retro Ranker, your comprehensive retro gaming handheld comparison platform. Understand your rights and responsibilities when using our service."
-        url={`https://retroranker.site${url.pathname}`}
-        keywords="retro ranker terms, gaming website terms, retro gaming legal, handheld comparison terms of service, retro gaming platform rules"
-      />
-
       <h1 class="text-4xl font-bold mb-6">Terms of Service</h1>
 
       <div>

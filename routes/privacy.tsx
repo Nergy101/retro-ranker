@@ -1,15 +1,31 @@
-import SEO from "../components/SEO.tsx";
-import { PageProps } from "$fresh/server.ts";
+// import SEO from "../components/SEO.tsx";
+import { FreshContext, page } from "fresh";
+import { CustomFreshState } from "../interfaces/state.ts";
 
-export default function Privacy({ url }: PageProps) {
+export const handler = {
+  GET(ctx: FreshContext) {
+    (ctx.state as CustomFreshState).seo = {
+      title: "Privacy Policy",
+      description:
+        "Read the privacy policy for Retro Ranker. Learn how we protect your data while using our retro gaming handheld comparison platform.",
+      keywords:
+        "retro ranker privacy, gaming website privacy, retro gaming data protection, handheld comparison privacy",
+    };
+    return page(ctx);
+  },
+};
+
+export default function Privacy() {
   return (
     <div class="p-4 mx-auto max-w-screen-md">
-      <SEO
+      {
+        /* <SEO
         title="Privacy Policy"
         description="Read the privacy policy for Retro Ranker. Learn how we protect your data while using our retro gaming handheld comparison platform."
         url={`https://retroranker.site${url.pathname}`}
         keywords="retro ranker privacy, gaming website privacy, retro gaming data protection, handheld comparison privacy"
-      />
+      /> */
+      }
 
       <h1 class="text-4xl font-bold mb-6">Privacy Policy</h1>
 

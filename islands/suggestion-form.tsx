@@ -1,20 +1,20 @@
 import { PiPaperPlaneRight } from "@preact-icons/pi";
-import { useSignal } from "@preact/signals";
+import { useState } from "preact/hooks";
 
 interface SuggestionFormProps {
   userEmail: string;
 }
 
-export default function SuggestionForm({ userEmail }: SuggestionFormProps) {
-  const suggestion = useSignal("");
-  const isSubmitting = useSignal(false);
-  const submitted = useSignal(false);
-  const error = useSignal("");
+export function SuggestionForm({ userEmail }: SuggestionFormProps) {
+  const [suggestion, setSuggestion] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e: Event) => {
     e.preventDefault();
-    isSubmitting.value = true;
-    error.value = "";
+    setIsSubmitting(true);
+    setError("");
 
     try {
       const response = await fetch("/api/suggestions", {
@@ -35,22 +35,22 @@ export default function SuggestionForm({ userEmail }: SuggestionFormProps) {
       }
 
       // Success
-      suggestion.value = "";
-      submitted.value = true;
+      setSuggestion("");
+      setSubmitted(true);
     } catch (err) {
-      error.value = err instanceof Error ? err.message : "An error occurred";
+      setError(err instanceof Error ? err.message : "An error occurred");
     } finally {
-      isSubmitting.value = false;
+      setIsSubmitting(false);
     }
   };
 
-  if (submitted.value) {
+  if (submitted) {
     return (
       <div class="suggestion-success">
         <p>Thank you for your feedback! We appreciate your input.</p>
         <button
           type="button"
-          onClick={() => submitted.value = false}
+          onClick={() => setSubmitted(false)}
           class="outline"
         >
           Submit another
@@ -68,9 +68,9 @@ export default function SuggestionForm({ userEmail }: SuggestionFormProps) {
             id="suggestion"
             name="suggestion"
             placeholder="Share your ideas, feature requests, or feedback..."
-            value={suggestion.value}
+            value={suggestion}
             onInput={(e) =>
-              suggestion.value = (e.target as HTMLTextAreaElement).value}
+              setSuggestion((e.target as HTMLTextAreaElement).value)}
             required
             rows={4}
           />
@@ -81,7 +81,7 @@ export default function SuggestionForm({ userEmail }: SuggestionFormProps) {
 
       <button
         type="submit"
-        disabled={isSubmitting || !suggestion.value.trim()}
+        disabled={isSubmitting || !suggestion.trim()}
         class="outline insert-btn"
         style={{
           display: "flex",

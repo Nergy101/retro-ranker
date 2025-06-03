@@ -1,16 +1,18 @@
-import { Handlers } from "$fresh/server.ts";
 import { setCookie } from "@std/http/cookie";
-import { createPocketBaseService } from "../../../../data/pocketbase/pocketbase.service.ts";
-import pkceSessionService from "../../../../data/pkce/pkce.service.ts";
-import { logJson, tracer } from "../../../../data/tracing/tracer.ts";
+import { Handlers } from "fresh/compat";
 import {
   animals,
   NumberDictionary,
   uniqueNamesGenerator,
-} from "npm:unique-names-generator";
+} from "unique-names-generator";
+import pkceSessionService from "../../../../data/pkce/pkce.service.ts";
+import { createPocketBaseService } from "../../../../data/pocketbase/pocketbase.service.ts";
+import { logJson, tracer } from "../../../../data/tracing/tracer.ts";
 
 export const handler: Handlers = {
-  async GET(req, _ctx) {
+  async GET(ctx) {
+    const req = ctx.req;
+
     return await tracer.startActiveSpan(
       "google-auth-callback",
       async (span) => {

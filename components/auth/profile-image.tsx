@@ -1,5 +1,3 @@
-import { JSX } from "preact";
-
 interface ProfileImageProps {
   name: string;
   size?: number;
@@ -12,7 +10,7 @@ export function ProfileImage({
   size = 40,
   className = "",
   backgroundType = "solid,gradientLinear",
-}: ProfileImageProps): JSX.Element {
+}: ProfileImageProps) {
   const safeName = encodeURIComponent(name);
 
   // Construct the DiceBear API URL

@@ -1,6 +1,6 @@
-import { PageProps } from "$fresh/server.ts";
+import { PageProps } from "fresh";
 
-import { RouteConfig } from "$fresh/server.ts";
+import { RouteConfig } from "fresh";
 
 export const config: RouteConfig = {
   skipInheritedLayouts: true, // Skip already inherited layouts

@@ -5,7 +5,7 @@ import {
   PiShield,
 } from "@preact-icons/pi";
 
-export default function Footer() {
+export function Footer() {
   return (
     <footer
       style={{ borderTop: "1px solid var(--pico-primary)" }}
@@ -90,8 +90,7 @@ export default function Footer() {
                 target="_blank"
               >
                 Retro Ranker
-              </a>.
-              All rights reserved.
+              </a>. All rights reserved.
             </small>
             <div
               style={{

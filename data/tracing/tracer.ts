@@ -1,5 +1,5 @@
 // deno-lint-ignore-file no-explicit-any no-console
-import { trace } from "npm:@opentelemetry/api@1";
+import { trace } from "@opentelemetry/api";
 
 // Create a tracer with service name
 const tracer = trace.getTracer("retro-ranker", "1.0.0");

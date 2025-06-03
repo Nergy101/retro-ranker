@@ -1,4 +1,3 @@
-import { FreshContext, Handlers, PageProps } from "$fresh/server.ts";
 import {
   PiCalendarCheck,
   PiCalendarSlash,
@@ -6,37 +5,39 @@ import {
   PiQuestion,
   PiStar,
 } from "@preact-icons/pi";
-import { JSX, VNode } from "preact";
-import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
-import { DeviceLinks } from "../../components/DeviceLinks.tsx";
-import { EmulationPerformance } from "../../components/EmulationPerformance.tsx";
-import { StarRating } from "../../components/ratings/StarRating.tsx";
-import SEO from "../../components/SEO.tsx";
-import { CurrencyIcon } from "../../components/shared/CurrencyIcon.tsx";
-import { TagComponent } from "../../components/shared/TagComponent.tsx";
-import { DeviceSpecs } from "../../components/specifications/DeviceSpecs.tsx";
-import { SummaryTable } from "../../components/specifications/tables/SummaryTable.tsx";
-import { BrandWebsites } from "../../data/frontend/enums/brand-websites.ts";
-import { Device } from "../../data/frontend/contracts/device.model.ts";
-import { BackButton } from "../../islands/buttons/BackButton.tsx";
-import { ClipboardButton } from "../../islands/buttons/ClipboardButton.tsx";
-import { CompareButton } from "../../islands/buttons/CompareButton.tsx";
-import { ShareButton } from "../../islands/buttons/ShareButton.tsx";
-import { DevicesSimilarRadarChart } from "../../islands/charts/devices-similar-radar-chart.tsx";
-import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
-import { User } from "../../data/frontend/contracts/user.contract.ts";
-import { createSuperUserPocketBaseService } from "../../data/pocketbase/pocketbase.service.ts";
+import { FreshContext, page } from "fresh";
+import { DeviceCardMedium } from "../../components/cards/device-card-medium.tsx";
+import { DeviceCommentCard } from "../../components/cards/device-comment-card.tsx";
+import { DeviceReviewCard } from "../../components/cards/device-review-card.tsx";
+import { DeviceLinks } from "../../components/device-links.tsx";
+import { EmulationPerformance } from "../../components/emulation-performance.tsx";
+import { StarRating } from "../../components/ratings/star-rating.tsx";
+import { CurrencyIcon } from "../../components/shared/currency-icon.tsx";
+import { TagComponent } from "../../components/shared/tag-component.tsx";
+import { DeviceSpecs } from "../../components/specifications/device-specs.tsx";
+import { SummaryTable } from "../../components/specifications/tables/summary-table.tsx";
 import { CommentContract } from "../../data/frontend/contracts/comment.contract.ts";
-import AddDeviceCommentForm from "../../islands/forms/AddDeviceCommentForm.tsx";
-import { DeviceCommentCard } from "../../components/cards/DeviceCommentCard.tsx";
-import AddDeviceReviewForm from "../../islands/forms/AddDeviceReviewForm.tsx";
-import { DeviceReviewCard } from "../../components/cards/DeviceReviewCard.tsx";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { ReviewContract } from "../../data/frontend/contracts/review.contract.ts";
+import { User } from "../../data/frontend/contracts/user.contract.ts";
+import { BrandWebsites } from "../../data/frontend/enums/brand-websites.ts";
+import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
+import { createSuperUserPocketBaseService } from "../../data/pocketbase/pocketbase.service.ts";
+import { CustomFreshState } from "../../interfaces/state.ts";
+import { BackButton } from "../../islands/buttons/back-button.tsx";
+import { ClipboardButton } from "../../islands/buttons/clipboard-button.tsx";
+import { CompareButton } from "../../islands/buttons/compare-button.tsx";
+import { ShareButton } from "../../islands/buttons/share-button.tsx";
+import { DevicesSimilarRadarChart } from "../../islands/charts/devices-similar-radar-chart.tsx";
+import { AddDeviceCommentForm } from "../../islands/forms/add-device-comment-form.tsx";
+import { AddDeviceReviewForm } from "../../islands/forms/add-device-review-form.tsx";
+// import AddDeviceCommentForm from "../../islands/forms/AddDeviceCommentForm.tsx";
+// import AddDeviceReviewForm from "../../islands/forms/AddDeviceReviewForm.tsx";
 
-export const handler: Handlers = {
-  async GET(_: Request, ctx: FreshContext) {
+export const handler = {
+  async GET(ctx: FreshContext) {
     const deviceId = ctx.params.name;
-    const user = ctx.state.user as User | null;
+    const user = (ctx.state as CustomFreshState).user as User | null;
 
     const pb = await createSuperUserPocketBaseService(
       Deno.env.get("POCKETBASE_SUPERUSER_EMAIL")!,
@@ -102,14 +103,160 @@ export const handler: Handlers = {
       },
     )).items;
 
+    const jsonLdForDevice = (device: Device | null) => {
+      if (!device) return "";
+
+      return JSON.stringify({
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": device.name.raw,
+        "brand": {
+          "@type": "Brand",
+          "name": device.brand.raw,
+        },
+        "image": device.image?.pngUrl ?? "/images/placeholder-100x100.svg",
+        "description":
+          `${device.name.raw} is a ${device.brand.raw} retro gaming handheld device. This ${device.pricing.category} budget emulation device costs on average ${device.pricing.average} ${device.pricing.currency}. Features include ${
+            device.ram?.sizes?.[0]
+          } ${device.ram?.unit} RAM, ${device.storage} storage, and ${device.battery.capacity}${device.battery.unit} battery.`,
+        "offers": device.vendorLinks.length > 0
+          ? device.vendorLinks.map((link) => ({
+            "@type": "Offer",
+            "url": link.url,
+            "price": device.pricing?.average ?? "0",
+            "priceCurrency": device.pricing?.currency ?? "USD",
+            "priceSpecification": {
+              "price": device.pricing?.average ?? "0",
+              "priceCurrency": device.pricing?.currency ?? "USD",
+            },
+          }))
+          : {
+            "@type": "AggregateOffer",
+            "offerCount": device.vendorLinks.length,
+            "lowPrice": device.pricing.range?.min ?? 0,
+            "highPrice": device.pricing.range?.max ?? 0,
+            "priceCurrency": device.pricing?.currency ?? "USD",
+          },
+        "manufacturer": {
+          "@type": "Organization",
+          "name": device.brand.raw,
+          "brand": {
+            "@type": "Brand",
+            "name": device.brand.raw,
+          },
+        },
+        "releaseDate": device.released.mentionedDate
+          ? new Date(device.released.mentionedDate).toISOString().split("T")[0]
+          : "Unknown",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "RAM",
+            "value": device.ram?.sizes?.join(", ") + " " + device.ram?.unit,
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "Storage",
+            "value": device.storage,
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "Battery",
+            "value": device.battery.capacity + " " + device.battery.unit,
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "Operating System",
+            "value": device.os.list.join(", "),
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "Form Factor",
+            "value": device.formFactor,
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "Screen Size",
+            "value": device.screen.size
+              ? `${device.screen.size} inches`
+              : "Unknown",
+          },
+        ],
+      });
+    };
+
+    const getReleaseDate = (
+      deviceReleased: { raw: string | null; mentionedDate: Date | null },
+    ): {
+      date: string;
+      icon: () => any;
+      expected: boolean;
+    } => {
+      if (!deviceReleased.raw) {
+        return {
+          date: "Unknown",
+          icon: () => PiQuestion({}),
+          expected: false,
+        };
+      }
+
+      if (deviceReleased.mentionedDate) {
+        return {
+          date: new Date(deviceReleased.mentionedDate).toLocaleDateString(
+            "en-US",
+            {
+              month: "short",
+              day: "numeric",
+              year: "numeric",
+            },
+          ),
+          icon: () => <PiCalendarCheck />,
+          expected: false,
+        };
+      }
+
+      return {
+        date: deviceReleased.raw,
+        icon: () => <PiCalendarSlash />,
+        expected: deviceReleased.raw.toLowerCase().includes("upcoming"),
+      };
+    };
+
     const deviceService = await DeviceService.getInstance();
     const device = await deviceService.getDeviceByName(deviceId);
     const similarDevices = (await deviceService.getSimilarDevices(
       device?.name.sanitized ?? null,
     )).sort((a, b) => b.totalRating - a.totalRating);
 
-    return await ctx.render({
-      user: ctx.state.user,
+    const releaseDate = getReleaseDate(
+      device?.released ?? {
+        raw: null,
+        mentionedDate: null,
+      },
+    );
+
+    (ctx.state as CustomFreshState).seo = {
+      title: `${device?.name.raw} - ${device?.brand.raw} Retro Gaming Handheld`,
+      description:
+        `${device?.name.raw} by ${device?.brand.raw}: ${device?.pricing.category} budget retro gaming handheld with ${
+          device?.ram?.sizes?.[0]
+        } ${device?.ram?.unit} RAM, ${device?.storage} storage, and ${device?.battery.capacity}${device?.battery.unit} battery. Release: ${
+          releaseDate.expected ? "Expected" : releaseDate.date
+        }. ${
+          device?.os.list.join(", ") !== "?"
+            ? `Supports ${device?.os.list.join(", ")}.`
+            : ""
+        } Compare specs and performance ratings.`,
+      keywords: `${device?.name.raw}, ${device?.brand.raw}, ${
+        device?.os.list.join(", ")
+      }, retro gaming handheld, emulation device, portable gaming, ${device?.pricing.category} budget, retro console, handheld emulator`,
+      image: `https://retroranker.site${device?.image?.pngUrl ?? undefined}`,
+      url: `https://retroranker.site${ctx.url.pathname}`,
+      jsonLd: jsonLdForDevice(device),
+    };
+
+    (ctx.state as CustomFreshState).data = {
+      user: (ctx.state as CustomFreshState).user,
       likesCount: likes.length,
       userLiked,
       userFavorited,
@@ -117,146 +264,31 @@ export const handler: Handlers = {
       similarDevices,
       comments,
       reviews,
-    });
+      releaseDate,
+    };
+
+    return page(ctx);
   },
 };
 
-export default function DeviceDetail(props: PageProps) {
-  const user = props.data.user as User | null;
-  const likesCount = props.data.likesCount;
-  const userLiked = props.data.userLiked;
-  const userFavorited = props.data.userFavorited;
-  const device = props.data.device as Device | null;
-  const similarDevices = props.data.similarDevices as Device[];
-  const comments = props.data.comments as CommentContract[];
-  const reviews = props.data.reviews || [];
-
-  const getReleaseDate = (
-    deviceReleased: { raw: string | null; mentionedDate: Date | null },
-  ): {
-    date: string;
-    icon: () => VNode<JSX.SVGAttributes>;
-    expected: boolean;
-  } => {
-    if (!deviceReleased.raw) {
-      return {
-        date: "Unknown",
-        icon: () => <PiQuestion />,
-        expected: false,
-      };
-    }
-
-    if (deviceReleased.mentionedDate) {
-      return {
-        date: new Date(deviceReleased.mentionedDate).toLocaleDateString(
-          "en-US",
-          {
-            month: "short",
-            day: "numeric",
-            year: "numeric",
-          },
-        ),
-        icon: () => <PiCalendarCheck />,
-        expected: false,
-      };
-    }
-
-    return {
-      date: deviceReleased.raw,
-      icon: () => <PiCalendarSlash />,
-      expected: deviceReleased.raw.toLowerCase().includes("upcoming"),
-    };
-  };
-
-  const jsonLdForDevice = (device: Device | null) => {
-    if (!device) return "";
-
-    return JSON.stringify({
-      "@context": "https://schema.org/",
-      "@type": "Product",
-      "name": device.name.raw,
-      "brand": {
-        "@type": "Brand",
-        "name": device.brand.raw,
-      },
-      "image": device.image?.pngUrl ?? "/images/placeholder-100x100.svg",
-      "description":
-        `${device.name.raw} is a ${device.brand.raw} retro gaming handheld device. This ${device.pricing.category} budget emulation device costs on average ${device.pricing.average} ${device.pricing.currency}. Features include ${
-          device.ram?.sizes?.[0]
-        } ${device.ram?.unit} RAM, ${device.storage} storage, and ${device.battery.capacity}${device.battery.unit} battery.`,
-      "offers": device.vendorLinks.length > 0
-        ? device.vendorLinks.map((link) => ({
-          "@type": "Offer",
-          "url": link.url,
-          "price": device.pricing?.average ?? "0",
-          "priceCurrency": device.pricing?.currency ?? "USD",
-          "priceSpecification": {
-            "price": device.pricing?.average ?? "0",
-            "priceCurrency": device.pricing?.currency ?? "USD",
-          },
-        }))
-        : {
-          "@type": "AggregateOffer",
-          "offerCount": device.vendorLinks.length,
-          "lowPrice": device.pricing.range?.min ?? 0,
-          "highPrice": device.pricing.range?.max ?? 0,
-          "priceCurrency": device.pricing?.currency ?? "USD",
-        },
-      "manufacturer": {
-        "@type": "Organization",
-        "name": device.brand.raw,
-        "brand": {
-          "@type": "Brand",
-          "name": device.brand.raw,
-        },
-      },
-      "releaseDate": device.released.mentionedDate
-        ? new Date(device.released.mentionedDate).toISOString().split("T")[0]
-        : "Unknown",
-      "additionalProperty": [
-        {
-          "@type": "PropertyValue",
-          "name": "RAM",
-          "value": device.ram?.sizes?.join(", ") + " " + device.ram?.unit,
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "Storage",
-          "value": device.storage,
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "Battery",
-          "value": device.battery.capacity + " " + device.battery.unit,
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "Operating System",
-          "value": device.os.list.join(", "),
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "Form Factor",
-          "value": device.formFactor,
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "Screen Size",
-          "value": device.screen.size
-            ? `${device.screen.size} inches`
-            : "Unknown",
-        },
-      ],
-    });
-  };
+export default function DeviceDetail(ctx: FreshContext) {
+  const data = (ctx.state as CustomFreshState).data;
+  const user = (ctx.state as CustomFreshState).user as User | null;
+  const likesCount = data.likesCount;
+  const userLiked = data.userLiked;
+  const userFavorited = data.userFavorited;
+  const device = data.device as Device | null;
+  const similarDevices = data.similarDevices as Device[];
+  const comments = data.comments as CommentContract[];
+  const reviews = data.reviews || [];
+  const releaseDate = data.releaseDate;
 
   if (!device) {
     return (
       <div>
-        <SEO></SEO>
         <article>
           <header>
-            <h1>Device "{props.params?.name}" not found.</h1>
+            <h1>Device "{ctx.params?.name}" not found.</h1>
           </header>
           <p>Sorry, we couldn't find the device you're looking for.</p>
           <footer>
@@ -267,32 +299,12 @@ export default function DeviceDetail(props: PageProps) {
     );
   }
 
-  const releaseDate = getReleaseDate(device.released);
   const brandWebsite = BrandWebsites[
     device.brand.sanitized.toLowerCase() as keyof typeof BrandWebsites
   ];
 
   return (
     <div class="device-detail">
-      <SEO
-        title={`${device.name.raw} - ${device.brand.raw} Retro Gaming Handheld`}
-        description={`${device.name.raw} by ${device.brand.raw}: ${device.pricing.category} budget retro gaming handheld with ${
-          device.ram?.sizes?.[0]
-        } ${device.ram?.unit} RAM, ${device.storage} storage, and ${device.battery.capacity}${device.battery.unit} battery. Release: ${
-          releaseDate.expected ? "Expected" : releaseDate.date
-        }. ${
-          device.os.list.join(", ") !== "?"
-            ? `Supports ${device.os.list.join(", ")}.`
-            : ""
-        } Compare specs and performance ratings.`}
-        image={`https://retroranker.site${device.image?.pngUrl ?? undefined}`}
-        url={`https://retroranker.site${props.url.pathname}`}
-        jsonLd={jsonLdForDevice(device)}
-        keywords={`${device.name.raw}, ${device.brand.raw}, ${
-          device.os.list.join(", ")
-        }, retro gaming handheld, emulation device, portable gaming, ${device.pricing.category} budget, retro console, handheld emulator`}
-      />
-
       <div class="device-detail-header">
         <BackButton />
         <div
@@ -696,7 +708,6 @@ export default function DeviceDetail(props: PageProps) {
               <DeviceCardMedium
                 device={deviceItem}
                 isActive={false}
-                user={user}
               />
             </a>
           ))}

@@ -1,88 +1,96 @@
-import { IS_BROWSER } from "$fresh/runtime.ts";
+import { IS_BROWSER } from "fresh/runtime";
 import { PiUser, PiUserPlus } from "@preact-icons/pi";
-import { effect, useSignal } from "@preact/signals";
+import { useEffect, useState } from "preact/hooks";
 
-export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
-  const error = useSignal<string | null>(null);
-  const mounted = useSignal(false);
+export function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
+  const [error, setError] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
 
   // Track both validation state and whether field has been touched
-  const nicknameTouched = useSignal<boolean>(false);
-  const passwordTouched = useSignal<boolean>(false);
-  const confirmPasswordTouched = useSignal<boolean>(false);
+  const [nicknameTouched, setNicknameTouched] = useState(false);
+  const [passwordTouched, setPasswordTouched] = useState(false);
+  const [confirmPasswordTouched, setConfirmPasswordTouched] = useState(false);
 
-  const nicknameValid = useSignal<boolean | null>(null);
-  const passwordValid = useSignal<boolean | null>(null);
-  const confirmPasswordValid = useSignal<boolean | null>(null);
-  const capSolution = useSignal<{ success: boolean; token: string } | null>(
+  const [nicknameValid, setNicknameValid] = useState<boolean | null>(null);
+  const [passwordValid, setPasswordValid] = useState<boolean | null>(null);
+  const [confirmPasswordValid, setConfirmPasswordValid] = useState<
+    boolean | null
+  >(null);
+  const [capSolution, setCapSolution] = useState<
+    { success: boolean; token: string } | null
+  >(
     null,
   );
 
   // Initialize Cap widget only once when component mounts
-  effect(() => {
-    if (IS_BROWSER && !mounted.value) {
-      mounted.value = true;
+  useEffect(() => {
+    if (IS_BROWSER && !mounted) {
+      setMounted(true);
       import("@cap.js/widget").then(async ({ default: Cap }) => {
         const capInstance = new Cap({
           apiEndpoint: baseApiUrl + "/captcha/",
         });
 
-        capSolution.value = await capInstance.solve() as {
-          success: boolean;
-          token: string;
-        };
+        setCapSolution(
+          await capInstance.solve() as {
+            success: boolean;
+            token: string;
+          },
+        );
       });
     }
   });
 
   const validateNickname = (e: Event) => {
     const input = e.target as HTMLInputElement;
-    nicknameTouched.value = true;
+    setNicknameTouched(true);
 
     // Reset validation state if field is empty
     if (!input.value.trim()) {
-      nicknameValid.value = null;
+      setNicknameValid(null);
       return;
     }
 
-    nicknameValid.value = input.value.trim().length >= 3;
+    setNicknameValid(input.value.trim().length >= 3);
   };
 
   const validatePassword = (e: Event) => {
     const input = e.target as HTMLInputElement;
-    passwordTouched.value = true;
+    setPasswordTouched(true);
 
     // Reset validation state if field is empty
     if (!input.value) {
-      passwordValid.value = null;
+      setPasswordValid(null);
       return;
     }
 
     const isValid = input.value.length >= 8;
-    passwordValid.value = isValid;
+    setPasswordValid(isValid);
 
     // Only validate confirm password if it's been touched and has a value
-    if (confirmPasswordTouched.value) {
+    if (confirmPasswordTouched) {
       const confirmInput = document.getElementById(
         "confirmPassword",
       ) as HTMLInputElement;
 
       if (!confirmInput.value) {
-        confirmPasswordValid.value = null;
+        setConfirmPasswordValid(null);
       } else {
-        confirmPasswordValid.value = confirmInput.value.length >= 8 &&
-          confirmInput.value === input.value;
+        setConfirmPasswordValid(
+          confirmInput.value.length >= 8 &&
+            confirmInput.value === input.value,
+        );
       }
     }
   };
 
   const validateConfirmPassword = (e: Event) => {
     const input = e.target as HTMLInputElement;
-    confirmPasswordTouched.value = true;
+    setConfirmPasswordTouched(true);
 
     // Reset validation state if field is empty
     if (!input.value) {
-      confirmPasswordValid.value = null;
+      setConfirmPasswordValid(null);
       return;
     }
 
@@ -91,7 +99,7 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
     ) as HTMLInputElement;
     const isValid = input.value.length >= 8 &&
       input.value === passwordInput.value;
-    confirmPasswordValid.value = isValid;
+    setConfirmPasswordValid(isValid);
   };
 
   // Handle input changes to reset validation when field is emptied
@@ -111,9 +119,9 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
     e.preventDefault();
 
     // Mark all fields as touched
-    nicknameTouched.value = true;
-    passwordTouched.value = true;
-    confirmPasswordTouched.value = true;
+    setNicknameTouched(true);
+    setPasswordTouched(true);
+    setConfirmPasswordTouched(true);
 
     // Validate all fields
     const nicknameInput = document.getElementById(
@@ -127,37 +135,41 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
     ) as HTMLInputElement;
 
     // Reset validation for empty fields
-    nicknameValid.value = nicknameInput.value.trim()
-      ? nicknameInput.value.trim().length >= 3
-      : null;
-    passwordValid.value = passwordInput.value
-      ? passwordInput.value.length >= 8
-      : null;
+    setNicknameValid(
+      nicknameInput.value.trim()
+        ? nicknameInput.value.trim().length >= 3
+        : null,
+    );
+    setPasswordValid(
+      passwordInput.value ? passwordInput.value.length >= 8 : null,
+    );
 
     if (confirmInput.value) {
-      confirmPasswordValid.value = confirmInput.value.length >= 8 &&
-        confirmInput.value === passwordInput.value;
+      setConfirmPasswordValid(
+        confirmInput.value.length >= 8 &&
+          confirmInput.value === passwordInput.value,
+      );
     } else {
-      confirmPasswordValid.value = null;
+      setConfirmPasswordValid(null);
     }
 
     // Check if any fields are invalid (false) or empty (null)
-    const hasInvalidFields = nicknameValid.value === false ||
-      passwordValid.value === false ||
-      confirmPasswordValid.value === false;
+    const hasInvalidFields = nicknameValid === false ||
+      passwordValid === false ||
+      confirmPasswordValid === false;
 
-    const hasEmptyRequiredFields = nicknameValid.value === null ||
-      passwordValid.value === null ||
-      confirmPasswordValid.value === null;
+    const hasEmptyRequiredFields = nicknameValid === null ||
+      passwordValid === null ||
+      confirmPasswordValid === null;
 
     if (hasInvalidFields || hasEmptyRequiredFields) {
-      error.value = "Please fill in all required fields correctly";
+      setError("Please fill in all required fields correctly");
       return;
     }
 
     // check if cap was successful
-    if (capSolution.value?.success === false) {
-      error.value = "Please solve the captcha";
+    if (capSolution?.success === false) {
+      setError("Please solve the captcha");
       return;
     }
 
@@ -166,7 +178,7 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
     const hidden = document.createElement("input");
     hidden.type = "hidden";
     hidden.name = "capToken";
-    hidden.value = capSolution.value?.token ?? "";
+    hidden.value = capSolution?.token ?? "";
     form.appendChild(hidden);
 
     form.submit();
@@ -199,7 +211,7 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
         <PiUser /> Sign up
       </h1>
 
-      {error.value && (
+      {error && (
         <div
           role="alert"
           style={{
@@ -210,7 +222,7 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
             borderRadius: "0.25rem",
           }}
         >
-          {error.value}
+          {error}
         </div>
       )}
 
@@ -234,8 +246,8 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
             required
             aria-required="true"
             aria-invalid={getAriaInvalid(
-              nicknameTouched.value,
-              nicknameValid.value,
+              nicknameTouched,
+              nicknameValid,
             )}
             onBlur={validateNickname}
             onChange={(e) => handleInputChange(e, validateNickname)}
@@ -243,14 +255,12 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
               width: "100%",
               padding: "0.5rem",
               border: `0.0625rem solid ${
-                !nicknameTouched.value || nicknameValid.value !== false
-                  ? "none"
-                  : "#c62828"
+                !nicknameTouched || nicknameValid !== false ? "none" : "#c62828"
               }`,
               borderRadius: "0.25rem",
             }}
           />
-          {nicknameTouched.value && nicknameValid.value === false && (
+          {nicknameTouched && nicknameValid === false && (
             <div
               role="alert"
               style={{
@@ -278,8 +288,8 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
             required
             aria-required="true"
             aria-invalid={getAriaInvalid(
-              passwordTouched.value,
-              passwordValid.value,
+              passwordTouched,
+              passwordValid,
             )}
             onBlur={validatePassword}
             onChange={(e) => handleInputChange(e, validatePassword)}
@@ -287,16 +297,16 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
               width: "100%",
               padding: "0.5rem",
               border: `0.0625rem solid ${
-                !passwordTouched.value || passwordValid.value === null
+                !passwordTouched || passwordValid === null
                   ? "none"
-                  : passwordValid.value === false
+                  : passwordValid === false
                   ? "#c62828"
                   : "#4caf50"
               }`,
               borderRadius: "0.25rem",
             }}
           />
-          {passwordTouched.value && passwordValid.value === false && (
+          {passwordTouched && passwordValid === false && (
             <div
               role="alert"
               style={{
@@ -324,8 +334,8 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
             required
             aria-required="true"
             aria-invalid={getAriaInvalid(
-              confirmPasswordTouched.value,
-              confirmPasswordValid.value,
+              confirmPasswordTouched,
+              confirmPasswordValid,
             )}
             onBlur={validateConfirmPassword}
             onChange={(e) => handleInputChange(e, validateConfirmPassword)}
@@ -333,18 +343,18 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
               width: "100%",
               padding: "0.5rem",
               border: `0.0625rem solid ${
-                !confirmPasswordTouched.value ||
-                  confirmPasswordValid.value === null
+                !confirmPasswordTouched ||
+                  confirmPasswordValid === null
                   ? "none"
-                  : confirmPasswordValid.value === false
+                  : confirmPasswordValid === false
                   ? "#c62828"
                   : "#4caf50"
               }`,
               borderRadius: "0.25rem",
             }}
           />
-          {confirmPasswordTouched.value &&
-            confirmPasswordValid.value === false && (
+          {confirmPasswordTouched &&
+            confirmPasswordValid === false && (
             <div
               role="alert"
               style={{
@@ -353,7 +363,7 @@ export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
                 marginTop: "0.3125rem",
               }}
             >
-              {passwordValid.value === false
+              {passwordValid === false
                 ? "Password must be at least 8 characters."
                 : "Passwords do not match."}
             </div>

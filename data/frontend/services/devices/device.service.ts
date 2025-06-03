@@ -24,7 +24,6 @@ import {
   PiWindowsLogo,
   PiXCircle,
 } from "@preact-icons/pi";
-import { JSX, VNode } from "preact";
 import {
   createSuperUserPocketBaseService,
   PocketBaseService,
@@ -264,7 +263,7 @@ export class DeviceService {
     return result.items.map((device) => device.deviceData);
   }
 
-  static getOsIconComponent(os: string): VNode<JSX.SVGAttributes> | string {
+  static getOsIconComponent(os: string) {
     switch (os) {
       case "ph-factory":
         return PiFactory({});
@@ -305,7 +304,7 @@ export class DeviceService {
 
   static getPropertyIconByBool(
     bool: boolean | null | undefined,
-  ): VNode<JSX.SVGAttributes> {
+  ) {
     return bool
       ? PiCheckCircleFill({
         style: {
@@ -323,7 +322,7 @@ export class DeviceService {
 
   static getPropertyIconByCharacter(
     char: "✅" | "❌" | "?" | string | null,
-  ): VNode<JSX.SVGAttributes> {
+  ) {
     if (char === "✅") {
       return PiCheckCircleFill({
         style: {
@@ -355,8 +354,8 @@ export class DeviceService {
 
   static getCoolingIcons(
     cooling: Cooling,
-  ): { icon: VNode<JSX.SVGAttributes>; tooltip: string }[] {
-    const icons: { icon: VNode<JSX.SVGAttributes>; tooltip: string }[] = [];
+  ): { icon: any; tooltip: string }[] {
+    const icons: { icon: any; tooltip: string }[] = [];
 
     if (cooling.hasHeatsink) {
       icons.push({ icon: PiTabs({}), tooltip: "Heat sink" });

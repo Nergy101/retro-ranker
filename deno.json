@@ -4,7 +4,7 @@
     "check": "deno fmt --check && deno lint && deno check data/**/*.ts && deno check scripts/**/*.ts && deno check **/*.tsx",
     "cli": "echo \"import '\\$fresh/src/dev/cli.ts'\" | deno run --unstable -A -",
     "manifest": "deno task cli manifest $(pwd)",
-    "start": "deno run -A --watch=static/,routes/ dev.ts",
+    "start": "deno run -A --watch=static/,routes/,islands/,components/ dev.ts",
     "build": "deno run -A dev.ts build",
     "preview": "deno run -A main.ts",
     "update": "deno run -A -r https://fresh.deno.dev/update .",
@@ -17,19 +17,9 @@
   },
   "lint": {
     "rules": {
-      "tags": [
-        "fresh",
-        "recommended"
-      ],
-      "exclude": [
-        "require-await",
-        "jsx-boolean-value"
-      ],
-      "include": [
-        "no-console",
-        "no-unused-vars",
-        "no-debugger"
-      ]
+      "tags": ["fresh", "recommended"],
+      "exclude": ["require-await", "jsx-boolean-value", "no-explicit-any"],
+      "include": ["no-console", "no-unused-vars", "no-debugger"]
     }
   },
   "exclude": [
@@ -43,24 +33,19 @@
     "**/volumes/*"
   ],
   "imports": {
-    "$fresh/": "https://deno.land/x/fresh@1.7.3/",
+    "fresh": "jsr:@fresh/core@^2.0.0-alpha.34",
+    "preact": "npm:preact@^10.26.6",
+
     "$fresh_charts/": "https://deno.land/x/fresh_charts@0.3.1/",
-    "@opentelemetry/api": "npm:@opentelemetry/api@^1.9.0",
-    "@preact-icons/pi": "jsr:@preact-icons/pi@^1.0.12",
+    "$std/": "https://deno.land/std@0.216.0/",
     "@std/http": "jsr:@std/http@^1.0.13",
     "@std/log": "jsr:@std/log@^0.224.14",
-    "preact": "npm:preact@10.22.1",
-    "preact/jsx-runtime": "npm:preact@10.22.1/jsx-runtime",
-    "preact/hooks": "npm:preact@10.22.1/hooks",
-    "@preact/signals": "https://esm.sh/*@preact/signals@2.0.1",
-    "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.8.0",
-    "$std/": "https://deno.land/std@0.216.0/",
-    "@cap.js/server": "npm:@cap.js/server",
-    "@cap.js/widget": "npm:@cap.js/widget",
-    "pocketbase": "npm:pocketbase"
+    "@preact-icons/pi": "jsr:@preact-icons/pi@^1.0.12",
+    "@opentelemetry/api": "npm:@opentelemetry/api@^1.9.0",
+    "@cap.js/server": "npm:@cap.js/server@^1.0.15",
+    "@cap.js/widget": "npm:@cap.js/widget@^0.1.13",
+    "pocketbase": "npm:pocketbase@^0.26.0",
+    "unique-names-generator": "npm:unique-names-generator@^4.7.1"
   },
-  "compilerOptions": {
-    "jsx": "react-jsx",
-    "jsxImportSource": "preact"
-  }
+  "compilerOptions": { "jsx": "react-jsx", "jsxImportSource": "preact" }
 }

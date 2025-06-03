@@ -1,9 +1,9 @@
 // deno-lint-ignore-file no-console
-import { FreshContext } from "$fresh/server.ts";
+import { FreshContext } from "fresh";
 import { DeviceService } from "../../../data/frontend/services/devices/device.service.ts";
 
 export const handler = {
-  async GET(_: Request, ctx: FreshContext) {
+  async GET(ctx: FreshContext) {
     const name = ctx.params.name;
 
     if (!name) {

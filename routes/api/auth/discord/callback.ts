@@ -1,11 +1,13 @@
-import { Handlers } from "$fresh/server.ts";
 import { setCookie } from "@std/http/cookie";
-import { createPocketBaseService } from "../../../../data/pocketbase/pocketbase.service.ts";
+import { FreshContext } from "fresh";
 import pkceSessionService from "../../../../data/pkce/pkce.service.ts";
+import { createPocketBaseService } from "../../../../data/pocketbase/pocketbase.service.ts";
 import { logJson, tracer } from "../../../../data/tracing/tracer.ts";
 
-export const handler: Handlers = {
-  async GET(req, _ctx) {
+export const handler = {
+  async GET(ctx: FreshContext) {
+    const req = ctx.req;
+
     return await tracer.startActiveSpan(
       "discord-auth-callback",
       async (span) => {

@@ -1,5 +1,4 @@
-import { useSignal } from "@preact/signals";
-import { useEffect } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { RatingsService } from "../../data/frontend/services/devices/ratings.service.ts";
 import { FreshChart } from "./fresh-chart.tsx";
@@ -16,13 +15,16 @@ export function DevicesRadarChart(
 ) {
   // Create an instance of the ratings service.
   const ratingsService = RatingsService.getInstance();
-  const viewportWidth = useSignal(globalThis.innerWidth);
-  const chartSize = useSignal({ width: "350px", height: "350px" });
+  const [viewportWidth, setViewportWidth] = useState(globalThis.innerWidth);
+  const [chartSize, setChartSize] = useState({
+    width: "350px",
+    height: "350px",
+  });
 
   useEffect(() => {
     const handleResize = () => {
-      viewportWidth.value = globalThis.innerWidth;
-      setChartSize();
+      setViewportWidth(globalThis.innerWidth);
+      adjustChartSize();
     };
 
     // Add event listener
@@ -32,15 +34,15 @@ export function DevicesRadarChart(
     return () => {
       globalThis.removeEventListener("resize", handleResize);
     };
-  }, []);
+  });
 
-  const setChartSize = (): void => {
-    if (viewportWidth.value <= 425) {
-      chartSize.value = { width: "250px", height: "250px" };
-    } else if (viewportWidth.value <= 768) {
-      chartSize.value = { width: "350px", height: "350px" };
+  const adjustChartSize = (): void => {
+    if (viewportWidth <= 425) {
+      setChartSize({ width: "250px", height: "250px" });
+    } else if (viewportWidth <= 768) {
+      setChartSize({ width: "350px", height: "350px" });
     } else {
-      chartSize.value = { width: "400px", height: "400px" };
+      setChartSize({ width: "400px", height: "400px" });
     }
   };
 
@@ -141,8 +143,8 @@ export function DevicesRadarChart(
         justifyContent: "center",
         flexDirection: "column",
         alignItems: "center",
-        width: chartSize.value.width,
-        height: chartSize.value.height,
+        width: chartSize.width,
+        height: chartSize.height,
       }}
     >
       {showTitle && (

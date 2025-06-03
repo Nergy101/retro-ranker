@@ -7,7 +7,7 @@ interface SignOutProps {
   onSignOut?: () => void;
 }
 
-export default function SignOut({
+export function SignOut({
   className = "sign-out-button",
   buttonText = "Sign Out",
 }: SignOutProps) {

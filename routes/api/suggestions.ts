@@ -1,10 +1,11 @@
 // deno-lint-ignore-file no-console
-import { FreshContext } from "$fresh/server.ts";
+import { FreshContext } from "fresh";
 import { ProblemDetail } from "../../data/frontend/contracts/problem-detail.ts";
 import { User } from "../../data/frontend/contracts/user.contract.ts";
 import {
   createLoggedInPocketBaseService,
 } from "../../data/pocketbase/pocketbase.service.ts";
+import { CustomFreshState } from "../../interfaces/state.ts";
 
 interface SuggestionPayload {
   email: string;
@@ -15,18 +16,20 @@ interface SuggestionPayload {
 const MAX_SUGGESTIONS_PER_USER = 5;
 
 export const handler = {
-  async POST(req: Request, ctx: FreshContext) {
+  async POST(ctx: FreshContext) {
+    const req = ctx.req;
+
     try {
       const cookie = req.headers.get("cookie");
 
-      if (!ctx.state.user || !cookie) {
+      if (!(ctx.state as CustomFreshState).user || !cookie) {
         return new Response(JSON.stringify({ error: "Unauthorized" }), {
           status: 401,
           headers: { "Content-Type": "application/json" },
         });
       }
 
-      const user = ctx.state.user as User;
+      const user = (ctx.state as CustomFreshState).user as User;
       const payload = await req.json() as SuggestionPayload;
 
       if (!payload.suggestion || payload.suggestion.trim() === "") {

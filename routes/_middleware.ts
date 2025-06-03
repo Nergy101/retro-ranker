@@ -1,7 +1,8 @@
 // deno-lint-ignore-file
-import { FreshContext } from "$fresh/server.ts";
+import { FreshContext } from "fresh";
 import { createPocketBaseService } from "../data/pocketbase/pocketbase.service.ts";
 import { logJson, tracer } from "../data/tracing/tracer.ts";
+import { CustomFreshState } from "../interfaces/state.ts";
 
 // List of file extensions to ignore for logging
 const IGNORED_EXTENSIONS = new Set([
@@ -48,7 +49,8 @@ function shouldLogVisit(path: string): boolean {
   return true;
 }
 
-export async function handler(req: Request, ctx: FreshContext) {
+export async function handler(ctx: FreshContext) {
+  const req = ctx.req;
   const url = new URL(req.url);
   const path = url.pathname;
 
@@ -86,14 +88,14 @@ export async function handler(req: Request, ctx: FreshContext) {
       if (cookieHeader) {
         try {
           const user = await pbService.getUser(cookieHeader);
-          ctx.state.user = user; // Attach user to context
+          (ctx.state as CustomFreshState).user = user; // Attach user to context
           span.setAttribute("user.authenticated", true);
           span.setAttribute("user.nickname", user.nickname);
           if (shouldLogVisit(path)) {
             logJson("info", "User visited page", { user: user.nickname, path });
           }
         } catch (_) {
-          ctx.state.user = null; // Token invalid or not logged in
+          (ctx.state as CustomFreshState).user = null; // Token invalid or not logged in
           span.setAttribute("user.authenticated", false);
           if (shouldLogVisit(path)) {
             logJson("info", "Anonymous user visited page", { path });
@@ -104,6 +106,10 @@ export async function handler(req: Request, ctx: FreshContext) {
         if (shouldLogVisit(path)) {
           logJson("info", "Anonymous user visited page", { path });
         }
+      }
+
+      if ((ctx.state as CustomFreshState).data === undefined) {
+        (ctx.state as CustomFreshState).data = {};
       }
 
       const response = await ctx.next();

@@ -1,11 +1,11 @@
 import { DeviceCollection } from "../../data/frontend/contracts/device-collection.ts";
-import CollectionCard from "./collection-card.tsx";
+import { CollectionCard } from "./collection-card.tsx";
 
 interface DeviceCollectionsProps {
   collections: DeviceCollection[];
 }
 
-export default function DeviceCollections(
+export function DeviceCollections(
   { collections }: DeviceCollectionsProps,
 ) {
   return (

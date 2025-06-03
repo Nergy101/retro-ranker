@@ -1,4 +1,4 @@
-import { useSignal } from "@preact/signals";
+import { useState } from "preact/hooks";
 import type { Device } from "../../data/frontend/contracts/device.model.ts";
 import { DevicesRadarChart } from "./devices-radar-chart.tsx";
 
@@ -13,11 +13,11 @@ export function DevicesSimilarRadarChart({
   similarDevices,
   showTitle = true,
 }: DevicesSimilarRadarChartProps) {
-  const showSimilarDevices = useSignal(true);
+  const [showSimilarDevices, setShowSimilarDevices] = useState(true);
 
   const toggleShow = (e: Event) => {
     // For checkboxes, read the new "checked" value from the event target
-    showSimilarDevices.value = (e.target as HTMLInputElement).checked;
+    setShowSimilarDevices((e.target as HTMLInputElement).checked);
   };
 
   return (
@@ -29,7 +29,7 @@ export function DevicesSimilarRadarChart({
         alignItems: "center",
       }}
     >
-      {showSimilarDevices.value
+      {showSimilarDevices
         ? (
           <DevicesRadarChart
             devices={[device, ...similarDevices]}
@@ -41,7 +41,7 @@ export function DevicesSimilarRadarChart({
         <input
           aria-label="Show similar devices in radar chart"
           type="checkbox"
-          checked={showSimilarDevices.value}
+          checked={showSimilarDevices}
           onChange={toggleShow}
         />
         <span>Show similar devices in chart</span>

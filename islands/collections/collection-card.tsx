@@ -1,12 +1,12 @@
 import { PiEye, PiPencil, PiTrash, PiX } from "@preact-icons/pi";
-import { signal } from "@preact/signals-core";
-import { DeviceCardMedium } from "../../components/cards/DeviceCardMedium.tsx";
+import { useState } from "preact/hooks";
+import { DeviceCardMedium } from "../../components/cards/device-card-medium.tsx";
 import { DeviceCollection } from "../../data/frontend/contracts/device-collection.ts";
-import { ShareButton } from "../buttons/ShareButton.tsx";
-export default function CollectionCard(
+import { ShareButton } from "../buttons/share-button.tsx";
+export function CollectionCard(
   { collection }: { collection: DeviceCollection },
 ) {
-  const isDeleteDialogOpen = signal(false);
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const getIconSizeBasedOnDevice = () => {
     if (globalThis.innerWidth < 768) {
       return 32;
@@ -14,7 +14,7 @@ export default function CollectionCard(
     return 16;
   };
   const handleDelete = async () => {
-    isDeleteDialogOpen.value = false;
+    setIsDeleteDialogOpen(false);
     // do delete call from frontend code
     await fetch(`/api/collections/${collection.id}`, {
       method: "DELETE",
@@ -38,8 +38,8 @@ export default function CollectionCard(
               type="button"
               role="button"
               aria-label="Close"
-              rel="prev"
-              onClick={() => isDeleteDialogOpen.value = false}
+              // rel="prev"
+              onClick={() => setIsDeleteDialogOpen(false)}
             >
             </button>
             <p>
@@ -62,7 +62,7 @@ export default function CollectionCard(
               type="button"
               role="button"
               class="outline secondary"
-              onClick={() => isDeleteDialogOpen.value = false}
+              onClick={() => setIsDeleteDialogOpen(false)}
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -123,7 +123,7 @@ export default function CollectionCard(
           class="button outline secondary delete-btn"
           data-tooltip="Delete permanently"
           data-placement="bottom"
-          onClick={() => isDeleteDialogOpen.value = true}
+          onClick={() => setIsDeleteDialogOpen(true)}
         >
           <PiTrash size={getIconSizeBasedOnDevice()} /> Delete
         </button>
