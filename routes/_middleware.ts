@@ -85,7 +85,6 @@ export async function handler(ctx: FreshContext) {
       const pbService = await createPocketBaseService();
       const cookieHeader = req.headers.get("cookie");
 
-
       if (cookieHeader) {
         try {
           const user = await pbService.getUser(cookieHeader);

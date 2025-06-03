@@ -3,7 +3,7 @@ import { FreshContext, page, PageProps } from "fresh";
 import { CustomFreshState } from "../../interfaces/state.ts";
 import { SignIn } from "../../islands/auth/sign-in.tsx";
 
-export  default function SignInPage(pageProps: PageProps) {
+export default function SignInPage(pageProps: PageProps) {
   const error = pageProps.url.searchParams.get("error");
   const loggedIn = pageProps.url.searchParams.get("logged-in");
 

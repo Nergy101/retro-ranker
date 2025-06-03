@@ -20,7 +20,6 @@ export default async function CreateCollection() {
 
   return (
     <div>
-
       <h1>Create Device Collection</h1>
       <CollectionCreateForm devices={devices} />
     </div>

@@ -101,7 +101,7 @@ export default function Home(
   const highlyRated = data.highlyRated as Device[];
   const upcoming = data.upcoming as Device[];
   const defaultTags = data.defaultTags as TagModel[];
-  
+
   return (
     <div class="home-page">
       <Hero />
