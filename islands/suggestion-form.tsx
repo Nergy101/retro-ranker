@@ -5,7 +5,7 @@ interface SuggestionFormProps {
   userEmail: string;
 }
 
-export default function SuggestionForm({ userEmail }: SuggestionFormProps) {
+export function SuggestionForm({ userEmail }: SuggestionFormProps) {
   const [suggestion, setSuggestion] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);

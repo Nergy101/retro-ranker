@@ -1,5 +1,5 @@
 import { useEffect, useState } from "preact/hooks";
-import DeviceCardMedium from "../components/cards/device-card-medium.tsx";
+import { DeviceCardMedium } from "../components/cards/device-card-medium.tsx";
 import { Device } from "../data/frontend/contracts/device.model.ts";
 
 interface TimelineContentProps {
@@ -7,7 +7,7 @@ interface TimelineContentProps {
   devicesGroupedByYearAndMonth: Record<string, Device[]>;
 }
 
-export default function TimelineContent(
+export function TimelineContent(
   { upcomingDevices, devicesGroupedByYearAndMonth }: TimelineContentProps,
 ) {
   const [includeUpcoming, setIncludeUpcoming] = useState(false);

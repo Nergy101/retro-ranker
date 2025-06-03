@@ -1,6 +1,6 @@
 import { PiArrowLeft } from "@preact-icons/pi";
 
-export default function BackButton() {
+export function BackButton() {
   return (
     <button
       type="button"

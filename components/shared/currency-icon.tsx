@@ -14,7 +14,7 @@ interface CurrencyIconProps {
   currencyCode: string | null;
 }
 
-export default function CurrencyIcon({ currencyCode }: CurrencyIconProps) {
+export function CurrencyIcon({ currencyCode }: CurrencyIconProps) {
   switch (currencyCode) {
     case null:
       return PiQuestion({});

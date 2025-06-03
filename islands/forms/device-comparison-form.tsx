@@ -1,10 +1,10 @@
 import { PiGitDiff } from "@preact-icons/pi";
 import { useEffect, useRef, useState } from "preact/hooks";
-import DeviceCardMedium from "../../components/cards/device-card-medium.tsx";
+import { DeviceCardMedium } from "../../components/cards/device-card-medium.tsx";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { searchDevices } from "../../data/frontend/services/utils/search.utils.ts";
 
-export default function DeviceComparisonForm({
+export function DeviceComparisonForm({
   allDevices,
   devicesToCompare,
   similarDevices,
@@ -17,10 +17,15 @@ export default function DeviceComparisonForm({
   const originalDeviceB = devicesToCompare?.[1];
 
   const allDeviceRawNames = allDevices.map((device) => device.name.raw);
+
   const deviceNameIsInvalid = (deviceName: string) =>
     !allDeviceRawNames.some((name) =>
       name.toLowerCase() === deviceName.toLowerCase()
     );
+
+  const [isLoading1, setIsLoading1] = useState(false);
+  const [isLoading2, setIsLoading2] = useState(false);
+  const [isLoading3, setIsLoading3] = useState(false);
 
   const [queryA, setQueryA] = useState(originalDeviceA?.name.raw || "");
   const [queryB, setQueryB] = useState(originalDeviceB?.name.raw || "");
@@ -73,32 +78,41 @@ export default function DeviceComparisonForm({
 
   const queryAChanged = (value: string) => {
     setQueryA(value);
-    setSuggestionsA(searchDevices(value.trim(), allDevices));
+    const suggestions = searchDevices(value.trim(), allDevices);
+    setSuggestionsA(suggestions);
 
-    setSelectedDeviceA(
+    const device =
       allDevices.find((device) =>
         device.name.raw.toLowerCase() === queryA.toLowerCase()
-      ) ?? null,
-    );
+      ) ?? null;
+
+    setSelectedDeviceA(device);
   };
 
   const queryBChanged = (value: string) => {
     setQueryB(value);
-    setSuggestionsB(searchDevices(value.trim(), allDevices));
+    const suggestions = searchDevices(value.trim(), allDevices);
+    setSuggestionsB(suggestions);
 
-    setSelectedDeviceB(
+    const device =
       allDevices.find((device) =>
         device.name.raw.toLowerCase() === queryB.toLowerCase()
-      ) ?? null,
-    );
+      ) ?? null;
+
+    setSelectedDeviceB(device);
   };
 
   const setQueryASuggestion = (value: string) => {
     queryAChanged(value);
     setSuggestionsA([]);
 
-    if (selectedDeviceA && selectedDeviceB) {
-      handleSubmit();
+    const device = allDevices.find((device) =>
+      device.name.raw.toLowerCase() === value.toLowerCase()
+    );
+
+    if (device) {
+      globalThis.location.href =
+        `/compare?devices=${device.name.sanitized},${selectedDeviceB?.name.sanitized}`;
     }
   };
 
@@ -106,10 +120,29 @@ export default function DeviceComparisonForm({
     queryBChanged(value);
     setSuggestionsB([]);
 
-    if (selectedDeviceA && selectedDeviceB) {
-      handleSubmit();
+    const device = allDevices.find((device) =>
+      device.name.raw.toLowerCase() === value.toLowerCase()
+    );
+
+    if (device) {
+      globalThis.location.href =
+        `/compare?devices=${selectedDeviceA?.name.sanitized},${device.name.sanitized}`;
     }
   };
+
+  // useEffect(() => {
+  //   if (
+  //     selectedDeviceA &&
+  //     selectedDeviceB &&
+  //     (
+  //       selectedDeviceA.name.sanitized !== originalDeviceA?.name.sanitized ||
+  //       selectedDeviceB.name.sanitized !== originalDeviceB?.name.sanitized
+  //     )
+  //   ) {
+  //     handleSubmit();
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [selectedDeviceA, selectedDeviceB]);
 
   const handleSubmit = () => {
     if (selectedDeviceA && selectedDeviceB) {
@@ -121,10 +154,19 @@ export default function DeviceComparisonForm({
     }
   };
 
-  const handleExampleComparison = (deviceA: string, deviceB: string) => {
-    queryAChanged(deviceA);
-    queryBChanged(deviceB);
-    handleSubmit();
+  const handleExampleComparison = (
+    deviceA: string,
+    deviceB: string,
+    index: number,
+  ) => {
+    if (index === 1) {
+      setIsLoading1(true);
+    } else if (index === 2) {
+      setIsLoading2(true);
+    } else if (index === 3) {
+      setIsLoading3(true);
+    }
+    globalThis.location.href = `/compare?devices=${deviceA},${deviceB}`;
   };
 
   const isActive = (deviceName: string) => {
@@ -250,7 +292,7 @@ export default function DeviceComparisonForm({
                     cursor: "pointer",
                     borderRadius: "0.5rem",
                   }}
-                  onClick={() => setQueryASuggestion(device.name.raw)}
+                  onClick={() => setQueryASuggestion(device.name.sanitized)}
                 >
                   <DeviceCardMedium
                     device={device}
@@ -274,7 +316,7 @@ export default function DeviceComparisonForm({
               {similarDevices.slice(8, 16).map((device) => (
                 <div
                   key={device.name.sanitized}
-                  onClick={() => setQueryBSuggestion(device.name.raw)}
+                  onClick={() => setQueryBSuggestion(device.name.sanitized)}
                   style={{
                     cursor: "pointer",
                     backgroundColor: device.name.raw === queryB
@@ -297,13 +339,14 @@ export default function DeviceComparisonForm({
       <div class="compare-form-examples">
         <button
           class="secondary"
-          onClick={() => handleExampleComparison("Miyoo Flip", "RG-35XX SP")}
+          onClick={() => handleExampleComparison("miyoo-flip", "rg-35xx-sp", 1)}
           type="submit"
           style={{
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
           }}
+          aria-busy={isLoading1}
         >
           <span style={{ display: "flex", gap: "0.25rem" }}>
             Miyoo Flip <PiGitDiff /> RG-35XX SP
@@ -311,13 +354,15 @@ export default function DeviceComparisonForm({
         </button>
         <button
           class="secondary"
-          onClick={() => handleExampleComparison("Retroid Pocket 5", "RG-406H")}
+          onClick={() =>
+            handleExampleComparison("retroid-pocket-5", "rg-406h", 2)}
           type="submit"
           style={{
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
           }}
+          aria-busy={isLoading2}
         >
           <span style={{ display: "flex", gap: "0.25rem" }}>
             Retroid Pocket 5 <PiGitDiff /> RG-406H
@@ -326,13 +371,14 @@ export default function DeviceComparisonForm({
         <button
           class="secondary"
           onClick={() =>
-            handleExampleComparison("AYANEO Pocket Evo", "Odin 2 Portal")}
+            handleExampleComparison("ayaneo-pocket-evo", "odin-2-portal", 3)}
           type="submit"
           style={{
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
           }}
+          aria-busy={isLoading3}
         >
           <span style={{ display: "flex", gap: "0.25rem" }}>
             AYANEO Pocket Evo <PiGitDiff /> Odin 2 Portal

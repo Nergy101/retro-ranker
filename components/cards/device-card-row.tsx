@@ -2,13 +2,13 @@ import { PiQuestion } from "@preact-icons/pi";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 import { RatingInfo } from "../../islands/rating-info.tsx";
-import CurrencyIcon from "../shared/currency-icon.tsx";
+import { CurrencyIcon } from "../shared/currency-icon.tsx";
 
 interface DeviceCardRowProps {
   device: Device;
 }
 
-export default function DeviceCardRow({ device }: DeviceCardRowProps) {
+export function DeviceCardRow({ device }: DeviceCardRowProps) {
   const upToSystemA = DeviceService.getUptoSystemA(device);
   const upToSystemC = DeviceService.getUptoSystemCOrLower(device);
 

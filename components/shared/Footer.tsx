@@ -5,7 +5,7 @@ import {
   PiShield,
 } from "@preact-icons/pi";
 
-export default function Footer() {
+export function Footer() {
   return (
     <footer
       style={{ borderTop: "1px solid var(--pico-primary)" }}

@@ -10,7 +10,7 @@ interface RadarChartProps {
   ranking?: Ranking;
 }
 
-export default function DevicesRadarChart(
+export function DevicesRadarChart(
   { devices, showTitle = true, ranking }: RadarChartProps,
 ) {
   // Create an instance of the ratings service.

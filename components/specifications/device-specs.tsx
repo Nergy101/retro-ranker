@@ -1,18 +1,18 @@
 import { Device } from "../../data/frontend/contracts/device.model.ts";
-import AudioSpecs from "./sections/audio-specs.tsx";
-import ConnectivitySpecs from "./sections/connectivity-specs.tsx";
-import ControlsSpecs from "./sections/controls-specs.tsx";
-import CoolingSpecs from "./sections/cooling-specs.tsx";
-import DisplaySpecs from "./sections/display-specs.tsx";
-import MiscellaneousSpecs from "./sections/miscellaneous-specs.tsx";
-import PhysicalSpecs from "./sections/physical-specs.tsx";
-import ProcessingSpecs from "./sections/processing-specs.tsx";
+import { AudioSpecs } from "./sections/audio-specs.tsx";
+import { ConnectivitySpecs } from "./sections/connectivity-specs.tsx";
+import { ControlsSpecs } from "./sections/controls-specs.tsx";
+import { CoolingSpecs } from "./sections/cooling-specs.tsx";
+import { DisplaySpecs } from "./sections/display-specs.tsx";
+import { MiscellaneousSpecs } from "./sections/miscellaneous-specs.tsx";
+import { PhysicalSpecs } from "./sections/physical-specs.tsx";
+import { ProcessingSpecs } from "./sections/processing-specs.tsx";
 
 interface DeviceSpecsProps {
   device: Device;
 }
 
-export default function DeviceSpecs({ device }: DeviceSpecsProps) {
+export function DeviceSpecs({ device }: DeviceSpecsProps) {
   return (
     <div class="specs-grid">
       {/* Processing */}

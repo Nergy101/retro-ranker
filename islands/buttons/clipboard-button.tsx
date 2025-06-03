@@ -1,7 +1,7 @@
 import { PiCheck, PiClipboard } from "@preact-icons/pi";
 import { useState } from "preact/hooks";
 
-export default function ClipboardButton({ url }: { url: string }) {
+export function ClipboardButton({ url }: { url: string }) {
   const [success, setSuccess] = useState(false);
   const getIconSizeBasedOnDevice = () => {
     if (globalThis.innerWidth < 768) {

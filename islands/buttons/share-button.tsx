@@ -1,6 +1,6 @@
 import { PiShare } from "@preact-icons/pi";
 
-export default function ShareButton(
+export function ShareButton(
   { title, tooltip = "Share", shareTitle, url, appearance = "default" }: {
     title: string;
     tooltip?: string;

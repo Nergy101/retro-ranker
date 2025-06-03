@@ -3,8 +3,8 @@ import { Device } from "../data/frontend/contracts/device.model.ts";
 import { User } from "../data/frontend/contracts/user.contract.ts";
 import { Cooling } from "../data/frontend/models/cooling.model.ts";
 import { DeviceService } from "../data/frontend/services/devices/device.service.ts";
-import FavoriteButton from "../islands/buttons/favorite-button.tsx";
-import ThumbsUp from "../islands/buttons/thumbs-up.tsx";
+import { FavoriteButton } from "../islands/buttons/favorite-button.tsx";
+import { ThumbsUp } from "../islands/buttons/thumbs-up.tsx";
 import { RatingInfo } from "../islands/rating-info.tsx";
 
 interface EmulationPerformanceProps {
@@ -18,7 +18,7 @@ interface EmulationPerformanceProps {
   hideLikeButton?: boolean;
 }
 
-export default function EmulationPerformance(
+export function EmulationPerformance(
   {
     device,
     tooltipUseShortSystemName = false,

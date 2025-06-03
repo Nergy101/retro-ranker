@@ -6,7 +6,7 @@ interface MiscellaneousSpecsProps {
   device: Device;
 }
 
-export default function MiscellaneousSpecs(
+export function MiscellaneousSpecs(
   { device }: MiscellaneousSpecsProps,
 ) {
   return (

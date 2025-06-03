@@ -1,5 +1,5 @@
 import { CommentContract } from "../../data/frontend/contracts/comment.contract.ts";
-import ProfileImage from "../auth/profile-image.tsx";
+import { ProfileImage } from "../auth/profile-image.tsx";
 
 interface DeviceCommentCardProps {
   comment: CommentContract;
@@ -18,7 +18,7 @@ function sanitizeHTML(html: string): string {
     .replace(/javascript:/gi, "");
 }
 
-export default function DeviceCommentCard({ comment }: DeviceCommentCardProps) {
+export function DeviceCommentCard({ comment }: DeviceCommentCardProps) {
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return date.toLocaleDateString(undefined, {

@@ -6,7 +6,7 @@ interface PhysicalSpecsProps {
   device: Device;
 }
 
-export default function PhysicalSpecs({ device }: PhysicalSpecsProps) {
+export function PhysicalSpecs({ device }: PhysicalSpecsProps) {
   return (
     <section class="specs-section overflow-auto">
       <h3>

@@ -2,7 +2,7 @@ import { IS_BROWSER } from "fresh/runtime";
 import { PiUser, PiUserPlus } from "@preact-icons/pi";
 import { useEffect, useState } from "preact/hooks";
 
-export default function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
+export function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
   const [error, setError] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
 

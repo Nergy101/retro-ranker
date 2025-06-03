@@ -6,7 +6,7 @@ interface ProcessingSpecsProps {
   device: Device;
 }
 
-export default function ProcessingSpecs({ device }: ProcessingSpecsProps) {
+export function ProcessingSpecs({ device }: ProcessingSpecsProps) {
   return (
     <section class="specs-section overflow-auto">
       <h3>

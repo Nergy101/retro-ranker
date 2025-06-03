@@ -1,10 +1,10 @@
 import { PiPaperPlaneRight } from "@preact-icons/pi";
 import { useState } from "preact/hooks";
-import ProfileImage from "../../components/auth/profile-image.tsx";
+import { ProfileImage } from "../../components/auth/profile-image.tsx";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { User } from "../../data/frontend/contracts/user.contract.ts";
 
-export default function AddDeviceCommentForm({
+export function AddDeviceCommentForm({
   device,
   user,
 }: {

@@ -1,15 +1,14 @@
 import { PiSignIn } from "@preact-icons/pi";
-// import { effect, signal } from "@preact/signals";
 import { useEffect, useRef, useState } from "preact/hooks";
-import ProfileImage from "../../components/auth/profile-image.tsx";
+import { ProfileImage } from "../../components/auth/profile-image.tsx";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { User } from "../../data/frontend/contracts/user.contract.ts";
 import { navigationItems } from "../../data/frontend/navigation-items.ts";
 import { searchDevices } from "../../data/frontend/services/utils/search.utils.ts";
-import DeviceCardMedium from "../../components/cards/device-card-medium.tsx";
-import ThemeSwitcher from "./theme-switcher.tsx";
+import { DeviceCardMedium } from "../../components/cards/device-card-medium.tsx";
+import { ThemeSwitcher } from "./theme-switcher.tsx";
 
-export default function DesktopNav(
+export function DesktopNav(
   { pathname, allDevices, user }: {
     pathname: string;
     allDevices: Device[];

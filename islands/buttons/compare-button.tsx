@@ -4,7 +4,7 @@ interface CompareButtonProps {
   deviceName: string;
 }
 
-export default function CompareButton({ deviceName }: CompareButtonProps) {
+export function CompareButton({ deviceName }: CompareButtonProps) {
   const getIconSizeBasedOnDevice = () => {
     if (globalThis.innerWidth < 768) {
       return 32;

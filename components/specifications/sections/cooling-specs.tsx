@@ -6,7 +6,7 @@ interface CoolingSpecsProps {
   device: Device;
 }
 
-export default function CoolingSpecs({ device }: CoolingSpecsProps) {
+export function CoolingSpecs({ device }: CoolingSpecsProps) {
   return (
     <section class="specs-section overflow-auto">
       <h3>

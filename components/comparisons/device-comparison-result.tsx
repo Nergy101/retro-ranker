@@ -11,23 +11,23 @@ import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { Ranking } from "../../data/frontend/models/ranking.model.ts";
 import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 import { RatingInfo } from "../../islands/rating-info.tsx";
-import StarRating from "../ratings/star-rating.tsx";
-import CurrencyIcon from "../shared/currency-icon.tsx";
-import TagComponent from "../shared/tag-component.tsx";
-import AudioTable from "../specifications/tables/audio-table.tsx";
-import ConnectivityTable from "../specifications/tables/connectivity-table.tsx";
-import ControlsTable from "../specifications/tables/controls-table.tsx";
-import DisplaySpecsTable from "../specifications/tables/display-specs-table.tsx";
-import MiscellaneousSpecsTable from "../specifications/tables/miscellaneous-specs-table.tsx";
-import PhysicalSpecsTable from "../specifications/tables/physical-specs-table.tsx";
-import ProcessingSpecsTable from "../specifications/tables/processing-specs-table.tsx";
+import { StarRating } from "../ratings/star-rating.tsx";
+import { CurrencyIcon } from "../shared/currency-icon.tsx";
+import { TagComponent } from "../shared/tag-component.tsx";
+import { AudioTable } from "../specifications/tables/audio-table.tsx";
+import { ConnectivityTable } from "../specifications/tables/connectivity-table.tsx";
+import { ControlsTable } from "../specifications/tables/controls-table.tsx";
+import { DisplaySpecsTable } from "../specifications/tables/display-specs-table.tsx";
+import { MiscellaneousSpecsTable } from "../specifications/tables/miscellaneous-specs-table.tsx";
+import { PhysicalSpecsTable } from "../specifications/tables/physical-specs-table.tsx";
+import { ProcessingSpecsTable } from "../specifications/tables/processing-specs-table.tsx";
 
 interface DeviceComparisonResultProps {
   device: Device;
   ranking: Ranking;
 }
 
-export default function DeviceComparisonResult(
+export function DeviceComparisonResult(
   { device, ranking }: DeviceComparisonResultProps,
 ) {
   const isBest = (categoryName: string) => {

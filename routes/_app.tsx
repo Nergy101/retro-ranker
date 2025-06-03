@@ -1,10 +1,10 @@
 import { FreshContext, page } from "fresh";
-import Footer from "../components/shared/footer.tsx";
 import { Device } from "../data/frontend/contracts/device.model.ts";
 import { User } from "../data/frontend/contracts/user.contract.ts";
 import { DeviceService } from "../data/frontend/services/devices/device.service.ts";
 import { CustomFreshState } from "../interfaces/state.ts";
-import Navbar from "../islands/navigation/navbar.tsx";
+import { Footer } from "../components/shared/footer.tsx";
+import { TopNavbar } from "../islands/navigation/top-navbar.tsx";
 
 export const handler = {
   async GET(ctx: FreshContext) {
@@ -55,15 +55,13 @@ export default function AppWrapper(
         {seo.description && (
           <meta name="twitter:description" content={seo.description} />
         )}
-        {
-          /* {seo.jsonLd && (
+        {seo.jsonLd && (
           <script
             type="application/ld+json"
             // deno-lint-ignore react-no-danger
             dangerouslySetInnerHTML={{ __html: seo.jsonLd }}
           />
-        )} */
-        }
+        )}
         <link rel="stylesheet" href="/styles.css" />
         <script defer src="/scripts/konami.js" />
         <script
@@ -104,7 +102,7 @@ export default function AppWrapper(
         />
       </head>
       <body>
-        <Navbar
+        <TopNavbar
           pathname={url.pathname}
           allDevices={allDevices}
           user={user}

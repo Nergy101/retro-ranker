@@ -1,6 +1,6 @@
 import { FreshContext, page } from "fresh";
 import { RecordModel } from "npm:pocketbase";
-import DeviceCardMedium from "../../../components/cards/device-card-medium.tsx";
+import { DeviceCardMedium } from "../../../components/cards/device-card-medium.tsx";
 import { DeviceCollection } from "../../../data/frontend/contracts/device-collection.ts";
 import { Device } from "../../../data/frontend/contracts/device.model.ts";
 import { createSuperUserPocketBaseService } from "../../../data/pocketbase/pocketbase.service.ts";

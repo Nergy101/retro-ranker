@@ -1,20 +1,14 @@
 // import SEO from "../../components/SEO.tsx";
 import { FreshContext, page, PageProps } from "fresh";
 import { CustomFreshState } from "../../interfaces/state.ts";
-import SignIn from "../../islands/auth/sign-in.tsx";
+import { SignIn } from "../../islands/auth/sign-in.tsx";
 
-export default function SignInPage(pageProps: PageProps) {
+export  default function SignInPage(pageProps: PageProps) {
   const error = pageProps.url.searchParams.get("error");
   const loggedIn = pageProps.url.searchParams.get("logged-in");
 
   return (
     <>
-      {
-        /* <SEO
-        title="Sign In"
-        description="Sign in to your Retro Ranker account"
-      /> */
-      }
       <div class="sign-in-article">
         <SignIn error={error} pleaseWait={!!loggedIn} />
       </div>

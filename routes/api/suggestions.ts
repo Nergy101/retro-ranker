@@ -5,6 +5,7 @@ import { User } from "../../data/frontend/contracts/user.contract.ts";
 import {
   createLoggedInPocketBaseService,
 } from "../../data/pocketbase/pocketbase.service.ts";
+import { CustomFreshState } from "../../interfaces/state.ts";
 
 interface SuggestionPayload {
   email: string;
@@ -21,14 +22,14 @@ export const handler = {
     try {
       const cookie = req.headers.get("cookie");
 
-      if (!ctx.state.user || !cookie) {
+      if (!(ctx.state as CustomFreshState).user || !cookie) {
         return new Response(JSON.stringify({ error: "Unauthorized" }), {
           status: 401,
           headers: { "Content-Type": "application/json" },
         });
       }
 
-      const user = ctx.state.user as User;
+      const user = (ctx.state as CustomFreshState).user as User;
       const payload = await req.json() as SuggestionPayload;
 
       if (!payload.suggestion || payload.suggestion.trim() === "") {

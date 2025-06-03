@@ -1,6 +1,6 @@
 import { PiPaperPlaneRight } from "@preact-icons/pi";
 import { useState } from "preact/hooks";
-import ProfileImage from "../../components/auth/profile-image.tsx";
+import { ProfileImage } from "../../components/auth/profile-image.tsx";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { User } from "../../data/frontend/contracts/user.contract.ts";
 
@@ -14,7 +14,7 @@ const RATING_FIELDS = [
   { name: "overall_rating", label: "Overall" },
 ];
 
-export default function AddDeviceReviewForm({
+export function AddDeviceReviewForm({
   device,
   user,
 }: {

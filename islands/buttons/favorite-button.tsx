@@ -7,7 +7,7 @@ interface FavoriteButtonProps {
   isLoggedIn: boolean;
 }
 
-export default function FavoriteButton(props: FavoriteButtonProps) {
+export function FavoriteButton(props: FavoriteButtonProps) {
   const [favorited, setFavorited] = useState(props.isFavorited);
   const [isAnimating, setIsAnimating] = useState(false);
 

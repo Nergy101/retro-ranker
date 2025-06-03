@@ -6,7 +6,7 @@ interface StarRatingProps {
   device: Device;
 }
 
-export default function StarRating({ device }: StarRatingProps) {
+export function StarRating({ device }: StarRatingProps) {
   // Get normalized rating (1-10)
   const normalizedRating = DeviceService.calculateScore(device);
 

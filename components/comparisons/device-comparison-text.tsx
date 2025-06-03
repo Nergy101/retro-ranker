@@ -5,7 +5,7 @@ interface DeviceComparisonTextProps {
   devices: Device[];
 }
 
-export default function DeviceComparisonText(
+export function DeviceComparisonText(
   { devices }: DeviceComparisonTextProps,
 ) {
   // Only show for exactly 2 devices

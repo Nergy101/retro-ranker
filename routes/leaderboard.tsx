@@ -1,10 +1,9 @@
 import { FreshContext, page } from "fresh";
-import DeviceCardLarge from "../components/cards/device-card-large.tsx";
-import DeviceCardSmall from "../components/cards/device-card-small.tsx";
+import { DeviceCardLarge } from "../components/cards/device-card-large.tsx";
+import { DeviceCardSmall } from "../components/cards/device-card-small.tsx";
 import { Device } from "../data/frontend/contracts/device.model.ts";
 import { ReviewContract } from "../data/frontend/contracts/review.contract.ts";
 import { createSuperUserPocketBaseService } from "../data/pocketbase/pocketbase.service.ts";
-// import SEO from "../components/SEO.tsx";
 import { CustomFreshState } from "../interfaces/state.ts";
 
 export const handler = {

@@ -8,7 +8,7 @@ interface ThumbsUpProps {
   isLoggedIn: boolean;
 }
 
-export default function ThumbsUp(props: ThumbsUpProps) {
+export function ThumbsUp(props: ThumbsUpProps) {
   const { deviceId, initialLikes, isLiked, isLoggedIn } = props;
   const [likes, setLikes] = useState(initialLikes);
   const [liked, setLiked] = useState(isLiked);

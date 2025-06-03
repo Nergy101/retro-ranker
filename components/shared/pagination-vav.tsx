@@ -18,7 +18,7 @@ interface PaginationNavProps {
   tags: TagModel[];
 }
 
-export default function PaginationNav({
+export function PaginationNav({
   pageNumber,
   pageSize,
   totalResults,

@@ -1,7 +1,7 @@
 import { FreshContext, page } from "fresh";
 // import SEO from "../../components/SEO.tsx";
 import { Handlers as _Handlers } from "fresh/compat";
-import SignUp from "../../islands/auth/sign-up.tsx";
+import { SignUp } from "../../islands/auth/sign-up.tsx";
 import { CustomFreshState } from "../../interfaces/state.ts";
 
 export default function SignUpPage() {
@@ -9,12 +9,6 @@ export default function SignUpPage() {
 
   return (
     <>
-      {
-        /* <SEO
-        title="Sign up"
-        description="Create your Retro Ranker account"
-      /> */
-      }
       <article>
         <SignUp baseApiUrl={baseApiUrl} />
       </article>

@@ -1,7 +1,7 @@
 import { PiGridNine, PiList, PiSquaresFour } from "@preact-icons/pi";
 import { useEffect, useState } from "preact/hooks";
 
-export default function LayoutSelector(
+export function LayoutSelector(
   { activeLayout, initialPageSize, defaultPageSize }: {
     activeLayout: string;
     initialPageSize: number;

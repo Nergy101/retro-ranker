@@ -6,7 +6,7 @@ interface ConnectivitySpecsProps {
   device: Device;
 }
 
-export default function ConnectivitySpecs({ device }: ConnectivitySpecsProps) {
+export function ConnectivitySpecs({ device }: ConnectivitySpecsProps) {
   return (
     <section class="specs-section overflow-auto">
       <h3>

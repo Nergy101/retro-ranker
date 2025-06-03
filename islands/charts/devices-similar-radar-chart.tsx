@@ -1,6 +1,6 @@
 import { useState } from "preact/hooks";
 import type { Device } from "../../data/frontend/contracts/device.model.ts";
-import DevicesRadarChart from "./devices-radar-chart.tsx";
+import { DevicesRadarChart } from "./devices-radar-chart.tsx";
 
 interface DevicesSimilarRadarChartProps {
   device: Device;

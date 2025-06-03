@@ -5,7 +5,7 @@ import {
   TagModel,
 } from "../../data/frontend/models/tag.model.ts";
 
-export default function FilterTag(
+export function FilterTag(
   { tag, type, href }: {
     tag: TagModel;
     type: "add" | "remove";

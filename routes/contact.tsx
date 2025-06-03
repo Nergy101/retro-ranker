@@ -22,7 +22,7 @@ export const handler = {
   },
 };
 
-export default function Contact() {
+export  default function Contact() {
   return (
     <div class="contact">
       <section

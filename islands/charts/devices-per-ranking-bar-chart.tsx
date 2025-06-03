@@ -5,7 +5,7 @@ interface BarChartProps {
   devices: Device[];
 }
 
-export default function DevicesPerRatingBarChart({ devices }: BarChartProps) {
+export function DevicesPerRatingBarChart({ devices }: BarChartProps) {
   const possibleColors = [
     ["#FF5733", "#FF573350"], // vivid red-orange
     ["#33FF57", "#33FF5750"], // bright lime green

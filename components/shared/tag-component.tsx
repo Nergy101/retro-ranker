@@ -4,7 +4,7 @@ import {
   TagModel,
 } from "../../data/frontend/models/tag.model.ts";
 
-export default function TagComponent({ tag }: { tag: TagModel }) {
+export function TagComponent({ tag }: { tag: TagModel }) {
   const slug = tag.slug;
 
   const friendlyName = TAG_FRIENDLY_NAMES[tag.type];

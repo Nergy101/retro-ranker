@@ -1,7 +1,7 @@
 import { PiMoonStars, PiSun } from "@preact-icons/pi";
 import { useEffect, useState } from "preact/hooks";
 
-export default function ThemeSwitcher(
+export function ThemeSwitcher(
   { showNames = true, showTooltip = true, tooltipLocation = "bottom" }: {
     showNames?: boolean;
     showTooltip?: boolean;

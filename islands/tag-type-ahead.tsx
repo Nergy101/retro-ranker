@@ -1,6 +1,6 @@
 import { PiTag } from "@preact-icons/pi";
 import { useEffect, useState } from "preact/hooks";
-import FilterTag from "../components/shared/filter-tag.tsx";
+import { FilterTag } from "../components/shared/filter-tag.tsx";
 import {
   TAG_FRIENDLY_NAMES,
   TagModel,
@@ -12,7 +12,7 @@ interface TagTypeaheadProps {
   baseUrl: string;
 }
 
-export default function TagTypeahead(
+export function TagTypeahead(
   { allTags, initialSelectedTags, baseUrl }: TagTypeaheadProps,
 ) {
   const [selectedTags, _setSelectedTags] = useState<TagModel[]>(

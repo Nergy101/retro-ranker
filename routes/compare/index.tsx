@@ -7,10 +7,10 @@ import { Ranking } from "../../data/frontend/models/ranking.model.ts";
 import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 import { RatingsService } from "../../data/frontend/services/devices/ratings.service.ts";
 import { CustomFreshState } from "../../interfaces/state.ts";
-import DevicesRadarChart from "../../islands/charts/devices-radar-chart.tsx";
-import DeviceComparisonForm from "../../islands/forms/device-comparison-form.tsx";
-import DeviceComparisonResult from "../../components/comparisons/device-comparison-result.tsx";
-import DeviceComparisonText from "../../components/comparisons/device-comparison-text.tsx";
+import { DevicesRadarChart } from "../../islands/charts/devices-radar-chart.tsx";
+import { DeviceComparisonForm } from "../../islands/forms/device-comparison-form.tsx";
+import { DeviceComparisonResult } from "../../components/comparisons/device-comparison-result.tsx";
+import { DeviceComparisonText } from "../../components/comparisons/device-comparison-text.tsx";
 
 export const handler = {
   async GET(ctx: FreshContext) {
@@ -80,8 +80,6 @@ export default function Compare(ctx: FreshContext) {
     similarDevices: Device[];
     ranking: Ranking;
   };
-  // Generate dynamic SEO content based on devices being compared
-
   const devicesToCompare = data.devicesToCompare as Device[];
   const deviceNames = data.deviceNames;
   const allDevices = data.allDevices;

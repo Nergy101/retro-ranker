@@ -5,7 +5,7 @@ interface ProfileImageProps {
   backgroundType?: "solid" | "gradientLinear" | string;
 }
 
-export default function ProfileImage({
+export function ProfileImage({
   name,
   size = 40,
   className = "",

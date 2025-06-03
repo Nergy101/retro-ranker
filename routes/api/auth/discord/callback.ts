@@ -1,11 +1,11 @@
 import { setCookie } from "@std/http/cookie";
-import { createPocketBaseService } from "../../../../data/pocketbase/pocketbase.service.ts";
+import { FreshContext } from "fresh";
 import pkceSessionService from "../../../../data/pkce/pkce.service.ts";
+import { createPocketBaseService } from "../../../../data/pocketbase/pocketbase.service.ts";
 import { logJson, tracer } from "../../../../data/tracing/tracer.ts";
-import { Handlers } from "fresh/compat";
 
-export const handler: Handlers = {
-  async GET(_ctx) {
+export const handler = {
+  async GET(ctx: FreshContext) {
     const req = ctx.req;
 
     return await tracer.startActiveSpan(

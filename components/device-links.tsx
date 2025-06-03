@@ -2,7 +2,7 @@ import { PiCaretCircleDoubleDown } from "@preact-icons/pi";
 import { Device } from "../data/frontend/contracts/device.model.ts";
 import { DeviceService } from "../data/frontend/services/devices/device.service.ts";
 
-export default function DeviceLinks({ device }: { device: Device }) {
+export function DeviceLinks({ device }: { device: Device }) {
   return (
     <>
       {(device.reviews.videoReviews.length > 0) && (

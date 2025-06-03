@@ -1,10 +1,10 @@
 import { useEffect, useState } from "preact/hooks";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { User } from "../../data/frontend/contracts/user.contract.ts";
-import DesktopNav from "./desktop-nav.tsx";
-import MobileNav from "./mobile-nav.tsx";
+import { DesktopNav } from "./desktop-nav.tsx";
+import { MobileNav } from "./mobile-nav.tsx";
 
-export default function Navbar(
+export function TopNavbar(
   { pathname, allDevices, user }: {
     pathname: string;
     allDevices: Device[];

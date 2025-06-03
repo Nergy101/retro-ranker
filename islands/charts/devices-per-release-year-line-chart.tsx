@@ -7,7 +7,7 @@ interface LineChartProps {
   devices: Device[];
 }
 
-export default function DevicesPerReleaseYearLineChart(
+export function DevicesPerReleaseYearLineChart(
   { devices }: LineChartProps,
 ) {
   // Compute the full range of years from the devices

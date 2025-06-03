@@ -6,8 +6,8 @@ import {
   PiScroll,
 } from "@preact-icons/pi";
 import { FreshContext, page } from "fresh";
-import SeeMoreCard from "../components/cards/see-more-card.tsx";
-import TagComponent from "../components/shared/tag-component.tsx";
+import { SeeMoreCard } from "../components/cards/see-more-card.tsx";
+import { TagComponent } from "../components/shared/tag-component.tsx";
 import { Device } from "../data/frontend/contracts/device.model.ts";
 import { User } from "../data/frontend/contracts/user.contract.ts";
 import { BrandWebsites } from "../data/frontend/enums/brand-websites.ts";
@@ -15,8 +15,8 @@ import { TagModel } from "../data/frontend/models/tag.model.ts";
 import { DeviceService } from "../data/frontend/services/devices/device.service.ts";
 import { tracer } from "../data/tracing/tracer.ts";
 import { CustomFreshState } from "../interfaces/state.ts";
-import DeviceCardMedium from "../components/cards/device-card-medium.tsx";
-import Hero from "../islands/hero.tsx";
+import { DeviceCardMedium } from "../components/cards/device-card-medium.tsx";
+import { Hero } from "../islands/hero.tsx";
 
 export const handler = {
   async GET(ctx: FreshContext) {
@@ -101,11 +101,7 @@ export default function Home(
   const highlyRated = data.highlyRated as Device[];
   const upcoming = data.upcoming as Device[];
   const defaultTags = data.defaultTags as TagModel[];
-
-  // // const user = (ctx.state as CustomFreshState)?.user as User | null;
-
-  // // Filter devices into categories
-
+  
   return (
     <div class="home-page">
       <Hero />

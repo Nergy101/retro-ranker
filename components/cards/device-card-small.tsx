@@ -1,11 +1,11 @@
 import { Device } from "../../data/frontend/contracts/device.model.ts";
-import StarRating from "../ratings/star-rating.tsx";
+import { StarRating } from "../ratings/star-rating.tsx";
 
 interface DeviceCardSmallProps {
   device: Device;
 }
 
-export default function DeviceCardSmall({ device }: DeviceCardSmallProps) {
+export function DeviceCardSmall({ device }: DeviceCardSmallProps) {
   return (
     <div
       class="small-card"

@@ -5,7 +5,7 @@ interface SeeMoreCardProps {
   text?: string;
 }
 
-export default function SeeMoreCard(
+export function SeeMoreCard(
   { href, text = "More devices" }: SeeMoreCardProps,
 ) {
   return (

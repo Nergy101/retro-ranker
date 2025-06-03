@@ -1,15 +1,15 @@
 import { FreshContext, page } from "fresh";
-import DeviceCardLarge from "../../components/cards/device-card-large.tsx";
-import DeviceCardRow from "../../components/cards/device-card-row.tsx";
-import DeviceCardMedium from "../../components/cards/device-card-medium.tsx";
-import PaginationNav from "../../components/shared/pagination-vav.tsx";
+import { DeviceCardLarge } from "../../components/cards/device-card-large.tsx";
+import { DeviceCardRow } from "../../components/cards/device-card-row.tsx";
+import { DeviceCardMedium } from "../../components/cards/device-card-medium.tsx";
+import { PaginationNav } from "../../components/shared/pagination-vav.tsx";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { TagModel } from "../../data/frontend/models/tag.model.ts";
 import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 import { CustomFreshState } from "../../interfaces/state.ts";
 import { DeviceSearchForm } from "../../islands/forms/device-search-form.tsx";
-import LayoutSelector from "../../islands/layout-selector.tsx";
-import TagTypeahead from "../../islands/tag-type-ahead.tsx";
+import { LayoutSelector } from "../../islands/layout-selector.tsx";
+import { TagTypeahead } from "../../islands/tag-type-ahead.tsx";
 
 export const handler = {
   async GET(ctx: FreshContext) {

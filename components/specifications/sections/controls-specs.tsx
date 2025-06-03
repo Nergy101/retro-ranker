@@ -6,7 +6,7 @@ interface ControlsSpecsProps {
   device: Device;
 }
 
-export default function ControlsSpecs({ device }: ControlsSpecsProps) {
+export function ControlsSpecs({ device }: ControlsSpecsProps) {
   return (
     <section class="specs-section overflow-auto">
       <h3>

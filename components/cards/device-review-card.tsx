@@ -1,4 +1,4 @@
-import ProfileImage from "../auth/profile-image.tsx";
+import { ProfileImage } from "../auth/profile-image.tsx";
 
 interface DeviceReviewCardProps {
   review: {
@@ -27,7 +27,7 @@ const RATING_FIELDS = [
   { name: "overall_rating", label: "Overall" },
 ];
 
-export default function DeviceReviewCard({ review }: DeviceReviewCardProps) {
+export function DeviceReviewCard({ review }: DeviceReviewCardProps) {
   // Calculate average score
   const ratingValues = RATING_FIELDS.map((field) =>
     review[field.name as keyof typeof review] as number

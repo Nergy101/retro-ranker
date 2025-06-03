@@ -2,14 +2,14 @@ import { PiQuestion } from "@preact-icons/pi";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 import { RatingInfo } from "../../islands/rating-info.tsx";
-import CurrencyIcon from "../shared/currency-icon.tsx";
+import { CurrencyIcon } from "../shared/currency-icon.tsx";
 
 interface DeviceCardMediumProps {
   device: Device;
   isActive?: boolean;
 }
 
-export default function DeviceCardMedium(
+export function DeviceCardMedium(
   { device, isActive = false }: DeviceCardMediumProps,
 ) {
   const getPriceIndicator = () => {

@@ -6,7 +6,7 @@ interface DisplaySpecsProps {
   device: Device;
 }
 
-export default function DisplaySpecs({ device }: DisplaySpecsProps) {
+export function DisplaySpecs({ device }: DisplaySpecsProps) {
   return (
     <section class="specs-section overflow-auto">
       <h3>

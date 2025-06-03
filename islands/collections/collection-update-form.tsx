@@ -4,9 +4,9 @@ import { DeviceCollection } from "../../data/frontend/contracts/device-collectio
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { searchDevices } from "../../data/frontend/services/utils/search.utils.ts";
 import { createLoggedInPocketBaseService } from "../../data/pocketbase/pocketbase.service.ts";
-import DeviceCardMedium from "../../components/cards/device-card-medium.tsx";
+import { DeviceCardMedium } from "../../components/cards/device-card-medium.tsx";
 
-export default function CollectionUpdateForm(
+export function CollectionUpdateForm(
   { allDevices, existingCollectionDevices, collection }: {
     allDevices: Device[];
     existingCollectionDevices: Device[];

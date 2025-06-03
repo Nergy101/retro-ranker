@@ -6,7 +6,7 @@ interface BarChartProps {
   devices: Device[];
 }
 
-export default function DevicesPerBrandBarChart({ devices }: BarChartProps) {
+export function DevicesPerBrandBarChart({ devices }: BarChartProps) {
   const [minAmountOfDevices, setMinAmountOfDevices] = useState(10);
 
   // Get unique brands from the devices array

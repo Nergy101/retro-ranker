@@ -1,16 +1,15 @@
 import { PiChatCentered, PiPlus } from "@preact-icons/pi";
 import { FreshContext, page } from "fresh";
 import { RecordModel } from "npm:pocketbase";
-import DeviceCardMedium from "../../components/cards/device-card-medium.tsx";
-// import SEO from "../../components/SEO.tsx";
+import { DeviceCardMedium } from "../../components/cards/device-card-medium.tsx";
 import { DeviceCollection } from "../../data/frontend/contracts/device-collection.ts";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { User } from "../../data/frontend/contracts/user.contract.ts";
 import { createLoggedInPocketBaseService } from "../../data/pocketbase/pocketbase.service.ts";
 import { CustomFreshState } from "../../interfaces/state.ts";
-import SignOut from "../../islands/auth/sign-out.tsx";
-import DeviceCollections from "../../islands/collections/device-collections.tsx";
-import SuggestionForm from "../../islands/suggestion-form.tsx";
+import { SignOut } from "../../islands/auth/sign-out.tsx";
+import { DeviceCollections } from "../../islands/collections/device-collections.tsx";
+import { SuggestionForm } from "../../islands/suggestion-form.tsx";
 
 export const handler = {
   GET(ctx: FreshContext) {

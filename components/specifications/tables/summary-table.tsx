@@ -5,7 +5,7 @@ interface SummaryTableProps {
   device: Device;
 }
 
-export default function SummaryTable({ device }: SummaryTableProps) {
+export function SummaryTable({ device }: SummaryTableProps) {
   return (
     <table
       class="striped"

@@ -6,7 +6,7 @@ interface AudioSpecsProps {
   device: Device;
 }
 
-export default function AudioSpecs({ device }: AudioSpecsProps) {
+export function AudioSpecs({ device }: AudioSpecsProps) {
   return (
     <section class="specs-section overflow-auto">
       <h3>
