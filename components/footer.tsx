@@ -8,7 +8,8 @@ import { useState } from "preact/hooks";
 
 export function Footer() {
   const [version, _] = useState<string | null>(
-    Deno.readTextFileSync("static/version.txt")
+    Deno.env.get("DEPLOY_VERSION") ?? Deno.readTextFileSync("static/version.txt") ??
+      "no version",
   );
 
   return (
