@@ -13,7 +13,7 @@ jobs:
 
       - name: Set version (YYYYMMDD-SHA-REFNAME)
         run: |
-          SHORT_SHA="${GITHUB_SHA::4}"
+          SHORT_SHA="${GITHUB_SHA::7}"
           BUILD_DATE=$(date +'%Y%m%d')
           REF_NAME="${GITHUB_REF_NAME//\//-}"  # Replace slashes in branch names
           VERSION="$BUILD_DATE-$SHORT_SHA-$REF_NAME"
