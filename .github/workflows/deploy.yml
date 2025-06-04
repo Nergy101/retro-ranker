@@ -14,10 +14,11 @@ jobs:
       - name: Create version number variable
         run: |
           DATE=$(date +"%Y%m%d")
+          RUN_ID=$(echo ${{ github.run_id }})
           echo "date is: $DATE"
-          echo "run number is: ${{ github.run_number }}"
+          echo "run id is: $RUN_ID"
 
-          VERSION="v$DATE.${{ github.run_number }}"
+          VERSION="v$DATE.$RUN_ID"
           echo "version is: $VERSION"
 
           echo "VERSION=$VERSION" >> $GITHUB_ENV
