@@ -31,14 +31,16 @@ EXPOSE 8000
 CMD ["run", "-A", "main.ts"]
 
 # Usage notes:
-# docker build -t retroranker:latest . 
-# docker run -p 8000:8000 retroranker:latest
+# docker build -t retro-ranker:latest . 
+# docker run -p 8000:8000 retro-ranker:latest
 
-### tag as ...:retroranker:latest
+### tag as ...:retro-ranker:latest
 ### push to docker hub
 
-# docker build -t retroranker:latest .
-# docker tag retroranker:latest nergy101/retroranker:latest
-# docker push nergy101/retroranker:latest
+# docker build -t retro-ranker:latest .
+# docker compose up
 
-# docker build -t retroranker:latest . && docker tag retroranker:latest nergy101/retroranker:latest && docker push nergy101/retroranker:latest
+# docker tag retro-ranker:latest nergy101/retro-ranker:latest
+# docker push nergy101/retro-ranker:latest
+
+# docker build -t retro-ranker:latest . && docker tag retro-ranker:latest nergy101/retro-ranker:latest && docker push nergy101/retro-ranker:latest

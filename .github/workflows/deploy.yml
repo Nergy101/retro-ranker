@@ -14,12 +14,10 @@ jobs:
       - name: Create version number variable
         run: |
           DATE=$(date +"%Y%m%d")
-          COUNT=$(git rev-list --count --since=midnight HEAD)
-          VERSION="v$DATE.$COUNT"
-
           echo "date is: $DATE"
-          echo "count is: $COUNT"
+          echo "run number is: ${{ github.run_number }}"
 
+          VERSION="v$DATE.${{ github.run_number }}"
           echo "version is: $VERSION"
 
           echo "VERSION=$VERSION" >> $GITHUB_ENV
@@ -42,7 +40,6 @@ jobs:
           push: true
           tags: nergy101/retro-ranker:latest
           platforms: linux/arm64
-          # build-args: VERSION=${{ env.VERSION }}
 
   deploy:
     runs-on: ubuntu-latest
