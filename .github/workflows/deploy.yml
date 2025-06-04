@@ -15,6 +15,7 @@ jobs:
         run: |
           DATE=$(date +"%Y%m%d")
           COUNT=$(git rev-list --count --since=midnight HEAD)
+          echo "version is: v$DATE.$COUNT"
           echo "VERSION=v$DATE.$COUNT" >> $GITHUB_ENV
 
       - name: Set up Docker Buildx
@@ -34,7 +35,7 @@ jobs:
           push: true
           tags: nergy101/retro-ranker:latest
           platforms: linux/arm64
-          build-args: VERSION=$VERSION
+          build-args: VERSION=${{ env.VERSION }}
 
   deploy:
     runs-on: ubuntu-latest
