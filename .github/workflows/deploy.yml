@@ -15,8 +15,15 @@ jobs:
         run: |
           DATE=$(date +"%Y%m%d")
           COUNT=$(git rev-list --count --since=midnight HEAD)
-          echo "version is: v$DATE.$COUNT"
-          echo "VERSION=v$DATE.$COUNT" >> $GITHUB_ENV
+          VERSION="v$DATE.$COUNT"
+
+          echo "date is: $DATE"
+          echo "count is: $COUNT"
+
+          echo "version is: $VERSION"
+
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "$VERSION" > static/version.txt
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -35,7 +42,7 @@ jobs:
           push: true
           tags: nergy101/retro-ranker:latest
           platforms: linux/arm64
-          build-args: VERSION=${{ env.VERSION }}
+          # build-args: VERSION=${{ env.VERSION }}
 
   deploy:
     runs-on: ubuntu-latest
