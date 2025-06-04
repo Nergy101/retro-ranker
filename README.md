@@ -46,8 +46,7 @@ comparisons of the latest handhelds.
 
 - [x] Search devices
   - [x] Filter devices
-  - [ ] Filter devices on multiple tags (possible, but WIP)
-  - [ ]
+  - [x] Filter devices on multiple tags and a searchfield
 - [x] User accounts
   - [x] Non-SSO sign-up & log-in (using Pocketbase)
   - [x] SSO (Discord, Google)
