@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-and-push:
-    runs-on: macos-15
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
@@ -16,9 +16,6 @@ jobs:
           DATE=$(date +"%Y%m%d")
           COUNT=$(git rev-list --count --since=midnight HEAD)
           echo "VERSION=v$DATE.$COUNT" >> $GITHUB_ENV
-
-      # - name: Set up QEMU for multi-arch
-      #   uses: docker/setup-qemu-action@v3
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
