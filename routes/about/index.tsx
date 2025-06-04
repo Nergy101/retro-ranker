@@ -8,6 +8,7 @@ import {
 } from "@preact-icons/pi";
 import { FreshContext } from "fresh";
 import { CustomFreshState } from "../../interfaces/state.ts";
+import { VersionTag } from "../../components/shared/version-tag.tsx";
 
 export const handler = {
   GET(ctx: FreshContext) {
@@ -331,6 +332,9 @@ export default function page() {
             By using this data, we ensure our data remains accurate and
             up-to-date with the latest developments in the retro handheld scene.
           </p>
+          <section>
+            <VersionTag />
+          </section>
         </details>
 
         <details>

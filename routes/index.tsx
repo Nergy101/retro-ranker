@@ -6,6 +6,7 @@ import {
   PiScroll,
 } from "@preact-icons/pi";
 import { FreshContext, page } from "fresh";
+import { DeviceCardMedium } from "../components/cards/device-card-medium.tsx";
 import { SeeMoreCard } from "../components/cards/see-more-card.tsx";
 import { TagComponent } from "../components/shared/tag-component.tsx";
 import { Device } from "../data/frontend/contracts/device.model.ts";
@@ -15,7 +16,6 @@ import { TagModel } from "../data/frontend/models/tag.model.ts";
 import { DeviceService } from "../data/frontend/services/devices/device.service.ts";
 import { tracer } from "../data/tracing/tracer.ts";
 import { CustomFreshState } from "../interfaces/state.ts";
-import { DeviceCardMedium } from "../components/cards/device-card-medium.tsx";
 import { Hero } from "../islands/hero/hero.tsx";
 
 export const handler = {

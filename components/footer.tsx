@@ -4,20 +4,19 @@ import {
   PiGithubLogo,
   PiShield,
 } from "@preact-icons/pi";
-import { useState } from "preact/hooks";
+import { VersionTag } from "./shared/version-tag.tsx";
 
 export function Footer() {
-  const [version, _] = useState<string | null>(
-    Deno.env.get("DEPLOY_VERSION") ?? Deno.readTextFileSync("static/version.txt") ??
-      "no version",
-  );
-
   return (
     <footer
-      style={{ borderTop: "1px solid var(--pico-primary)" }}
+      style={{
+        borderTop: "1px solid var(--pico-primary)",
+        backgroundColor: "var(--pico-card-background-color-darker)",
+      }}
       class="footer"
     >
       <div class="container-fluid">
+
         <div class="footer-grid">
           <div
             class="footer-grid-item quick-links"
@@ -27,8 +26,8 @@ export function Footer() {
               alignItems: "center",
             }}
           >
-            <strong>Other</strong>
-            <ul style={{ listStyle: "none", padding: 0 }}>
+            <span>Other</span>
+            <ul class="footer-grid-item-list">
               <li style={{ listStyle: "none" }}>
                 <a href="/privacy">
                   <div style={{ display: "flex" }}>
@@ -57,8 +56,8 @@ export function Footer() {
               alignItems: "center",
             }}
           >
-            <strong>Connect</strong>
-            <ul style={{ listStyle: "none", padding: 0 }}>
+            <span>Connect</span>
+            <ul class="footer-grid-item-list">
               <li style={{ listStyle: "none" }}>
                 <a
                   href="https://bsky.app/profile/nergy101.bsky.social"
@@ -82,6 +81,13 @@ export function Footer() {
                 </a>
               </li>
             </ul>
+          </div>
+
+          <div
+            class="footer-grid-item version-tag"
+
+          >
+            <VersionTag />
           </div>
 
           <div class="footer-grid-item rr">
@@ -123,22 +129,6 @@ export function Footer() {
                   borderRadius: "50%",
                 }}
               />
-              {version && (
-                <span
-                  style={{
-                    background: "var(--pico-primary)",
-                    color: "white",
-                    borderRadius: "6px",
-                    fontSize: "0.75rem",
-                    padding: "2px 8px",
-                    fontWeight: 600,
-                    letterSpacing: "0.05em",
-                  }}
-                  title="Deployment version"
-                >
-                  {version}
-                </span>
-              )}
             </div>
           </div>
         </div>
