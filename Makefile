@@ -78,8 +78,11 @@ docker-build:
 docker-run:
 	docker run -p 8000:8000 $(DOCKER_IMAGE_NAME):$(DOCKER_TAG)
 
-docker-push:
+docker-tag:
 	docker tag $(DOCKER_IMAGE_NAME):$(DOCKER_TAG) $(DOCKER_REPO):$(DOCKER_TAG)
+
+docker-push:
+	make docker-tag
 	docker push $(DOCKER_REPO):$(DOCKER_TAG)
 
 # Utility commands
