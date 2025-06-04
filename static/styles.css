@@ -219,6 +219,12 @@ body.paused-animation::before {
     background-color: var(--pico-primary);
     color: var(--pico-primary-contrast);
   }
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    text-align: center;
+  }
 }
 
 .hero-container {

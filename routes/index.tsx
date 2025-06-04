@@ -93,7 +93,6 @@ export default function Home(
   ctx: FreshContext,
 ) {
   const state = ctx.state as CustomFreshState;
-  // const user = state.user as User | null;
   const data = state.data;
 
   const newArrivals = data.newArrivals as Device[];

@@ -1,3 +1,4 @@
+import { PiClock, PiPlugs, PiPlugsConnected } from "@preact-icons/pi";
 import { useState } from "preact/hooks";
 
 export function VersionTag() {
@@ -13,11 +14,31 @@ export function VersionTag() {
   const versionHash = version.split("-")[1];
   const versionRef = version.split("-")[2];
 
+  const iconSize = 24;
+
   const lastSynchronized = () => {
     if (friendlyVersionDate === new Date().toISOString().split("T")[0]) {
-      return "Synchronized Today at 00:00 UTC";
+      return (
+        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <span data-tooltip="Synced Today">
+            <PiPlugsConnected size={iconSize} />
+          </span>
+          <span data-tooltip="At 00:00 UTC">
+            <PiClock size={iconSize} />
+          </span>
+        </div>
+      );
     }
-    return `Synchronized ${friendlyVersionDate}T00:00 UTC`;
+    return (
+      <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+        <span data-tooltip={`Synced ${friendlyVersionDate}`}>
+          <PiPlugs size={iconSize} />
+        </span>
+        <span data-tooltip="At 00:00 UTC">
+          <PiClock size={iconSize} />
+        </span>
+      </div>
+    );
   };
 
   const versionTooltip = () => {
@@ -47,9 +68,8 @@ export function VersionTag() {
           color: "var(--pico-primary)",
           border: "1px solid var(--pico-primary)",
           borderRadius: "var(--pico-border-radius)",
-          padding: "0.5rem",
           margin: "0.5rem",
-          textDecoration: "none",
+          padding: "0.25rem",
         }}
         data-tooltip={versionTooltip()}
         data-placement="bottom"

@@ -8,6 +8,7 @@ export function Hero() {
             letterSpacing: "-1px",
             textAlign: "center",
             color: "#F0F1F3",
+            textShadow: "0 0 1rem #23272a",
           }}
         >
           <span>Welcome to</span>
@@ -17,9 +18,10 @@ export function Hero() {
               color: "var(--pico-primary-background)",
               fontSize: "2.8rem",
               fontWeight: 800,
+              textShadow: "0 0 1rem #23272a",
             }}
           >
-            RETRO RANKER
+            Retro Ranker
           </span>
         </h1>
         <p
@@ -29,6 +31,7 @@ export function Hero() {
             textAlign: "center",
             maxWidth: "600px",
             color: "#e0e6f0",
+            textShadow: "0 0 1rem #23272a",
           }}
         >
           Join a vibrant community of retro gaming fans. Discover, rank, and

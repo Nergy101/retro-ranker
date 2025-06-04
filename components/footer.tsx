@@ -16,7 +16,6 @@ export function Footer() {
       class="footer"
     >
       <div class="container-fluid">
-
         <div class="footer-grid">
           <div
             class="footer-grid-item quick-links"
@@ -82,18 +81,14 @@ export function Footer() {
               </li>
             </ul>
           </div>
-
-          <div
-            class="footer-grid-item version-tag"
-
-          >
-            <VersionTag />
-          </div>
-
           <div class="footer-grid-item rr">
-            <strong style={{ color: "var(--pico-primary)" }}>
-              Retro Ranker
-            </strong>
+            <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+              <strong style={{ color: "var(--pico-primary)" }}>
+                Retro Ranker
+              </strong>
+
+              <VersionTag />
+            </div>
             <small>
               © {new Date().getFullYear()}{" "}
               <a
