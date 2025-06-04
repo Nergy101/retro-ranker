@@ -7,6 +7,8 @@ WORKDIR /app
 ENV DENO_DIR=/deno_cache
 ENV DENO_ENV=production
 
+RUN deno install
+
 # Copy dependencies definition files first to leverage Docker cache
 COPY deno.json* ./
 
