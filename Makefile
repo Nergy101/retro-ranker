@@ -7,9 +7,9 @@
 .DEFAULT_GOAL := help
 
 # Variables
-DOCKER_IMAGE_NAME = retroranker
+DOCKER_IMAGE_NAME = retro-ranker
 DOCKER_TAG = latest
-DOCKER_REPO = nergy101/retroranker
+DOCKER_REPO = nergy101/retro-ranker
 
 # Help command
 help:

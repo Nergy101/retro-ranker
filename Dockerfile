@@ -17,7 +17,7 @@ COPY . .
 
 # Cache dependencies at build time
 RUN deno cache main.ts
-RUN deno task build
+RUN deno run -A dev.ts build
 
 # Expose any required ports (if needed)
 EXPOSE 8000
