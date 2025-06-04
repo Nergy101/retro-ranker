@@ -5,7 +5,7 @@ import { Cooling } from "../../data/frontend/models/cooling.model.ts";
 import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 import { FavoriteButton } from "../../islands/buttons/favorite-button.tsx";
 import { ThumbsUp } from "../../islands/buttons/thumbs-up.tsx";
-import { RatingInfo } from "../../islands/rating-info.tsx";
+import { RatingInfo } from "../../islands/devices/rating-info.tsx";
 
 interface EmulationPerformanceProps {
   device: Device;

@@ -16,7 +16,7 @@ import { DeviceService } from "../data/frontend/services/devices/device.service.
 import { tracer } from "../data/tracing/tracer.ts";
 import { CustomFreshState } from "../interfaces/state.ts";
 import { DeviceCardMedium } from "../components/cards/device-card-medium.tsx";
-import { Hero } from "../islands/hero.tsx";
+import { Hero } from "../islands/hero/hero.tsx";
 
 export const handler = {
   async GET(ctx: FreshContext) {

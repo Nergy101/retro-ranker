@@ -9,7 +9,7 @@ import { createLoggedInPocketBaseService } from "../../data/pocketbase/pocketbas
 import { CustomFreshState } from "../../interfaces/state.ts";
 import { SignOut } from "../../islands/auth/sign-out.tsx";
 import { DeviceCollections } from "../../islands/collections/device-collections.tsx";
-import { SuggestionForm } from "../../islands/suggestion-form.tsx";
+import { SuggestionForm } from "../../islands/profile/suggestion-form.tsx";
 
 export const handler = {
   GET(ctx: FreshContext) {

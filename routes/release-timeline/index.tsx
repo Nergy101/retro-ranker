@@ -3,7 +3,7 @@ import { FreshContext, page, PageProps } from "fresh";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 import { CustomFreshState } from "../../interfaces/state.ts";
-import { TimelineContent } from "../../islands/timeline-content.tsx";
+import { TimelineContent } from "../../islands/devices/timeline-content.tsx";
 
 export const handler = {
   async GET(ctx: FreshContext) {

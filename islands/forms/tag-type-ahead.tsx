@@ -1,10 +1,10 @@
 import { PiTag } from "@preact-icons/pi";
 import { useEffect, useState } from "preact/hooks";
-import { FilterTag } from "../components/shared/filter-tag.tsx";
+import { FilterTag } from "../../components/shared/filter-tag.tsx";
 import {
   TAG_FRIENDLY_NAMES,
   TagModel,
-} from "../data/frontend/models/tag.model.ts";
+} from "../../data/frontend/models/tag.model.ts";
 
 interface TagTypeaheadProps {
   allTags: TagModel[];
