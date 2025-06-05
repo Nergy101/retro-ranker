@@ -1,11 +1,8 @@
 import { PiPaperPlaneRight } from "@preact-icons/pi";
 import { useState } from "preact/hooks";
 
-interface SuggestionFormProps {
-  userEmail: string;
-}
 
-export function SuggestionForm({ userEmail }: SuggestionFormProps) {
+export function SuggestionForm() {
   const [suggestion, setSuggestion] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -23,7 +20,6 @@ export function SuggestionForm({ userEmail }: SuggestionFormProps) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          email: userEmail,
           suggestion,
         }),
       });

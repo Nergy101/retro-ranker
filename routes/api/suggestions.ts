@@ -8,7 +8,7 @@ import {
 import { CustomFreshState } from "../../interfaces/state.ts";
 
 interface SuggestionPayload {
-  email: string;
+  user: string;
   suggestion: string;
 }
 
@@ -44,7 +44,7 @@ export const handler = {
 
       // In a real application, you would save this to a database
       // For now, we'll just log it
-      console.log(`Suggestion from ${user.email}: ${payload.suggestion}`);
+      console.log(`Suggestion from ${user.id}: ${payload.suggestion}`);
 
       // save in pocketbase
       const pb = await createLoggedInPocketBaseService(cookie);
@@ -65,7 +65,7 @@ export const handler = {
         1,
         MAX_SUGGESTIONS_PER_USER + 1, // Get one more than the limit to check if we're over
         {
-          filter: `email="${user.email}"`,
+          filter: `user="${user.id}"`,
           sort: "",
           expand: "",
         },
@@ -85,7 +85,7 @@ export const handler = {
       }
 
       await pb.create("suggestions", {
-        email: user.email,
+        user: user.id,
         suggestion: payload.suggestion,
       });
 

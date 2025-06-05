@@ -4,7 +4,6 @@ import { RecordModel } from "npm:pocketbase";
 import { DeviceCardMedium } from "../../components/cards/device-card-medium.tsx";
 import { DeviceCollection } from "../../data/frontend/contracts/device-collection.ts";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
-import { User } from "../../data/frontend/contracts/user.contract.ts";
 import { createLoggedInPocketBaseService } from "../../data/pocketbase/pocketbase.service.ts";
 import { CustomFreshState } from "../../interfaces/state.ts";
 import { SignOut } from "../../islands/auth/sign-out.tsx";
@@ -33,7 +32,7 @@ export default async function ProfilePage(
     return new Response(null, { status: 303, headers });
   }
 
-  const user = state.user as User;
+  const user = state.user;
 
   const getCollections = async (): Promise<DeviceCollection[]> => {
     const pbService = await createLoggedInPocketBaseService(
@@ -115,15 +114,6 @@ export default async function ProfilePage(
 
   return (
     <div>
-      {
-        /* <SEO
-        title="Profile"
-        description="Profile page"
-        url={`https://retroranker.site${url.pathname}`} */
-      }
-      {/* robots="noindex, nofollow" */}
-      {/* /> */}
-
       <article>
         <header>
           <h1>
@@ -240,7 +230,7 @@ export default async function ProfilePage(
           <h2 style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
             <PiChatCentered /> Feedback
           </h2>
-          <SuggestionForm userEmail={user.email} />
+          <SuggestionForm />
         </section>
 
         <footer
