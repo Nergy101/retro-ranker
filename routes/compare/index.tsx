@@ -44,7 +44,7 @@ export const handler = {
       ranking,
     };
 
-    let seoTitle = "Compare Retro Gaming Handhelds";
+    let seoTitle = "Retro Ranker - Compare";
     let seoDescription =
       "Compare retro handhelds side-by-side with detailed specs.";
 

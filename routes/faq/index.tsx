@@ -5,9 +5,9 @@ import { CustomFreshState } from "../../interfaces/state.ts";
 export const handler = {
   GET(ctx: FreshContext) {
     (ctx.state as CustomFreshState).seo = {
-      title: "Frequently Asked Questions (FAQ)",
+      title: "Retro Ranker - FAQ",
       description:
-        "Find answers to common questions about Retro Ranker, device comparisons, reviews, and more.",
+        "Frequently Asked Questions (FAQ)",
       keywords:
         "retro ranker faq, retro gaming questions, handheld comparison help, device catalog faq, emulation device questions",
     };
@@ -18,15 +18,6 @@ export const handler = {
 export default function FAQ() {
   return (
     <div class="faq">
-      {
-        /* <SEO
-        title="Frequently Asked Questions (FAQ)"
-        description="Find answers to common questions about Retro Ranker, device comparisons, reviews, and more."
-        url={`https://retroranker.site${url.pathname}`}
-        keywords="retro ranker faq, retro gaming questions, handheld comparison help, device catalog faq, emulation device questions"
-      /> */
-      }
-      {/* Hero Section */}
       <section
         class="hero-section"
         style={{

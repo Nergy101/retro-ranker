@@ -9,8 +9,9 @@ import { CustomFreshState } from "../interfaces/state.ts";
 export const handler = {
   async GET(ctx: FreshContext) {
     (ctx.state as CustomFreshState).seo = {
-      title: "Leaderboard - Top Rated Handhelds",
-      description: "See the top rated retro handhelds based on user reviews.",
+      title: "Retro Ranker - Leaderboard",
+      description:
+        "Retro Ranker - Leaderboard - Top Rated Handhelds",
       keywords:
         "leaderboard, top rated handhelds, retro gaming, handheld devices, user reviews",
     };

@@ -6,7 +6,7 @@ import { CustomFreshState } from "../../interfaces/state.ts";
 export const handler = {
   GET(ctx: FreshContext) {
     (ctx.state as CustomFreshState).seo = {
-      title: "Create Device Collection",
+      title: "Retro Ranker - Create Device Collection",
       description: "Create a new device collection",
       robots: "noindex, nofollow",
     };

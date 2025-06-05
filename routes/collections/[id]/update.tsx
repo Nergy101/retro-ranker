@@ -9,8 +9,8 @@ import { CustomFreshState } from "../../../interfaces/state.ts";
 export const handler = {
   GET(ctx: FreshContext) {
     (ctx.state as CustomFreshState).seo = {
-      title: "Create Device Collection",
-      description: "Create a new device collection",
+      title: "Retro Ranker - Update Device Collection",
+      description: "Update a new device collection",
       robots: "noindex, nofollow",
     };
     return page(ctx);
@@ -44,14 +44,6 @@ export default async function UpdateCollection(
 
   return (
     <div>
-      {
-        /* <SEO
-        title="Create Device Collection"
-        description="Create a new device collection"
-        robots="noindex, nofollow"
-      /> */
-      }
-
       <h1>Update Device Collection</h1>
       <CollectionUpdateForm
         allDevices={devices}

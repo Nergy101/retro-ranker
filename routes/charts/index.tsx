@@ -8,7 +8,7 @@ import { DevicesPerRatingBarChart } from "../../islands/charts/devices-per-ranki
 export const handler = {
   async GET(ctx: FreshContext) {
     (ctx.state as CustomFreshState).seo = {
-      title: "Retro Gaming Handheld Analytics & Charts",
+      title: "Retro Ranker - Charts",
       description:
         "Explore interactive charts and data visualizations of retro gaming handhelds. View statistics on device brands, performance ratings, release trends, and market analysis of portable emulation systems.",
       keywords:

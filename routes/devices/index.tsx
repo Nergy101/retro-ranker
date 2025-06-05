@@ -14,7 +14,7 @@ import { TagTypeahead } from "../../islands/forms/tag-type-ahead.tsx";
 export const handler = {
   async GET(ctx: FreshContext) {
     (ctx.state as CustomFreshState).seo = {
-      title: "Device Catalog",
+      title: "Retro Ranker - Device Catalog",
       description: "Browse our catalog of retro gaming handhelds with specs.",
       keywords:
         "retro gaming handhelds, emulation devices, retro console comparison, handheld gaming systems, retro gaming devices catalog, Anbernic devices, Miyoo handhelds, retro gaming specs, portable emulation systems",

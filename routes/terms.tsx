@@ -4,7 +4,7 @@ import { CustomFreshState } from "../interfaces/state.ts";
 export const handler = {
   async GET(ctx: FreshContext) {
     (ctx.state as CustomFreshState).seo = {
-      title: "Terms and Conditions",
+      title: "Retro Ranker - ToS",
       description:
         "Read the terms and conditions for using Retro Ranker, your comprehensive retro gaming handheld comparison platform. Understand your rights and responsibilities when using our service.",
       url: `https://retroranker.site${ctx.url.pathname}`,

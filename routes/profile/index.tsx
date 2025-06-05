@@ -13,7 +13,7 @@ import { SuggestionForm } from "../../islands/profile/suggestion-form.tsx";
 export const handler = {
   GET(ctx: FreshContext) {
     (ctx.state as CustomFreshState).seo = {
-      title: "Profile",
+      title: "Retro Ranker - Profile",
       description: "Profile page",
     };
     return page(ctx);

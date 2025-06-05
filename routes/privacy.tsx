@@ -4,7 +4,7 @@ import { CustomFreshState } from "../interfaces/state.ts";
 export const handler = {
   GET(ctx: FreshContext) {
     (ctx.state as CustomFreshState).seo = {
-      title: "Privacy Policy",
+      title: "Retro Ranker - Privacy Policy",
       description:
         "Read the privacy policy for Retro Ranker. Learn how we protect your data while using our retro gaming handheld comparison platform.",
       keywords:

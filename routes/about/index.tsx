@@ -13,7 +13,7 @@ import { VersionTag } from "../../components/shared/version-tag.tsx";
 export const handler = {
   GET(ctx: FreshContext) {
     (ctx.state as CustomFreshState).seo = {
-      title: "About",
+      title: "Retro Ranker - About",
       description: "Learn about Retro Ranker's mission and our team.",
       url: "https://retroranker.site/about",
       keywords:

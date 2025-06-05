@@ -21,9 +21,9 @@ import { Hero } from "../islands/hero/hero.tsx";
 export const handler = {
   async GET(ctx: FreshContext) {
     (ctx.state as CustomFreshState).seo = {
-      title: "Browse and compare retro gaming handhelds",
+      title: "Retro Ranker - Home",
       description:
-        "Compare retro handhelds to find your perfect gaming device.",
+        "Retro Ranker - Home to browse and compare retro gaming handhelds",
       keywords:
         "retro gaming, handheld consoles, emulation devices, retro handhelds, gaming comparison, Anbernic, Miyoo, retro game emulation, portable gaming systems, retro gaming comparison",
     };

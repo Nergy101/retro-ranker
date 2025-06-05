@@ -31,8 +31,6 @@ import { ShareButton } from "../../islands/buttons/share-button.tsx";
 import { DevicesSimilarRadarChart } from "../../islands/charts/devices-similar-radar-chart.tsx";
 import { AddDeviceCommentForm } from "../../islands/forms/add-device-comment-form.tsx";
 import { AddDeviceReviewForm } from "../../islands/forms/add-device-review-form.tsx";
-// import AddDeviceCommentForm from "../../islands/forms/AddDeviceCommentForm.tsx";
-// import AddDeviceReviewForm from "../../islands/forms/AddDeviceReviewForm.tsx";
 
 export const handler = {
   async GET(ctx: FreshContext) {
@@ -236,7 +234,7 @@ export const handler = {
     );
 
     (ctx.state as CustomFreshState).seo = {
-      title: `${device?.name.raw} - ${device?.brand.raw} Retro Gaming Handheld`,
+      title: `Retro Ranker - ${device?.name.raw} - ${device?.brand.raw} Gaming Handheld`,
       description:
         `${device?.name.raw} by ${device?.brand.raw}: ${device?.pricing.category} budget retro gaming handheld with ${
           device?.ram?.sizes?.[0]

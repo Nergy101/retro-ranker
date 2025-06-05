@@ -19,7 +19,7 @@ export const handler = {
   GET(ctx: FreshContext) {
     const state = ctx.state as CustomFreshState;
     state.seo = {
-      title: "Sign In",
+      title: "Retro Ranker - Sign in",
       description: "Sign in to your Retro Ranker account",
     };
 

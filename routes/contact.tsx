@@ -13,7 +13,7 @@ import { CustomFreshState } from "../interfaces/state.ts";
 export const handler = {
   GET(ctx: FreshContext) {
     (ctx.state as CustomFreshState).seo = {
-      title: "Contact",
+      title: "Retro Ranker - Contact",
       description: "Contact us for inquiries or to contribute to our database.",
       keywords:
         "contact retro ranker, retro gaming support, handheld device inquiries, contribute to retro database, retro gaming community",
