@@ -195,7 +195,7 @@ export const handler = {
       if (!deviceReleased.raw) {
         return {
           date: "Unknown",
-          icon: () => PiQuestion({}),
+          icon: () => <PiQuestion />,
           expected: false,
         };
       }

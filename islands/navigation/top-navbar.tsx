@@ -1,4 +1,4 @@
-import { useEffect, useState } from "preact/hooks";
+import { useEffect, useState } from "@preact/hooks";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { User } from "../../data/frontend/contracts/user.contract.ts";
 import { DesktopNav } from "./desktop-nav.tsx";

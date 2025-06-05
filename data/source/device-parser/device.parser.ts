@@ -1,10 +1,10 @@
 import { slugify } from "https://deno.land/x/slugify@0.3.0/mod.ts";
 import * as cheerio from "https://esm.sh/cheerio@1.0.0-rc.12";
-import { DeviceService } from "../../frontend/services/devices/device.service.ts";
 import { Device } from "../../frontend/contracts/device.model.ts";
 import { EmulationSystemOrder } from "../../frontend/enums/emulation-system.ts";
-import { TagModel } from "../../frontend/models/tag.model.ts";
 import { personalPicks } from "../../frontend/enums/personal-picks.ts";
+import { TagModel } from "../../frontend/models/tag.model.ts";
+import { ScoreCalculatorService } from "../../frontend/services/devices/score-calculator.service.ts";
 import { mapHandheldsColumnToDevice } from "./device.parser.map.handheld.columns.ts";
 import { mapOEMsColumnToDevice } from "./device.parser.map.oem.columns.ts";
 
@@ -241,7 +241,7 @@ export class DeviceParser {
         false;
 
       device.totalRating = Number(
-        DeviceService.calculateScore(device).toFixed(2),
+        ScoreCalculatorService.calculateScore(device).toFixed(2),
       );
 
       device.tags = this.getTags(device);
@@ -499,7 +499,7 @@ export class DeviceParser {
         false;
 
       device.totalRating = Number(
-        DeviceService.calculateScore(device).toFixed(2),
+        ScoreCalculatorService.calculateScore(device).toFixed(2),
       );
 
       device.tags = this.getTags(device);

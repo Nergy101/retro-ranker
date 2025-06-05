@@ -1,6 +1,7 @@
 import { PiStar, PiStarFill, PiStarHalfFill } from "@preact-icons/pi";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
+import { ScoreCalculatorService } from "../../data/frontend/services/devices/score-calculator.service.ts";
 
 interface StarRatingProps {
   device: Device;
@@ -8,7 +9,7 @@ interface StarRatingProps {
 
 export function StarRating({ device }: StarRatingProps) {
   // Get normalized rating (1-10)
-  const normalizedRating = DeviceService.calculateScore(device);
+  const normalizedRating = ScoreCalculatorService.calculateScore(device);
 
   // If all ratings are "N/A", return a question mark icon
   if (normalizedRating === null) {
