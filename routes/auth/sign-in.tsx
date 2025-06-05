@@ -1,4 +1,3 @@
-// import SEO from "../../components/SEO.tsx";
 import { FreshContext, page, PageProps } from "fresh";
 import { CustomFreshState } from "../../interfaces/state.ts";
 import { SignIn } from "../../islands/auth/sign-in.tsx";

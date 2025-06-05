@@ -1,5 +1,4 @@
 import { FreshContext, page, PageProps } from "fresh";
-// import SEO from "../components/SEO.tsx";
 import { CustomFreshState } from "../interfaces/state.ts";
 
 export const handler = {

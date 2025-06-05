@@ -1,4 +1,3 @@
-// import SEO from "../../components/SEO.tsx";
 import { FreshContext, page } from "fresh";
 import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 

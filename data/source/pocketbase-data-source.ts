@@ -9,7 +9,6 @@ import chalk from "https://deno.land/x/chalk_deno@v4.1.1-deno/source/index.js";
 import { SystemRating } from "../entities/system-rating.entity.ts";
 import { TagModel } from "../entities/tag.entity.ts";
 import { unknownOrValue } from "./device-parser/device.parser.helpers.ts";
-import { json } from "node:stream/consumers";
 
 const env = await load({
   envPath: "../../.env",
@@ -210,21 +209,24 @@ async function insertDevices(
           ),
           pricing: pricingId,
           performance: performanceId,
-        }
+        };
 
-        if (JSON.stringify(device) == JSON.stringify(existingDevice.deviceData)) {
+        if (
+          JSON.stringify(device) == JSON.stringify(existingDevice.deviceData)
+        ) {
           console.log(chalk.yellow(
             `⏭️  Skipping device without changes: ${
               chalk.dim(device.name.raw || "Unknown")
             }`,
-          ),
-          );
+          ));
           continue;
         }
 
         // Update device only
-        await pocketbaseClient.collection("devices").update(deviceId, updateData);
-
+        await pocketbaseClient.collection("devices").update(
+          deviceId,
+          updateData,
+        );
 
         updatedCount++;
         console.log(

@@ -1,8 +1,6 @@
 import { FreshContext, page } from "fresh";
-// import SEO from "../../components/SEO.tsx";
-import { Handlers as _Handlers } from "fresh/compat";
-import { SignUp } from "../../islands/auth/sign-up.tsx";
 import { CustomFreshState } from "../../interfaces/state.ts";
+import { SignUp } from "../../islands/auth/sign-up.tsx";
 
 export default function SignUpPage() {
   const baseApiUrl = Deno.env.get("BASE_API_URL")!;

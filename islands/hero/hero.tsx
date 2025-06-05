@@ -1,4 +1,58 @@
-import { PiBaseballCap, PiBatteryCharging, PiBatteryFull, PiBlueprint, PiBomb, PiBowlSteam, PiBoxingGlove, PiBrandy, PiBugBeetle, PiCactus, PiCampfire, PiCastleTurret, PiCat, PiCodeSimple, PiCoffee, PiCoins, PiCompass, PiConfetti, PiCow, PiCrownSimple, PiCube, PiDeviceMobile, PiDiceSix, PiDog, PiEggCrack, PiFalloutShelter, PiFlyingSaucer, PiGameController, PiGearFine, PiHandPeace, PiHeartHalf, PiHeartStraight, PiJoystick, PiLego, PiLegoSmiley, PiLightning, PiLinuxLogo, PiMedal, PiMeteor, PiOnigiri, PiPiggyBank, PiRanking, PiRobot, PiScroll, PiShovel, PiSignpost, PiStar, PiSword, PiTreasureChest, PiTrophy, PiWine, PiWrench, PiYarn } from "@preact-icons/pi";
+import {
+  PiBaseballCap,
+  PiBatteryCharging,
+  PiBatteryFull,
+  PiBlueprint,
+  PiBomb,
+  PiBowlSteam,
+  PiBoxingGlove,
+  PiBrandy,
+  PiBugBeetle,
+  PiCactus,
+  PiCampfire,
+  PiCastleTurret,
+  PiCat,
+  PiCodeSimple,
+  PiCoffee,
+  PiCoins,
+  PiCompass,
+  PiConfetti,
+  PiCow,
+  PiCrownSimple,
+  PiCube,
+  PiDeviceMobile,
+  PiDiceSix,
+  PiDog,
+  PiEggCrack,
+  PiFalloutShelter,
+  PiFlyingSaucer,
+  PiGameController,
+  PiGearFine,
+  PiHandPeace,
+  PiHeartHalf,
+  PiHeartStraight,
+  PiJoystick,
+  PiLego,
+  PiLegoSmiley,
+  PiLightning,
+  PiLinuxLogo,
+  PiMedal,
+  PiMeteor,
+  PiOnigiri,
+  PiPiggyBank,
+  PiRanking,
+  PiRobot,
+  PiScroll,
+  PiShovel,
+  PiSignpost,
+  PiStar,
+  PiSword,
+  PiTreasureChest,
+  PiTrophy,
+  PiWine,
+  PiWrench,
+  PiYarn,
+} from "@preact-icons/pi";
 
 const iconComponents = [
   PiGameController,
@@ -53,7 +107,7 @@ const iconComponents = [
   PiShovel,
   PiSignpost,
   PiStar,
-  PiYarn
+  PiYarn,
 ];
 
 // 1. Define your tooltip mapping
@@ -73,13 +127,17 @@ export function Hero() {
         {shuffled.map((Icon, idx) => {
           const tooltip = iconTooltips.get(Icon);
           const iconElement = <Icon key={idx} />;
-          return tooltip ? (
-            <span key={idx} data-tooltip={tooltip} style={{ cursor: "help", borderBottom: "none" }}>
-              {iconElement}
-            </span>
-          ) : (
-            iconElement
-          );
+          return tooltip
+            ? (
+              <span
+                key={idx}
+                data-tooltip={tooltip}
+                style={{ cursor: "help", borderBottom: "none" }}
+              >
+                {iconElement}
+              </span>
+            )
+            : iconElement;
         })}
       </span>
     );

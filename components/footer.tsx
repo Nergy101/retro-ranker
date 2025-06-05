@@ -82,7 +82,9 @@ export function Footer() {
             </ul>
           </div>
           <div class="footer-grid-item rr">
-            <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+            <div
+              style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
+            >
               <strong style={{ color: "var(--pico-primary)" }}>
                 Retro Ranker
               </strong>
