@@ -1,18 +1,7 @@
-import {
-  PiCalendar,
-  PiChartLine,
-  PiChatText,
-  PiGitDiff,
-  PiInfo,
-  PiQuestion,
-  PiRanking,
-  PiScroll,
-} from "@preact-icons/pi";
-
 export interface NavigationItem {
   label: string;
   href: string;
-  icon?: (props: { style?: any }) => any;
+  icon?: string;
   isActive: (pathname: string) => boolean;
   priority?: number;
 }
@@ -21,57 +10,57 @@ export const navigationItems: NavigationItem[] = [
   {
     href: "/devices",
     label: "Devices",
-    icon: (props) => PiScroll({ ...props }),
+    icon: "PiScroll",
     isActive: (pathname) => pathname.startsWith("/devices"),
     priority: 0.9,
   },
   {
     href: "/release-timeline",
     label: "Releases",
-    icon: (props) => PiCalendar({ ...props }),
+    icon: "PiCalendar",
     isActive: (pathname) => pathname.startsWith("/release-timeline"),
-    priority: 0.9,
+    priority: 0.8,
   },
   {
     href: "/compare",
     label: "Compare",
-    icon: (props) => PiGitDiff({ ...props }),
+    icon: "PiGitDiff",
     isActive: (pathname) => pathname.startsWith("/compare"),
     priority: 0.9,
   },
   {
     href: "/leaderboard",
     label: "Leaderboard",
-    icon: (props) => PiRanking({ ...props }),
+    icon: "PiRanking",
     isActive: (pathname) => pathname.startsWith("/leaderboard"),
-    priority: 0.9,
+    priority: 0.7,
   },
   {
     href: "/charts",
     label: "Charts",
-    icon: (props) => PiChartLine({ ...props }),
+    icon: "PiChartLine",
     isActive: (pathname) => pathname.startsWith("/charts"),
-    priority: 0.9,
+    priority: 0.7,
   },
   {
     href: "/about",
     label: "About",
-    icon: (props) => PiInfo({ ...props }),
+    icon: "PiInfo",
     isActive: (pathname) => pathname === "/about",
-    priority: 0.5,
+    priority: 0.8,
   },
   {
     href: "/faq",
     label: "FAQ",
-    icon: (props) => PiQuestion({ ...props }),
+    icon: "PiQuestion",
     isActive: (pathname) => pathname === "/faq",
-    priority: 0.5,
+    priority: 0.8,
   },
   {
     href: "/contact",
     label: "Contact",
-    icon: (props) => PiChatText({ ...props }),
+    icon: "PiChatText",
     isActive: (pathname) => pathname === "/contact",
-    priority: 0.5,
+    priority: 0.6,
   },
 ];

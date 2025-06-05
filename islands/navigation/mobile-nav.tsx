@@ -1,4 +1,4 @@
-import { PiListBold, PiSignIn } from "@preact-icons/pi";
+import { PiCalendar, PiChartLine, PiChatText, PiGitDiff, PiInfo, PiListBold, PiQuestion, PiRanking, PiScroll, PiSignIn } from "@preact-icons/pi";
 import { useEffect, useRef, useState } from "preact/hooks";
 import { ProfileImage } from "../../components/auth/profile-image.tsx";
 import { DeviceCardMedium } from "../../components/cards/device-card-medium.tsx";
@@ -87,6 +87,21 @@ export function MobileNav(
       globalThis.location.href = `/devices/${selectedDevice.name.sanitized}`;
     }
   };
+  
+  const icons = new Map<string, any>([
+    ["PiScroll", <PiScroll key="PiScroll" />],
+    ["PiCalendar", <PiCalendar key="PiCalendar" />],
+    ["PiGitDiff", <PiGitDiff key="PiGitDiff" />],
+    ["PiInfo", <PiInfo key="PiInfo" />],
+    ["PiQuestion", <PiQuestion key="PiQuestion" />],
+    ["PiRanking", <PiRanking key="PiRanking" />],
+    ["PiChartLine", <PiChartLine key="PiChartLine" />],
+    ["PiChatText", <PiChatText key="PiChatText" />],
+  ]);
+
+  const getIcon = (icon: string): any => {
+    return icons.get(icon);
+  };
 
   const handleSubmit = () => {
     if (selectedDevice) {
@@ -165,8 +180,8 @@ export function MobileNav(
                     : "mobile-nav-button"}
                   aria-label={item.label}
                 >
-                  <span style={{ display: "flex", alignItems: "center" }}>
-                    {item.icon && item.icon({ style: { fontSize: "1.3rem" } })}
+                  <span style={{ display: "flex", alignItems: "center", fontSize: "1.3rem" }}>
+                    {item.icon && getIcon(item.icon)}
                     &nbsp;{item.label}
                   </span>
                 </a>

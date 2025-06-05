@@ -1,11 +1,21 @@
-import { PiSignIn } from "@preact-icons/pi";
+import {
+  PiCalendar,
+  PiChartLine,
+  PiChatText,
+  PiGitDiff,
+  PiInfo,
+  PiQuestion,
+  PiRanking,
+  PiScroll,
+  PiSignIn,
+} from "@preact-icons/pi";
 import { useEffect, useRef, useState } from "preact/hooks";
 import { ProfileImage } from "../../components/auth/profile-image.tsx";
+import { DeviceCardMedium } from "../../components/cards/device-card-medium.tsx";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { User } from "../../data/frontend/contracts/user.contract.ts";
 import { navigationItems } from "../../data/frontend/navigation-items.ts";
 import { searchDevices } from "../../data/frontend/services/utils/search.utils.ts";
-import { DeviceCardMedium } from "../../components/cards/device-card-medium.tsx";
 import { ThemeSwitcher } from "./theme-switcher.tsx";
 
 export function DesktopNav(
@@ -61,6 +71,21 @@ export function DesktopNav(
     }
   };
 
+  const icons = new Map<string, any>([
+    ["PiScroll", <PiScroll key="PiScroll" />],
+    ["PiCalendar", <PiCalendar key="PiCalendar" />],
+    ["PiGitDiff", <PiGitDiff key="PiGitDiff" />],
+    ["PiInfo", <PiInfo key="PiInfo" />],
+    ["PiQuestion", <PiQuestion key="PiQuestion" />],
+    ["PiRanking", <PiRanking key="PiRanking" />],
+    ["PiChartLine", <PiChartLine key="PiChartLine" />],
+    ["PiChatText", <PiChatText key="PiChatText" />],
+  ]);
+
+  const getIcon = (icon: string): any => {
+    return icons.get(icon);
+  };
+
   const handleSubmit = () => {
     if (selectedDevice) {
       const sanitized = selectedDevice.name.sanitized;
@@ -103,7 +128,12 @@ export function DesktopNav(
                 aria-label={item.label}
               >
                 <span class="nav-item-label">
-                  {item.icon && item.icon({ style: { minWidth: "1rem" } })}
+                  <span
+                    class="nav-item-label-icon"
+                    style={{ minWidth: "1rem" }}
+                  >
+                    {item.icon && getIcon(item.icon)}
+                  </span>
                   {item.label}
                 </span>
               </a>
