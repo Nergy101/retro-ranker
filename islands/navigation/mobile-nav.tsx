@@ -166,8 +166,7 @@ export function MobileNav(
         <div
           class="mobile-nav-content"
           style={{
-            paddingTop: "1em",
-            borderBottom: "1px solid var(--pico-primary)",
+            borderBottom: "3px solid var(--pico-primary)",
           }}
         >
           <ul>
@@ -189,7 +188,7 @@ export function MobileNav(
             ))}
             {user
               ? (
-                <li class="nav-theme-item">
+                <li class="nav-theme-item last">
                   <a
                     href="/profile"
                     aria-label="Profile"
@@ -198,6 +197,7 @@ export function MobileNav(
                       flexDirection: "column",
                       alignItems: "center",
                       gap: "0.5rem",
+                      width: "100%",
                     }}
                   >
                     <ProfileImage name={user.nickname} />
@@ -209,7 +209,7 @@ export function MobileNav(
               )
               : (
                 <li
-                  class="nav-theme-item"
+                  class="nav-theme-item last"
                   style={{
                     display: "flex",
                     flexDirection: "row",

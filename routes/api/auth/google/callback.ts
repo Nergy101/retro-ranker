@@ -1,5 +1,5 @@
 import { setCookie } from "@std/http/cookie";
-import { Handlers } from "fresh/compat";
+import { FreshContext } from "fresh";
 import {
   animals,
   NumberDictionary,
@@ -9,8 +9,8 @@ import pkceSessionService from "../../../../data/pkce/pkce.service.ts";
 import { createPocketBaseService } from "../../../../data/pocketbase/pocketbase.service.ts";
 import { logJson, tracer } from "../../../../data/tracing/tracer.ts";
 
-export const handler: Handlers = {
-  async GET(ctx) {
+export const handler = {
+  async GET(ctx: FreshContext) {
     const req = ctx.req;
 
     return await tracer.startActiveSpan(

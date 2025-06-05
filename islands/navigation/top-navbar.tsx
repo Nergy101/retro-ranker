@@ -16,7 +16,7 @@ export function TopNavbar(
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(globalThis.innerWidth <= 1024);
+      setIsMobile(globalThis.innerWidth <= 1250);
     };
 
     // Set a timeout to prevent infinite loading
@@ -29,7 +29,7 @@ export function TopNavbar(
       globalThis.addEventListener("resize", handleResize);
 
       // Set initial mobile state
-      setIsMobile(globalThis.innerWidth <= 1024);
+      setIsMobile(globalThis.innerWidth <= 1250);
 
       // Set loading to false once initial width is determined
       setIsLoading(false);

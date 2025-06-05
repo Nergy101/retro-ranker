@@ -692,7 +692,7 @@ body.paused-animation::before {
   border-radius: 0.5rem;
   padding: 0.5rem;
   margin: 0.5rem;
-  min-width: 70vw;
+  min-width: fit-content;
   text-align: center;
   display: flex;
   align-items: center;
@@ -1487,6 +1487,7 @@ body.paused-animation::before {
 .desktop-nav {
   background-color: var(--pico-background-color);
   border-bottom: 1px solid var(--pico-primary);
+  max-width: 100vw;
 }
 
 /* Desktop Nav */
@@ -1573,10 +1574,13 @@ body.paused-animation::before {
 }
 
 .nav-theme-item {
-  margin-right: 1rem;
   display: flex;
   flex-direction: row;
   align-items: center;
+  
+  &.last {
+    grid-column: span 2;
+  }
 }
 
 /* Mobile Nav */
@@ -1615,7 +1619,6 @@ body.paused-animation::before {
 .mobile-nav-content {
   display: none;
   transition: all 0.3s ease;
-  border-radius: 0 0 10px 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -1643,10 +1646,12 @@ body.paused-animation::before {
 }
 
 .mobile-nav-content ul {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(2, minmax(100px, 1fr));
   margin: 0;
-  padding: 0;
+  padding: 0 1rem;
+
 }
 
 .mobile-nav-content li {

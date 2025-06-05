@@ -4,10 +4,10 @@ import {
 } from "../../../../data/pkce/pkce.service.ts";
 import pkceSessionService from "../../../../data/pkce/pkce.service.ts";
 import { logJson, tracer } from "../../../../data/tracing/tracer.ts";
-import { Handlers } from "fresh/compat";
+import { FreshContext } from "fresh";
 
-export const handler: Handlers = {
-  async GET(_ctx) {
+export const handler = {
+  async GET(ctx: FreshContext) {
     const req = ctx.req;
 
     return await tracer.startActiveSpan("google-auth-start", async (span) => {
