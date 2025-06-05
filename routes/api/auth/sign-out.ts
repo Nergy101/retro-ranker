@@ -1,8 +1,8 @@
 import { deleteCookie } from "@std/http/cookie";
-import { Handlers } from "fresh/compat";
+import { FreshContext } from "fresh";
 
-export const handler: Handlers = {
-  GET(ctx) {
+export const handler = {
+  GET(ctx: FreshContext) {
     const req = ctx.req;
     const url = new URL(req.url);
     const headers = new Headers(req.headers);

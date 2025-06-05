@@ -1,8 +1,8 @@
 import cap from "../../../data/cap/cap.service.ts";
-import { Handlers } from "fresh/compat";
+import { FreshContext } from "fresh";
 
-export const handler: Handlers = {
-  async POST(ctx) {
+export const handler = {
+  async POST(ctx: FreshContext) {
     const req = ctx.req;
 
     try {

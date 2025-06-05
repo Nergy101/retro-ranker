@@ -1,14 +1,14 @@
 import { setCookie } from "@std/http/cookie";
 import { ProblemDetail } from "../../../data/frontend/contracts/problem-detail.ts";
 import { createPocketBaseService } from "../../../data/pocketbase/pocketbase.service.ts";
-import { Handlers } from "fresh/compat";
+import { FreshContext } from "fresh";
 
-export const handler: Handlers = {
-  async GET(_ctx) {
+export const handler = {
+  async GET(_ctx: FreshContext) {
     // render the sign-in page
     return new Response(null, { status: 200 });
   },
-  async POST(_ctx) {
+  async POST(ctx: FreshContext) {
     const req = ctx.req;
     const headers = new Headers();
 

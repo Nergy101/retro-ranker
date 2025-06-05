@@ -1,9 +1,9 @@
 import { User } from "../../../data/frontend/contracts/user.contract.ts";
 import { createSuperUserPocketBaseService } from "../../../data/pocketbase/pocketbase.service.ts";
-import { Handlers } from "fresh/compat";
+import { FreshContext } from "fresh";
 
-export const handler: Handlers = {
-  async POST(ctx) {
+export const handler = {
+  async POST(ctx: FreshContext) {
     const request = ctx.req;
     const pbService = await createSuperUserPocketBaseService(
       Deno.env.get("POCKETBASE_SUPERUSER_EMAIL")!,

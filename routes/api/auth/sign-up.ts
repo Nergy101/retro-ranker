@@ -2,10 +2,10 @@ import { createPocketBaseService } from "../../../data/pocketbase/pocketbase.ser
 import { ProblemDetail } from "../../../data/frontend/contracts/problem-detail.ts";
 
 import cap from "../../../data/cap/cap.service.ts";
-import { Handlers } from "fresh/compat";
+import { FreshContext } from "fresh";
 
-export const handler: Handlers = {
-  async POST(_ctx) {
+export const handler = {
+  async POST(ctx: FreshContext) {
     const req = ctx.req;
     const form = await req.formData();
     const nickname = form.get("nickname")?.toString();

@@ -1,9 +1,9 @@
 import { ProblemDetail } from "../../../../data/frontend/contracts/problem-detail.ts";
 import { createSuperUserPocketBaseService } from "../../../../data/pocketbase/pocketbase.service.ts";
-import { Handlers } from "fresh/compat";
+import { FreshContext } from "fresh";
 
-export const handler: Handlers = {
-  async GET(ctx) {
+export const handler = {
+  async GET(ctx: FreshContext) {
     const req = ctx.req;
     const deviceId = ctx.params.id;
     const cookie = req.headers.get("cookie");
