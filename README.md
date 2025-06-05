@@ -1,6 +1,6 @@
 # Retro Ranker 🎮
 
-![Retro Ranker](https://retroranker.site/logo-no-background.svg)
+![Retro Ranker](https://retroranker.site/images/rr-star.png)
 
 ## Overview
 
