@@ -1,4 +1,4 @@
-name: Deploy new Docker Image version
+name: 🚀 Deploy Docker Compose
 
 on:
   workflow_dispatch:
