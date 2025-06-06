@@ -22,6 +22,24 @@
       "include": ["no-console", "no-unused-vars", "no-debugger"]
     }
   },
+  "fmt": {
+    "useTabs": false,
+    "lineWidth": 100,
+    "indentWidth": 2,
+    "semiColons": true,
+    "singleQuote": false,
+    "proseWrap": "preserve",
+    "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
+    "exclude": [
+      "**/_fresh/*",
+      "data/source/results/*",
+      "data/source/files/*",
+      "static/pico.pumpkin.min.css",
+      "static/styles.css",
+      "**/node_modules/*",
+      "**/volumes/*"
+    ]
+  },
   "exclude": [
     "**/_fresh/*",
     "data/source/results/*",
