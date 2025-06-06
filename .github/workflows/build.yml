@@ -1,0 +1,70 @@
+name: Build Check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Cache Deno dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cache/deno
+            .deno
+          key: ${{ runner.os }}-deno-${{ hashFiles('**/deno.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-deno-
+
+      - name: Check formatting
+        run: deno fmt --check
+
+      - name: Run linter
+        run: deno lint
+
+      - name: Type check
+        run: deno check main.ts
+
+      - name: Build check
+        run: deno task build
+
+      # Create a directory to store the build artifacts
+      - name: Create artifact directory
+        run: mkdir -p dist
+
+      # Copy all necessary files for deployment
+      # This includes the built assets (_fresh), static files,
+      # and the main application files
+      - name: Copy build artifacts
+        run: |
+          cp -r _fresh dist/
+          cp -r static dist/
+          cp main.ts dist/
+          cp deno.jsonc dist/
+
+      # Upload the build artifacts for potential future use
+      # The artifacts are kept for 5 days to allow for:
+      # - Manual deployment if needed
+      # - Debugging production issues
+      # - Rollback to a previous build
+      # - Testing in different environments
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: retroranker-build
+          path: dist/
+          retention-days: 5
+
+        
