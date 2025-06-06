@@ -29,9 +29,7 @@ export const handler = {
       .sort((a, b) => a.name.raw.localeCompare(b.name.raw));
 
     const similarDevices = (await Promise.all(
-      devicesToCompare.map((device) =>
-        deviceService.getSimilarDevices(device.name.sanitized, 8)
-      ),
+      devicesToCompare.map((device) => deviceService.getSimilarDevices(device.name.sanitized, 8)),
     )).flat();
 
     const ranking = ratingsService.createRanking(devicesToCompare);
@@ -45,8 +43,7 @@ export const handler = {
     };
 
     let seoTitle = "Retro Ranker - Compare";
-    let seoDescription =
-      "Compare retro handhelds side-by-side with detailed specs.";
+    let seoDescription = "Compare retro handhelds side-by-side with detailed specs.";
 
     if (devicesToCompare.length === 2) {
       const [device1, device2] = devicesToCompare;
@@ -56,9 +53,7 @@ export const handler = {
         `Compare ${device1.brand.raw} ${device1.name.raw} vs ${device2.brand.raw} ${device2.name.raw}.`;
     } else if (devicesToCompare.length > 0) {
       seoTitle = `Compare ${deviceNames.join(" vs ")} - Retro Gaming Handhelds`;
-      seoDescription = `Compare ${
-        deviceNames.join(", ")
-      } retro gaming handhelds.`;
+      seoDescription = `Compare ${deviceNames.join(", ")} retro gaming handhelds.`;
     }
 
     (ctx.state as CustomFreshState).seo = {
@@ -163,8 +158,8 @@ export default function Compare(ctx: FreshContext) {
           <p>
             The ranking is based on all relevant properties of the devices.
             <br />
-            Every property is given a score and placed into a category. The
-            categories are then weighted and summed up to get the final results.
+            Every property is given a score and placed into a category. The categories are then
+            weighted and summed up to get the final results.
             <br />
             Category weights:
             <div

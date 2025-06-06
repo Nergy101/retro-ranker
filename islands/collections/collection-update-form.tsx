@@ -95,9 +95,7 @@ export function CollectionUpdateForm(
     setSuggestions(searchDevices(value.trim(), allDevices));
 
     setSelectedDevice(
-      allDevices.find((device) =>
-        device.name.raw.toLowerCase() === value.toLowerCase()
-      ) ?? null,
+      allDevices.find((device) => device.name.raw.toLowerCase() === value.toLowerCase()) ?? null,
     );
   };
 
@@ -244,8 +242,7 @@ export function CollectionUpdateForm(
           <textarea
             id="description"
             value={description}
-            onInput={(e) =>
-              adjustDescription((e.target as HTMLTextAreaElement).value)}
+            onInput={(e) => adjustDescription((e.target as HTMLTextAreaElement).value)}
             rows={3}
             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           />
@@ -263,8 +260,7 @@ export function CollectionUpdateForm(
               type="text"
               id="device-search"
               value={query}
-              onInput={(e) =>
-                queryChanged((e.target as HTMLInputElement).value)}
+              onInput={(e) => queryChanged((e.target as HTMLInputElement).value)}
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
                   e.preventDefault();
@@ -283,8 +279,7 @@ export function CollectionUpdateForm(
                   class="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
                   style={{
                     display: "grid",
-                    gridTemplateColumns:
-                      "repeat(auto-fill, minmax(200px, 1fr))",
+                    gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
                     gap: "1rem",
                   }}
                 >
@@ -372,8 +367,7 @@ export function CollectionUpdateForm(
                   alignItems: "center",
                 }}
                 type="button"
-                onClick={() =>
-                  handleDeviceRemove(device.id)}
+                onClick={() => handleDeviceRemove(device.id)}
               >
                 <PiTrash />
               </button>

@@ -105,8 +105,8 @@ export default function Contact() {
             />
           </h3>
           <p style={{ textAlign: "center" }}>
-            If you find Retro Ranker helpful and want to support its
-            development, you can buy me a coffee or contribute to the project.
+            If you find Retro Ranker helpful and want to support its development, you can buy me a
+            coffee or contribute to the project.
           </p>
           <div class="small-card-grid">
             <a

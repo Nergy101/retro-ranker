@@ -25,12 +25,8 @@ export default async function ReleaseTimeline({ url: _url }: PageProps) {
   const devices = await deviceService.getAllDevices();
 
   const sortedDevices = devices.sort((a, b) => {
-    const dateA = a.released.mentionedDate
-      ? new Date(a.released.mentionedDate)
-      : new Date(0);
-    const dateB = b.released.mentionedDate
-      ? new Date(b.released.mentionedDate)
-      : new Date(0);
+    const dateA = a.released.mentionedDate ? new Date(a.released.mentionedDate) : new Date(0);
+    const dateB = b.released.mentionedDate ? new Date(b.released.mentionedDate) : new Date(0);
     return dateB.getTime() - dateA.getTime();
   });
 
@@ -61,8 +57,7 @@ export default async function ReleaseTimeline({ url: _url }: PageProps) {
       <hgroup>
         <h1 style={{ textAlign: "center" }}>Release Timeline</h1>
         <p>
-          Scroll down to see the complete chronological release timeline of
-          retro gaming handhelds.
+          Scroll down to see the complete chronological release timeline of retro gaming handhelds.
         </p>
       </hgroup>
 

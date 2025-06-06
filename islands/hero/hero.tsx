@@ -178,9 +178,8 @@ export function Hero() {
             textShadow: "0 0 1rem #23272a",
           }}
         >
-          Join a vibrant community of retro gaming fans. Discover, rank, and
-          discuss <b>400+ handhelds</b>{" "}
-          together. <br /> Your next favorite device is only a click away!
+          Join a vibrant community of retro gaming fans. Discover, rank, and discuss{" "}
+          <b>400+ handhelds</b> together. <br /> Your next favorite device is only a click away!
         </p>
         <a
           href="/auth/sign-in"

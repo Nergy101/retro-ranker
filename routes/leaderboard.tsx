@@ -10,10 +10,8 @@ export const handler = {
   async GET(ctx: FreshContext) {
     (ctx.state as CustomFreshState).seo = {
       title: "Retro Ranker - Leaderboard",
-      description:
-        "Retro Ranker - Leaderboard - Top Rated Handhelds",
-      keywords:
-        "leaderboard, top rated handhelds, retro gaming, handheld devices, user reviews",
+      description: "Retro Ranker - Leaderboard - Top Rated Handhelds",
+      keywords: "leaderboard, top rated handhelds, retro gaming, handheld devices, user reviews",
     };
     // Instantiate PocketBase with admin credentials
     const pb = await createSuperUserPocketBaseService(
@@ -111,8 +109,7 @@ export default function LeaderboardPage(
       <div>
         <h1>Leaderboard</h1>
         <p>
-          The leaderboard is a list of the top rated retro handheld devices{" "}
-          <br />
+          The leaderboard is a list of the top rated retro handheld devices <br />
           based on reviews from users like you!
         </p>
         <img

@@ -2,9 +2,7 @@
 import { FreshContext } from "fresh";
 import { ProblemDetail } from "../../data/frontend/contracts/problem-detail.ts";
 import { User } from "../../data/frontend/contracts/user.contract.ts";
-import {
-  createLoggedInPocketBaseService,
-} from "../../data/pocketbase/pocketbase.service.ts";
+import { createLoggedInPocketBaseService } from "../../data/pocketbase/pocketbase.service.ts";
 import { CustomFreshState } from "../../interfaces/state.ts";
 
 interface SuggestionPayload {

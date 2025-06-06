@@ -56,9 +56,7 @@ export function CollectionCreateForm(
     setSuggestions(searchDevices(value.trim(), devices));
 
     setSelectedDevice(
-      devices.find((device) =>
-        device.name.raw.toLowerCase() === value.toLowerCase()
-      ) ?? null,
+      devices.find((device) => device.name.raw.toLowerCase() === value.toLowerCase()) ?? null,
     );
   };
 
@@ -171,8 +169,7 @@ export function CollectionCreateForm(
           node.style.transform = `translate(${dx}px, ${dy}px)`;
           // Force reflow
           node.getBoundingClientRect();
-          node.style.transition =
-            "transform 1000ms cubic-bezier(0.22, 1, 0.36, 1)";
+          node.style.transition = "transform 1000ms cubic-bezier(0.22, 1, 0.36, 1)";
           node.style.transform = "";
         }
       }
@@ -276,8 +273,7 @@ export function CollectionCreateForm(
                     class="suggestions-list-item"
                   >
                     <div
-                      onClick={() =>
-                        handleDeviceSelect(device)}
+                      onClick={() => handleDeviceSelect(device)}
                       style={{
                         cursor: "pointer",
                         flex: 1,
@@ -350,8 +346,7 @@ export function CollectionCreateForm(
                             onClick={(e) => e.stopPropagation()}
                             onInput={(e) => {
                               // Just update the order value for this device, don't reorder yet
-                              const val =
-                                (e.currentTarget as HTMLInputElement).value;
+                              const val = (e.currentTarget as HTMLInputElement).value;
                               const order = parseInt(val, 10);
                               if (!isNaN(order)) {
                                 setDeviceOrder({

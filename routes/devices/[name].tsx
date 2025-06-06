@@ -175,9 +175,7 @@ export const handler = {
           {
             "@type": "PropertyValue",
             "name": "Screen Size",
-            "value": device.screen.size
-              ? `${device.screen.size} inches`
-              : "Unknown",
+            "value": device.screen.size ? `${device.screen.size} inches` : "Unknown",
           },
         ],
       });
@@ -241,9 +239,7 @@ export const handler = {
         } ${device?.ram?.unit} RAM, ${device?.storage} storage, and ${device?.battery.capacity}${device?.battery.unit} battery. Release: ${
           releaseDate.expected ? "Expected" : releaseDate.date
         }. ${
-          device?.os.list.join(", ") !== "?"
-            ? `Supports ${device?.os.list.join(", ")}.`
-            : ""
+          device?.os.list.join(", ") !== "?" ? `Supports ${device?.os.list.join(", ")}.` : ""
         } Compare specs and performance ratings.`,
       keywords: `${device?.name.raw}, ${device?.brand.raw}, ${
         device?.os.list.join(", ")
@@ -325,9 +321,7 @@ export default function DeviceDetail(ctx: FreshContext) {
               textAlign: "center",
               gap: "0.5rem",
             }}
-            data-tooltip={device.name.normalized != device.name.raw
-              ? device.name.raw
-              : undefined}
+            data-tooltip={device.name.normalized != device.name.raw ? device.name.raw : undefined}
             data-placement="bottom"
           >
             {device.name.normalized}
@@ -458,9 +452,7 @@ export default function DeviceDetail(ctx: FreshContext) {
                   ? "No OS information available"
                   : device.os.list.join(", ")}
               >
-                {device.os.icons.map((icon) =>
-                  DeviceService.getOsIconComponent(icon)
-                )}
+                {device.os.icons.map((icon) => DeviceService.getOsIconComponent(icon))}
               </span>
             </div>
 
@@ -538,8 +530,7 @@ export default function DeviceDetail(ctx: FreshContext) {
                   fontStyle: "italic",
                 }}
               >
-                Share your experience and help others decide if this device is
-                right for them.
+                Share your experience and help others decide if this device is right for them.
               </span>
             </summary>
             <section>
@@ -583,7 +574,7 @@ export default function DeviceDetail(ctx: FreshContext) {
               {reviews?.length > 0 && (
                 <>
                   {reviews.map((review: ReviewContract) => (
-                    <DeviceReviewCard review={review} />
+                    <DeviceReviewCard key={review.id} review={review} />
                   ))}
                 </>
               )}
@@ -620,8 +611,7 @@ export default function DeviceDetail(ctx: FreshContext) {
                   fontStyle: "italic",
                 }}
               >
-                Ask questions, share tips, or discuss your experience with this
-                device.
+                Ask questions, share tips, or discuss your experience with this device.
               </span>
             </summary>
             <section>
@@ -649,8 +639,9 @@ export default function DeviceDetail(ctx: FreshContext) {
                     )
                     : (
                       <>
-                        <strong>{comments.length}</strong>{" "}
-                        comment{comments.length !== 1 && "s"} so far.
+                        <strong>{comments.length}</strong> comment{comments.length !== 1 && "s"}
+                        {" "}
+                        so far.
                       </>
                     )}
                 </span>

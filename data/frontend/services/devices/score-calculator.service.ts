@@ -9,9 +9,7 @@ export class ScoreCalculatorService {
     // You can adjust these checks or add more features as required.
     const features = {
       // Display features
-      hasHDScreen: device.screen.ppi?.[0] && device.screen.ppi[0] >= 200
-        ? 10
-        : 0,
+      hasHDScreen: device.screen.ppi?.[0] && device.screen.ppi[0] >= 200 ? 10 : 0,
       hasGoodScreenSize: device.screen.size && device.screen.size >= 5 ? 10 : 0,
       hasQualityPanel: (device.screen.type?.type === "IPS" ||
           device.screen.type?.type === "OLED" ||
@@ -22,9 +20,7 @@ export class ScoreCalculatorService {
       // Performance-related
       hasGoodCPU: device.cpus?.[0]?.cores && device.cpus[0].cores >= 4 ? 10 : 0,
       hasGoodRAM: device.ram?.sizes?.[0] && device.ram.sizes[0] >= 4 ? 10 : 0,
-      hasGoodCooling: device.cooling.raw?.toLowerCase().includes("fan")
-        ? 10
-        : 0,
+      hasGoodCooling: device.cooling.raw?.toLowerCase().includes("fan") ? 10 : 0,
 
       // Connectivity features
       hasWifi: device.connectivity.hasWifi ? 10 : 0,
@@ -37,8 +33,7 @@ export class ScoreCalculatorService {
 
       // Extra features
       // Check for a reasonably good battery (e.g., 3000 mAh or more)
-      hasGoodBattery:
-        device.battery?.capacity && device.battery.capacity >= 3000 ? 10 : 0,
+      hasGoodBattery: device.battery?.capacity && device.battery.capacity >= 3000 ? 10 : 0,
       // Check the build quality based on the material (metal or aluminum is preferred)
       hasGoodBuild: device.shellMaterial &&
           (device.shellMaterial.isMetal || device.shellMaterial.isAluminum)

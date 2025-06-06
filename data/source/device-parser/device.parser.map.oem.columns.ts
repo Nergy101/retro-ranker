@@ -284,9 +284,7 @@ export function mapOEMsColumnToDevice(
         device.ram = {
           raw: rawValue,
           sizes: ramMatch ? [parseFloat(ramMatch[1])] : null,
-          unit: ramMatch
-            ? ramMatch[2].toUpperCase() as "GB" | "MB" | "KB"
-            : null,
+          unit: ramMatch ? ramMatch[2].toUpperCase() as "GB" | "MB" | "KB" : null,
           type: value.includes("lpddr5x")
             ? "LPDDR5X"
             : value.includes("lpddr4x")

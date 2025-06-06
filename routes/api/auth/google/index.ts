@@ -1,7 +1,4 @@
-import {
-  generateCodeChallenge,
-  generateCodeVerifier,
-} from "../../../../data/pkce/pkce.service.ts";
+import { generateCodeChallenge, generateCodeVerifier } from "../../../../data/pkce/pkce.service.ts";
 import pkceSessionService from "../../../../data/pkce/pkce.service.ts";
 import { logJson, tracer } from "../../../../data/tracing/tracer.ts";
 import { FreshContext } from "fresh";
@@ -26,9 +23,7 @@ export const handler = {
           protocol = "https:";
         }
         const port = url.port;
-        const fullHost = port
-          ? `${protocol}//${hostname}:${port}`
-          : `${protocol}//${hostname}`;
+        const fullHost = port ? `${protocol}//${hostname}:${port}` : `${protocol}//${hostname}`;
 
         const googleUrl =
           "https://accounts.google.com/o/oauth2/v2/auth?client_id=384634892886-g7mbiqpno7uo5mrtdop2mdk1pud7k0po.apps.googleusercontent.com&response_type=code&redirect_uri=" +

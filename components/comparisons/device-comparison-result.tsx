@@ -48,9 +48,7 @@ export function DeviceComparisonResult(
         return equalClass;
       }
 
-      return ranking.emuPerformance[0] == device.name.sanitized
-        ? betterClass
-        : worseClass;
+      return ranking.emuPerformance[0] == device.name.sanitized ? betterClass : worseClass;
     }
 
     if (categoryName == "monitor") {
@@ -58,54 +56,42 @@ export function DeviceComparisonResult(
         return equalClass;
       }
 
-      return ranking.monitor[0] == device.name.sanitized
-        ? betterClass
-        : worseClass;
+      return ranking.monitor[0] == device.name.sanitized ? betterClass : worseClass;
     }
 
     if (categoryName == "dimensions") {
       if (ranking.dimensions[0] == "equal") {
         return equalClass;
       }
-      return ranking.dimensions[0] == device.name.sanitized
-        ? betterClass
-        : worseClass;
+      return ranking.dimensions[0] == device.name.sanitized ? betterClass : worseClass;
     }
 
     if (categoryName == "connectivity") {
       if (ranking.connectivity[0] == "equal") {
         return equalClass;
       }
-      return ranking.connectivity[0] == device.name.sanitized
-        ? betterClass
-        : worseClass;
+      return ranking.connectivity[0] == device.name.sanitized ? betterClass : worseClass;
     }
 
     if (categoryName == "audio") {
       if (ranking.audio[0] == "equal") {
         return equalClass;
       }
-      return ranking.audio[0] == device.name.sanitized
-        ? betterClass
-        : worseClass;
+      return ranking.audio[0] == device.name.sanitized ? betterClass : worseClass;
     }
 
     if (categoryName == "controls") {
       if (ranking.controls[0] == "equal") {
         return equalClass;
       }
-      return ranking.controls[0] == device.name.sanitized
-        ? betterClass
-        : worseClass;
+      return ranking.controls[0] == device.name.sanitized ? betterClass : worseClass;
     }
 
     if (categoryName == "misc") {
       if (ranking.misc[0] == "equal") {
         return equalClass;
       }
-      return ranking.misc[0] == device.name.sanitized
-        ? betterClass
-        : worseClass;
+      return ranking.misc[0] == device.name.sanitized ? betterClass : worseClass;
     }
 
     return equalClass;
@@ -261,9 +247,7 @@ export function DeviceComparisonResult(
                 ? "No OS information available"
                 : device.os.list.join(", ")}
             >
-              {device.os.icons.map((icon) =>
-                DeviceService.getOsIconComponent(icon)
-              )}
+              {device.os.icons.map((icon) => DeviceService.getOsIconComponent(icon))}
             </span>
           </div>
 
@@ -337,9 +321,7 @@ export function DeviceComparisonResult(
         </div>
 
         <div class="compare-result-performance-chips">
-          {device.systemRatings.map((rating) => (
-            <RatingInfo key={rating.system} rating={rating} />
-          ))}
+          {device.systemRatings.map((rating) => <RatingInfo key={rating.system} rating={rating} />)}
         </div>
       </div>
 

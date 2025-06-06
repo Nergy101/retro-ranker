@@ -36,25 +36,19 @@ export default function AppWrapper(
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         {seo.title && <title>{seo.title}</title>}
-        {seo.description && (
-          <meta name="description" content={seo.description} />
-        )}
+        {seo.description && <meta name="description" content={seo.description} />}
         {seo.keywords && <meta name="keywords" content={seo.keywords} />}
         {seo.robots && <meta name="robots" content={seo.robots} />}
         {seo.url && <link rel="canonical" href={seo.url} />}
         {seo.image && <meta property="og:image" content={seo.image} />}
         {seo.title && <meta property="og:title" content={seo.title} />}
-        {seo.description && (
-          <meta property="og:description" content={seo.description} />
-        )}
+        {seo.description && <meta property="og:description" content={seo.description} />}
         <meta property="og:type" content="website" />
         {seo.url && <meta property="og:url" content={seo.url} />}
         <meta property="og:site_name" content="Retro Ranker" />
         <meta name="twitter:card" content="summary_large_image" />
         {seo.title && <meta name="twitter:title" content={seo.title} />}
-        {seo.description && (
-          <meta name="twitter:description" content={seo.description} />
-        )}
+        {seo.description && <meta name="twitter:description" content={seo.description} />}
         {seo.jsonLd && (
           <script
             type="application/ld+json"

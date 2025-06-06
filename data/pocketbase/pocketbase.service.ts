@@ -110,9 +110,7 @@ export class PocketBaseService {
         span.setStatus({ code: 0 }); // OK
         return result;
       } catch (error: unknown) {
-        const errorMessage = error instanceof Error
-          ? error.message
-          : "Unknown error";
+        const errorMessage = error instanceof Error ? error.message : "Unknown error";
         span.setStatus({ code: 2, message: errorMessage }); // ERROR
         if (error instanceof ClientResponseError) {
           logJson("error", "Authentication error", { error: error.message });
@@ -150,9 +148,7 @@ export class PocketBaseService {
         span.setStatus({ code: 0 }); // OK
         return result;
       } catch (error: unknown) {
-        const errorMessage = error instanceof Error
-          ? error.message
-          : "Unknown error";
+        const errorMessage = error instanceof Error ? error.message : "Unknown error";
         span.setStatus({ code: 2, message: errorMessage }); // ERROR
         if (error instanceof ClientResponseError) {
           logJson("error", "User creation error", { error: error.message });
@@ -188,9 +184,7 @@ export class PocketBaseService {
         span.setStatus({ code: 0 }); // OK
         return result;
       } catch (error: unknown) {
-        const errorMessage = error instanceof Error
-          ? error.message
-          : "Unknown error";
+        const errorMessage = error instanceof Error ? error.message : "Unknown error";
         span.setStatus({ code: 2, message: errorMessage }); // ERROR
         if (error instanceof ClientResponseError) {
           logJson("error", `Error fetching ${collection}`, {
@@ -247,9 +241,7 @@ export class PocketBaseService {
         span.setStatus({ code: 0 }); // OK
         return result;
       } catch (error: unknown) {
-        const errorMessage = error instanceof Error
-          ? error.message
-          : "Unknown error";
+        const errorMessage = error instanceof Error ? error.message : "Unknown error";
         span.setStatus({ code: 2, message: errorMessage }); // ERROR
         if (error instanceof ClientResponseError) {
           logJson("error", `Error fetching ${collection}`, {
@@ -286,9 +278,7 @@ export class PocketBaseService {
         span.setStatus({ code: 0 }); // OK
         return result;
       } catch (error: unknown) {
-        const errorMessage = error instanceof Error
-          ? error.message
-          : "Unknown error";
+        const errorMessage = error instanceof Error ? error.message : "Unknown error";
         span.setStatus({ code: 2, message: errorMessage }); // ERROR
         if (error instanceof ClientResponseError) {
           logJson("error", `Error fetching ${collection} record`, {
@@ -320,9 +310,7 @@ export class PocketBaseService {
         span.setStatus({ code: 0 }); // OK
         return result;
       } catch (error: unknown) {
-        const errorMessage = error instanceof Error
-          ? error.message
-          : "Unknown error";
+        const errorMessage = error instanceof Error ? error.message : "Unknown error";
         span.setStatus({ code: 2, message: errorMessage }); // ERROR
         if (error instanceof ClientResponseError) {
           logJson("error", `Error creating ${collection} record`, {
@@ -357,9 +345,7 @@ export class PocketBaseService {
         span.setStatus({ code: 0 }); // OK
         return result;
       } catch (error: unknown) {
-        const errorMessage = error instanceof Error
-          ? error.message
-          : "Unknown error";
+        const errorMessage = error instanceof Error ? error.message : "Unknown error";
         span.setStatus({ code: 2, message: errorMessage }); // ERROR
         if (error instanceof ClientResponseError) {
           logJson("error", `Error updating ${collection} record`, {
@@ -388,9 +374,7 @@ export class PocketBaseService {
         await this.pb.collection(collection).delete(id);
         span.setStatus({ code: 0 }); // OK
       } catch (error: unknown) {
-        const errorMessage = error instanceof Error
-          ? error.message
-          : "Unknown error";
+        const errorMessage = error instanceof Error ? error.message : "Unknown error";
         span.setStatus({ code: 2, message: errorMessage }); // ERROR
         if (error instanceof ClientResponseError) {
           logJson("error", `Error deleting ${collection} record`, {
@@ -428,9 +412,7 @@ export class PocketBaseService {
         }
         span.setStatus({ code: 0 }); // OK
       } catch (error: unknown) {
-        const errorMessage = error instanceof Error
-          ? error.message
-          : "Unknown error";
+        const errorMessage = error instanceof Error ? error.message : "Unknown error";
         span.setStatus({ code: 2, message: errorMessage }); // ERROR
         throw error;
       } finally {
@@ -452,9 +434,7 @@ export class PocketBaseService {
         span.setStatus({ code: 0 }); // OK
         return user.record as unknown as User;
       } catch (error: unknown) {
-        const errorMessage = error instanceof Error
-          ? error.message
-          : "Unknown error";
+        const errorMessage = error instanceof Error ? error.message : "Unknown error";
         span.setStatus({ code: 2, message: errorMessage }); // ERROR
         throw error;
       } finally {

@@ -43,16 +43,14 @@ export function StarRating({ device }: StarRatingProps) {
       data-tooltip={`Emulation Rating: ${fivePointRating.toFixed(1)}/5`}
     >
       {/* Full stars */}
-      {Array.from({ length: fullStars }).map((_, index) => (
-        <PiStarFill key={index} />
-      ))}
+      {Array.from({ length: fullStars }).map((_, index) => <PiStarFill key={index} />)}
 
       {/* Half star if needed */}
       {hasHalfStar && <PiStarHalfFill />}
 
       {/* Empty stars */}
-      {Array.from({ length: 5 - fullStars - (hasHalfStar ? 1 : 0) }).map(() => (
-        <PiStar />
+      {Array.from({ length: 5 - fullStars - (hasHalfStar ? 1 : 0) }).map((_, index) => (
+        <PiStar key={index} />
       ))}
     </span>
   );

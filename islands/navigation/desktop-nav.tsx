@@ -56,9 +56,7 @@ export function DesktopNav(
     setSuggestions(searchDevices(value.trim(), allDevices));
 
     setSelectedDevice(
-      allDevices.find((device) =>
-        device.name.raw.toLowerCase() === value.toLowerCase()
-      ) ?? null,
+      allDevices.find((device) => device.name.raw.toLowerCase() === value.toLowerCase()) ?? null,
     );
   };
 

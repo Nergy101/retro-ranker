@@ -33,10 +33,8 @@ export default async function CollectionView(ctx: FreshContext) {
     "devices,owner",
   ) as RecordModel & DeviceCollection;
 
-  collection.devices =
-    collection.expand?.devices.map((d: RecordModel) =>
-      d.deviceData as Device
-    ) ?? [];
+  collection.devices = collection.expand?.devices.map((d: RecordModel) => d.deviceData as Device) ??
+    [];
   collection.owner = collection.expand?.owner.nickname as string;
 
   if (!collection) {
@@ -94,10 +92,8 @@ export default async function CollectionView(ctx: FreshContext) {
             </h1>
             <p>{collection.description}</p>
             <p style={{ fontSize: "0.8rem" }}>
-              Created: {new Date(collection.created).toLocaleDateString()}{" "}
-              | Last updated:{" "}
-              {new Date(collection.updated).toLocaleDateString()} |{" "}
-              {collection.devices.length}{" "}
+              Created: {new Date(collection.created).toLocaleDateString()} | Last updated:{" "}
+              {new Date(collection.updated).toLocaleDateString()} | {collection.devices.length}{" "}
               {collection.devices.length === 1 ? "device" : "devices"}
             </p>
           </hgroup>

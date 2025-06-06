@@ -38,9 +38,9 @@ export function DeviceLinks({ device }: { device: Device }) {
                 </span>
               </div>
               <div class="video-reviews">
-                {device.reviews.videoReviews.filter((review) =>
-                  review.url.includes("youtu")
-                ).map((review) => (
+                {device.reviews.videoReviews.filter((review) => review.url.includes("youtu")).map((
+                  review,
+                ) => (
                   <div
                     key={review.url}
                     class="video-review"
@@ -63,9 +63,9 @@ export function DeviceLinks({ device }: { device: Device }) {
                     </iframe>
                   </div>
                 ))}
-                {device.reviews.videoReviews.filter((review) =>
-                  !review.url.includes("youtu")
-                ).map((review) => (
+                {device.reviews.videoReviews.filter((review) => !review.url.includes("youtu")).map((
+                  review,
+                ) => (
                   <div key={review.url}>
                     <a href={review.url} target="_blank">
                       {new URL(review.url).hostname} - {review.name}
@@ -136,7 +136,9 @@ export function DeviceLinks({ device }: { device: Device }) {
             }}
           >
             {device.vendorLinks.map((link) => (
-              <a href={link.url} target="_blank">{link.name}</a>
+              <a key={link.url} href={link.url} target="_blank">
+                {link.name}
+              </a>
             ))}
           </div>
         </div>

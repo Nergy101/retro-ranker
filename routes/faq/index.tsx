@@ -6,8 +6,7 @@ export const handler = {
   GET(ctx: FreshContext) {
     (ctx.state as CustomFreshState).seo = {
       title: "Retro Ranker - FAQ",
-      description:
-        "Frequently Asked Questions (FAQ)",
+      description: "Frequently Asked Questions (FAQ)",
       keywords:
         "retro ranker faq, retro gaming questions, handheld comparison help, device catalog faq, emulation device questions",
     };
@@ -64,8 +63,8 @@ export default function FAQ() {
               opacity: 0.95,
             }}
           >
-            Find answers to common questions about Retro Ranker, device
-            comparisons, reviews, and more.
+            Find answers to common questions about Retro Ranker, device comparisons, reviews, and
+            more.
           </p>
         </div>
       </section>
@@ -90,10 +89,10 @@ export default function FAQ() {
                 <PiQuestion class="text-2xl" /> What is Retro Ranker?
               </summary>
               <p class="pl-8">
-                Retro Ranker is a platform to{" "}
-                <a href="/compare">compare</a>, review, and discover{" "}
-                <a href="/devices">retro gaming handhelds</a>, helping you find
-                the perfect device for your needs.
+                Retro Ranker is a platform to <a href="/compare">compare</a>, review, and discover
+                {" "}
+                <a href="/devices">retro gaming handhelds</a>, helping you find the perfect device
+                for your needs.
               </p>
             </details>
             <details class="faq-details">
@@ -101,12 +100,10 @@ export default function FAQ() {
                 <PiInfo class="text-2xl" /> Which brands are included?
               </summary>
               <p class="pl-8">
-                We cover popular brands like{" "}
-                <a href="/devices?tags=anbernic">Anbernic</a>,{" "}
+                We cover popular brands like <a href="/devices?tags=anbernic">Anbernic</a>,{" "}
                 <a href="/devices?tags=miyoo-bittboy">Miyoo</a>,{" "}
                 <a href="/devices?tags=ayaneo">Ayaneo</a>,{" "}
-                <a href="/devices?tags=powkiddy">Powkiddy</a>, and more in our
-                {" "}
+                <a href="/devices?tags=powkiddy">Powkiddy</a>, and more in our{" "}
                 <a href="/devices">device catalog</a>.
               </p>
             </details>
@@ -120,8 +117,7 @@ export default function FAQ() {
                 <a href="/leaderboard">reviewed</a>, and added to the{" "}
                 <a href="https://docs.google.com/spreadsheets/d/1irg60f9qsZOkhp0cwOU7Cy4rJQeyusEUzTNQzhoTYTU/">
                   community datasheet
-                </a>. Check the <a href="/release-timeline">release timeline</a>
-                {" "}
+                </a>. Check the <a href="/release-timeline">release timeline</a>{" "}
                 for the latest additions.
               </p>
             </details>
@@ -130,10 +126,8 @@ export default function FAQ() {
                 <PiInfo class="text-2xl" /> Can I submit my own review?
               </summary>
               <p class="pl-8">
-                Yes! <a href="/auth/sign-in">Sign in</a>{" "}
-                or create an account, then visit any{" "}
-                <a href="/devices">device page</a>{" "}
-                to submit your review and rating.
+                Yes! <a href="/auth/sign-in">Sign in</a> or create an account, then visit any{" "}
+                <a href="/devices">device page</a> to submit your review and rating.
               </p>
             </details>
           </div>
@@ -154,37 +148,31 @@ export default function FAQ() {
           <div class="flex flex-col gap-4">
             <details class="faq-details">
               <summary class="flex items-center gap-2">
-                <PiInfo class="text-2xl" />{"  "}
-                How do I search for a specific device?
+                <PiInfo class="text-2xl" />{"  "}How do I search for a specific device?
               </summary>
               <p class="pl-8">
                 <ul>
                   <li>
                     <strong>Quick:</strong>{" "}
-                    You can use the search bar in the top menu for a quick
-                    search.
+                    You can use the search bar in the top menu for a quick search.
                   </li>
                   <li>
                     <strong>
                       <a href="/devices">Advanced</a>
                     </strong>:{" "}
-                    You can also use the filters and sorting options to narrow
-                    down devices by price, release year, brand, and more in the
-                    {" "}
-                    device catalog.
+                    You can also use the filters and sorting options to narrow down devices by
+                    price, release year, brand, and more in the device catalog.
                   </li>
                 </ul>
               </p>
             </details>
             <details class="faq-details">
               <summary class="flex items-center gap-2">
-                <PiInfo class="text-2xl" />{" "}
-                Can I filter devices by price or specs?
+                <PiInfo class="text-2xl" /> Can I filter devices by price or specs?
               </summary>
               <p class="pl-8">
-                Yes, use the filters and sorting options to narrow down devices
-                by price, release year, brand, and more in the{" "}
-                <a href="/devices">device catalog</a>.
+                Yes, use the filters and sorting options to narrow down devices by price, release
+                year, brand, and more in the <a href="/devices">device catalog</a>.
               </p>
             </details>
             <details class="faq-details">
@@ -192,12 +180,12 @@ export default function FAQ() {
                 <PiInfo class="text-2xl" /> What are the most popular brands?
               </summary>
               <p class="pl-8">
-                Popular brands include{" "}
-                <a href="/devices?tags=anbernic">Anbernic</a>,{" "}
+                Popular brands include <a href="/devices?tags=anbernic">Anbernic</a>,{" "}
                 <a href="/devices?tags=miyoo-bittboy">Miyoo</a>,{" "}
                 <a href="/devices?tags=ayaneo">Ayaneo</a>,{" "}
-                <a href="/devices?tags=powkiddy">Powkiddy</a>, and others.
-                Browse all brands in the <a href="/devices">catalog</a>.
+                <a href="/devices?tags=powkiddy">Powkiddy</a>, and others. Browse all brands in the
+                {" "}
+                <a href="/devices">catalog</a>.
               </p>
             </details>
           </div>
@@ -222,8 +210,8 @@ export default function FAQ() {
               </summary>
               <p class="pl-8">
                 Use our <a href="/compare">comparison tool</a>{" "}
-                to select and compare technical specs, performance, and user
-                reviews of different retro handhelds.
+                to select and compare technical specs, performance, and user reviews of different
+                retro handhelds.
               </p>
             </details>
             <details class="faq-details">
@@ -232,11 +220,9 @@ export default function FAQ() {
               </summary>
               <div class="pl-8">
                 <p>
-                  The ranking is based on all relevant properties of the
-                  devices.<br />
-                  Every property is given a score and placed into a category.
-                  The categories are then weighted and summed up to get the
-                  final results.<br />
+                  The ranking is based on all relevant properties of the devices.<br />
+                  Every property is given a score and placed into a category. The categories are
+                  then weighted and summed up to get the final results.<br />
                   <strong>Category weights:</strong>
                   <div
                     style={{

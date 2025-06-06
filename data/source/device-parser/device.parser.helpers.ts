@@ -78,8 +78,7 @@ const OS_CONFIGS: Record<string, OsConfig> = {
   },
   "analogue os": {
     icon: "ph-code",
-    url:
-      "https://www.analogue.co/announcements/analogue-os-is-now-product-specific",
+    url: "https://www.analogue.co/announcements/analogue-os-is-now-product-specific",
     name: "AnalogueOS",
   },
   retroarch: {
@@ -154,9 +153,7 @@ export function getPricingCategory(priceNumber: number): string {
 }
 
 export function getPriceCurrency(priceText: string): string {
-  const symbol = Object.keys(CURRENCY_SYMBOLS).find((symbol) =>
-    priceText.includes(symbol)
-  );
+  const symbol = Object.keys(CURRENCY_SYMBOLS).find((symbol) => priceText.includes(symbol));
   return symbol ? CURRENCY_SYMBOLS[symbol] : "?";
 }
 

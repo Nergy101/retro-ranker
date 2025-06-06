@@ -47,8 +47,7 @@ export function CollectionCard(
             </p>
           </header>
           <p>
-            Are you sure you want to delete this collection? This action cannot
-            be undone.
+            Are you sure you want to delete this collection? This action cannot be undone.
           </p>
           <footer
             style={{
@@ -96,10 +95,8 @@ export function CollectionCard(
             {collection.description === "" ? <br /> : collection.description}
           </h4>
           <p style={{ fontSize: "0.8rem" }}>
-            Created: {new Date(collection.created).toLocaleDateString()}{" "}
-            | Last updated: {new Date(collection.updated).toLocaleDateString()}
-            {" "}
-            | {collection.devices.length}{" "}
+            Created: {new Date(collection.created).toLocaleDateString()} | Last updated:{" "}
+            {new Date(collection.updated).toLocaleDateString()} | {collection.devices.length}{" "}
             {collection.devices.length === 1 ? "device" : "devices"}
           </p>
         </hgroup>

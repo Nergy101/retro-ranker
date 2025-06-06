@@ -61,9 +61,7 @@ export function DevicesPerRatingBarChart({ devices }: BarChartProps) {
     }, {} as Record<string, number>);
 
     // Sort brands by their total number of devices in descending order
-    const sortedBrands = [...uniqueBrands].sort((a, b) =>
-      brandTotals[b] - brandTotals[a]
-    );
+    const sortedBrands = [...uniqueBrands].sort((a, b) => brandTotals[b] - brandTotals[a]);
 
     // Convert to Chart.js dataset format with sorted brands
     return sortedBrands.map((brand) => ({

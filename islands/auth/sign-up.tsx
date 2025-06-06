@@ -136,9 +136,7 @@ export function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
 
     // Reset validation for empty fields
     setNicknameValid(
-      nicknameInput.value.trim()
-        ? nicknameInput.value.trim().length >= 3
-        : null,
+      nicknameInput.value.trim() ? nicknameInput.value.trim().length >= 3 : null,
     );
     setPasswordValid(
       passwordInput.value ? passwordInput.value.length >= 8 : null,

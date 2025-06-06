@@ -25,8 +25,7 @@ export default function ErrorPage(props: PageProps) {
               The page you were looking for doesn't exist.
             </span>
             <h2>
-              Return to our homepage to browse retro gaming handhelds and
-              comparison tools.
+              Return to our homepage to browse retro gaming handhelds and comparison tools.
             </h2>
           </div>
         </article>

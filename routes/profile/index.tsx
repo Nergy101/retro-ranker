@@ -143,8 +143,7 @@ export default async function ProfilePage(
             <div class="empty-favorites-message">
               <p>You haven't favorited any devices yet.</p>
               <p>
-                Browse devices and click the heart icon to add them to your
-                favorites!
+                Browse devices and click the heart icon to add them to your favorites!
               </p>
             </div>
           )}

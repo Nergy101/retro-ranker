@@ -161,9 +161,7 @@ async function insertDevices(
     if (device.brand.raw === "Unknown") {
       console.log(
         chalk.yellow(
-          `⏭️  Skipping incomplete device: ${
-            chalk.dim(device.name.raw || "Unknown")
-          }`,
+          `⏭️  Skipping incomplete device: ${chalk.dim(device.name.raw || "Unknown")}`,
         ),
       );
       skipCount++;
@@ -215,9 +213,7 @@ async function insertDevices(
           JSON.stringify(device) == JSON.stringify(existingDevice.deviceData)
         ) {
           console.log(chalk.yellow(
-            `⏭️  Skipping device without changes: ${
-              chalk.dim(device.name.raw || "Unknown")
-            }`,
+            `⏭️  Skipping device without changes: ${chalk.dim(device.name.raw || "Unknown")}`,
           ));
           continue;
         }
@@ -231,9 +227,7 @@ async function insertDevices(
         updatedCount++;
         console.log(
           chalk.blue(
-            `↻ Updated: ${chalk.bold(device.brand.sanitized)} ${
-              chalk.bold(device.name.sanitized)
-            }`,
+            `↻ Updated: ${chalk.bold(device.brand.sanitized)} ${chalk.bold(device.name.sanitized)}`,
           ),
         );
       } else {
@@ -271,9 +265,7 @@ async function insertDevices(
         createdCount++;
         console.log(
           chalk.green(
-            `✓ Created: ${chalk.bold(device.brand.sanitized)} ${
-              chalk.bold(device.name.sanitized)
-            }`,
+            `✓ Created: ${chalk.bold(device.brand.sanitized)} ${chalk.bold(device.name.sanitized)}`,
           ),
         );
       }
@@ -281,9 +273,7 @@ async function insertDevices(
       errorCount++;
       console.error(
         chalk.red(
-          `✕ Error processing: ${
-            chalk.bold(device.name.sanitized || "Unknown device")
-          }`,
+          `✕ Error processing: ${chalk.bold(device.name.sanitized || "Unknown device")}`,
         ),
       );
       console.error(chalk.dim(error));

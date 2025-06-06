@@ -1,7 +1,6 @@
 import { PiPaperPlaneRight } from "@preact-icons/pi";
 import { useState } from "preact/hooks";
 
-
 export function SuggestionForm() {
   const [suggestion, setSuggestion] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -65,8 +64,7 @@ export function SuggestionForm() {
             name="suggestion"
             placeholder="Share your ideas, feature requests, or feedback..."
             value={suggestion}
-            onInput={(e) =>
-              setSuggestion((e.target as HTMLTextAreaElement).value)}
+            onInput={(e) => setSuggestion((e.target as HTMLTextAreaElement).value)}
             required
             rows={4}
           />

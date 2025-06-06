@@ -37,8 +37,7 @@ export default async function UpdateCollection(
     return <div>Collection not found</div>;
   }
 
-  const existingCollectionData =
-    existingCollection as unknown as DeviceCollection;
+  const existingCollectionData = existingCollection as unknown as DeviceCollection;
   const existingCollectionDevices = existingCollection.expand
     ?.devices as Device[];
 

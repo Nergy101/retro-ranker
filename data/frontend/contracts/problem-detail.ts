@@ -66,20 +66,15 @@ export const ProblemTypes = {
   UNAUTHORIZED: "https://datatracker.ietf.org/doc/html/rfc7235#section-3.1",
   FORBIDDEN: "https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.3",
   NOT_FOUND: "https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.4",
-  METHOD_NOT_ALLOWED:
-    "https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.5",
+  METHOD_NOT_ALLOWED: "https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.5",
   NOT_ACCEPTABLE: "https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.6",
   CONFLICT: "https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.8",
   GONE: "https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.9",
-  UNPROCESSABLE_ENTITY:
-    "https://datatracker.ietf.org/doc/html/rfc4918#section-11.2",
+  UNPROCESSABLE_ENTITY: "https://datatracker.ietf.org/doc/html/rfc4918#section-11.2",
   TOO_MANY_REQUESTS: "https://datatracker.ietf.org/doc/html/rfc6585#section-4",
-  INTERNAL_SERVER_ERROR:
-    "https://datatracker.ietf.org/doc/html/rfc7231#section-6.6.1",
-  NOT_IMPLEMENTED:
-    "https://datatracker.ietf.org/doc/html/rfc7231#section-6.6.2",
-  SERVICE_UNAVAILABLE:
-    "https://datatracker.ietf.org/doc/html/rfc7231#section-6.6.4",
+  INTERNAL_SERVER_ERROR: "https://datatracker.ietf.org/doc/html/rfc7231#section-6.6.1",
+  NOT_IMPLEMENTED: "https://datatracker.ietf.org/doc/html/rfc7231#section-6.6.2",
+  SERVICE_UNAVAILABLE: "https://datatracker.ietf.org/doc/html/rfc7231#section-6.6.4",
 };
 
 /**

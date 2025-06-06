@@ -19,9 +19,7 @@ export function DeviceComparisonForm({
   const allDeviceRawNames = allDevices.map((device) => device.name.raw);
 
   const deviceNameIsInvalid = (deviceName: string) =>
-    !allDeviceRawNames.some((name) =>
-      name.toLowerCase() === deviceName.toLowerCase()
-    );
+    !allDeviceRawNames.some((name) => name.toLowerCase() === deviceName.toLowerCase());
 
   const [isLoading1, setIsLoading1] = useState(false);
   const [isLoading2, setIsLoading2] = useState(false);
@@ -82,9 +80,7 @@ export function DeviceComparisonForm({
     setSuggestionsA(suggestions);
 
     const device =
-      allDevices.find((device) =>
-        device.name.raw.toLowerCase() === queryA.toLowerCase()
-      ) ?? null;
+      allDevices.find((device) => device.name.raw.toLowerCase() === queryA.toLowerCase()) ?? null;
 
     setSelectedDeviceA(device);
   };
@@ -95,9 +91,7 @@ export function DeviceComparisonForm({
     setSuggestionsB(suggestions);
 
     const device =
-      allDevices.find((device) =>
-        device.name.raw.toLowerCase() === queryB.toLowerCase()
-      ) ?? null;
+      allDevices.find((device) => device.name.raw.toLowerCase() === queryB.toLowerCase()) ?? null;
 
     setSelectedDeviceB(device);
   };
@@ -354,8 +348,7 @@ export function DeviceComparisonForm({
         </button>
         <button
           class="secondary"
-          onClick={() =>
-            handleExampleComparison("retroid-pocket-5", "rg-406h", 2)}
+          onClick={() => handleExampleComparison("retroid-pocket-5", "rg-406h", 2)}
           type="submit"
           style={{
             display: "flex",
@@ -370,8 +363,7 @@ export function DeviceComparisonForm({
         </button>
         <button
           class="secondary"
-          onClick={() =>
-            handleExampleComparison("ayaneo-pocket-evo", "odin-2-portal", 3)}
+          onClick={() => handleExampleComparison("ayaneo-pocket-evo", "odin-2-portal", 3)}
           type="submit"
           style={{
             display: "flex",

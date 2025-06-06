@@ -1,11 +1,4 @@
-import {
-  PiCookie,
-  PiDatabase,
-  PiListChecks,
-  PiQuestion,
-  PiStack,
-  PiUsers,
-} from "@preact-icons/pi";
+import { PiCookie, PiDatabase, PiListChecks, PiQuestion, PiStack, PiUsers } from "@preact-icons/pi";
 import { FreshContext } from "fresh";
 import { CustomFreshState } from "../../interfaces/state.ts";
 import { VersionTag } from "../../components/shared/version-tag.tsx";
@@ -109,8 +102,8 @@ export default function page() {
               opacity: 0.95,
             }}
           >
-            Learn about our mission, our partnership with the Retro Handhelds
-            community, and what makes this project special.
+            Learn about our mission, our partnership with the Retro Handhelds community, and what
+            makes this project special.
           </p>
         </div>
       </section>
@@ -125,10 +118,9 @@ export default function page() {
             </div>
           </summary>
           <p>
-            Retro Ranker is a comprehensive database and comparison platform
-            dedicated to retro handheld gaming devices. Our mission is to help
-            enthusiasts rank, discover and compare various retro gaming
-            handhelds, making it easier to find the perfect device for your
+            Retro Ranker is a comprehensive database and comparison platform dedicated to retro
+            handheld gaming devices. Our mission is to help enthusiasts rank, discover and compare
+            various retro gaming handhelds, making it easier to find the perfect device for your
             gaming needs.
           </p>
         </details>
@@ -150,9 +142,7 @@ export default function page() {
                 height="32"
               />
               <span>
-                &nbsp;<b>Deno</b> - A secure runtime for <b>JavaScript</b> and
-                {" "}
-                <b>TypeScript</b>
+                &nbsp;<b>Deno</b> - A secure runtime for <b>JavaScript</b> and <b>TypeScript</b>
               </span>
             </li>
             <li class="flex items-center gap-4">
@@ -177,8 +167,7 @@ export default function page() {
                 height="32"
               />
               <span>
-                &nbsp;<b>PocketBase</b> - A <b>lightweight</b>, open-source{" "}
-                <b>database</b>
+                &nbsp;<b>PocketBase</b> - A <b>lightweight</b>, open-source <b>database</b>
               </span>
             </li>
             <li class="flex items-center gap-4">
@@ -190,8 +179,7 @@ export default function page() {
                 height="32"
               />
               <span>
-                &nbsp;<b>PicoCSS</b> - <b>Minimal CSS Framework</b>{" "}
-                for semantic HTML
+                &nbsp;<b>PicoCSS</b> - <b>Minimal CSS Framework</b> for semantic HTML
               </span>
             </li>
             <li class="flex items-center gap-4">
@@ -203,8 +191,7 @@ export default function page() {
                 height="32"
               />
               <span>
-                &nbsp;<b>Chart.js</b> - JavaScript library for building{" "}
-                <b>charts</b>
+                &nbsp;<b>Chart.js</b> - JavaScript library for building <b>charts</b>
               </span>
             </li>
             <li class="flex items-center gap-4">
@@ -261,8 +248,7 @@ export default function page() {
               Side-by-side <b>device comparisons</b>
             </li>
             <li>
-              <b>Charts and graphs</b>{" "}
-              to visualize device performance and specifications
+              <b>Charts and graphs</b> to visualize device performance and specifications
             </li>
           </ul>
         </details>
@@ -307,8 +293,7 @@ export default function page() {
             </div>
           </summary>
           <p>
-            Retro Ranker's database is powered by the incredible work of the
-            {" "}
+            Retro Ranker's database is powered by the incredible work of the{" "}
             <a
               href="https://retro-handhelds.com"
               target="_blank"
@@ -326,11 +311,10 @@ export default function page() {
             >
               Handhelds Overview
             </a>
-            , which serves as the foundation for our device specifications and
-            performance ratings.
+            , which serves as the foundation for our device specifications and performance ratings.
             <br />
-            By using this data, we ensure our data remains accurate and
-            up-to-date with the latest developments in the retro handheld scene.
+            By using this data, we ensure our data remains accurate and up-to-date with the latest
+            developments in the retro handheld scene.
           </p>
           <section>
             <VersionTag />
@@ -345,10 +329,9 @@ export default function page() {
             </div>
           </summary>
           <p>
-            We encourage you to join the Retro Handhelds community to contribute
-            to this growing knowledge base. Their collective expertise and
-            hands-on experience with these devices help maintain the accuracy
-            and reliability of our information.
+            We encourage you to join the Retro Handhelds community to contribute to this growing
+            knowledge base. Their collective expertise and hands-on experience with these devices
+            help maintain the accuracy and reliability of our information.
             <br />
             <br />
             Visit their{" "}
@@ -372,9 +355,8 @@ export default function page() {
               Umami
             </a>
             , a privacy-focused analytics tool, to track usage.{" "}
-            <br />It's open source and self-hosted, all data collection is
-            anonymous and GDPR compliant. Hence why we don't need a cookie
-            banner!
+            <br />It's open source and self-hosted, all data collection is anonymous and GDPR
+            compliant. Hence why we don't need a cookie banner!
           </p>
         </details>
       </div>

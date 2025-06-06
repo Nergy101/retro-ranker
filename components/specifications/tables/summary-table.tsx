@@ -44,11 +44,8 @@ export function SummaryTable({ device }: SummaryTableProps) {
                   gap: "0.25rem",
                 }}
               >
-                {cpu.names.map((name, nameIndex) => (
-                  <span key={nameIndex}>{name}</span>
-                ))}
-                {cpu.cores} cores ({cpu.threads} threads) @{" "}
-                {cpu.clockSpeed?.max}
+                {cpu.names.map((name, nameIndex) => <span key={nameIndex}>{name}</span>)}
+                {cpu.cores} cores ({cpu.threads} threads) @ {cpu.clockSpeed?.max}
                 {cpu.clockSpeed?.unit}
               </div>
             ))}
@@ -111,8 +108,7 @@ export function SummaryTable({ device }: SummaryTableProps) {
               ? device.battery?.capacity + " " +
                 device.battery?.unit
               : DeviceService.getPropertyIconByCharacter(null)}
-            Charge port: {device.chargePort?.type}{"  "}
-            {device.chargePort?.numberOfPorts &&
+            Charge port: {device.chargePort?.type}{"  "}{device.chargePort?.numberOfPorts &&
                 device.chargePort?.numberOfPorts > 1
               ? `${device.chargePort?.numberOfPorts}x`
               : ""}

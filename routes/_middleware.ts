@@ -133,9 +133,7 @@ export async function handler(ctx: FreshContext) {
       span.setStatus({ code: 0 }); // OK
       return response;
     } catch (error: unknown) {
-      const errorMessage = error instanceof Error
-        ? error.message
-        : "Unknown error";
+      const errorMessage = error instanceof Error ? error.message : "Unknown error";
       span.setStatus({ code: 2, message: errorMessage }); // ERROR
       if (shouldLogVisit(path)) {
         logJson("error", "Page Visit Error", { path, error: errorMessage });

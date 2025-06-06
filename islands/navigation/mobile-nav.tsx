@@ -84,9 +84,7 @@ export function MobileNav(
     setSuggestions(searchDevices(value, allDevices));
 
     setSelectedDevice(
-      allDevices.find((device) =>
-        device.name.raw.toLowerCase() === value.toLowerCase()
-      ) ?? null,
+      allDevices.find((device) => device.name.raw.toLowerCase() === value.toLowerCase()) ?? null,
     );
   };
 

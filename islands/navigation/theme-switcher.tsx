@@ -17,8 +17,7 @@ export function ThemeSwitcher(
       setTheme(savedTheme as "light" | "dark");
       document.documentElement.setAttribute("data-theme", savedTheme);
     } else {
-      const prefersDark =
-        globalThis.matchMedia("(prefers-color-scheme: dark)").matches;
+      const prefersDark = globalThis.matchMedia("(prefers-color-scheme: dark)").matches;
       setTheme(prefersDark ? "dark" : "light");
       document.documentElement.setAttribute("data-theme", theme);
     }

@@ -1,9 +1,4 @@
-import {
-  PiChatText,
-  PiFileText,
-  PiGithubLogo,
-  PiShield,
-} from "@preact-icons/pi";
+import { PiChatText, PiFileText, PiGithubLogo, PiShield } from "@preact-icons/pi";
 import { VersionTag } from "./shared/version-tag.tsx";
 
 export function Footer() {

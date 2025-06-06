@@ -78,9 +78,7 @@ export function PaginationNav({
         <span>
           (
           {(pageNumber - 1 == 0) ? 1 : ((pageNumber - 1) * pageSize) + 1}-
-          {totalResults < pageNumber * pageSize
-            ? totalResults
-            : pageNumber * pageSize}
+          {totalResults < pageNumber * pageSize ? totalResults : pageNumber * pageSize}
           &nbsp;of {totalResults}
           )
         </span>

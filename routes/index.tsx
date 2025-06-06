@@ -1,10 +1,4 @@
-import {
-  PiCalendar,
-  PiChartLine,
-  PiGitDiff,
-  PiMagnifyingGlass,
-  PiScroll,
-} from "@preact-icons/pi";
+import { PiCalendar, PiChartLine, PiGitDiff, PiMagnifyingGlass, PiScroll } from "@preact-icons/pi";
 import { FreshContext, page } from "fresh";
 import { DeviceCardMedium } from "../components/cards/device-card-medium.tsx";
 import { SeeMoreCard } from "../components/cards/see-more-card.tsx";
@@ -22,8 +16,7 @@ export const handler = {
   async GET(ctx: FreshContext) {
     (ctx.state as CustomFreshState).seo = {
       title: "Retro Ranker - Home",
-      description:
-        "Retro Ranker - Home to browse and compare retro gaming handhelds",
+      description: "Retro Ranker - Home to browse and compare retro gaming handhelds",
       keywords:
         "retro gaming, handheld consoles, emulation devices, retro handhelds, gaming comparison, Anbernic, Miyoo, retro game emulation, portable gaming systems, retro gaming comparison",
     };
@@ -77,9 +70,7 @@ export const handler = {
         span.setStatus({ code: 0 }); // OK
         return result;
       } catch (error: unknown) {
-        const errorMessage = error instanceof Error
-          ? error.message
-          : "Unknown error";
+        const errorMessage = error instanceof Error ? error.message : "Unknown error";
         span.setStatus({ code: 2, message: errorMessage }); // ERROR
         throw error;
       } finally {
@@ -327,12 +318,11 @@ export default function Home(
                   >
                     <strong>Powkiddy</strong>
                   </a>{" "}
-                  and many more. Whether you need an{" "}
-                  <strong>affordable emulation device</strong> under $100 or a
+                  and many more. Whether you need an <strong>affordable emulation device</strong>
                   {" "}
-                  <strong>premium gaming handheld</strong>{" "}
-                  for modern systems, our comprehensive comparison tools help
-                  you find the perfect device for your needs.
+                  under $100 or a <strong>premium gaming handheld</strong>{" "}
+                  for modern systems, our comprehensive comparison tools help you find the perfect
+                  device for your needs.
                 </p>
                 <div class="index-buttons">
                   <a

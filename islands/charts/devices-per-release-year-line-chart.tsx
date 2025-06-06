@@ -209,8 +209,7 @@ export function DevicesPerReleaseYearLineChart(
           <input
             type="checkbox"
             checked={showTotalDevices}
-            onChange={(e) =>
-              setShowTotalDevices((e.target as HTMLInputElement).checked)}
+            onChange={(e) => setShowTotalDevices((e.target as HTMLInputElement).checked)}
           />
           Show total devices line
         </label>

@@ -29,10 +29,7 @@ import {
   PocketBaseService,
 } from "../../../pocketbase/pocketbase.service.ts";
 import { Device } from "../../contracts/device.model.ts";
-import {
-  EmulationSystem,
-  EmulationSystemOrder,
-} from "../../enums/emulation-system.ts";
+import { EmulationSystem, EmulationSystemOrder } from "../../enums/emulation-system.ts";
 import { personalPicks } from "../../enums/personal-picks.ts";
 import { Cooling } from "../../models/cooling.model.ts";
 import { SystemRating } from "../../models/system-rating.model.ts";
@@ -63,9 +60,7 @@ export class DeviceService {
   }
 
   public async getAllDevices(): Promise<Device[]> {
-    return (await this.pocketBaseService.getAll("devices")).map((device) =>
-      device.deviceData
-    );
+    return (await this.pocketBaseService.getAll("devices")).map((device) => device.deviceData);
   }
 
   public async getAllTags(): Promise<TagModel[]> {
@@ -498,17 +493,13 @@ export class DeviceService {
       };
     }
 
-    const aRatings = systemRatings.filter((rating) =>
-      rating.ratingMark === "A"
-    );
+    const aRatings = systemRatings.filter((rating) => rating.ratingMark === "A");
     if (aRatings.length === 0) {
       return null;
     }
 
     const mostDifficultSystem = aRatings.reduce((prev, current) =>
-      EmulationSystemOrder[prev.system] > EmulationSystemOrder[current.system]
-        ? prev
-        : current
+      EmulationSystemOrder[prev.system] > EmulationSystemOrder[current.system] ? prev : current
     );
 
     return mostDifficultSystem;

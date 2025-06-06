@@ -35,9 +35,7 @@ export function FavoriteButton(props: FavoriteButtonProps) {
 
   return (
     <div
-      data-tooltip={props.isLoggedIn
-        ? "Favorite"
-        : "Log in to favorite devices"}
+      data-tooltip={props.isLoggedIn ? "Favorite" : "Log in to favorite devices"}
       style={{
         textDecoration: "none",
         border: "none",

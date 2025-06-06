@@ -105,9 +105,7 @@ export function DeviceCardLarge({ device }: { device: Device }) {
           }}
         >
           <strong
-            data-tooltip={device.name.normalized != device.name.raw
-              ? device.name.raw
-              : undefined}
+            data-tooltip={device.name.normalized != device.name.raw ? device.name.raw : undefined}
             data-placement="bottom"
           >
             <span style={{ color: "var(--pico-primary)" }}>
@@ -184,9 +182,7 @@ export function DeviceCardLarge({ device }: { device: Device }) {
                 ? "No OS information available"
                 : device.os.list.join(", ")}
             >
-              {device.os.icons.map((icon) =>
-                DeviceService.getOsIconComponent(icon)
-              )}
+              {device.os.icons.map((icon) => DeviceService.getOsIconComponent(icon))}
             </span>
           </div>
         </hgroup>

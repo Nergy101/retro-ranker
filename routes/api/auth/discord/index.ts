@@ -25,9 +25,7 @@ export const handler = {
           protocol = "https:";
         }
         const port = url.port;
-        const fullHost = port
-          ? `${protocol}//${hostname}:${port}`
-          : `${protocol}//${hostname}`;
+        const fullHost = port ? `${protocol}//${hostname}:${port}` : `${protocol}//${hostname}`;
 
         const discordUrl =
           "https://discord.com/oauth2/authorize?client_id=1371560910706966638&response_type=code&redirect_uri=" +
