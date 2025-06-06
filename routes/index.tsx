@@ -3,7 +3,10 @@ import {
   PiChartLine,
   PiGitDiff,
   PiMagnifyingGlass,
+  PiRanking,
   PiScroll,
+  PiSparkle,
+  PiUserCheck,
 } from "@preact-icons/pi";
 import { FreshContext, page } from "fresh";
 import { DeviceCardMedium } from "../components/cards/device-card-medium.tsx";
@@ -150,7 +153,7 @@ export default function Home(
           <section class="home-section">
             <article class="home-section-content">
               <h2 class="home-section-title">
-                {/* <PiSparkle /> New Arrivals */}
+                <PiSparkle /> New Arrivals
               </h2>
               <div class="device-row-grid">
                 {newArrivals.map((device) => (
@@ -176,7 +179,7 @@ export default function Home(
           <section class="home-section">
             <article class="home-section-content">
               <h2 class="home-section-title">
-                {/* <PiCalendarHeart /> Upcoming */}
+                <PiCalendar /> Upcoming
               </h2>
               <div class="device-row-grid">
                 {upcoming.map((device) => (
@@ -202,7 +205,7 @@ export default function Home(
           <section class="home-section">
             <article class="home-section-content">
               <h2 class="home-section-title">
-                {/* <PiUserCheck /> Personal Picks */}
+                <PiUserCheck /> Personal Picks
               </h2>
               <div class="device-row-grid">
                 {personalPicks.map((device) => (
@@ -228,7 +231,7 @@ export default function Home(
           <section class="home-section">
             <article class="home-section-content">
               <h2 class="home-section-title">
-                {/* <PiRanking /> */}
+                <PiRanking /> Bang for your buck
                 <div
                   style={{
                     display: "flex",
@@ -236,8 +239,9 @@ export default function Home(
                     alignItems: "center",
                   }}
                 >
-                  Highly Ranked
-                  <span style={{ fontSize: "0.8rem" }}>($$)</span>
+                  <span style={{ fontSize: "0.8rem" }}>
+                    ($$)
+                  </span>
                 </div>
               </h2>
               <div class="device-row-grid">

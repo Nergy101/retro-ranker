@@ -836,7 +836,7 @@ body.paused-animation::before {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--pico-card-box-shadow);
 }
 
 .device-search-card.active {
@@ -966,7 +966,7 @@ body.paused-animation::before {
 }
 
 .home-section-content {
-  border: 1px solid var(--pico-primary);
+  /* border: 1px solid var(--pico-primary); */
   border-radius: 1rem;
   padding: 1rem;
   margin-bottom: 1rem;
