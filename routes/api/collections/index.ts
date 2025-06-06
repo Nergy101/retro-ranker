@@ -1,6 +1,7 @@
 import { User } from "../../../data/frontend/contracts/user.contract.ts";
 import { createSuperUserPocketBaseService } from "../../../data/pocketbase/pocketbase.service.ts";
 import { FreshContext } from "fresh";
+import { CustomFreshState } from "../../../interfaces/state.ts";
 
 export const handler = {
   async POST(ctx: FreshContext) {
@@ -31,7 +32,7 @@ export const handler = {
       return new Response("Missing name", { status: 400 });
     }
 
-    const user = ctx.state.user as User | null;
+    const user = (ctx.state as CustomFreshState).user as User | null;
     if (!user) {
       return new Response("Unauthorized", { status: 401 });
     }

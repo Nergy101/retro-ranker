@@ -1,7 +1,6 @@
 import { PiPaperPlaneRight } from "@preact-icons/pi";
 import { useState } from "preact/hooks";
 
-
 export function SuggestionForm() {
   const [suggestion, setSuggestion] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);

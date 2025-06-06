@@ -1,6 +1,7 @@
 import { User } from "../../../data/frontend/contracts/user.contract.ts";
 import { createSuperUserPocketBaseService } from "../../../data/pocketbase/pocketbase.service.ts";
 import { FreshContext } from "fresh";
+import { CustomFreshState } from "../../../interfaces/state.ts";
 
 export const handler = {
   async PUT(ctx: FreshContext) {
@@ -28,7 +29,7 @@ export const handler = {
       return new Response("Collection not found", { status: 404 });
     }
 
-    const user = ctx.state.user as User | null;
+    const user = (ctx.state as CustomFreshState).user as User | null;
     if (collection.owner !== user?.id) {
       return new Response("Unauthorized", { status: 401 });
     }
@@ -42,7 +43,7 @@ export const handler = {
     return new Response(JSON.stringify(updatedCollection), { status: 200 });
   },
 
-  async DELETE(ctx) {
+  async DELETE(ctx: FreshContext) {
     const { id } = ctx.params;
 
     const pbService = await createSuperUserPocketBaseService(
@@ -57,7 +58,7 @@ export const handler = {
       return new Response("Collection not found", { status: 404 });
     }
 
-    const user = ctx.state.user as User | null;
+    const user = (ctx.state as CustomFreshState).user as User | null;
     if (collection.owner !== user?.id) {
       return new Response("Unauthorized", { status: 401 });
     }

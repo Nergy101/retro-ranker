@@ -10,8 +10,7 @@ export const handler = {
   async GET(ctx: FreshContext) {
     (ctx.state as CustomFreshState).seo = {
       title: "Retro Ranker - Leaderboard",
-      description:
-        "Retro Ranker - Leaderboard - Top Rated Handhelds",
+      description: "Retro Ranker - Leaderboard - Top Rated Handhelds",
       keywords:
         "leaderboard, top rated handhelds, retro gaming, handheld devices, user reviews",
     };

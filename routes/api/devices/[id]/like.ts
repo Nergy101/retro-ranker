@@ -55,7 +55,7 @@ export const handler = {
     }
   },
 
-  async DELETE(ctx) {
+  async DELETE(ctx: FreshContext) {
     const req = ctx.req;
     const deviceId = ctx.params.id;
     const cookie = req.headers.get("cookie");

@@ -234,7 +234,8 @@ export const handler = {
     );
 
     (ctx.state as CustomFreshState).seo = {
-      title: `Retro Ranker - ${device?.name.raw} - ${device?.brand.raw} Gaming Handheld`,
+      title:
+        `Retro Ranker - ${device?.name.raw} - ${device?.brand.raw} Gaming Handheld`,
       description:
         `${device?.name.raw} by ${device?.brand.raw}: ${device?.pricing.category} budget retro gaming handheld with ${
           device?.ram?.sizes?.[0]

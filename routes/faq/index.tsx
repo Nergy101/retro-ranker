@@ -6,8 +6,7 @@ export const handler = {
   GET(ctx: FreshContext) {
     (ctx.state as CustomFreshState).seo = {
       title: "Retro Ranker - FAQ",
-      description:
-        "Frequently Asked Questions (FAQ)",
+      description: "Frequently Asked Questions (FAQ)",
       keywords:
         "retro ranker faq, retro gaming questions, handheld comparison help, device catalog faq, emulation device questions",
     };
