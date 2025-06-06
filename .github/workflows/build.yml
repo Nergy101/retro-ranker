@@ -60,6 +60,7 @@ jobs:
           find static -type f -not -name "*\"*" -exec cp --parents {} dist/ \;
 
           cp main.ts dist/
+          cp dev.ts dist/
           cp utils.ts dist/
 
           cp -r interfaces dist/
