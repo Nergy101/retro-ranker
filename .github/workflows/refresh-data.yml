@@ -10,7 +10,7 @@ on:
       commitMessage:
         description: "The commit message to use"
         required: false
-        default: "Refresh data"
+        default: "🔄 Refresh data"
   schedule:
     - cron: "0 0 * * *" # Runs daily at midnight UTC
 
