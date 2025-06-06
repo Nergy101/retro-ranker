@@ -50,14 +50,18 @@ jobs:
       - name: Copy build artifacts
         run: |
           cp -r _fresh dist/
+          
           # Create filtered static directory
           mkdir -p dist/static
           # Copy static files while filtering out those with invalid characters
           find static -type f -not -name "*\"*" -exec cp --parents {} dist/ \;
+
           cp main.ts dist/
           cp utils.ts dist/
-          cp interfaces dist/
-          cp data dist/
+
+          cp -r interfaces dist/
+          cp -r data dist/
+
           cp deno.jsonc dist/
 
       # Upload the build artifacts for potential future use
