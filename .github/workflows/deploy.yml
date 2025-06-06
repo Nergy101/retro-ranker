@@ -3,7 +3,7 @@ name: 🚀 Deploy Docker Compose
 on:
   workflow_dispatch:
   workflow_run:
-    workflows: ["Build Check"]
+    workflows: ["🛠️ Build Check"]
     types:
       - completed
     branches:
