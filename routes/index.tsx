@@ -175,6 +175,43 @@ export default function Home(
             </article>
           </section>
 
+          {/* Highly Rated Section */}
+          <section class="home-section">
+            <article class="home-section-content">
+              <h2 class="home-section-title">
+                <PiRanking /> Bang for your buck
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "0.5rem",
+                    alignItems: "center",
+                  }}
+                >
+                  <span style={{ fontSize: "0.8rem" }}>
+                    ($$)
+                  </span>
+                </div>
+              </h2>
+              <div class="device-row-grid">
+                {highlyRated.map((device) => (
+                  <a
+                    href={`/devices/${device.name.sanitized}`}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <DeviceCardMedium
+                      device={device}
+                      isActive={false}
+                    />
+                  </a>
+                ))}
+                <SeeMoreCard
+                  href="/devices?search=&page=1&tags=mid&sort=highly-ranked"
+                  text="More Highly Ranked"
+                />
+              </div>
+            </article>
+          </section>
+
           {/* Upcoming Section */}
           <section class="home-section">
             <article class="home-section-content">
@@ -222,43 +259,6 @@ export default function Home(
                 <SeeMoreCard
                   href="/devices?filter=personal-picks"
                   text="More Personal Picks"
-                />
-              </div>
-            </article>
-          </section>
-
-          {/* Highly Rated Section */}
-          <section class="home-section">
-            <article class="home-section-content">
-              <h2 class="home-section-title">
-                <PiRanking /> Bang for your buck
-                <div
-                  style={{
-                    display: "flex",
-                    gap: "0.5rem",
-                    alignItems: "center",
-                  }}
-                >
-                  <span style={{ fontSize: "0.8rem" }}>
-                    ($$)
-                  </span>
-                </div>
-              </h2>
-              <div class="device-row-grid">
-                {highlyRated.map((device) => (
-                  <a
-                    href={`/devices/${device.name.sanitized}`}
-                    style={{ textDecoration: "none" }}
-                  >
-                    <DeviceCardMedium
-                      device={device}
-                      isActive={false}
-                    />
-                  </a>
-                ))}
-                <SeeMoreCard
-                  href="/devices?search=&page=1&tags=mid&sort=highly-ranked"
-                  text="More Highly Ranked"
                 />
               </div>
             </article>
