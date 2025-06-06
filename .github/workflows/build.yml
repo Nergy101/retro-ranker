@@ -56,6 +56,8 @@ jobs:
           find static -type f -not -name "*\"*" -exec cp --parents {} dist/ \;
           cp main.ts dist/
           cp utils.ts dist/
+          cp interfaces dist/
+          cp data dist/
           cp deno.jsonc dist/
 
       # Upload the build artifacts for potential future use
