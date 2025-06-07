@@ -90,12 +90,20 @@ export const handler = {
       const allTags = await deviceService.getAllTags();
       const selectedTagSlugs = selectedTags.map((tag) => tag.slug);
 
-      const availableTags = allTags.filter(async (tag) => {
+      // Get all unique tags from the currently filtered devices
+      const availableTagSlugs = new Set(
+        allDevicesWithTags.flatMap(device => 
+          device.tags.map(tag => tag.slug)
+        )
+      );
+
+      const availableTags = allTags.filter(tag => {
         // Exclude already selected tags
         if (selectedTagSlugs.includes(tag.slug)) {
           return false;
         }
-        return true;
+        // Only include tags that exist on the currently filtered devices
+        return availableTagSlugs.has(tag.slug);
       });
 
       return availableTags;

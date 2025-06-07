@@ -1,4 +1,4 @@
-import { PiTag } from "@preact-icons/pi";
+import { PiTag, PiX } from "@preact-icons/pi";
 import { useEffect, useState } from "preact/hooks";
 import { FilterTag } from "../../components/shared/filter-tag.tsx";
 import {
@@ -80,6 +80,13 @@ export function TagTypeahead(
   const getFriendlyTagName = (type: string) => {
     return TAG_FRIENDLY_NAMES[type as keyof typeof TAG_FRIENDLY_NAMES] ?? type;
   };
+
+  const removeTagsUrl = () => {
+    const newSearchParams = new URLSearchParams(currentSearchParams);
+    newSearchParams.delete("tags");
+    return `${baseUrl}/devices?${newSearchParams.toString()}`;
+  };
+
   const getTagsHref = (
     tag: TagModel,
     type: "add" | "remove",
@@ -163,8 +170,11 @@ export function TagTypeahead(
         {selectedTags.length > 0
           ? (
             <>
-              <h4 style={{ textAlign: "center" }}>
-                Selected tags
+              <h4 style={{ textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5em" }}>
+                Selected tags{" "}
+                <a href={removeTagsUrl()} data-tooltip="Clear all tags">
+                  <PiX />
+                </a>
               </h4>
               <div class="tags">
                 {selectedTags.map((tag) => (
