@@ -170,7 +170,15 @@ export function TagTypeahead(
         {selectedTags.length > 0
           ? (
             <>
-              <h4 style={{ textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5em" }}>
+              <h4
+                style={{
+                  textAlign: "center",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "0.5em",
+                }}
+              >
                 Selected tags{" "}
                 <a href={removeTagsUrl()} data-tooltip="Clear all tags">
                   <PiX />

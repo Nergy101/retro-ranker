@@ -92,12 +92,12 @@ export const handler = {
 
       // Get all unique tags from the currently filtered devices
       const availableTagSlugs = new Set(
-        allDevicesWithTags.flatMap(device => 
-          device.tags.map(tag => tag.slug)
-        )
+        allDevicesWithTags.flatMap((device) =>
+          device.tags.map((tag) => tag.slug)
+        ),
       );
 
-      const availableTags = allTags.filter(tag => {
+      const availableTags = allTags.filter((tag) => {
         // Exclude already selected tags
         if (selectedTagSlugs.includes(tag.slug)) {
           return false;
