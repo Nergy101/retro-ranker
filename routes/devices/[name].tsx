@@ -441,7 +441,7 @@ export default function DeviceDetail(ctx: FreshContext) {
                 : (
                   <span
                     style={{ display: "flex" }}
-                    data-tooltip="No pricing information available"
+                    data-tooltip="No pricing available"
                   >
                     <CurrencyIcon currencyCode="USD" />
                     <PiQuestion />

@@ -170,7 +170,7 @@ export function DeviceCardMedium(
             : (
               <span
                 style={{ display: "flex", fontSize: "1rem" }}
-                data-tooltip="No pricing information available"
+                data-tooltip="No pricing available"
               >
                 <CurrencyIcon currencyCode="USD" />
                 <PiQuestion />
