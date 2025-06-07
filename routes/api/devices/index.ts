@@ -15,7 +15,7 @@ export const handler = {
       | "mid"
       | "high"
       | "all";
-    const sortBy = params.get("sortBy") as
+    const sortBy = params.get("sort") as
       | "all"
       | "highly-ranked"
       | "new-arrivals"

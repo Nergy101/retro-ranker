@@ -141,6 +141,7 @@ export function DeviceSearchForm(
               <option value="new-arrivals">Newest to Oldest</option>
               <option value="high-low-price">Expensive to Cheapest</option>
               <option value="low-high-price">Cheapest to Expensive</option>
+              <option value="highly-ranked">Highest Ranked</option>
               <option value="alphabetical">A to Z</option>
               <option value="reverse-alphabetical">Z to A</option>
             </select>
@@ -190,6 +191,7 @@ export function DeviceSearchForm(
           <option value="new-arrivals">Newest to Oldest</option>
           <option value="high-low-price">Expensive to Cheapest</option>
           <option value="low-high-price">Cheapest to Expensive</option>
+          <option value="highly-ranked">Highest Ranked</option>
           <option value="alphabetical">A to Z</option>
           <option value="reverse-alphabetical">Z to A</option>
         </select>

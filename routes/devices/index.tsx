@@ -39,7 +39,8 @@ export const handler = {
       | "high-low-price"
       | "low-high-price"
       | "alphabetical"
-      | "reverse-alphabetical" || "new-arrivals";
+      | "reverse-alphabetical"
+      | "highly-ranked";
     const filter = searchParams.get("filter") || "all";
 
     // Layout and pagination

@@ -205,7 +205,7 @@ export default function Home(
                   </a>
                 ))}
                 <SeeMoreCard
-                  href="/devices?search=&page=1&tags=mid&sort=highly-ranked"
+                  href="/devices?tags=mid&sort=highly-ranked"
                   text="More Highly Ranked"
                 />
               </div>
@@ -231,7 +231,7 @@ export default function Home(
                   </a>
                 ))}
                 <SeeMoreCard
-                  href="/devices?filter=upcoming"
+                  href="/devices?tags=upcoming"
                   text="More Upcoming"
                 />
               </div>
@@ -257,7 +257,7 @@ export default function Home(
                   </a>
                 ))}
                 <SeeMoreCard
-                  href="/devices?filter=personal-picks"
+                  href="/devices?tags=personal-pick"
                   text="More Personal Picks"
                 />
               </div>

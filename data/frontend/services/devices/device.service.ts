@@ -133,7 +133,7 @@ export class DeviceService {
         sortString = "-deviceData.released.mentionedDate";
         break;
       case "highly-ranked":
-        sortString = "-deviceData.totalRating";
+        sortString = "-totalRating";
         break;
       case "alphabetical":
         sortString = "deviceData.name.raw";
@@ -405,6 +405,7 @@ export class DeviceService {
       | "new-arrivals"
       | "high-low-price"
       | "low-high-price"
+      | "highly-ranked"
       | "alphabetical"
       | "reverse-alphabetical"
       | undefined,
@@ -439,6 +440,9 @@ export class DeviceService {
         break;
       case "low-high-price":
         sortString = "deviceData.pricing.average";
+        break;
+      case "highly-ranked":
+        sortString = "-totalRating";
         break;
       default:
         sortString = "-deviceData.released.mentionedDate";
