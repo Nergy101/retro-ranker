@@ -128,7 +128,9 @@ export default function Compare(ctx: FreshContext) {
         <div>
           <details>
             <summary class="flex">
-              <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+              <div
+                style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
+              >
                 <PiChartLine /> Show ranking chart
               </div>
             </summary>
