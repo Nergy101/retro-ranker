@@ -1,6 +1,6 @@
 import { useEffect, useState } from "preact/hooks";
 import { EmulationSystemShort } from "../../data/frontend/enums/emulation-system.ts";
-import { SystemRating } from "../../data/frontend/models/system-rating.model.ts";
+import { SystemRating } from "@/models/mod.ts";
 import { IS_BROWSER } from "fresh/runtime";
 
 interface RatingInfoProps {

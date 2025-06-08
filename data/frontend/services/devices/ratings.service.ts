@@ -1,6 +1,6 @@
 import { Device } from "../../contracts/device.model.ts";
 import { EmulationTier } from "../../enums/emulation-tier.ts";
-import { Ranking } from "../../models/ranking.model.ts";
+import { Ranking } from "@/models/mod.ts";
 
 export class RatingsService {
   private static instance: RatingsService;

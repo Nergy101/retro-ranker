@@ -12,8 +12,7 @@ import { DeviceReviewCard } from "../../components/cards/device-review-card.tsx"
 import { DeviceLinks } from "../../components/devices/device-links.tsx";
 import { EmulationPerformance } from "../../components/devices/emulation-performance.tsx";
 import { StarRating } from "../../components/ratings/star-rating.tsx";
-import { CurrencyIcon } from "../../components/shared/currency-icon.tsx";
-import { TagComponent } from "../../components/shared/tag-component.tsx";
+import { CurrencyIcon, TagComponent } from "../../components/shared/mod.ts";
 import { DeviceSpecs } from "../../components/specifications/device-specs.tsx";
 import { SummaryTable } from "../../components/specifications/tables/summary-table.tsx";
 import { CommentContract } from "../../data/frontend/contracts/comment.contract.ts";

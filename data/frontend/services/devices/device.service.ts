@@ -34,9 +34,7 @@ import {
   EmulationSystemOrder,
 } from "../../enums/emulation-system.ts";
 import { personalPicks } from "../../enums/personal-picks.ts";
-import { Cooling } from "../../models/cooling.model.ts";
-import { SystemRating } from "../../models/system-rating.model.ts";
-import { TagModel } from "../../models/tag.model.ts";
+import { Cooling, SystemRating, TagModel } from "@/models/mod.ts";
 import { RatingsService } from "./ratings.service.ts";
 
 export class DeviceService {

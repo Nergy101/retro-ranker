@@ -1,28 +1,30 @@
-import type { DeviceArchitecture } from "../models/architecture.model.ts";
-import { DeviceBattery } from "../models/battery.model.ts";
-import { DeviceBrand } from "../models/brand.model.ts";
-import { DeviceChargePort } from "../models/charge-port.model.ts";
-import { DeviceConnectivity } from "../models/connectivity.model.ts";
-import { DeviceControlConfig } from "../models/controls-config.model.ts";
-import { DeviceControls } from "../models/controls.model.ts";
-import { Cooling } from "../models/cooling.model.ts";
-import { DeviceCpu } from "../models/cpu.model.ts";
-import { DeviceGpu } from "../models/gpu.model.ts";
-import { DeviceImage } from "../models/image.model.ts";
-import { Link } from "../models/link.ts";
-import { DeviceName } from "../models/name.model.ts";
-import { DeviceOs } from "../models/os.model.ts";
-import { DeviceOutputs } from "../models/outputs.model.ts";
-import { DevicePerformance } from "../models/performance.model.ts";
-import { DevicePhysical } from "../models/physical.model.ts";
-import { DevicePricing } from "../models/pricing.model.ts";
-import { DeviceRam } from "../models/ram.model.ts";
-import { DeviceRelease } from "../models/release.model.ts";
-import { DeviceReviews } from "../models/reviews.model.ts";
-import { DeviceScreen } from "../models/screen.model.ts";
-import { DeviceSensors } from "../models/sensors.model.ts";
-import { SystemRating } from "../models/system-rating.model.ts";
-import { TagModel } from "../models/tag.model.ts";
+import {
+  DeviceArchitecture,
+  DeviceBattery,
+  DeviceBrand,
+  DeviceChargePort,
+  DeviceConnectivity,
+  DeviceControlConfig,
+  DeviceControls,
+  Cooling,
+  DeviceCpu,
+  DeviceGpu,
+  DeviceImage,
+  Link,
+  DeviceName,
+  DeviceOs,
+  DeviceOutputs,
+  DevicePerformance,
+  DevicePhysical,
+  DevicePricing,
+  DeviceRam,
+  DeviceRelease,
+  DeviceReviews,
+  DeviceScreen,
+  DeviceSensors,
+  SystemRating,
+  TagModel,
+} from "@/models/mod.ts";
 
 export interface Device {
   id: string; // the id of the device, this is the same as the name.sanitized

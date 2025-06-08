@@ -3,7 +3,7 @@ import { FreshContext } from "fresh";
 import { PiChartLine, PiInfo } from "@preact-icons/pi";
 import { page } from "fresh";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
-import { Ranking } from "../../data/frontend/models/ranking.model.ts";
+import { Ranking } from "@/models/mod.ts";
 import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 import { RatingsService } from "../../data/frontend/services/devices/ratings.service.ts";
 import { CustomFreshState } from "../../interfaces/state.ts";

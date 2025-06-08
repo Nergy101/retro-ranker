@@ -8,7 +8,7 @@ import {
   PiWifiHigh,
 } from "@preact-icons/pi";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
-import { Ranking } from "../../data/frontend/models/ranking.model.ts";
+import { Ranking } from "@/models/mod.ts";
 import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 import { RatingInfo } from "../../islands/devices/rating-info.tsx";
 import { StarRating } from "../ratings/star-rating.tsx";

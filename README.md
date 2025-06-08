@@ -158,6 +158,16 @@ retro-ranker/
 └── main.ts     # Application entry point
 ```
 
+### Using Barrel Exports
+
+Modules inside `data/frontend/models` and `components/shared` can be imported
+via their respective `mod.ts` files:
+
+```ts
+import { DeviceBattery } from "@/models/mod.ts";
+import { TagComponent } from "../components/shared/mod.ts";
+```
+
 ## 🤝 Contributing
 
 Contributions are welcome! To contribute:

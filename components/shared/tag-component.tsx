@@ -1,8 +1,5 @@
 import { PiTag } from "@preact-icons/pi";
-import {
-  TAG_FRIENDLY_NAMES,
-  TagModel,
-} from "../../data/frontend/models/tag.model.ts";
+import { TAG_FRIENDLY_NAMES, TagModel } from "@/models/mod.ts";
 
 export function TagComponent({ tag }: { tag: TagModel }) {
   const slug = tag.slug;

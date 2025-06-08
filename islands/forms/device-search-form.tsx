@@ -1,5 +1,5 @@
 import { useEffect, useState } from "preact/hooks";
-import { TagModel } from "../../data/frontend/models/tag.model.ts";
+import { TagModel } from "@/models/mod.ts";
 import { UmamiService } from "../../data/frontend/services/umami/umami.service.ts";
 
 interface DeviceSearchFormProps {

@@ -47,7 +47,8 @@
     "@cap.js/server": "npm:@cap.js/server@^1.0.15",
     "@cap.js/widget": "npm:@cap.js/widget@^0.1.13",
     "pocketbase": "npm:pocketbase@^0.26.0",
-    "unique-names-generator": "npm:unique-names-generator@^4.7.1"
+    "unique-names-generator": "npm:unique-names-generator@^4.7.1",
+    "@/": "./data/frontend/"
   },
   "compilerOptions": {
     "lib": [

@@ -2,7 +2,7 @@ import { useEffect, useState } from "preact/hooks";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { RatingsService } from "../../data/frontend/services/devices/ratings.service.ts";
 import { FreshChart } from "./fresh-chart.tsx";
-import { Ranking } from "../../data/frontend/models/ranking.model.ts";
+import { Ranking } from "@/models/mod.ts";
 
 interface RadarChartProps {
   devices: Device[];
