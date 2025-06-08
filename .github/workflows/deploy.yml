@@ -1,4 +1,4 @@
-name: 🚀 Deploy Docker Compose
+name: 🚀 Deploy Fresh App
 
 on:
   workflow_dispatch:
