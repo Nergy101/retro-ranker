@@ -1,4 +1,4 @@
-import type { User } from "../data/frontend/contracts/user.contract.ts";
+import type { User } from "@data/frontend/contracts/user.contract.ts";
 
 export interface SeoData {
   title?: string;

@@ -1,9 +1,9 @@
 import { FreshContext, page } from "fresh";
-import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
+import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
 
-import { CustomFreshState } from "../../interfaces/state.ts";
-import { DevicesPerBrandBarChart } from "../../islands/charts/devices-per-brand-bar-chart.tsx";
-import { DevicesPerRatingBarChart } from "../../islands/charts/devices-per-ranking-bar-chart.tsx";
+import { CustomFreshState } from "@interfaces/state.ts";
+import { DevicesPerBrandBarChart } from "@islands/charts/devices-per-brand-bar-chart.tsx";
+import { DevicesPerRatingBarChart } from "@islands/charts/devices-per-ranking-bar-chart.tsx";
 
 export const handler = {
   async GET(ctx: FreshContext) {

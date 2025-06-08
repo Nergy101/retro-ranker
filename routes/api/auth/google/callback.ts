@@ -5,9 +5,9 @@ import {
   NumberDictionary,
   uniqueNamesGenerator,
 } from "unique-names-generator";
-import pkceSessionService from "../../../../data/pkce/pkce.service.ts";
-import { createPocketBaseService } from "../../../../data/pocketbase/pocketbase.service.ts";
-import { logJson, tracer } from "../../../../data/tracing/tracer.ts";
+import pkceSessionService from "@data/pkce/pkce.service.ts";
+import { createPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
+import { logJson, tracer } from "@data/tracing/tracer.ts";
 
 export const handler = {
   async GET(ctx: FreshContext) {

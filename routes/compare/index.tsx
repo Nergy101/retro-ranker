@@ -2,15 +2,15 @@ import { FreshContext } from "fresh";
 
 import { PiChartLine, PiInfo } from "@preact-icons/pi";
 import { page } from "fresh";
-import { Device } from "../../data/frontend/contracts/device.model.ts";
-import { Ranking } from "../../data/frontend/models/ranking.model.ts";
-import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
-import { RatingsService } from "../../data/frontend/services/devices/ratings.service.ts";
-import { CustomFreshState } from "../../interfaces/state.ts";
-import { DevicesRadarChart } from "../../islands/charts/devices-radar-chart.tsx";
-import { DeviceComparisonForm } from "../../islands/forms/device-comparison-form.tsx";
-import { DeviceComparisonResult } from "../../components/comparisons/device-comparison-result.tsx";
-import { DeviceComparisonText } from "../../components/comparisons/device-comparison-text.tsx";
+import { Device } from "@data/frontend/contracts/device.model.ts";
+import { Ranking } from "@data/frontend/models/ranking.model.ts";
+import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
+import { RatingsService } from "@data/frontend/services/devices/ratings.service.ts";
+import { CustomFreshState } from "@interfaces/state.ts";
+import { DevicesRadarChart } from "@islands/charts/devices-radar-chart.tsx";
+import { DeviceComparisonForm } from "@islands/forms/device-comparison-form.tsx";
+import { DeviceComparisonResult } from "@components/comparisons/device-comparison-result.tsx";
+import { DeviceComparisonText } from "@components/comparisons/device-comparison-text.tsx";
 
 export const handler = {
   async GET(ctx: FreshContext) {

@@ -1,4 +1,4 @@
-import { DeviceCollection } from "../../data/frontend/contracts/device-collection.ts";
+import { DeviceCollection } from "@data/frontend/contracts/device-collection.ts";
 import { CollectionCard } from "./collection-card.tsx";
 
 interface DeviceCollectionsProps {

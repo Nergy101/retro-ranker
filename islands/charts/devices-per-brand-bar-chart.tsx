@@ -1,5 +1,5 @@
 import { useState } from "preact/hooks";
-import { Device } from "../../data/frontend/contracts/device.model.ts";
+import { Device } from "@data/frontend/contracts/device.model.ts";
 import { FreshChart } from "./fresh-chart.tsx";
 
 interface BarChartProps {

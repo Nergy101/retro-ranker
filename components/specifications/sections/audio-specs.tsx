@@ -1,5 +1,5 @@
 import { PiSpeakerHigh } from "@preact-icons/pi";
-import { Device } from "../../../data/frontend/contracts/device.model.ts";
+import { Device } from "@data/frontend/contracts/device.model.ts";
 import { AudioTable } from "../tables/audio-table.tsx";
 
 interface AudioSpecsProps {

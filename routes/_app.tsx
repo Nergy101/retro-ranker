@@ -1,10 +1,10 @@
 import { FreshContext, page } from "fresh";
-import { Device } from "../data/frontend/contracts/device.model.ts";
-import { User } from "../data/frontend/contracts/user.contract.ts";
-import { DeviceService } from "../data/frontend/services/devices/device.service.ts";
-import { CustomFreshState } from "../interfaces/state.ts";
-import { Footer } from "../components/footer.tsx";
-import { TopNavbar } from "../islands/navigation/top-navbar.tsx";
+import { Device } from "@data/frontend/contracts/device.model.ts";
+import { User } from "@data/frontend/contracts/user.contract.ts";
+import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
+import { CustomFreshState } from "@interfaces/state.ts";
+import { Footer } from "@components/footer.tsx";
+import { TopNavbar } from "@islands/navigation/top-navbar.tsx";
 
 export const handler = {
   async GET(ctx: FreshContext) {

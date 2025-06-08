@@ -1,8 +1,8 @@
 import { PiGitDiff } from "@preact-icons/pi";
 import { useEffect, useRef, useState } from "preact/hooks";
-import { DeviceCardMedium } from "../../components/cards/device-card-medium.tsx";
-import { Device } from "../../data/frontend/contracts/device.model.ts";
-import { searchDevices } from "../../data/frontend/services/utils/search.utils.ts";
+import { DeviceCardMedium } from "@components/cards/device-card-medium.tsx";
+import { Device } from "@data/frontend/contracts/device.model.ts";
+import { searchDevices } from "@data/frontend/services/utils/search.utils.ts";
 
 export function DeviceComparisonForm({
   allDevices,

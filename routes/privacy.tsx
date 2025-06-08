@@ -1,5 +1,5 @@
 import { FreshContext, page } from "fresh";
-import { CustomFreshState } from "../interfaces/state.ts";
+import { CustomFreshState } from "@interfaces/state.ts";
 
 export const handler = {
   GET(ctx: FreshContext) {

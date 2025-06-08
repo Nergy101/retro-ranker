@@ -1,10 +1,10 @@
 import { PiFloppyDisk, PiTrash } from "@preact-icons/pi";
 import { useEffect, useRef, useState } from "preact/hooks";
-import { DeviceCollection } from "../../data/frontend/contracts/device-collection.ts";
-import { Device } from "../../data/frontend/contracts/device.model.ts";
-import { searchDevices } from "../../data/frontend/services/utils/search.utils.ts";
-import { createLoggedInPocketBaseService } from "../../data/pocketbase/pocketbase.service.ts";
-import { DeviceCardMedium } from "../../components/cards/device-card-medium.tsx";
+import { DeviceCollection } from "@data/frontend/contracts/device-collection.ts";
+import { Device } from "@data/frontend/contracts/device.model.ts";
+import { searchDevices } from "@data/frontend/services/utils/search.utils.ts";
+import { createLoggedInPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
+import { DeviceCardMedium } from "@components/cards/device-card-medium.tsx";
 
 export function CollectionUpdateForm(
   { allDevices, existingCollectionDevices, collection }: {

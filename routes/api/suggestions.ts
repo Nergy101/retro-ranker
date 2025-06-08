@@ -1,11 +1,11 @@
 // deno-lint-ignore-file no-console
 import { FreshContext } from "fresh";
-import { ProblemDetail } from "../../data/frontend/contracts/problem-detail.ts";
-import { User } from "../../data/frontend/contracts/user.contract.ts";
+import { ProblemDetail } from "@data/frontend/contracts/problem-detail.ts";
+import { User } from "@data/frontend/contracts/user.contract.ts";
 import {
   createLoggedInPocketBaseService,
-} from "../../data/pocketbase/pocketbase.service.ts";
-import { CustomFreshState } from "../../interfaces/state.ts";
+} from "@data/pocketbase/pocketbase.service.ts";
+import { CustomFreshState } from "@interfaces/state.ts";
 
 interface SuggestionPayload {
   user: string;

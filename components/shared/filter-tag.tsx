@@ -3,7 +3,7 @@ import { useState } from "preact/hooks";
 import {
   TAG_FRIENDLY_NAMES,
   TagModel,
-} from "../../data/frontend/models/tag.model.ts";
+} from "@data/frontend/models/tag.model.ts";
 
 export function FilterTag(
   { tag, type, href }: {

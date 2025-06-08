@@ -1,4 +1,4 @@
-import { Device } from "../../data/frontend/contracts/device.model.ts";
+import { Device } from "@data/frontend/contracts/device.model.ts";
 import { StarRating } from "../ratings/star-rating.tsx";
 
 interface DeviceCardSmallProps {

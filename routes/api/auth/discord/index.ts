@@ -2,8 +2,8 @@ import { FreshContext } from "fresh";
 import pkceSessionService, {
   generateCodeChallenge,
   generateCodeVerifier,
-} from "../../../../data/pkce/pkce.service.ts";
-import { logJson, tracer } from "../../../../data/tracing/tracer.ts";
+} from "@data/pkce/pkce.service.ts";
+import { logJson, tracer } from "@data/tracing/tracer.ts";
 
 export const handler = {
   async GET(ctx: FreshContext) {

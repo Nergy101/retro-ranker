@@ -1,4 +1,4 @@
-import { CommentContract } from "../../data/frontend/contracts/comment.contract.ts";
+import { CommentContract } from "@data/frontend/contracts/comment.contract.ts";
 import { ProfileImage } from "../auth/profile-image.tsx";
 
 interface DeviceCommentCardProps {

@@ -1,4 +1,4 @@
-import cap from "../../../data/cap/cap.service.ts";
+import cap from "@data/cap/cap.service.ts";
 import { FreshContext } from "fresh";
 
 export const handler = {

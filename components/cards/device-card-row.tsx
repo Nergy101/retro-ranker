@@ -1,7 +1,7 @@
 import { PiQuestion } from "@preact-icons/pi";
-import { Device } from "../../data/frontend/contracts/device.model.ts";
-import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
-import { RatingInfo } from "../../islands/devices/rating-info.tsx";
+import { Device } from "@data/frontend/contracts/device.model.ts";
+import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
+import { RatingInfo } from "@islands/devices/rating-info.tsx";
 import { CurrencyIcon } from "../shared/currency-icon.tsx";
 
 interface DeviceCardRowProps {

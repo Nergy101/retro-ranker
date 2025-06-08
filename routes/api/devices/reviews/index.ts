@@ -1,4 +1,4 @@
-import { createSuperUserPocketBaseService } from "../../../../data/pocketbase/pocketbase.service.ts";
+import { createSuperUserPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
 import { FreshContext } from "fresh";
 
 export const handler = {
