@@ -2,7 +2,7 @@ import { FreshContext, page } from "fresh";
 import { DeviceCardLarge } from "../../components/cards/device-card-large.tsx";
 import { DeviceCardRow } from "../../components/cards/device-card-row.tsx";
 import { DeviceCardMedium } from "../../components/cards/device-card-medium.tsx";
-import { PaginationNav } from "../../components/shared/pagination-vav.tsx";
+import { PaginationNav } from "../../components/shared/pagination-nav.tsx";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { TagModel } from "../../data/frontend/models/tag.model.ts";
 import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";

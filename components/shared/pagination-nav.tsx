@@ -75,13 +75,18 @@ export function PaginationNav({
         <span>
           Page: {pageNumber}
         </span>
-        <span>
+        <span
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "0.25rem",
+          }}
+        >
           (
           {(pageNumber - 1 == 0) ? 1 : ((pageNumber - 1) * pageSize) + 1}-
           {totalResults < pageNumber * pageSize
             ? totalResults
-            : pageNumber * pageSize}
-          &nbsp;of {totalResults}
+            : pageNumber * pageSize} of {totalResults}
           )
         </span>
 
