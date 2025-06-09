@@ -1,7 +1,8 @@
-import { useState } from "preact/hooks";
+import { useState, useMemo, useCallback } from "preact/hooks";
 import { Device } from "@data/frontend/contracts/device.model.ts";
 import { getBrandColors } from "@data/frontend/services/utils/color.utils.ts";
 import { FreshChart } from "./fresh-chart.tsx";
+import type { Chart, ChartDataset, LegendItem } from "$fresh_charts/deps.ts";
 
 interface LineChartProps {
   devices: Device[];
@@ -11,16 +12,19 @@ export function DevicesPerReleaseYearLineChart(
   { devices }: LineChartProps,
 ) {
   // Compute the full range of years from the devices
-  const fullYears = Array.from(
-    new Set(
-      devices.reduce((acc, d) => {
-        if (d.released?.mentionedDate) {
-          acc.push(new Date(d.released.mentionedDate).getFullYear());
-        }
-        return acc;
-      }, [] as number[]),
-    ),
-  ).sort((a, b) => a - b);
+  const fullYears = useMemo(() => 
+    Array.from(
+      new Set(
+        devices.reduce((acc, d) => {
+          if (d.released?.mentionedDate) {
+            acc.push(new Date(d.released.mentionedDate).getFullYear());
+          }
+          return acc;
+        }, [] as number[]),
+      ),
+    ).sort((a, b) => a - b),
+    [devices]
+  );
 
   // Use the first and last available years as the slider boundaries
   const initialMin = fullYears[0] ?? new Date().getFullYear();
@@ -30,36 +34,34 @@ export function DevicesPerReleaseYearLineChart(
   const [selectedMinYear, setSelectedMinYear] = useState(2020);
   const [selectedMaxYear, setSelectedMaxYear] = useState(initialMax);
   const [showTotalDevices, setShowTotalDevices] = useState(false);
-  const [minimalOf12DevicesProduced, setMinimalOf12DevicesProduced] = useState(
-    true,
-  );
-
-  const [brandColors, setBrandColors] = useState<
-    Record<string, { border: string; background: string }>
-  >({});
+  const [minimalOf12DevicesProduced, setMinimalOf12DevicesProduced] = useState(true);
 
   // Filter the devices to only include those within the selected year range.
-  const filteredDevices = devices.filter((d) => {
-    if (d.released?.mentionedDate) {
-      const year = new Date(d.released.mentionedDate).getFullYear();
-      return year >= selectedMinYear && year <= selectedMaxYear;
-    }
-    return false;
-  });
+  const filteredDevices = useMemo(() => 
+    devices.filter((d) => {
+      if (d.released?.mentionedDate) {
+        const year = new Date(d.released.mentionedDate).getFullYear();
+        return year >= selectedMinYear && year <= selectedMaxYear;
+      }
+      return false;
+    }),
+    [devices, selectedMinYear, selectedMaxYear]
+  );
 
-  const uniqueBrands = Array.from(
-    new Set(filteredDevices.map((d) => d.brand.sanitized)),
-  ).sort();
+  const uniqueBrands = useMemo(() => 
+    Array.from(
+      new Set(filteredDevices.map((d) => d.brand.sanitized)),
+    ).sort(),
+    [filteredDevices]
+  );
 
-  const initializeBrandColors = () => {
-    setBrandColors(getBrandColors(uniqueBrands));
-  };
-
-  // Call this right after the signals are defined
-  initializeBrandColors();
+  const brandColors = useMemo(() => 
+    getBrandColors(uniqueBrands),
+    [uniqueBrands]
+  );
 
   // Compute the unique years from the filtered devices.
-  const getAllYears = (): number[] => {
+  const getAllYears = useCallback((): number[] => {
     const years: number[] = [];
     for (const d of filteredDevices) {
       if (d.released?.mentionedDate) {
@@ -68,13 +70,13 @@ export function DevicesPerReleaseYearLineChart(
       }
     }
     return Array.from(new Set(years)).sort((a, b) => a - b);
-  };
+  }, [filteredDevices]);
 
-  const getLineChartLabels = (): (number | string)[] => {
+  const getLineChartLabels = useCallback((): (number | string)[] => {
     return getAllYears();
-  };
+  }, [getAllYears]);
 
-  const getLineChartData = () => {
+  const getLineChartData = useCallback(() => {
     const years = getAllYears();
     const amountOfDevicesPerYear: number[] = Array(years.length).fill(0);
 
@@ -143,7 +145,62 @@ export function DevicesPerReleaseYearLineChart(
     );
 
     return data;
-  };
+  }, [filteredDevices, uniqueBrands, brandColors, showTotalDevices, minimalOf12DevicesProduced, getAllYears]);
+
+  const chartData = useMemo(() => ({
+    labels: getLineChartLabels(),
+    datasets: getLineChartData(),
+  }), [getLineChartLabels, getLineChartData]);
+
+  const chartOptions = useMemo(() => ({
+    plugins: {
+      legend: {
+        display: minimalOf12DevicesProduced,
+        onHover: (_: unknown, legendItem: LegendItem, legend: { chart: Chart }) => {
+          const chart = legend.chart;
+          chart.data.datasets.forEach((dataset: ChartDataset, index: number) => {
+            if (index !== legendItem.datasetIndex) {
+              // Reduce opacity of non-hovered datasets
+              dataset.borderWidth = 1;
+              dataset.borderColor = dataset.borderColor?.toString()
+                .replace("1)", "0.1)");
+            } else {
+              // Emphasize hovered dataset
+              dataset.borderWidth = 4;
+            }
+          });
+          chart.update();
+        },
+        onLeave: (_: unknown, __: unknown, legend: { chart: Chart }) => {
+          const chart = legend.chart;
+          chart.data.datasets.forEach((dataset: ChartDataset, index: number) => {
+            // Restore original styles
+            dataset.borderWidth = index === 0 ? 3 : 2;
+            dataset.borderColor = dataset.borderColor?.toString().replace(
+              "0.1)",
+              "1)",
+            );
+          });
+          chart.update();
+        },
+      },
+    },
+    hover: {
+      mode: "dataset" as const,
+      intersect: false,
+    },
+    scales: {
+      y: {
+        grid: {
+          color: "#898989",
+        },
+        min: 0,
+        ticks: {
+          stepSize: 1,
+        },
+      },
+    },
+  }), [minimalOf12DevicesProduced]);
 
   return (
     <div>
@@ -217,59 +274,8 @@ export function DevicesPerReleaseYearLineChart(
       </div>
       <FreshChart
         type="line"
-        options={{
-          plugins: {
-            legend: {
-              display: minimalOf12DevicesProduced,
-              onHover: (_, legendItem, legend) => {
-                const chart = legend.chart;
-                chart.data.datasets.forEach((dataset, index) => {
-                  if (index !== legendItem.datasetIndex) {
-                    // Reduce opacity of non-hovered datasets
-                    dataset.borderWidth = 1;
-                    dataset.borderColor = dataset.borderColor?.toString()
-                      .replace("1)", "0.1)");
-                  } else {
-                    // Emphasize hovered dataset
-                    dataset.borderWidth = 4;
-                  }
-                });
-                chart.update();
-              },
-              onLeave: (_, __, legend) => {
-                const chart = legend.chart;
-                chart.data.datasets.forEach((dataset, index) => {
-                  // Restore original styles
-                  dataset.borderWidth = index === 0 ? 3 : 2;
-                  dataset.borderColor = dataset.borderColor?.toString().replace(
-                    "0.1)",
-                    "1)",
-                  );
-                });
-                chart.update();
-              },
-            },
-          },
-          hover: {
-            mode: "dataset",
-            intersect: false,
-          },
-          scales: {
-            y: {
-              grid: {
-                color: "#898989",
-              },
-              min: 0,
-              ticks: {
-                stepSize: 1,
-              },
-            },
-          },
-        }}
-        data={{
-          labels: getLineChartLabels(),
-          datasets: getLineChartData(),
-        }}
+        options={chartOptions}
+        data={chartData}
       />
     </div>
   );

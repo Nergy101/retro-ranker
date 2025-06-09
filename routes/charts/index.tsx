@@ -4,6 +4,7 @@ import { DeviceService } from "@data/frontend/services/devices/device.service.ts
 import { CustomFreshState } from "@interfaces/state.ts";
 import { DevicesPerBrandBarChart } from "@islands/charts/devices-per-brand-bar-chart.tsx";
 import { DevicesPerRatingBarChart } from "@islands/charts/devices-per-ranking-bar-chart.tsx";
+import { DevicesPerReleaseYearLineChart } from "@islands/charts/devices-per-release-year-line-chart.tsx";
 
 export const handler = {
   async GET(ctx: FreshContext) {
@@ -38,13 +39,10 @@ export default async function ChartsIndex(ctx: FreshContext) {
           devices
         </p>
       </hgroup>
-
-      {
-        /* <div class="chart-wrapper">
+      <div class="chart-wrapper">
         <DevicesPerReleaseYearLineChart devices={devices} />
-      </div> */
-      }
-      {/* <hr /> */}
+      </div>
+      <hr />
       <div class="chart-wrapper">
         <DevicesPerBrandBarChart devices={devices} />
       </div>
