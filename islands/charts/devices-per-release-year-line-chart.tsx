@@ -1,8 +1,8 @@
-import { useCallback, useMemo, useState } from "preact/hooks";
 import { Device } from "@data/frontend/contracts/device.model.ts";
 import { getBrandColors } from "@data/frontend/services/utils/color.utils.ts";
+import { Chart, ChartDataset, LegendItem } from "npm:chart.js";
+import { useCallback, useMemo, useState } from "preact/hooks";
 import { FreshChart } from "./fresh-chart.tsx";
-import type { Chart, ChartDataset, LegendItem } from "$fresh_charts/deps.ts";
 
 interface LineChartProps {
   devices: Device[];
@@ -284,7 +284,7 @@ export function DevicesPerReleaseYearLineChart(
       </div>
       <FreshChart
         type="line"
-        options={chartOptions}
+        options={chartOptions as any}
         data={chartData}
       />
     </div>
