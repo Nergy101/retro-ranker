@@ -1,7 +1,7 @@
 import { FreshContext, page } from "fresh";
-import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
-import { CollectionCreateForm } from "../../islands/collections/collection-create-form.tsx";
-import { CustomFreshState } from "../../interfaces/state.ts";
+import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
+import { CollectionCreateForm } from "@islands/collections/collection-create-form.tsx";
+import { CustomFreshState } from "@interfaces/state.ts";
 
 export const handler = {
   GET(ctx: FreshContext) {

@@ -1,4 +1,4 @@
-import { Device } from "../../../data/frontend/contracts/device.model.ts";
+import { Device } from "@data/frontend/contracts/device.model.ts";
 
 interface AudioTableProps {
   device: Device;

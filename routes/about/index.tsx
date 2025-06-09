@@ -7,8 +7,8 @@ import {
   PiUsers,
 } from "@preact-icons/pi";
 import { FreshContext } from "fresh";
-import { CustomFreshState } from "../../interfaces/state.ts";
-import { VersionTag } from "../../components/shared/version-tag.tsx";
+import { CustomFreshState } from "@interfaces/state.ts";
+import { VersionTag } from "@components/shared/version-tag.tsx";
 
 export const handler = {
   GET(ctx: FreshContext) {

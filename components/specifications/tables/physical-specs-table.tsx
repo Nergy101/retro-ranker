@@ -1,6 +1,6 @@
-import { Device } from "../../../data/frontend/contracts/device.model.ts";
-import { ShellMaterial } from "../../../data/frontend/models/physical.model.ts";
-import { DeviceService } from "../../../data/frontend/services/devices/device.service.ts";
+import { Device } from "@data/frontend/contracts/device.model.ts";
+import { ShellMaterial } from "@data/frontend/models/physical.model.ts";
+import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
 
 interface PhysicalSpecsTableProps {
   device: Device;

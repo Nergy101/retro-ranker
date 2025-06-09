@@ -1,5 +1,5 @@
 import { PiGear } from "@preact-icons/pi";
-import { Device } from "../../../data/frontend/contracts/device.model.ts";
+import { Device } from "@data/frontend/contracts/device.model.ts";
 import { MiscellaneousSpecsTable } from "../tables/miscellaneous-specs-table.tsx";
 
 interface MiscellaneousSpecsProps {

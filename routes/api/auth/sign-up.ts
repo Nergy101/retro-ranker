@@ -1,7 +1,7 @@
-import { createPocketBaseService } from "../../../data/pocketbase/pocketbase.service.ts";
-import { ProblemDetail } from "../../../data/frontend/contracts/problem-detail.ts";
+import { createPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
+import { ProblemDetail } from "@data/frontend/contracts/problem-detail.ts";
 
-import cap from "../../../data/cap/cap.service.ts";
+import cap from "@data/cap/cap.service.ts";
 import { FreshContext } from "fresh";
 
 export const handler = {

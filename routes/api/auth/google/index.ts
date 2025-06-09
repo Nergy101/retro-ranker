@@ -1,9 +1,9 @@
 import {
   generateCodeChallenge,
   generateCodeVerifier,
-} from "../../../../data/pkce/pkce.service.ts";
-import pkceSessionService from "../../../../data/pkce/pkce.service.ts";
-import { logJson, tracer } from "../../../../data/tracing/tracer.ts";
+} from "@data/pkce/pkce.service.ts";
+import pkceSessionService from "@data/pkce/pkce.service.ts";
+import { logJson, tracer } from "@data/tracing/tracer.ts";
 import { FreshContext } from "fresh";
 
 export const handler = {

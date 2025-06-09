@@ -6,31 +6,31 @@ import {
   PiStar,
 } from "@preact-icons/pi";
 import { FreshContext, page } from "fresh";
-import { DeviceCardMedium } from "../../components/cards/device-card-medium.tsx";
-import { DeviceCommentCard } from "../../components/cards/device-comment-card.tsx";
-import { DeviceReviewCard } from "../../components/cards/device-review-card.tsx";
-import { DeviceLinks } from "../../components/devices/device-links.tsx";
-import { EmulationPerformance } from "../../components/devices/emulation-performance.tsx";
-import { StarRating } from "../../components/ratings/star-rating.tsx";
-import { CurrencyIcon } from "../../components/shared/currency-icon.tsx";
-import { TagComponent } from "../../components/shared/tag-component.tsx";
-import { DeviceSpecs } from "../../components/specifications/device-specs.tsx";
-import { SummaryTable } from "../../components/specifications/tables/summary-table.tsx";
-import { CommentContract } from "../../data/frontend/contracts/comment.contract.ts";
-import { Device } from "../../data/frontend/contracts/device.model.ts";
-import { ReviewContract } from "../../data/frontend/contracts/review.contract.ts";
-import { User } from "../../data/frontend/contracts/user.contract.ts";
-import { BrandWebsites } from "../../data/frontend/enums/brand-websites.ts";
-import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
-import { createSuperUserPocketBaseService } from "../../data/pocketbase/pocketbase.service.ts";
-import { CustomFreshState } from "../../interfaces/state.ts";
-import { BackButton } from "../../islands/buttons/back-button.tsx";
-import { ClipboardButton } from "../../islands/buttons/clipboard-button.tsx";
-import { CompareButton } from "../../islands/buttons/compare-button.tsx";
-import { ShareButton } from "../../islands/buttons/share-button.tsx";
-import { DevicesSimilarRadarChart } from "../../islands/charts/devices-similar-radar-chart.tsx";
-import { AddDeviceCommentForm } from "../../islands/forms/add-device-comment-form.tsx";
-import { AddDeviceReviewForm } from "../../islands/forms/add-device-review-form.tsx";
+import { DeviceCardMedium } from "@components/cards/device-card-medium.tsx";
+import { DeviceCommentCard } from "@components/cards/device-comment-card.tsx";
+import { DeviceReviewCard } from "@components/cards/device-review-card.tsx";
+import { DeviceLinks } from "@components/devices/device-links.tsx";
+import { EmulationPerformance } from "@components/devices/emulation-performance.tsx";
+import { StarRating } from "@components/ratings/star-rating.tsx";
+import { CurrencyIcon } from "@components/shared/currency-icon.tsx";
+import { TagComponent } from "@components/shared/tag-component.tsx";
+import { DeviceSpecs } from "@components/specifications/device-specs.tsx";
+import { SummaryTable } from "@components/specifications/tables/summary-table.tsx";
+import { CommentContract } from "@data/frontend/contracts/comment.contract.ts";
+import { Device } from "@data/frontend/contracts/device.model.ts";
+import { ReviewContract } from "@data/frontend/contracts/review.contract.ts";
+import { User } from "@data/frontend/contracts/user.contract.ts";
+import { BrandWebsites } from "@data/frontend/enums/brand-websites.ts";
+import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
+import { createSuperUserPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
+import { CustomFreshState } from "@interfaces/state.ts";
+import { BackButton } from "@islands/buttons/back-button.tsx";
+import { ClipboardButton } from "@islands/buttons/clipboard-button.tsx";
+import { CompareButton } from "@islands/buttons/compare-button.tsx";
+import { ShareButton } from "@islands/buttons/share-button.tsx";
+import { DevicesSimilarRadarChart } from "@islands/charts/devices-similar-radar-chart.tsx";
+import { AddDeviceCommentForm } from "@islands/forms/add-device-comment-form.tsx";
+import { AddDeviceReviewForm } from "@islands/forms/add-device-review-form.tsx";
 
 export const handler = {
   async GET(ctx: FreshContext) {

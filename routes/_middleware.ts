@@ -1,8 +1,8 @@
 // deno-lint-ignore-file
 import { FreshContext } from "fresh";
-import { createPocketBaseService } from "../data/pocketbase/pocketbase.service.ts";
-import { logJson, tracer } from "../data/tracing/tracer.ts";
-import { CustomFreshState } from "../interfaces/state.ts";
+import { createPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
+import { logJson, tracer } from "@data/tracing/tracer.ts";
+import { CustomFreshState } from "@interfaces/state.ts";
 
 // List of file extensions to ignore for logging
 const IGNORED_EXTENSIONS = new Set([

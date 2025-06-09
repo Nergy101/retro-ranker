@@ -1,7 +1,7 @@
 import { PiEye, PiPencil, PiTrash, PiX } from "@preact-icons/pi";
 import { useState } from "preact/hooks";
-import { DeviceCardMedium } from "../../components/cards/device-card-medium.tsx";
-import { DeviceCollection } from "../../data/frontend/contracts/device-collection.ts";
+import { DeviceCardMedium } from "@components/cards/device-card-medium.tsx";
+import { DeviceCollection } from "@data/frontend/contracts/device-collection.ts";
 import { ShareButton } from "../buttons/share-button.tsx";
 export function CollectionCard(
   { collection }: { collection: DeviceCollection },

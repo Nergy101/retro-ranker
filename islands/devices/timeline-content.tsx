@@ -1,6 +1,6 @@
 import { useEffect, useState } from "preact/hooks";
-import { DeviceCardMedium } from "../../components/cards/device-card-medium.tsx";
-import { Device } from "../../data/frontend/contracts/device.model.ts";
+import { DeviceCardMedium } from "@components/cards/device-card-medium.tsx";
+import { Device } from "@data/frontend/contracts/device.model.ts";
 
 interface TimelineContentProps {
   upcomingDevices: Device[];

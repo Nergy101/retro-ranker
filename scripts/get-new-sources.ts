@@ -15,7 +15,7 @@ const zip = await zipDownloadedFromUrl.arrayBuffer();
 
 // save zip to local file
 const zipPath = "sources.zip";
-const extractPath = "data/source/files";
+const extractPath = "@data/source/files";
 
 // create extractPath if it doesn't exist
 await Deno.mkdir(extractPath, { recursive: true });

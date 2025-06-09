@@ -21,7 +21,7 @@ if (!getNewSourcesStatus.success) {
 console.info("");
 const generateDevicesCommand = new Deno.Command("deno", {
   args: ["run", "--allow-all", "data-source.ts"],
-  cwd: "../data/source",
+  cwd: "@data/source",
 });
 
 const generateDevicesProcess = generateDevicesCommand.spawn();
@@ -76,7 +76,7 @@ console.info(chalk.blue("--- Refreshing pocketbase ---"));
 
 const refreshPocketbaseCommand = new Deno.Command(Deno.execPath(), {
   args: ["run", "--allow-all", "pocketbase-data-source.ts"],
-  cwd: "../data/source",
+  cwd: "@data/source",
 });
 const refreshPocketbaseProcess = refreshPocketbaseCommand.spawn();
 const refreshPocketbaseStatus = await refreshPocketbaseProcess.status;

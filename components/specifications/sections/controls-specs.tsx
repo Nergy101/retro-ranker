@@ -1,5 +1,5 @@
 import { PiGameController } from "@preact-icons/pi";
-import { Device } from "../../../data/frontend/contracts/device.model.ts";
+import { Device } from "@data/frontend/contracts/device.model.ts";
 import { ControlsTable } from "../tables/controls-table.tsx";
 
 interface ControlsSpecsProps {

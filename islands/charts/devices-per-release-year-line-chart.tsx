@@ -1,6 +1,6 @@
 import { useState } from "preact/hooks";
-import { Device } from "../../data/frontend/contracts/device.model.ts";
-import { getBrandColors } from "../../data/frontend/services/utils/color.utils.ts";
+import { Device } from "@data/frontend/contracts/device.model.ts";
+import { getBrandColors } from "@data/frontend/services/utils/color.utils.ts";
 import { FreshChart } from "./fresh-chart.tsx";
 
 interface LineChartProps {

@@ -1,6 +1,6 @@
 import { setCookie } from "@std/http/cookie";
-import { ProblemDetail } from "../../../data/frontend/contracts/problem-detail.ts";
-import { createPocketBaseService } from "../../../data/pocketbase/pocketbase.service.ts";
+import { ProblemDetail } from "@data/frontend/contracts/problem-detail.ts";
+import { createPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
 import { FreshContext } from "fresh";
 
 export const handler = {

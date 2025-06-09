@@ -1,8 +1,8 @@
-import { ProblemDetail } from "../../../../data/frontend/contracts/problem-detail.ts";
+import { ProblemDetail } from "@data/frontend/contracts/problem-detail.ts";
 import {
   createLoggedInPocketBaseService,
   createSuperUserPocketBaseService,
-} from "../../../../data/pocketbase/pocketbase.service.ts";
+} from "@data/pocketbase/pocketbase.service.ts";
 import { FreshContext } from "fresh";
 
 export const handler = {

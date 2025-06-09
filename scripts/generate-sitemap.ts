@@ -1,6 +1,6 @@
 // deno-lint-ignore-file no-console
-import { Device } from "../data/frontend/contracts/device.model.ts";
-import { navigationItems } from "../data/frontend/navigation-items.ts";
+import { Device } from "@data/frontend/contracts/device.model.ts";
+import { navigationItems } from "@data/frontend/navigation-items.ts";
 // @deno-types="https://deno.land/x/chalk_deno@v4.1.1-deno/index.d.ts"
 import chalk from "https://deno.land/x/chalk_deno@v4.1.1-deno/source/index.js";
 
@@ -9,7 +9,7 @@ const SITE_URL = "https://retroranker.site";
 
 const devices = JSON.parse(
   new TextDecoder().decode(
-    await Deno.readFile("../data/source/results/handhelds.json"),
+    await Deno.readFile("@data/source/results/handhelds.json"),
   ),
 ) as Device[];
 

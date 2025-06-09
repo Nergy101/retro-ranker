@@ -1,7 +1,7 @@
-import { User } from "../../../data/frontend/contracts/user.contract.ts";
-import { createSuperUserPocketBaseService } from "../../../data/pocketbase/pocketbase.service.ts";
+import { User } from "@data/frontend/contracts/user.contract.ts";
+import { createSuperUserPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
 import { FreshContext } from "fresh";
-import { CustomFreshState } from "../../../interfaces/state.ts";
+import { CustomFreshState } from "@interfaces/state.ts";
 
 export const handler = {
   async POST(ctx: FreshContext) {
