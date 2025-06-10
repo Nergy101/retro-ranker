@@ -1,6 +1,6 @@
 const command = new Deno.Command("deno", {
   args: ["run", "--allow-all", "data-source.ts"],
-  cwd: "@data/source",
+  cwd: "../data/source",
 });
 
 const process = command.spawn();
