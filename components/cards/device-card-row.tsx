@@ -15,13 +15,7 @@ export function DeviceCardRow({ device }: DeviceCardRowProps) {
   return (
     <div class="device-card-row">
       {/* Image Section */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+      <div class="device-card-row-section">
         {device.image?.originalUrl
           ? (
             <img
@@ -30,12 +24,7 @@ export function DeviceCardRow({ device }: DeviceCardRowProps) {
               width={100}
               height={100}
               alt={device.image?.alt ?? "A device image"}
-              style={{
-                width: "100px",
-                height: "100px",
-                objectFit: "contain",
-                borderRadius: "1em",
-              }}
+              class="device-card-image"
             />
           )
           : (
@@ -45,26 +34,14 @@ export function DeviceCardRow({ device }: DeviceCardRowProps) {
                 width={100}
                 height={100}
                 alt="A placeholder image"
-                style={{
-                  width: "100px",
-                  height: "100px",
-                  objectFit: "contain",
-                  borderRadius: "1em",
-                }}
+                class="device-card-image"
               />
             </span>
           )}
       </div>
 
       {/* Name Section */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          textAlign: "center",
-        }}
-      >
+      <div class="device-card-row-section device-card-row-name">
         <strong style={{ color: "var(--pico-contrast)" }}>
           {device.name.raw} <span style={{ fontSize: "0.7rem" }}>by</span>{" "}
           <span
@@ -78,16 +55,7 @@ export function DeviceCardRow({ device }: DeviceCardRowProps) {
       </div>
 
       {/* Rating Section */}
-      <div
-        style={{
-          marginBottom: "0.5rem",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: "0.5rem",
-        }}
-      >
+      <div class="device-card-rating-row">
         {upToSystemA && (
           <RatingInfo
             rating={upToSystemA}
@@ -105,13 +73,7 @@ export function DeviceCardRow({ device }: DeviceCardRowProps) {
       </div>
 
       {/* Price Section */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+      <div class="device-card-row-section">
         {device.pricing.average !== 0
           ? (
             <span

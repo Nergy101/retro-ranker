@@ -50,33 +50,10 @@ export function DeviceCardMedium(
 
   return (
     <article
-      class={`device-search-card ${isActive ? "active" : ""}`}
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        border: "1px solid var(--pico-primary)",
-        borderRadius: "0.5rem",
-      }}
+      class={`device-search-card device-card ${isActive ? "active" : ""}`}
     >
-      <header
-        style={{
-          flex: 1,
-          margin: "0",
-          paddingTop: "0.5rem",
-          borderRadius: "0.5rem",
-          borderBottomLeftRadius: "0",
-          borderBottomRightRadius: "0",
-          borderBottom: "none",
-        }}
-      >
-        <hgroup
-          style={{
-            textAlign: "center",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
+      <header class="device-card-header">
+        <hgroup class="device-card-hgroup">
           <strong
             data-tooltip={device.name.normalized != device.name.raw
               ? device.name.raw
@@ -97,15 +74,7 @@ export function DeviceCardMedium(
           </span>
         </hgroup>
       </header>
-      <div
-        style={{
-          paddingTop: "0.5rem",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+      <div class="device-card-info">
         {device.image?.originalUrl
           ? (
             <img
@@ -114,12 +83,7 @@ export function DeviceCardMedium(
               width={100}
               height={100}
               alt={device.image?.alt ?? "A device image"}
-              style={{
-                width: "100px",
-                height: "100px",
-                objectFit: "contain",
-                borderRadius: "1em",
-              }}
+              class="device-card-image"
             />
           )
           : (
@@ -129,35 +93,13 @@ export function DeviceCardMedium(
                 width={100}
                 height={100}
                 alt="A placeholder image"
-                style={{
-                  width: "100px",
-                  height: "100px",
-                  objectFit: "contain",
-                  borderRadius: "1em",
-                }}
+                class="device-card-image"
               />
             </span>
           )}
       </div>
-
-      <div
-        style={{
-          marginBottom: ".5rem",
-          fontSize: ".8rem",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-          alignItems: "baseline",
-          gap: ".5rem",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            flexDirection: "column",
-          }}
-        >
+      <div class="device-card-stats">
+        <div class="device-card-price-container">
           {!device.pricing.discontinued && device.pricing.average
             ? (
               <span
@@ -178,12 +120,7 @@ export function DeviceCardMedium(
             )}
         </div>
         <span
-          style={{
-            display: "flex",
-            gap: "0.25rem",
-            fontSize: "1.2rem",
-            marginTop: "0.5rem",
-          }}
+          class="device-card-os-icons"
           data-tooltip={device.os.list.join(", ") === "?"
             ? "No OS information available"
             : device.os.list.join(", ")}
@@ -193,16 +130,7 @@ export function DeviceCardMedium(
           )}
         </span>
       </div>
-      <div
-        style={{
-          marginBottom: "0.5rem",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: "0.5rem",
-        }}
-      >
+      <div class="device-card-rating-row">
         {upToSystemA && (
           <RatingInfo
             rating={upToSystemA}
