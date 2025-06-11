@@ -95,6 +95,24 @@ deno task start
 deno task check
 ```
 
+#### Environment Setup
+
+Copy the sample environment file and adjust the values:
+
+```bash
+cp .env.example .env
+```
+
+Environment variables in `.env`:
+
+- `BASE_API_URL` – Base URL for the API.
+- `POCKETBASE_URL` – Address of your PocketBase instance.
+- `POCKETBASE_SUPERUSER_EMAIL` – PocketBase superuser email.
+- `POCKETBASE_SUPERUSER_PASSWORD` – Password for the superuser account.
+- `OTEL_*` – OpenTelemetry settings (`OTEL_DENO`, `OTEL_EXPORTER_OTLP_ENDPOINT`, `OTEL_SERVICE_NAME`).
+
+Refer to `.env.defaults` for example values used with local `docker-compose`.
+
 ### Available Tasks
 
 #### Development Tasks
