@@ -2781,3 +2781,89 @@ textarea:focus {
 .devices-catalog-main {
   grid-area: main;
 }
+/* Device card reusable styles */
+.device-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--pico-primary);
+  border-radius: 0.5rem;
+}
+
+.device-card-header {
+  flex: 1;
+  margin: 0;
+  padding-top: 0.5rem;
+  border-radius: 0.5rem;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: none;
+}
+
+.device-card-header-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.device-card-hgroup {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.device-card-info {
+  padding-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.device-card-image {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 1em;
+}
+
+.device-card-stats {
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.device-card-rating-row {
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.device-card-os-icons {
+  display: flex;
+  gap: 0.25rem;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.device-card-row-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.device-card-price-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.device-card-row-name {
+  text-align: center;
+}

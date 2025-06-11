@@ -40,30 +40,8 @@ export function DeviceCardLarge({ device }: { device: Device }) {
   };
 
   return (
-    <article
-      class={`device-search-card`}
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        border: "1px solid var(--pico-primary)",
-        borderRadius: "0.5rem",
-      }}
-    >
-      <header
-        style={{
-          flex: 1,
-          margin: "0",
-          paddingTop: "0.5rem",
-          borderRadius: "0.5rem",
-          borderBottomLeftRadius: "0",
-          borderBottomRightRadius: "0",
-          borderBottom: "none",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-evenly",
-          alignItems: "center",
-        }}
-      >
+    <article class="device-search-card device-card">
+      <header class="device-card-header device-card-header-row">
         {device.image?.originalUrl
           ? (
             <img
@@ -72,12 +50,7 @@ export function DeviceCardLarge({ device }: { device: Device }) {
               width={100}
               height={100}
               alt={device.image?.alt ?? "A device image"}
-              style={{
-                width: "100px",
-                height: "100px",
-                objectFit: "contain",
-                borderRadius: "1em",
-              }}
+              class="device-card-image"
             />
           )
           : (
@@ -87,23 +60,11 @@ export function DeviceCardLarge({ device }: { device: Device }) {
                 width={100}
                 height={100}
                 alt="A placeholder image"
-                style={{
-                  width: "100px",
-                  height: "100px",
-                  objectFit: "contain",
-                  borderRadius: "1em",
-                }}
+                class="device-card-image"
               />
             </span>
           )}
-        <hgroup
-          style={{
-            textAlign: "center",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
+        <hgroup class="device-card-hgroup">
           <strong
             data-tooltip={device.name.normalized != device.name.raw
               ? device.name.raw
@@ -122,38 +83,14 @@ export function DeviceCardLarge({ device }: { device: Device }) {
           >
             {device.brand.normalized}
           </span>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "center",
-              alignItems: "baseline",
-              gap: "0.5rem",
-            }}
-          >
+          <div class="device-card-rating-row">
             <div style={{ display: "flex", justifyContent: "center" }}>
               <StarRating device={device} />
             </div>
           </div>
 
-          <div
-            style={{
-              marginBottom: ".5rem",
-              fontSize: ".8rem",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "center",
-              alignItems: "baseline",
-              gap: ".5rem",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                flexDirection: "column",
-              }}
-            >
+          <div class="device-card-stats">
+            <div class="device-card-price-container">
               {!device.pricing.discontinued && device.pricing.average
                 ? (
                   <span
@@ -174,12 +111,7 @@ export function DeviceCardLarge({ device }: { device: Device }) {
                 )}
             </div>
             <span
-              style={{
-                display: "flex",
-                gap: "0.25rem",
-                fontSize: "1.2rem",
-                marginTop: "0.5rem",
-              }}
+              class="device-card-os-icons"
               data-tooltip={device.os.list.join(", ") === "?"
                 ? "No OS information available"
                 : device.os.list.join(", ")}
