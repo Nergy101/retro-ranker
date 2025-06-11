@@ -167,6 +167,25 @@ retro-ranker/
 - [`data/`](data/README.md) – data models and source helpers
 - [`static/`](static/README.md) – images, icons and other static assets
 
+## 🐳 Docker
+
+Build the container image and run the project via Docker Compose.
+
+1. Build the image:
+
+   ```bash
+   docker build -t retro-ranker .
+   ```
+
+2. Start the services:
+
+   ```bash
+   docker compose up
+   ```
+
+The `.env` file is read by `docker-compose` to configure the services. You can
+copy `.env.example` to `.env` and adjust the settings before running Docker.
+
 ## 🤝 Contributing
 
 Contributions are welcome! To contribute:
