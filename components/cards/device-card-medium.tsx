@@ -99,9 +99,7 @@ export function DeviceCardMedium(
           )}
       </div>
       <div class="device-card-stats">
-        <div
-          class="device-card-price-container"
-        >
+        <div class="device-card-price-container">
           {!device.pricing.discontinued && device.pricing.average
             ? (
               <span
