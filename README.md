@@ -158,6 +158,15 @@ retro-ranker/
 └── main.ts     # Application entry point
 ```
 
+### Directory Guide
+
+- [`components/`](components/README.md) – reusable UI pieces
+- [`islands/`](islands/README.md) – client-side interactive components
+- [`routes/`](routes/README.md) – pages and API endpoints
+- [`scripts/`](scripts/README.md) – helper scripts for data management
+- [`data/`](data/README.md) – data models and source helpers
+- [`static/`](static/README.md) – images, icons and other static assets
+
 ## 🤝 Contributing
 
 Contributions are welcome! To contribute:
