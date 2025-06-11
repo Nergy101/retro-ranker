@@ -67,22 +67,26 @@ export class DeviceService {
 
   public async getAllDevices(forceRefresh = false): Promise<Device[]> {
     const now = Date.now();
-    if (!forceRefresh && this.devicesCache &&
-      now - this.devicesCache.timestamp < this.cacheDurationMs) {
+    if (
+      !forceRefresh && this.devicesCache &&
+      now - this.devicesCache.timestamp < this.cacheDurationMs
+    ) {
       return this.devicesCache.data;
     }
 
-    const data = (await this.pocketBaseService.getAll("devices")).map((device) =>
-      device.deviceData
-    );
+    const data = (await this.pocketBaseService.getAll("devices")).map((
+      device,
+    ) => device.deviceData);
     this.devicesCache = { data, timestamp: now };
     return data;
   }
 
   public async getAllTags(forceRefresh = false): Promise<TagModel[]> {
     const now = Date.now();
-    if (!forceRefresh && this.tagsCache &&
-      now - this.tagsCache.timestamp < this.cacheDurationMs) {
+    if (
+      !forceRefresh && this.tagsCache &&
+      now - this.tagsCache.timestamp < this.cacheDurationMs
+    ) {
       return this.tagsCache.data;
     }
 
