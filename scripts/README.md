@@ -1,8 +1,7 @@
 # Scripts
 
 Utility scripts used to manage data and housekeeping tasks. Each file can be
-executed with `deno run -A` or through the tasks defined in
-`deno.jsonc`.
+executed with `deno run -A` or through the tasks defined in `deno.jsonc`.
 
 - `generate-devices.ts` – build device data from the source files
 - `patch-devices.ts` – apply patches to existing device data
