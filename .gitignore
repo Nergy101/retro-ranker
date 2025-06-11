@@ -28,3 +28,4 @@ deno_cache/
 build/
 
 # Deno lock
+deno.lock
