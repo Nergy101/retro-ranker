@@ -42,6 +42,9 @@ import { RatingsService } from "./ratings.service.ts";
 export class DeviceService {
   private pocketBaseService: PocketBaseService;
   private static instance: DeviceService;
+  private devicesCache: { data: Device[]; timestamp: number } | null = null;
+  private tagsCache: { data: TagModel[]; timestamp: number } | null = null;
+  private readonly cacheDurationMs = 5 * 60 * 1000; // 5 minutes
 
   private constructor(pocketBaseService: PocketBaseService) {
     this.pocketBaseService = pocketBaseService;
@@ -62,14 +65,30 @@ export class DeviceService {
     return DeviceService.instance;
   }
 
-  public async getAllDevices(): Promise<Device[]> {
-    return (await this.pocketBaseService.getAll("devices")).map((device) =>
+  public async getAllDevices(forceRefresh = false): Promise<Device[]> {
+    const now = Date.now();
+    if (!forceRefresh && this.devicesCache &&
+      now - this.devicesCache.timestamp < this.cacheDurationMs) {
+      return this.devicesCache.data;
+    }
+
+    const data = (await this.pocketBaseService.getAll("devices")).map((device) =>
       device.deviceData
     );
+    this.devicesCache = { data, timestamp: now };
+    return data;
   }
 
-  public async getAllTags(): Promise<TagModel[]> {
-    return await this.pocketBaseService.getAll("tags");
+  public async getAllTags(forceRefresh = false): Promise<TagModel[]> {
+    const now = Date.now();
+    if (!forceRefresh && this.tagsCache &&
+      now - this.tagsCache.timestamp < this.cacheDurationMs) {
+      return this.tagsCache.data;
+    }
+
+    const data = await this.pocketBaseService.getAll("tags");
+    this.tagsCache = { data, timestamp: now };
+    return data;
   }
 
   public async searchDevices(
@@ -169,6 +188,10 @@ export class DeviceService {
   }
 
   public async getDeviceByName(sanitizedName: string): Promise<Device | null> {
+    const cached = await this.getAllDevices();
+    const found = cached.find((d) => d.name.sanitized === sanitizedName);
+    if (found) return found;
+
     const result = await this.pocketBaseService.getList(
       "devices",
       1,
@@ -179,7 +202,16 @@ export class DeviceService {
         expand: "",
       },
     );
-    return result.items[0]?.deviceData || null;
+    const device = result.items[0]?.deviceData || null;
+    if (device) {
+      const now = Date.now();
+      // merge into cache if exists
+      const devices = cached.concat(device).filter((d, idx, arr) =>
+        arr.findIndex((e) => e.name.sanitized === d.name.sanitized) === idx
+      );
+      this.devicesCache = { data: devices, timestamp: now };
+    }
+    return device;
   }
 
   public async getSimilarDevices(
@@ -460,6 +492,10 @@ export class DeviceService {
   }
 
   public async getTagBySlug(tagSlug: string): Promise<TagModel | null> {
+    const tags = await this.getAllTags();
+    const found = tags.find((t) => t.slug === tagSlug);
+    if (found) return found;
+
     const result = await this.pocketBaseService.getList(
       "tags",
       1,
@@ -470,10 +506,22 @@ export class DeviceService {
         expand: "",
       },
     );
-    return result.items[0] || null;
+    const tag = result.items[0] || null;
+    if (tag) {
+      const now = Date.now();
+      const tagsMerged = tags.concat(tag).filter((t, i, arr) =>
+        arr.findIndex((e) => e.id === t.id) === i
+      );
+      this.tagsCache = { data: tagsMerged, timestamp: now };
+    }
+    return tag;
   }
 
   public async getTagsBySlugs(slugs: string[]): Promise<TagModel[]> {
+    const tags = await this.getAllTags();
+    const filtered = tags.filter((t) => slugs.includes(t.slug));
+    if (filtered.length === slugs.length) return filtered;
+
     const result = await this.pocketBaseService.getList(
       "tags",
       1,
@@ -484,7 +532,15 @@ export class DeviceService {
         expand: "",
       },
     );
-    return result.items;
+    const resultItems = result.items;
+    if (resultItems.length > 0) {
+      const now = Date.now();
+      const tagsMerged = tags.concat(...resultItems).filter((t, i, arr) =>
+        arr.findIndex((e) => e.id === t.id) === i
+      );
+      this.tagsCache = { data: tagsMerged, timestamp: now };
+    }
+    return resultItems;
   }
 
   static getUptoSystemA(device: Device): SystemRating | null {
