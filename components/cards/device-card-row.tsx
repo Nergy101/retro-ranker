@@ -45,9 +45,13 @@ export function DeviceCardRow({ device }: DeviceCardRowProps) {
         <strong style={{ color: "var(--pico-contrast)" }}>
           {device.name.raw} <span style={{ fontSize: "0.7rem" }}>by</span>{" "}
           <span
+            id={`brand-tooltip-${device.name.sanitized}`}
             data-tooltip={device.brand.raw === device.brand.normalized
               ? undefined
               : device.brand.raw}
+            aria-describedby={device.brand.raw !== device.brand.normalized
+              ? `brand-tooltip-${device.name.sanitized}`
+              : undefined}
           >
             {device.brand.normalized}
           </span>
@@ -92,8 +96,17 @@ export function DeviceCardRow({ device }: DeviceCardRowProps) {
             </span>
           )
           : (
-            <span data-tooltip="No price available">
-              <PiQuestion />
+            <span
+              data-tooltip="No price available"
+              aria-describedby={`no-price-tooltip-${device.name.sanitized}`}
+            >
+              <PiQuestion aria-hidden="true" focusable="false" />
+              <span
+                id={`no-price-tooltip-${device.name.sanitized}`}
+                class="sr-only"
+              >
+                No price available
+              </span>
             </span>
           )}
       </div>

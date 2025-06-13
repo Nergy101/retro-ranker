@@ -55,9 +55,13 @@ export function PaginationNav({
               class="pagination-link"
               href={`/devices?page=1&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}&tags=${tagSlugs}&layout=${activeLayout}`}
               data-tooltip="First page"
+              aria-describedby="first-page-tooltip"
             >
-              <PiCaretDoubleLeftBold />
+              <PiCaretDoubleLeftBold aria-hidden="true" focusable="false" />
             </a>
+            <span id="first-page-tooltip" class="sr-only">
+              Go to the first page
+            </span>
 
             <a
               aria-label="Previous page"
@@ -67,9 +71,13 @@ export function PaginationNav({
                 pageNumber - 1
               }&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}&tags=${tagSlugs}&layout=${activeLayout}`}
               data-tooltip="Previous page"
+              aria-describedby="previous-page-tooltip"
             >
-              <PiCaretLeftBold />
+              <PiCaretLeftBold aria-hidden="true" focusable="false" />
             </a>
+            <span id="previous-page-tooltip" class="sr-only">
+              Go to the previous page
+            </span>
           </div>
         )}
         <span>
@@ -100,9 +108,13 @@ export function PaginationNav({
                 pageNumber + 1
               }&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}&tags=${tagSlugs}&layout=${activeLayout}`}
               data-tooltip="Next page"
+              aria-describedby="next-page-tooltip"
             >
-              <PiCaretRightBold />
+              <PiCaretRightBold aria-hidden="true" focusable="false" />
             </a>
+            <span id="next-page-tooltip" class="sr-only">
+              Go to the next page
+            </span>
 
             <a
               aria-label="Last page"
@@ -112,9 +124,13 @@ export function PaginationNav({
                 Math.ceil(totalResults / pageSize)
               }&search=${searchQuery}&category=${searchCategory}&sort=${sortBy}&filter=${filter}&tags=${tagSlugs}&layout=${activeLayout}`}
               data-tooltip="Last page"
+              aria-describedby="last-page-tooltip"
             >
-              <PiCaretDoubleRightBold />
+              <PiCaretDoubleRightBold aria-hidden="true" focusable="false" />
             </a>
+            <span id="last-page-tooltip" class="sr-only">
+              Go to the last page
+            </span>
           </div>
         )}
       </div>

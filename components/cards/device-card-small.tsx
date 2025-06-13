@@ -54,9 +54,20 @@ export function DeviceCardSmall({ device }: DeviceCardSmallProps) {
               data-tooltip={device.brand.raw === device.brand.normalized
                 ? undefined
                 : device.brand.raw}
+              aria-describedby={device.brand.raw !== device.brand.normalized
+                ? `brand-tooltip-${device.name.sanitized}`
+                : undefined}
             >
               {device.brand.normalized}
             </p>
+            {device.brand.raw !== device.brand.normalized && (
+              <span
+                id={`brand-tooltip-${device.name.sanitized}`}
+                class="sr-only"
+              >
+                {device.brand.raw}
+              </span>
+            )}
           </hgroup>
           <div class="figure">
             {device.image?.originalUrl
@@ -73,19 +84,28 @@ export function DeviceCardSmall({ device }: DeviceCardSmallProps) {
                     height: "100px",
                     objectFit: "contain",
                   }}
+                  aria-hidden={device.image?.alt ? "false" : "true"}
                 />
               )
               : (
                 <span
                   data-tooltip="No image available"
                   data-placement="bottom"
+                  aria-describedby={`no-image-tooltip-${device.name.sanitized}`}
                 >
                   <img
                     src="/images/placeholder-100x100.svg"
                     width={100}
                     height={100}
                     alt="A placeholder image"
+                    aria-hidden="true"
                   />
+                  <span
+                    id={`no-image-tooltip-${device.name.sanitized}`}
+                    class="sr-only"
+                  >
+                    No image available
+                  </span>
                 </span>
               )}
           </div>

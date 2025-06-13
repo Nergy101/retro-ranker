@@ -9,8 +9,11 @@ export function DeviceCardLarge({ device }: { device: Device }) {
   const getPriceIndicator = () => {
     if (device.pricing.discontinued) {
       return (
-        <span data-tooltip="Discontinued">
-          <PiQuestion />
+        <span
+          data-tooltip="Discontinued"
+          aria-describedby="discontinued-tooltip"
+        >
+          <PiQuestion aria-hidden="true" focusable="false" />
         </span>
       );
     }
@@ -104,9 +107,10 @@ export function DeviceCardLarge({ device }: { device: Device }) {
                   <span
                     style={{ display: "flex", fontSize: "1rem" }}
                     data-tooltip="No pricing available"
+                    aria-describedby="no-pricing-tooltip"
                   >
                     <CurrencyIcon currencyCode="USD" />
-                    <PiQuestion />
+                    <PiQuestion aria-hidden="true" focusable="false" />
                   </span>
                 )}
             </div>
@@ -115,9 +119,13 @@ export function DeviceCardLarge({ device }: { device: Device }) {
               data-tooltip={device.os.list.join(", ") === "?"
                 ? "No OS information available"
                 : device.os.list.join(", ")}
+              aria-describedby="os-icons-tooltip"
             >
-              {device.os.icons.map((icon) =>
-                DeviceService.getOsIconComponent(icon)
+              {device.os.icons.map((icon, idx) =>
+                // Decorative OS icons
+                <span key={idx} aria-hidden="true" focusable="false">
+                  {DeviceService.getOsIconComponent(icon)}
+                </span>
               )}
             </span>
           </div>
@@ -135,6 +143,16 @@ export function DeviceCardLarge({ device }: { device: Device }) {
           userFavorited={false}
         />
       </div>
+      {/* Accessibility tooltips */}
+      <span id="discontinued-tooltip" class="sr-only">
+        Device is discontinued
+      </span>
+      <span id="no-pricing-tooltip" class="sr-only">No pricing available</span>
+      <span id="os-icons-tooltip" class="sr-only">
+        {device.os.list.join(", ") === "?"
+          ? "No OS information available"
+          : device.os.list.join(", ")}
+      </span>
     </article>
   );
 }

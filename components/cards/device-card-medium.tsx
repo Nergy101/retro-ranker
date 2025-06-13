@@ -15,8 +15,11 @@ export function DeviceCardMedium(
   const getPriceIndicator = () => {
     if (device.pricing.discontinued) {
       return (
-        <span data-tooltip="Discontinued">
-          <PiQuestion />
+        <span
+          data-tooltip="Discontinued"
+          aria-describedby="discontinued-tooltip"
+        >
+          <PiQuestion aria-hidden="true" focusable="false" />
         </span>
       );
     }
@@ -113,9 +116,10 @@ export function DeviceCardMedium(
               <span
                 style={{ display: "flex", fontSize: "1rem" }}
                 data-tooltip="No pricing available"
+                aria-describedby="no-pricing-tooltip"
               >
                 <CurrencyIcon currencyCode="USD" />
-                <PiQuestion />
+                <PiQuestion aria-hidden="true" focusable="false" />
               </span>
             )}
         </div>
@@ -124,9 +128,13 @@ export function DeviceCardMedium(
           data-tooltip={device.os.list.join(", ") === "?"
             ? "No OS information available"
             : device.os.list.join(", ")}
+          aria-describedby="os-icons-tooltip"
         >
-          {device.os.icons.map((icon) =>
-            DeviceService.getOsIconComponent(icon)
+          {device.os.icons.map((icon, idx) =>
+            // Decorative icons, hide from screen readers
+            <span key={idx} aria-hidden="true" style="display:inline;">
+              {DeviceService.getOsIconComponent(icon)}
+            </span>
           )}
         </span>
       </div>
@@ -146,6 +154,12 @@ export function DeviceCardMedium(
           />
         )}
       </div>
+      {/* Accessible tooltip descriptions */}
+      <span id="discontinued-tooltip" class="sr-only">
+        Device is discontinued
+      </span>
+      <span id="no-pricing-tooltip" class="sr-only">No pricing available</span>
+      <span id="os-icons-tooltip" class="sr-only">Operating system icons</span>
     </article>
   );
 }
