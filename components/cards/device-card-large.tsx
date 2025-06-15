@@ -123,7 +123,7 @@ export function DeviceCardLarge({ device }: { device: Device }) {
             >
               {device.os.icons.map((icon, idx) =>
                 // Decorative OS icons
-                <span key={idx} aria-hidden="true" focusable="false">
+                <span key={idx} aria-hidden="true">
                   {DeviceService.getOsIconComponent(icon)}
                 </span>
               )}
