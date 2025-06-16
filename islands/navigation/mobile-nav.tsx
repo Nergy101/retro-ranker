@@ -131,7 +131,7 @@ export function MobileNav(
             <img
               loading="lazy"
               src="/logos/retro-ranker/rr-logo.svg"
-              alt="logo"
+              alt="retro ranker logo"
               width="100"
               style={{
                 height: "3em",
