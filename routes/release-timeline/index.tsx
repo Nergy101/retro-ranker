@@ -52,10 +52,26 @@ export const handler = {
       Deno.env.get("POCKETBASE_URL")!,
     );
 
-    const likesFilter = deviceIds.map((id) => `device="${id}"`).join(" || ");
-    const likeRecords = deviceIds.length > 0
-      ? await pb.getAll("device_likes", { filter: likesFilter, expand: "", sort: "" })
-      : [];
+    const chunkArray = <T>(arr: T[], size: number): T[][] => {
+      const chunks: T[][] = [];
+      for (let i = 0; i < arr.length; i += size) {
+        chunks.push(arr.slice(i, i + size));
+      }
+      return chunks;
+    };
+
+    const likeRecords = [] as any[];
+    if (deviceIds.length > 0) {
+      for (const chunk of chunkArray(deviceIds, 100)) {
+        const likesFilter = chunk.map((id) => `device="${id}"`).join(" || ");
+        const records = await pb.getAll("device_likes", {
+          filter: likesFilter,
+          expand: "",
+          sort: "",
+        });
+        likeRecords.push(...records);
+      }
+    }
 
     const likesCountMap: Record<string, number> = {};
     const userLikedMap: Record<string, boolean> = {};
@@ -67,14 +83,21 @@ export const handler = {
       }
     }
 
-    const favoritesFilter = currentUser
-      ? `user="${currentUser.id}" && (` +
-        deviceIds.map((id) => `device="${id}"`).join(" || ") +
-        ")"
-      : "";
-    const favoriteRecords = currentUser && deviceIds.length > 0
-      ? await pb.getAll("device_favorites", { filter: favoritesFilter, expand: "", sort: "" })
-      : [];
+    const favoriteRecords = [] as any[];
+    if (currentUser && deviceIds.length > 0) {
+      for (const chunk of chunkArray(deviceIds, 100)) {
+        const favoritesFilter =
+          `user="${currentUser.id}" && (` +
+          chunk.map((id) => `device="${id}"`).join(" || ") +
+          ")";
+        const records = await pb.getAll("device_favorites", {
+          filter: favoritesFilter,
+          expand: "",
+          sort: "",
+        });
+        favoriteRecords.push(...records);
+      }
+    }
     const userFavoritedMap: Record<string, boolean> = {};
     for (const r of favoriteRecords) {
       userFavoritedMap[r.device] = true;
