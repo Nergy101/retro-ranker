@@ -4,8 +4,27 @@ import { DeviceService } from "@data/frontend/services/devices/device.service.ts
 import { EmulationPerformance } from "../devices/emulation-performance.tsx";
 import { StarRating } from "../ratings/star-rating.tsx";
 import { CurrencyIcon } from "../shared/currency-icon.tsx";
+import { DeviceCardActions } from "@islands/devices/device-card-actions.tsx";
 
-export function DeviceCardLarge({ device }: { device: Device }) {
+interface DeviceCardLargeProps {
+  device: Device;
+  isLoggedIn?: boolean;
+  likes?: number;
+  isLiked?: boolean;
+  isFavorited?: boolean;
+  showLikeButton?: boolean;
+}
+
+export function DeviceCardLarge(
+  {
+    device,
+    isLoggedIn = false,
+    likes = 0,
+    isLiked = false,
+    isFavorited = false,
+    showLikeButton = true,
+  }: DeviceCardLargeProps,
+) {
   const getPriceIndicator = () => {
     if (device.pricing.discontinued) {
       return (
@@ -141,6 +160,14 @@ export function DeviceCardLarge({ device }: { device: Device }) {
           likes={null}
           isLiked={false}
           userFavorited={false}
+        />
+        <DeviceCardActions
+          deviceId={device.id}
+          isLoggedIn={isLoggedIn}
+          likes={likes}
+          isLiked={isLiked}
+          isFavorited={isFavorited}
+          showLikeButton={showLikeButton}
         />
       </div>
       {/* Accessibility tooltips */}

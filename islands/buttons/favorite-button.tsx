@@ -11,7 +11,9 @@ export function FavoriteButton(props: FavoriteButtonProps) {
   const [favorited, setFavorited] = useState(props.isFavorited);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  const handleFavorite = async () => {
+  const handleFavorite = async (e: Event) => {
+    e.preventDefault();
+    e.stopPropagation();
     if (!props.isLoggedIn) {
       return;
     }
@@ -78,7 +80,7 @@ export function FavoriteButton(props: FavoriteButtonProps) {
         {favorited
           ? (
             <PiHeartFill
-              color="var(--pico-primary)"
+              color="red"
               class={isAnimating ? "favorite-animation" : ""}
             />
           )

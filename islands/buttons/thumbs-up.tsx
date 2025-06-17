@@ -14,7 +14,9 @@ export function ThumbsUp(props: ThumbsUpProps) {
   const [liked, setLiked] = useState(isLiked);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  const handleLike = async () => {
+  const handleLike = async (e: Event) => {
+    e.preventDefault();
+    e.stopPropagation();
     if (!isLoggedIn) {
       return;
     }
@@ -27,7 +29,7 @@ export function ThumbsUp(props: ThumbsUpProps) {
       if (response.ok) {
         setIsAnimating(true);
         setLiked(!liked);
-        setLikes(liked ? likes + 1 : likes - 1);
+        setLikes(liked ? likes - 1 : likes + 1);
         setTimeout(() => {
           setIsAnimating(false);
         }, 500);

@@ -1,11 +1,26 @@
 import { Device } from "@data/frontend/contracts/device.model.ts";
 import { StarRating } from "../ratings/star-rating.tsx";
+import { DeviceCardActions } from "@islands/devices/device-card-actions.tsx";
 
 interface DeviceCardSmallProps {
   device: Device;
+  isLoggedIn?: boolean;
+  likes?: number;
+  isLiked?: boolean;
+  isFavorited?: boolean;
+  showLikeButton?: boolean;
 }
 
-export function DeviceCardSmall({ device }: DeviceCardSmallProps) {
+export function DeviceCardSmall(
+  {
+    device,
+    isLoggedIn = false,
+    likes = 0,
+    isLiked = false,
+    isFavorited = false,
+    showLikeButton = true,
+  }: DeviceCardSmallProps,
+) {
   return (
     <div
       class="small-card"
@@ -110,6 +125,14 @@ export function DeviceCardSmall({ device }: DeviceCardSmallProps) {
               )}
           </div>
           <StarRating device={device} />
+          <DeviceCardActions
+            deviceId={device.id}
+            isLoggedIn={isLoggedIn}
+            likes={likes}
+            isLiked={isLiked}
+            isFavorited={isFavorited}
+            showLikeButton={showLikeButton}
+          />
         </div>
       </a>
     </div>

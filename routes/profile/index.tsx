@@ -4,7 +4,10 @@ import { RecordModel } from "npm:pocketbase";
 import { DeviceCardMedium } from "@components/cards/device-card-medium.tsx";
 import { DeviceCollection } from "@data/frontend/contracts/device-collection.ts";
 import { Device } from "@data/frontend/contracts/device.model.ts";
-import { createLoggedInPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
+import {
+  createLoggedInPocketBaseService,
+  createSuperUserPocketBaseService,
+} from "@data/pocketbase/pocketbase.service.ts";
 import { CustomFreshState } from "@interfaces/state.ts";
 import { SignOut } from "@islands/auth/sign-out.tsx";
 import { DeviceCollections } from "@islands/collections/device-collections.tsx";
@@ -92,6 +95,42 @@ export default async function ProfilePage(
   const collections = await getCollections();
   const favoritedDevices = await getFavoritedDevices();
 
+  const deviceIds = Array.from(
+    new Set([
+      ...favoritedDevices.map((d) => d.id),
+      ...collections.flatMap((c) => c.devices.map((d) => d.id)),
+    ]),
+  );
+
+  const pb = await createSuperUserPocketBaseService(
+    Deno.env.get("POCKETBASE_SUPERUSER_EMAIL")!,
+    Deno.env.get("POCKETBASE_SUPERUSER_PASSWORD")!,
+    Deno.env.get("POCKETBASE_URL")!,
+  );
+
+  const likesFilter = deviceIds.map((id) => `device="${id}"`).join(" || ");
+  const likeRecords = deviceIds.length > 0
+    ? await pb.getAll("device_likes", {
+      filter: likesFilter,
+      expand: "",
+      sort: "",
+    })
+    : [];
+
+  const likesCountMap: Record<string, number> = {};
+  const userLikedMap: Record<string, boolean> = {};
+  for (const r of likeRecords) {
+    likesCountMap[r.device] = (likesCountMap[r.device] || 0) + 1;
+    if (r.user === user.id) {
+      userLikedMap[r.device] = true;
+    }
+  }
+
+  const userFavoritedMap: Record<string, boolean> = {};
+  for (const d of favoritedDevices) {
+    userFavoritedMap[d.id] = true;
+  }
+
   const getWelcomeText = () => {
     const texts = [
       "Player One.",
@@ -159,6 +198,10 @@ export default async function ProfilePage(
                   <DeviceCardMedium
                     device={device}
                     isActive={false}
+                    isLoggedIn={true}
+                    likes={likesCountMap[device.id] ?? 0}
+                    isLiked={userLikedMap[device.id] ?? false}
+                    isFavorited={true}
                   />
                 </a>
               ))}
@@ -216,7 +259,13 @@ export default async function ProfilePage(
           )}
 
           <div class="collection-container">
-            <DeviceCollections collections={collections} />
+            <DeviceCollections
+              collections={collections}
+              isLoggedIn={true}
+              likesCountMap={likesCountMap}
+              userLikedMap={userLikedMap}
+              userFavoritedMap={userFavoritedMap}
+            />
           </div>
         </section>
 
