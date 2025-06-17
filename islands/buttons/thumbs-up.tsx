@@ -27,7 +27,7 @@ export function ThumbsUp(props: ThumbsUpProps) {
       if (response.ok) {
         setIsAnimating(true);
         setLiked(!liked);
-        setLikes(liked ? likes + 1 : likes - 1);
+        setLikes(liked ? likes - 1 : likes + 1);
         setTimeout(() => {
           setIsAnimating(false);
         }, 500);
