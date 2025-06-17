@@ -5,10 +5,21 @@ import { Device } from "@data/frontend/contracts/device.model.ts";
 interface TimelineContentProps {
   upcomingDevices: Device[];
   devicesGroupedByYearAndMonth: Record<string, Device[]>;
+  isLoggedIn: boolean;
+  likesCountMap: Record<string, number>;
+  userLikedMap: Record<string, boolean>;
+  userFavoritedMap: Record<string, boolean>;
 }
 
 export function TimelineContent(
-  { upcomingDevices, devicesGroupedByYearAndMonth }: TimelineContentProps,
+  {
+    upcomingDevices,
+    devicesGroupedByYearAndMonth,
+    isLoggedIn,
+    likesCountMap,
+    userLikedMap,
+    userFavoritedMap,
+  }: TimelineContentProps,
 ) {
   const [includeUpcoming, setIncludeUpcoming] = useState(false);
 
@@ -80,7 +91,13 @@ export function TimelineContent(
                     href={`/devices/${device.name.sanitized}`}
                     style={{ textDecoration: "none" }}
                   >
-                    <DeviceCardMedium device={device} />
+                    <DeviceCardMedium
+                      device={device}
+                      isLoggedIn={isLoggedIn}
+                      likes={likesCountMap[device.id] ?? 0}
+                      isLiked={userLikedMap[device.id] ?? false}
+                      isFavorited={userFavoritedMap[device.id] ?? false}
+                    />
                   </a>
                 );
               })}
@@ -120,7 +137,13 @@ export function TimelineContent(
                       href={`/devices/${device.name.sanitized}`}
                       style={{ textDecoration: "none" }}
                     >
-                      <DeviceCardMedium device={device} />
+                      <DeviceCardMedium
+                        device={device}
+                        isLoggedIn={isLoggedIn}
+                        likes={likesCountMap[device.id] ?? 0}
+                        isLiked={userLikedMap[device.id] ?? false}
+                        isFavorited={userFavoritedMap[device.id] ?? false}
+                      />
                     </a>
                   );
                 })}
