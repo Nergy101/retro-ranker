@@ -3,8 +3,23 @@ import { useState } from "preact/hooks";
 import { DeviceCardMedium } from "@components/cards/device-card-medium.tsx";
 import { DeviceCollection } from "@data/frontend/contracts/device-collection.ts";
 import { ShareButton } from "../buttons/share-button.tsx";
+
+interface CollectionCardProps {
+  collection: DeviceCollection;
+  isLoggedIn: boolean;
+  likesCountMap: Record<string, number>;
+  userLikedMap: Record<string, boolean>;
+  userFavoritedMap: Record<string, boolean>;
+}
+
 export function CollectionCard(
-  { collection }: { collection: DeviceCollection },
+  {
+    collection,
+    isLoggedIn,
+    likesCountMap,
+    userLikedMap,
+    userFavoritedMap,
+  }: CollectionCardProps,
 ) {
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const getIconSizeBasedOnDevice = () => {
@@ -107,7 +122,14 @@ export function CollectionCard(
 
       <div class="grid" style={{ flex: 1 }}>
         {collection.devices.slice(0, 4).map((device) => (
-          <DeviceCardMedium device={device} key={device.id} />
+          <DeviceCardMedium
+            device={device}
+            key={device.id}
+            isLoggedIn={isLoggedIn}
+            likes={likesCountMap[device.id] ?? 0}
+            isLiked={userLikedMap[device.id] ?? false}
+            isFavorited={userFavoritedMap[device.id] ?? false}
+          />
         ))}
 
         {collection.devices.length === 0 && (
