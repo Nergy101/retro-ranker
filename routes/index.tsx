@@ -17,6 +17,7 @@ import { User } from "@data/frontend/contracts/user.contract.ts";
 import { BrandWebsites } from "@data/frontend/enums/brand-websites.ts";
 import { TagModel } from "@data/frontend/models/tag.model.ts";
 import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
+import { createSuperUserPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
 import { tracer } from "@data/tracing/tracer.ts";
 import { CustomFreshState } from "@interfaces/state.ts";
 import { Hero } from "@islands/hero/hero.tsx";
@@ -60,12 +61,56 @@ export const handler = {
       await deviceService.getTagBySlug("personal-pick"),
     ].filter((tag) => tag !== null) as TagModel[];
 
+    // Likes and favorites data
+    const deviceIds = [
+      ...newArrivals,
+      ...personalPicks,
+      ...highlyRated,
+      ...upcoming,
+    ].map((d) => d.id);
+    const pb = await createSuperUserPocketBaseService(
+      Deno.env.get("POCKETBASE_SUPERUSER_EMAIL")!,
+      Deno.env.get("POCKETBASE_SUPERUSER_PASSWORD")!,
+      Deno.env.get("POCKETBASE_URL")!,
+    );
+
+    const likesFilter = deviceIds.map((id) => `device="${id}"`).join(" || ");
+    const likeRecords = deviceIds.length > 0
+      ? await pb.getAll("device_likes", { filter: likesFilter, expand: "", sort: "" })
+      : [];
+    const likesCountMap: Record<string, number> = {};
+    const userLikedMap: Record<string, boolean> = {};
+    const currentUser = (ctx.state as CustomFreshState).user as User | null;
+    for (const r of likeRecords) {
+      likesCountMap[r.device] = (likesCountMap[r.device] || 0) + 1;
+      if (currentUser && r.user === currentUser.id) {
+        userLikedMap[r.device] = true;
+      }
+    }
+
+    const favoritesFilter = currentUser
+      ? `user="${currentUser.id}" && (` +
+        deviceIds.map((id) => `device="${id}"`).join(" || ") +
+        ")"
+      : "";
+    const favoriteRecords = currentUser && deviceIds.length > 0
+      ? await pb.getAll("device_favorites", { filter: favoritesFilter, expand: "", sort: "" })
+      : [];
+    const userFavoritedMap: Record<string, boolean> = {};
+    for (const r of favoriteRecords) {
+      userFavoritedMap[r.device] = true;
+    }
+
     (ctx.state as CustomFreshState).data = {
       newArrivals,
       personalPicks,
       highlyRated,
       upcoming,
       defaultTags,
+      likesCountMap,
+      userLikedMap,
+      userFavoritedMap,
+      user: (ctx.state as CustomFreshState).user,
     };
 
     return await tracer.startActiveSpan("route:index", async (span) => {
@@ -103,6 +148,10 @@ export default function Home(
   const highlyRated = data.highlyRated as Device[];
   const upcoming = data.upcoming as Device[];
   const defaultTags = data.defaultTags as TagModel[];
+  const user = data.user as User | null;
+  const likesCountMap = data.likesCountMap as Record<string, number>;
+  const userLikedMap = data.userLikedMap as Record<string, boolean>;
+  const userFavoritedMap = data.userFavoritedMap as Record<string, boolean>;
 
   return (
     <div class="home-page">
@@ -164,6 +213,10 @@ export default function Home(
                     <DeviceCardMedium
                       device={device}
                       isActive={false}
+                      isLoggedIn={!!user}
+                      likes={likesCountMap[device.id] ?? 0}
+                      isLiked={userLikedMap[device.id] ?? false}
+                      isFavorited={userFavoritedMap[device.id] ?? false}
                     />
                   </a>
                 ))}
@@ -201,6 +254,10 @@ export default function Home(
                     <DeviceCardMedium
                       device={device}
                       isActive={false}
+                      isLoggedIn={!!user}
+                      likes={likesCountMap[device.id] ?? 0}
+                      isLiked={userLikedMap[device.id] ?? false}
+                      isFavorited={userFavoritedMap[device.id] ?? false}
                     />
                   </a>
                 ))}
@@ -227,6 +284,10 @@ export default function Home(
                     <DeviceCardMedium
                       device={device}
                       isActive={false}
+                      isLoggedIn={!!user}
+                      likes={likesCountMap[device.id] ?? 0}
+                      isLiked={userLikedMap[device.id] ?? false}
+                      isFavorited={userFavoritedMap[device.id] ?? false}
                     />
                   </a>
                 ))}
@@ -253,6 +314,10 @@ export default function Home(
                     <DeviceCardMedium
                       device={device}
                       isActive={false}
+                      isLoggedIn={!!user}
+                      likes={likesCountMap[device.id] ?? 0}
+                      isLiked={userLikedMap[device.id] ?? false}
+                      isFavorited={userFavoritedMap[device.id] ?? false}
                     />
                   </a>
                 ))}
