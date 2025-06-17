@@ -7,6 +7,15 @@ import { createSuperUserPocketBaseService } from "@data/pocketbase/pocketbase.se
 import { CustomFreshState } from "@interfaces/state.ts";
 import { TimelineContent } from "@islands/devices/timeline-content.tsx";
 
+
+const chunkArray = (arr: any[], size: number): any[][] => {
+  const chunks: any[][] = [];
+  for (let i = 0; i < arr.length; i += size) {
+    chunks.push(arr.slice(i, i + size));
+  }
+  return chunks;
+};
+
 export const handler = {
   async GET(ctx: FreshContext) {
     (ctx.state as CustomFreshState).seo = {
@@ -52,13 +61,6 @@ export const handler = {
       Deno.env.get("POCKETBASE_URL")!,
     );
 
-    const chunkArray = <T>(arr: T[], size: number): T[][] => {
-      const chunks: T[][] = [];
-      for (let i = 0; i < arr.length; i += size) {
-        chunks.push(arr.slice(i, i + size));
-      }
-      return chunks;
-    };
 
     const likeRecords = [] as any[];
     if (deviceIds.length > 0) {
