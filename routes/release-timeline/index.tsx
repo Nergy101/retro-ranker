@@ -7,7 +7,6 @@ import { createSuperUserPocketBaseService } from "@data/pocketbase/pocketbase.se
 import { CustomFreshState } from "@interfaces/state.ts";
 import { TimelineContent } from "@islands/devices/timeline-content.tsx";
 
-
 const chunkArray = (arr: any[], size: number): any[][] => {
   const chunks: any[][] = [];
   for (let i = 0; i < arr.length; i += size) {
@@ -61,7 +60,6 @@ export const handler = {
       Deno.env.get("POCKETBASE_URL")!,
     );
 
-
     const likeRecords = [] as any[];
     if (deviceIds.length > 0) {
       for (const chunk of chunkArray(deviceIds, 100)) {
@@ -88,8 +86,7 @@ export const handler = {
     const favoriteRecords = [] as any[];
     if (currentUser && deviceIds.length > 0) {
       for (const chunk of chunkArray(deviceIds, 100)) {
-        const favoritesFilter =
-          `user="${currentUser.id}" && (` +
+        const favoritesFilter = `user="${currentUser.id}" && (` +
           chunk.map((id) => `device="${id}"`).join(" || ") +
           ")";
         const records = await pb.getAll("device_favorites", {

@@ -97,7 +97,11 @@ export const handler = {
 
     const likesFilter = deviceIds.map((id) => `device="${id}"`).join(" || ");
     const likeRecords = deviceIds.length > 0
-      ? await pb.getAll("device_likes", { filter: likesFilter, expand: "", sort: "" })
+      ? await pb.getAll("device_likes", {
+        filter: likesFilter,
+        expand: "",
+        sort: "",
+      })
       : [];
 
     const likesCountMap: Record<string, number> = {};
@@ -116,7 +120,11 @@ export const handler = {
         ")"
       : "";
     const favoriteRecords = currentUser && deviceIds.length > 0
-      ? await pb.getAll("device_favorites", { filter: favoritesFilter, expand: "", sort: "" })
+      ? await pb.getAll("device_favorites", {
+        filter: favoritesFilter,
+        expand: "",
+        sort: "",
+      })
       : [];
     const userFavoritedMap: Record<string, boolean> = {};
     for (const r of favoriteRecords) {

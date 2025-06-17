@@ -110,7 +110,11 @@ export default async function ProfilePage(
 
   const likesFilter = deviceIds.map((id) => `device="${id}"`).join(" || ");
   const likeRecords = deviceIds.length > 0
-    ? await pb.getAll("device_likes", { filter: likesFilter, expand: "", sort: "" })
+    ? await pb.getAll("device_likes", {
+      filter: likesFilter,
+      expand: "",
+      sort: "",
+    })
     : [];
 
   const likesCountMap: Record<string, number> = {};

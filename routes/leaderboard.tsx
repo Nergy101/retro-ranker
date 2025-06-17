@@ -85,7 +85,11 @@ export const handler = {
     const deviceIds = [...top3, ...rest].map((d) => d.device.id);
     const likesFilter = deviceIds.map((id) => `device="${id}"`).join(" || ");
     const likeRecords = deviceIds.length > 0
-      ? await pb.getAll("device_likes", { filter: likesFilter, expand: "", sort: "" })
+      ? await pb.getAll("device_likes", {
+        filter: likesFilter,
+        expand: "",
+        sort: "",
+      })
       : [];
     const likesCountMap: Record<string, number> = {};
     const userLikedMap: Record<string, boolean> = {};
@@ -102,7 +106,11 @@ export const handler = {
         ")"
       : "";
     const favoriteRecords = currentUser && deviceIds.length > 0
-      ? await pb.getAll("device_favorites", { filter: favoritesFilter, expand: "", sort: "" })
+      ? await pb.getAll("device_favorites", {
+        filter: favoritesFilter,
+        expand: "",
+        sort: "",
+      })
       : [];
     const userFavoritedMap: Record<string, boolean> = {};
     for (const r of favoriteRecords) {
@@ -189,7 +197,8 @@ export default function LeaderboardPage(
                 isLoggedIn={!!user}
                 likes={data.likesCountMap[data.top3[0]?.device.id] ?? 0}
                 isLiked={data.userLikedMap[data.top3[0]?.device.id] ?? false}
-                isFavorited={data.userFavoritedMap[data.top3[0]?.device.id] ?? false}
+                isFavorited={data.userFavoritedMap[data.top3[0]?.device.id] ??
+                  false}
               />
             </a>
           </div>
@@ -218,7 +227,8 @@ export default function LeaderboardPage(
                 isLoggedIn={!!user}
                 likes={data.likesCountMap[data.top3[1]?.device.id] ?? 0}
                 isLiked={data.userLikedMap[data.top3[1]?.device.id] ?? false}
-                isFavorited={data.userFavoritedMap[data.top3[1]?.device.id] ?? false}
+                isFavorited={data.userFavoritedMap[data.top3[1]?.device.id] ??
+                  false}
               />
             </a>
           </div>
@@ -247,7 +257,8 @@ export default function LeaderboardPage(
                 isLoggedIn={!!user}
                 likes={data.likesCountMap[data.top3[2]?.device.id] ?? 0}
                 isLiked={data.userLikedMap[data.top3[2]?.device.id] ?? false}
-                isFavorited={data.userFavoritedMap[data.top3[2]?.device.id] ?? false}
+                isFavorited={data.userFavoritedMap[data.top3[2]?.device.id] ??
+                  false}
               />
             </a>
           </div>

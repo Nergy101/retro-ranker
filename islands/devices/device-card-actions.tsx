@@ -20,7 +20,6 @@ export function DeviceCardActions(
     showLikeButton = true,
   }: DeviceCardActionsProps,
 ) {
-
   return (
     <div style={{ display: "flex", justifyContent: "center", gap: "0.5rem" }}>
       {isLoggedIn && (

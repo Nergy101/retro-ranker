@@ -707,6 +707,7 @@ export default function DeviceDetail(ctx: FreshContext) {
               <DeviceCardMedium
                 device={deviceItem}
                 isActive={false}
+                showLikeButton={false}
               />
             </a>
           ))}
