@@ -12,6 +12,7 @@ interface DeviceCardMediumProps {
   likes?: number;
   isLiked?: boolean;
   isFavorited?: boolean;
+  showLikeButton?: boolean;
 }
 
 export function DeviceCardMedium(
@@ -22,6 +23,7 @@ export function DeviceCardMedium(
     likes = 0,
     isLiked = false,
     isFavorited = false,
+    showLikeButton = true,
   }: DeviceCardMediumProps,
 ) {
   const getPriceIndicator = () => {
@@ -172,6 +174,7 @@ export function DeviceCardMedium(
         likes={likes}
         isLiked={isLiked}
         isFavorited={isFavorited}
+        showLikeButton={showLikeButton}
       />
       {/* Accessible tooltip descriptions */}
       <span id="discontinued-tooltip" class="sr-only">

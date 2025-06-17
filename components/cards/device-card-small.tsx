@@ -8,6 +8,7 @@ interface DeviceCardSmallProps {
   likes?: number;
   isLiked?: boolean;
   isFavorited?: boolean;
+  showLikeButton?: boolean;
 }
 
 export function DeviceCardSmall(
@@ -17,6 +18,7 @@ export function DeviceCardSmall(
     likes = 0,
     isLiked = false,
     isFavorited = false,
+    showLikeButton = true,
   }: DeviceCardSmallProps,
 ) {
   return (
@@ -129,6 +131,7 @@ export function DeviceCardSmall(
             likes={likes}
             isLiked={isLiked}
             isFavorited={isFavorited}
+            showLikeButton={showLikeButton}
           />
         </div>
       </a>

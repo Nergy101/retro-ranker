@@ -12,6 +12,7 @@ interface DeviceCardLargeProps {
   likes?: number;
   isLiked?: boolean;
   isFavorited?: boolean;
+  showLikeButton?: boolean;
 }
 
 export function DeviceCardLarge(
@@ -21,6 +22,7 @@ export function DeviceCardLarge(
     likes = 0,
     isLiked = false,
     isFavorited = false,
+    showLikeButton = true,
   }: DeviceCardLargeProps,
 ) {
   const getPriceIndicator = () => {
@@ -165,6 +167,7 @@ export function DeviceCardLarge(
           likes={likes}
           isLiked={isLiked}
           isFavorited={isFavorited}
+          showLikeButton={showLikeButton}
         />
       </div>
       {/* Accessibility tooltips */}

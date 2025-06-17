@@ -11,6 +11,7 @@ interface DeviceCardRowProps {
   likes?: number;
   isLiked?: boolean;
   isFavorited?: boolean;
+  showLikeButton?: boolean;
 }
 
 export function DeviceCardRow(
@@ -20,6 +21,7 @@ export function DeviceCardRow(
     likes = 0,
     isLiked = false,
     isFavorited = false,
+    showLikeButton = true,
   }: DeviceCardRowProps,
 ) {
   const upToSystemA = DeviceService.getUptoSystemA(device);
@@ -129,6 +131,7 @@ export function DeviceCardRow(
         likes={likes}
         isLiked={isLiked}
         isFavorited={isFavorited}
+        showLikeButton={showLikeButton}
       />
     </div>
   );

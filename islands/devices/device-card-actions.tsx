@@ -7,10 +7,18 @@ interface DeviceCardActionsProps {
   likes: number;
   isLiked: boolean;
   isFavorited: boolean;
+  showLikeButton?: boolean;
 }
 
 export function DeviceCardActions(
-  { deviceId, isLoggedIn, likes, isLiked, isFavorited }: DeviceCardActionsProps,
+  {
+    deviceId,
+    isLoggedIn,
+    likes,
+    isLiked,
+    isFavorited,
+    showLikeButton = true,
+  }: DeviceCardActionsProps,
 ) {
 
   return (
@@ -22,12 +30,14 @@ export function DeviceCardActions(
           isLoggedIn={isLoggedIn}
         />
       )}
-      <ThumbsUp
-        deviceId={deviceId}
-        initialLikes={likes}
-        isLiked={isLiked}
-        isLoggedIn={isLoggedIn}
-      />
+      {showLikeButton && (
+        <ThumbsUp
+          deviceId={deviceId}
+          initialLikes={likes}
+          isLiked={isLiked}
+          isLoggedIn={isLoggedIn}
+        />
+      )}
     </div>
   );
 }
