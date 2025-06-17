@@ -3,14 +3,26 @@ import { Device } from "@data/frontend/contracts/device.model.ts";
 import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
 import { RatingInfo } from "@islands/devices/rating-info.tsx";
 import { CurrencyIcon } from "../shared/currency-icon.tsx";
+import { DeviceCardActions } from "@islands/devices/device-card-actions.tsx";
 
 interface DeviceCardMediumProps {
   device: Device;
   isActive?: boolean;
+  isLoggedIn?: boolean;
+  likes?: number;
+  isLiked?: boolean;
+  isFavorited?: boolean;
 }
 
 export function DeviceCardMedium(
-  { device, isActive = false }: DeviceCardMediumProps,
+  {
+    device,
+    isActive = false,
+    isLoggedIn = false,
+    likes = 0,
+    isLiked = false,
+    isFavorited = false,
+  }: DeviceCardMediumProps,
 ) {
   const getPriceIndicator = () => {
     if (device.pricing.discontinued) {
@@ -154,6 +166,13 @@ export function DeviceCardMedium(
           />
         )}
       </div>
+      <DeviceCardActions
+        deviceId={device.id}
+        isLoggedIn={isLoggedIn}
+        likes={likes}
+        isLiked={isLiked}
+        isFavorited={isFavorited}
+      />
       {/* Accessible tooltip descriptions */}
       <span id="discontinued-tooltip" class="sr-only">
         Device is discontinued

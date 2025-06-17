@@ -2,6 +2,7 @@ import { FreshContext, page } from "fresh";
 import { DeviceCardLarge } from "@components/cards/device-card-large.tsx";
 import { DeviceCardSmall } from "@components/cards/device-card-small.tsx";
 import { Device } from "@data/frontend/contracts/device.model.ts";
+import { User } from "@data/frontend/contracts/user.contract.ts";
 import { ReviewContract } from "@data/frontend/contracts/review.contract.ts";
 import { createSuperUserPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
 import { CustomFreshState } from "@interfaces/state.ts";
@@ -81,9 +82,39 @@ export const handler = {
     const top3 = scoredDevices.slice(0, 3);
     const rest = scoredDevices.slice(3);
 
+    const deviceIds = [...top3, ...rest].map((d) => d.device.id);
+    const likesFilter = deviceIds.map((id) => `device="${id}"`).join(" || ");
+    const likeRecords = deviceIds.length > 0
+      ? await pb.getAll("device_likes", { filter: likesFilter, expand: "", sort: "" })
+      : [];
+    const likesCountMap: Record<string, number> = {};
+    const userLikedMap: Record<string, boolean> = {};
+    const currentUser = (ctx.state as CustomFreshState).user as User | null;
+    for (const r of likeRecords) {
+      likesCountMap[r.device] = (likesCountMap[r.device] || 0) + 1;
+      if (currentUser && r.user === currentUser.id) {
+        userLikedMap[r.device] = true;
+      }
+    }
+    const favoritesFilter = currentUser
+      ? `user="${currentUser.id}" && (` +
+        deviceIds.map((id) => `device="${id}"`).join(" || ") +
+        ")"
+      : "";
+    const favoriteRecords = currentUser && deviceIds.length > 0
+      ? await pb.getAll("device_favorites", { filter: favoritesFilter, expand: "", sort: "" })
+      : [];
+    const userFavoritedMap: Record<string, boolean> = {};
+    for (const r of favoriteRecords) {
+      userFavoritedMap[r.device] = true;
+    }
+
     (ctx.state as CustomFreshState).data = {
       top3,
       rest,
+      likesCountMap,
+      userLikedMap,
+      userFavoritedMap,
     };
 
     return page(ctx);
@@ -96,7 +127,11 @@ export default function LeaderboardPage(
   const data = (ctx.state as CustomFreshState).data as {
     top3: { device: Device; avgScore: number }[];
     rest: { device: Device; avgScore: number }[];
+    likesCountMap: Record<string, number>;
+    userLikedMap: Record<string, boolean>;
+    userFavoritedMap: Record<string, boolean>;
   };
+  const user = (ctx.state as CustomFreshState).user as User | null;
 
   return (
     <div class="leaderboard-page">
@@ -151,6 +186,10 @@ export default function LeaderboardPage(
                   ...data.top3[0]?.device,
                   totalRating: data.top3[0]?.avgScore,
                 }}
+                isLoggedIn={!!user}
+                likes={data.likesCountMap[data.top3[0]?.device.id] ?? 0}
+                isLiked={data.userLikedMap[data.top3[0]?.device.id] ?? false}
+                isFavorited={data.userFavoritedMap[data.top3[0]?.device.id] ?? false}
               />
             </a>
           </div>
@@ -176,6 +215,10 @@ export default function LeaderboardPage(
                   ...data.top3[1]?.device,
                   totalRating: data.top3[1]?.avgScore,
                 }}
+                isLoggedIn={!!user}
+                likes={data.likesCountMap[data.top3[1]?.device.id] ?? 0}
+                isLiked={data.userLikedMap[data.top3[1]?.device.id] ?? false}
+                isFavorited={data.userFavoritedMap[data.top3[1]?.device.id] ?? false}
               />
             </a>
           </div>
@@ -201,6 +244,10 @@ export default function LeaderboardPage(
                   ...data.top3[2]?.device,
                   totalRating: data.top3[2]?.avgScore,
                 }}
+                isLoggedIn={!!user}
+                likes={data.likesCountMap[data.top3[2]?.device.id] ?? 0}
+                isLiked={data.userLikedMap[data.top3[2]?.device.id] ?? false}
+                isFavorited={data.userFavoritedMap[data.top3[2]?.device.id] ?? false}
               />
             </a>
           </div>
@@ -222,6 +269,10 @@ export default function LeaderboardPage(
               <a href={`/devices/${device.id}`}>
                 <DeviceCardSmall
                   device={{ ...device, totalRating: avgScore }}
+                  isLoggedIn={!!user}
+                  likes={data.likesCountMap[device.id] ?? 0}
+                  isLiked={data.userLikedMap[device.id] ?? false}
+                  isFavorited={data.userFavoritedMap[device.id] ?? false}
                 />
               </a>
               <div

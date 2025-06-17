@@ -3,12 +3,25 @@ import { Device } from "@data/frontend/contracts/device.model.ts";
 import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
 import { RatingInfo } from "@islands/devices/rating-info.tsx";
 import { CurrencyIcon } from "../shared/currency-icon.tsx";
+import { DeviceCardActions } from "@islands/devices/device-card-actions.tsx";
 
 interface DeviceCardRowProps {
   device: Device;
+  isLoggedIn?: boolean;
+  likes?: number;
+  isLiked?: boolean;
+  isFavorited?: boolean;
 }
 
-export function DeviceCardRow({ device }: DeviceCardRowProps) {
+export function DeviceCardRow(
+  {
+    device,
+    isLoggedIn = false,
+    likes = 0,
+    isLiked = false,
+    isFavorited = false,
+  }: DeviceCardRowProps,
+) {
   const upToSystemA = DeviceService.getUptoSystemA(device);
   const upToSystemC = DeviceService.getUptoSystemCOrLower(device);
 
@@ -110,6 +123,13 @@ export function DeviceCardRow({ device }: DeviceCardRowProps) {
             </span>
           )}
       </div>
+      <DeviceCardActions
+        deviceId={device.id}
+        isLoggedIn={isLoggedIn}
+        likes={likes}
+        isLiked={isLiked}
+        isFavorited={isFavorited}
+      />
     </div>
   );
 }

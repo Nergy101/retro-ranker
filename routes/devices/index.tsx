@@ -4,8 +4,10 @@ import { DeviceCardRow } from "@components/cards/device-card-row.tsx";
 import { DeviceCardMedium } from "@components/cards/device-card-medium.tsx";
 import { PaginationNav } from "@components/shared/pagination-nav.tsx";
 import { Device } from "@data/frontend/contracts/device.model.ts";
+import { User } from "@data/frontend/contracts/user.contract.ts";
 import { TagModel } from "@data/frontend/models/tag.model.ts";
 import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
+import { createSuperUserPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
 import { CustomFreshState } from "@interfaces/state.ts";
 import { DeviceSearchForm } from "@islands/forms/device-search-form.tsx";
 import { LayoutSelector } from "@islands/forms/layout-selector.tsx";
@@ -85,6 +87,42 @@ export const handler = {
 
     const hasResults = pageResults.length > 0;
 
+    // Likes and favorites data
+    const deviceIds = pageResults.map((d) => d.id);
+    const pb = await createSuperUserPocketBaseService(
+      Deno.env.get("POCKETBASE_SUPERUSER_EMAIL")!,
+      Deno.env.get("POCKETBASE_SUPERUSER_PASSWORD")!,
+      Deno.env.get("POCKETBASE_URL")!,
+    );
+
+    const likesFilter = deviceIds.map((id) => `device="${id}"`).join(" || ");
+    const likeRecords = deviceIds.length > 0
+      ? await pb.getAll("device_likes", { filter: likesFilter, expand: "", sort: "" })
+      : [];
+
+    const likesCountMap: Record<string, number> = {};
+    const userLikedMap: Record<string, boolean> = {};
+    const currentUser = (ctx.state as CustomFreshState).user as User | null;
+    for (const r of likeRecords) {
+      likesCountMap[r.device] = (likesCountMap[r.device] || 0) + 1;
+      if (currentUser && r.user === currentUser.id) {
+        userLikedMap[r.device] = true;
+      }
+    }
+
+    const favoritesFilter = currentUser
+      ? `user="${currentUser.id}" && (` +
+        deviceIds.map((id) => `device="${id}"`).join(" || ") +
+        ")"
+      : "";
+    const favoriteRecords = currentUser && deviceIds.length > 0
+      ? await pb.getAll("device_favorites", { filter: favoritesFilter, expand: "", sort: "" })
+      : [];
+    const userFavoritedMap: Record<string, boolean> = {};
+    for (const r of favoriteRecords) {
+      userFavoritedMap[r.device] = true;
+    }
+
     // For TagTypeahead
     const getAvailableTags = async () => {
       const allTags = await deviceService.getAllTags();
@@ -122,6 +160,9 @@ export const handler = {
       activeLayout,
       hasResults,
       user: (ctx.state as CustomFreshState).user,
+      likesCountMap,
+      userLikedMap,
+      userFavoritedMap,
       searchQuery,
       searchParams,
       searchCategory,
@@ -143,7 +184,10 @@ export default function CatalogPage(ctx: FreshContext) {
   const pageSize = data.pageSize;
   const activeLayout = data.activeLayout;
   const hasResults = data.hasResults;
-  // const user = data.user;
+  const user = data.user as User | null;
+  const likesCountMap = data.likesCountMap as Record<string, number>;
+  const userLikedMap = data.userLikedMap as Record<string, boolean>;
+  const userFavoritedMap = data.userFavoritedMap as Record<string, boolean>;
   const searchQuery = data.searchQuery;
   const searchCategory = data.searchCategory;
   const sortBy = data.sortBy;
@@ -265,15 +309,29 @@ export default function CatalogPage(ctx: FreshContext) {
                       <DeviceCardMedium
                         device={device}
                         isActive={false}
+                        isLoggedIn={!!user}
+                        likes={likesCountMap[device.id] ?? 0}
+                        isLiked={userLikedMap[device.id] ?? false}
+                        isFavorited={userFavoritedMap[device.id] ?? false}
                       />
                     )}
                     {activeLayout === "grid4" && (
                       <DeviceCardLarge
                         device={device}
+                        isLoggedIn={!!user}
+                        likes={likesCountMap[device.id] ?? 0}
+                        isLiked={userLikedMap[device.id] ?? false}
+                        isFavorited={userFavoritedMap[device.id] ?? false}
                       />
                     )}
                     {activeLayout === "list" && (
-                      <DeviceCardRow device={device} />
+                      <DeviceCardRow
+                        device={device}
+                        isLoggedIn={!!user}
+                        likes={likesCountMap[device.id] ?? 0}
+                        isLiked={userLikedMap[device.id] ?? false}
+                        isFavorited={userFavoritedMap[device.id] ?? false}
+                      />
                     )}
                   </a>
                 ))}

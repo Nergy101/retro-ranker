@@ -78,7 +78,7 @@ export function FavoriteButton(props: FavoriteButtonProps) {
         {favorited
           ? (
             <PiHeartFill
-              color="var(--pico-primary)"
+              color="red"
               class={isAnimating ? "favorite-animation" : ""}
             />
           )

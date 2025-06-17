@@ -6,6 +6,46 @@ import {
 import { FreshContext } from "fresh";
 
 export const handler = {
+  async GET(ctx: FreshContext) {
+    const req = ctx.req;
+    const deviceId = ctx.params.id;
+    const cookie = req.headers.get("cookie");
+
+    if (!cookie) {
+      return new Response(
+        JSON.stringify({ isFavorited: false }),
+        { status: 200, headers: { "Content-Type": "application/json" } },
+      );
+    }
+
+    try {
+      const pb = await createLoggedInPocketBaseService(cookie);
+      const user = pb.getCurrentUser();
+
+      const existingFavorite = await pb.getList(
+        "device_favorites",
+        1,
+        1,
+        {
+          filter: `device="${deviceId}" && user="${user.id}"`,
+          sort: "",
+          expand: "",
+        },
+      );
+
+      return new Response(
+        JSON.stringify({ isFavorited: existingFavorite.items.length > 0 }),
+        { status: 200, headers: { "Content-Type": "application/json" } },
+      );
+    } catch {
+      return new Response(
+        JSON.stringify(
+          ProblemDetail.internalServerError("Failed to get favorite status"),
+        ),
+        { status: 500 },
+      );
+    }
+  },
   async POST(ctx: FreshContext) {
     const req = ctx.req;
     const deviceId = ctx.params.id;
