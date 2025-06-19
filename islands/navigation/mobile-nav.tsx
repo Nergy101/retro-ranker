@@ -9,6 +9,7 @@ import {
   PiRanking,
   PiScroll,
   PiSignIn,
+  PiMagnifyingGlass,
 } from "@preact-icons/pi";
 import { useEffect, useRef, useState } from "preact/hooks";
 import { ProfileImage } from "@components/auth/profile-image.tsx";
@@ -19,13 +20,15 @@ import { navigationItems } from "@data/frontend/navigation-items.ts";
 import { searchDevices } from "@data/frontend/services/utils/search.utils.ts";
 import { ThemeSwitcher } from "./theme-switcher.tsx";
 
-export function MobileNav(
-  { pathname, allDevices, user }: {
-    pathname: string;
-    allDevices: Device[];
-    user: User | null;
-  },
-) {
+export function MobileNav({
+  pathname,
+  allDevices,
+  user,
+}: {
+  pathname: string;
+  allDevices: Device[];
+  user: User | null;
+}) {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const mobileNavContent = document.querySelector(".mobile-nav-content");
@@ -58,8 +61,7 @@ export function MobileNav(
   const [suggestions, setSuggestions] = useState<Device[]>([]);
   const [query, setQuery] = useState<string>("");
   const isActive = (deviceName: string) => {
-    return deviceName.toLowerCase() ===
-      selectedDevice?.name.raw.toLowerCase();
+    return deviceName.toLowerCase() === selectedDevice?.name.raw.toLowerCase();
   };
 
   useEffect(() => {
@@ -84,8 +86,8 @@ export function MobileNav(
     setSuggestions(searchDevices(value, allDevices));
 
     setSelectedDevice(
-      allDevices.find((device) =>
-        device.name.raw.toLowerCase() === value.toLowerCase()
+      allDevices.find(
+        (device) => device.name.raw.toLowerCase() === value.toLowerCase(),
       ) ?? null,
     );
   };
@@ -156,14 +158,24 @@ export function MobileNav(
                 }
               }}
             />
+            <button
+              type="button"
+              aria-label="Search"
+              class="outline"
+              onClick={handleSubmit}
+              style={{ marginLeft: "0.5rem" }}
+            >
+              <PiMagnifyingGlass />
+            </button>
           </div>
 
           <button
             type="button"
             class="burger-menu"
             onClick={() => {
-              document.querySelector(".mobile-nav-content")?.classList
-                .toggle("show");
+              document
+                .querySelector(".mobile-nav-content")
+                ?.classList.toggle("show");
             }}
             aria-label="Toggle menu"
           >
@@ -185,9 +197,11 @@ export function MobileNav(
               <li style={{ padding: "0" }}>
                 <a
                   href={item.href}
-                  class={item.isActive(pathname)
-                    ? "mobile-active mobile-nav-button"
-                    : "mobile-nav-button"}
+                  class={
+                    item.isActive(pathname)
+                      ? "mobile-active mobile-nav-button"
+                      : "mobile-nav-button"
+                  }
                   aria-label={item.label}
                 >
                   <span
@@ -203,51 +217,49 @@ export function MobileNav(
                 </a>
               </li>
             ))}
-            {user
-              ? (
-                <li class="nav-theme-item last">
-                  <a
-                    href="/profile"
-                    aria-label="Profile"
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      gap: "0.5rem",
-                      width: "100%",
-                    }}
-                  >
-                    <ProfileImage name={user.nickname} />
-                    <span style={{ fontSize: "0.5rem", textWrap: "nowrap" }}>
-                      {user.nickname}
-                    </span>
-                  </a>
-                </li>
-              )
-              : (
-                <li
-                  class="nav-theme-item last"
+            {user ? (
+              <li class="nav-theme-item last">
+                <a
+                  href="/profile"
+                  aria-label="Profile"
                   style={{
                     display: "flex",
-                    flexDirection: "row",
-                    justifyContent: "center",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    gap: "0.5rem",
                     width: "100%",
                   }}
                 >
-                  <a
-                    href="/auth/sign-in"
-                    style={{
-                      fontSize: "1.5rem",
-                      display: "flex",
-                      justifyContent: "center",
-                      gap: "0.5rem",
-                      width: "50%",
-                    }}
-                  >
-                    <PiSignIn /> Sign in
-                  </a>
-                </li>
-              )}
+                  <ProfileImage name={user.nickname} />
+                  <span style={{ fontSize: "0.5rem", textWrap: "nowrap" }}>
+                    {user.nickname}
+                  </span>
+                </a>
+              </li>
+            ) : (
+              <li
+                class="nav-theme-item last"
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  width: "100%",
+                }}
+              >
+                <a
+                  href="/auth/sign-in"
+                  style={{
+                    fontSize: "1.5rem",
+                    display: "flex",
+                    justifyContent: "center",
+                    gap: "0.5rem",
+                    width: "50%",
+                  }}
+                >
+                  <PiSignIn /> Sign in
+                </a>
+              </li>
+            )}
           </ul>
         </div>
       </nav>

@@ -8,6 +8,7 @@ import {
   PiRanking,
   PiScroll,
   PiSignIn,
+  PiMagnifyingGlass,
 } from "@preact-icons/pi";
 import { useEffect, useRef, useState } from "preact/hooks";
 import { ProfileImage } from "@components/auth/profile-image.tsx";
@@ -18,20 +19,21 @@ import { navigationItems } from "@data/frontend/navigation-items.ts";
 import { searchDevices } from "@data/frontend/services/utils/search.utils.ts";
 import { ThemeSwitcher } from "./theme-switcher.tsx";
 
-export function DesktopNav(
-  { pathname, allDevices, user }: {
-    pathname: string;
-    allDevices: Device[];
-    user: User | null;
-  },
-) {
+export function DesktopNav({
+  pathname,
+  allDevices,
+  user,
+}: {
+  pathname: string;
+  allDevices: Device[];
+  user: User | null;
+}) {
   const suggestionsRef = useRef<HTMLUListElement>(null);
   const [selectedDevice, setSelectedDevice] = useState<Device | null>(null);
   const [suggestions, setSuggestions] = useState<Device[]>([]);
   const [query, setQuery] = useState<string>("");
   const isActive = (deviceName: string) => {
-    return deviceName.toLowerCase() ===
-      selectedDevice?.name.raw.toLowerCase();
+    return deviceName.toLowerCase() === selectedDevice?.name.raw.toLowerCase();
   };
 
   useEffect(() => {
@@ -56,8 +58,8 @@ export function DesktopNav(
     setSuggestions(searchDevices(value.trim(), allDevices));
 
     setSelectedDevice(
-      allDevices.find((device) =>
-        device.name.raw.toLowerCase() === value.toLowerCase()
+      allDevices.find(
+        (device) => device.name.raw.toLowerCase() === value.toLowerCase(),
       ) ?? null,
     );
   };
@@ -161,50 +163,57 @@ export function DesktopNav(
                 }
               }}
             />
+            <button
+              type="button"
+              aria-label="Search"
+              class="outline"
+              onClick={handleSubmit}
+              style={{ marginLeft: "0.5rem" }}
+            >
+              <PiMagnifyingGlass />
+            </button>
           </li>
           <li class="nav-theme-item">
             <ThemeSwitcher showNames={false} showTooltip={false} />
           </li>
 
-          {user
-            ? (
-              <li class="nav-theme-item">
-                <a
-                  href="/profile"
-                  aria-label="Profile"
+          {user ? (
+            <li class="nav-theme-item">
+              <a
+                href="/profile"
+                aria-label="Profile"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                }}
+              >
+                <div
+                  data-tooltip={user.nickname}
+                  data-placement="left"
                   style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    gap: "0.5rem",
+                    border: "none",
+                    cursor: "pointer",
                   }}
                 >
-                  <div
-                    data-tooltip={user.nickname}
-                    data-placement="left"
-                    style={{
-                      border: "none",
-                      cursor: "pointer",
-                    }}
-                  >
-                    <ProfileImage name={user.nickname} />
-                  </div>
-                </a>
-              </li>
-            )
-            : (
-              <li class="nav-theme-item">
-                <a
-                  href="/auth/sign-in"
-                  aria-label="Sign In"
-                  style={{
-                    fontSize: "1.5rem",
-                  }}
-                >
-                  <PiSignIn />
-                </a>
-              </li>
-            )}
+                  <ProfileImage name={user.nickname} />
+                </div>
+              </a>
+            </li>
+          ) : (
+            <li class="nav-theme-item">
+              <a
+                href="/auth/sign-in"
+                aria-label="Sign In"
+                style={{
+                  fontSize: "1.5rem",
+                }}
+              >
+                <PiSignIn />
+              </a>
+            </li>
+          )}
         </ul>
       </nav>
 
