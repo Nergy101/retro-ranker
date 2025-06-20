@@ -5,11 +5,11 @@ import {
   PiGitDiff,
   PiInfo,
   PiListBold,
+  PiMagnifyingGlass,
   PiQuestion,
   PiRanking,
   PiScroll,
   PiSignIn,
-  PiMagnifyingGlass,
 } from "@preact-icons/pi";
 import { useEffect, useRef, useState } from "preact/hooks";
 import { ProfileImage } from "@components/auth/profile-image.tsx";
@@ -197,11 +197,9 @@ export function MobileNav({
               <li style={{ padding: "0" }}>
                 <a
                   href={item.href}
-                  class={
-                    item.isActive(pathname)
-                      ? "mobile-active mobile-nav-button"
-                      : "mobile-nav-button"
-                  }
+                  class={item.isActive(pathname)
+                    ? "mobile-active mobile-nav-button"
+                    : "mobile-nav-button"}
                   aria-label={item.label}
                 >
                   <span
@@ -217,49 +215,51 @@ export function MobileNav({
                 </a>
               </li>
             ))}
-            {user ? (
-              <li class="nav-theme-item last">
-                <a
-                  href="/profile"
-                  aria-label="Profile"
+            {user
+              ? (
+                <li class="nav-theme-item last">
+                  <a
+                    href="/profile"
+                    aria-label="Profile"
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      gap: "0.5rem",
+                      width: "100%",
+                    }}
+                  >
+                    <ProfileImage name={user.nickname} />
+                    <span style={{ fontSize: "0.5rem", textWrap: "nowrap" }}>
+                      {user.nickname}
+                    </span>
+                  </a>
+                </li>
+              )
+              : (
+                <li
+                  class="nav-theme-item last"
                   style={{
                     display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    gap: "0.5rem",
+                    flexDirection: "row",
+                    justifyContent: "center",
                     width: "100%",
                   }}
                 >
-                  <ProfileImage name={user.nickname} />
-                  <span style={{ fontSize: "0.5rem", textWrap: "nowrap" }}>
-                    {user.nickname}
-                  </span>
-                </a>
-              </li>
-            ) : (
-              <li
-                class="nav-theme-item last"
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "center",
-                  width: "100%",
-                }}
-              >
-                <a
-                  href="/auth/sign-in"
-                  style={{
-                    fontSize: "1.5rem",
-                    display: "flex",
-                    justifyContent: "center",
-                    gap: "0.5rem",
-                    width: "50%",
-                  }}
-                >
-                  <PiSignIn /> Sign in
-                </a>
-              </li>
-            )}
+                  <a
+                    href="/auth/sign-in"
+                    style={{
+                      fontSize: "1.5rem",
+                      display: "flex",
+                      justifyContent: "center",
+                      gap: "0.5rem",
+                      width: "50%",
+                    }}
+                  >
+                    <PiSignIn /> Sign in
+                  </a>
+                </li>
+              )}
           </ul>
         </div>
       </nav>

@@ -4,11 +4,11 @@ import {
   PiChatText,
   PiGitDiff,
   PiInfo,
+  PiMagnifyingGlass,
   PiQuestion,
   PiRanking,
   PiScroll,
   PiSignIn,
-  PiMagnifyingGlass,
 } from "@preact-icons/pi";
 import { useEffect, useRef, useState } from "preact/hooks";
 import { ProfileImage } from "@components/auth/profile-image.tsx";
@@ -177,43 +177,45 @@ export function DesktopNav({
             <ThemeSwitcher showNames={false} showTooltip={false} />
           </li>
 
-          {user ? (
-            <li class="nav-theme-item">
-              <a
-                href="/profile"
-                aria-label="Profile"
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  gap: "0.5rem",
-                }}
-              >
-                <div
-                  data-tooltip={user.nickname}
-                  data-placement="left"
+          {user
+            ? (
+              <li class="nav-theme-item">
+                <a
+                  href="/profile"
+                  aria-label="Profile"
                   style={{
-                    border: "none",
-                    cursor: "pointer",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    gap: "0.5rem",
                   }}
                 >
-                  <ProfileImage name={user.nickname} />
-                </div>
-              </a>
-            </li>
-          ) : (
-            <li class="nav-theme-item">
-              <a
-                href="/auth/sign-in"
-                aria-label="Sign In"
-                style={{
-                  fontSize: "1.5rem",
-                }}
-              >
-                <PiSignIn />
-              </a>
-            </li>
-          )}
+                  <div
+                    data-tooltip={user.nickname}
+                    data-placement="left"
+                    style={{
+                      border: "none",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <ProfileImage name={user.nickname} />
+                  </div>
+                </a>
+              </li>
+            )
+            : (
+              <li class="nav-theme-item">
+                <a
+                  href="/auth/sign-in"
+                  aria-label="Sign In"
+                  style={{
+                    fontSize: "1.5rem",
+                  }}
+                >
+                  <PiSignIn />
+                </a>
+              </li>
+            )}
         </ul>
       </nav>
 
