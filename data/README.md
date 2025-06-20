@@ -9,5 +9,5 @@ subdirectories include:
 - `cap/`, `frontend/`, `pkce/`, `tracing/` – auxiliary data used by the
   application
 
-Large result files in `source/results` and downloaded files in `source/files`
-are ignored in version control.
+Large result files under `source/results` and downloads in `source/files`
+are not tracked by version control.
