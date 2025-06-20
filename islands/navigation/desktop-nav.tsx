@@ -188,10 +188,13 @@ export function DesktopNav({
                 <a
                   href="/profile"
                   aria-label="Profile"
+                  style={{
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
                     gap: "0.5rem",
+                  }}
+                >
                   <div
                     data-tooltip={user.nickname}
                     data-placement="left"
@@ -213,11 +216,6 @@ export function DesktopNav({
                   style={{
                     fontSize: "1.5rem",
                   }}
-                >
-                  <PiSignIn />
-                </a>
-              </li>
-            )}
                 >
                   <PiSignIn />
                 </a>

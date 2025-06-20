@@ -205,6 +205,7 @@ export function MobileNav({
                   class={item.isActive(pathname)
                     ? "mobile-active mobile-nav-button"
                     : "mobile-nav-button"}
+                >
                   <span
                     style={{
                       display: "flex",
@@ -242,8 +243,11 @@ export function MobileNav({
               : (
                 <li
                   class="nav-theme-item last"
+                  style={{
                     flexDirection: "row",
                     width: "100%",
+                  }}
+                >
                   <a
                     href="/auth/sign-in"
                     style={{
@@ -251,13 +255,6 @@ export function MobileNav({
                       display: "flex",
                       justifyContent: "center",
                       gap: "0.5rem",
-                      width: "50%",
-                    }}
-                  >
-                    <PiSignIn /> Sign in
-                  </a>
-                </li>
-              )}
                       width: "50%",
                     }}
                   >
