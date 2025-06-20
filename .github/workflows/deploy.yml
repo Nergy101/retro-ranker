@@ -1,5 +1,6 @@
 name: 🦕 Deploy
 on:
+  workflow_dispatch:
   push:
     branches: main
   pull_request:
@@ -7,6 +8,7 @@ on:
 
 jobs:
   deploy:
+    environment: Preview
     name: Deploy
     runs-on: ubuntu-latest
 
