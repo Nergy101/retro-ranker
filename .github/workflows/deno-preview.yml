@@ -8,8 +8,10 @@ on:
 
 jobs:
   deploy:
-    environment: Preview
-    name: Deno Preview
+    name: Deno Deploy Preview
+    environment:
+      name: Preview
+      url: ${{ steps.deno.outputs.url }}
     runs-on: ubuntu-latest
 
     permissions:
@@ -37,6 +39,7 @@ jobs:
         run: "deno task build"
 
       - name: Upload to Deno Deploy
+        id: deno
         uses: denoland/deployctl@v1
         with:
           project: "rr-test"
