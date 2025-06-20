@@ -163,9 +163,14 @@ export function MobileNav({
               aria-label="Search"
               class="outline"
               onClick={handleSubmit}
-              style={{ marginLeft: "0.5rem" }}
+              style={{
+                marginLeft: "0.5rem",
+                display: "flex",
+                alignItems: "center",
+              }}
             >
               <PiMagnifyingGlass />
+              <span style={{ marginLeft: "0.25rem" }}>Go</span>
             </button>
           </div>
 
@@ -200,8 +205,6 @@ export function MobileNav({
                   class={item.isActive(pathname)
                     ? "mobile-active mobile-nav-button"
                     : "mobile-nav-button"}
-                  aria-label={item.label}
-                >
                   <span
                     style={{
                       display: "flex",
@@ -239,13 +242,8 @@ export function MobileNav({
               : (
                 <li
                   class="nav-theme-item last"
-                  style={{
-                    display: "flex",
                     flexDirection: "row",
-                    justifyContent: "center",
                     width: "100%",
-                  }}
-                >
                   <a
                     href="/auth/sign-in"
                     style={{
@@ -253,6 +251,13 @@ export function MobileNav({
                       display: "flex",
                       justifyContent: "center",
                       gap: "0.5rem",
+                      width: "50%",
+                    }}
+                  >
+                    <PiSignIn /> Sign in
+                  </a>
+                </li>
+              )}
                       width: "50%",
                     }}
                   >

@@ -168,9 +168,14 @@ export function DesktopNav({
               aria-label="Search"
               class="outline"
               onClick={handleSubmit}
-              style={{ marginLeft: "0.5rem" }}
+              style={{
+                marginLeft: "0.5rem",
+                display: "flex",
+                alignItems: "center",
+              }}
             >
               <PiMagnifyingGlass />
+              <span style={{ marginLeft: "0.25rem" }}>Go</span>
             </button>
           </li>
           <li class="nav-theme-item">
@@ -183,13 +188,10 @@ export function DesktopNav({
                 <a
                   href="/profile"
                   aria-label="Profile"
-                  style={{
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
                     gap: "0.5rem",
-                  }}
-                >
                   <div
                     data-tooltip={user.nickname}
                     data-placement="left"
@@ -211,6 +213,11 @@ export function DesktopNav({
                   style={{
                     fontSize: "1.5rem",
                   }}
+                >
+                  <PiSignIn />
+                </a>
+              </li>
+            )}
                 >
                   <PiSignIn />
                 </a>
