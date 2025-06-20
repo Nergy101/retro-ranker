@@ -66,8 +66,15 @@ h4,
 h5,
 h6,
 ::placeholder {
-  font-family: "Azeret Mono", monospace,system-ui, -apple-system, BlinkMacSystemFont,
-  "Segoe UI", Roboto, sans-serif !important;
+  font-family:
+    "Azeret Mono",
+    monospace,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif !important;
 }
 
 html,
@@ -101,7 +108,8 @@ body.paused-animation::before {
 }
 
 .transition-colors {
-  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1),
+  transition:
+    background-color 300ms cubic-bezier(0.4, 0, 0.2, 1),
     border-color 300ms cubic-bezier(0.4, 0, 0.2, 1),
     color 200ms cubic-bezier(0.4, 0, 0.2, 1),
     fill 300ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -152,7 +160,9 @@ body.paused-animation::before {
   border-radius: var(--pico-border-radius);
   padding: 1.2rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .hero-section {
@@ -211,7 +221,9 @@ body.paused-animation::before {
   border-radius: var(--pico-border-radius);
   box-shadow: 0 2px 12px 0 rgba(88, 101, 242, 0.18);
   text-decoration: none;
-  transition: background 0.2s, box-shadow 0.2s;
+  transition:
+    background 0.2s,
+    box-shadow 0.2s;
   margin-bottom: 1.5rem;
   display: inline-block;
 
@@ -407,7 +419,9 @@ body.paused-animation::before {
   background-color: rgba(254, 182, 112, 0.2);
   transform: translateY(-5px);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+  transition:
+    background-color 0.2s ease-in-out,
+    transform 0.2s ease-in-out;
 }
 
 .see-more-card {
@@ -833,7 +847,9 @@ body.paused-animation::before {
   display: flex;
   flex-direction: column;
   background-color: var(--pico-card-background-color);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: var(--pico-card-box-shadow);
@@ -1571,13 +1587,16 @@ body.paused-animation::before {
 
 .nav-search-item {
   margin-left: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .nav-theme-item {
   display: flex;
   flex-direction: row;
   align-items: center;
-  
+
   &.last {
     grid-column: span 2;
   }
@@ -1651,7 +1670,6 @@ body.paused-animation::before {
   grid-template-columns: repeat(2, minmax(100px, 1fr));
   margin: 0;
   padding: 0 1rem;
-
 }
 
 .mobile-nav-content li {
@@ -1867,7 +1885,9 @@ body.paused-animation::before {
   &:hover {
     background-color: var(--pico-primary-focus);
     transform: scale(1.02);
-    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+    transition:
+      background-color 0.2s ease-in-out,
+      transform 0.2s ease-in-out;
   }
 }
 
@@ -2457,7 +2477,9 @@ textarea:focus {
   /* border-bottom: none !important; */
   text-decoration: none !important;
 
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
   background: var(--rating-default-bg);
   color: var(--rating-default-color);
 }
@@ -2519,7 +2541,9 @@ textarea:focus {
 }
 
 .collection-device-card {
-  transition: transform 1s cubic-bezier(0.4, 0.2, 0.2, 1), box-shadow 0.2s;
+  transition:
+    transform 1s cubic-bezier(0.4, 0.2, 0.2, 1),
+    box-shadow 0.2s;
   will-change: transform;
 }
 
@@ -2708,7 +2732,6 @@ textarea:focus {
     top: 2em;
   }
 }
-
 
 @media (max-width: 768px) {
   .leaderboard-top3-row {

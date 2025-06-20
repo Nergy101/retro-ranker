@@ -4,6 +4,7 @@ import {
   PiChatText,
   PiGitDiff,
   PiInfo,
+  PiMagnifyingGlass,
   PiQuestion,
   PiRanking,
   PiScroll,
@@ -18,20 +19,21 @@ import { navigationItems } from "@data/frontend/navigation-items.ts";
 import { searchDevices } from "@data/frontend/services/utils/search.utils.ts";
 import { ThemeSwitcher } from "./theme-switcher.tsx";
 
-export function DesktopNav(
-  { pathname, allDevices, user }: {
-    pathname: string;
-    allDevices: Device[];
-    user: User | null;
-  },
-) {
+export function DesktopNav({
+  pathname,
+  allDevices,
+  user,
+}: {
+  pathname: string;
+  allDevices: Device[];
+  user: User | null;
+}) {
   const suggestionsRef = useRef<HTMLUListElement>(null);
   const [selectedDevice, setSelectedDevice] = useState<Device | null>(null);
   const [suggestions, setSuggestions] = useState<Device[]>([]);
   const [query, setQuery] = useState<string>("");
   const isActive = (deviceName: string) => {
-    return deviceName.toLowerCase() ===
-      selectedDevice?.name.raw.toLowerCase();
+    return deviceName.toLowerCase() === selectedDevice?.name.raw.toLowerCase();
   };
 
   useEffect(() => {
@@ -56,8 +58,8 @@ export function DesktopNav(
     setSuggestions(searchDevices(value.trim(), allDevices));
 
     setSelectedDevice(
-      allDevices.find((device) =>
-        device.name.raw.toLowerCase() === value.toLowerCase()
+      allDevices.find(
+        (device) => device.name.raw.toLowerCase() === value.toLowerCase(),
       ) ?? null,
     );
   };
@@ -161,6 +163,20 @@ export function DesktopNav(
                 }
               }}
             />
+            <button
+              type="button"
+              aria-label="Search"
+              class="outline"
+              onClick={handleSubmit}
+              style={{
+                marginLeft: "0.5rem",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <PiMagnifyingGlass />
+              <span style={{ marginLeft: "0.25rem" }}>Go</span>
+            </button>
           </li>
           <li class="nav-theme-item">
             <ThemeSwitcher showNames={false} showTooltip={false} />
