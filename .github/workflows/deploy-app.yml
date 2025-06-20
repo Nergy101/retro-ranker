@@ -1,0 +1,80 @@
+name: 🚀 Deploy Fresh App
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["🛠️ Build Check"]
+    types:
+      - completed
+    branches:
+      - main
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set version (YYYYMMDD-SHA-REFNAME)
+        run: |
+          SHORT_SHA="${GITHUB_SHA::7}"
+          BUILD_DATE=$(date +'%Y%m%d')
+          REF_NAME="${GITHUB_REF_NAME//\//-}"  # Replace slashes in branch names
+          VERSION="$BUILD_DATE-$SHORT_SHA-$REF_NAME"
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+      - name: Use version
+        run: echo "Build version is $VERSION"
+
+      - name: Set version.txt content
+        run: echo "$VERSION" > static/version.txt
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: Dockerfile
+          push: true
+          tags: nergy101/retro-ranker:latest
+          platforms: linux/arm64
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build-and-push
+    environment: Production
+    steps:
+      - name: Get Known Hosts value
+        run: echo "KNOWN_HOSTS=$(ssh-keyscan -H ${{ secrets.SSH_HOST }})" >> $GITHUB_ENV
+
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_KEY }}
+          name: github-actions
+          known_hosts: ${{ env.KNOWN_HOSTS }}
+          if_key_exists: replace
+
+      - name: Pull and start docker image on VM
+        uses: appleboy/ssh-action@v1.2.2
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd /root/code/retroranker
+            docker compose pull
+            docker compose up -d
