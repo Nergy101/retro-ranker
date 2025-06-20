@@ -1,4 +1,4 @@
-name: 🦕 Deploy
+name: 🦕 Deno Preview
 on:
   workflow_dispatch:
   push:
@@ -9,7 +9,7 @@ on:
 jobs:
   deploy:
     environment: Preview
-    name: Deploy
+    name: Deno Preview
     runs-on: ubuntu-latest
 
     permissions:
