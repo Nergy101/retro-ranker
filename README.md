@@ -46,7 +46,7 @@ comparisons of the latest handhelds.
 
 - [x] Search devices
   - [x] Filter devices
-  - [x] Filter devices on multiple tags and a searchfield
+  - [x] Filter devices on multiple tags and a search field
 - [x] User accounts
   - [x] Non-SSO sign-up & log-in (using Pocketbase)
   - [x] SSO (Discord, Google)
@@ -91,13 +91,13 @@ cd retro-ranker
 # Start the development server
 deno task start
 
-# Format, lint and type-check code
+# Format, lint, and type-check the code
 deno task check
 ```
 
 #### Environment Setup
 
-Copy the sample environment file and adjust the values:
+Copy the sample environment file and adjust its values:
 
 ```bash
 cp .env.example .env
@@ -202,8 +202,8 @@ Build the container image and run the project via Docker Compose.
    docker compose up
    ```
 
-The `.env` file is read by `docker-compose` to configure the services. You can
-copy `.env.example` to `.env` and adjust the settings before running Docker.
+`docker-compose` reads the `.env` file to configure services. Copy
+`.env.example` to `.env` and update the settings before starting Docker.
 
 ## 🤝 Contributing
 
@@ -222,8 +222,8 @@ details.
 
 ## 🙏 Acknowledgments
 
-- ## Data powered by the [Retro Handhelds](https://retro-handhelds.com) community
-- Device specifications from:
+- Data powered by the [Retro Handhelds](https://retro-handhelds.com) community
+- Device specifications from the
   [Handheld Overview Datasheet](https://docs.google.com/spreadsheets/d/1irg60f9qsZOkhp0cwOU7Cy4rJQeyusEUzTNQzhoTYTU/edit?gid=0#gid=0)
 - Community contributions and feedback
 
