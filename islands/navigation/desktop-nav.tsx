@@ -166,13 +166,8 @@ export function DesktopNav({
             <button
               type="button"
               aria-label="Search"
-              class="outline"
+              class="outline search-button"
               onClick={handleSubmit}
-              style={{
-                marginLeft: "0.5rem",
-                display: "flex",
-                alignItems: "center",
-              }}
             >
               <PiMagnifyingGlass />
               <span style={{ marginLeft: "0.25rem" }}>Go</span>

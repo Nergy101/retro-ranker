@@ -161,13 +161,8 @@ export function MobileNav({
             <button
               type="button"
               aria-label="Search"
-              class="outline"
+              class="outline search-button-mobile"
               onClick={handleSubmit}
-              style={{
-                marginLeft: "0.5rem",
-                display: "flex",
-                alignItems: "center",
-              }}
             >
               <PiMagnifyingGlass />
               <span style={{ marginLeft: "0.25rem" }}>Go</span>
