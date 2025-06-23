@@ -8,8 +8,8 @@ const denoCwd = Deno.cwd();
 console.log("cwd", denoCwd);
 
 const getNewSourcesCommand = new Deno.Command(Deno.execPath(), {
-  args: ["run", "--allow-all", `scripts/get-new-sources.ts`],
-  cwd: "..",
+  args: ["run", "--allow-all", `get-new-sources.ts`],
+  cwd: ".",
 });
 
 const getNewSourcesProcess = getNewSourcesCommand.spawn();

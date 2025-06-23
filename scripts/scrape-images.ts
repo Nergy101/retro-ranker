@@ -91,7 +91,9 @@ async function downloadImage(
     // console.info(chalk.green(`✅ ${deviceName}`));
   } catch (error: unknown) {
     if (error instanceof Error) {
-      console.error(chalk.red(`❌ ${deviceName}: ${error.message}`));
+      if (!error.message.includes("File already exists")) {
+        console.error(chalk.red(`❌ ${deviceName}: ${error.message}`));
+      }
     } else {
       console.error(chalk.red(`❌ ${deviceName}: Unknown error`));
     }
