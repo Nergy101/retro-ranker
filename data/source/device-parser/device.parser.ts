@@ -249,6 +249,9 @@ export class DeviceParser {
       devices.push(device);
     });
 
+    var rgSlide = devices.filter((device) => device.name.raw === "RG Slide");
+    console.log(rgSlide);
+
     // filter out devices that have too much information missing
     return devices.filter((device) => device.brand.raw !== "Unknown" // && device.name.raw !== "Unknown"
     );

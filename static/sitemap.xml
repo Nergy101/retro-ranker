@@ -27,22 +27,8 @@
         </url>
         
         <url>
-            <loc>https://retroranker.site/about</loc>
-            <priority>0.8</priority>
-        </url>
-        
-        <url>
             <loc>https://retroranker.site/faq</loc>
-            <priority>0.8</priority>
-        </url>
-        
-        <url>
-            <loc>https://retroranker.site/contact</loc>
             <priority>0.6</priority>
-        </url>
-        
-        <url>
-            <loc>https://retroranker.site/devices/rg-35xx-pro</loc>
         </url>
         
         <url>
@@ -50,23 +36,7 @@
         </url>
         
         <url>
-            <loc>https://retroranker.site/devices/aokzoe-a1x</loc>
-        </url>
-        
-        <url>
-            <loc>https://retroranker.site/devices/one-35</loc>
-        </url>
-        
-        <url>
-            <loc>https://retroranker.site/devices/rg-slide</loc>
-        </url>
-        
-        <url>
             <loc>https://retroranker.site/devices/action-pi-</loc>
-        </url>
-        
-        <url>
-            <loc>https://retroranker.site/devices/ayaneo-pocket-s2</loc>
         </url>
         
         <url>
@@ -74,11 +44,23 @@
         </url>
         
         <url>
-            <loc>https://retroranker.site/devices/two-40</loc>
+            <loc>https://retroranker.site/devices/one-35</loc>
         </url>
         
         <url>
-            <loc>https://retroranker.site/devices/mini-one-41</loc>
+            <loc>https://retroranker.site/devices/ayaneo-pocket-s2</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rog-xbox-ally</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rog-xbox-ally-x</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/two-40</loc>
         </url>
         
         <url>
@@ -95,6 +77,22 @@
         
         <url>
             <loc>https://retroranker.site/devices/rg-477m</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/flip-1s</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-slide</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-35xx-pro</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/aokzoe-a1x</loc>
         </url>
         
         <url>
@@ -298,7 +296,7 @@
         </url>
         
         <url>
-            <loc>https://retroranker.site/devices/ayaneo-pocket-micro</loc>
+            <loc>https://retroranker.site/devices/ayaneo-pocket-micro-antech-core-micro</loc>
         </url>
         
         <url>
@@ -490,7 +488,7 @@
         </url>
         
         <url>
-            <loc>https://retroranker.site/devices/ayaneo-slide</loc>
+            <loc>https://retroranker.site/devices/ayaneo-slide-antech-core-hs</loc>
         </url>
         
         <url>
