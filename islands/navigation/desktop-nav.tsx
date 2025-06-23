@@ -2,6 +2,7 @@ import {
   PiCalendar,
   PiChartLine,
   PiChatText,
+  PiDotsThree,
   PiGitDiff,
   PiInfo,
   PiMagnifyingGlass,
@@ -10,7 +11,6 @@ import {
   PiScroll,
   PiSignIn,
   PiUserPlus,
-  PiDotsThree
 } from "@preact-icons/pi";
 import { useEffect, useRef, useState } from "preact/hooks";
 import { ProfileImage } from "@components/auth/profile-image.tsx";

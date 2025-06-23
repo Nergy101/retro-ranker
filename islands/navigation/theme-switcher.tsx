@@ -27,15 +27,15 @@ export function ThemeSwitcher(
 
   const toggleTheme = () => {
     if (isAnimating) return; // Prevent multiple clicks during animation
-    
+
     setIsAnimating(true);
-    
+
     // Start the morphing animation
-    const icon = document.querySelector('.theme-icon');
+    const icon = document.querySelector(".theme-icon");
     if (icon) {
-      icon.classList.add('morphing');
+      icon.classList.add("morphing");
     }
-    
+
     // Change theme halfway through the animation
     setTimeout(() => {
       const newTheme = theme === "light" ? "dark" : "light";
@@ -43,11 +43,11 @@ export function ThemeSwitcher(
       document.documentElement.setAttribute("data-theme", newTheme);
       localStorage.setItem("theme", newTheme);
     }, 200);
-    
+
     // Remove animation class and reset state after completion
     setTimeout(() => {
       if (icon) {
-        icon.classList.remove('morphing');
+        icon.classList.remove("morphing");
       }
       setIsAnimating(false);
     }, 400);

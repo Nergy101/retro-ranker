@@ -56,12 +56,7 @@ export function getAllNavigationItems(): NavigationItem[] {
   return navigationItems;
 }
 
-// Helper function to check if an element is a NavigationItem
+// Helper function to check if an element is a NavigationItem (and not a NavigationGroup)
 export function isNavigationItem(element: any): element is NavigationItem {
-  return 'href' in element;
-}
-
-// Helper function to check if an element is a NavigationGroup
-export function isNavigationGroup(element: any): element is never {
-  return false;
+  return "href" in element;
 }

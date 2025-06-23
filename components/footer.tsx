@@ -2,8 +2,8 @@ import {
   PiChatText,
   PiFileText,
   PiGithubLogo,
-  PiShield,
   PiInfo,
+  PiShield,
 } from "@preact-icons/pi";
 import { VersionTag } from "./shared/version-tag.tsx";
 
