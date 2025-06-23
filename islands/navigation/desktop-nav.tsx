@@ -214,7 +214,7 @@ export function DesktopNav({
                   data-placement="bottom"
                 >
                   <a
-                    href="/auth/sign-in"
+                    href="/auth/sign-up"
                     aria-label="Sign Up"
                     style={{
                       fontSize: "1.5rem",

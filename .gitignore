@@ -29,3 +29,6 @@ build/
 
 # Deno lock
 deno.lock
+
+# Tokens list
+tokensList.json

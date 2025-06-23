@@ -1,5 +1,11 @@
+import {
+  PiIdentificationCard,
+  PiLock,
+  PiPassword,
+  PiUser,
+  PiUserPlus,
+} from "@preact-icons/pi";
 import { IS_BROWSER } from "fresh/runtime";
-import { PiUser, PiUserPlus } from "@preact-icons/pi";
 import { useEffect, useState } from "preact/hooks";
 
 export function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
@@ -208,7 +214,7 @@ export function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
           marginBottom: "1.25rem",
         }}
       >
-        <PiUser /> Sign up
+        <PiUserPlus /> Sign up
       </h1>
 
       {error && (
@@ -235,9 +241,14 @@ export function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
         <div>
           <label
             for="nickname"
-            style={{ display: "block", marginBottom: "0.5rem" }}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              marginBottom: "0.5rem",
+            }}
           >
-            Nickname
+            <PiUser /> Nickname
           </label>
           <input
             id="nickname"
@@ -277,9 +288,14 @@ export function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
         <div>
           <label
             for="password"
-            style={{ display: "block", marginBottom: "0.5rem" }}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              marginBottom: "0.5rem",
+            }}
           >
-            Password
+            <PiPassword /> Password
           </label>
           <input
             id="password"
@@ -323,9 +339,14 @@ export function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
         <div>
           <label
             for="confirmPassword"
-            style={{ display: "block", marginBottom: "0.5rem" }}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              marginBottom: "0.5rem",
+            }}
           >
-            Confirm Password
+            <PiLock /> Confirm Password
           </label>
           <input
             id="confirmPassword"

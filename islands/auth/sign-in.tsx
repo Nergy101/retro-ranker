@@ -1,4 +1,10 @@
-import { PiDiscordLogo, PiGoogleLogo, PiSignIn } from "@preact-icons/pi";
+import {
+  PiDiscordLogo,
+  PiGoogleLogo,
+  PiPassword,
+  PiSignIn,
+  PiUser
+} from "@preact-icons/pi";
 import { useEffect } from "preact/hooks";
 
 export function SignIn(
@@ -130,9 +136,14 @@ export function SignIn(
         <div>
           <label
             for="nickname"
-            style={{ display: "block", marginBottom: "0.5rem" }}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              marginBottom: "0.5rem",
+            }}
           >
-            Nickname
+            <PiUser /> Nickname
           </label>
           <input
             id="nickname"
@@ -146,9 +157,14 @@ export function SignIn(
         <div>
           <label
             for="password"
-            style={{ display: "block", marginBottom: "0.5rem" }}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              marginBottom: "0.5rem",
+            }}
           >
-            Password
+            <PiPassword /> Password
           </label>
           <input
             id="password"
