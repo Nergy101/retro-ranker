@@ -12,8 +12,6 @@ export function SignIn(
 ) {
   useEffect(() => {
     const checkAuth = () => {
-      console.log("Checking auth");
-      console.log(document.cookie);
       // Simple cookie parser
       const cookies = document.cookie.split(";").reduce((acc, cookie) => {
         const [key, value] = cookie.trim().split("=");

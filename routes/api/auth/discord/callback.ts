@@ -65,7 +65,7 @@ export const handler = {
           );
 
           setAuthCookie(headers, user.token, hostname);
-            
+
           headers.set("location", "/auth/sign-in?logged-in=true");
 
           logJson("info", "Discord OAuth2 callback successful", {

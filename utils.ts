@@ -1,6 +1,6 @@
 import { createDefine } from "fresh";
 import { CustomFreshState } from "./interfaces/state.ts";
-import { setCookie, deleteCookie } from "@std/http/cookie";
+import { deleteCookie, setCookie } from "@std/http/cookie";
 
 export interface State extends CustomFreshState {}
 
@@ -16,7 +16,7 @@ export function setAuthCookie(
   hostname: string,
 ) {
   const isProduction = hostname === "retroranker.site";
-  
+
   setCookie(headers, {
     name: "pb_auth",
     value: token,
@@ -36,9 +36,9 @@ export function setAuthCookie(
  */
 export function deleteAuthCookie(headers: Headers, hostname: string) {
   const isProduction = hostname === "retroranker.site";
-  
-  deleteCookie(headers, "pb_auth", { 
-    path: "/", 
+
+  deleteCookie(headers, "pb_auth", {
+    path: "/",
     ...(isProduction && { domain: hostname }),
   });
 }

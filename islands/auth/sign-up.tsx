@@ -1,10 +1,4 @@
-import {
-  PiIdentificationCard,
-  PiLock,
-  PiPassword,
-  PiUser,
-  PiUserPlus,
-} from "@preact-icons/pi";
+import { PiLock, PiPassword, PiUser, PiUserPlus } from "@preact-icons/pi";
 import { IS_BROWSER } from "fresh/runtime";
 import { useEffect, useState } from "preact/hooks";
 
