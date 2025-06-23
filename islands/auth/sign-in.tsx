@@ -3,7 +3,7 @@ import {
   PiGoogleLogo,
   PiPassword,
   PiSignIn,
-  PiUser
+  PiUser,
 } from "@preact-icons/pi";
 import { useEffect } from "preact/hooks";
 
@@ -12,6 +12,8 @@ export function SignIn(
 ) {
   useEffect(() => {
     const checkAuth = () => {
+      console.log("Checking auth");
+      console.log(document.cookie);
       // Simple cookie parser
       const cookies = document.cookie.split(";").reduce((acc, cookie) => {
         const [key, value] = cookie.trim().split("=");
@@ -28,7 +30,7 @@ export function SignIn(
         profileLink.click();
       }
     };
-    const interval = setInterval(checkAuth, 500);
+    const interval = setInterval(checkAuth, 1000);
     return () => clearInterval(interval);
   });
 
@@ -203,14 +205,15 @@ export function SignIn(
         </div>
       )}
       <div class="auth-form-footer">
-        <a
-          href="/auth/sign-up"
-          role="button"
-          class="outline"
-          // disabled={pleaseWait}
-        >
-          Don't have an account? <br /> Sign up now!
-        </a>
+        {pleaseWait && (
+          <a
+            href="/auth/sign-up"
+            role="button"
+            class="outline"
+          >
+            Don't have an account? <br /> Sign up now!
+          </a>
+        )}
       </div>
     </article>
   );

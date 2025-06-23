@@ -1,7 +1,7 @@
-import { setCookie } from "@std/http/cookie";
 import { ProblemDetail } from "@data/frontend/contracts/problem-detail.ts";
 import { createPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
 import { FreshContext } from "fresh";
+import { setAuthCookie } from "../../../utils.ts";
 
 export const handler = {
   async GET(_ctx: FreshContext) {
@@ -48,15 +48,7 @@ export const handler = {
 
     headers.set("location", "/profile");
 
-    setCookie(headers, {
-      name: "pb_auth",
-      value: user.token,
-      maxAge: 3600,
-      sameSite: "Strict",
-      domain: url.hostname,
-      path: "/",
-      secure: true,
-    });
+    setAuthCookie(headers, user.token, url.hostname);
 
     return new Response(null, { status: 303, headers });
   },

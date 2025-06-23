@@ -1,5 +1,5 @@
-import { deleteCookie } from "@std/http/cookie";
 import { FreshContext } from "fresh";
+import { deleteAuthCookie } from "../../../utils.ts";
 
 export const handler = {
   GET(ctx: FreshContext) {
@@ -7,7 +7,11 @@ export const handler = {
     const url = new URL(req.url);
     const headers = new Headers(req.headers);
 
-    deleteCookie(headers, "pb_auth", { path: "/", domain: url.hostname });
+    // Determine if we're in development or production
+    const isLocalhost = url.hostname === "localhost" || url.hostname === "127.0.0.1";
+    const isProduction = url.hostname === "retroranker.site";
+    
+    deleteAuthCookie(headers, url.hostname);
 
     headers.set("location", "/");
 

@@ -1,8 +1,8 @@
-import { setCookie } from "@std/http/cookie";
 import { FreshContext } from "fresh";
 import pkceSessionService from "@data/pkce/pkce.service.ts";
 import { createPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
 import { logJson, tracer } from "@data/tracing/tracer.ts";
+import { setAuthCookie } from "../../../../utils.ts";
 
 export const handler = {
   async GET(ctx: FreshContext) {
@@ -64,16 +64,8 @@ export const handler = {
             {},
           );
 
-          setCookie(headers, {
-            name: "pb_auth",
-            value: user.token,
-            maxAge: 3600,
-            sameSite: "Strict",
-            domain: url.hostname,
-            path: "/",
-            secure: true,
-          });
-
+          setAuthCookie(headers, user.token, hostname);
+            
           headers.set("location", "/auth/sign-in?logged-in=true");
 
           logJson("info", "Discord OAuth2 callback successful", {
