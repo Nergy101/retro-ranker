@@ -43,24 +43,25 @@ export const navigationItems: NavigationItem[] = [
     priority: 0.7,
   },
   {
-    href: "/about",
-    label: "About",
-    icon: "PiInfo",
-    isActive: (pathname) => pathname === "/about",
-    priority: 0.8,
-  },
-  {
     href: "/faq",
     label: "FAQ",
     icon: "PiQuestion",
     isActive: (pathname) => pathname === "/faq",
-    priority: 0.8,
-  },
-  {
-    href: "/contact",
-    label: "Contact",
-    icon: "PiChatText",
-    isActive: (pathname) => pathname === "/contact",
     priority: 0.6,
   },
 ];
+
+// Helper function to get all navigation items (flattened, for backward compatibility)
+export function getAllNavigationItems(): NavigationItem[] {
+  return navigationItems;
+}
+
+// Helper function to check if an element is a NavigationItem
+export function isNavigationItem(element: any): element is NavigationItem {
+  return 'href' in element;
+}
+
+// Helper function to check if an element is a NavigationGroup
+export function isNavigationGroup(element: any): element is never {
+  return false;
+}

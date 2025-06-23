@@ -24,6 +24,7 @@ export default function FAQ() {
           marginBottom: "2.5rem",
           position: "relative",
           overflow: "hidden",
+          paddingBottom: "1.5rem",
         }}
       >
         <img
@@ -66,6 +67,28 @@ export default function FAQ() {
             Find answers to common questions about Retro Ranker, device
             comparisons, reviews, and more.
           </p>
+          <div
+            style={{
+              marginTop: "1rem",
+              display: "flex",
+              justifyContent: "center",
+              gap: "1rem",
+              flexWrap: "wrap",
+            }}
+          >
+            <a
+              href="/about"
+              class="hero-button"
+            >
+              About Us
+            </a>
+            <a
+              href="/contact"
+              class="hero-button"
+            >
+              Contact
+            </a>
+          </div>
         </div>
       </section>
 
@@ -129,7 +152,7 @@ export default function FAQ() {
                 <PiInfo class="text-2xl" /> Can I submit my own review?
               </summary>
               <p class="pl-8">
-                Yes! <a href="/auth/sign-in">Sign in</a>{" "}
+                Yes! <a href="/auth/sign-in">Log in</a>{" "}
                 or create an account, then visit any{" "}
                 <a href="/devices">device page</a>{" "}
                 to submit your review and rating.

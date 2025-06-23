@@ -720,6 +720,8 @@ body.paused-animation::before {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .footer-grid-item-list {
@@ -728,19 +730,35 @@ body.paused-animation::before {
   margin: 0;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 768px) {
   .footer-grid {
-    flex-direction: column-reverse;
+    flex-direction: column;
     align-items: center;
+    gap: 2rem;
   }
 
   .footer-grid-item {
     text-align: center;
+    min-width: auto;
+  }
+}
+
+@media (max-width: 500px) {
+  .footer-grid {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .footer-grid-item {
+    text-align: center;
+    min-width: auto;
   }
 }
 
 .footer-grid-item {
-  min-width: 10rem;
+  min-width: 8rem;
+  flex: 1;
 }
 
 .footer-grid-item.rr {
@@ -748,6 +766,7 @@ body.paused-animation::before {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  flex: 2;
 }
 
 .device-search-grid-9 {
@@ -954,6 +973,12 @@ body.paused-animation::before {
 }
 
 .connect-links {
+  a {
+    text-decoration: none;
+  }
+}
+
+.more-links {
   a {
     text-decoration: none;
   }
@@ -1599,6 +1624,7 @@ body.paused-animation::before {
   display: flex;
   flex-direction: row;
   align-items: center;
+  border-bottom: none !important;
 
   &.last {
     grid-column: span 2;
@@ -2900,3 +2926,138 @@ textarea:focus {
   white-space: nowrap;
   border: 0;
 }
+
+/* Theme switcher animations */
+.theme-icon {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-origin: center;
+  position: relative;
+}
+
+.theme-icon.morphing {
+  animation: morphTransition 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes morphTransition {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(90deg) scale(1.1);
+  }
+  50% {
+    transform: rotate(180deg) scale(0.8);
+  }
+  75% {
+    transform: rotate(270deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+/* Theme switcher button hover effects */
+#theme-switcher:hover .theme-icon {
+  transform: scale(1.1);
+}
+
+#theme-switcher:active .theme-icon {
+  transform: scale(0.95);
+}
+
+/* Navigation Dropdown Styles */
+.desktop-nav .dropdown {
+  position: relative;
+}
+
+.desktop-nav .dropdown summary {
+  background: none;
+  border: none;
+  /* padding: 1rem; */
+  cursor: pointer;
+  color: var(--pico-contrast);
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.desktop-nav .dropdown summary:hover {
+  color: var(--pico-primary);
+}
+
+.desktop-nav .dropdown summary::after {
+  display: none;
+}
+
+.desktop-nav .dropdown summary .nav-item-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--pico-contrast);
+}
+
+.desktop-nav .dropdown summary:hover .nav-item-label {
+  color: var(--pico-primary);
+}
+
+.desktop-nav .dropdown summary.active {
+  background-color: var(--pico-primary-focus);
+  border: 1px solid var(--pico-primary);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.desktop-nav .dropdown ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background-color: var(--pico-background-color);
+  border: 1px solid var(--pico-primary-focus);
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  margin-top: 0.25rem;
+  padding: 0.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.2s ease;
+}
+
+.desktop-nav .dropdown[open] ul {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.desktop-nav .dropdown ul li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.desktop-nav .dropdown ul li a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  color: var(--pico-contrast);
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  border-radius: 0;
+}
+
+.desktop-nav .dropdown ul li a:hover {
+  background-color: var(--pico-primary-focus);
+  color: var(--pico-primary);
+}
+
+.desktop-nav .dropdown ul li a.active {
+  background-color: var(--pico-primary-focus);
+  color: var(--pico-primary);
+  font-weight: 600;
+}
+
+/* Mobile Nav */

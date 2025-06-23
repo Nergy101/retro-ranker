@@ -577,7 +577,7 @@ export default function DeviceDetail(ctx: FreshContext) {
               </div>
               {user == null && (
                 <p style={{ textAlign: "center" }}>
-                  <a href="/auth/sign-in">Sign in</a> to add yours.
+                  <a href="/auth/sign-in">Log in</a> to add yours.
                 </p>
               )}
               {user && <AddDeviceReviewForm device={device} user={user} />}
@@ -658,7 +658,7 @@ export default function DeviceDetail(ctx: FreshContext) {
               </div>
               {user == null && (
                 <p style={{ textAlign: "center" }}>
-                  <a href="/auth/sign-in">Sign in</a> to add yours.
+                  <a href="/auth/sign-in">Log in</a> to add yours.
                 </p>
               )}
 

@@ -3,6 +3,7 @@ import {
   PiFileText,
   PiGithubLogo,
   PiShield,
+  PiInfo,
 } from "@preact-icons/pi";
 import { VersionTag } from "./shared/version-tag.tsx";
 
@@ -81,6 +82,36 @@ export function Footer() {
               </li>
             </ul>
           </div>
+
+          <div
+            class="footer-grid-item more-links"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <span>More</span>
+            <ul class="footer-grid-item-list">
+              <li style={{ listStyle: "none" }}>
+                <a href="/about">
+                  <div style={{ display: "flex" }}>
+                    <PiInfo />
+                    <span>&nbsp;About</span>
+                  </div>
+                </a>
+              </li>
+              <li style={{ listStyle: "none" }}>
+                <a href="/contact">
+                  <div style={{ display: "flex" }}>
+                    <PiChatText />
+                    <span>&nbsp;Contact</span>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+
           <div class="footer-grid-item rr">
             <div
               style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}

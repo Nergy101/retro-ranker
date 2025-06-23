@@ -9,6 +9,7 @@ export function ThemeSwitcher(
   },
 ) {
   const [theme, setTheme] = useState<"light" | "dark">("dark");
+  const [isAnimating, setIsAnimating] = useState(false);
 
   // Initialize theme from localStorage or system preference
   useEffect(() => {
@@ -25,10 +26,31 @@ export function ThemeSwitcher(
   });
 
   const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-    document.documentElement.setAttribute("data-theme", newTheme);
-    localStorage.setItem("theme", newTheme);
+    if (isAnimating) return; // Prevent multiple clicks during animation
+    
+    setIsAnimating(true);
+    
+    // Start the morphing animation
+    const icon = document.querySelector('.theme-icon');
+    if (icon) {
+      icon.classList.add('morphing');
+    }
+    
+    // Change theme halfway through the animation
+    setTimeout(() => {
+      const newTheme = theme === "light" ? "dark" : "light";
+      setTheme(newTheme);
+      document.documentElement.setAttribute("data-theme", newTheme);
+      localStorage.setItem("theme", newTheme);
+    }, 200);
+    
+    // Remove animation class and reset state after completion
+    setTimeout(() => {
+      if (icon) {
+        icon.classList.remove('morphing');
+      }
+      setIsAnimating(false);
+    }, 400);
   };
 
   return (
@@ -40,11 +62,11 @@ export function ThemeSwitcher(
       name="theme-switcher"
       class="outline"
       onClick={toggleTheme}
+      disabled={isAnimating}
       style={{
         margin: "0",
-        padding: "0.5rem",
         borderRadius: "0.5rem",
-        cursor: "pointer",
+        cursor: isAnimating ? "not-allowed" : "pointer",
         transition:
           "all 0.3s ease-in-out, transform 0.5s ease-in-out, background-color 0.3s ease-in-out",
         display: "flex",
@@ -52,6 +74,7 @@ export function ThemeSwitcher(
         justifyContent: "center",
         gap: "0.25rem",
         minWidth: showNames ? "10em" : "2.5rem",
+        opacity: isAnimating ? 0.8 : 1,
       }}
       data-tooltip={showTooltip
         ? `Switch to ${theme === "light" ? "dark" : "light"} theme`
@@ -73,11 +96,9 @@ export function ThemeSwitcher(
           style={{ display: "flex", alignItems: "center", gap: "0.25rem" }}
         >
           <span
-            id="theme-switcher-dark"
+            class="theme-icon"
             style={{
               fontSize: "1.2rem",
-              transition: "transform 500ms ease-in-out",
-              transform: "rotate(0deg)",
             }}
           >
             <PiMoonStars />
@@ -91,11 +112,9 @@ export function ThemeSwitcher(
           style={{ display: "flex", alignItems: "center", gap: "0.25rem" }}
         >
           <span
-            id="theme-switcher-light"
+            class="theme-icon"
             style={{
               fontSize: "1.2rem",
-              transition: "transform 500ms ease-in-out",
-              transform: "rotate(180deg)",
             }}
           >
             <PiSun />

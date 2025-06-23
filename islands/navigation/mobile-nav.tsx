@@ -16,7 +16,7 @@ import { ProfileImage } from "@components/auth/profile-image.tsx";
 import { DeviceCardMedium } from "@components/cards/device-card-medium.tsx";
 import { Device } from "@data/frontend/contracts/device.model.ts";
 import { User } from "@data/frontend/contracts/user.contract.ts";
-import { navigationItems } from "@data/frontend/navigation-items.ts";
+import { navigationItems, isNavigationItem, isNavigationGroup, getAllNavigationItems } from "@data/frontend/navigation-items.ts";
 import { searchDevices } from "@data/frontend/services/utils/search.utils.ts";
 import { ThemeSwitcher } from "./theme-switcher.tsx";
 
@@ -193,7 +193,7 @@ export function MobileNav({
           }}
         >
           <ul>
-            {navigationItems.map((item) => (
+            {getAllNavigationItems().map((item) => (
               <li style={{ padding: "0" }}>
                 <a
                   href={item.href}
@@ -253,7 +253,7 @@ export function MobileNav({
                       width: "50%",
                     }}
                   >
-                    <PiSignIn /> Sign in
+                    <PiSignIn /> Log In
                   </a>
                 </li>
               )}

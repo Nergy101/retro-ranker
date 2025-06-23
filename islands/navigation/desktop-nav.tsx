@@ -9,6 +9,8 @@ import {
   PiRanking,
   PiScroll,
   PiSignIn,
+  PiUserPlus,
+  PiDotsThree
 } from "@preact-icons/pi";
 import { useEffect, useRef, useState } from "preact/hooks";
 import { ProfileImage } from "@components/auth/profile-image.tsx";
@@ -82,6 +84,7 @@ export function DesktopNav({
     ["PiRanking", <PiRanking key="PiRanking" />],
     ["PiChartLine", <PiChartLine key="PiChartLine" />],
     ["PiChatText", <PiChatText key="PiChatText" />],
+    ["PiThreeDots", <PiDotsThree key="PiThreeDots" />],
   ]);
 
   const getIcon = (icon: string): any => {
@@ -112,7 +115,7 @@ export function DesktopNav({
                   loading="lazy"
                   src="/logos/retro-ranker/rr-logo.svg"
                   alt="retro ranker logo"
-                  width="100"
+                  width="48"
                   style={{
                     height: "2.5em",
                     minWidth: "2.5em",
@@ -174,7 +177,7 @@ export function DesktopNav({
             </button>
           </li>
           <li class="nav-theme-item">
-            <ThemeSwitcher showNames={false} showTooltip={false} />
+            <ThemeSwitcher showNames={false} showTooltip={true} />
           </li>
 
           {user
@@ -204,17 +207,38 @@ export function DesktopNav({
               </li>
             )
             : (
-              <li class="nav-theme-item">
-                <a
-                  href="/auth/sign-in"
-                  aria-label="Sign In"
-                  style={{
-                    fontSize: "1.5rem",
-                  }}
+              <>
+                <li
+                  class="nav-theme-item"
+                  data-tooltip="Sign Up"
+                  data-placement="bottom"
                 >
-                  <PiSignIn />
-                </a>
-              </li>
+                  <a
+                    href="/auth/sign-in"
+                    aria-label="Sign Up"
+                    style={{
+                      fontSize: "1.5rem",
+                    }}
+                  >
+                    <PiUserPlus />
+                  </a>
+                </li>
+                <li
+                  class="nav-theme-item"
+                  data-tooltip="Log In"
+                  data-placement="bottom"
+                >
+                  <a
+                    href="/auth/sign-in"
+                    aria-label="Log In"
+                    style={{
+                      fontSize: "1.5rem",
+                    }}
+                  >
+                    <PiSignIn />
+                  </a>
+                </li>
+              </>
             )}
         </ul>
       </nav>

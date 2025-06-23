@@ -399,7 +399,7 @@ export function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
           role="button"
           class="outline"
         >
-          Already have an account? <br /> Sign in instead.
+          Already have an account? <br /> Log in instead.
         </a>
       </div>
     </div>

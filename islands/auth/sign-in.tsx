@@ -76,7 +76,7 @@ export function SignIn(
           style={{
             transform: "scaleX(-1)",
           }}
-        />Sign in
+        />Log In
       </h1>
       <div>
         {pleaseWait
@@ -106,8 +106,8 @@ export function SignIn(
                 href="/api/auth/discord"
                 role="button"
                 class="auth-signin-btn auth-signin-btn--discord"
-                aria-label="Sign in with Discord"
-                data-tooltip="Sign in with Discord"
+                aria-label="Log in with Discord"
+                data-tooltip="Log in with Discord"
               >
                 <PiDiscordLogo size={32} />
               </a>
@@ -115,8 +115,8 @@ export function SignIn(
                 href="/api/auth/google"
                 role="button"
                 class="auth-signin-btn auth-signin-btn--google"
-                aria-label="Sign in with Google"
-                data-tooltip="Sign in with Google"
+                aria-label="Log in with Google"
+                data-tooltip="Log in with Google"
               >
                 <PiGoogleLogo size={32} />
               </a>
@@ -171,7 +171,7 @@ export function SignIn(
             border: "none",
           }}
           disabled={pleaseWait}
-          data-tooltip="Sign in"
+          data-tooltip="Log in"
         >
           <PiSignIn />{" "}
           <span
