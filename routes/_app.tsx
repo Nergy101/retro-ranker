@@ -30,6 +30,7 @@ export default function AppWrapper(
   const user = (ctx.state as CustomFreshState).user as User | null;
   const language = (ctx.state as CustomFreshState).language ?? "en-US";
   const translations = (ctx.state as CustomFreshState).translations ?? {};
+
   const url = new URL(ctx.req.url);
 
   const page = (
@@ -124,13 +125,12 @@ export default function AppWrapper(
           allDevices={allDevices}
           user={user}
           translations={translations}
-          language={language}
         />
         <main class="main-content">
           {/* @ts-ignore */}
           <ctx.Component />
         </main>
-        <Footer translations={translations} language={language} />
+        <Footer translations={translations} />
       </body>
     </html>
   );

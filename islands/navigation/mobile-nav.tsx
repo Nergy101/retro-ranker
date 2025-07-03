@@ -3,8 +3,8 @@ import { DeviceCardMedium } from "@components/cards/device-card-medium.tsx";
 import { Device } from "@data/frontend/contracts/device.model.ts";
 import { User } from "@data/frontend/contracts/user.contract.ts";
 import { getAllNavigationItems } from "@data/frontend/navigation-items.ts";
-import { searchDevices } from "@data/frontend/services/utils/search.utils.ts";
 import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
+import { searchDevices } from "@data/frontend/services/utils/search.utils.ts";
 import {
   PiCalendar,
   PiChartLine,
@@ -19,21 +19,19 @@ import {
   PiSignIn,
 } from "@preact-icons/pi";
 import { useEffect, useRef, useState } from "preact/hooks";
-import { ThemeSwitcher } from "./theme-switcher.tsx";
 import { LanguageSwitcher } from "./language-switcher.tsx";
+import { ThemeSwitcher } from "./theme-switcher.tsx";
 
 export function MobileNav({
   pathname,
   allDevices,
   user,
   translations,
-  language,
 }: {
   pathname: string;
   allDevices: Device[];
   user: User | null;
   translations: Record<string, string>;
-  language: string;
 }) {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -66,7 +64,6 @@ export function MobileNav({
   const [selectedDevice, setSelectedDevice] = useState<Device | null>(null);
   const [suggestions, setSuggestions] = useState<Device[]>([]);
   const [query, setQuery] = useState<string>("");
-  const t = (key: string) => TranslationPipe(translations, key);
   const isActive = (deviceName: string) => {
     return deviceName.toLowerCase() === selectedDevice?.name.raw.toLowerCase();
   };
@@ -172,7 +169,9 @@ export function MobileNav({
               onClick={handleSubmit}
             >
               <PiMagnifyingGlass />
-              <span style={{ marginLeft: "0.25rem" }}>{t("nav.go")}</span>
+              <span style={{ marginLeft: "0.25rem" }}>
+                {TranslationPipe(translations, "nav.go")}
+              </span>
             </button>
           </div>
 
@@ -217,7 +216,10 @@ export function MobileNav({
                     }}
                   >
                     {item.icon && getIcon(item.icon)}
-                    &nbsp;{t(item.i18nKey ?? item.label)}
+                    &nbsp;{TranslationPipe(
+                      translations,
+                      item.i18nKey ?? item.label,
+                    )}
                   </span>
                 </a>
               </li>

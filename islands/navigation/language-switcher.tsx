@@ -17,7 +17,7 @@ export function LanguageSwitcher() {
     const value = (e.currentTarget as HTMLSelectElement).value;
     setLang(value);
     localStorage.setItem("language", value);
-    document.cookie = `lang=${value}; path=/; max-age=31536000`;
+    document.cookie = `lang=${value}; path=/; max-age=3600`;
     location.reload();
   };
 

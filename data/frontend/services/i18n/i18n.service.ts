@@ -3,12 +3,20 @@ const cache = new Map<string, Record<string, string>>();
 export async function getTranslations(
   lang: string,
 ): Promise<Record<string, string>> {
-  if (cache.has(lang)) return cache.get(lang)!;
+  if (cache.has(lang)) {
+    return cache.get(lang)!;
+  }
+
   try {
-    const module = await import(`../../../../static/i18n/${lang}.json`, {
-      assert: { type: "json" },
-    });
-    const data = module.default as Record<string, string>;
+    const baseUrl = Deno.env.get("BASE_URL");
+    const response = await fetch(`${baseUrl}/i18n/${lang}.json`);
+
+    if (!response.ok) {
+      throw new Error(`Failed to load translations for ${lang}`);
+    }
+
+    const data = await response.json() as Record<string, string>;
+
     cache.set(lang, data);
     return data;
   } catch {
@@ -25,9 +33,9 @@ export async function getTranslations(
  * The function is named "TranslationPipe" so it can easily be imported and
  * reused across components without redefining the helper each time.
  */
-export function TranslationPipe(
+export const TranslationPipe = (
   translations: Record<string, string>,
   key: string,
-): string {
+) => {
   return translations[key] ?? key;
-}
+};

@@ -6,13 +6,11 @@ import {
   PiShield,
 } from "@preact-icons/pi";
 import { VersionTag } from "./shared/version-tag.tsx";
-import { LanguageSwitcher } from "@islands/navigation/language-switcher.tsx";
 import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 
 export function Footer(
   { translations }: { translations: Record<string, string> },
 ) {
-  const t = (key: string) => TranslationPipe(translations, key);
   return (
     <footer
       style={{
@@ -31,13 +29,15 @@ export function Footer(
               alignItems: "center",
             }}
           >
-            <span>{t("footer.other")}</span>
+            <span>{TranslationPipe(translations, "footer.other")}</span>
             <ul class="footer-grid-item-list">
               <li style={{ listStyle: "none" }}>
                 <a href="/privacy">
                   <div style={{ display: "flex" }}>
                     <PiShield />
-                    <span>&nbsp;{t("footer.privacy")}</span>
+                    <span>
+                      &nbsp;{TranslationPipe(translations, "footer.privacy")}
+                    </span>
                   </div>
                 </a>
               </li>
@@ -46,7 +46,9 @@ export function Footer(
                 <a href="/terms">
                   <div style={{ display: "flex" }}>
                     <PiFileText />
-                    <span>&nbsp;{t("footer.tos")}</span>
+                    <span>
+                      &nbsp;{TranslationPipe(translations, "footer.tos")}
+                    </span>
                   </div>
                 </a>
               </li>
@@ -61,7 +63,7 @@ export function Footer(
               alignItems: "center",
             }}
           >
-            <span>{t("footer.connect")}</span>
+            <span>{TranslationPipe(translations, "footer.connect")}</span>
             <ul class="footer-grid-item-list">
               <li style={{ listStyle: "none" }}>
                 <a
@@ -70,7 +72,9 @@ export function Footer(
                 >
                   <div style={{ display: "flex" }}>
                     <PiChatText />
-                    <span>&nbsp;{t("footer.bluesky")}</span>
+                    <span>
+                      &nbsp;{TranslationPipe(translations, "footer.bluesky")}
+                    </span>
                   </div>
                 </a>
               </li>
@@ -81,7 +85,9 @@ export function Footer(
                 >
                   <div style={{ display: "flex" }}>
                     <PiGithubLogo />
-                    <span>&nbsp;{t("footer.github")}</span>
+                    <span>
+                      &nbsp;{TranslationPipe(translations, "footer.github")}
+                    </span>
                   </div>
                 </a>
               </li>
@@ -96,13 +102,15 @@ export function Footer(
               alignItems: "center",
             }}
           >
-            <span>{t("footer.more")}</span>
+            <span>{TranslationPipe(translations, "footer.more")}</span>
             <ul class="footer-grid-item-list">
               <li style={{ listStyle: "none" }}>
                 <a href="/about">
                   <div style={{ display: "flex" }}>
                     <PiInfo />
-                    <span>&nbsp;{t("footer.about")}</span>
+                    <span>
+                      &nbsp;{TranslationPipe(translations, "footer.about")}
+                    </span>
                   </div>
                 </a>
               </li>
@@ -110,7 +118,9 @@ export function Footer(
                 <a href="/contact">
                   <div style={{ display: "flex" }}>
                     <PiChatText />
-                    <span>&nbsp;{t("footer.contact")}</span>
+                    <span>
+                      &nbsp;{TranslationPipe(translations, "footer.contact")}
+                    </span>
                   </div>
                 </a>
               </li>
@@ -127,7 +137,6 @@ export function Footer(
 
               <VersionTag />
             </div>
-            <LanguageSwitcher />
             <small>
               © {new Date().getFullYear()}{" "}
               <a

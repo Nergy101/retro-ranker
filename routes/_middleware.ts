@@ -57,10 +57,12 @@ export async function handler(ctx: FreshContext) {
   const path = url.pathname;
   const cookies = getCookies(req.headers);
   const language = cookies.lang ?? "en-US";
+  console.log("language in middleware", language);
   (ctx.state as CustomFreshState).language = language;
-  (ctx.state as CustomFreshState).translations = await getTranslations(
-    language,
-  );
+  const translations = await getTranslations(language);
+
+  console.log("getTranslations in middleware", translations);
+  (ctx.state as CustomFreshState).translations = translations;
 
   return await tracer.startActiveSpan(`route:${path}`, async (span) => {
     try {
