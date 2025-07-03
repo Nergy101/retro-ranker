@@ -3,7 +3,7 @@ import { ProblemDetail } from "@data/frontend/contracts/problem-detail.ts";
 
 import cap from "@data/cap/cap.service.ts";
 import { FreshContext } from "fresh";
-import { validateCsrfToken } from "../../../csrf.ts";
+import { validateCsrfToken } from "../../../utils.ts";
 
 export const handler = {
   async POST(ctx: FreshContext) {

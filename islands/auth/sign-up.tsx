@@ -29,6 +29,9 @@ export function SignUp(
     if (IS_BROWSER && !mounted) {
       setMounted(true);
       import("@cap.js/widget").then(async ({ default: Cap }) => {
+        console.log("baseApiUrl", baseApiUrl);
+        console.log("url", baseApiUrl + "/captcha/");
+
         const capInstance = new Cap({
           apiEndpoint: baseApiUrl + "/captcha/",
         });
