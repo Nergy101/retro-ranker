@@ -1,14 +1,16 @@
-import { FreshContext, page } from "fresh";
+import { FreshContext, page, PageProps } from "fresh";
 import { CustomFreshState } from "@interfaces/state.ts";
 import { SignUp } from "@islands/auth/sign-up.tsx";
+import { generateCsrfToken, setCsrfCookie } from "../../csrf.ts";
 
-export default function SignUpPage() {
+export default function SignUpPage(pageProps: PageProps) {
   const baseApiUrl = Deno.env.get("BASE_API_URL")!;
+  const csrfToken = pageProps.data.csrfToken as string;
 
   return (
     <>
       <article>
-        <SignUp baseApiUrl={baseApiUrl} />
+        <SignUp baseApiUrl={baseApiUrl} csrfToken={csrfToken} />
       </article>
     </>
   );
@@ -28,6 +30,11 @@ export const handler = {
         headers: { location: "/profile" },
       });
     }
-    return page(ctx);
+    const url = new URL(ctx.req.url);
+    const csrfToken = generateCsrfToken();
+    state.data.csrfToken = csrfToken;
+    const resp = page(ctx);
+    setCsrfCookie(resp.headers, url.hostname, csrfToken);
+    return resp;
   },
 };

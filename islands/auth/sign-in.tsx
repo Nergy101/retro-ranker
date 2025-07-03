@@ -8,7 +8,11 @@ import {
 import { useEffect } from "preact/hooks";
 
 export function SignIn(
-  { error, pleaseWait }: { error: string | null; pleaseWait: boolean },
+  { error, pleaseWait, csrfToken }: {
+    error: string | null;
+    pleaseWait: boolean;
+    csrfToken: string;
+  },
 ) {
   useEffect(() => {
     const checkAuth = () => {
@@ -133,6 +137,7 @@ export function SignIn(
         method="POST"
         action="/api/auth/sign-in"
       >
+        <input type="hidden" name="csrf_token" value={csrfToken} />
         <div>
           <label
             for="nickname"

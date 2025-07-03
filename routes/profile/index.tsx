@@ -12,6 +12,7 @@ import { CustomFreshState } from "@interfaces/state.ts";
 import { SignOut } from "@islands/auth/sign-out.tsx";
 import { DeviceCollections } from "@islands/collections/device-collections.tsx";
 import { SuggestionForm } from "@islands/profile/suggestion-form.tsx";
+import { generateCsrfToken, setCsrfCookie } from "../../csrf.ts";
 
 export const handler = {
   GET(ctx: FreshContext) {
@@ -19,7 +20,15 @@ export const handler = {
       title: "Retro Ranker - Profile",
       description: "Profile page",
     };
-    return page(ctx);
+    const url = new URL(ctx.req.url);
+    const csrfToken = generateCsrfToken();
+    (ctx.state as CustomFreshState).data = {
+      ...(ctx.state as CustomFreshState).data,
+      csrfToken,
+    };
+    const resp = page(ctx);
+    setCsrfCookie(resp.headers, url.hostname, csrfToken);
+    return resp;
   },
 };
 
@@ -28,6 +37,7 @@ export default async function ProfilePage(
 ) {
   const req = ctx.req;
   const state = ctx.state as CustomFreshState;
+  const csrfToken = state.data.csrfToken as string;
 
   if (!state.user) {
     const headers = new Headers();
@@ -279,7 +289,7 @@ export default async function ProfilePage(
           <h2 style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
             <PiChatCentered /> Feedback
           </h2>
-          <SuggestionForm />
+          <SuggestionForm csrfToken={csrfToken} />
         </section>
 
         <footer

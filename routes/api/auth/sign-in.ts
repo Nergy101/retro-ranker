@@ -2,6 +2,7 @@ import { ProblemDetail } from "@data/frontend/contracts/problem-detail.ts";
 import { createPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
 import { FreshContext } from "fresh";
 import { setAuthCookie } from "../../../utils.ts";
+import { validateCsrfToken } from "../../../csrf.ts";
 
 export const handler = {
   async GET(_ctx: FreshContext) {
@@ -16,6 +17,14 @@ export const handler = {
     const form = await req.formData();
     const nickname = form.get("nickname")?.toString();
     const password = form.get("password")?.toString();
+    const csrf = form.get("csrf_token")?.toString();
+
+    if (!validateCsrfToken(req.headers, csrf)) {
+      return new Response(
+        JSON.stringify(ProblemDetail.forbidden("Invalid CSRF token")),
+        { status: 403 },
+      );
+    }
 
     if (!nickname || !password) {
       return new Response(
