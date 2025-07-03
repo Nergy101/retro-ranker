@@ -17,3 +17,13 @@ export const languageNames: Record<string, string> = {
   "nl-NL": "Nederlands",
   "pt-PT": "Português",
 };
+
+export const flagEmojis: Record<string, string> = {
+  "en-US": "🇺🇸",
+  "en-GB": "🇬🇧",
+  "de-DE": "🇩🇪",
+  "fr-FR": "🇫🇷",
+  "es-ES": "🇪🇸",
+  "nl-NL": "🇳🇱",
+  "pt-PT": "🇵🇹",
+};

@@ -145,7 +145,7 @@ export function Footer(
                 target="_blank"
               >
                 Retro Ranker
-              </a>. All rights reserved.
+              </a>. {TranslationPipe(translations, "footer.rights")}
             </small>
             <div
               style={{
@@ -155,7 +155,7 @@ export function Footer(
               }}
             >
               <small>
-                Made with ❤️ by{" "}
+                {TranslationPipe(translations, "footer.madeWith")}{" "}
                 <span style={{ color: "var(--pico-primary)" }}>
                   <a href="https://portfolio.nergy.space" target="_blank">
                     Nergy101

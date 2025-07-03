@@ -1,5 +1,9 @@
 import { useEffect, useState } from "preact/hooks";
-import { languageNames, languages } from "@data/frontend/languages.ts";
+import {
+  flagEmojis,
+  languageNames,
+  languages,
+} from "@data/frontend/languages.ts";
 
 export function LanguageSwitcher() {
   const [lang, setLang] = useState<string>("en-US");
@@ -23,9 +27,8 @@ export function LanguageSwitcher() {
 
   return (
     <select value={lang} onChange={change} aria-label="Select language">
-      {languages.map((code) => (
-        <option value={code}>{languageNames[code]}</option>
-      ))}
+      {languages.map((code) => <option value={code}>{flagEmojis[code]}
+      </option>)}
     </select>
   );
 }

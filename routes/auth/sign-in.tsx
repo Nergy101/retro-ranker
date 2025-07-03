@@ -1,15 +1,21 @@
 import { FreshContext, page, PageProps } from "fresh";
 import { CustomFreshState } from "@interfaces/state.ts";
 import { SignIn } from "@islands/auth/sign-in.tsx";
+import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 
-export default function SignInPage(pageProps: PageProps) {
+export default function SignInPage(pageProps: PageProps, ctx: FreshContext) {
+  const translations = (ctx.state as CustomFreshState).translations ?? {};
   const error = pageProps.url.searchParams.get("error");
   const loggedIn = pageProps.url.searchParams.get("logged-in");
 
   return (
     <>
       <div class="sign-in-article">
-        <SignIn error={error} pleaseWait={!!loggedIn} />
+        <SignIn
+          error={error}
+          pleaseWait={!!loggedIn}
+          translations={translations}
+        />
       </div>
     </>
   );

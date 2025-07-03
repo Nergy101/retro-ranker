@@ -1,6 +1,7 @@
 import { useEffect, useState } from "preact/hooks";
 import { TagModel } from "@data/frontend/models/tag.model.ts";
 import { UmamiService } from "@data/frontend/services/umami/umami.service.ts";
+import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 
 interface DeviceSearchFormProps {
   initialSearch: string;
@@ -9,6 +10,7 @@ interface DeviceSearchFormProps {
   initialSort: string;
   initialFilter: string;
   initialTags: TagModel[];
+  translations: Record<string, string>;
 }
 
 export function DeviceSearchForm(
@@ -19,6 +21,7 @@ export function DeviceSearchForm(
     initialSort,
     initialFilter,
     initialTags,
+    translations,
   }: DeviceSearchFormProps,
 ) {
   const umamiService = UmamiService.getInstance();
@@ -48,15 +51,15 @@ export function DeviceSearchForm(
   const getSearchPlaceholder = () => {
     const random = Math.random();
     const placeholders = [
-      "Name, Brand or OS...",
-      "Try 'Anbernic'...",
-      "Try 'Miyoo'...",
-      "Try 'Pocket'...",
-      "Try 'Flip'...",
-      "Try 'Plus'...",
-      "Try 'Mini'...",
-      "Try 'Android'...",
-      "Try 'Batocera'...",
+      TranslationPipe(translations, "search.placeholder.general"),
+      TranslationPipe(translations, "search.placeholder.anbernic"),
+      TranslationPipe(translations, "search.placeholder.miyoo"),
+      TranslationPipe(translations, "search.placeholder.pocket"),
+      TranslationPipe(translations, "search.placeholder.flip"),
+      TranslationPipe(translations, "search.placeholder.plus"),
+      TranslationPipe(translations, "search.placeholder.mini"),
+      TranslationPipe(translations, "search.placeholder.android"),
+      TranslationPipe(translations, "search.placeholder.batocera"),
     ];
     return placeholders[Math.floor(random * placeholders.length)];
   };
@@ -116,7 +119,7 @@ export function DeviceSearchForm(
             type="search"
             placeholder={getSearchPlaceholder()}
             value={searchQuery}
-            aria-label="Search devices"
+            aria-label={TranslationPipe(translations, "search.ariaLabel")}
             class="tag-search-input"
           />
           <input
@@ -134,19 +137,35 @@ export function DeviceSearchForm(
           <div>
             <select
               name="sort"
-              aria-label="Sort by"
+              aria-label={TranslationPipe(translations, "sort.ariaLabel")}
               value={sort}
               onChange={handleSortChange}
             >
-              <option value="new-arrivals">Newest to Oldest</option>
-              <option value="high-low-price">Expensive to Cheapest</option>
-              <option value="low-high-price">Cheapest to Expensive</option>
-              <option value="highly-ranked">Highest Ranking</option>
-              <option value="alphabetical">A to Z</option>
-              <option value="reverse-alphabetical">Z to A</option>
+              <option value="new-arrivals">
+                {TranslationPipe(translations, "sort.newest")}
+              </option>
+              <option value="high-low-price">
+                {TranslationPipe(translations, "sort.expensiveToCheapest")}
+              </option>
+              <option value="low-high-price">
+                {TranslationPipe(translations, "sort.cheapestToExpensive")}
+              </option>
+              <option value="highly-ranked">
+                {TranslationPipe(translations, "sort.highestRanking")}
+              </option>
+              <option value="alphabetical">
+                {TranslationPipe(translations, "sort.alphabetical")}
+              </option>
+              <option value="reverse-alphabetical">
+                {TranslationPipe(translations, "sort.reverse")}
+              </option>
             </select>
           </div>
-          <input type="submit" value="Search" style={{ borderRadius: "2em" }} />
+          <input
+            type="submit"
+            value={TranslationPipe(translations, "search.button")}
+            style={{ borderRadius: "2em" }}
+          />
         </form>
       </div>
     );
@@ -166,7 +185,7 @@ export function DeviceSearchForm(
           type="search"
           placeholder={getSearchPlaceholder()}
           value={searchQuery}
-          aria-label="Search devices"
+          aria-label={TranslationPipe(translations, "search.ariaLabel")}
           class="tag-search-input"
         />
         <input
@@ -183,19 +202,35 @@ export function DeviceSearchForm(
         />
         <select
           name="sort"
-          aria-label="Sort by"
+          aria-label={TranslationPipe(translations, "sort.ariaLabel")}
           value={sort}
           onChange={handleSortChange}
           class="tag-search-input"
         >
-          <option value="new-arrivals">Newest to Oldest</option>
-          <option value="high-low-price">Expensive to Cheapest</option>
-          <option value="low-high-price">Cheapest to Expensive</option>
-          <option value="highly-ranked">Highest Ranking</option>
-          <option value="alphabetical">A to Z</option>
-          <option value="reverse-alphabetical">Z to A</option>
+          <option value="new-arrivals">
+            {TranslationPipe(translations, "sort.newest")}
+          </option>
+          <option value="high-low-price">
+            {TranslationPipe(translations, "sort.expensive")}
+          </option>
+          <option value="low-high-price">
+            {TranslationPipe(translations, "sort.cheapest")}
+          </option>
+          <option value="highly-ranked">
+            {TranslationPipe(translations, "sort.highest")}
+          </option>
+          <option value="alphabetical">
+            {TranslationPipe(translations, "sort.alphabetical")}
+          </option>
+          <option value="reverse-alphabetical">
+            {TranslationPipe(translations, "sort.reverse")}
+          </option>
         </select>
-        <input type="submit" value="Search" aria-label="Search" />
+        <input
+          type="submit"
+          value={TranslationPipe(translations, "search.button")}
+          aria-label={TranslationPipe(translations, "search.button")}
+        />
       </form>
     </div>
   );

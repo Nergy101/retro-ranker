@@ -12,6 +12,7 @@ import { CustomFreshState } from "@interfaces/state.ts";
 import { DeviceSearchForm } from "@islands/forms/device-search-form.tsx";
 import { LayoutSelector } from "@islands/forms/layout-selector.tsx";
 import { TagTypeahead } from "@islands/forms/tag-type-ahead.tsx";
+import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 
 export const handler = {
   async GET(ctx: FreshContext) {
@@ -184,6 +185,7 @@ export const handler = {
 
 export default function CatalogPage(ctx: FreshContext) {
   const data = (ctx.state as CustomFreshState).data;
+  const translations = (ctx.state as CustomFreshState).translations ?? {};
   const allAvailableTags = data.allAvailableTags;
   const selectedTags = data.selectedTags as TagModel[];
   const pageResults = data.pageResults as Device[];
@@ -234,9 +236,9 @@ export default function CatalogPage(ctx: FreshContext) {
       }
       <header style={{ textAlign: "center", marginBottom: "1.5rem" }}>
         <hgroup>
-          <h1>Device Catalog</h1>
+          <h1>{TranslationPipe(translations, "devices.catalog.title")}</h1>
           <p>
-            Filter by tags to find devices. Combine tags for advanced filtering.
+            {TranslationPipe(translations, "devices.catalog.description")}
           </p>
         </hgroup>
       </header>
@@ -278,6 +280,7 @@ export default function CatalogPage(ctx: FreshContext) {
                 initialSort={sortBy}
                 initialFilter={filter}
                 initialTags={selectedTags}
+                translations={translations}
               />
             </div>
           </div>
@@ -303,7 +306,7 @@ export default function CatalogPage(ctx: FreshContext) {
                   marginTop: "1rem",
                 }}
               >
-                <p>No results found for your selected tags.</p>
+                <p>{TranslationPipe(translations, "devices.noResults")}</p>
               </div>
             )
             : (
