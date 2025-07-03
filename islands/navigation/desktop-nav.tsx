@@ -19,21 +19,28 @@ import { Device } from "@data/frontend/contracts/device.model.ts";
 import { User } from "@data/frontend/contracts/user.contract.ts";
 import { navigationItems } from "@data/frontend/navigation-items.ts";
 import { searchDevices } from "@data/frontend/services/utils/search.utils.ts";
+import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 import { ThemeSwitcher } from "./theme-switcher.tsx";
+import { LanguageSwitcher } from "./language-switcher.tsx";
 
 export function DesktopNav({
   pathname,
   allDevices,
   user,
+  translations,
+  language,
 }: {
   pathname: string;
   allDevices: Device[];
   user: User | null;
+  translations: Record<string, string>;
+  language: string;
 }) {
   const suggestionsRef = useRef<HTMLUListElement>(null);
   const [selectedDevice, setSelectedDevice] = useState<Device | null>(null);
   const [suggestions, setSuggestions] = useState<Device[]>([]);
   const [query, setQuery] = useState<string>("");
+  const t = (key: string) => TranslationPipe(translations, key);
   const isActive = (deviceName: string) => {
     return deviceName.toLowerCase() === selectedDevice?.name.raw.toLowerCase();
   };
@@ -130,7 +137,7 @@ export function DesktopNav({
               <a
                 href={item.href}
                 class={item.isActive(pathname) ? "nav-a active" : "nav-a"}
-                aria-label={item.label}
+                aria-label={t(item.i18nKey ?? item.label)}
               >
                 <span class="nav-item-label">
                   <span
@@ -139,7 +146,7 @@ export function DesktopNav({
                   >
                     {item.icon && getIcon(item.icon)}
                   </span>
-                  {item.label}
+                  {t(item.i18nKey ?? item.label)}
                 </span>
               </a>
             </li>
@@ -173,8 +180,11 @@ export function DesktopNav({
               onClick={handleSubmit}
             >
               <PiMagnifyingGlass />
-              <span style={{ marginLeft: "0.25rem" }}>Go</span>
+              <span style={{ marginLeft: "0.25rem" }}>{t("nav.go")}</span>
             </button>
+          </li>
+          <li class="nav-theme-item">
+            <LanguageSwitcher />
           </li>
           <li class="nav-theme-item">
             <ThemeSwitcher showNames={false} showTooltip={true} />

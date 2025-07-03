@@ -5,10 +5,12 @@ import { DesktopNav } from "./desktop-nav.tsx";
 import { MobileNav } from "./mobile-nav.tsx";
 
 export function TopNavbar(
-  { pathname, allDevices, user }: {
+  { pathname, allDevices, user, translations, language }: {
     pathname: string;
     allDevices: Device[];
     user: User | null;
+    translations: Record<string, string>;
+    language: string;
   },
 ) {
   const [isMobile, setIsMobile] = useState(false);
@@ -51,12 +53,22 @@ export function TopNavbar(
   return (
     <>
       {isMobile
-        ? <MobileNav pathname={pathname} allDevices={allDevices} user={user} />
+        ? (
+          <MobileNav
+            pathname={pathname}
+            allDevices={allDevices}
+            user={user}
+            translations={translations}
+            language={language}
+          />
+        )
         : (
           <DesktopNav
             pathname={pathname}
             allDevices={allDevices}
             user={user}
+            translations={translations}
+            language={language}
           />
         )}
     </>

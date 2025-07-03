@@ -3,6 +3,8 @@ import { FreshContext } from "fresh";
 import { createPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
 import { logJson, tracer } from "@data/tracing/tracer.ts";
 import { CustomFreshState } from "@interfaces/state.ts";
+import { getTranslations } from "@data/frontend/services/i18n/i18n.service.ts";
+import { getCookies } from "@std/http/cookie";
 
 // List of file extensions to ignore for logging
 const IGNORED_EXTENSIONS = new Set([
@@ -53,6 +55,12 @@ export async function handler(ctx: FreshContext) {
   const req = ctx.req;
   const url = new URL(req.url);
   const path = url.pathname;
+  const cookies = getCookies(req.headers);
+  const language = cookies.lang ?? "en-US";
+  (ctx.state as CustomFreshState).language = language;
+  (ctx.state as CustomFreshState).translations = await getTranslations(
+    language,
+  );
 
   return await tracer.startActiveSpan(`route:${path}`, async (span) => {
     try {

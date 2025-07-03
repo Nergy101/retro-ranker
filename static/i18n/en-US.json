@@ -1,0 +1,18 @@
+{
+  "nav.devices": "Devices",
+  "nav.releases": "Releases",
+  "nav.compare": "Compare",
+  "nav.leaderboard": "Leaderboard",
+  "nav.charts": "Charts",
+  "nav.faq": "FAQ",
+  "nav.go": "Go",
+  "footer.other": "Other",
+  "footer.privacy": "Privacy",
+  "footer.tos": "ToS",
+  "footer.connect": "Connect",
+  "footer.bluesky": "Bluesky",
+  "footer.github": "GitHub",
+  "footer.more": "More",
+  "footer.about": "About",
+  "footer.contact": "Contact"
+}

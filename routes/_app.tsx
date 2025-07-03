@@ -28,10 +28,12 @@ export default function AppWrapper(
   const params = ctx.params as any;
   const allDevices = params.allDevices as Device[];
   const user = (ctx.state as CustomFreshState).user as User | null;
+  const language = (ctx.state as CustomFreshState).language ?? "en-US";
+  const translations = (ctx.state as CustomFreshState).translations ?? {};
   const url = new URL(ctx.req.url);
 
   const page = (
-    <html class="transition-colors" lang="en">
+    <html class="transition-colors" lang={language}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -100,18 +102,35 @@ export default function AppWrapper(
             `,
           }}
         />
+        <script
+          defer
+          // deno-lint-ignore react-no-danger
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                const savedLang = localStorage.getItem('language');
+                if (savedLang) {
+                  document.cookie = 'lang=' + savedLang + '; path=/; max-age=31536000';
+                  document.documentElement.setAttribute('lang', savedLang);
+                }
+              })();
+            `,
+          }}
+        />
       </head>
       <body>
         <TopNavbar
           pathname={url.pathname}
           allDevices={allDevices}
           user={user}
+          translations={translations}
+          language={language}
         />
         <main class="main-content">
           {/* @ts-ignore */}
           <ctx.Component />
         </main>
-        <Footer />
+        <Footer translations={translations} language={language} />
       </body>
     </html>
   );

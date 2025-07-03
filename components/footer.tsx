@@ -6,8 +6,13 @@ import {
   PiShield,
 } from "@preact-icons/pi";
 import { VersionTag } from "./shared/version-tag.tsx";
+import { LanguageSwitcher } from "@islands/navigation/language-switcher.tsx";
+import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 
-export function Footer() {
+export function Footer(
+  { translations }: { translations: Record<string, string> },
+) {
+  const t = (key: string) => TranslationPipe(translations, key);
   return (
     <footer
       style={{
@@ -26,13 +31,13 @@ export function Footer() {
               alignItems: "center",
             }}
           >
-            <span>Other</span>
+            <span>{t("footer.other")}</span>
             <ul class="footer-grid-item-list">
               <li style={{ listStyle: "none" }}>
                 <a href="/privacy">
                   <div style={{ display: "flex" }}>
                     <PiShield />
-                    <span>&nbsp;Privacy</span>
+                    <span>&nbsp;{t("footer.privacy")}</span>
                   </div>
                 </a>
               </li>
@@ -41,7 +46,7 @@ export function Footer() {
                 <a href="/terms">
                   <div style={{ display: "flex" }}>
                     <PiFileText />
-                    <span>&nbsp;ToS</span>
+                    <span>&nbsp;{t("footer.tos")}</span>
                   </div>
                 </a>
               </li>
@@ -56,7 +61,7 @@ export function Footer() {
               alignItems: "center",
             }}
           >
-            <span>Connect</span>
+            <span>{t("footer.connect")}</span>
             <ul class="footer-grid-item-list">
               <li style={{ listStyle: "none" }}>
                 <a
@@ -65,7 +70,7 @@ export function Footer() {
                 >
                   <div style={{ display: "flex" }}>
                     <PiChatText />
-                    <span>&nbsp;Bluesky</span>
+                    <span>&nbsp;{t("footer.bluesky")}</span>
                   </div>
                 </a>
               </li>
@@ -76,7 +81,7 @@ export function Footer() {
                 >
                   <div style={{ display: "flex" }}>
                     <PiGithubLogo />
-                    <span>&nbsp;GitHub</span>
+                    <span>&nbsp;{t("footer.github")}</span>
                   </div>
                 </a>
               </li>
@@ -91,13 +96,13 @@ export function Footer() {
               alignItems: "center",
             }}
           >
-            <span>More</span>
+            <span>{t("footer.more")}</span>
             <ul class="footer-grid-item-list">
               <li style={{ listStyle: "none" }}>
                 <a href="/about">
                   <div style={{ display: "flex" }}>
                     <PiInfo />
-                    <span>&nbsp;About</span>
+                    <span>&nbsp;{t("footer.about")}</span>
                   </div>
                 </a>
               </li>
@@ -105,7 +110,7 @@ export function Footer() {
                 <a href="/contact">
                   <div style={{ display: "flex" }}>
                     <PiChatText />
-                    <span>&nbsp;Contact</span>
+                    <span>&nbsp;{t("footer.contact")}</span>
                   </div>
                 </a>
               </li>
@@ -122,6 +127,7 @@ export function Footer() {
 
               <VersionTag />
             </div>
+            <LanguageSwitcher />
             <small>
               © {new Date().getFullYear()}{" "}
               <a

@@ -4,6 +4,7 @@ import { Device } from "@data/frontend/contracts/device.model.ts";
 import { User } from "@data/frontend/contracts/user.contract.ts";
 import { getAllNavigationItems } from "@data/frontend/navigation-items.ts";
 import { searchDevices } from "@data/frontend/services/utils/search.utils.ts";
+import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 import {
   PiCalendar,
   PiChartLine,
@@ -19,15 +20,20 @@ import {
 } from "@preact-icons/pi";
 import { useEffect, useRef, useState } from "preact/hooks";
 import { ThemeSwitcher } from "./theme-switcher.tsx";
+import { LanguageSwitcher } from "./language-switcher.tsx";
 
 export function MobileNav({
   pathname,
   allDevices,
   user,
+  translations,
+  language,
 }: {
   pathname: string;
   allDevices: Device[];
   user: User | null;
+  translations: Record<string, string>;
+  language: string;
 }) {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -60,6 +66,7 @@ export function MobileNav({
   const [selectedDevice, setSelectedDevice] = useState<Device | null>(null);
   const [suggestions, setSuggestions] = useState<Device[]>([]);
   const [query, setQuery] = useState<string>("");
+  const t = (key: string) => TranslationPipe(translations, key);
   const isActive = (deviceName: string) => {
     return deviceName.toLowerCase() === selectedDevice?.name.raw.toLowerCase();
   };
@@ -165,7 +172,7 @@ export function MobileNav({
               onClick={handleSubmit}
             >
               <PiMagnifyingGlass />
-              <span style={{ marginLeft: "0.25rem" }}>Go</span>
+              <span style={{ marginLeft: "0.25rem" }}>{t("nav.go")}</span>
             </button>
           </div>
 
@@ -184,6 +191,7 @@ export function MobileNav({
 
           <div class="mobile-nav-theme-switcher">
             <ThemeSwitcher showTooltip={false} showNames={false} />
+            <LanguageSwitcher />
           </div>
         </div>
         <div
@@ -209,7 +217,7 @@ export function MobileNav({
                     }}
                   >
                     {item.icon && getIcon(item.icon)}
-                    &nbsp;{item.label}
+                    &nbsp;{t(item.i18nKey ?? item.label)}
                   </span>
                 </a>
               </li>
