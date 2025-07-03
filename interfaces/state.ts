@@ -14,5 +14,6 @@ export interface SeoData {
 export interface CustomFreshState {
   user?: User | null;
   seo?: SeoData | null;
+  csrfToken?: string | null;
   data?: any | null;
 }

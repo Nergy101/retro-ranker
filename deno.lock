@@ -38,8 +38,8 @@
     "jsr:@std/path@^1.0.9": "1.1.0",
     "jsr:@std/semver@1": "1.0.5",
     "jsr:@std/streams@^1.0.9": "1.0.9",
-    "npm:@cap.js/server@^1.0.15": "1.0.15",
-    "npm:@cap.js/widget@~0.1.13": "0.1.13",
+    "npm:@cap.js/server@2": "2.0.0",
+    "npm:@cap.js/widget@~0.1.25": "0.1.25",
     "npm:@opentelemetry/api@^1.9.0": "1.9.0",
     "npm:@preact/signals@^2.0.4": "2.2.0_preact@10.22.1",
     "npm:@types/node@*": "22.15.15",
@@ -199,15 +199,15 @@
     }
   },
   "npm": {
-    "@cap.js/server@1.0.15": {
-      "integrity": "sha512-mcDbHAL4ar5O4gnDE+62ZPeXhLXxd1KKHzJCsZfn81HY8Fgo5ousxYCnzhsLfki5sH6sO6jpNtS4MZXlKDq+fA==",
+    "@cap.js/server@2.0.0": {
+      "integrity": "sha512-CaETNf+u/+vgkzQJu3Fq3UWrd8egUFYBFLYo5Rf5j2muIVY1syqUJbwvwxLbgE5mlMmND/RUo15D/G0iKCOIYA==",
       "dependencies": [
-        "@types/node@22.15.29",
+        "@types/node",
         "typescript"
       ]
     },
-    "@cap.js/widget@0.1.13": {
-      "integrity": "sha512-B959NCrXBMkHagIeVdcJl+Ujha3yonMS/VEtpoIq21hoaWXP9Oqh2yJamNKJykzyLLPGv3jF2tfqkMFepig9SQ=="
+    "@cap.js/widget@0.1.25": {
+      "integrity": "sha512-OVKt1rOAzqgxuSk0j18K6KtLBwAarTn6g7kAsGXcW+DAYO++Xr32LY6sj8KS3C3gqZXkhozf50kVwmgQs7CzxA=="
     },
     "@esbuild/aix-ppc64@0.23.1": {
       "integrity": "sha512-6VhYk1diRqrhBAqpJEdjASR/+WVRtfjpqKuNw11cLiaWpAT/Uu+nokB+UJnevzy/P9C/ty6AOe0dwueMrGh/iQ==",
@@ -347,12 +347,6 @@
     },
     "@types/node@22.15.15": {
       "integrity": "sha512-R5muMcZob3/Jjchn5LcO8jdKwSCbzqmPB6ruBxMcf9kbxtniZHP327s6C37iOfuw8mbKK3cAQa7sEl7afLrQ8A==",
-      "dependencies": [
-        "undici-types"
-      ]
-    },
-    "@types/node@22.15.29": {
-      "integrity": "sha512-LNdjOkUDlU1RZb8e1kOIUpN1qQUlzGkEtbVNo53vbrwDg5om6oduhm4SiUaPW5ASTXhAiP0jInWG8Qx9fVlOeQ==",
       "dependencies": [
         "undici-types"
       ]
@@ -545,8 +539,8 @@
       "jsr:@preact-icons/pi@^1.0.12",
       "jsr:@std/http@^1.0.13",
       "jsr:@std/log@~0.224.14",
-      "npm:@cap.js/server@^1.0.15",
-      "npm:@cap.js/widget@~0.1.13",
+      "npm:@cap.js/server@2",
+      "npm:@cap.js/widget@~0.1.25",
       "npm:@opentelemetry/api@^1.9.0",
       "npm:pocketbase@0.26",
       "npm:preact@^10.26.6",

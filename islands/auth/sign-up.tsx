@@ -2,7 +2,9 @@ import { PiLock, PiPassword, PiUser, PiUserPlus } from "@preact-icons/pi";
 import { IS_BROWSER } from "fresh/runtime";
 import { useEffect, useState } from "preact/hooks";
 
-export function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
+export function SignUp(
+  { baseApiUrl, csrfToken }: { baseApiUrl: string; csrfToken: string },
+) {
   const [error, setError] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
 
@@ -27,6 +29,9 @@ export function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
     if (IS_BROWSER && !mounted) {
       setMounted(true);
       import("@cap.js/widget").then(async ({ default: Cap }) => {
+        console.log("baseApiUrl", baseApiUrl);
+        console.log("url", baseApiUrl + "/captcha/");
+
         const capInstance = new Cap({
           apiEndpoint: baseApiUrl + "/captcha/",
         });
@@ -232,6 +237,7 @@ export function SignUp({ baseApiUrl }: { baseApiUrl: string }) {
         style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
         onSubmit={handleSubmit}
       >
+        <input type="hidden" name="csrf_token" value={csrfToken} />
         <div>
           <label
             for="nickname"

@@ -1,10 +1,58 @@
 import { createDefine } from "fresh";
 import { CustomFreshState } from "./interfaces/state.ts";
-import { deleteCookie, setCookie } from "@std/http/cookie";
+import { deleteCookie, getCookies, setCookie } from "@std/http/cookie";
 
 export interface State extends CustomFreshState {}
 
 export const define = createDefine<State>();
+
+/**
+ * Generate a random CSRF token
+ */
+export function generateCsrfToken(): string {
+  return crypto.randomUUID();
+}
+
+/**
+ * Create CSRF cookie configuration for different environments
+ */
+export function createCsrfCookie(
+  hostname: string,
+  token: string,
+) {
+  const isProduction = hostname === "retroranker.site";
+  return {
+    name: "csrf_token",
+    value: token,
+    maxAge: 3600,
+    sameSite: "Lax",
+    path: "/",
+    httpOnly: false, // Allow JavaScript access for debugging
+    secure: isProduction,
+    // Don't set domain in development to avoid issues with localhost
+    ...(isProduction && { domain: hostname }),
+  };
+}
+
+/**
+ * Get CSRF token from cookies
+ */
+export function getCsrfTokenFromCookie(headers: Headers): string | undefined {
+  const cookies = getCookies(headers);
+  console.log(cookies);
+  return cookies["csrf_token"];
+}
+
+/**
+ * Validate CSRF token against cookie token
+ */
+export function validateCsrfToken(
+  headers: Headers,
+  token: string | null | undefined,
+): boolean {
+  const cookieToken = getCsrfTokenFromCookie(headers);
+  return !!cookieToken && !!token && cookieToken === token;
+}
 
 /**
  * Utility function to set authentication cookies with proper configuration

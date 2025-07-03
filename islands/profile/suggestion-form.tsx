@@ -1,7 +1,7 @@
 import { PiPaperPlaneRight } from "@preact-icons/pi";
 import { useState } from "preact/hooks";
 
-export function SuggestionForm() {
+export function SuggestionForm({ csrfToken }: { csrfToken: string }) {
   const [suggestion, setSuggestion] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -20,6 +20,7 @@ export function SuggestionForm() {
         },
         body: JSON.stringify({
           suggestion,
+          csrf_token: csrfToken,
         }),
       });
 
@@ -56,6 +57,7 @@ export function SuggestionForm() {
 
   return (
     <form onSubmit={handleSubmit} class="suggestion-form">
+      <input type="hidden" name="csrf_token" value={csrfToken} />
       <div class="grid">
         <label for="suggestion">
           <strong>Have a suggestion for RetroRanker?</strong>
