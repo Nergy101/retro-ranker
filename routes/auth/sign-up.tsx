@@ -1,14 +1,16 @@
 import { FreshContext, page } from "fresh";
 import { CustomFreshState } from "@interfaces/state.ts";
 import { SignUp } from "@islands/auth/sign-up.tsx";
+import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 
-export default function SignUpPage() {
+export default function SignUpPage(ctx: FreshContext) {
+  const translations = (ctx.state as CustomFreshState).translations ?? {};
   const baseApiUrl = Deno.env.get("BASE_API_URL")!;
 
   return (
     <>
       <article>
-        <SignUp baseApiUrl={baseApiUrl} />
+        <SignUp baseApiUrl={baseApiUrl} translations={translations} />
       </article>
     </>
   );

@@ -21,6 +21,7 @@ import { createSuperUserPocketBaseService } from "@data/pocketbase/pocketbase.se
 import { tracer } from "@data/tracing/tracer.ts";
 import { CustomFreshState } from "@interfaces/state.ts";
 import { Hero } from "@islands/hero/hero.tsx";
+import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 
 export const handler = {
   async GET(ctx: FreshContext) {
@@ -150,6 +151,7 @@ export default function Home(
 ) {
   const state = ctx.state as CustomFreshState;
   const data = state.data;
+  const translations = state.translations ?? {};
 
   const newArrivals = data.newArrivals as Device[];
   const personalPicks = data.personalPicks as Device[];
@@ -184,7 +186,8 @@ export default function Home(
                   gap: "0.5rem",
                 }}
               >
-                <PiMagnifyingGlass /> Popular Searches
+                <PiMagnifyingGlass />{" "}
+                {TranslationPipe(translations, "home.popularSearches")}
               </h3>
 
               <div
@@ -210,7 +213,8 @@ export default function Home(
           <section class="home-section">
             <article class="home-section-content">
               <h2 class="home-section-title">
-                <PiSparkle /> New Arrivals
+                <PiSparkle />{" "}
+                {TranslationPipe(translations, "home.newArrivals")}
               </h2>
               <div class="device-row-grid">
                 {newArrivals.map((device) => (
@@ -230,7 +234,7 @@ export default function Home(
                 ))}
                 <SeeMoreCard
                   href="/devices?sort=new-arrivals"
-                  text="More New Arrivals"
+                  text={TranslationPipe(translations, "home.moreNewArrivals")}
                 />
               </div>
             </article>
@@ -240,7 +244,8 @@ export default function Home(
           <section class="home-section">
             <article class="home-section-content">
               <h2 class="home-section-title">
-                <PiRanking /> Bang for your buck
+                <PiRanking />{" "}
+                {TranslationPipe(translations, "home.bangForYourBuck")}
                 <div
                   style={{
                     display: "flex",
@@ -271,7 +276,7 @@ export default function Home(
                 ))}
                 <SeeMoreCard
                   href="/devices?tags=mid&sort=highly-ranked"
-                  text="More Highly Ranked"
+                  text={TranslationPipe(translations, "home.moreHighlyRanked")}
                 />
               </div>
             </article>
@@ -281,7 +286,7 @@ export default function Home(
           <section class="home-section">
             <article class="home-section-content">
               <h2 class="home-section-title">
-                <PiCalendar /> Upcoming
+                <PiCalendar /> {TranslationPipe(translations, "home.upcoming")}
               </h2>
               <div class="device-row-grid">
                 {upcoming.map((device) => (
@@ -301,7 +306,7 @@ export default function Home(
                 ))}
                 <SeeMoreCard
                   href="/devices?tags=upcoming"
-                  text="More Upcoming"
+                  text={TranslationPipe(translations, "home.moreUpcoming")}
                 />
               </div>
             </article>
@@ -311,7 +316,8 @@ export default function Home(
           <section class="home-section">
             <article class="home-section-content">
               <h2 class="home-section-title">
-                <PiUserCheck /> Personal Picks
+                <PiUserCheck />{" "}
+                {TranslationPipe(translations, "home.personalPicks")}
               </h2>
               <div class="device-row-grid">
                 {personalPicks.map((device) => (
@@ -331,7 +337,7 @@ export default function Home(
                 ))}
                 <SeeMoreCard
                   href="/devices?tags=personal-pick"
-                  text="More Personal Picks"
+                  text={TranslationPipe(translations, "home.morePersonalPicks")}
                 />
               </div>
             </article>
@@ -350,10 +356,10 @@ export default function Home(
                       textAlign: "center",
                     }}
                   >
-                    A Handheld Database
+                    {TranslationPipe(translations, "home.handheldDatabase")}
                   </h2>
                   <p style={{ textAlign: "center" }}>
-                    Powered by the Retro Handhelds community
+                    {TranslationPipe(translations, "home.poweredByCommunity")}
                   </p>
                 </hgroup>
 
@@ -367,49 +373,7 @@ export default function Home(
                   <strong style={{ color: "var(--pico-primary)" }}>
                     Retro Ranker {" "}
                   </strong>
-                  is a community-driven database of nearly 500{" "}
-                  <strong>retro gaming handhelds</strong> from brands like{" "}
-                  <a
-                    href={BrandWebsites["anbernic"]}
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    <strong>Anbernic</strong>
-                  </a>,{" "}
-                  <a
-                    href={BrandWebsites["retroid"]}
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    <strong>Retroid</strong>
-                  </a>,{" "}
-                  <a
-                    href={BrandWebsites["miyoo-bittboy"]}
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    <strong>Miyoo</strong>
-                  </a>,{" "}
-                  <a
-                    href={BrandWebsites["ayaneo"]}
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    <strong>Ayaneo</strong>
-                  </a>,{" "}
-                  <a
-                    href={BrandWebsites["powkiddy"]}
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    <strong>Powkiddy</strong>
-                  </a>{" "}
-                  and many more. Whether you need an{" "}
-                  <strong>affordable emulation device</strong> under $100 or a
-                  {" "}
-                  <strong>premium gaming handheld</strong>{" "}
-                  for modern systems, our comprehensive comparison tools help
-                  you find the perfect device for your needs.
+                  {TranslationPipe(translations, "home.description")}
                 </p>
                 <div class="index-buttons">
                   <a
@@ -424,7 +388,7 @@ export default function Home(
                       color: "var(--pico-contrast)",
                     }}
                   >
-                    <PiScroll /> Devices
+                    <PiScroll /> {TranslationPipe(translations, "nav.devices")}
                   </a>
                   <a
                     href="/compare"
@@ -438,7 +402,7 @@ export default function Home(
                       color: "var(--pico-contrast)",
                     }}
                   >
-                    <PiGitDiff /> Compare
+                    <PiGitDiff /> {TranslationPipe(translations, "nav.compare")}
                   </a>
 
                   <a
@@ -453,7 +417,8 @@ export default function Home(
                       color: "var(--pico-contrast)",
                     }}
                   >
-                    <PiCalendar /> Releases
+                    <PiCalendar />{" "}
+                    {TranslationPipe(translations, "nav.releases")}
                   </a>
 
                   <a
@@ -468,7 +433,8 @@ export default function Home(
                       color: "var(--pico-contrast)",
                     }}
                   >
-                    <PiChartLine /> Charts
+                    <PiChartLine />{" "}
+                    {TranslationPipe(translations, "nav.charts")}
                   </a>
                 </div>
               </div>

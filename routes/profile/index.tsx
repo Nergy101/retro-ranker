@@ -12,6 +12,7 @@ import { CustomFreshState } from "@interfaces/state.ts";
 import { SignOut } from "@islands/auth/sign-out.tsx";
 import { DeviceCollections } from "@islands/collections/device-collections.tsx";
 import { SuggestionForm } from "@islands/profile/suggestion-form.tsx";
+import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 
 export const handler = {
   GET(ctx: FreshContext) {
@@ -26,6 +27,7 @@ export const handler = {
 export default async function ProfilePage(
   ctx: FreshContext,
 ) {
+  const translations = (ctx.state as CustomFreshState).translations ?? {};
   const req = ctx.req;
   const state = ctx.state as CustomFreshState;
 
@@ -133,20 +135,20 @@ export default async function ProfilePage(
 
   const getWelcomeText = () => {
     const texts = [
-      "Player One.",
-      "Hero of the pixelverse!",
-      "Continue? > YES >",
-      "Back for more pixels?",
-      "Let's-a go!",
-      "Back online — systems are green.",
-      "Link re-established -",
-      "You've respawned!",
-      "Insert snacks, not coins.",
-      "Boot sequence complete.",
-      "Memory card detected.",
-      "Ready to collect some Retro XP?",
-      "Retro vibes restored.",
-      "Back in the handheld dimension.",
+      TranslationPipe(translations, "profile.welcome.playerOne"),
+      TranslationPipe(translations, "profile.welcome.hero"),
+      TranslationPipe(translations, "profile.welcome.continue"),
+      TranslationPipe(translations, "profile.welcome.backForMore"),
+      TranslationPipe(translations, "profile.welcome.letsGo"),
+      TranslationPipe(translations, "profile.welcome.backOnline"),
+      TranslationPipe(translations, "profile.welcome.linkEstablished"),
+      TranslationPipe(translations, "profile.welcome.respawned"),
+      TranslationPipe(translations, "profile.welcome.insertSnacks"),
+      TranslationPipe(translations, "profile.welcome.bootComplete"),
+      TranslationPipe(translations, "profile.welcome.memoryCard"),
+      TranslationPipe(translations, "profile.welcome.retroXP"),
+      TranslationPipe(translations, "profile.welcome.retroVibes"),
+      TranslationPipe(translations, "profile.welcome.handheldDimension"),
     ];
     return texts[Math.floor(Math.random() * texts.length)];
   };
@@ -157,7 +159,9 @@ export default async function ProfilePage(
         <header>
           <h1>
             <span style={{ color: "var(--pico-primary)" }}>
-              {getWelcomeText()} Welcome back, {user.nickname}.
+              {getWelcomeText()}{" "}
+              {TranslationPipe(translations, "profile.welcome.back")},{" "}
+              {user.nickname}.
             </span>
           </h1>
         </header>
@@ -175,15 +179,17 @@ export default async function ProfilePage(
                 transform: "scaleX(-1)",
               }}
             />
-            Your Favorites
+            {TranslationPipe(translations, "profile.favorites.title")}
           </h2>
 
           {favoritedDevices.length === 0 && (
             <div class="empty-favorites-message">
-              <p>You haven't favorited any devices yet.</p>
+              <p>{TranslationPipe(translations, "profile.favorites.empty")}</p>
               <p>
-                Browse devices and click the heart icon to add them to your
-                favorites!
+                {TranslationPipe(
+                  translations,
+                  "profile.favorites.emptyDescription",
+                )}
               </p>
             </div>
           )}
@@ -221,7 +227,9 @@ export default async function ProfilePage(
               justifyContent: "space-between",
             }}
           >
-            <h2>Your Collections</h2>
+            <h2>
+              {TranslationPipe(translations, "profile.collections.title")}
+            </h2>
             {collections.length > 0 && (
               <a
                 href={`/collections/create`}
@@ -234,14 +242,17 @@ export default async function ProfilePage(
                   gap: "0.5rem",
                 }}
               >
-                <PiPlus /> Create a new collection
+                <PiPlus />{" "}
+                {TranslationPipe(translations, "profile.collections.createNew")}
               </a>
             )}
           </div>
 
           {collections.length === 0 && (
             <div class="empty-collection-message">
-              <p>You haven't created any collections yet.</p>
+              <p>
+                {TranslationPipe(translations, "profile.collections.empty")}
+              </p>
               <a
                 href={`/collections/create`}
                 role="button"
@@ -253,7 +264,8 @@ export default async function ProfilePage(
                   width: "fit-content",
                 }}
               >
-                <PiPlus />Create a new collection
+                <PiPlus />
+                {TranslationPipe(translations, "profile.collections.createNew")}
               </a>
             </div>
           )}
@@ -277,7 +289,8 @@ export default async function ProfilePage(
           style={{ marginTop: "2rem", marginBottom: "2rem" }}
         >
           <h2 style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-            <PiChatCentered /> Feedback
+            <PiChatCentered />{" "}
+            {TranslationPipe(translations, "profile.feedback.title")}
           </h2>
           <SuggestionForm />
         </section>
@@ -286,7 +299,7 @@ export default async function ProfilePage(
           style={{ display: "flex", gap: "0.5rem" }}
         >
           <SignOut
-            buttonText="Log Out"
+            buttonText={TranslationPipe(translations, "auth.signOut")}
             className="outline secondary"
           />
         </footer>

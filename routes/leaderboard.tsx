@@ -6,6 +6,7 @@ import { User } from "@data/frontend/contracts/user.contract.ts";
 import { ReviewContract } from "@data/frontend/contracts/review.contract.ts";
 import { createSuperUserPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
 import { CustomFreshState } from "@interfaces/state.ts";
+import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 
 export const handler = {
   async GET(ctx: FreshContext) {
@@ -139,6 +140,7 @@ export default function LeaderboardPage(
     userLikedMap: Record<string, boolean>;
     userFavoritedMap: Record<string, boolean>;
   };
+  const translations = (ctx.state as CustomFreshState).translations ?? {};
   const user = (ctx.state as CustomFreshState).user as User | null;
 
   return (
@@ -151,15 +153,14 @@ export default function LeaderboardPage(
       /> */
       }
       <div>
-        <h1>Leaderboard</h1>
+        <h1>{TranslationPipe(translations, "leaderboard.title")}</h1>
         <p>
-          The leaderboard is a list of the top rated retro handheld devices{" "}
-          <br />
-          based on reviews from users like you!
+          {TranslationPipe(translations, "leaderboard.description")} <br />
+          {TranslationPipe(translations, "leaderboard.basedOnReviews")}
         </p>
         <img
           src="/images/rr-medal.png"
-          alt="Leaderboard"
+          alt={TranslationPipe(translations, "leaderboard.title")}
           class="leaderboard-medal"
         />
         {/* Arrange top3: 1st (center, highest), 2nd (left), 3rd (right, lowest) */}
@@ -266,7 +267,7 @@ export default function LeaderboardPage(
       </div>
       <div>
         <h2 style={{ textAlign: "center" }}>
-          More Ranked Handhelds
+          {TranslationPipe(translations, "leaderboard.moreRankedHandhelds")}
         </h2>
         <div
           style={{

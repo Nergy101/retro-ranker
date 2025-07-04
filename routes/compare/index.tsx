@@ -11,6 +11,7 @@ import { DevicesRadarChart } from "@islands/charts/devices-radar-chart.tsx";
 import { DeviceComparisonForm } from "@islands/forms/device-comparison-form.tsx";
 import { DeviceComparisonResult } from "@components/comparisons/device-comparison-result.tsx";
 import { DeviceComparisonText } from "@components/comparisons/device-comparison-text.tsx";
+import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 
 export const handler = {
   async GET(ctx: FreshContext) {
@@ -80,6 +81,7 @@ export default function Compare(ctx: FreshContext) {
     similarDevices: Device[];
     ranking: Ranking;
   };
+  const translations = (ctx.state as CustomFreshState).translations ?? {};
   const devicesToCompare = data.devicesToCompare as Device[];
   const deviceNames = data.deviceNames;
   const allDevices = data.allDevices;
@@ -90,21 +92,22 @@ export default function Compare(ctx: FreshContext) {
     <div class="compare-page">
       <header>
         <hgroup style={{ textAlign: "center" }}>
-          <h1>Compare Devices</h1>
+          <h1>{TranslationPipe(translations, "compare.title")}</h1>
           {deviceNames.length > 0
             ? (
               <p>
-                Comparing the following devices: <br />
+                {TranslationPipe(translations, "compare.comparingDevices")}{" "}
+                <br />
                 {deviceNames.join(", ")}
               </p>
             )
             : (
               <p>
-                Compare between{" "}
+                {TranslationPipe(translations, "compare.compareBetween")}{" "}
                 <span style={{ color: "var(--pico-primary)" }}>
                   {allDevices.length}
                 </span>{" "}
-                devices
+                {TranslationPipe(translations, "compare.devices")}
               </p>
             )}
         </hgroup>
@@ -115,6 +118,7 @@ export default function Compare(ctx: FreshContext) {
           allDevices={allDevices}
           devicesToCompare={devicesToCompare}
           similarDevices={similarDevices}
+          translations={translations}
         />
       </div>
 
@@ -131,7 +135,8 @@ export default function Compare(ctx: FreshContext) {
               <div
                 style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
               >
-                <PiChartLine /> Show ranking chart
+                <PiChartLine />{" "}
+                {TranslationPipe(translations, "compare.showRankingChart")}
               </div>
             </summary>
             <div style={{ display: "flex", justifyContent: "center" }}>
@@ -156,32 +161,42 @@ export default function Compare(ctx: FreshContext) {
       <details>
         <summary class="flex">
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-            <PiInfo /> How does this ranking work?
+            <PiInfo />{" "}
+            {TranslationPipe(translations, "compare.howRankingWorks")}
           </div>
         </summary>
         <div>
           <p>
-            The ranking is based on all relevant properties of the devices.
+            {TranslationPipe(translations, "compare.rankingDescription")}
             <br />
-            Every property is given a score and placed into a category. The
-            categories are then weighted and summed up to get the final results.
+            {TranslationPipe(translations, "compare.rankingExplanation")}
             <br />
-            Category weights:
+            {TranslationPipe(translations, "compare.categoryWeights")}:
             <div
               style={{ display: "flex", flexDirection: "row", gap: "0.5rem" }}
             >
               <ul>
-                <li>Performance (30%)</li>
-                <li>Monitor (10%)</li>
-                <li>Dimensions (10%)</li>
+                <li>
+                  {TranslationPipe(translations, "compare.performance")} (30%)
+                </li>
+                <li>
+                  {TranslationPipe(translations, "compare.monitor")} (10%)
+                </li>
+                <li>
+                  {TranslationPipe(translations, "compare.dimensions")} (10%)
+                </li>
               </ul>
               <ul>
-                <li>Connectivity (20%)</li>
-                <li>Audio (10%)</li>
-                <li>Controls (10%)</li>
+                <li>
+                  {TranslationPipe(translations, "compare.connectivity")} (20%)
+                </li>
+                <li>{TranslationPipe(translations, "compare.audio")} (10%)</li>
+                <li>
+                  {TranslationPipe(translations, "compare.controls")} (10%)
+                </li>
               </ul>
               <ul>
-                <li>Misc (10%)</li>
+                <li>{TranslationPipe(translations, "compare.misc")} (10%)</li>
               </ul>
             </div>
           </p>
@@ -201,7 +216,7 @@ export default function Compare(ctx: FreshContext) {
                 padding: "0.25rem",
               }}
             >
-              Blue means equal.
+              {TranslationPipe(translations, "compare.blueMeansEqual")}
             </span>
             <br />
             <span
@@ -213,7 +228,7 @@ export default function Compare(ctx: FreshContext) {
                 padding: "0.25rem",
               }}
             >
-              Green means better.
+              {TranslationPipe(translations, "compare.greenMeansBetter")}
             </span>
             <br />
             <span
@@ -225,7 +240,7 @@ export default function Compare(ctx: FreshContext) {
                 padding: "0.25rem",
               }}
             >
-              Red means worse.
+              {TranslationPipe(translations, "compare.redMeansWorse")}
             </span>
           </div>
         </div>

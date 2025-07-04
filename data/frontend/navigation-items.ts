@@ -1,5 +1,6 @@
 export interface NavigationItem {
   label: string;
+  i18nKey?: string;
   href: string;
   icon?: string;
   isActive: (pathname: string) => boolean;
@@ -10,6 +11,7 @@ export const navigationItems: NavigationItem[] = [
   {
     href: "/devices",
     label: "Devices",
+    i18nKey: "nav.devices",
     icon: "PiScroll",
     isActive: (pathname) => pathname.startsWith("/devices"),
     priority: 0.9,
@@ -17,6 +19,7 @@ export const navigationItems: NavigationItem[] = [
   {
     href: "/release-timeline",
     label: "Releases",
+    i18nKey: "nav.releases",
     icon: "PiCalendar",
     isActive: (pathname) => pathname.startsWith("/release-timeline"),
     priority: 0.8,
@@ -24,6 +27,7 @@ export const navigationItems: NavigationItem[] = [
   {
     href: "/compare",
     label: "Compare",
+    i18nKey: "nav.compare",
     icon: "PiGitDiff",
     isActive: (pathname) => pathname.startsWith("/compare"),
     priority: 0.9,
@@ -31,6 +35,7 @@ export const navigationItems: NavigationItem[] = [
   {
     href: "/leaderboard",
     label: "Leaderboard",
+    i18nKey: "nav.leaderboard",
     icon: "PiRanking",
     isActive: (pathname) => pathname.startsWith("/leaderboard"),
     priority: 0.7,
@@ -38,6 +43,7 @@ export const navigationItems: NavigationItem[] = [
   {
     href: "/charts",
     label: "Charts",
+    i18nKey: "nav.charts",
     icon: "PiChartLine",
     isActive: (pathname) => pathname.startsWith("/charts"),
     priority: 0.7,
@@ -45,6 +51,7 @@ export const navigationItems: NavigationItem[] = [
   {
     href: "/faq",
     label: "FAQ",
+    i18nKey: "nav.faq",
     icon: "PiQuestion",
     isActive: (pathname) => pathname === "/faq",
     priority: 0.6,

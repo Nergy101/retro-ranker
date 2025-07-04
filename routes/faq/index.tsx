@@ -1,6 +1,7 @@
 import { PiChartLine, PiInfo, PiQuestion } from "@preact-icons/pi";
 import { FreshContext, page } from "fresh";
 import { CustomFreshState } from "@interfaces/state.ts";
+import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 
 export const handler = {
   GET(ctx: FreshContext) {
@@ -14,7 +15,9 @@ export const handler = {
   },
 };
 
-export default function FAQ() {
+export default function FAQ(ctx: FreshContext) {
+  const translations = (ctx.state as CustomFreshState).translations ?? {};
+
   return (
     <div class="faq">
       <section
@@ -53,7 +56,7 @@ export default function FAQ() {
               gap: "0.5em",
             }}
           >
-            Frequently Asked Questions
+            {TranslationPipe(translations, "faq.title")}
           </h1>
           <p
             style={{
@@ -64,8 +67,7 @@ export default function FAQ() {
               opacity: 0.95,
             }}
           >
-            Find answers to common questions about Retro Ranker, device
-            comparisons, reviews, and more.
+            {TranslationPipe(translations, "faq.description")}
           </p>
           <div
             style={{
@@ -80,13 +82,13 @@ export default function FAQ() {
               href="/about"
               class="hero-button"
             >
-              About Us
+              {TranslationPipe(translations, "nav.about")}
             </a>
             <a
               href="/contact"
               class="hero-button"
             >
-              Contact
+              {TranslationPipe(translations, "nav.contact")}
             </a>
           </div>
         </div>
@@ -104,18 +106,19 @@ export default function FAQ() {
               gap: "0.5rem",
             }}
           >
-            <PiQuestion class="text-2xl" /> General
+            <PiQuestion class="text-2xl" />{" "}
+            {TranslationPipe(translations, "faq.general")}
           </h2>
           <div class="flex flex-col gap-4">
             <details class="faq-details">
               <summary class="flex items-center gap-2">
-                <PiQuestion class="text-2xl" /> What is Retro Ranker?
+                <PiQuestion class="text-2xl" /> {TranslationPipe(
+                  translations,
+                  "faq.whatIsRetroRanker",
+                )}
               </summary>
               <p class="pl-8">
-                Retro Ranker is a platform to{" "}
-                <a href="/compare">compare</a>, review, and discover{" "}
-                <a href="/devices">retro gaming handhelds</a>, helping you find
-                the perfect device for your needs.
+                {TranslationPipe(translations, "faq.whatIsRetroRankerAnswer")}
               </p>
             </details>
             <details class="faq-details">
@@ -171,7 +174,8 @@ export default function FAQ() {
               gap: "0.5rem",
             }}
           >
-            <PiInfo class="text-2xl" /> Devices & Catalog
+            <PiInfo class="text-2xl" />{" "}
+            {TranslationPipe(translations, "faq.devicesAndCatalog")}
           </h2>
           <div class="flex flex-col gap-4">
             <details class="faq-details">
@@ -235,7 +239,8 @@ export default function FAQ() {
               gap: "0.5rem",
             }}
           >
-            <PiChartLine class="text-2xl" /> Device Comparison
+            <PiChartLine class="text-2xl" />{" "}
+            {TranslationPipe(translations, "faq.deviceComparison")}
           </h2>
           <div class="flex flex-col gap-4">
             <details class="faq-details">

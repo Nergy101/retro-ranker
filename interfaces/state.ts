@@ -15,4 +15,6 @@ export interface CustomFreshState {
   user?: User | null;
   seo?: SeoData | null;
   data?: any | null;
+  language?: string;
+  translations?: Record<string, string>;
 }

@@ -9,6 +9,7 @@ import {
 } from "@preact-icons/pi";
 import { FreshContext, page } from "fresh";
 import { CustomFreshState } from "@interfaces/state.ts";
+import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 
 export const handler = {
   GET(ctx: FreshContext) {
@@ -22,7 +23,9 @@ export const handler = {
   },
 };
 
-export default function Contact() {
+export default function Contact(ctx: FreshContext) {
+  const translations = (ctx.state as CustomFreshState).translations ?? {};
+
   return (
     <div class="contact">
       <section
@@ -59,7 +62,9 @@ export default function Contact() {
               gap: "0.5em",
             }}
           >
-            <span style={{ color: "#F0F1F3" }}>Contact</span>{" "}
+            <span style={{ color: "#F0F1F3" }}>
+              {TranslationPipe(translations, "nav.contact")}
+            </span>{" "}
             <span style={{ color: "var(--pico-primary)", marginLeft: 8 }}>
               Retro Ranker
             </span>
@@ -74,8 +79,8 @@ export default function Contact() {
               opacity: 0.95,
             }}
           >
-            Have a question, want to contribute, or just want to say hi? <br />
-            We love hearing from fellow retro fans!
+            {TranslationPipe(translations, "contact.description")} <br />
+            {TranslationPipe(translations, "contact.subDescription")}
           </p>
         </div>
       </section>
@@ -97,7 +102,7 @@ export default function Contact() {
               alt="Coffee"
               style={{ width: 32, height: 48 }}
             />
-            Support Retro Ranker
+            {TranslationPipe(translations, "contact.supportRetroRanker")}
             <img
               src="/logos/retro-ranker/rr-logo.png"
               alt="Coffee"
@@ -105,8 +110,7 @@ export default function Contact() {
             />
           </h3>
           <p style={{ textAlign: "center" }}>
-            If you find Retro Ranker helpful and want to support its
-            development, you can buy me a coffee or contribute to the project.
+            {TranslationPipe(translations, "contact.supportDescription")}
           </p>
           <div class="small-card-grid">
             <a
@@ -116,7 +120,9 @@ export default function Contact() {
               style={{ textDecoration: "none", textAlign: "center" }}
             >
               <PiCoffee class="text-4xl" />
-              <span>Buy me a coffee</span>
+              <span>
+                {TranslationPipe(translations, "contact.buyMeACoffee")}
+              </span>
             </a>
             <a
               href="https://github.com/Nergy101/retro-ranker"
@@ -129,7 +135,9 @@ export default function Contact() {
               }}
             >
               <PiCode class="text-4xl" />
-              <span>GitHub Repository</span>
+              <span>
+                {TranslationPipe(translations, "contact.githubRepository")}
+              </span>
             </a>
           </div>
         </section>
@@ -150,7 +158,7 @@ export default function Contact() {
               alt="Star"
               style={{ width: 32, height: 32 }}
             />
-            My Other Projects
+            {TranslationPipe(translations, "contact.myOtherProjects")}
             <img
               src="/logos/nergy/nergy-n.png"
               alt="Heart"
@@ -190,7 +198,7 @@ export default function Contact() {
               gap: "0.5em",
             }}
           >
-            Connect With Me
+            {TranslationPipe(translations, "contact.connectWithMe")}
           </h3>
           <div class="small-card-grid">
             <a

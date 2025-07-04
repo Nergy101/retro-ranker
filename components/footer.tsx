@@ -6,8 +6,11 @@ import {
   PiShield,
 } from "@preact-icons/pi";
 import { VersionTag } from "./shared/version-tag.tsx";
+import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 
-export function Footer() {
+export function Footer(
+  { translations }: { translations: Record<string, string> },
+) {
   return (
     <footer
       style={{
@@ -26,13 +29,15 @@ export function Footer() {
               alignItems: "center",
             }}
           >
-            <span>Other</span>
+            <span>{TranslationPipe(translations, "footer.other")}</span>
             <ul class="footer-grid-item-list">
               <li style={{ listStyle: "none" }}>
                 <a href="/privacy">
                   <div style={{ display: "flex" }}>
                     <PiShield />
-                    <span>&nbsp;Privacy</span>
+                    <span>
+                      &nbsp;{TranslationPipe(translations, "footer.privacy")}
+                    </span>
                   </div>
                 </a>
               </li>
@@ -41,7 +46,9 @@ export function Footer() {
                 <a href="/terms">
                   <div style={{ display: "flex" }}>
                     <PiFileText />
-                    <span>&nbsp;ToS</span>
+                    <span>
+                      &nbsp;{TranslationPipe(translations, "footer.tos")}
+                    </span>
                   </div>
                 </a>
               </li>
@@ -56,7 +63,7 @@ export function Footer() {
               alignItems: "center",
             }}
           >
-            <span>Connect</span>
+            <span>{TranslationPipe(translations, "footer.connect")}</span>
             <ul class="footer-grid-item-list">
               <li style={{ listStyle: "none" }}>
                 <a
@@ -65,7 +72,9 @@ export function Footer() {
                 >
                   <div style={{ display: "flex" }}>
                     <PiChatText />
-                    <span>&nbsp;Bluesky</span>
+                    <span>
+                      &nbsp;{TranslationPipe(translations, "footer.bluesky")}
+                    </span>
                   </div>
                 </a>
               </li>
@@ -76,7 +85,9 @@ export function Footer() {
                 >
                   <div style={{ display: "flex" }}>
                     <PiGithubLogo />
-                    <span>&nbsp;GitHub</span>
+                    <span>
+                      &nbsp;{TranslationPipe(translations, "footer.github")}
+                    </span>
                   </div>
                 </a>
               </li>
@@ -91,13 +102,15 @@ export function Footer() {
               alignItems: "center",
             }}
           >
-            <span>More</span>
+            <span>{TranslationPipe(translations, "footer.more")}</span>
             <ul class="footer-grid-item-list">
               <li style={{ listStyle: "none" }}>
                 <a href="/about">
                   <div style={{ display: "flex" }}>
                     <PiInfo />
-                    <span>&nbsp;About</span>
+                    <span>
+                      &nbsp;{TranslationPipe(translations, "footer.about")}
+                    </span>
                   </div>
                 </a>
               </li>
@@ -105,7 +118,9 @@ export function Footer() {
                 <a href="/contact">
                   <div style={{ display: "flex" }}>
                     <PiChatText />
-                    <span>&nbsp;Contact</span>
+                    <span>
+                      &nbsp;{TranslationPipe(translations, "footer.contact")}
+                    </span>
                   </div>
                 </a>
               </li>
@@ -130,7 +145,7 @@ export function Footer() {
                 target="_blank"
               >
                 Retro Ranker
-              </a>. All rights reserved.
+              </a>. {TranslationPipe(translations, "footer.rights")}
             </small>
             <div
               style={{
@@ -140,7 +155,7 @@ export function Footer() {
               }}
             >
               <small>
-                Made with ❤️ by{" "}
+                {TranslationPipe(translations, "footer.madeWith")}{" "}
                 <span style={{ color: "var(--pico-primary)" }}>
                   <a href="https://portfolio.nergy.space" target="_blank">
                     Nergy101
