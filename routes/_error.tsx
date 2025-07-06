@@ -14,7 +14,17 @@ export const handler = {
 };
 
 export default function ErrorPage(props: PageProps, ctx: FreshContext) {
-  const translations = (ctx.state as CustomFreshState).translations ?? {};
+  const fallbackTranslations: Record<string, string> = {
+    "error.404.title": "Page Not Found",
+    "error.404.description": "The page you're looking for doesn't exist.",
+    "error.404.suggestion": "Go back home",
+    "error.general.title": "Error",
+    "error.general.description": "An error occurred. Please try again later.",
+    "error.general.suggestion": "Go back home",
+  };
+  const translations: Record<string, string> =
+    (ctx && ctx.state && (ctx.state as CustomFreshState).translations) ||
+    fallbackTranslations;
   const { error } = props;
 
   const renderNotFound = () => {

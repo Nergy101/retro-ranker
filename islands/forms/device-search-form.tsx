@@ -51,7 +51,7 @@ export function DeviceSearchForm(
   const getSearchPlaceholder = () => {
     const random = Math.random();
     const placeholders = [
-      TranslationPipe(translations, "search.placeholder.general"),
+      TranslationPipe(translations, "search.placeholder"),
       TranslationPipe(translations, "search.placeholder.anbernic"),
       TranslationPipe(translations, "search.placeholder.miyoo"),
       TranslationPipe(translations, "search.placeholder.pocket"),

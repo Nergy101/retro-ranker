@@ -130,6 +130,7 @@ export default function ReleaseTimeline(ctx: FreshContext) {
     userFavoritedMap: Record<string, boolean>;
   };
   const translations = (ctx.state as CustomFreshState).translations ?? {};
+  const language = (ctx.state as CustomFreshState).language ?? "en-US";
   const user = (ctx.state as CustomFreshState).user as User | null;
 
   return (
@@ -174,6 +175,8 @@ export default function ReleaseTimeline(ctx: FreshContext) {
         likesCountMap={likesCountMap}
         userLikedMap={userLikedMap}
         userFavoritedMap={userFavoritedMap}
+        translations={translations}
+        language={language}
       />
     </div>
   );

@@ -186,7 +186,7 @@ export function DesktopNav({
             </button>
           </li>
           <li class="nav-theme-item">
-            <LanguageSwitcher />
+            <LanguageSwitcher translations={translations} />
           </li>
           <li class="nav-theme-item">
             <ThemeSwitcher showNames={false} showTooltip={true} />

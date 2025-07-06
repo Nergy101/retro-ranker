@@ -165,7 +165,7 @@ export default function Home(
 
   return (
     <div class="home-page">
-      <Hero />
+      <Hero translations={translations} />
       <div
         style={{
           display: "flex",
@@ -245,7 +245,7 @@ export default function Home(
             <article class="home-section-content">
               <h2 class="home-section-title">
                 <PiRanking />{" "}
-                {TranslationPipe(translations, "home.bangForYourBuck")}
+                {TranslationPipe(translations, "home.bangForBuck")}
                 <div
                   style={{
                     display: "flex",
@@ -359,7 +359,7 @@ export default function Home(
                     {TranslationPipe(translations, "home.handheldDatabase")}
                   </h2>
                   <p style={{ textAlign: "center" }}>
-                    {TranslationPipe(translations, "home.poweredByCommunity")}
+                    {TranslationPipe(translations, "home.poweredBy")}
                   </p>
                 </hgroup>
 
@@ -373,7 +373,7 @@ export default function Home(
                   <strong style={{ color: "var(--pico-primary)" }}>
                     Retro Ranker {" "}
                   </strong>
-                  {TranslationPipe(translations, "home.description")}
+                  {TranslationPipe(translations, "home.retroRankerDesc")}
                 </p>
                 <div class="index-buttons">
                   <a

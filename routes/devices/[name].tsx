@@ -552,7 +552,7 @@ export default function DeviceDetail(ctx: FreshContext) {
               }}
             >
               <strong style={{ color: "var(--pico-primary)" }}>
-                User Reviews
+                {TranslationPipe(translations, "devices.reviews.title")}
               </strong>
               <span
                 style={{
@@ -561,8 +561,7 @@ export default function DeviceDetail(ctx: FreshContext) {
                   fontStyle: "italic",
                 }}
               >
-                Share your experience and help others decide if this device is
-                right for them.
+                {TranslationPipe(translations, "devices.reviews.description")}
               </span>
             </summary>
             <section>
@@ -590,16 +589,27 @@ export default function DeviceDetail(ctx: FreshContext) {
                         size={20}
                         style={{ color: "var(--pico-primary)" }}
                       />
-                      <strong>No reviews yet.</strong>
+                      <strong>
+                        {TranslationPipe(
+                          translations,
+                          "devices.reviews.noReviews",
+                        )}
+                      </strong>
                       <span style={{ marginLeft: "0.5em" }}>
-                        Be the first to add yours.
+                        {TranslationPipe(
+                          translations,
+                          "devices.reviews.beFirst",
+                        )}
                       </span>
                     </div>
                   )}
               </div>
               {user == null && (
                 <p style={{ textAlign: "center" }}>
-                  <a href="/auth/sign-in">Log in</a> to add yours.
+                  <a href="/auth/sign-in">
+                    {TranslationPipe(translations, "auth.logIn")}
+                  </a>{" "}
+                  {TranslationPipe(translations, "devices.reviews.logInToAdd")}
                 </p>
               )}
               {user && <AddDeviceReviewForm device={device} user={user} />}

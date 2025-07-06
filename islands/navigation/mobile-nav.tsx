@@ -190,7 +190,7 @@ export function MobileNav({
 
           <div class="mobile-nav-theme-switcher">
             <ThemeSwitcher showTooltip={false} showNames={false} />
-            <LanguageSwitcher />
+            <LanguageSwitcher translations={translations} />
           </div>
         </div>
         <div
