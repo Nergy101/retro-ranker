@@ -3,13 +3,15 @@ import { getBrandColors } from "@data/frontend/services/utils/color.utils.ts";
 import { Chart, ChartDataset, LegendItem } from "npm:chart.js";
 import { useCallback, useMemo, useState } from "preact/hooks";
 import { FreshChart } from "./fresh-chart.tsx";
+import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 
 interface LineChartProps {
   devices: Device[];
+  translations?: Record<string, string>;
 }
 
 export function DevicesPerReleaseYearLineChart(
-  { devices }: LineChartProps,
+  { devices, translations = {} }: LineChartProps,
 ) {
   // Compute the full range of years from the devices
   const fullYears = useMemo(() =>
@@ -109,7 +111,7 @@ export function DevicesPerReleaseYearLineChart(
 
     if (showTotalDevices) {
       data.push({
-        label: "Total devices released",
+        label: TranslationPipe(translations, "charts.totalDevicesReleased"),
         data: amountOfDevicesPerYear,
         borderColor: "#e48500",
         pointBackgroundColor: "#e48500",
@@ -214,8 +216,8 @@ export function DevicesPerReleaseYearLineChart(
 
   return (
     <div>
-      <h2>Devices released per year</h2>
-      <p>Keep in mind, the current year is not complete yet.</p>
+      <h2>{TranslationPipe(translations, "charts.devicesPerYear")}</h2>
+      <p>{TranslationPipe(translations, "charts.currentYearIncomplete")}</p>
       <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
         <div
           style={{
@@ -225,9 +227,11 @@ export function DevicesPerReleaseYearLineChart(
             flex: 1,
           }}
         >
-          <span>Min Year: {selectedMinYear}</span>
+          <span>
+            {TranslationPipe(translations, "charts.minYear")}: {selectedMinYear}
+          </span>
           <input
-            aria-label="Minimum year"
+            aria-label={TranslationPipe(translations, "charts.minYear")}
             type="range"
             min={initialMin}
             max={selectedMaxYear}
@@ -246,9 +250,11 @@ export function DevicesPerReleaseYearLineChart(
             flex: 1,
           }}
         >
-          <span>Max Year: {selectedMaxYear}</span>
+          <span>
+            {TranslationPipe(translations, "charts.maxYear")}: {selectedMaxYear}
+          </span>
           <input
-            aria-label="Maximum year"
+            aria-label={TranslationPipe(translations, "charts.maxYear")}
             type="range"
             min={selectedMinYear}
             max={initialMax}
@@ -270,7 +276,7 @@ export function DevicesPerReleaseYearLineChart(
                 (e.target as HTMLInputElement).checked,
               )}
           />
-          Show brands that produced &gt; 10 devices over selected years
+          {TranslationPipe(translations, "charts.showBrandsOver10")}
         </label>
         <label>
           <input
@@ -279,7 +285,7 @@ export function DevicesPerReleaseYearLineChart(
             onChange={(e) =>
               setShowTotalDevices((e.target as HTMLInputElement).checked)}
           />
-          Show total devices line
+          {TranslationPipe(translations, "charts.showTotalDevices")}
         </label>
       </div>
       <FreshChart

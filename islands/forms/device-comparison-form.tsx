@@ -3,15 +3,18 @@ import { useEffect, useRef, useState } from "preact/hooks";
 import { DeviceCardMedium } from "@components/cards/device-card-medium.tsx";
 import { Device } from "@data/frontend/contracts/device.model.ts";
 import { searchDevices } from "@data/frontend/services/utils/search.utils.ts";
+import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 
 export function DeviceComparisonForm({
   allDevices,
   devicesToCompare,
   similarDevices,
+  translations,
 }: {
   allDevices: Device[];
   devicesToCompare: Device[];
   similarDevices: Device[];
+  translations: Record<string, string>;
 }) {
   const originalDeviceA = devicesToCompare?.[0];
   const originalDeviceB = devicesToCompare?.[1];
@@ -150,7 +153,7 @@ export function DeviceComparisonForm({
       const sanitizedB = selectedDeviceB.name.sanitized;
       globalThis.location.href = `/compare?devices=${sanitizedA},${sanitizedB}`;
     } else {
-      alert("Select valid devices for comparison.");
+      alert(TranslationPipe(translations, "compare.selectValidDevices"));
     }
   };
 
@@ -193,14 +196,17 @@ export function DeviceComparisonForm({
                 gap: "0.5rem",
               }}
             >
-              Compare
+              {TranslationPipe(translations, "compare.compare")}
             </span>
             <input
               type="search"
               value={queryA}
               onInput={(e) => queryAChanged(e.currentTarget.value)}
-              placeholder="Start typing for suggestions..."
-              aria-label="Search devices"
+              placeholder={TranslationPipe(translations, "compare.startTyping")}
+              aria-label={TranslationPipe(
+                translations,
+                "compare.searchDevices",
+              )}
               {...(queryA === "" ? {} : {
                 ariaInvalid: deviceNameIsInvalid(queryA),
               })}
@@ -219,14 +225,17 @@ export function DeviceComparisonForm({
                 gap: "0.5rem",
               }}
             >
-              With
+              {TranslationPipe(translations, "compare.with")}
             </span>
             <input
               type="search"
               value={queryB}
               onInput={(e) => queryBChanged(e.currentTarget.value)}
-              placeholder="Start typing for suggestions..."
-              aria-label="Search devices"
+              placeholder={TranslationPipe(translations, "compare.startTyping")}
+              aria-label={TranslationPipe(
+                translations,
+                "compare.searchDevices",
+              )}
               {...(queryB === "" ? {} : {
                 ariaInvalid: deviceNameIsInvalid(queryB),
               })}
@@ -283,7 +292,10 @@ export function DeviceComparisonForm({
             <summary class="flex">
               <div style={{ display: "flex", alignItems: "center" }}>
                 <PiGitDiff />
-                &nbsp;Similar Devices to {originalDeviceA.name.raw}
+                &nbsp;{TranslationPipe(
+                  translations,
+                  "compare.similarDevicesTo",
+                )} {originalDeviceA.name.raw}
               </div>
             </summary>
             <div class="similar-devices-compare-grid">
@@ -312,7 +324,10 @@ export function DeviceComparisonForm({
             <summary class="flex">
               <div style={{ display: "flex", alignItems: "center" }}>
                 <PiGitDiff />
-                &nbsp;Similar Devices to {originalDeviceB?.name.raw}
+                &nbsp;{TranslationPipe(
+                  translations,
+                  "compare.similarDevicesTo",
+                )} {originalDeviceB?.name.raw}
               </div>
             </summary>
             <div class="similar-devices-compare-grid">

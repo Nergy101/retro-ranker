@@ -3,6 +3,7 @@ import { DeviceCardMedium } from "@components/cards/device-card-medium.tsx";
 import { Device } from "@data/frontend/contracts/device.model.ts";
 import { User } from "@data/frontend/contracts/user.contract.ts";
 import { getAllNavigationItems } from "@data/frontend/navigation-items.ts";
+import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 import { searchDevices } from "@data/frontend/services/utils/search.utils.ts";
 import {
   PiCalendar,
@@ -18,16 +19,19 @@ import {
   PiSignIn,
 } from "@preact-icons/pi";
 import { useEffect, useRef, useState } from "preact/hooks";
+import { LanguageSwitcher } from "./language-switcher.tsx";
 import { ThemeSwitcher } from "./theme-switcher.tsx";
 
 export function MobileNav({
   pathname,
   allDevices,
   user,
+  translations,
 }: {
   pathname: string;
   allDevices: Device[];
   user: User | null;
+  translations: Record<string, string>;
 }) {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -128,26 +132,27 @@ export function MobileNav({
   return (
     <div>
       <nav class="mobile-nav">
-        <div class="mobile-nav-header">
-          <a href="/" aria-label="Home">
+        {/* Row 1: Logo and Search */}
+        <div class="mobile-nav-row-1">
+          <a href="/" aria-label="Home" class="mobile-nav-logo">
             <img
               loading="lazy"
               src="/logos/retro-ranker/rr-logo.svg"
               alt="retro ranker logo"
               width="100"
               style={{
-                height: "3em",
-                width: "3em",
+                height: "2.5em",
+                width: "2.5em",
                 objectFit: "contain",
-                padding: "0.5rem 0",
+                padding: "0.25rem 0",
               }}
             />
           </a>
 
-          <div class="mobile-nav-search-item">
+          <div class="mobile-nav-search-container">
             <input
               type="search"
-              placeholder="Search"
+              placeholder="Search devices..."
               name="search"
               aria-label="Search"
               style={{ margin: 0 }}
@@ -165,10 +170,12 @@ export function MobileNav({
               onClick={handleSubmit}
             >
               <PiMagnifyingGlass />
-              <span style={{ marginLeft: "0.25rem" }}>Go</span>
             </button>
           </div>
+        </div>
 
+        {/* Row 2: Menu, Theme, and Language */}
+        <div class="mobile-nav-row-2">
           <button
             type="button"
             class="burger-menu"
@@ -180,12 +187,17 @@ export function MobileNav({
             aria-label="Toggle menu"
           >
             <PiListBold />
+            <span style={{ marginLeft: "0.5rem", fontSize: "0.9rem" }}>
+              Menu
+            </span>
           </button>
 
-          <div class="mobile-nav-theme-switcher">
+          <div class="mobile-nav-controls">
             <ThemeSwitcher showTooltip={false} showNames={false} />
+            <LanguageSwitcher translations={translations} />
           </div>
         </div>
+
         <div
           class="mobile-nav-content"
           style={{
@@ -209,7 +221,10 @@ export function MobileNav({
                     }}
                   >
                     {item.icon && getIcon(item.icon)}
-                    &nbsp;{item.label}
+                    &nbsp;{TranslationPipe(
+                      translations,
+                      item.i18nKey ?? item.label,
+                    )}
                   </span>
                 </a>
               </li>
@@ -239,7 +254,8 @@ export function MobileNav({
                 <li
                   class="nav-theme-item last"
                   style={{
-                    flexDirection: "row",
+                    display: "flex",
+                    justifyContent: "center",
                     width: "100%",
                   }}
                 >
@@ -249,8 +265,15 @@ export function MobileNav({
                       fontSize: "1.5rem",
                       display: "flex",
                       justifyContent: "center",
+                      alignItems: "center",
                       gap: "0.5rem",
-                      width: "50%",
+                      padding: "0.75rem 1.5rem",
+                      borderRadius: "0.5rem",
+                      border: "1px solid var(--pico-primary)",
+                      backgroundColor: "var(--pico-background-color)",
+                      color: "var(--pico-color)",
+                      textDecoration: "none",
+                      transition: "all 0.2s ease",
                     }}
                   >
                     <PiSignIn /> Log In

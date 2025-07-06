@@ -53,6 +53,7 @@ import {
   PiWrench,
   PiYarn,
 } from "@preact-icons/pi";
+import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 
 const iconComponents = [
   PiGameController,
@@ -115,7 +116,11 @@ const iconTooltips = new Map([
   [PiEggCrack, "Konami Code"],
 ]);
 
-export function Hero() {
+interface HeroProps {
+  translations: Record<string, string>;
+}
+
+export function Hero({ translations }: HeroProps) {
   const getRandomIcons = () => {
     const shuffled = iconComponents
       .slice()
@@ -155,7 +160,7 @@ export function Hero() {
             textShadow: "0 0 1rem #23272a",
           }}
         >
-          <span>Welcome to</span>
+          <span>{TranslationPipe(translations, "hero.welcomeTo")}</span>
           <br />
           <span
             style={{
@@ -178,16 +183,16 @@ export function Hero() {
             textShadow: "0 0 1rem #23272a",
           }}
         >
-          Join a vibrant community of retro gaming fans. Discover, rank, and
-          discuss <b>400+ handhelds</b> together. <br />{" "}
-          Your next favorite device is only a click away!
+          {TranslationPipe(translations, "hero.description")} <br />{" "}
+          {TranslationPipe(translations, "hero.subDescription")}
         </p>
         <a
           href="/auth/sign-in"
           class="hero-button"
           style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
         >
-          Join the {getRandomIcons()} Community
+          {TranslationPipe(translations, "hero.joinCommunity")}{" "}
+          {getRandomIcons()}
         </a>
       </section>
       <img

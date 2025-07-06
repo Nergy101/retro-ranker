@@ -12,19 +12,43 @@ import { CustomFreshState } from "@interfaces/state.ts";
 import { DeviceSearchForm } from "@islands/forms/device-search-form.tsx";
 import { LayoutSelector } from "@islands/forms/layout-selector.tsx";
 import { TagTypeahead } from "@islands/forms/tag-type-ahead.tsx";
+import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
+import { logJson } from "@data/tracing/tracer.ts";
 
 export const handler = {
   async GET(ctx: FreshContext) {
+    const startTime = performance.now();
+    const url = new URL(ctx.req.url);
+    const path = url.pathname;
+
+    logJson("info", "Devices Page Handler Started", {
+      path,
+      timestamp: new Date().toISOString(),
+      query: Object.fromEntries(url.searchParams),
+    });
+
     (ctx.state as CustomFreshState).seo = {
       title: "Retro Ranker - Device Catalog",
       description: "Browse our catalog of retro gaming handhelds with specs.",
       keywords:
         "retro gaming handhelds, emulation devices, retro console comparison, handheld gaming systems, retro gaming devices catalog, Anbernic devices, Miyoo handhelds, retro gaming specs, portable emulation systems",
     };
+
+    const deviceServiceStart = performance.now();
     const deviceService = await DeviceService.getInstance();
+    const deviceServiceEnd = performance.now();
+
+    logJson("info", "DeviceService Instance Created", {
+      path,
+      deviceServiceTime: `${
+        (deviceServiceEnd - deviceServiceStart).toFixed(2)
+      }ms`,
+    });
+
     const searchParams = new URLSearchParams(ctx.url.search);
 
     // Tag selection logic (Advanced Tag Search)
+    const tagsStart = performance.now();
     const tagsParam = searchParams.get("tags");
     const parsedTags = tagsParam ? tagsParam.split(",") : [];
     const allTags = await deviceService.getAllTags();
@@ -33,9 +57,18 @@ export const handler = {
         allTags.find((t) => t.slug.toLowerCase() === slug.toLowerCase()) ?? null
       )
       .filter((tag) => tag !== null) as TagModel[];
+    const tagsEnd = performance.now();
+
+    logJson("info", "Tags Processing Completed", {
+      path,
+      tagsTime: `${(tagsEnd - tagsStart).toFixed(2)}ms`,
+      selectedTagsCount: selectedTags.length,
+      parsedTagsCount: parsedTags.length,
+    });
 
     const searchQuery = searchParams.get("search") || "";
-    const searchCategory = searchParams.get("category") || "all";
+    const searchCategory =
+      searchParams.get("category") as "all" | "low" | "mid" | "high" || "all";
     const sortBy = searchParams.get("sort") as
       | "new-arrivals"
       | "high-low-price"
@@ -43,7 +76,9 @@ export const handler = {
       | "alphabetical"
       | "reverse-alphabetical"
       | "highly-ranked";
-    const filter = searchParams.get("filter") || "all";
+    const filter =
+      searchParams.get("filter") as "all" | "upcoming" | "personal-picks" ||
+      "all";
 
     // Layout and pagination
     const urlLayout = searchParams.get("layout") as string;
@@ -73,28 +108,50 @@ export const handler = {
     };
 
     // Devices filtered by selected tags
-    const allDevicesWithTags = await deviceService.getDevicesWithTags(
+    const devicesWithTagsStart = performance.now();
+    const searchResult = await deviceService.searchDevices(
+      searchQuery,
+      searchCategory,
+      sortBy,
+      filter,
       selectedTags.filter((tag) => tag !== null) as TagModel[],
+      pageNumber,
+      getMaxPageSize(),
+    );
+    const devicesWithTagsEnd = performance.now();
+
+    logJson("info", "Devices with Tags Retrieved", {
+      path,
+      devicesWithTagsTime: `${
+        (devicesWithTagsEnd - devicesWithTagsStart).toFixed(2)
+      }ms`,
+      totalDevices: searchResult.totalAmountOfResults,
+      pageResults: searchResult.page.length,
+      selectedTagsCount: selectedTags.length,
       searchQuery,
       sortBy,
-    );
+    });
 
-    const totalAmountOfResults = allDevicesWithTags.length;
-    const startIdx = (pageNumber - 1) * getMaxPageSize();
-    const endIdx = startIdx + getMaxPageSize();
-
-    const pageResults = allDevicesWithTags.slice(startIdx, endIdx);
-
-    const hasResults = pageResults.length > 0;
+    const totalAmountOfResults = searchResult.totalAmountOfResults;
+    const pageResults = searchResult.page;
 
     // Likes and favorites data
     const deviceIds = pageResults.map((d) => d.id);
+    const pbStart = performance.now();
     const pb = await createSuperUserPocketBaseService(
       Deno.env.get("POCKETBASE_SUPERUSER_EMAIL")!,
       Deno.env.get("POCKETBASE_SUPERUSER_PASSWORD")!,
       Deno.env.get("POCKETBASE_URL")!,
     );
+    const pbEnd = performance.now();
 
+    logJson("info", "PocketBase SuperUser Service Created", {
+      path,
+      pocketbaseTime: `${(pbEnd - pbStart).toFixed(2)}ms`,
+      deviceIdsCount: deviceIds.length,
+    });
+
+    const likesStart = performance.now();
     const likesFilter = deviceIds.map((id) => `device="${id}"`).join(" || ");
     const likeRecords = deviceIds.length > 0
       ? await pb.getAll("device_likes", {
@@ -103,6 +160,14 @@ export const handler = {
         sort: "",
       })
       : [];
+    const likesEnd = performance.now();
+
+    logJson("info", "Device Likes Retrieved", {
+      path,
+      likesTime: `${(likesEnd - likesStart).toFixed(2)}ms`,
+      likeRecordsCount: likeRecords.length,
+      likesFilter,
+    });
 
     const likesCountMap: Record<string, number> = {};
     const userLikedMap: Record<string, boolean> = {};
@@ -114,6 +179,7 @@ export const handler = {
       }
     }
 
+    const favoritesStart = performance.now();
     const favoritesFilter = currentUser
       ? `user="${currentUser.id}" && (` +
         deviceIds.map((id) => `device="${id}"`).join(" || ") +
@@ -126,47 +192,74 @@ export const handler = {
         sort: "",
       })
       : [];
+    const favoritesEnd = performance.now();
+
+    logJson("info", "Device Favorites Retrieved", {
+      path,
+      favoritesTime: `${(favoritesEnd - favoritesStart).toFixed(2)}ms`,
+      favoriteRecordsCount: favoriteRecords.length,
+      hasCurrentUser: !!currentUser,
+      favoritesFilter: favoritesFilter || "none",
+    });
+
     const userFavoritedMap: Record<string, boolean> = {};
     for (const r of favoriteRecords) {
       userFavoritedMap[r.device] = true;
     }
 
-    // For TagTypeahead
-    const getAvailableTags = async () => {
-      const allTags = await deviceService.getAllTags();
-      const selectedTagSlugs = selectedTags.map((tag) => tag.slug);
+    // For TagTypeahead - show all tags except selected ones
+    const availableTagsStart = performance.now();
+    const allAvailableTags = allTags.filter((tag) =>
+      !selectedTags.some((selectedTag) => selectedTag.slug === tag.slug)
+    );
+    const availableTagsEnd = performance.now();
 
-      // Get all unique tags from the currently filtered devices
-      const availableTagSlugs = new Set(
-        allDevicesWithTags.flatMap((device) =>
-          device.tags.map((tag) => tag.slug)
-        ),
-      );
+    logJson("info", "Available Tags Processed", {
+      path,
+      availableTagsTime: `${
+        (availableTagsEnd - availableTagsStart).toFixed(2)
+      }ms`,
+      availableTagsCount: allAvailableTags.length,
+    });
 
-      const availableTags = allTags.filter((tag) => {
-        // Exclude already selected tags
-        if (selectedTagSlugs.includes(tag.slug)) {
-          return false;
-        }
-        // Only include tags that exist on the currently filtered devices
-        return availableTagSlugs.has(tag.slug);
-      });
-
-      return availableTags;
-    };
-
-    const allAvailableTags = await getAvailableTags();
+    const totalEnd = performance.now();
+    logJson("info", "Devices Page Handler Completed", {
+      path,
+      totalHandlerTime: `${(totalEnd - startTime).toFixed(2)}ms`,
+      breakdown: {
+        deviceService: `${
+          (deviceServiceEnd - deviceServiceStart).toFixed(2)
+        }ms`,
+        tags: `${(tagsEnd - tagsStart).toFixed(2)}ms`,
+        devicesWithTags: `${
+          (devicesWithTagsEnd - devicesWithTagsStart).toFixed(2)
+        }ms`,
+        pocketbase: `${(pbEnd - pbStart).toFixed(2)}ms`,
+        likes: `${(likesEnd - likesStart).toFixed(2)}ms`,
+        favorites: `${(favoritesEnd - favoritesStart).toFixed(2)}ms`,
+        availableTags: `${
+          (availableTagsEnd - availableTagsStart).toFixed(2)
+        }ms`,
+      },
+      results: {
+        totalDevices: searchResult.totalAmountOfResults,
+        pageResults: searchResult.page.length,
+        hasResults: searchResult.page.length > 0,
+        selectedTagsCount: selectedTags.length,
+        availableTagsCount: allAvailableTags.length,
+      },
+    });
 
     (ctx.state as CustomFreshState).data = {
       allAvailableTags,
       selectedTags,
-      devicesWithSelectedTags: allDevicesWithTags,
+      devicesWithSelectedTags: pageResults,
       pageResults,
       totalAmountOfResults,
       pageNumber,
       pageSize: getMaxPageSize(),
       activeLayout,
-      hasResults,
+      hasResults: searchResult.page.length > 0,
       user: (ctx.state as CustomFreshState).user,
       likesCountMap,
       userLikedMap,
@@ -184,6 +277,17 @@ export const handler = {
 
 export default function CatalogPage(ctx: FreshContext) {
   const data = (ctx.state as CustomFreshState).data;
+  const translations = (ctx.state as CustomFreshState).translations ?? {};
+
+  // Debug logging for translations
+  logJson("info", "CatalogPage - Translations Debug", {
+    hasTranslations: !!translations,
+    translationKeys: Object.keys(translations).length,
+    sampleKeys: Object.keys(translations).slice(0, 5),
+    hasCatalogTitle: !!translations["devices.catalog.title"],
+    catalogTitle: translations["devices.catalog.title"],
+  });
+
   const allAvailableTags = data.allAvailableTags;
   const selectedTags = data.selectedTags as TagModel[];
   const pageResults = data.pageResults as Device[];
@@ -234,9 +338,9 @@ export default function CatalogPage(ctx: FreshContext) {
       }
       <header style={{ textAlign: "center", marginBottom: "1.5rem" }}>
         <hgroup>
-          <h1>Device Catalog</h1>
+          <h1>{TranslationPipe(translations, "devices.catalog.title")}</h1>
           <p>
-            Filter by tags to find devices. Combine tags for advanced filtering.
+            {TranslationPipe(translations, "devices.catalog.description")}
           </p>
         </hgroup>
       </header>
@@ -255,6 +359,7 @@ export default function CatalogPage(ctx: FreshContext) {
               allTags={allAvailableTags}
               initialSelectedTags={selectedTags}
               baseUrl={url.origin}
+              translations={translations}
             />
           </div>
         </aside>
@@ -278,6 +383,7 @@ export default function CatalogPage(ctx: FreshContext) {
                 initialSort={sortBy}
                 initialFilter={filter}
                 initialTags={selectedTags}
+                translations={translations}
               />
             </div>
           </div>
@@ -303,7 +409,7 @@ export default function CatalogPage(ctx: FreshContext) {
                   marginTop: "1rem",
                 }}
               >
-                <p>No results found for your selected tags.</p>
+                <p>{TranslationPipe(translations, "devices.noResults")}</p>
               </div>
             )
             : (

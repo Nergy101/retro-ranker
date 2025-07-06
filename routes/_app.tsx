@@ -28,10 +28,13 @@ export default function AppWrapper(
   const params = ctx.params as any;
   const allDevices = params.allDevices as Device[];
   const user = (ctx.state as CustomFreshState).user as User | null;
+  const language = (ctx.state as CustomFreshState).language ?? "en-US";
+  const translations = (ctx.state as CustomFreshState).translations ?? {};
+
   const url = new URL(ctx.req.url);
 
   const page = (
-    <html class="transition-colors" lang="en">
+    <html class="transition-colors" lang={language}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -84,34 +87,21 @@ export default function AppWrapper(
           href="/favicon-16x16.png"
         />
         <link rel="stylesheet" href="/pico.pumpkin.min.css" />
-        <script
-          defer
-          // deno-lint-ignore react-no-danger
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                const savedTheme = localStorage.getItem('theme');
-                if (savedTheme) {
-                  document.documentElement.setAttribute('data-theme', savedTheme);
-                } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                  document.documentElement.setAttribute('data-theme', 'dark');
-                }
-              })();
-            `,
-          }}
-        />
+        <script defer src="/scripts/theme-sync.js" />
+        <script defer src="/scripts/lang-sync.js" />
       </head>
       <body>
         <TopNavbar
           pathname={url.pathname}
           allDevices={allDevices}
           user={user}
+          translations={translations}
         />
         <main class="main-content">
           {/* @ts-ignore */}
           <ctx.Component />
         </main>
-        <Footer />
+        <Footer translations={translations} />
       </body>
     </html>
   );

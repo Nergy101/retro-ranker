@@ -1,14 +1,16 @@
+import { VersionTag } from "@components/shared/version-tag.tsx";
+import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
+import { CustomFreshState } from "@interfaces/state.ts";
 import {
   PiCookie,
   PiDatabase,
+  PiLink,
   PiListChecks,
   PiQuestion,
   PiStack,
   PiUsers,
 } from "@preact-icons/pi";
 import { FreshContext } from "fresh";
-import { CustomFreshState } from "@interfaces/state.ts";
-import { VersionTag } from "@components/shared/version-tag.tsx";
 
 export const handler = {
   GET(ctx: FreshContext) {
@@ -19,11 +21,13 @@ export const handler = {
       keywords:
         "retro gaming database, handheld comparison, retro gaming community, emulation device reviews, retro gaming resources",
     };
-    return page();
+    return page(ctx);
   },
 };
 
-export default function page() {
+export default function page(ctx: FreshContext) {
+  const translations = (ctx.state as CustomFreshState).translations ?? {};
+
   return (
     <div class="about">
       {/* Hero Section */}
@@ -94,7 +98,7 @@ export default function page() {
                 color: "#F0F1F3",
               }}
             >
-              About
+              {TranslationPipe(translations, "nav.about")}
             </span>{" "}
             <span style={{ color: "var(--pico-primary)", marginLeft: 8 }}>
               Retro Ranker
@@ -109,8 +113,7 @@ export default function page() {
               opacity: 0.95,
             }}
           >
-            Learn about our mission, our partnership with the Retro Handhelds
-            community, and what makes this project special.
+            {TranslationPipe(translations, "about.description")}
           </p>
         </div>
       </section>
@@ -121,15 +124,11 @@ export default function page() {
           <summary class="flex items-center gap-2">
             <div style={{ display: "flex", alignItems: "center" }}>
               <PiQuestion class="text-3xl" />
-              &nbsp;What is Retro Ranker?
+              &nbsp;{TranslationPipe(translations, "about.whatIsRetroRanker")}
             </div>
           </summary>
           <p>
-            Retro Ranker is a comprehensive database and comparison platform
-            dedicated to retro handheld gaming devices. Our mission is to help
-            enthusiasts rank, discover and compare various retro gaming
-            handhelds, making it easier to find the perfect device for your
-            gaming needs.
+            {TranslationPipe(translations, "about.whatIsRetroRankerAnswer")}
           </p>
         </details>
 
@@ -137,7 +136,7 @@ export default function page() {
           <summary class="flex items-center gap-2">
             <div style={{ display: "flex", alignItems: "center" }}>
               <PiStack class="text-3xl" />
-              &nbsp;Tech Stack
+              &nbsp;{TranslationPipe(translations, "about.techStack")}
             </div>
           </summary>
           <ul class="flex flex-col gap-4 p-4">
@@ -150,9 +149,7 @@ export default function page() {
                 height="32"
               />
               <span>
-                &nbsp;<b>Deno</b> - A secure runtime for <b>JavaScript</b> and
-                {" "}
-                <b>TypeScript</b>
+                &nbsp;{TranslationPipe(translations, "about.techStack.deno")}
               </span>
             </li>
             <li class="flex items-center gap-4">
@@ -164,7 +161,7 @@ export default function page() {
                 height="32"
               />
               <span>
-                &nbsp;<b>Fresh</b> - The next-gen <b>web framework</b>
+                &nbsp;{TranslationPipe(translations, "about.techStack.fresh")}
               </span>
             </li>
 
@@ -177,8 +174,10 @@ export default function page() {
                 height="32"
               />
               <span>
-                &nbsp;<b>PocketBase</b> - A <b>lightweight</b>, open-source{" "}
-                <b>database</b>
+                &nbsp;{TranslationPipe(
+                  translations,
+                  "about.techStack.pocketbase",
+                )}
               </span>
             </li>
             <li class="flex items-center gap-4">
@@ -190,8 +189,7 @@ export default function page() {
                 height="32"
               />
               <span>
-                &nbsp;<b>PicoCSS</b> - <b>Minimal CSS Framework</b>{" "}
-                for semantic HTML
+                &nbsp;{TranslationPipe(translations, "about.techStack.picocss")}
               </span>
             </li>
             <li class="flex items-center gap-4">
@@ -203,8 +201,7 @@ export default function page() {
                 height="32"
               />
               <span>
-                &nbsp;<b>Chart.js</b> - JavaScript library for building{" "}
-                <b>charts</b>
+                &nbsp;{TranslationPipe(translations, "about.techStack.chartjs")}
               </span>
             </li>
             <li class="flex items-center gap-4">
@@ -216,7 +213,7 @@ export default function page() {
                 height="32"
               />
               <span>
-                &nbsp;<b>Docker</b> - Containerization for <b>deployment</b>
+                &nbsp;{TranslationPipe(translations, "about.techStack.docker")}
               </span>
             </li>
             <li class="flex items-center gap-4">
@@ -228,7 +225,7 @@ export default function page() {
                 height="32"
               />
               <span>
-                &nbsp;<b>Hetzner</b> - <b>Cloud</b> hosting
+                &nbsp;{TranslationPipe(translations, "about.techStack.hetzner")}
               </span>
             </li>
           </ul>
@@ -238,99 +235,87 @@ export default function page() {
           <summary class="flex items-center gap-2">
             <div style={{ display: "flex", alignItems: "center" }}>
               <PiListChecks class="text-3xl" />
-              &nbsp;Features
+              &nbsp;{TranslationPipe(translations, "about.features")}
             </div>
           </summary>
           <ul>
             <li>
-              <b>400+</b> retro handhelds to search through
+              {TranslationPipe(translations, "about.features.devices")}
             </li>
             <li>
-              Save your <b>favorite devices</b> and <b>manage collections</b>
+              {TranslationPipe(translations, "about.features.favorites")}
             </li>
             <li>
-              Leave <b>comments, reviews and ratings</b> for devices
+              {TranslationPipe(translations, "about.features.reviews")}
             </li>
             <li>
-              <b>Detailed technical specifications</b> for each device
+              {TranslationPipe(translations, "about.features.specs")}
             </li>
             <li>
-              <b>Performance ratings</b> for different emulation capabilities
+              {TranslationPipe(translations, "about.features.performance")}
             </li>
             <li>
-              Side-by-side <b>device comparisons</b>
+              {TranslationPipe(translations, "about.features.comparisons")}
             </li>
             <li>
-              <b>Charts and graphs</b>{" "}
-              to visualize device performance and specifications
+              {TranslationPipe(translations, "about.features.charts")}
             </li>
           </ul>
         </details>
 
         <details>
-          <summary class="flex items-center gap-2">
+          <summary class="flex items-center gap-4">
             <div style={{ display: "flex", alignItems: "center" }}>
               <PiQuestion class="text-3xl" />
-              &nbsp;Community websites made by others
+              &nbsp;{TranslationPipe(translations, "about.communityWebsites")}
             </div>
           </summary>
           <ul>
-            <li>
-              I'm a big fan of <em>Jipsony's</em> website{" "}
+            <li class="flex items-center gap-2">
+              {TranslationPipe(
+                translations,
+                "about.communityWebsites.retroCatalog",
+              )}
               <a
-                href="https://retrocatalog.com/"
+                href="https://retrocatalog.com"
                 target="_blank"
-                class="text-primary"
+                data-tooltip="Retro Catalog"
+                data-placement="right"
               >
-                Retro Catalog
-              </a>. <br /> The original inspiration for this website.
+                <PiLink class="text-3xl" />
+              </a>
             </li>
-            <li>
-              Looking for accurate size comparisons?<br />
+            <li class="flex items-center gap-2">
+              {TranslationPipe(
+                translations,
+                "about.communityWebsites.retroSizer",
+              )}
               <a
-                href="https://retrosizer.com/"
+                href="https://retrosizer.com"
                 target="_blank"
-                class="text-primary"
+                data-tooltip="Retro Sizer"
+                data-placement="right"
               >
-                RetroSizer
-              </a>{" "}
-              by <em>beetlefeet/jackcasey</em> should help you out.
+                <PiLink class="text-3xl" />
+              </a>
             </li>
           </ul>
         </details>
 
         <details>
-          <summary class="flex items-center gap-2">
+          <summary class="flex items-center gap-4">
             <div style={{ display: "flex", alignItems: "center" }}>
               <PiDatabase class="text-3xl" />
-              &nbsp;Where does the data come from?
+              &nbsp;{TranslationPipe(translations, "about.dataSource")}
             </div>
           </summary>
           <p>
-            Retro Ranker's database is powered by the incredible work of the
-            {" "}
-            <a
-              href="https://retro-handhelds.com"
-              target="_blank"
-              class="text-primary"
-            >
-              Retro Handhelds
-            </a>{" "}
-            community.
+            {TranslationPipe(translations, "about.dataSource.description")}
             <br />
             <br />
-            We particularly draw from their comprehensive{" "}
-            <a
-              href="https://docs.google.com/spreadsheets/d/1irg60f9qsZOkhp0cwOU7Cy4rJQeyusEUzTNQzhoTYTU/"
-              target="_blank"
-            >
-              Handhelds Overview
-            </a>
-            , which serves as the foundation for our device specifications and
-            performance ratings.
+            {TranslationPipe(translations, "about.dataSource.spreadsheet")}
             <br />
-            By using this data, we ensure our data remains accurate and
-            up-to-date with the latest developments in the retro handheld scene.
+            {TranslationPipe(translations, "about.dataSource.accuracy")}
           </p>
           <section>
             <VersionTag />
@@ -338,43 +323,38 @@ export default function page() {
         </details>
 
         <details>
-          <summary class="flex items-center gap-2">
+          <summary class="flex items-center gap-4">
             <div style={{ display: "flex", alignItems: "center" }}>
               <PiUsers class="text-3xl" />
-              &nbsp;Community Contribution
+              &nbsp;{TranslationPipe(
+                translations,
+                "about.communityContribution",
+              )}
             </div>
           </summary>
           <p>
-            We encourage you to join the Retro Handhelds community to contribute
-            to this growing knowledge base. Their collective expertise and
-            hands-on experience with these devices help maintain the accuracy
-            and reliability of our information.
+            {TranslationPipe(
+              translations,
+              "about.communityContribution.description",
+            )}
             <br />
             <br />
-            Visit their{" "}
-            <a href="https://discord.gg/retrohandhelds" class="text-primary">
-              Discord
-            </a>{" "}
-            to connect with fellow enthusiasts and share your experiences.
+            {TranslationPipe(
+              translations,
+              "about.communityContribution.discord",
+            )}
           </p>
         </details>
 
         <details>
-          <summary class="flex items-center gap-2">
+          <summary class="flex items-center gap-4">
             <div style={{ display: "flex", alignItems: "center" }}>
               <PiCookie class="text-3xl" />
-              &nbsp;Cookies
+              &nbsp;{TranslationPipe(translations, "about.cookies")}
             </div>
           </summary>
           <p>
-            Retro Ranker uses{" "}
-            <a href="https://umami.is" target="_blank">
-              Umami
-            </a>
-            , a privacy-focused analytics tool, to track usage.{" "}
-            <br />It's open source and self-hosted, all data collection is
-            anonymous and GDPR compliant. Hence why we don't need a cookie
-            banner!
+            {TranslationPipe(translations, "about.cookies.description")}
           </p>
         </details>
       </div>

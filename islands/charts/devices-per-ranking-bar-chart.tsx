@@ -1,11 +1,15 @@
 import { Device } from "@data/frontend/contracts/device.model.ts";
 import { FreshChart } from "./fresh-chart.tsx";
+import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 
 interface BarChartProps {
   devices: Device[];
+  translations?: Record<string, string>;
 }
 
-export function DevicesPerRatingBarChart({ devices }: BarChartProps) {
+export function DevicesPerRatingBarChart(
+  { devices, translations = {} }: BarChartProps,
+) {
   const possibleColors = [
     ["#FF5733", "#FF573350"], // vivid red-orange
     ["#33FF57", "#33FF5750"], // bright lime green
@@ -77,7 +81,13 @@ export function DevicesPerRatingBarChart({ devices }: BarChartProps) {
   };
 
   const getBarChartLabels = () => {
-    return Array.from({ length: 10 }, (_, i) => `Rating: ${i} - ${i + 1}`);
+    return Array.from(
+      { length: 10 },
+      (_, i) =>
+        `${TranslationPipe(translations, "charts.basedOnRanking")}: ${i} - ${
+          i + 1
+        }`,
+    );
   };
 
   const barChartData = getBarChartData();
@@ -91,12 +101,10 @@ export function DevicesPerRatingBarChart({ devices }: BarChartProps) {
 
   return (
     <div>
-      <h2>Devices per ranking</h2>
-      <p>Based on the total ranking of the device: 0-10</p>
+      <h2>{TranslationPipe(translations, "charts.devicesPerRanking")}</h2>
+      <p>{TranslationPipe(translations, "charts.basedOnRanking")}</p>
       <p>
-        The ranking mostly shows the emulation performance of the device,
-        <br />
-        with some other factors mixed in.
+        {TranslationPipe(translations, "charts.rankingExplanation")}
       </p>
       <FreshChart
         type="bar"
@@ -110,7 +118,12 @@ export function DevicesPerRatingBarChart({ devices }: BarChartProps) {
               intersect: true,
               callbacks: {
                 label: (context) => {
-                  return `${context.dataset.label}: ${context.raw} devices`;
+                  return `${context.dataset.label}: ${context.raw} ${
+                    TranslationPipe(
+                      translations,
+                      "charts.devicesPerRankingTooltip",
+                    )
+                  }`;
                 },
               },
             },

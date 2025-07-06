@@ -1,5 +1,6 @@
 import { FreshContext, page } from "fresh";
 import { CustomFreshState } from "@interfaces/state.ts";
+import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 
 export const handler = {
   GET(ctx: FreshContext) {
@@ -14,18 +15,22 @@ export const handler = {
   },
 };
 
-export default function Privacy() {
+export default function Privacy(ctx: FreshContext) {
+  const translations = (ctx.state as CustomFreshState).translations ?? {};
+
   return (
     <div class="p-4 mx-auto max-w-screen-md">
-      <h1 class="text-4xl font-bold mb-6">Privacy Policy</h1>
+      <h1 class="text-4xl font-bold mb-6">
+        {TranslationPipe(translations, "privacy.title")}
+      </h1>
 
       <div>
         <section>
-          <h2 class="text-2xl font-semibold mb-3">Introduction</h2>
+          <h2 class="text-2xl font-semibold mb-3">
+            {TranslationPipe(translations, "privacy.introduction")}
+          </h2>
           <p class="mb-4">
-            At Retro Ranker, we take your privacy seriously. This Privacy Policy
-            explains how we collect, use, and protect your personal information
-            when you use our website.
+            {TranslationPipe(translations, "privacy.introText")}
           </p>
         </section>
 

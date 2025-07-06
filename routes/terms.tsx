@@ -1,5 +1,6 @@
 import { FreshContext, page, PageProps } from "fresh";
 import { CustomFreshState } from "@interfaces/state.ts";
+import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 
 export const handler = {
   async GET(ctx: FreshContext) {
@@ -15,18 +16,22 @@ export const handler = {
   },
 };
 
-export default function Terms({ url: _url }: PageProps) {
+export default function Terms({ url: _url }: PageProps, ctx: FreshContext) {
+  const translations = (ctx.state as CustomFreshState).translations ?? {};
+
   return (
     <div class="p-4 mx-auto max-w-screen-md">
-      <h1 class="text-4xl font-bold mb-6">Terms of Service</h1>
+      <h1 class="text-4xl font-bold mb-6">
+        {TranslationPipe(translations, "terms.title")}
+      </h1>
 
       <div>
         <section>
-          <h2 class="text-2xl font-semibold mb-3">1. Acceptance of Terms</h2>
+          <h2 class="text-2xl font-semibold mb-3">
+            {TranslationPipe(translations, "terms.acceptance.title")}
+          </h2>
           <p class="mb-4">
-            By accessing and using Retro Ranker, you accept and agree to be
-            bound by the terms and provisions of this agreement. If you do not
-            agree to these terms, please do not use our service.
+            {TranslationPipe(translations, "terms.acceptance.content")}
           </p>
         </section>
 

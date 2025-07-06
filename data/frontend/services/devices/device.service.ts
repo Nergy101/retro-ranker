@@ -38,6 +38,7 @@ import { Cooling } from "../../models/cooling.model.ts";
 import { SystemRating } from "../../models/system-rating.model.ts";
 import { TagModel } from "../../models/tag.model.ts";
 import { RatingsService } from "./ratings.service.ts";
+import { logJson } from "../../../tracing/tracer.ts";
 
 export class DeviceService {
   private pocketBaseService: PocketBaseService;
@@ -51,47 +52,105 @@ export class DeviceService {
   }
 
   public static async getInstance(): Promise<DeviceService> {
+    const startTime = performance.now();
     if (!DeviceService.instance) {
       console.info("Creating new DeviceService instance");
 
+      const pbServiceStart = performance.now();
       const pbService = await createSuperUserPocketBaseService(
         Deno.env.get("POCKETBASE_SUPERUSER_EMAIL")!,
         Deno.env.get("POCKETBASE_SUPERUSER_PASSWORD")!,
         Deno.env.get("POCKETBASE_URL")!,
       );
+      const pbServiceEnd = performance.now();
 
       DeviceService.instance = new DeviceService(pbService);
+
+      logJson("info", "DeviceService Instance Created", {
+        pbServiceTime: `${(pbServiceEnd - pbServiceStart).toFixed(2)}ms`,
+        totalTime: `${(performance.now() - startTime).toFixed(2)}ms`,
+      });
+    } else {
+      logJson("info", "DeviceService Instance Retrieved from Cache", {
+        totalTime: `${(performance.now() - startTime).toFixed(2)}ms`,
+      });
     }
     return DeviceService.instance;
   }
 
   public async getAllDevices(forceRefresh = false): Promise<Device[]> {
+    const startTime = performance.now();
     const now = Date.now();
     if (
       !forceRefresh && this.devicesCache &&
       now - this.devicesCache.timestamp < this.cacheDurationMs
     ) {
+      logJson("info", "getAllDevices - Cache Hit", {
+        cacheAge: `${(now - this.devicesCache.timestamp).toFixed(2)}ms`,
+        totalTime: `${(performance.now() - startTime).toFixed(2)}ms`,
+        deviceCount: this.devicesCache.data.length,
+      });
       return this.devicesCache.data;
     }
 
+    logJson("info", "getAllDevices - Cache Miss, Fetching from DB", {
+      forceRefresh,
+      cacheAge: this.devicesCache
+        ? `${(now - this.devicesCache.timestamp).toFixed(2)}ms`
+        : "no cache",
+    });
+
+    const dbStart = performance.now();
     const data = (await this.pocketBaseService.getAll("devices")).map((
       device,
     ) => device.deviceData);
+    const dbEnd = performance.now();
+
     this.devicesCache = { data, timestamp: now };
+
+    logJson("info", "getAllDevices - Database Fetch Completed", {
+      dbTime: `${(dbEnd - dbStart).toFixed(2)}ms`,
+      totalTime: `${(performance.now() - startTime).toFixed(2)}ms`,
+      deviceCount: data.length,
+    });
+
     return data;
   }
 
   public async getAllTags(forceRefresh = false): Promise<TagModel[]> {
+    const startTime = performance.now();
     const now = Date.now();
     if (
       !forceRefresh && this.tagsCache &&
       now - this.tagsCache.timestamp < this.cacheDurationMs
     ) {
+      logJson("info", "getAllTags - Cache Hit", {
+        cacheAge: `${(now - this.tagsCache.timestamp).toFixed(2)}ms`,
+        totalTime: `${(performance.now() - startTime).toFixed(2)}ms`,
+        tagCount: this.tagsCache.data.length,
+      });
       return this.tagsCache.data;
     }
 
+    logJson("info", "getAllTags - Cache Miss, Fetching from DB", {
+      forceRefresh,
+      cacheAge: this.tagsCache
+        ? `${(now - this.tagsCache.timestamp).toFixed(2)}ms`
+        : "no cache",
+    });
+
+    const dbStart = performance.now();
     const data = await this.pocketBaseService.getAll("tags");
+    const dbEnd = performance.now();
+
     this.tagsCache = { data, timestamp: now };
+
+    logJson("info", "getAllTags - Database Fetch Completed", {
+      dbTime: `${(dbEnd - dbStart).toFixed(2)}ms`,
+      totalTime: `${(performance.now() - startTime).toFixed(2)}ms`,
+      tagCount: data.length,
+    });
+
     return data;
   }
 
@@ -432,67 +491,6 @@ export class DeviceService {
     }
 
     return url;
-  }
-
-  public async getDevicesWithTags(
-    tags: TagModel[],
-    searchQuery: string = "",
-    sortBy:
-      | "new-arrivals"
-      | "high-low-price"
-      | "low-high-price"
-      | "highly-ranked"
-      | "alphabetical"
-      | "reverse-alphabetical"
-      | undefined,
-  ): Promise<Device[]> {
-    let filterString = tags.map((tag) => `tags ~ "${tag.id}"`).join(
-      " && ",
-    );
-
-    if (searchQuery) {
-      const lowerQuery = searchQuery.toLowerCase();
-      if (filterString) {
-        filterString += " && ";
-      }
-      filterString +=
-        `(deviceData.name.sanitized ~ "${lowerQuery}" || deviceData.name.raw ~ "${lowerQuery}" || deviceData.brand.raw ~ "${lowerQuery}" || deviceData.os.raw ~ "${lowerQuery}")`;
-    }
-
-    // Build sort string
-    let sortString = "";
-    switch (sortBy) {
-      case "new-arrivals":
-        sortString = "-deviceData.released.mentionedDate";
-        break;
-      case "alphabetical":
-        sortString = "deviceData.name.raw";
-        break;
-      case "reverse-alphabetical":
-        sortString = "-deviceData.name.raw";
-        break;
-      case "high-low-price":
-        sortString = "-deviceData.pricing.average";
-        break;
-      case "low-high-price":
-        sortString = "deviceData.pricing.average";
-        break;
-      case "highly-ranked":
-        sortString = "-totalRating";
-        break;
-      default:
-        sortString = "-deviceData.released.mentionedDate";
-    }
-
-    const result = await this.pocketBaseService.getAll(
-      "devices",
-      {
-        filter: filterString,
-        expand: "",
-        sort: sortString,
-      },
-    );
-    return result.map((device) => device.deviceData);
   }
 
   public async getTagBySlug(tagSlug: string): Promise<TagModel | null> {
