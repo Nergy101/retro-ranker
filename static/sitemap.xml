@@ -32,10 +32,6 @@
         </url>
         
         <url>
-            <loc>https://retroranker.site/devices/action-pi-</loc>
-        </url>
-        
-        <url>
             <loc>https://retroranker.site/devices/mangmi-air-x</loc>
         </url>
         
@@ -49,6 +45,10 @@
         
         <url>
             <loc>https://retroranker.site/devices/ayaneo-pocket-s2</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/action-pi-</loc>
         </url>
         
         <url>
@@ -1733,6 +1733,14 @@
         
         <url>
             <loc>https://retroranker.site/devices/m27</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/xf35h</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/xf40h</loc>
         </url>
         
         <url>
