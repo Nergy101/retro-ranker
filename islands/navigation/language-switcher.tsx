@@ -8,37 +8,6 @@ export function LanguageSwitcher({
   translations: Record<string, string>;
 }) {
   const [lang, setLang] = useState<string>("en-US");
-  const [isDarkTheme, setIsDarkTheme] = useState<boolean>(false);
-
-  useEffect(() => {
-    // Check if dark theme is active
-    const checkTheme = () => {
-      const isDark =
-        document.documentElement.getAttribute("data-theme") === "dark" ||
-        document.documentElement.classList.contains("dark") ||
-        globalThis.matchMedia("(prefers-color-scheme: dark)").matches ||
-        localStorage.getItem("theme") === "dark";
-      setIsDarkTheme(isDark);
-    };
-
-    checkTheme();
-
-    // Listen for theme changes
-    const observer = new MutationObserver(checkTheme);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["data-theme", "class"],
-    });
-
-    // Listen for system theme changes
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    mediaQuery.addEventListener("change", checkTheme);
-
-    return () => {
-      observer.disconnect();
-      mediaQuery.removeEventListener("change", checkTheme);
-    };
-  }, []);
 
   useEffect(() => {
     // First check localStorage
