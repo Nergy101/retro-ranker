@@ -68,10 +68,34 @@ export function LanguageSwitcher({
       value={lang}
       onChange={change}
       aria-label={TranslationPipe(translations, "navigation.selectLanguage")}
+      style={{
+        margin: "0",
+        borderRadius: "0.5rem",
+        cursor: "pointer",
+        transition: "all 0.3s ease-in-out",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        minWidth: "2.5rem",
+        height: "2.5rem",
+        padding: "0.5rem",
+        border: "1px solid var(--pico-primary)",
+        backgroundColor: "var(--pico-background-color)",
+        color: "var(--pico-color)",
+        fontSize: "1.2rem",
+        textAlign: "center",
+        appearance: "none",
+        backgroundImage:
+          `url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e")`,
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "right 0.5rem center",
+        backgroundSize: "1rem",
+        paddingRight: "2rem",
+      }}
     >
       {languages.map((code) => (
         <option value={code}>
-          {flagEmojis[code]} {languageNames[code]}
+          {flagEmojis[code]}
         </option>
       ))}
     </select>
