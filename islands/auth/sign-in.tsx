@@ -6,9 +6,14 @@ import {
   PiUser,
 } from "@preact-icons/pi";
 import { useEffect } from "preact/hooks";
+import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 
 export function SignIn(
-  { error, pleaseWait }: { error: string | null; pleaseWait: boolean },
+  { error, pleaseWait, translations }: {
+    error: string | null;
+    pleaseWait: boolean;
+    translations: Record<string, string>;
+  },
 ) {
   useEffect(() => {
     const checkAuth = () => {
@@ -34,31 +39,31 @@ export function SignIn(
 
   const getSignInText = () => {
     const texts = [
-      "Press Start",
-      "Insert Cartridge",
-      "Boot Up",
-      "Load Save",
-      "Continue Game",
-      "Join the Party",
-      "Enter the Dungeon",
-      "Link Up",
-      "Power On",
-      "Select Player",
-      "Unlock Console",
-      "UpUpDownDownLeftRightLeftRightBA",
+      TranslationPipe(translations, "auth.pressStart"),
+      TranslationPipe(translations, "auth.insertCartridge"),
+      TranslationPipe(translations, "auth.bootUp"),
+      TranslationPipe(translations, "auth.loadSave"),
+      TranslationPipe(translations, "auth.continueGame"),
+      TranslationPipe(translations, "auth.joinParty"),
+      TranslationPipe(translations, "auth.enterDungeon"),
+      TranslationPipe(translations, "auth.linkUp"),
+      TranslationPipe(translations, "auth.powerOn"),
+      TranslationPipe(translations, "auth.selectPlayer"),
+      TranslationPipe(translations, "auth.unlockConsole"),
+      TranslationPipe(translations, "auth.konamiCode"),
     ];
     return texts[Math.floor(Math.random() * texts.length)];
   };
 
   const getLoggingInText = () => {
     const texts = [
-      "Pressing Start",
-      "Inserting Cartridge",
-      "Booting Up",
-      "Loading Save",
-      "Continuing Game",
-      "Joining Party",
-      "Entering Dungeon",
+      TranslationPipe(translations, "auth.pressingStart"),
+      TranslationPipe(translations, "auth.insertingCartridge"),
+      TranslationPipe(translations, "auth.bootingUp"),
+      TranslationPipe(translations, "auth.loadingSave"),
+      TranslationPipe(translations, "auth.continuingGame"),
+      TranslationPipe(translations, "auth.joiningParty"),
+      TranslationPipe(translations, "auth.enteringDungeon"),
     ];
     return texts[Math.floor(Math.random() * texts.length)];
   };
@@ -82,7 +87,8 @@ export function SignIn(
           style={{
             transform: "scaleX(-1)",
           }}
-        />Log In
+        />
+        {TranslationPipe(translations, "auth.logIn")}
       </h1>
       <div>
         {pleaseWait
@@ -112,8 +118,14 @@ export function SignIn(
                 href="/api/auth/discord"
                 role="button"
                 class="auth-signin-btn auth-signin-btn--discord"
-                aria-label="Log in with Discord"
-                data-tooltip="Log in with Discord"
+                aria-label={TranslationPipe(
+                  translations,
+                  "auth.logInWithDiscord",
+                )}
+                data-tooltip={TranslationPipe(
+                  translations,
+                  "auth.logInWithDiscord",
+                )}
               >
                 <PiDiscordLogo size={32} />
               </a>
@@ -121,8 +133,14 @@ export function SignIn(
                 href="/api/auth/google"
                 role="button"
                 class="auth-signin-btn auth-signin-btn--google"
-                aria-label="Log in with Google"
-                data-tooltip="Log in with Google"
+                aria-label={TranslationPipe(
+                  translations,
+                  "auth.logInWithGoogle",
+                )}
+                data-tooltip={TranslationPipe(
+                  translations,
+                  "auth.logInWithGoogle",
+                )}
               >
                 <PiGoogleLogo size={32} />
               </a>
@@ -143,7 +161,7 @@ export function SignIn(
               marginBottom: "0.5rem",
             }}
           >
-            <PiUser /> Nickname
+            <PiUser /> {TranslationPipe(translations, "auth.nickname")}
           </label>
           <input
             id="nickname"
@@ -164,7 +182,7 @@ export function SignIn(
               marginBottom: "0.5rem",
             }}
           >
-            <PiPassword /> Password
+            <PiPassword /> {TranslationPipe(translations, "auth.password")}
           </label>
           <input
             id="password"
@@ -187,7 +205,7 @@ export function SignIn(
             border: "none",
           }}
           disabled={pleaseWait}
-          data-tooltip="Log in"
+          data-tooltip={TranslationPipe(translations, "auth.logIn")}
         >
           <PiSignIn />{" "}
           <span
@@ -199,7 +217,7 @@ export function SignIn(
       </form>
       {error && (
         <div class="auth-form-error" role="alert">
-          Invalid nickname and password combination
+          {TranslationPipe(translations, "auth.invalidCredentials")}
         </div>
       )}
       <div class="auth-form-footer">
@@ -209,7 +227,8 @@ export function SignIn(
             role="button"
             class="outline"
           >
-            Don't have an account? <br /> Sign up now!
+            {TranslationPipe(translations, "auth.noAccount")} <br />{" "}
+            {TranslationPipe(translations, "auth.signUpNow")}
           </a>
         )}
       </div>

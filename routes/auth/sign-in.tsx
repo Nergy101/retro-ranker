@@ -1,12 +1,13 @@
-import { FreshContext, page, PageProps } from "fresh";
+import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 import { CustomFreshState } from "@interfaces/state.ts";
 import { SignIn } from "@islands/auth/sign-in.tsx";
-import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
+import { FreshContext, page } from "fresh";
 
-export default function SignInPage(pageProps: PageProps, ctx: FreshContext) {
-  const translations = (ctx.state as CustomFreshState).translations ?? {};
-  const error = pageProps.url.searchParams.get("error");
-  const loggedIn = pageProps.url.searchParams.get("logged-in");
+export default function SignInPage(ctx: FreshContext) {
+  const translations = (ctx.state as CustomFreshState)?.translations ?? {};
+  const searchParams = new URL(ctx.req.url).searchParams;
+  const error = searchParams.get("error");
+  const loggedIn = searchParams.get("logged-in");
 
   return (
     <>
@@ -24,9 +25,17 @@ export default function SignInPage(pageProps: PageProps, ctx: FreshContext) {
 export const handler = {
   GET(ctx: FreshContext) {
     const state = ctx.state as CustomFreshState;
+
+    // Ensure state is properly initialized
+    if (!state) {
+      return new Response("Internal Server Error", { status: 500 });
+    }
+
+    const translations = state.translations ?? {};
+
     state.seo = {
-      title: "Retro Ranker - Log in",
-      description: "Log in to your Retro Ranker account",
+      title: TranslationPipe(translations, "auth.signInPage.title"),
+      description: TranslationPipe(translations, "auth.signInPage.description"),
     };
 
     if (state.user) {

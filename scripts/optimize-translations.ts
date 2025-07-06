@@ -1,5 +1,4 @@
-#!/usr/bin/env -S deno run --allow-read --allow-write
-
+// deno-lint-ignore-file no-console
 /**
  * Script to optimize translation files by compressing JSON structure
  */

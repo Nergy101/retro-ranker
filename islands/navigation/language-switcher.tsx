@@ -1,10 +1,6 @@
-import { useEffect, useState } from "preact/hooks";
-import {
-  flagEmojis,
-  languageNames,
-  languages,
-} from "@data/frontend/languages.ts";
+import { flagEmojis, languages } from "@data/frontend/languages.ts";
 import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
+import { useEffect, useState } from "preact/hooks";
 
 export function LanguageSwitcher({
   translations,
@@ -58,9 +54,9 @@ export function LanguageSwitcher({
     await new Promise((resolve) => setTimeout(resolve, 50));
 
     // Force a hard reload with cache-busting parameter to ensure fresh translations
-    const currentUrl = new URL(window.location.href);
+    const currentUrl = new URL(globalThis.location.href);
     currentUrl.searchParams.set("refresh", "true");
-    window.location.href = currentUrl.toString();
+    globalThis.location.href = currentUrl.toString();
   };
 
   return (

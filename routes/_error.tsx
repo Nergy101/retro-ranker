@@ -1,6 +1,6 @@
-import { FreshContext, HttpError, page, PageProps } from "fresh";
-import { CustomFreshState } from "@interfaces/state.ts";
 import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
+import { CustomFreshState } from "@interfaces/state.ts";
+import { FreshContext, HttpError, page, PageProps } from "fresh";
 
 export const handler = {
   GET(ctx: FreshContext) {
@@ -23,8 +23,7 @@ export default function ErrorPage(props: PageProps, ctx: FreshContext) {
     "error.general.suggestion": "Go back home",
   };
   const translations: Record<string, string> =
-    (ctx && ctx.state && (ctx.state as CustomFreshState).translations) ||
-    fallbackTranslations;
+    (ctx?.state as CustomFreshState)?.translations || fallbackTranslations;
   const { error } = props;
 
   const renderNotFound = () => {

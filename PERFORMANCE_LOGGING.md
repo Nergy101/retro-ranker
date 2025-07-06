@@ -2,7 +2,8 @@
 
 ## Overview
 
-Comprehensive performance logging has been added to identify bottlenecks causing 36-second page loads in the Retro Ranker application.
+Comprehensive performance logging has been added to identify bottlenecks causing
+36-second page loads in the Retro Ranker application.
 
 ## What Was Added
 
@@ -148,8 +149,7 @@ Look for slow authentication:
 
 ### 1. Slow Database Queries
 
-**Symptoms**: High `dbTime` values
-**Solutions**:
+**Symptoms**: High `dbTime` values **Solutions**:
 
 - Add database indexes on frequently queried fields
 - Optimize filter strings
@@ -158,8 +158,7 @@ Look for slow authentication:
 
 ### 2. Cache Expiration
 
-**Symptoms**: Frequent cache misses with high `cacheAge`
-**Solutions**:
+**Symptoms**: Frequent cache misses with high `cacheAge` **Solutions**:
 
 - Increase cache duration
 - Implement background cache refresh
@@ -167,8 +166,7 @@ Look for slow authentication:
 
 ### 3. Network Issues
 
-**Symptoms**: High `fetchTime` for translations or API calls
-**Solutions**:
+**Symptoms**: High `fetchTime` for translations or API calls **Solutions**:
 
 - Use CDN for static assets
 - Implement service worker caching
@@ -176,8 +174,7 @@ Look for slow authentication:
 
 ### 4. Authentication Bottlenecks
 
-**Symptoms**: High `authTime` values
-**Solutions**:
+**Symptoms**: High `authTime` values **Solutions**:
 
 - Implement session caching
 - Use JWT tokens instead of database lookups

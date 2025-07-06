@@ -6,9 +6,9 @@
   }
 
   // Clean up refresh parameter from URL if present
-  if (window.location.search.includes("refresh=true")) {
-    const url = new URL(window.location.href);
+  if (globalThis.location.search.includes("refresh=true")) {
+    const url = new URL(globalThis.location.href);
     url.searchParams.delete("refresh");
-    window.history.replaceState({}, "", url.toString());
+    globalThis.history.replaceState({}, "", url.toString());
   }
 })();

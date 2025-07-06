@@ -1,3 +1,15 @@
+import { DeviceCardMedium } from "@components/cards/device-card-medium.tsx";
+import { SeeMoreCard } from "@components/cards/see-more-card.tsx";
+import { TagComponent } from "@components/shared/tag-component.tsx";
+import { Device } from "@data/frontend/contracts/device.model.ts";
+import { User } from "@data/frontend/contracts/user.contract.ts";
+import { TagModel } from "@data/frontend/models/tag.model.ts";
+import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
+import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
+import { createSuperUserPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
+import { tracer } from "@data/tracing/tracer.ts";
+import { CustomFreshState } from "@interfaces/state.ts";
+import { Hero } from "@islands/hero/hero.tsx";
 import {
   PiCalendar,
   PiChartLine,
@@ -9,19 +21,6 @@ import {
   PiUserCheck,
 } from "@preact-icons/pi";
 import { FreshContext, page } from "fresh";
-import { DeviceCardMedium } from "@components/cards/device-card-medium.tsx";
-import { SeeMoreCard } from "@components/cards/see-more-card.tsx";
-import { TagComponent } from "@components/shared/tag-component.tsx";
-import { Device } from "@data/frontend/contracts/device.model.ts";
-import { User } from "@data/frontend/contracts/user.contract.ts";
-import { BrandWebsites } from "@data/frontend/enums/brand-websites.ts";
-import { TagModel } from "@data/frontend/models/tag.model.ts";
-import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
-import { createSuperUserPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
-import { tracer } from "@data/tracing/tracer.ts";
-import { CustomFreshState } from "@interfaces/state.ts";
-import { Hero } from "@islands/hero/hero.tsx";
-import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 
 export const handler = {
   async GET(ctx: FreshContext) {

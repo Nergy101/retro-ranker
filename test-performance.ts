@@ -1,6 +1,4 @@
-#!/usr/bin/env -S deno run --allow-net --allow-env --allow-read
-
-import { serve } from "https://deno.land/std@0.208.0/http/server.ts";
+// deno-lint-ignore-file no-console
 
 console.log("🚀 Starting Retro Ranker with Performance Logging...");
 console.log("📊 Performance logs will be displayed below:");
