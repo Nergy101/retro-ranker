@@ -87,10 +87,20 @@ export function LanguageSwitcher({
         backgroundPosition: "right 0.5rem center",
         backgroundSize: "1rem",
         paddingRight: "2rem",
+        lineHeight: "1",
+        verticalAlign: "middle",
       }}
     >
       {languages.map((code) => (
-        <option value={code}>
+        <option
+          value={code}
+          style={{
+            textAlign: "center",
+            lineHeight: "1.5",
+            padding: "0.25rem 0",
+            fontSize: "1.2rem",
+          }}
+        >
           {flagEmojis[code]}
         </option>
       ))}
