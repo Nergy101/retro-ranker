@@ -87,44 +87,8 @@ export default function AppWrapper(
           href="/favicon-16x16.png"
         />
         <link rel="stylesheet" href="/pico.pumpkin.min.css" />
-        <script
-          defer
-          // deno-lint-ignore react-no-danger
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                const savedTheme = localStorage.getItem('theme');
-                if (savedTheme) {
-                  document.documentElement.setAttribute('data-theme', savedTheme);
-                } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                  document.documentElement.setAttribute('data-theme', 'dark');
-                }
-              })();
-            `,
-          }}
-        />
-        <script
-          defer
-          // deno-lint-ignore react-no-danger
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                const savedLang = localStorage.getItem('language');
-                if (savedLang) {
-                  document.cookie = 'lang=' + savedLang + '; path=/; max-age=31536000';
-                  document.documentElement.setAttribute('lang', savedLang);
-                }
-                
-                // Clean up refresh parameter from URL if present
-                if (window.location.search.includes('refresh=true')) {
-                  const url = new URL(window.location.href);
-                  url.searchParams.delete('refresh');
-                  window.history.replaceState({}, '', url.toString());
-                }
-              })();
-            `,
-          }}
-        />
+        <script defer src="/scripts/theme-sync.js" />
+        <script defer src="/scripts/lang-sync.js" />
       </head>
       <body>
         <TopNavbar
