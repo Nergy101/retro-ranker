@@ -1,5 +1,6 @@
-import { FreshContext, HttpError, page, PageProps } from "fresh";
+import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 import { CustomFreshState } from "@interfaces/state.ts";
+import { FreshContext, HttpError, page, PageProps } from "fresh";
 
 export const handler = {
   GET(ctx: FreshContext) {
@@ -12,7 +13,17 @@ export const handler = {
   },
 };
 
-export default function ErrorPage(props: PageProps) {
+export default function ErrorPage(props: PageProps, ctx: FreshContext) {
+  const fallbackTranslations: Record<string, string> = {
+    "error.404.title": "Page Not Found",
+    "error.404.description": "The page you're looking for doesn't exist.",
+    "error.404.suggestion": "Go back home",
+    "error.general.title": "Error",
+    "error.general.description": "An error occurred. Please try again later.",
+    "error.general.suggestion": "Go back home",
+  };
+  const translations: Record<string, string> =
+    (ctx?.state as CustomFreshState)?.translations || fallbackTranslations;
   const { error } = props;
 
   const renderNotFound = () => {
@@ -20,13 +31,14 @@ export default function ErrorPage(props: PageProps) {
       <div class="not-found">
         <article>
           <div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">
-            <h1 class="text-4xl font-bold">404 - Page not found</h1>
+            <h1 class="text-4xl font-bold">
+              {TranslationPipe(translations, "error.404.title")}
+            </h1>
             <span>
-              The page you were looking for doesn't exist.
+              {TranslationPipe(translations, "error.404.description")}
             </span>
             <h2>
-              Return to our homepage to browse retro gaming handhelds and
-              comparison tools.
+              {TranslationPipe(translations, "error.404.suggestion")}
             </h2>
           </div>
         </article>
@@ -46,11 +58,13 @@ export default function ErrorPage(props: PageProps) {
         }
         <article>
           <div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">
-            <h1 class="text-4xl font-bold">Error</h1>
+            <h1 class="text-4xl font-bold">
+              {TranslationPipe(translations, "error.general.title")}
+            </h1>
             <span>
-              An error occurred on Retro Ranker. Please try again later.
+              {TranslationPipe(translations, "error.general.description")}
             </span>
-            <h2>Refresh the page or try again later.</h2>
+            <h2>{TranslationPipe(translations, "error.general.suggestion")}</h2>
           </div>
         </article>
       </div>

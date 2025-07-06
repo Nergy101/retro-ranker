@@ -177,14 +177,33 @@ export class PocketBaseService {
     },
   ): Promise<any[]> {
     return await tracer.startActiveSpan("getAll", async (span) => {
+      const startTime = performance.now();
       try {
         span.setAttribute("collection", collection);
         span.setAttribute("filter", options.filter);
         span.setAttribute("expand", options.expand);
 
+        logJson("info", "PocketBase getAll - Starting", {
+          collection,
+          filter: options.filter,
+          expand: options.expand,
+          sort: options.sort,
+        });
+
         const result = await this.pb.collection(collection).getFullList(
           options,
         );
+        const totalTime = performance.now() - startTime;
+
+        logJson("info", "PocketBase getAll - Completed", {
+          collection,
+          resultCount: result.length,
+          totalTime: `${totalTime.toFixed(2)}ms`,
+          filter: options.filter,
+          expand: options.expand,
+          sort: options.sort,
+        });
+
         span.setStatus({ code: 0 }); // OK
         return result;
       } catch (error: unknown) {
@@ -195,6 +214,7 @@ export class PocketBaseService {
         if (error instanceof ClientResponseError) {
           logJson("error", `Error fetching ${collection}`, {
             error: error.message,
+            totalTime: `${(performance.now() - startTime).toFixed(2)}ms`,
           });
         }
         throw error;
@@ -445,10 +465,29 @@ export class PocketBaseService {
 
   public async getUser(cookieHeader: string): Promise<User> {
     return await tracer.startActiveSpan("getUser", async (span) => {
+      const startTime = performance.now();
       try {
+        logJson("info", "PocketBase getUser - Starting", {
+          hasCookieHeader: !!cookieHeader,
+          cookieLength: cookieHeader?.length || 0,
+        });
+
         const jwt = cookieHeader?.split("pb_auth=")[1]?.split(";")[0];
         this.pb.authStore.save(jwt, null);
+
+        const authStart = performance.now();
         const user = await this.pb.collection("users").authRefresh();
+        const authEnd = performance.now();
+
+        const totalTime = performance.now() - startTime;
+
+        logJson("info", "PocketBase getUser - Completed", {
+          authTime: `${(authEnd - authStart).toFixed(2)}ms`,
+          totalTime: `${totalTime.toFixed(2)}ms`,
+          hasUser: !!user.record,
+          userId: user.record?.id,
+        });
+
         span.setStatus({ code: 0 }); // OK
         return user.record as unknown as User;
       } catch (error: unknown) {
@@ -456,6 +495,12 @@ export class PocketBaseService {
           ? error.message
           : "Unknown error";
         span.setStatus({ code: 2, message: errorMessage }); // ERROR
+
+        logJson("error", "PocketBase getUser - Error", {
+          error: errorMessage,
+          totalTime: `${(performance.now() - startTime).toFixed(2)}ms`,
+        });
+
         throw error;
       } finally {
         span.end();
@@ -502,7 +547,17 @@ export async function createSuperUserPocketBaseService(
   password: string,
   url: string = "https://pocketbase.retroranker.site",
 ): Promise<PocketBaseService> {
+  const startTime = performance.now();
+
+  logJson("info", "createSuperUserPocketBaseService - Starting", {
+    url,
+    hasEmail: !!email,
+    hasPassword: !!password,
+  });
+
   const pb = new PocketBaseService(url);
+
+  const authStart = performance.now();
   await pb.getPocketBaseClient().collection("_superusers")
     .authWithPassword(
       email,
@@ -511,6 +566,15 @@ export async function createSuperUserPocketBaseService(
         autoRefreshThreshold: 30 * 60,
       },
     );
+  const authEnd = performance.now();
+
+  const totalTime = performance.now() - startTime;
+
+  logJson("info", "createSuperUserPocketBaseService - Completed", {
+    authTime: `${(authEnd - authStart).toFixed(2)}ms`,
+    totalTime: `${totalTime.toFixed(2)}ms`,
+    url,
+  });
 
   return pb;
 }

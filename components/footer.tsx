@@ -6,8 +6,38 @@ import {
   PiShield,
 } from "@preact-icons/pi";
 import { VersionTag } from "./shared/version-tag.tsx";
+import { BatchTranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 
-export function Footer() {
+export function Footer(
+  { translations }: { translations: Record<string, string> },
+) {
+  // Batch load all translations needed for the footer
+  const [
+    footerOther,
+    footerPrivacy,
+    footerTos,
+    footerConnect,
+    footerBluesky,
+    footerGithub,
+    footerMore,
+    footerAbout,
+    footerContact,
+    footerRights,
+    footerMadeWith,
+  ] = BatchTranslationPipe(translations, [
+    "footer.other",
+    "footer.privacy",
+    "footer.tos",
+    "footer.connect",
+    "footer.bluesky",
+    "footer.github",
+    "footer.more",
+    "footer.about",
+    "footer.contact",
+    "footer.rights",
+    "footer.madeWith",
+  ]);
+
   return (
     <footer
       style={{
@@ -26,13 +56,15 @@ export function Footer() {
               alignItems: "center",
             }}
           >
-            <span>Other</span>
+            <span>{footerOther}</span>
             <ul class="footer-grid-item-list">
               <li style={{ listStyle: "none" }}>
                 <a href="/privacy">
                   <div style={{ display: "flex" }}>
                     <PiShield />
-                    <span>&nbsp;Privacy</span>
+                    <span>
+                      &nbsp;{footerPrivacy}
+                    </span>
                   </div>
                 </a>
               </li>
@@ -41,7 +73,9 @@ export function Footer() {
                 <a href="/terms">
                   <div style={{ display: "flex" }}>
                     <PiFileText />
-                    <span>&nbsp;ToS</span>
+                    <span>
+                      &nbsp;{footerTos}
+                    </span>
                   </div>
                 </a>
               </li>
@@ -56,7 +90,7 @@ export function Footer() {
               alignItems: "center",
             }}
           >
-            <span>Connect</span>
+            <span>{footerConnect}</span>
             <ul class="footer-grid-item-list">
               <li style={{ listStyle: "none" }}>
                 <a
@@ -65,7 +99,9 @@ export function Footer() {
                 >
                   <div style={{ display: "flex" }}>
                     <PiChatText />
-                    <span>&nbsp;Bluesky</span>
+                    <span>
+                      &nbsp;{footerBluesky}
+                    </span>
                   </div>
                 </a>
               </li>
@@ -76,7 +112,9 @@ export function Footer() {
                 >
                   <div style={{ display: "flex" }}>
                     <PiGithubLogo />
-                    <span>&nbsp;GitHub</span>
+                    <span>
+                      &nbsp;{footerGithub}
+                    </span>
                   </div>
                 </a>
               </li>
@@ -91,13 +129,15 @@ export function Footer() {
               alignItems: "center",
             }}
           >
-            <span>More</span>
+            <span>{footerMore}</span>
             <ul class="footer-grid-item-list">
               <li style={{ listStyle: "none" }}>
                 <a href="/about">
                   <div style={{ display: "flex" }}>
                     <PiInfo />
-                    <span>&nbsp;About</span>
+                    <span>
+                      &nbsp;{footerAbout}
+                    </span>
                   </div>
                 </a>
               </li>
@@ -105,59 +145,29 @@ export function Footer() {
                 <a href="/contact">
                   <div style={{ display: "flex" }}>
                     <PiChatText />
-                    <span>&nbsp;Contact</span>
+                    <span>
+                      &nbsp;{footerContact}
+                    </span>
                   </div>
                 </a>
               </li>
             </ul>
           </div>
 
-          <div class="footer-grid-item rr">
-            <div
-              style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
-            >
-              <strong style={{ color: "var(--pico-primary)" }}>
-                Retro Ranker
-              </strong>
-
-              <VersionTag />
-            </div>
-            <small>
-              © {new Date().getFullYear()}{" "}
-              <a
-                style={{ color: "var(--pico-primary)" }}
-                href="https://retroranker.site"
-                target="_blank"
-              >
-                Retro Ranker
-              </a>. All rights reserved.
-            </small>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "0.5rem",
-              }}
-            >
-              <small>
-                Made with ❤️ by{" "}
-                <span style={{ color: "var(--pico-primary)" }}>
-                  <a href="https://portfolio.nergy.space" target="_blank">
-                    Nergy101
-                  </a>
-                </span>
-              </small>
-              <img
-                loading="lazy"
-                alt="nergy logo"
-                src="/logos/nergy/nergy-square.png"
-                style={{
-                  width: "32px",
-                  height: "32px",
-                  borderRadius: "50%",
-                }}
-              />
-            </div>
+          <div
+            class="footer-grid-item version-info"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <span>{footerRights}</span>
+            <span>
+              {footerMadeWith}{" "}
+              <a href="https://github.com/Nergy101">Nergy101</a>
+            </span>
+            <VersionTag />
           </div>
         </div>
       </div>

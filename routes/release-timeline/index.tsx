@@ -6,6 +6,7 @@ import { DeviceService } from "@data/frontend/services/devices/device.service.ts
 import { createSuperUserPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
 import { CustomFreshState } from "@interfaces/state.ts";
 import { TimelineContent } from "@islands/devices/timeline-content.tsx";
+import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 
 const chunkArray = (arr: any[], size: number): any[][] => {
   const chunks: any[][] = [];
@@ -128,6 +129,8 @@ export default function ReleaseTimeline(ctx: FreshContext) {
     userLikedMap: Record<string, boolean>;
     userFavoritedMap: Record<string, boolean>;
   };
+  const translations = (ctx.state as CustomFreshState).translations ?? {};
+  const language = (ctx.state as CustomFreshState).language ?? "en-US";
   const user = (ctx.state as CustomFreshState).user as User | null;
 
   return (
@@ -141,10 +144,11 @@ export default function ReleaseTimeline(ctx: FreshContext) {
       /> */
       }
       <hgroup>
-        <h1 style={{ textAlign: "center" }}>Release Timeline</h1>
+        <h1 style={{ textAlign: "center" }}>
+          {TranslationPipe(translations, "releases.title")}
+        </h1>
         <p>
-          Scroll down to see the complete chronological release timeline of
-          retro gaming handhelds.
+          {TranslationPipe(translations, "releases.description")}
         </p>
       </hgroup>
 
@@ -158,7 +162,7 @@ export default function ReleaseTimeline(ctx: FreshContext) {
       >
         <div
           style={{ display: "flex", alignItems: "center" }}
-          data-tooltip="Scroll down to see the timeline"
+          data-tooltip={TranslationPipe(translations, "releases.scrollTooltip")}
           data-placement="bottom"
         >
           <PiCaretCircleDoubleDown />
@@ -171,6 +175,8 @@ export default function ReleaseTimeline(ctx: FreshContext) {
         likesCountMap={likesCountMap}
         userLikedMap={userLikedMap}
         userFavoritedMap={userFavoritedMap}
+        translations={translations}
+        language={language}
       />
     </div>
   );

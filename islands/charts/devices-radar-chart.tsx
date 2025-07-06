@@ -3,15 +3,17 @@ import { Device } from "@data/frontend/contracts/device.model.ts";
 import { RatingsService } from "@data/frontend/services/devices/ratings.service.ts";
 import { FreshChart } from "./fresh-chart.tsx";
 import { Ranking } from "@data/frontend/models/ranking.model.ts";
+import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 
 interface RadarChartProps {
   devices: Device[];
   showTitle?: boolean;
   ranking?: Ranking;
+  translations?: Record<string, string>;
 }
 
 export function DevicesRadarChart(
-  { devices, showTitle = true, ranking }: RadarChartProps,
+  { devices, showTitle = true, ranking, translations = {} }: RadarChartProps,
 ) {
   // Create an instance of the ratings service.
   const ratingsService = RatingsService.getInstance();
@@ -48,13 +50,13 @@ export function DevicesRadarChart(
 
   // Define the axes for the radar chart.
   const labels = [
-    "Performance",
-    "Monitor",
-    "Dimensions",
-    "Connectivity",
-    "Audio",
-    "Controls",
-    "Miscellaneous",
+    TranslationPipe(translations, "compare.performance"),
+    TranslationPipe(translations, "compare.monitor"),
+    TranslationPipe(translations, "compare.dimensions"),
+    TranslationPipe(translations, "compare.connectivity"),
+    TranslationPipe(translations, "compare.audio"),
+    TranslationPipe(translations, "compare.controls"),
+    TranslationPipe(translations, "compare.misc"),
   ];
 
   // For each device, compute the scores and generate a distinct color.
@@ -149,7 +151,7 @@ export function DevicesRadarChart(
     >
       {showTitle && (
         <h2 style={{ textAlign: "center" }}>
-          Device Scoring Radar Chart
+          {TranslationPipe(translations, "compare.showRankingChart")}
         </h2>
       )}
       <FreshChart

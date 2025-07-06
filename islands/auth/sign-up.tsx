@@ -2,9 +2,15 @@ import { PiLock, PiPassword, PiUser, PiUserPlus } from "@preact-icons/pi";
 import { IS_BROWSER } from "fresh/runtime";
 import { useEffect, useState } from "preact/hooks";
 
-export function SignUp(
-  { baseApiUrl, csrfToken }: { baseApiUrl: string; csrfToken: string },
-) {
+export function SignUp({
+  baseApiUrl,
+  translations,
+  csrfToken,
+}: {
+  baseApiUrl: string;
+  translations: Record<string, string>;
+  csrfToken: string;
+}) {
   const [error, setError] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
 
@@ -165,13 +171,13 @@ export function SignUp(
       confirmPasswordValid === null;
 
     if (hasInvalidFields || hasEmptyRequiredFields) {
-      setError("Please fill in all required fields correctly");
+      setError(translations["auth.fillRequiredFields"]);
       return;
     }
 
     // check if cap was successful
     if (capSolution?.success === false) {
-      setError("Please solve the captcha");
+      setError(translations["auth.solveCaptcha"]);
       return;
     }
 
@@ -210,7 +216,7 @@ export function SignUp(
           marginBottom: "1.25rem",
         }}
       >
-        <PiUserPlus /> Sign up
+        <PiUserPlus /> {translations["auth.signUp"]}
       </h1>
 
       {error && (
@@ -245,7 +251,7 @@ export function SignUp(
               marginBottom: "0.5rem",
             }}
           >
-            <PiUser /> Nickname
+            <PiUser /> {translations["auth.nickname"]}
           </label>
           <input
             id="nickname"
@@ -277,7 +283,7 @@ export function SignUp(
                 marginTop: "0.5rem",
               }}
             >
-              Nickname must be at least 3 characters.
+              {translations["auth.nicknameMinLength"]}
             </div>
           )}
         </div>
@@ -292,7 +298,7 @@ export function SignUp(
               marginBottom: "0.5rem",
             }}
           >
-            <PiPassword /> Password
+            <PiPassword /> {translations["auth.password"]}
           </label>
           <input
             id="password"
@@ -328,7 +334,7 @@ export function SignUp(
                 marginTop: "0.3125rem",
               }}
             >
-              Password must be at least 8 characters.
+              {translations["auth.passwordMinLength"]}
             </div>
           )}
         </div>
@@ -343,7 +349,7 @@ export function SignUp(
               marginBottom: "0.5rem",
             }}
           >
-            <PiLock /> Confirm Password
+            <PiLock /> {translations["auth.confirmPassword"]}
           </label>
           <input
             id="confirmPassword"
@@ -382,8 +388,8 @@ export function SignUp(
               }}
             >
               {passwordValid === false
-                ? "Password must be at least 8 characters."
-                : "Passwords do not match."}
+                ? translations["auth.passwordMinLength"]
+                : translations["auth.passwordsDoNotMatch"]}
             </div>
           )}
         </div>
@@ -403,7 +409,7 @@ export function SignUp(
             justifyContent: "center",
           }}
         >
-          <PiUserPlus /> Sign up
+          <PiUserPlus /> {translations["auth.signUp"]}
         </button>
       </form>
 
@@ -417,7 +423,8 @@ export function SignUp(
           role="button"
           class="outline"
         >
-          Already have an account? <br /> Log in instead.
+          {translations["auth.alreadyHaveAccount"]} <br />{" "}
+          {translations["auth.logInInstead"]}
         </a>
       </div>
     </div>

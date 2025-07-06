@@ -5,6 +5,7 @@ import { DeviceCollection } from "@data/frontend/contracts/device-collection.ts"
 import { Device } from "@data/frontend/contracts/device.model.ts";
 import { createSuperUserPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
 import { CustomFreshState } from "@interfaces/state.ts";
+import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 
 export const handler = {
   GET(ctx: FreshContext) {
@@ -18,6 +19,7 @@ export const handler = {
 };
 
 export default async function CollectionView(ctx: FreshContext) {
+  const translations = (ctx.state as CustomFreshState).translations ?? {};
   const id = ctx.params.id;
 
   const pbService = await createSuperUserPocketBaseService(
@@ -42,7 +44,7 @@ export default async function CollectionView(ctx: FreshContext) {
   if (!collection) {
     return (
       <div>
-        <h1>Error fetching device collection</h1>
+        <h1>{TranslationPipe(translations, "collections.error.fetching")}</h1>
       </div>
     );
   }
@@ -94,11 +96,13 @@ export default async function CollectionView(ctx: FreshContext) {
             </h1>
             <p>{collection.description}</p>
             <p style={{ fontSize: "0.8rem" }}>
-              Created: {new Date(collection.created).toLocaleDateString()}{" "}
-              | Last updated:{" "}
+              {TranslationPipe(translations, "collections.created")}:{" "}
+              {new Date(collection.created).toLocaleDateString()} |{" "}
+              {TranslationPipe(translations, "collections.lastUpdated")}:{" "}
               {new Date(collection.updated).toLocaleDateString()} |{" "}
-              {collection.devices.length}{" "}
-              {collection.devices.length === 1 ? "device" : "devices"}
+              {collection.devices.length} {collection.devices.length === 1
+                ? TranslationPipe(translations, "collections.device")
+                : TranslationPipe(translations, "collections.devices")}
             </p>
           </hgroup>
         </header>

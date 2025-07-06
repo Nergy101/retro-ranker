@@ -52,17 +52,12 @@ export const handler = {
         );
       }
 
-      // In a real application, you would save this to a database
-      // For now, we'll just log it
-      console.log(`Suggestion from ${user.id}: ${payload.suggestion}`);
-
       // save in pocketbase
       const pb = await createLoggedInPocketBaseService(cookie);
       await pb.authRefresh();
 
       // Ensure user is authenticated before creating a record
       if (!pb.getAuthStore().isValid) {
-        console.log("Unauthorized");
         return new Response(
           JSON.stringify(ProblemDetail.forbidden("Unauthorized")),
           { status: 401 },

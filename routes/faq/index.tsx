@@ -1,6 +1,7 @@
 import { PiChartLine, PiInfo, PiQuestion } from "@preact-icons/pi";
 import { FreshContext, page } from "fresh";
 import { CustomFreshState } from "@interfaces/state.ts";
+import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 
 export const handler = {
   GET(ctx: FreshContext) {
@@ -14,7 +15,9 @@ export const handler = {
   },
 };
 
-export default function FAQ() {
+export default function FAQ(ctx: FreshContext) {
+  const translations = (ctx.state as CustomFreshState).translations ?? {};
+
   return (
     <div class="faq">
       <section
@@ -53,7 +56,7 @@ export default function FAQ() {
               gap: "0.5em",
             }}
           >
-            Frequently Asked Questions
+            {TranslationPipe(translations, "faq.title")}
           </h1>
           <p
             style={{
@@ -64,8 +67,7 @@ export default function FAQ() {
               opacity: 0.95,
             }}
           >
-            Find answers to common questions about Retro Ranker, device
-            comparisons, reviews, and more.
+            {TranslationPipe(translations, "faq.description")}
           </p>
           <div
             style={{
@@ -80,13 +82,13 @@ export default function FAQ() {
               href="/about"
               class="hero-button"
             >
-              About Us
+              {TranslationPipe(translations, "nav.about")}
             </a>
             <a
               href="/contact"
               class="hero-button"
             >
-              Contact
+              {TranslationPipe(translations, "nav.contact")}
             </a>
           </div>
         </div>
@@ -104,58 +106,46 @@ export default function FAQ() {
               gap: "0.5rem",
             }}
           >
-            <PiQuestion class="text-2xl" /> General
+            <PiQuestion class="text-2xl" />{" "}
+            {TranslationPipe(translations, "faq.general")}
           </h2>
           <div class="flex flex-col gap-4">
             <details class="faq-details">
               <summary class="flex items-center gap-2">
-                <PiQuestion class="text-2xl" /> What is Retro Ranker?
+                <PiQuestion class="text-2xl" /> {TranslationPipe(
+                  translations,
+                  "faq.whatIsRetroRanker",
+                )}
               </summary>
               <p class="pl-8">
-                Retro Ranker is a platform to{" "}
-                <a href="/compare">compare</a>, review, and discover{" "}
-                <a href="/devices">retro gaming handhelds</a>, helping you find
-                the perfect device for your needs.
+                {TranslationPipe(translations, "faq.whatIsRetroRankerAnswer")}
               </p>
             </details>
             <details class="faq-details">
               <summary class="flex items-center gap-2">
-                <PiInfo class="text-2xl" /> Which brands are included?
+                <PiInfo class="text-2xl" />{" "}
+                {TranslationPipe(translations, "faq.whichBrands")}
               </summary>
               <p class="pl-8">
-                We cover popular brands like{" "}
-                <a href="/devices?tags=anbernic">Anbernic</a>,{" "}
-                <a href="/devices?tags=miyoo-bittboy">Miyoo</a>,{" "}
-                <a href="/devices?tags=ayaneo">Ayaneo</a>,{" "}
-                <a href="/devices?tags=powkiddy">Powkiddy</a>, and more in our
-                {" "}
-                <a href="/devices">device catalog</a>.
+                {TranslationPipe(translations, "faq.whichBrandsAnswer")}
               </p>
             </details>
             <details class="faq-details">
               <summary class="flex items-center gap-2">
-                <PiInfo class="text-2xl" /> How often is the catalog updated?
+                <PiInfo class="text-2xl" />{" "}
+                {TranslationPipe(translations, "faq.howOftenUpdated")}
               </summary>
               <p class="pl-8">
-                The catalog is updated daily as new devices are{" "}
-                <a href="/release-timeline">released</a>,{" "}
-                <a href="/leaderboard">reviewed</a>, and added to the{" "}
-                <a href="https://docs.google.com/spreadsheets/d/1irg60f9qsZOkhp0cwOU7Cy4rJQeyusEUzTNQzhoTYTU/">
-                  community datasheet
-                </a>. Check the <a href="/release-timeline">release timeline</a>
-                {" "}
-                for the latest additions.
+                {TranslationPipe(translations, "faq.howOftenUpdatedAnswer")}
               </p>
             </details>
             <details class="faq-details">
               <summary class="flex items-center gap-2">
-                <PiInfo class="text-2xl" /> Can I submit my own review?
+                <PiInfo class="text-2xl" />{" "}
+                {TranslationPipe(translations, "faq.canSubmitReview")}
               </summary>
               <p class="pl-8">
-                Yes! <a href="/auth/sign-in">Log in</a>{" "}
-                or create an account, then visit any{" "}
-                <a href="/devices">device page</a>{" "}
-                to submit your review and rating.
+                {TranslationPipe(translations, "faq.canSubmitReviewAnswer")}
               </p>
             </details>
           </div>
@@ -171,29 +161,30 @@ export default function FAQ() {
               gap: "0.5rem",
             }}
           >
-            <PiInfo class="text-2xl" /> Devices & Catalog
+            <PiInfo class="text-2xl" />{" "}
+            {TranslationPipe(translations, "faq.devicesAndCatalog")}
           </h2>
           <div class="flex flex-col gap-4">
             <details class="faq-details">
               <summary class="flex items-center gap-2">
                 <PiInfo class="text-2xl" />{"  "}
-                How do I search for a specific device?
+                {TranslationPipe(translations, "faq.howToSearch")}
               </summary>
               <p class="pl-8">
                 <ul>
                   <li>
-                    <strong>Quick:</strong>{" "}
-                    You can use the search bar in the top menu for a quick
-                    search.
+                    <strong>
+                      {TranslationPipe(translations, "faq.quickSearch")}
+                    </strong>{" "}
+                    {TranslationPipe(translations, "faq.quickSearchDesc")}
                   </li>
                   <li>
                     <strong>
-                      <a href="/devices">Advanced</a>
+                      <a href="/devices">
+                        {TranslationPipe(translations, "faq.advancedSearch")}
+                      </a>
                     </strong>:{" "}
-                    You can also use the filters and sorting options to narrow
-                    down devices by price, release year, brand, and more in the
-                    {" "}
-                    device catalog.
+                    {TranslationPipe(translations, "faq.advancedSearchDesc")}
                   </li>
                 </ul>
               </p>
@@ -201,25 +192,19 @@ export default function FAQ() {
             <details class="faq-details">
               <summary class="flex items-center gap-2">
                 <PiInfo class="text-2xl" />{" "}
-                Can I filter devices by price or specs?
+                {TranslationPipe(translations, "faq.canFilterDevices")}
               </summary>
               <p class="pl-8">
-                Yes, use the filters and sorting options to narrow down devices
-                by price, release year, brand, and more in the{" "}
-                <a href="/devices">device catalog</a>.
+                {TranslationPipe(translations, "faq.canFilterDevicesAnswer")}
               </p>
             </details>
             <details class="faq-details">
               <summary class="flex items-center gap-2">
-                <PiInfo class="text-2xl" /> What are the most popular brands?
+                <PiInfo class="text-2xl" />{" "}
+                {TranslationPipe(translations, "faq.popularBrands")}
               </summary>
               <p class="pl-8">
-                Popular brands include{" "}
-                <a href="/devices?tags=anbernic">Anbernic</a>,{" "}
-                <a href="/devices?tags=miyoo-bittboy">Miyoo</a>,{" "}
-                <a href="/devices?tags=ayaneo">Ayaneo</a>,{" "}
-                <a href="/devices?tags=powkiddy">Powkiddy</a>, and others.
-                Browse all brands in the <a href="/devices">catalog</a>.
+                {TranslationPipe(translations, "faq.popularBrandsAnswer")}
               </p>
             </details>
           </div>
@@ -235,31 +220,31 @@ export default function FAQ() {
               gap: "0.5rem",
             }}
           >
-            <PiChartLine class="text-2xl" /> Device Comparison
+            <PiChartLine class="text-2xl" />{" "}
+            {TranslationPipe(translations, "faq.deviceComparison")}
           </h2>
           <div class="flex flex-col gap-4">
             <details class="faq-details">
               <summary class="flex items-center gap-2">
-                <PiChartLine class="text-2xl" /> How do I compare devices?
+                <PiChartLine class="text-2xl" />{" "}
+                {TranslationPipe(translations, "faq.howToCompare")}
               </summary>
               <p class="pl-8">
-                Use our <a href="/compare">comparison tool</a>{" "}
-                to select and compare technical specs, performance, and user
-                reviews of different retro handhelds.
+                {TranslationPipe(translations, "faq.howToCompareAnswer")}
               </p>
             </details>
             <details class="faq-details">
               <summary class="flex items-center gap-2">
-                <PiChartLine class="text-2xl" /> How does the ranking work?
+                <PiChartLine class="text-2xl" />{" "}
+                {TranslationPipe(translations, "faq.howRankingWorks")}
               </summary>
               <div class="pl-8">
                 <p>
-                  The ranking is based on all relevant properties of the
-                  devices.<br />
-                  Every property is given a score and placed into a category.
-                  The categories are then weighted and summed up to get the
-                  final results.<br />
-                  <strong>Category weights:</strong>
+                  {TranslationPipe(translations, "faq.rankingExplanation")}
+                  <br />
+                  <strong>
+                    {TranslationPipe(translations, "faq.categoryWeightsTitle")}
+                  </strong>
                   <div
                     style={{
                       display: "flex",
@@ -268,17 +253,21 @@ export default function FAQ() {
                     }}
                   >
                     <ul>
-                      <li>Performance (30%)</li>
-                      <li>Monitor (10%)</li>
-                      <li>Dimensions (10%)</li>
+                      <li>
+                        {TranslationPipe(translations, "faq.performance")}
+                      </li>
+                      <li>{TranslationPipe(translations, "faq.monitor")}</li>
+                      <li>{TranslationPipe(translations, "faq.dimensions")}</li>
                     </ul>
                     <ul>
-                      <li>Connectivity (20%)</li>
-                      <li>Audio (10%)</li>
-                      <li>Controls (10%)</li>
+                      <li>
+                        {TranslationPipe(translations, "faq.connectivity")}
+                      </li>
+                      <li>{TranslationPipe(translations, "faq.audio")}</li>
+                      <li>{TranslationPipe(translations, "faq.controls")}</li>
                     </ul>
                     <ul>
-                      <li>Misc (10%)</li>
+                      <li>{TranslationPipe(translations, "faq.misc")}</li>
                     </ul>
                   </div>
                 </p>
@@ -298,7 +287,7 @@ export default function FAQ() {
                       padding: "0.25rem",
                     }}
                   >
-                    Blue means equal.
+                    {TranslationPipe(translations, "faq.blueMeansEqual")}
                   </span>
                   <br />
                   <span
@@ -310,7 +299,7 @@ export default function FAQ() {
                       padding: "0.25rem",
                     }}
                   >
-                    Green means better.
+                    {TranslationPipe(translations, "faq.greenMeansBetter")}
                   </span>
                   <br />
                   <span
@@ -322,7 +311,7 @@ export default function FAQ() {
                       padding: "0.25rem",
                     }}
                   >
-                    Red means worse.
+                    {TranslationPipe(translations, "faq.redMeansWorse")}
                   </span>
                 </div>
               </div>

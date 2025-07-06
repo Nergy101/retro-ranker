@@ -1,6 +1,7 @@
 import { useEffect, useState } from "preact/hooks";
 import { DeviceCardMedium } from "@components/cards/device-card-medium.tsx";
 import { Device } from "@data/frontend/contracts/device.model.ts";
+import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 
 interface TimelineContentProps {
   upcomingDevices: Device[];
@@ -9,6 +10,8 @@ interface TimelineContentProps {
   likesCountMap: Record<string, number>;
   userLikedMap: Record<string, boolean>;
   userFavoritedMap: Record<string, boolean>;
+  translations: Record<string, string>;
+  language: string;
 }
 
 export function TimelineContent(
@@ -19,6 +22,8 @@ export function TimelineContent(
     likesCountMap,
     userLikedMap,
     userFavoritedMap,
+    translations,
+    language,
   }: TimelineContentProps,
 ) {
   const [includeUpcoming, setIncludeUpcoming] = useState(false);
@@ -37,8 +42,10 @@ export function TimelineContent(
   });
 
   const getKeyName = (year: number, month: number) => {
+    // Convert language code to locale format (e.g., "en-US" -> "en-US", "de-DE" -> "de-DE")
+    const locale = language || "en-US";
     const date = new Date(Date.UTC(year, month));
-    const monthName = date.toLocaleString("default", { month: "long" });
+    const monthName = date.toLocaleString(locale, { month: "long" });
     return (
       <div>
         <span>{monthName}</span>
@@ -62,7 +69,7 @@ export function TimelineContent(
                 (e.currentTarget as HTMLInputElement).checked,
               )}
           />
-          Include upcoming devices
+          {TranslationPipe(translations, "timeline.includeUpcoming")}
         </label>
       </div>
       {includeUpcoming && (
@@ -76,12 +83,15 @@ export function TimelineContent(
                 `${globalThis.location.origin}/release-timeline#upcoming`,
               );
             }}
-            data-tooltip="Click to copy link to this section"
+            data-tooltip={TranslationPipe(
+              translations,
+              "timeline.copyLinkTooltip",
+            )}
             data-placement="bottom"
           >
-            <span>Upcoming</span>
+            <span>{TranslationPipe(translations, "timeline.upcoming")}</span>
             <br />
-            <span>Devices</span>
+            <span>{TranslationPipe(translations, "timeline.devices")}</span>
           </div>
           <div class="timeline-body">
             <div class="timeline-devices-grid">
@@ -124,7 +134,10 @@ export function TimelineContent(
                   `${globalThis.location.origin}/release-timeline#${key}`,
                 );
               }}
-              data-tooltip="Click to copy link to this section"
+              data-tooltip={TranslationPipe(
+                translations,
+                "timeline.copyLinkTooltip",
+              )}
               data-placement="bottom"
             >
               <div>{getKeyName(year, month)}</div>

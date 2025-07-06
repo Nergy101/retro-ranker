@@ -10,10 +10,12 @@ interface TagTypeaheadProps {
   allTags: TagModel[];
   initialSelectedTags: TagModel[];
   baseUrl: string;
+  translations?: Record<string, string>;
 }
 
 export function TagTypeahead(
-  { allTags, initialSelectedTags, baseUrl }: TagTypeaheadProps,
+  { allTags, initialSelectedTags, baseUrl, translations = {} }:
+    TagTypeaheadProps,
 ) {
   const [selectedTags, _setSelectedTags] = useState<TagModel[]>(
     initialSelectedTags,
@@ -22,11 +24,15 @@ export function TagTypeahead(
 
   const [viewportWidth, setViewportWidth] = useState(globalThis.innerWidth);
 
+  const getTranslation = (key: string, fallback: string) => {
+    return translations[key] || fallback;
+  };
+
   const getComputedPlaceholder = () => {
     if (viewportWidth >= 768 && viewportWidth <= 1024) {
-      return "Search...";
+      return getTranslation("forms.search.placeholder", "Search...");
     }
-    return "Search for tags...";
+    return getTranslation("forms.search.tags", "Search for tags...");
   };
 
   useEffect(() => {
@@ -179,8 +185,14 @@ export function TagTypeahead(
                   gap: "0.5em",
                 }}
               >
-                Selected tags{" "}
-                <a href={removeTagsUrl()} data-tooltip="Clear all tags">
+                {getTranslation("forms.selectedTags", "Selected tags")}{" "}
+                <a
+                  href={removeTagsUrl()}
+                  data-tooltip={getTranslation(
+                    "forms.clearAllTags",
+                    "Clear all tags",
+                  )}
+                >
                   <PiX />
                 </a>
               </h4>
@@ -203,7 +215,12 @@ export function TagTypeahead(
           )
           : (
             <div class="empty-selection">
-              <span>Select tags below to filter.</span>
+              <span>
+                {getTranslation(
+                  "forms.selectTagsToFilter",
+                  "Select tags below to filter.",
+                )}
+              </span>
             </div>
           )}
       </div>

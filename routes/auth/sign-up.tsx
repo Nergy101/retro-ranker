@@ -1,11 +1,12 @@
-import { FreshContext, page, PageProps } from "fresh";
 import { CustomFreshState } from "@interfaces/state.ts";
 import { SignUp } from "@islands/auth/sign-up.tsx";
+import { FreshContext, page } from "fresh";
 import { createCsrfCookie, generateCsrfToken } from "../../utils.ts";
 
-export default function SignUpPage(pageProps: PageProps) {
+export default function SignUpPage(ctx: FreshContext) {
+  const translations = (ctx.state as CustomFreshState).translations ?? {};
   const baseApiUrl = Deno.env.get("BASE_API_URL")!;
-  const csrfToken = (pageProps.state as CustomFreshState).csrfToken;
+  const csrfToken = (ctx.state as CustomFreshState).csrfToken;
 
   if (!csrfToken) {
     return new Response(
@@ -19,7 +20,11 @@ export default function SignUpPage(pageProps: PageProps) {
   return (
     <>
       <article>
-        <SignUp baseApiUrl={baseApiUrl} csrfToken={csrfToken} />
+        <SignUp
+          baseApiUrl={baseApiUrl}
+          translations={translations}
+          csrfToken={csrfToken}
+        />
       </article>
     </>
   );
