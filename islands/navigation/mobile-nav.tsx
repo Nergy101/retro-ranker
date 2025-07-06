@@ -187,9 +187,6 @@ export function MobileNav({
             aria-label="Toggle menu"
           >
             <PiListBold />
-            <span style={{ marginLeft: "0.5rem", fontSize: "0.9rem" }}>
-              Menu
-            </span>
           </button>
 
           <div class="mobile-nav-controls">
