@@ -1,15 +1,16 @@
+import { VersionTag } from "@components/shared/version-tag.tsx";
+import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
+import { CustomFreshState } from "@interfaces/state.ts";
 import {
   PiCookie,
   PiDatabase,
+  PiLink,
   PiListChecks,
   PiQuestion,
   PiStack,
   PiUsers,
 } from "@preact-icons/pi";
 import { FreshContext } from "fresh";
-import { CustomFreshState } from "@interfaces/state.ts";
-import { VersionTag } from "@components/shared/version-tag.tsx";
-import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 
 export const handler = {
   GET(ctx: FreshContext) {
@@ -263,30 +264,46 @@ export default function page(ctx: FreshContext) {
         </details>
 
         <details>
-          <summary class="flex items-center gap-2">
+          <summary class="flex items-center gap-4">
             <div style={{ display: "flex", alignItems: "center" }}>
               <PiQuestion class="text-3xl" />
               &nbsp;{TranslationPipe(translations, "about.communityWebsites")}
             </div>
           </summary>
           <ul>
-            <li>
+            <li class="flex items-center gap-2">
               {TranslationPipe(
                 translations,
                 "about.communityWebsites.retroCatalog",
               )}
+              <a
+                href="https://retrocatalog.com"
+                target="_blank"
+                data-tooltip="Retro Catalog"
+                data-placement="right"
+              >
+                <PiLink class="text-3xl" />
+              </a>
             </li>
-            <li>
+            <li class="flex items-center gap-2">
               {TranslationPipe(
                 translations,
                 "about.communityWebsites.retroSizer",
               )}
+              <a
+                href="https://retrosizer.com"
+                target="_blank"
+                data-tooltip="Retro Sizer"
+                data-placement="right"
+              >
+                <PiLink class="text-3xl" />
+              </a>
             </li>
           </ul>
         </details>
 
         <details>
-          <summary class="flex items-center gap-2">
+          <summary class="flex items-center gap-4">
             <div style={{ display: "flex", alignItems: "center" }}>
               <PiDatabase class="text-3xl" />
               &nbsp;{TranslationPipe(translations, "about.dataSource")}
@@ -306,7 +323,7 @@ export default function page(ctx: FreshContext) {
         </details>
 
         <details>
-          <summary class="flex items-center gap-2">
+          <summary class="flex items-center gap-4">
             <div style={{ display: "flex", alignItems: "center" }}>
               <PiUsers class="text-3xl" />
               &nbsp;{TranslationPipe(
@@ -330,7 +347,7 @@ export default function page(ctx: FreshContext) {
         </details>
 
         <details>
-          <summary class="flex items-center gap-2">
+          <summary class="flex items-center gap-4">
             <div style={{ display: "flex", alignItems: "center" }}>
               <PiCookie class="text-3xl" />
               &nbsp;{TranslationPipe(translations, "about.cookies")}

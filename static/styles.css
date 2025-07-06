@@ -141,6 +141,10 @@ body.paused-animation::before {
   gap: 0.5rem;
 }
 
+.gap-4 {
+  gap: 1rem;
+}
+
 .bg-deno-green {
   background-color: #86efac;
 }
@@ -1600,7 +1604,6 @@ body.paused-animation::before {
   flex-direction: row;
   align-items: center;
 }
-
 
 .search-button {
   margin-left: 0.5rem;
