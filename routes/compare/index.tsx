@@ -152,6 +152,7 @@ export default function Compare(ctx: FreshContext) {
                   devices={devicesToCompare}
                   showTitle={false}
                   ranking={ranking}
+                  translations={translations}
                 />
               </div>
             </div>

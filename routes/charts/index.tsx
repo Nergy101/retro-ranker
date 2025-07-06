@@ -42,15 +42,24 @@ export default async function ChartsIndex(ctx: FreshContext) {
         </p>
       </hgroup>
       <div class="chart-wrapper">
-        <DevicesPerReleaseYearLineChart devices={devices} />
+        <DevicesPerReleaseYearLineChart
+          devices={devices}
+          translations={translations}
+        />
       </div>
       <hr />
       <div class="chart-wrapper">
-        <DevicesPerBrandBarChart devices={devices} />
+        <DevicesPerBrandBarChart
+          devices={devices}
+          translations={translations}
+        />
       </div>
       <hr />
       <div class="chart-wrapper">
-        <DevicesPerRatingBarChart devices={devices} />
+        <DevicesPerRatingBarChart
+          devices={devices}
+          translations={translations}
+        />
       </div>
     </div>
   );

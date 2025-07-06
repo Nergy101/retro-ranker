@@ -520,6 +520,7 @@ export default function DeviceDetail(ctx: FreshContext) {
           device={device}
           similarDevices={similarDevices}
           showTitle={false}
+          translations={translations}
         />
       </div>
 

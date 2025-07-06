@@ -1,17 +1,20 @@
 import { useState } from "preact/hooks";
 import type { Device } from "@data/frontend/contracts/device.model.ts";
 import { DevicesRadarChart } from "./devices-radar-chart.tsx";
+import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 
 interface DevicesSimilarRadarChartProps {
   device: Device;
   similarDevices: Device[];
   showTitle?: boolean;
+  translations?: Record<string, string>;
 }
 
 export function DevicesSimilarRadarChart({
   device,
   similarDevices,
   showTitle = true,
+  translations = {},
 }: DevicesSimilarRadarChartProps) {
   const [showSimilarDevices, setShowSimilarDevices] = useState(true);
 
@@ -34,17 +37,26 @@ export function DevicesSimilarRadarChart({
           <DevicesRadarChart
             devices={[device, ...similarDevices]}
             showTitle={showTitle}
+            translations={translations}
           />
         )
-        : <DevicesRadarChart devices={[device]} showTitle={showTitle} />}
+        : (
+          <DevicesRadarChart
+            devices={[device]}
+            showTitle={showTitle}
+            translations={translations}
+          />
+        )}
       <label>
         <input
-          aria-label="Show similar devices in radar chart"
+          aria-label={TranslationPipe(translations, "charts.similarDevices")}
           type="checkbox"
           checked={showSimilarDevices}
           onChange={toggleShow}
         />
-        <span>Show similar devices in chart</span>
+        <span>
+          {TranslationPipe(translations, "charts.showSimilarDevices")}
+        </span>
       </label>
     </div>
   );

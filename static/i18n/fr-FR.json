@@ -160,6 +160,7 @@
   "compare.blueMeansEqual": "Bleu signifie égal",
   "compare.greenMeansBetter": "Vert signifie meilleur",
   "compare.redMeansWorse": "Rouge signifie pire",
+  "compare.similarDevicesTo": "Appareils similaires à",
   "home.popularSearches": "Recherches populaires",
   "home.newArrivals": "Nouveautés",
   "home.moreNewArrivals": "Plus de nouveautés",
@@ -495,6 +496,7 @@
   "charts.totalDevicesReleased": "Total des appareils publiés",
   "charts.devicesPerBrandTooltip": "appareils",
   "charts.devicesPerRankingTooltip": "appareils",
+  "charts.devices": "appareils",
 
   "device.videoReviews": "Avis vidéo",
   "device.vendorLinks": "Liens vendeurs",
