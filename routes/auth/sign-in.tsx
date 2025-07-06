@@ -2,9 +2,11 @@ import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 import { CustomFreshState } from "@interfaces/state.ts";
 import { SignIn } from "@islands/auth/sign-in.tsx";
 import { FreshContext, page } from "fresh";
+import { createCsrfCookie, generateCsrfToken } from "../../utils.ts";
 
 export default function SignInPage(ctx: FreshContext) {
   const translations = (ctx.state as CustomFreshState)?.translations ?? {};
+  const csrfToken = (ctx.state as CustomFreshState)?.csrfToken ?? "";
   const searchParams = new URL(ctx.req.url).searchParams;
   const error = searchParams.get("error");
   const loggedIn = searchParams.get("logged-in");
@@ -15,6 +17,7 @@ export default function SignInPage(ctx: FreshContext) {
         <SignIn
           error={error}
           pleaseWait={!!loggedIn}
+          csrfToken={csrfToken}
           translations={translations}
         />
       </div>
@@ -47,6 +50,19 @@ export const handler = {
 
     state.data.referrer = ctx.req.referrer;
 
-    return page(ctx);
+    const url = new URL(ctx.req.url);
+    const csrfToken = generateCsrfToken();
+    state.csrfToken = csrfToken;
+    const csrfCookie = createCsrfCookie(url.hostname, csrfToken);
+    const resp = page(ctx, {
+      headers: {
+        "set-cookie": `${csrfCookie.name}=${csrfCookie.value}; ${
+          Object.entries(csrfCookie)
+            .map(([key, value]) => `${key}=${value}`)
+            .join("; ")
+        }`,
+      },
+    });
+    return resp;
   },
 };

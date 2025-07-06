@@ -3,6 +3,7 @@ import { ProblemDetail } from "@data/frontend/contracts/problem-detail.ts";
 
 import cap from "@data/cap/cap.service.ts";
 import { FreshContext } from "fresh";
+import { validateCsrfToken } from "../../../utils.ts";
 
 export const handler = {
   async POST(ctx: FreshContext) {
@@ -12,6 +13,14 @@ export const handler = {
     const password = form.get("password")?.toString();
     const confirmPassword = form.get("confirmPassword")?.toString();
     const capToken = form.get("capToken")?.toString();
+    const csrf = form.get("csrf_token")?.toString();
+
+    if (!validateCsrfToken(req.headers, csrf)) {
+      return new Response(
+        JSON.stringify(ProblemDetail.forbidden("Invalid CSRF token")),
+        { status: 403 },
+      );
+    }
 
     // Basic validation
     if (!nickname || !password || !confirmPassword || !capToken) {

@@ -9,9 +9,10 @@ import { useEffect } from "preact/hooks";
 import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 
 export function SignIn(
-  { error, pleaseWait, translations }: {
+  { error, pleaseWait, csrfToken, translations }: {
     error: string | null;
     pleaseWait: boolean;
+    csrfToken: string;
     translations: Record<string, string>;
   },
 ) {
@@ -151,6 +152,7 @@ export function SignIn(
         method="POST"
         action="/api/auth/sign-in"
       >
+        <input type="hidden" name="csrf_token" value={csrfToken} />
         <div>
           <label
             for="nickname"

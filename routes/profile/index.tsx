@@ -12,6 +12,7 @@ import { CustomFreshState } from "@interfaces/state.ts";
 import { SignOut } from "@islands/auth/sign-out.tsx";
 import { DeviceCollections } from "@islands/collections/device-collections.tsx";
 import { SuggestionForm } from "@islands/profile/suggestion-form.tsx";
+import { createCsrfCookie, generateCsrfToken } from "../../utils.ts";
 import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 
 export const handler = {
@@ -20,7 +21,21 @@ export const handler = {
       title: "Retro Ranker - Profile",
       description: "Profile page",
     };
-    return page(ctx);
+    const url = new URL(ctx.req.url);
+    const csrfToken = generateCsrfToken();
+    (ctx.state as CustomFreshState).csrfToken = csrfToken;
+    const csrfCookie = createCsrfCookie(url.hostname, csrfToken);
+    const resp = page(ctx, {
+      headers: {
+        "set-cookie": `${csrfCookie.name}=${csrfCookie.value}; ${
+          Object.entries(csrfCookie)
+            .filter(([key]) => key !== "name" && key !== "value")
+            .map(([key, value]) => `${key}=${value}`)
+            .join("; ")
+        }`,
+      },
+    });
+    return resp;
   },
 };
 
@@ -30,6 +45,16 @@ export default async function ProfilePage(
   const translations = (ctx.state as CustomFreshState).translations ?? {};
   const req = ctx.req;
   const state = ctx.state as CustomFreshState;
+  const csrfToken = state.csrfToken;
+
+  if (!csrfToken) {
+    return new Response(
+      JSON.stringify({ error: "CSRF token not found" }),
+      {
+        status: 400,
+      },
+    );
+  }
 
   if (!state.user) {
     const headers = new Headers();
@@ -292,7 +317,7 @@ export default async function ProfilePage(
             <PiChatCentered />{" "}
             {TranslationPipe(translations, "profile.feedback.title")}
           </h2>
-          <SuggestionForm />
+          <SuggestionForm csrfToken={csrfToken} />
         </section>
 
         <footer

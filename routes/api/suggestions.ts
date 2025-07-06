@@ -6,6 +6,7 @@ import {
   createLoggedInPocketBaseService,
 } from "@data/pocketbase/pocketbase.service.ts";
 import { CustomFreshState } from "@interfaces/state.ts";
+import { validateCsrfToken } from "../../utils.ts";
 
 interface SuggestionPayload {
   user: string;
@@ -30,7 +31,16 @@ export const handler = {
       }
 
       const user = (ctx.state as CustomFreshState).user as User;
-      const payload = await req.json() as SuggestionPayload;
+      const payload = await req.json() as SuggestionPayload & {
+        csrf_token?: string;
+      };
+
+      if (!validateCsrfToken(req.headers, payload.csrf_token)) {
+        return new Response(
+          JSON.stringify({ error: "Invalid CSRF token" }),
+          { status: 403, headers: { "Content-Type": "application/json" } },
+        );
+      }
 
       if (!payload.suggestion || payload.suggestion.trim() === "") {
         return new Response(

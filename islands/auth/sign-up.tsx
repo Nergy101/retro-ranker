@@ -5,9 +5,11 @@ import { useEffect, useState } from "preact/hooks";
 export function SignUp({
   baseApiUrl,
   translations,
+  csrfToken,
 }: {
   baseApiUrl: string;
   translations: Record<string, string>;
+  csrfToken: string;
 }) {
   const [error, setError] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
@@ -238,6 +240,7 @@ export function SignUp({
         style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
         onSubmit={handleSubmit}
       >
+        <input type="hidden" name="csrf_token" value={csrfToken} />
         <div>
           <label
             for="nickname"

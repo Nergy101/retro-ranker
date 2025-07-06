@@ -2,6 +2,7 @@ import { ProblemDetail } from "@data/frontend/contracts/problem-detail.ts";
 import { createPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
 import { FreshContext } from "fresh";
 import { setAuthCookie } from "../../../utils.ts";
+import { validateCsrfToken } from "../../../utils.ts";
 
 export const handler = {
   async GET(_ctx: FreshContext) {
@@ -10,12 +11,24 @@ export const handler = {
   },
   async POST(ctx: FreshContext) {
     const req = ctx.req;
-    const headers = new Headers();
+    const responseHeaders = new Headers();
 
     const url = new URL(req.url);
     const form = await req.formData();
     const nickname = form.get("nickname")?.toString();
     const password = form.get("password")?.toString();
+    const csrf = form.get("csrf_token")?.toString();
+
+    if (!validateCsrfToken(req.headers, csrf)) {
+      return new Response(
+        JSON.stringify(
+          ProblemDetail.forbidden("Invalid CSRF token", {
+            given: csrf,
+          }),
+        ),
+        { status: 403 },
+      );
+    }
 
     if (!nickname || !password) {
       return new Response(
@@ -36,20 +49,23 @@ export const handler = {
     }
 
     if (!user) {
-      headers.set("location", "/auth/sign-in?error=invalid-credentials");
+      responseHeaders.set(
+        "location",
+        "/auth/sign-in?error=invalid-credentials",
+      );
 
       return new Response(
         JSON.stringify(
           ProblemDetail.forbidden("Invalid nickname or password"),
         ),
-        { status: 303, headers },
+        { status: 303, headers: responseHeaders },
       );
     }
 
-    headers.set("location", "/profile");
+    responseHeaders.set("location", "/profile");
 
-    setAuthCookie(headers, user.token, url.hostname);
+    setAuthCookie(responseHeaders, user.token, url.hostname);
 
-    return new Response(null, { status: 303, headers });
+    return new Response(null, { status: 303, headers: responseHeaders });
   },
 };
