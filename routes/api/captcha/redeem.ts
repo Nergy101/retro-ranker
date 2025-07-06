@@ -7,8 +7,6 @@ export const handler = {
 
     try {
       const { token, solutions } = await req.json();
-      console.log("token", token);
-      console.log("solutions", solutions);
 
       if (!token || !solutions) {
         return new Response(JSON.stringify({ success: false }), {

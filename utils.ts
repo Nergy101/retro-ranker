@@ -39,7 +39,6 @@ export function createCsrfCookie(
  */
 export function getCsrfTokenFromCookie(headers: Headers): string | undefined {
   const cookies = getCookies(headers);
-  console.log(cookies);
   return cookies["csrf_token"];
 }
 

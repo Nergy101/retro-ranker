@@ -188,10 +188,11 @@ retro-ranker/
 
 ### CSRF Protection
 
-Retro Ranker protects write operations with a double-submit cookie scheme. When a
-page renders a form, the server issues a random token in a `csrf_token` cookie.
-The same value is included as a hidden input in the form and validated by the
-corresponding API route. Requests with mismatched tokens result in `HTTP 403`.
+Retro Ranker protects write operations with a double-submit cookie scheme. When
+a page renders a form, the server issues a random token in a `csrf_token`
+cookie. The same value is included as a hidden input in the form and validated
+by the corresponding API route. Requests with mismatched tokens result in
+`HTTP 403`.
 
 ## 🐳 Docker
 

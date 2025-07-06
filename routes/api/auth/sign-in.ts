@@ -19,8 +19,6 @@ export const handler = {
     const password = form.get("password")?.toString();
     const csrf = form.get("csrf_token")?.toString();
 
-    console.log("csrf", csrf);
-    console.log(req.headers);
     if (!validateCsrfToken(req.headers, csrf)) {
       return new Response(
         JSON.stringify(
