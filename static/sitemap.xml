@@ -48,10 +48,6 @@
         </url>
         
         <url>
-            <loc>https://retroranker.site/devices/action-pi-</loc>
-        </url>
-        
-        <url>
             <loc>https://retroranker.site/devices/rog-xbox-ally</loc>
         </url>
         
@@ -77,6 +73,10 @@
         
         <url>
             <loc>https://retroranker.site/devices/flip-1s</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/action-pi-</loc>
         </url>
         
         <url>
