@@ -1,6 +1,7 @@
 # GitHub Actions for Playwright Tests
 
-This document describes the GitHub Actions workflows that run Playwright tests for the Retro Ranker application.
+This document describes the GitHub Actions workflows that run Playwright tests
+for the Retro Ranker application.
 
 ## Workflows
 

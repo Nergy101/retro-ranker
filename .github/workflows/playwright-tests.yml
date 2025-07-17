@@ -95,7 +95,7 @@ jobs:
             const resultsDir = 'playwright/test-results';
             if (fs.existsSync(resultsDir)) {
               const resultFiles = fs.readdirSync(resultsDir).filter(f => f.endsWith('.json'));
-              
+
               resultFiles.forEach(file => {
                 try {
                   const result = JSON.parse(fs.readFileSync(path.join(resultsDir, file), 'utf8'));
@@ -104,7 +104,7 @@ jobs:
                       spec.tests.forEach(test => {
                         testResults.total++;
                         testResults.duration += test.results[0]?.duration || 0;
-                        
+
                         if (test.results[0]?.status === 'passed') {
                           testResults.passed++;
                         } else if (test.results[0]?.status === 'failed') {

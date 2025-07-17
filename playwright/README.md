@@ -1,6 +1,7 @@
 # Playwright Tests for Retro Ranker
 
-This directory contains end-to-end tests for the Retro Ranker application using Playwright.
+This directory contains end-to-end tests for the Retro Ranker application using
+Playwright.
 
 ## Setup
 
@@ -64,7 +65,8 @@ Generate tests by recording your actions:
 npm run codegen
 ```
 
-This will open a browser where you can interact with your application and generate test code.
+This will open a browser where you can interact with your application and
+generate test code.
 
 ## Test Structure
 
@@ -87,7 +89,7 @@ The `playwright.config.ts` file configures:
 ### Basic Test Structure
 
 ```typescript
-import { test, expect } from "@playwright/test";
+import { expect, test } from "@playwright/test";
 
 test.describe("Feature Name", () => {
   test("should do something", async ({ page }) => {
@@ -115,7 +117,8 @@ test.describe("Feature Name", () => {
 ## Best Practices
 
 1. **Use data-testid attributes** for reliable element selection
-2. **Wait for network idle** after navigation: `await page.waitForLoadState('networkidle')`
+2. **Wait for network idle** after navigation:
+   `await page.waitForLoadState('networkidle')`
 3. **Test accessibility** with `expect(page).toBeAccessible()`
 4. **Test responsive design** with different viewport sizes
 5. **Handle async operations** properly with appropriate waits
@@ -130,12 +133,14 @@ The tests are configured to run in CI environments with:
 
 ### GitHub Actions
 
-This project includes automated GitHub Actions workflows for running Playwright tests:
+This project includes automated GitHub Actions workflows for running Playwright
+tests:
 
 - **🌙 Nightly Tests**: Runs automatically at 2 AM UTC daily
 - **🧪 PR Tests**: Runs on every pull request and push to main/develop
 
-For detailed information about the GitHub Actions setup, see [GITHUB_ACTIONS.md](./GITHUB_ACTIONS.md).
+For detailed information about the GitHub Actions setup, see
+[GITHUB_ACTIONS.md](./GITHUB_ACTIONS.md).
 
 ## Troubleshooting
 

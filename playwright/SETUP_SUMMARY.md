@@ -1,6 +1,7 @@
 # Playwright Nightly Pipeline Setup Summary
 
-This document summarizes the GitHub Actions setup for running Playwright tests nightly and displaying results in GitHub.
+This document summarizes the GitHub Actions setup for running Playwright tests
+nightly and displaying results in GitHub.
 
 ## What Was Created
 
@@ -189,4 +190,5 @@ If you encounter issues:
 3. Test locally using `test-workflow.sh`
 4. Check the HTML reports in the artifacts
 
-The setup is designed to be robust and provide comprehensive feedback for maintaining application quality.
+The setup is designed to be robust and provide comprehensive feedback for
+maintaining application quality.

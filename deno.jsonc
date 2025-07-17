@@ -33,7 +33,8 @@
     "static/pico.pumpkin.min.css",
     "static/styles.css",
     "**/node_modules/*",
-    "**/volumes/*"
+    "**/volumes/*",
+    "playwright/**/*"
   ],
   "imports": {
     "fresh": "jsr:@fresh/core@^2.0.0-alpha.37",

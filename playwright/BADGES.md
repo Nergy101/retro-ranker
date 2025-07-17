@@ -1,6 +1,7 @@
 # Test Status Badges
 
-You can add these badges to your README.md to show the status of your Playwright tests.
+You can add these badges to your README.md to show the status of your Playwright
+tests.
 
 ## GitHub Actions Badge
 
