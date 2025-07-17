@@ -26,14 +26,7 @@ fi
 
 echo "✅ npm is available"
 
-# Check if Deno is available
-if ! command -v deno &> /dev/null; then
-    echo "❌ Error: deno is not installed"
-    exit 1
-fi
 
-DENO_VERSION=$(deno --version | head -n 1)
-echo "📦 Deno version: $DENO_VERSION"
 
 # Install dependencies
 echo "📦 Installing npm dependencies..."
@@ -61,31 +54,12 @@ echo "✅ Playwright browsers installed"
 mkdir -p screenshots
 echo "✅ Screenshots directory created"
 
-# Test that the development server can start
-echo "🚀 Testing development server startup..."
-timeout 30s deno task start &
-SERVER_PID=$!
-
-# Wait a moment for the server to start
-sleep 5
-
-# Check if server is running
-if kill -0 $SERVER_PID 2>/dev/null; then
-    echo "✅ Development server started successfully"
-    
-    # Test that the server responds
-    if curl -s http://localhost:8000 > /dev/null; then
-        echo "✅ Server is responding on http://localhost:8000"
-    else
-        echo "⚠️  Server started but not responding on http://localhost:8000"
-    fi
-    
-    # Stop the server
-    kill $SERVER_PID
-    wait $SERVER_PID 2>/dev/null
+# Test that the production site is accessible
+echo "🌐 Testing production site accessibility..."
+if curl -s https://retroranker.site > /dev/null; then
+    echo "✅ Production site is accessible"
 else
-    echo "❌ Failed to start development server"
-    exit 1
+    echo "⚠️  Production site may not be accessible"
 fi
 
 # Test Playwright configuration

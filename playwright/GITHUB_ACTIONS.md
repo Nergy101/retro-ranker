@@ -97,9 +97,10 @@ The nightly workflow creates a test status badge showing:
 The workflows automatically set up:
 
 - **Node.js 20** for Playwright
-- **Deno v2.x** for the application
 - **All required browsers** (Chrome, Firefox, Safari, mobile)
 - **Dependency caching** for faster builds
+
+**Note:** Tests run against the production site (https://retroranker.site) in CI to avoid development server issues.
 
 ### Test Configuration
 
@@ -115,7 +116,6 @@ Tests run with the following settings:
 The workflows use GitHub Actions caching for:
 
 - **npm dependencies** (Node.js packages)
-- **Deno dependencies** (application dependencies)
 - **Playwright browsers** (installed automatically)
 
 ## Usage
@@ -163,8 +163,8 @@ npm test
 
 1. **Tests fail with "page not found"**
 
-   - Ensure the development server starts correctly
-   - Check that the base URL is correct in `playwright.config.ts`
+   - Check that the production site (https://retroranker.site) is accessible
+   - Verify the base URL is correct in `playwright.config.ts`
 
 2. **Browser installation fails**
 

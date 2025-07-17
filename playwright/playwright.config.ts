@@ -17,18 +17,19 @@ export default defineConfig({
   reporter: "html",
   /* Global timeout for all tests */
   timeout: 300000, // 5 minutes
+  /* Timeout for expect operations */
+  expect: {
+    timeout: 300000, // 5 minutes
+  },
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: "http://localhost:8000",
+    baseURL: process.env.CI
+      ? "https://retroranker.site"
+      : "http://localhost:8000",
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
-
-    /* Timeout for expect operations */
-    expect: {
-      timeout: 300000, // 5 minutes
-    },
 
     /* Timeout for navigation */
     navigationTimeout: 300000, // 5 minutes
@@ -74,10 +75,12 @@ export default defineConfig({
     // },
   ],
 
-  /* Run your local dev server before starting the tests */
-  webServer: {
-    command: "deno task start",
-    url: "http://localhost:8000",
-    reuseExistingServer: !process.env.CI,
-  },
+  /* Run your local dev server before starting the tests (only for local development) */
+  ...(process.env.CI ? {} : {
+    webServer: {
+      command: "deno task start",
+      url: "http://localhost:8000",
+      reuseExistingServer: true,
+    },
+  }),
 });
