@@ -69,6 +69,39 @@ test.describe("Example Tests with Helpers", () => {
     await helper.shouldBeOnUrl(/\/faq/);
   });
 
+  test("should test mobile navigation with helpers", async ({ page }) => {
+    const helper = createTestHelper(page);
+
+    // Navigate to home page
+    await helper.navigateTo("/");
+
+    // Test mobile navigation functionality
+    await helper.testMobileNavigation();
+
+    // Test mobile search functionality
+    await helper.testMobileSearch();
+  });
+
+  test("should test desktop navigation with helpers", async ({ page }) => {
+    const helper = createTestHelper(page);
+
+    // Navigate to home page
+    await helper.navigateTo("/");
+
+    // Test desktop navigation functionality
+    await helper.testDesktopNavigation();
+  });
+
+  test("should test navigation responsiveness with helpers", async ({ page }) => {
+    const helper = createTestHelper(page);
+
+    // Navigate to home page
+    await helper.navigateTo("/");
+
+    // Test navigation switching based on viewport
+    await helper.testNavigationResponsiveness();
+  });
+
   test("should take screenshots for debugging", async ({ page }) => {
     const helper = createTestHelper(page);
 
