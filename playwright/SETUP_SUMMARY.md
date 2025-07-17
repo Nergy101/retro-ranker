@@ -121,11 +121,16 @@ Add these to your main README.md:
 
 The workflows test against:
 
-- Chrome (Desktop)
-- Firefox (Desktop)
-- Safari (Desktop)
-- Chrome (Mobile)
-- Safari (Mobile)
+- **CI Environment:**
+
+  - Chrome (Desktop) only - for faster execution
+
+- **Local Development:**
+  - Chrome (Desktop)
+  - Firefox (Desktop)
+  - Safari (Desktop)
+  - Chrome (Mobile)
+  - Safari (Mobile)
 
 ### Timeouts
 

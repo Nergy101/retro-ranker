@@ -109,7 +109,9 @@ Tests run with the following settings:
 - **Timeout:** 30 minutes per job
 - **Retries:** 2 retries on CI for failed tests
 - **Parallel execution:** Disabled on CI for stability
-- **Browsers:** Chrome, Firefox, Safari, Mobile Chrome, Mobile Safari
+- **Browsers:**
+  - **CI:** Chromium only (for faster execution)
+  - **Local:** Chrome, Firefox, Safari, Mobile Chrome, Mobile Safari
 
 ### Caching
 
