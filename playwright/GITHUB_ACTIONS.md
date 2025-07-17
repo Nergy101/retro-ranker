@@ -118,7 +118,14 @@ Tests run with the following settings:
 The workflows use GitHub Actions caching for:
 
 - **npm dependencies** (Node.js packages)
-- **Playwright browsers** (installed automatically)
+- **Playwright browsers** (cached to avoid re-downloading)
+- **Playwright cache** (browser binaries and dependencies)
+
+**Cache Strategy:**
+
+- Cache key includes OS and package-lock.json hash
+- Browsers are only installed if not found in cache
+- Significantly reduces CI setup time after first run
 
 ## Usage
 

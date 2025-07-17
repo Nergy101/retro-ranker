@@ -63,17 +63,16 @@ nightly and displaying results in GitHub.
 ### Environment Setup
 
 1. **Node.js 20** - For Playwright and npm dependencies
-2. **Deno v2.x** - For the application server
-3. **Playwright browsers** - Chrome, Firefox, Safari, mobile browsers
-4. **Dependency caching** - For faster builds
+2. **Playwright browsers** - Chrome, Firefox, Safari, mobile browsers
+3. **Dependency caching** - For faster builds
+4. **Browser caching** - Avoids re-downloading browsers in CI
 
 ### Test Execution
 
-1. Install dependencies and browsers
-2. Start the development server (`deno task start`)
-3. Run Playwright tests across all configured browsers
-4. Upload test results and screenshots as artifacts
-5. Generate summaries and comments
+1. Install dependencies and browsers (cached for speed)
+2. Run Playwright tests against production site
+3. Upload test results and screenshots as artifacts
+4. Generate summaries and comments
 
 ### GitHub Integration
 

@@ -1,5 +1,8 @@
 # Playwright Tests for Retro Ranker
 
+![Playwright Tests](https://github.com/nergy101/retro-ranker/workflows/%F0%9F%A7%AA%20Playwright%20Tests/badge.svg)
+![Nightly Tests](https://github.com/nergy101/retro-ranker/workflows/%F0%9F%8C%99%20Nightly%20Playwright%20Tests/badge.svg)
+
 This directory contains end-to-end tests for the Retro Ranker application using
 Playwright.
 
