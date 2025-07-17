@@ -1,0 +1,133 @@
+name: 🌙 Nightly Playwright Tests
+
+on:
+  schedule:
+    # Run at 2 AM UTC every day
+    - cron: "0 2 * * *"
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  test:
+    name: Run Playwright Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: playwright/package-lock.json
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Cache Deno dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/deno
+            .deno
+          key: ${{ runner.os }}-deno-${{ hashFiles('**/deno.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-deno-
+
+      - name: Install Playwright dependencies
+        working-directory: playwright
+        run: npm ci
+
+      - name: Install Playwright browsers
+        working-directory: playwright
+        run: npx playwright install --with-deps
+
+      - name: Create screenshots directory
+        run: mkdir -p playwright/screenshots
+
+      - name: Run Playwright tests
+        working-directory: playwright
+        run: npm test
+        env:
+          # Set CI environment variable for Playwright
+          CI: true
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-test-results-${{ github.run_number }}
+          path: |
+            playwright/test-results/
+            playwright/playwright-report/
+          retention-days: 30
+
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-screenshots-${{ github.run_number }}
+          path: playwright/screenshots/
+          retention-days: 30
+
+      - name: Generate test summary
+        if: always()
+        run: |
+          echo "## 🧪 Nightly Playwright Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          if [ -d "playwright/test-results" ]; then
+            echo "### Test Results" >> $GITHUB_STEP_SUMMARY
+            echo "- Test results are available in the artifacts" >> $GITHUB_STEP_SUMMARY
+            echo "- HTML report: playwright-report/index.html" >> $GITHUB_STEP_SUMMARY
+            echo "- Screenshots: screenshots/ directory" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          if [ -d "playwright/screenshots" ]; then
+            echo "### Screenshots Taken" >> $GITHUB_STEP_SUMMARY
+            ls -la playwright/screenshots/ | grep -E '\.(png|jpg|jpeg)$' | head -10 >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          echo "### Next Steps" >> $GITHUB_STEP_SUMMARY
+          echo "- Download artifacts to view detailed results" >> $GITHUB_STEP_SUMMARY
+          echo "- Check the HTML report for interactive test results" >> $GITHUB_STEP_SUMMARY
+          echo "- Review screenshots for visual regression testing" >> $GITHUB_STEP_SUMMARY
+
+  # Job to create a test status badge
+  badge:
+    name: Update Test Status Badge
+    runs-on: ubuntu-latest
+    needs: test
+    if: always()
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Generate test status badge
+        run: |
+          if [ "${{ needs.test.result }}" == "success" ]; then
+            echo "✅ All tests passed"
+            echo "::set-output name=status::passing"
+            echo "::set-output name=color::green"
+          else
+            echo "❌ Some tests failed"
+            echo "::set-output name=status::failing"
+            echo "::set-output name=color::red"
+          fi
+
+      - name: Create test status summary
+        run: |
+          echo "## 📊 Test Status Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Overall Status:** ${{ needs.test.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Last Run:** $(date -u)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Next Run:** Tomorrow at 2 AM UTC" >> $GITHUB_STEP_SUMMARY
