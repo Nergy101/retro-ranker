@@ -466,7 +466,7 @@ export class AuthHelpers {
       await this.page.waitForURL(/\/profile/, { timeout: 5000 });
       await this.page.waitForLoadState("networkidle");
       return true; // Success
-    } catch (error) {
+    } catch {
       // Check if we got an error message
       const errorElement = this.page.locator(".auth-form-error");
       if (await errorElement.isVisible()) {

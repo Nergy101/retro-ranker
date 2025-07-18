@@ -29,7 +29,6 @@ test.describe("Login Functionality", () => {
   });
 
   test("should login successfully with specific credentials", async ({ page }) => {
-    const helper = createTestHelper(page);
     const authHelper = createAuthHelper(page);
 
     // Check if credentials are available
@@ -128,7 +127,6 @@ test.describe("Login Functionality", () => {
   });
 
   test("should logout successfully", async ({ page }) => {
-    const helper = createTestHelper(page);
     const authHelper = createAuthHelper(page);
 
     // Check if credentials are available
@@ -209,7 +207,6 @@ test.describe("Login Functionality", () => {
   });
 
   test("should handle CSRF token correctly", async ({ page }) => {
-    const helper = createTestHelper(page);
     const authHelper = createAuthHelper(page);
 
     // Check if credentials are available
@@ -233,7 +230,6 @@ test.describe("Login Functionality", () => {
   });
 
   test("should work with multiple test users if configured", async ({ page }) => {
-    const helper = createTestHelper(page);
     const authHelper = createAuthHelper(page);
 
     // Check if second user credentials are available

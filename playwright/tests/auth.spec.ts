@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { createTestHelper, SELECTORS } from "./utils/test-helpers.ts";
+import { createTestHelper } from "./utils/test-helpers.ts";
 
 test.describe("Authentication Pages", () => {
   test("should load sign-in page", async ({ page }) => {
