@@ -42,6 +42,24 @@ export default defineConfig({
 
     /* Timeout for action operations */
     actionTimeout: 300000, // 5 minutes
+
+    /* Disable Umami tracking for tests */
+    storageState: {
+      cookies: [],
+      origins: [
+        {
+          origin: process.env.CI
+            ? "https://retroranker.site"
+            : "http://localhost:8000",
+          localStorage: [
+            {
+              name: "umami.disabled",
+              value: "1",
+            },
+          ],
+        },
+      ],
+    },
   },
 
   /* Configure projects for major browsers */

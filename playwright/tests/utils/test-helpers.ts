@@ -255,6 +255,26 @@ export class TestHelpers {
       /^.+$/,
     );
   }
+
+  /**
+   * Disable Umami tracking for the current page
+   * This prevents test runs from interfering with analytics
+   */
+  async disableUmamiTracking() {
+    await this.page.evaluate(() => {
+      localStorage.setItem("umami.disabled", "1");
+    });
+  }
+
+  /**
+   * Enable Umami tracking for the current page
+   * This allows test runs to interact with analytics
+   */
+  async enableUmamiTracking() {
+    await this.page.evaluate(() => {
+      localStorage.removeItem("umami.disabled");
+    });
+  }
 }
 
 /**
