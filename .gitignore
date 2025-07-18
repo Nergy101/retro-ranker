@@ -14,11 +14,8 @@ node_modules/
 
 .vscode/
 
-# CAP tokens
+# CAP tokens and data
 .data/
-tokensList.json
-.data/tokensList.json
-# Tokens list
 tokensList.json
 
 
