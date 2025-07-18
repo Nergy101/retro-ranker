@@ -1,9 +1,5 @@
 import { expect, test } from "@playwright/test";
-import {
-  createTestHelper,
-  SELECTORS,
-  TEST_DATA,
-} from "./utils/test-helpers.ts";
+import { createTestHelper, SELECTORS, TEST_DATA } from "./utils/index.ts";
 
 test.describe("Example Tests with Helpers", () => {
   test("should use test helpers for cleaner tests", async ({ page }) => {

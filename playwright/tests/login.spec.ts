@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 import process from "node:process";
-import { createAuthHelper, createTestHelper } from "./utils/test-helpers.ts";
+import { createAuthHelper, createTestHelper } from "./utils/index.ts";
 
 test.describe("Login Functionality", () => {
   test("should login successfully with valid credentials from .env", async ({ page }) => {
