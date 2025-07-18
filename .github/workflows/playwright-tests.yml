@@ -52,6 +52,10 @@ jobs:
         run: npm test
         env:
           CI: true
+          TEST_USER_NICKNAME: ${{ secrets.TEST_USER_NICKNAME }}
+          TEST_USER_PASSWORD: ${{ secrets.TEST_USER_PASSWORD }}
+          TEST_USER_2_NICKNAME: ${{ secrets.TEST_USER_2_NICKNAME }}
+          TEST_USER_2_PASSWORD: ${{ secrets.TEST_USER_2_PASSWORD }}
 
       - name: Upload test results
         if: always()
