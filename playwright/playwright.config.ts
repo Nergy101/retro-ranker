@@ -1,6 +1,10 @@
 import { defineConfig, devices } from "@playwright/test";
 import path from "node:path";
 import process from "node:process";
+import { config } from "dotenv";
+
+// Load environment variables from .env file
+config({ path: path.join(__dirname, ".env") });
 
 /**
  * @see https://playwright.dev/docs/test-configuration
@@ -17,11 +21,11 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: "html",
-  /* Global timeout for all tests */
+  /* Global timeout for each test */
   timeout: 300000, // 5 minutes
   /* Timeout for expect operations */
   expect: {
-    timeout: 300000, // 5 minutes
+    timeout: 5000, // 5 seconds
   },
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {

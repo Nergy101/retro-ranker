@@ -245,3 +245,105 @@ export const TEST_DATA = {
   INVALID_EMAIL: "invalid-email",
   INVALID_PASSWORD: "123",
 } as const;
+
+/**
+ * Authentication helper functions
+ */
+export class AuthHelpers {
+  constructor(private page: Page) {}
+
+  /**
+   * Login with credentials from environment variables
+   */
+  async loginWithEnvCredentials() {
+    const nickname = process.env.TEST_USER_NICKNAME;
+    const password = process.env.TEST_USER_PASSWORD;
+
+    if (!nickname || !password) {
+      throw new Error(
+        "TEST_USER_NICKNAME and TEST_USER_PASSWORD must be set in .env file",
+      );
+    }
+
+    await this.page.goto("/auth/sign-in");
+    await this.page.waitForLoadState("networkidle");
+
+    // Fill in the login form
+    await this.page.fill('input[name="nickname"]', nickname);
+    await this.page.fill('input[name="password"]', password);
+
+    // Submit the form
+    await this.page.click('button[type="submit"]');
+
+    // Wait for redirect to profile page
+    await this.page.waitForURL(/\/profile/);
+  }
+
+  /**
+   * Login with specific credentials
+   */
+  async loginWithCredentials(nickname: string, password: string) {
+    await this.page.goto("/auth/sign-in");
+    await this.page.waitForLoadState("networkidle");
+
+    // Fill in the login form
+    await this.page.fill('input[name="nickname"]', nickname);
+    await this.page.fill('input[name="password"]', password);
+
+    // Submit the form
+    await this.page.click('button[type="submit"]');
+
+    // Wait for redirect to profile page
+    await this.page.waitForURL(/\/profile/);
+  }
+
+  /**
+   * Check if user is logged in by looking for profile elements
+   */
+  async isLoggedIn(): Promise<boolean> {
+    try {
+      // Check if we're on the profile page
+      if (this.page.url().includes("/profile")) {
+        return true;
+      }
+
+      // Check for user-specific elements in navigation
+      const userElements = await this.page.locator('[href="/profile"]').count();
+      return userElements > 0;
+    } catch {
+      return false;
+    }
+  }
+
+  /**
+   * Logout by visiting the sign-out endpoint
+   */
+  async logout() {
+    await this.page.goto("/api/auth/sign-out");
+    await this.page.waitForLoadState("networkidle");
+  }
+
+  /**
+   * Get CSRF token from the sign-in page
+   */
+  async getCsrfToken(): Promise<string> {
+    await this.page.goto("/auth/sign-in");
+    await this.page.waitForLoadState("networkidle");
+
+    const csrfInput = this.page.locator('input[name="csrf_token"]');
+    const csrfToken = await csrfInput.getAttribute("value");
+
+    if (!csrfToken) {
+      throw new Error("CSRF token not found on sign-in page");
+    }
+
+    return csrfToken;
+  }
+}
+
+/**
+ * Create an auth helper instance
+ */
+export function createAuthHelper(page: Page): AuthHelpers {
+  return new AuthHelpers(page);
+}
