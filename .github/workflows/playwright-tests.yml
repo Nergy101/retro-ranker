@@ -7,6 +7,10 @@ on:
     branches: [main, develop]
   workflow_dispatch:
 
+concurrency:
+  group: playwright-tests-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
     name: Run Playwright Tests

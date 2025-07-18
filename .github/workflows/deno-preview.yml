@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: main
 
+concurrency:
+  group: deno-preview-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   deploy:
     name: Deno Deploy Preview

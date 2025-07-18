@@ -6,6 +6,10 @@ on:
     - cron: "0 2 * * *"
   workflow_dispatch: # Allow manual triggering
 
+concurrency:
+  group: nightly-tests
+  cancel-in-progress: true
+
 jobs:
   test:
     name: Run Playwright Tests
