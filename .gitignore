@@ -17,6 +17,10 @@ node_modules/
 # CAP tokens
 .data/
 tokensList.json
+.data/tokensList.json
+# Tokens list
+tokensList.json
+
 
 # Docker compose and such
 volumes/
@@ -30,5 +34,6 @@ build/
 # Deno lock
 deno.lock
 
-# Tokens list
-tokensList.json
+# Screenshots
+screenshots/
+playwright/screenshots/
