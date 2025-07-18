@@ -100,7 +100,8 @@ The workflows automatically set up:
 - **All required browsers** (Chrome, Firefox, Safari, mobile)
 - **Dependency caching** for faster builds
 
-**Note:** Tests run against the production site (https://retroranker.site) in CI to avoid development server issues.
+**Note:** Tests run against the production site (https://retroranker.site) in CI
+to avoid development server issues.
 
 ### Test Configuration
 

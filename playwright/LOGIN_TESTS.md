@@ -1,10 +1,12 @@
 # Login Tests with Playwright
 
-This document explains how to set up and run login tests for the Retro Ranker application using Playwright.
+This document explains how to set up and run login tests for the Retro Ranker
+application using Playwright.
 
 ## Overview
 
-The login tests use environment variables to store test credentials securely. This approach allows you to:
+The login tests use environment variables to store test credentials securely.
+This approach allows you to:
 
 - Keep credentials out of version control
 - Use different credentials for different environments
@@ -58,7 +60,8 @@ npm install dotenv
 
 ### Authentication Helper
 
-The tests use an `AuthHelpers` class that provides common authentication operations:
+The tests use an `AuthHelpers` class that provides common authentication
+operations:
 
 - `loginWithEnvCredentials()` - Login using credentials from `.env`
 - `loginWithCredentials(nickname, password)` - Login with specific credentials
@@ -73,9 +76,11 @@ The `login.spec.ts` file includes comprehensive test cases:
 #### Positive Tests
 
 - **Successful login with .env credentials** - Tests the main login flow
-- **Successful login with specific credentials** - Tests login with provided credentials
+- **Successful login with specific credentials** - Tests login with provided
+  credentials
 - **Login state persistence** - Verifies login state across page navigation
-- **User-specific navigation elements** - Checks that logged-in users see appropriate UI elements
+- **User-specific navigation elements** - Checks that logged-in users see
+  appropriate UI elements
 - **CSRF token handling** - Verifies CSRF protection works correctly
 
 #### Negative Tests
@@ -120,7 +125,8 @@ npm run test:ui login.spec.ts
 
 ### Conditional Test Execution
 
-Tests that require credentials will be skipped if the environment variables are not set:
+Tests that require credentials will be skipped if the environment variables are
+not set:
 
 ```typescript
 if (!nickname || !password) {
@@ -213,7 +219,8 @@ env:
 1. **Use dedicated test accounts** - Don't use production accounts for testing
 2. **Rotate credentials regularly** - Change test account passwords periodically
 3. **Monitor test results** - Watch for authentication-related failures
-4. **Keep tests isolated** - Each test should be independent and not rely on others
+4. **Keep tests isolated** - Each test should be independent and not rely on
+   others
 5. **Use descriptive test names** - Make it clear what each test is verifying
 
 ## Related Files
