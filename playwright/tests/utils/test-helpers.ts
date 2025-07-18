@@ -1,4 +1,5 @@
 import { expect, Page } from "@playwright/test";
+import process from "node:process";
 
 /**
  * Helper class for common test operations
@@ -190,6 +191,71 @@ export class TestHelpers {
     await this.elementShouldBeVisible(SELECTORS.MOBILE_NAV);
     await expect(this.page.locator(SELECTORS.DESKTOP_NAV)).not.toBeVisible();
   }
+
+  /**
+   * Check if profile link is visible, handling both mobile and desktop navigation
+   */
+  async checkProfileLinkVisibility() {
+    const isMobile = await this.page.locator(".mobile-nav").isVisible();
+
+    if (isMobile) {
+      // On mobile, open the menu first
+      await this.page.click(".burger-menu");
+      await expect(this.page.locator(".mobile-nav-content")).toHaveClass(
+        /show/,
+      );
+      await expect(this.page.locator('.mobile-nav-content [href="/profile"]'))
+        .toBeVisible();
+    } else {
+      // On desktop, profile link should be directly visible
+      await expect(this.page.locator('[href="/profile"]')).toBeVisible();
+    }
+  }
+
+  /**
+   * Check if login link is not visible, handling both mobile and desktop navigation
+   */
+  async checkLoginLinkNotVisible() {
+    const isMobile = await this.page.locator(".mobile-nav").isVisible();
+
+    if (isMobile) {
+      // On mobile, check in the mobile menu
+      await expect(
+        this.page.locator('.mobile-nav-content a[href="/auth/sign-in"]'),
+      ).not.toBeVisible();
+    } else {
+      // On desktop, check directly
+      await expect(this.page.locator('a[href="/auth/sign-in"]')).not
+        .toBeVisible();
+    }
+  }
+
+  /**
+   * Check for auth form error message
+   */
+  async checkAuthFormError() {
+    await expect(this.page.locator(".auth-form-error")).toBeVisible();
+  }
+
+  /**
+   * Check for auth form error message with specific text
+   */
+  async checkAuthFormErrorWithText(expectedText: string) {
+    await expect(this.page.locator(".auth-form-error")).toBeVisible();
+    await expect(this.page.locator(".auth-form-error")).toContainText(
+      expectedText,
+    );
+  }
+
+  /**
+   * Wait for and verify CSRF token is present on the sign-in page
+   */
+  async waitForCsrfToken() {
+    await this.page.waitForLoadState("networkidle");
+    await expect(this.page.locator('input[name="csrf_token"]')).toHaveValue(
+      /^.+$/,
+    );
+  }
 }
 
 /**
@@ -268,15 +334,23 @@ export class AuthHelpers {
     await this.page.goto("/auth/sign-in");
     await this.page.waitForLoadState("networkidle");
 
+    // Verify CSRF token is present
+    await expect(this.page.locator('input[name="csrf_token"]')).toHaveValue(
+      /^.+$/,
+    );
+
     // Fill in the login form
     await this.page.fill('input[name="nickname"]', nickname);
     await this.page.fill('input[name="password"]', password);
 
-    // Submit the form
-    await this.page.click('button[type="submit"]');
+    // Submit the form and wait for navigation
+    await Promise.all([
+      this.page.waitForURL(/\/profile/, { timeout: 10000 }),
+      this.page.click('button[type="submit"]'),
+    ]);
 
-    // Wait for redirect to profile page
-    await this.page.waitForURL(/\/profile/);
+    // Wait for the page to load
+    await this.page.waitForLoadState("networkidle");
   }
 
   /**
@@ -286,15 +360,23 @@ export class AuthHelpers {
     await this.page.goto("/auth/sign-in");
     await this.page.waitForLoadState("networkidle");
 
+    // Verify CSRF token is present
+    await expect(this.page.locator('input[name="csrf_token"]')).toHaveValue(
+      /^.+$/,
+    );
+
     // Fill in the login form
     await this.page.fill('input[name="nickname"]', nickname);
     await this.page.fill('input[name="password"]', password);
 
-    // Submit the form
-    await this.page.click('button[type="submit"]');
+    // Submit the form and wait for navigation
+    await Promise.all([
+      this.page.waitForURL(/\/profile/, { timeout: 10000 }),
+      this.page.click('button[type="submit"]'),
+    ]);
 
-    // Wait for redirect to profile page
-    await this.page.waitForURL(/\/profile/);
+    // Wait for the page to load
+    await this.page.waitForLoadState("networkidle");
   }
 
   /**
@@ -307,9 +389,21 @@ export class AuthHelpers {
         return true;
       }
 
-      // Check for user-specific elements in navigation
-      const userElements = await this.page.locator('[href="/profile"]').count();
-      return userElements > 0;
+      // Check if we're on mobile or desktop
+      const isMobile = await this.page.locator(".mobile-nav").isVisible();
+
+      if (isMobile) {
+        // On mobile, check if profile link exists in the mobile menu (even if hidden)
+        const mobileProfileElements = await this.page.locator(
+          '.mobile-nav-content [href="/profile"]',
+        ).count();
+        return mobileProfileElements > 0;
+      } else {
+        // On desktop, check for user-specific elements in navigation
+        const userElements = await this.page.locator('[href="/profile"]')
+          .count();
+        return userElements > 0;
+      }
     } catch {
       return false;
     }
@@ -330,6 +424,11 @@ export class AuthHelpers {
     await this.page.goto("/auth/sign-in");
     await this.page.waitForLoadState("networkidle");
 
+    // Verify CSRF token is present
+    await expect(this.page.locator('input[name="csrf_token"]')).toHaveValue(
+      /^.+$/,
+    );
+
     const csrfInput = this.page.locator('input[name="csrf_token"]');
     const csrfToken = await csrfInput.getAttribute("value");
 
@@ -338,6 +437,80 @@ export class AuthHelpers {
     }
 
     return csrfToken;
+  }
+
+  /**
+   * Login with credentials and handle potential failures
+   */
+  async loginWithCredentialsAndHandleFailure(
+    nickname: string,
+    password: string,
+  ) {
+    await this.page.goto("/auth/sign-in");
+    await this.page.waitForLoadState("networkidle");
+
+    // Verify CSRF token is present
+    await expect(this.page.locator('input[name="csrf_token"]')).toHaveValue(
+      /^.+$/,
+    );
+
+    // Fill in the login form
+    await this.page.fill('input[name="nickname"]', nickname);
+    await this.page.fill('input[name="password"]', password);
+
+    // Submit the form
+    await this.page.click('button[type="submit"]');
+
+    // Wait for either success or failure
+    try {
+      await this.page.waitForURL(/\/profile/, { timeout: 5000 });
+      await this.page.waitForLoadState("networkidle");
+      return true; // Success
+    } catch (error) {
+      // Check if we got an error message
+      const errorElement = this.page.locator(".auth-form-error");
+      if (await errorElement.isVisible()) {
+        const errorText = await errorElement.textContent();
+        throw new Error(`Login failed: ${errorText}`);
+      }
+
+      // Check if we're still on the sign-in page
+      if (this.page.url().includes("/auth/sign-in")) {
+        throw new Error("Login failed: Still on sign-in page after submission");
+      }
+
+      throw new Error(
+        `Login failed: Unexpected state. Current URL: ${this.page.url()}`,
+      );
+    }
+  }
+
+  /**
+   * Check if test environment is properly configured
+   */
+  async checkTestEnvironment() {
+    const nickname = process.env.TEST_USER_NICKNAME;
+    const password = process.env.TEST_USER_PASSWORD;
+
+    if (!nickname || !password) {
+      throw new Error(
+        "TEST_USER_NICKNAME and TEST_USER_PASSWORD must be set in .env file",
+      );
+    }
+
+    // Only verify that the sign-in page is accessible and has the required form elements
+    // Don't actually perform a login to avoid double login issues
+    await this.page.goto("/auth/sign-in");
+    await this.page.waitForLoadState("networkidle");
+
+    // Verify CSRF token is present
+    await expect(this.page.locator('input[name="csrf_token"]')).toHaveValue(
+      /^.+$/,
+    );
+
+    // Verify form elements are present
+    await expect(this.page.locator('input[name="nickname"]')).toBeVisible();
+    await expect(this.page.locator('input[name="password"]')).toBeVisible();
   }
 }
 

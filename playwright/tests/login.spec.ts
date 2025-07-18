@@ -56,13 +56,16 @@ test.describe("Login Functionality", () => {
 
     await helper.navigateTo("/auth/sign-in");
 
+    // Wait for and verify CSRF token is present
+    await helper.waitForCsrfToken();
+
     // Fill in invalid credentials
     await page.fill('input[name="nickname"]', "invalid_user");
     await page.fill('input[name="password"]', "invalid_password");
 
     // Submit the form and wait for the redirect
     await Promise.all([
-      page.waitForURL(/\/auth\/sign-in/),
+      page.waitForURL(/\/auth\/sign-in\?error=invalid-credentials/),
       page.click('button[type="submit"]'),
     ]);
 
@@ -70,13 +73,16 @@ test.describe("Login Functionality", () => {
     await page.waitForLoadState("networkidle");
 
     // Check for error message
-    await expect(page.locator(".auth-form-error")).toBeVisible();
+    await helper.checkAuthFormError();
   });
 
   test("should fail login with empty credentials", async ({ page }) => {
     const helper = createTestHelper(page);
 
     await helper.navigateTo("/auth/sign-in");
+
+    // Wait for and verify CSRF token is present
+    await helper.waitForCsrfToken();
 
     // Try to submit form without filling credentials
     await page.click('button[type="submit"]');
@@ -89,6 +95,9 @@ test.describe("Login Functionality", () => {
     const helper = createTestHelper(page);
 
     await helper.navigateTo("/auth/sign-in");
+
+    // Wait for and verify CSRF token is present
+    await helper.waitForCsrfToken();
 
     // Fill only password
     await page.fill('input[name="password"]', "some_password");
@@ -104,6 +113,9 @@ test.describe("Login Functionality", () => {
     const helper = createTestHelper(page);
 
     await helper.navigateTo("/auth/sign-in");
+
+    // Wait for and verify CSRF token is present
+    await helper.waitForCsrfToken();
 
     // Fill only nickname
     await page.fill('input[name="nickname"]', "some_user");
@@ -191,11 +203,9 @@ test.describe("Login Functionality", () => {
     // Login
     await authHelper.loginWithEnvCredentials();
 
-    // Check for user-specific navigation elements
-    await expect(page.locator('[href="/profile"]')).toBeVisible();
-
-    // Check that login button is not visible
-    await expect(page.locator('a[href="/auth/sign-in"]')).not.toBeVisible();
+    // Check for user-specific navigation elements (handles both mobile and desktop)
+    await helper.checkProfileLinkVisibility();
+    await helper.checkLoginLinkNotVisible();
   });
 
   test("should handle CSRF token correctly", async ({ page }) => {
