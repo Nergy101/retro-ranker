@@ -1,6 +1,11 @@
 import { expect, test } from "@playwright/test";
 import process from "node:process";
-import { createAuthHelper, createTestHelper } from "./utils/index.ts";
+import {
+  createAuthHelper,
+  createTestHelper,
+  SELECTORS,
+  TEST_DATA,
+} from "./utils/index.ts";
 
 test.describe("Login Functionality", () => {
   test("should login successfully with valid credentials from .env", async ({ page }) => {
@@ -58,18 +63,18 @@ test.describe("Login Functionality", () => {
     // Wait for and verify CSRF token is present
     await helper.waitForCsrfToken();
 
-    // Fill in invalid credentials
-    await page.fill('input[name="nickname"]', "invalid_user");
-    await page.fill('input[name="password"]', "invalid_password");
+    // Fill in invalid credentials using helper methods
+    await helper.fillField(SELECTORS.NICKNAME_INPUT, "invalid_user");
+    await helper.fillField(SELECTORS.PASSWORD_INPUT, "invalid_password");
 
     // Submit the form and wait for the redirect
     await Promise.all([
       page.waitForURL(/\/auth\/sign-in\?error=invalid-credentials/),
-      page.click('button[type="submit"]'),
+      helper.clickElement(SELECTORS.SUBMIT_BUTTON),
     ]);
 
     // Wait for the page to load after redirect
-    await page.waitForLoadState("networkidle");
+    await helper.waitForNetworkIdle();
 
     // Check for error message
     await helper.checkAuthFormError();
@@ -84,7 +89,7 @@ test.describe("Login Functionality", () => {
     await helper.waitForCsrfToken();
 
     // Try to submit form without filling credentials
-    await page.click('button[type="submit"]');
+    await helper.clickElement(SELECTORS.SUBMIT_BUTTON);
 
     // Should stay on sign-in page (form validation should prevent submission)
     await expect(page).toHaveURL(/\/auth\/sign-in/);
@@ -99,10 +104,10 @@ test.describe("Login Functionality", () => {
     await helper.waitForCsrfToken();
 
     // Fill only password
-    await page.fill('input[name="password"]', "some_password");
+    await helper.fillField(SELECTORS.PASSWORD_INPUT, "some_password");
 
     // Submit the form
-    await page.click('button[type="submit"]');
+    await helper.clickElement(SELECTORS.SUBMIT_BUTTON);
 
     // Should stay on sign-in page
     await expect(page).toHaveURL(/\/auth\/sign-in/);
@@ -117,10 +122,10 @@ test.describe("Login Functionality", () => {
     await helper.waitForCsrfToken();
 
     // Fill only nickname
-    await page.fill('input[name="nickname"]', "some_user");
+    await helper.fillField(SELECTORS.NICKNAME_INPUT, "some_user");
 
     // Submit the form
-    await page.click('button[type="submit"]');
+    await helper.clickElement(SELECTORS.SUBMIT_BUTTON);
 
     // Should stay on sign-in page
     await expect(page).toHaveURL(/\/auth\/sign-in/);
@@ -181,10 +186,7 @@ test.describe("Login Functionality", () => {
     expect(await authHelper.isLoggedIn()).toBe(true);
 
     // Navigate back to profile with longer timeout for authenticated page
-    await helper.navigateTo("/profile", {
-      timeout: 30000,
-      waitForSelector: "main, .profile-container, body",
-    });
+    await helper.navigateToAuthenticatedPage("/profile");
     expect(await authHelper.isLoggedIn()).toBe(true);
   });
 

@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { createTestHelper } from "./utils/test-helpers.ts";
+import { createTestHelper, SELECTORS } from "./utils/index.ts";
 
 test.describe("Navigation", () => {
   test("should verify page context is stable", async ({ page }) => {
@@ -10,7 +10,7 @@ test.describe("Navigation", () => {
     helper.checkPageOpen();
 
     // Basic visibility check
-    await expect(page.locator("body")).toBeVisible();
+    await helper.pageShouldBeAccessible();
     helper.checkPageOpen();
   });
 
@@ -22,30 +22,33 @@ test.describe("Navigation", () => {
 
     // Test navigation to leaderboard
     await helper.navigateTo("/leaderboard");
-    await expect(page).toHaveURL(/\/leaderboard/);
+    await helper.shouldBeOnUrl(/\/leaderboard/);
 
     // Test navigation to FAQ
     await helper.navigateTo("/faq");
-    await expect(page).toHaveURL(/\/faq/);
+    await helper.shouldBeOnUrl(/\/faq/);
 
     // Test navigation to terms
     await helper.navigateTo("/terms");
-    await expect(page).toHaveURL(/\/terms/);
+    await helper.shouldBeOnUrl(/\/terms/);
 
     // Test navigation to release timeline
     await helper.navigateTo("/release-timeline");
-    await expect(page).toHaveURL(/\/release-timeline/);
+    await helper.shouldBeOnUrl(/\/release-timeline/);
   });
 
   test("should have working navigation links on desktop", async ({ page }) => {
     const helper = createTestHelper(page);
 
-    // Set desktop viewport
+    // Set desktop viewport and navigate
     await page.setViewportSize({ width: 1280, height: 720 });
     await helper.navigateTo("/");
 
+    // Test desktop navigation using helper method
+    await helper.testDesktopNavigation();
+
     // Test desktop navigation links
-    const navLinks = page.locator(".desktop-nav a[href]");
+    const navLinks = page.locator(SELECTORS.DESKTOP_NAV_LINKS);
     const linkCount = await navLinks.count();
 
     // Ensure we have at least some navigation links
@@ -65,7 +68,7 @@ test.describe("Navigation", () => {
       if (href && !href.startsWith("#") && href !== "/") {
         try {
           await link.click();
-          await expect(page).toHaveURL(new RegExp(href.replace("/", "\\/")));
+          await helper.shouldBeOnUrl(new RegExp(href.replace("/", "\\/")));
           await page.goBack();
           // Wait for the page to load after going back
           await helper.waitForPageReady();
@@ -80,33 +83,34 @@ test.describe("Navigation", () => {
   test("should have working mobile navigation with burger menu", async ({ page }) => {
     const helper = createTestHelper(page);
 
-    // Set mobile viewport
+    // Set mobile viewport and navigate
     await page.setViewportSize({ width: 375, height: 667 });
     await helper.navigateTo("/");
 
     // Check that page is still open before proceeding
     helper.checkPageOpen();
 
+    // Test mobile navigation using helper method
+    await helper.testMobileNavigation();
+
     // Check that mobile navigation is present
-    const mobileNav = page.locator(".mobile-nav");
-    await expect(mobileNav).toBeVisible();
+    await helper.elementShouldBeVisible(SELECTORS.MOBILE_NAV);
 
     // Check that burger menu button is present
-    const burgerMenu = page.locator(".burger-menu");
-    await expect(burgerMenu).toBeVisible();
+    await helper.elementShouldBeVisible(SELECTORS.BURGER_MENU);
 
-    // Check that mobile nav content exists in DOM but is hidden initially (display: none)
-    const mobileNavContent = page.locator(".mobile-nav-content");
+    // Check that mobile nav content exists in DOM but is hidden initially
+    const mobileNavContent = page.locator(SELECTORS.MOBILE_NAV_CONTENT);
     await expect(mobileNavContent).toBeAttached();
 
     // Click burger menu to open mobile navigation
-    await helper.safeClick(".burger-menu");
+    await helper.safeClick(SELECTORS.BURGER_MENU);
 
     // Wait for mobile nav content to be visible (should have 'show' class)
     await expect(mobileNavContent).toHaveClass(/show/);
 
     // Check that mobile navigation links are present
-    const mobileNavLinks = page.locator(".mobile-nav-content a[href]");
+    const mobileNavLinks = page.locator(SELECTORS.MOBILE_NAV_LINKS);
     const linkCount = await mobileNavLinks.count();
     expect(linkCount).toBeGreaterThan(0);
 
@@ -124,14 +128,14 @@ test.describe("Navigation", () => {
       if (href && !href.startsWith("#") && href !== "/") {
         try {
           await link.click();
-          await expect(page).toHaveURL(new RegExp(href.replace("/", "\\/")));
+          await helper.shouldBeOnUrl(new RegExp(href.replace("/", "\\/")));
 
           // Navigate back and reopen mobile menu for next test
           await page.goBack();
           await helper.waitForPageReady();
 
           // Reopen mobile menu for next test
-          await burgerMenu.click();
+          await helper.safeClick(SELECTORS.BURGER_MENU);
           await expect(mobileNavContent).toHaveClass(/show/);
         } catch (error) {
           // Log the error but continue with other links
@@ -141,60 +145,41 @@ test.describe("Navigation", () => {
     }
 
     // Test closing mobile navigation by clicking outside
-    await page.click("body");
+    await helper.safeClick("body");
     await expect(mobileNavContent).not.toHaveClass(/show/);
   });
 
   test("should have mobile search functionality", async ({ page }) => {
     const helper = createTestHelper(page);
 
-    // Set mobile viewport
-    await page.setViewportSize({ width: 375, height: 667 });
-    await helper.navigateTo("/");
-
-    // Check that mobile search container is present
-    await expect(page.locator(".mobile-nav-search-container")).toBeVisible();
-
-    // Check that search input is present
-    const searchInput = page.locator(
-      ".mobile-nav-search-container input[type='search']",
-    );
-    await expect(searchInput).toBeVisible();
-
-    // Check that search button is present
-    const searchButton = page.locator(".search-button-mobile");
-    await expect(searchButton).toBeVisible();
-
-    // Test search functionality
-    await searchInput.fill("test");
-    await searchButton.click();
-
-    // Should navigate to devices page with search query
-    await expect(page).toHaveURL(/\/devices\?search=test/);
+    // Test mobile search using helper method
+    await helper.testMobileSearch();
   });
 
   test("should have mobile controls (theme and language)", async ({ page }) => {
     const helper = createTestHelper(page);
 
-    // Set mobile viewport
+    // Set mobile viewport and navigate
     await page.setViewportSize({ width: 375, height: 667 });
     await helper.navigateTo("/");
 
     // Check that mobile controls are present
-    await expect(page.locator(".mobile-nav-controls")).toBeVisible();
+    await helper.elementShouldBeVisible(SELECTORS.MOBILE_CONTROLS);
 
     // Check that theme switcher is present
-    await expect(page.locator(".mobile-nav-controls button")).toBeVisible();
+    await helper.elementShouldBeVisible(".mobile-nav-controls button");
 
     // Check that language switcher is present
-    await expect(page.locator(".mobile-nav-controls select")).toBeVisible();
+    await helper.elementShouldBeVisible(".mobile-nav-controls select");
   });
 
   test("should handle 404 pages gracefully", async ({ page }) => {
-    await page.goto("/non-existent-page");
+    const helper = createTestHelper(page);
+
+    await helper.navigateTo("/non-existent-page");
 
     // Should show 404 page
-    await expect(page.locator("body")).toBeVisible();
+    await helper.pageShouldBeAccessible();
 
     // Should have some error content
     const errorContent = page.locator('h1, h2, .error, [data-testid="error"]');
@@ -202,16 +187,18 @@ test.describe("Navigation", () => {
   });
 
   test("should maintain navigation state", async ({ page }) => {
-    await page.goto("/");
+    const helper = createTestHelper(page);
+
+    await helper.navigateTo("/");
 
     // Navigate to a page
-    await page.goto("/leaderboard");
+    await helper.navigateTo("/leaderboard");
 
     // Refresh the page
     await page.reload();
 
     // Should still be on the same page
-    await expect(page).toHaveURL(/\/leaderboard/);
+    await helper.shouldBeOnUrl(/\/leaderboard/);
   });
 
   test("should switch between mobile and desktop navigation based on viewport", async ({ page }) => {
@@ -219,22 +206,7 @@ test.describe("Navigation", () => {
 
     await helper.navigateTo("/");
 
-    // Test desktop view
-    await page.setViewportSize({ width: 1280, height: 720 });
-    helper.checkPageOpen();
-    await expect(page.locator(".desktop-nav")).toBeVisible();
-    await expect(page.locator(".mobile-nav")).not.toBeVisible();
-
-    // Test mobile view
-    await page.setViewportSize({ width: 375, height: 667 });
-    helper.checkPageOpen();
-    await expect(page.locator(".mobile-nav")).toBeVisible();
-    await expect(page.locator(".desktop-nav")).not.toBeVisible();
-
-    // Test tablet view (should show mobile nav)
-    await page.setViewportSize({ width: 768, height: 1024 });
-    helper.checkPageOpen();
-    await expect(page.locator(".mobile-nav")).toBeVisible();
-    await expect(page.locator(".desktop-nav")).not.toBeVisible();
+    // Test navigation responsiveness using helper method
+    await helper.testNavigationResponsiveness();
   });
 });

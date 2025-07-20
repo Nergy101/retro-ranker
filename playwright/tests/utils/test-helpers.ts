@@ -261,6 +261,9 @@ export class TestHelpers {
     // Set mobile viewport
     await this.page.setViewportSize({ width: 375, height: 667 });
 
+    // Navigate to home page to ensure mobile navigation is present
+    await this.navigateTo("/");
+
     // Check mobile search elements
     await this.elementShouldBeVisible(SELECTORS.MOBILE_SEARCH_CONTAINER);
     await this.elementShouldBeVisible(SELECTORS.MOBILE_SEARCH_INPUT);

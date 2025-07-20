@@ -4,7 +4,7 @@ import process from "node:process";
 import { config } from "dotenv";
 
 // Load environment variables from .env file
-config({ path: path.join(__dirname, ".env") });
+config({ path: path.join(__dirname, ".env"), quiet: true });
 
 /**
  * @see https://playwright.dev/docs/test-configuration

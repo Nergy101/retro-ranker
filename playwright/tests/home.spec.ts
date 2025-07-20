@@ -1,14 +1,18 @@
 import { expect, test } from "@playwright/test";
+import { createTestHelper, SELECTORS } from "./utils/index.ts";
 
 test.describe("Home Page", () => {
   test("should load the home page with correct title and meta", async ({ page }) => {
-    await page.goto("/");
+    const helper = createTestHelper(page);
 
-    // Wait for the page to load
-    await page.waitForLoadState("networkidle");
+    // Navigate to home page with robust waiting
+    await helper.navigateTo("/", {
+      waitForLoadState: "networkidle",
+      waitForSelector: "main.main-content",
+    });
 
     // Check that the page has the correct title
-    await expect(page).toHaveTitle(/Retro Ranker - Home/);
+    await helper.pageShouldHaveTitle(/Retro Ranker - Home/);
 
     // Check for meta description
     await expect(page.locator('meta[name="description"]')).toHaveAttribute(
@@ -18,46 +22,56 @@ test.describe("Home Page", () => {
   });
 
   test("should display hero section with main content", async ({ page }) => {
-    await page.goto("/");
+    const helper = createTestHelper(page);
+
+    // Navigate to home page
+    await helper.navigateTo("/");
 
     // Check for hero container
-    await expect(page.locator(".hero-container")).toBeVisible();
+    await helper.elementShouldBeVisible(".hero-container");
 
     // Check for main heading with "Retro Ranker"
     await expect(page.locator("h1")).toContainText("Retro Ranker");
 
     // Check for hero description
-    await expect(page.locator(".hero-section p")).toBeVisible();
+    await helper.elementShouldBeVisible(".hero-section p");
 
     // Check for join community button in hero section
-    await expect(page.locator('.hero-section a[href="/auth/sign-in"]'))
-      .toBeVisible();
+    await helper.elementShouldBeVisible(
+      '.hero-section a[href="/auth/sign-in"]',
+    );
 
     // Check for hero image
-    await expect(page.locator('img[alt="Retro Ranker"]')).toBeVisible();
+    await helper.elementShouldBeVisible('img[alt="Retro Ranker"]');
   });
 
   test("should display navigation elements", async ({ page }) => {
-    await page.goto("/");
+    const helper = createTestHelper(page);
 
-    // Check for navigation elements (TopNavbar renders either DesktopNav or MobileNav)
-    await expect(page.locator("body")).toBeVisible();
+    // Navigate to home page
+    await helper.navigateTo("/");
+
+    // Check for navigation elements using helper method
+    await helper.checkNavigationElements();
 
     // Check for main content area
-    await expect(page.locator("main.main-content")).toBeVisible();
+    await helper.elementShouldBeVisible("main.main-content");
 
     // Check for footer
-    await expect(page.locator("footer")).toBeVisible();
+    await helper.elementShouldBeVisible("footer");
   });
 
   test("should display popular searches section", async ({ page }) => {
-    await page.goto("/");
+    const helper = createTestHelper(page);
+
+    // Navigate to home page
+    await helper.navigateTo("/");
 
     // Check for popular searches container
-    await expect(page.locator(".popular-searches-container")).toBeVisible();
+    await helper.elementShouldBeVisible(".popular-searches-container");
 
     // Check for popular searches heading
-    await expect(page.locator(".popular-searches-container h3")).toBeVisible();
+    await helper.elementShouldBeVisible(".popular-searches-container h3");
 
     // Check for tag components (should have multiple tags)
     const tags = page.locator(".popular-searches-container a");
@@ -66,24 +80,29 @@ test.describe("Home Page", () => {
   });
 
   test("should display device sections", async ({ page }) => {
-    await page.goto("/");
+    const helper = createTestHelper(page);
+
+    // Navigate to home page
+    await helper.navigateTo("/");
 
     // Check for all main device sections
     await expect(page.locator(".home-section")).toHaveCount(4);
 
     // Check for specific section titles using more specific selectors
-    await expect(page.locator("h2.home-section-title:has-text('New Arrivals')"))
-      .toBeVisible();
+    await helper.elementShouldBeVisible(
+      "h2.home-section-title:has-text('New Arrivals')",
+    );
     await expect(
       page.locator("h2.home-section-title").filter({
         hasText: /Bang for.*buck/i,
       }),
     ).toBeVisible();
-    await expect(page.locator("h2.home-section-title:has-text('Upcoming')"))
-      .toBeVisible();
-    await expect(
-      page.locator("h2.home-section-title:has-text('Personal Picks')"),
-    ).toBeVisible();
+    await helper.elementShouldBeVisible(
+      "h2.home-section-title:has-text('Upcoming')",
+    );
+    await helper.elementShouldBeVisible(
+      "h2.home-section-title:has-text('Personal Picks')",
+    );
 
     // Check that each section has device cards
     const deviceCards = page.locator(".device-card");
@@ -97,13 +116,16 @@ test.describe("Home Page", () => {
   });
 
   test("should display site introduction section", async ({ page }) => {
-    await page.goto("/");
+    const helper = createTestHelper(page);
+
+    // Navigate to home page
+    await helper.navigateTo("/");
 
     // Check for site introduction
-    await expect(page.locator(".site-introduction")).toBeVisible();
+    await helper.elementShouldBeVisible(".site-introduction");
 
     // Check for handheld database heading
-    await expect(page.locator(".site-introduction h2")).toBeVisible();
+    await helper.elementShouldBeVisible(".site-introduction h2");
 
     // Check for action buttons
     const actionButtons = page.locator(".index-buttons a");
@@ -111,37 +133,29 @@ test.describe("Home Page", () => {
     expect(buttonCount).toBeGreaterThan(0);
 
     // Check for specific navigation buttons in the index-buttons section
-    await expect(page.locator('.index-buttons a[href="/devices"]'))
-      .toBeVisible();
-    await expect(page.locator('.index-buttons a[href="/compare"]'))
-      .toBeVisible();
-    await expect(page.locator('.index-buttons a[href="/release-timeline"]'))
-      .toBeVisible();
-    await expect(page.locator('.index-buttons a[href="/charts"]'))
-      .toBeVisible();
+    await helper.elementShouldBeVisible('.index-buttons a[href="/devices"]');
+    await helper.elementShouldBeVisible('.index-buttons a[href="/compare"]');
+    await helper.elementShouldBeVisible(
+      '.index-buttons a[href="/release-timeline"]',
+    );
+    await helper.elementShouldBeVisible('.index-buttons a[href="/charts"]');
   });
 
   test("should be responsive across different viewport sizes", async ({ page }) => {
-    await page.goto("/");
+    const helper = createTestHelper(page);
 
-    // Test desktop view
-    await page.setViewportSize({ width: 1280, height: 720 });
-    await expect(page.locator("body")).toBeVisible();
-    await expect(page.locator(".hero-container")).toBeVisible();
+    // Navigate to home page
+    await helper.navigateTo("/");
 
-    // Test tablet view
-    await page.setViewportSize({ width: 768, height: 1024 });
-    await expect(page.locator("body")).toBeVisible();
-    await expect(page.locator(".hero-container")).toBeVisible();
-
-    // Test mobile view
-    await page.setViewportSize({ width: 375, height: 667 });
-    await expect(page.locator("body")).toBeVisible();
-    await expect(page.locator(".hero-container")).toBeVisible();
+    // Test responsive design using helper method
+    await helper.testResponsiveDesign();
   });
 
   test("should have working device card links", async ({ page }) => {
-    await page.goto("/");
+    const helper = createTestHelper(page);
+
+    // Navigate to home page
+    await helper.navigateTo("/");
 
     // Check that device cards are clickable and have proper hrefs
     const deviceCardLinks = page.locator("a[href^='/devices/']");
@@ -156,7 +170,10 @@ test.describe("Home Page", () => {
   });
 
   test("should have working navigation links", async ({ page }) => {
-    await page.goto("/");
+    const helper = createTestHelper(page);
+
+    // Navigate to home page
+    await helper.navigateTo("/");
 
     // Check that "See More" cards have proper links
     const seeMoreLinks = page.locator(".see-more-card");
@@ -189,12 +206,15 @@ test.describe("Home Page", () => {
     ];
 
     for (const expectedLink of expectedLinks) {
-      await expect(page.locator(expectedLink.selector)).toBeVisible();
+      await helper.elementShouldBeVisible(expectedLink.selector);
     }
   });
 
   test("should display device images and information", async ({ page }) => {
-    await page.goto("/");
+    const helper = createTestHelper(page);
+
+    // Navigate to home page
+    await helper.navigateTo("/");
 
     // Check for device images
     const deviceImages = page.locator(".device-card-image");
@@ -210,5 +230,45 @@ test.describe("Home Page", () => {
     const deviceBrands = page.locator(".device-card-hgroup span");
     const brandCount = await deviceBrands.count();
     expect(brandCount).toBeGreaterThan(0);
+  });
+
+  test("should test mobile navigation functionality", async ({ page }) => {
+    const helper = createTestHelper(page);
+
+    // Navigate to home page
+    await helper.navigateTo("/");
+
+    // Test mobile navigation using helper method
+    await helper.testMobileNavigation();
+  });
+
+  test("should test desktop navigation functionality", async ({ page }) => {
+    const helper = createTestHelper(page);
+
+    // Navigate to home page
+    await helper.navigateTo("/");
+
+    // Test desktop navigation using helper method
+    await helper.testDesktopNavigation();
+  });
+
+  test("should test navigation responsiveness", async ({ page }) => {
+    const helper = createTestHelper(page);
+
+    // Navigate to home page
+    await helper.navigateTo("/");
+
+    // Test navigation responsiveness using helper method
+    await helper.testNavigationResponsiveness();
+  });
+
+  test("should handle page accessibility", async ({ page }) => {
+    const helper = createTestHelper(page);
+
+    // Navigate to home page
+    await helper.navigateTo("/");
+
+    // Check page accessibility using helper method
+    await helper.pageShouldBeAccessible();
   });
 });

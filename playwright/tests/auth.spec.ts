@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { createTestHelper } from "./utils/index.ts";
+import { createTestHelper, SELECTORS } from "./utils/index.ts";
 
 test.describe("Authentication Pages", () => {
   test("should load sign-in page", async ({ page }) => {
@@ -7,13 +7,13 @@ test.describe("Authentication Pages", () => {
     await helper.navigateTo("/auth/sign-in");
 
     // Check that the page has a title
-    await expect(page).toHaveTitle(/Log in/);
+    await helper.pageShouldHaveTitle(/Log in/);
 
     // Check that the page is accessible (basic checks)
     await helper.pageShouldBeAccessible();
 
     // Check for main content
-    await expect(page.locator("main")).toBeVisible();
+    await helper.elementShouldBeVisible("main");
   });
 
   test("should load sign-up page", async ({ page }) => {
@@ -21,13 +21,13 @@ test.describe("Authentication Pages", () => {
     await helper.navigateTo("/auth/sign-up");
 
     // Check that the page has a title
-    await expect(page).toHaveTitle(/Sign up/);
+    await helper.pageShouldHaveTitle(/Sign up/);
 
     // Check that the page is accessible (basic checks)
     await helper.pageShouldBeAccessible();
 
     // Check for main content
-    await expect(page.locator("main")).toBeVisible();
+    await helper.elementShouldBeVisible("main");
   });
 
   test("should have form elements on sign-in page", async ({ page }) => {
@@ -35,14 +35,11 @@ test.describe("Authentication Pages", () => {
     await helper.navigateTo("/auth/sign-in");
 
     // Check for form elements
-    await expect(page.locator("form")).toBeVisible();
+    await helper.elementShouldBeVisible(SELECTORS.FORM);
 
-    // Check for input fields (using correct field names)
-    const nicknameInput = page.locator('input[name="nickname"]');
-    const passwordInput = page.locator('input[name="password"]');
-
-    await expect(nicknameInput).toBeVisible();
-    await expect(passwordInput).toBeVisible();
+    // Check for input fields using constants
+    await helper.elementShouldBeVisible(SELECTORS.NICKNAME_INPUT);
+    await helper.elementShouldBeVisible(SELECTORS.PASSWORD_INPUT);
   });
 
   test("should have form elements on sign-up page", async ({ page }) => {
@@ -50,16 +47,12 @@ test.describe("Authentication Pages", () => {
     await helper.navigateTo("/auth/sign-up");
 
     // Check for form elements
-    await expect(page.locator("form")).toBeVisible();
+    await helper.elementShouldBeVisible(SELECTORS.FORM);
 
-    // Check for input fields (using correct field names)
-    const nicknameInput = page.locator('input[name="nickname"]');
-    const passwordInput = page.locator('input[name="password"]');
-    const confirmPasswordInput = page.locator('input[name="confirmPassword"]');
-
-    await expect(nicknameInput).toBeVisible();
-    await expect(passwordInput).toBeVisible();
-    await expect(confirmPasswordInput).toBeVisible();
+    // Check for input fields using constants
+    await helper.elementShouldBeVisible(SELECTORS.NICKNAME_INPUT);
+    await helper.elementShouldBeVisible(SELECTORS.PASSWORD_INPUT);
+    await helper.elementShouldBeVisible(SELECTORS.CONFIRM_PASSWORD_INPUT);
   });
 
   test("should navigate between auth pages", async ({ page }) => {
@@ -69,8 +62,8 @@ test.describe("Authentication Pages", () => {
     // Look for link to sign-up page - use more specific selector
     const signUpLink = page.locator('a[href="/auth/sign-up"]').first();
     if (await signUpLink.isVisible()) {
-      await signUpLink.click();
-      await expect(page).toHaveURL(/\/auth\/sign-up/);
+      await helper.safeClick('a[href="/auth/sign-up"]');
+      await helper.shouldBeOnUrl(/\/auth\/sign-up/);
     }
 
     await helper.navigateTo("/auth/sign-up");
@@ -78,8 +71,8 @@ test.describe("Authentication Pages", () => {
     // Look for link to sign-in page - use more specific selector
     const signInLink = page.locator('a[href="/auth/sign-in"]').first();
     if (await signInLink.isVisible()) {
-      await signInLink.click();
-      await expect(page).toHaveURL(/\/auth\/sign-in/);
+      await helper.safeClick('a[href="/auth/sign-in"]');
+      await helper.shouldBeOnUrl(/\/auth\/sign-in/);
     }
   });
 });

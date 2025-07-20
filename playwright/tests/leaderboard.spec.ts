@@ -1,36 +1,39 @@
 import { expect, test } from "@playwright/test";
+import { createTestHelper } from "./utils/index.ts";
 
 test.describe("Leaderboard Page", () => {
   test("should load the leaderboard page", async ({ page }) => {
-    await page.goto("/leaderboard");
+    const helper = createTestHelper(page);
 
-    // Wait for the page to load
-    await page.waitForLoadState("networkidle");
+    await helper.navigateTo("/leaderboard", {
+      waitForLoadState: "networkidle",
+    });
 
     // Check that the page has a title
-    await expect(page).toHaveTitle(/Leaderboard/);
+    await helper.pageShouldHaveTitle(/Leaderboard/);
 
     // Check that the page content is visible
-    await expect(page.locator("main")).toBeVisible();
+    await helper.elementShouldBeVisible("main");
   });
 
   test("should display leaderboard content", async ({ page }) => {
-    await page.goto("/leaderboard");
+    const helper = createTestHelper(page);
 
-    // Wait for content to load
-    await page.waitForLoadState("networkidle");
+    await helper.navigateTo("/leaderboard", {
+      waitForLoadState: "networkidle",
+    });
 
     // Check for leaderboard content
-    await expect(page.locator("main")).toBeVisible();
+    await helper.elementShouldBeVisible("main");
 
     // Check for leaderboard page container
-    await expect(page.locator(".leaderboard-page")).toBeVisible();
+    await helper.elementShouldBeVisible(".leaderboard-page");
 
     // Check for leaderboard title
-    await expect(page.locator("h1")).toBeVisible();
+    await helper.elementShouldBeVisible("h1");
 
     // Check for top 3 section
-    await expect(page.locator(".leaderboard-top3-row")).toBeVisible();
+    await helper.elementShouldBeVisible(".leaderboard-top3-row");
 
     // Check for ranking elements (either top 3 items or rest of rankings)
     const rankingElements = page.locator(
@@ -41,12 +44,13 @@ test.describe("Leaderboard Page", () => {
   });
 
   test("should handle empty leaderboard gracefully", async ({ page }) => {
-    await page.goto("/leaderboard");
+    const helper = createTestHelper(page);
 
-    // Wait for the page to load
-    await page.waitForLoadState("networkidle");
+    await helper.navigateTo("/leaderboard", {
+      waitForLoadState: "networkidle",
+    });
 
     // Even if empty, the page should still be accessible and show some content
-    await expect(page.locator("body")).toBeVisible();
+    await helper.pageShouldBeAccessible();
   });
 });
