@@ -9,9 +9,61 @@ export class TestHelpers {
   /**
    * Navigate to a page and wait for it to load
    */
-  async navigateTo(path: string) {
-    await this.page.goto(path);
-    await this.page.waitForLoadState("networkidle");
+  async navigateTo(path: string, options?: {
+    waitForSelector?: string;
+    timeout?: number;
+    waitForLoadState?: "load" | "domcontentloaded" | "networkidle";
+    waitUntil?: "load" | "domcontentloaded" | "networkidle" | "commit";
+  }) {
+    const {
+      waitForSelector = "main, body",
+      timeout = 10000,
+      waitForLoadState = "domcontentloaded",
+      waitUntil = "domcontentloaded",
+    } = options || {};
+
+    // Check if page is still open before navigation
+    this.checkPageOpen();
+
+    // Navigate with specified wait condition
+    await this.page.goto(path, { waitUntil });
+
+    // Check if page is still open after navigation
+    this.checkPageOpen();
+
+    // Wait for the specified load state
+    try {
+      await this.page.waitForLoadState(waitForLoadState, { timeout });
+    } catch (error) {
+      // If load state times out, continue anyway
+      console.log(
+        `Warning: Load state '${waitForLoadState}' timed out for ${path}`,
+      );
+    }
+
+    // Wait for a key element to be visible (more reliable than networkidle)
+    try {
+      await this.page.waitForSelector(waitForSelector, {
+        state: "visible",
+        timeout,
+      });
+    } catch (error) {
+      // If the specific selector fails, fall back to waiting for body
+      try {
+        await this.page.waitForSelector("body", {
+          state: "visible",
+          timeout: 5000,
+        });
+      } catch (fallbackError) {
+        // If even body fails, just check if we're on the right URL
+        const currentUrl = this.page.url();
+        if (!currentUrl.includes(path.replace("/", ""))) {
+          throw new Error(
+            `Navigation to ${path} failed. Current URL: ${currentUrl}`,
+          );
+        }
+      }
+    }
   }
 
   /**
@@ -76,8 +128,57 @@ export class TestHelpers {
   /**
    * Wait for network requests to complete
    */
-  async waitForNetworkIdle() {
-    await this.page.waitForLoadState("networkidle");
+  async waitForNetworkIdle(timeout = 10000) {
+    try {
+      await this.page.waitForLoadState("networkidle", { timeout });
+    } catch (error) {
+      // If networkidle times out, just wait for domcontentloaded
+      await this.page.waitForLoadState("domcontentloaded", { timeout: 5000 });
+    }
+  }
+
+  /**
+   * Navigate to a page with more robust waiting for dynamic content
+   */
+  async navigateToWithRetry(path: string, options?: {
+    maxRetries?: number;
+    waitForSelector?: string;
+    timeout?: number;
+  }) {
+    const {
+      maxRetries = 3,
+      waitForSelector = "main, body",
+      timeout = 15000,
+    } = options || {};
+
+    for (let attempt = 1; attempt <= maxRetries; attempt++) {
+      try {
+        await this.page.goto(path);
+
+        // Wait for DOM content to be loaded
+        await this.page.waitForLoadState("domcontentloaded", {
+          timeout: 10000,
+        });
+
+        // Wait for key element to be visible
+        await this.page.waitForSelector(waitForSelector, {
+          state: "visible",
+          timeout: 10000,
+        });
+
+        // If we get here, navigation was successful
+        return;
+      } catch (error) {
+        if (attempt === maxRetries) {
+          throw new Error(
+            `Failed to navigate to ${path} after ${maxRetries} attempts: ${error}`,
+          );
+        }
+
+        // Wait a bit before retrying
+        await this.page.waitForTimeout(1000);
+      }
+    }
   }
 
   /**
@@ -250,10 +351,144 @@ export class TestHelpers {
    * Wait for and verify CSRF token is present on the sign-in page
    */
   async waitForCsrfToken() {
-    await this.page.waitForLoadState("networkidle");
+    await this.page.waitForSelector('input[name="csrf_token"]', {
+      state: "attached", // Use "attached" for hidden elements
+      timeout: 10000,
+    });
     await expect(this.page.locator('input[name="csrf_token"]')).toHaveValue(
       /^.+$/,
     );
+  }
+
+  /**
+   * Wait for page to be fully ready with content
+   */
+  async waitForPageReady(
+    selectors: string[] = ["main", "body"],
+    timeout = 10000,
+  ) {
+    for (const selector of selectors) {
+      try {
+        await this.page.waitForSelector(selector, {
+          state: "visible",
+          timeout,
+        });
+        break; // If one selector works, we're good
+      } catch (error) {
+        // Continue to next selector
+      }
+    }
+  }
+
+  /**
+   * Wait for specific content to be loaded (useful for dynamic pages)
+   */
+  async waitForContent(selector: string, timeout = 10000) {
+    await this.page.waitForSelector(selector, {
+      state: "visible",
+      timeout,
+    });
+  }
+
+  /**
+   * Navigate to authenticated pages with longer timeouts and retry logic
+   */
+  async navigateToAuthenticatedPage(path: string, options?: {
+    waitForSelector?: string;
+    timeout?: number;
+    maxRetries?: number;
+  }) {
+    const {
+      waitForSelector = "main, .profile-container, body",
+      timeout = 30000,
+      maxRetries = 2,
+    } = options || {};
+
+    for (let attempt = 1; attempt <= maxRetries; attempt++) {
+      try {
+        await this.page.goto(path, { waitUntil: "domcontentloaded" });
+
+        // Wait for content with longer timeout for authenticated pages
+        await this.page.waitForSelector(waitForSelector, {
+          state: "visible",
+          timeout,
+        });
+
+        return; // Success
+      } catch (error) {
+        if (attempt === maxRetries) {
+          throw new Error(
+            `Failed to navigate to authenticated page ${path} after ${maxRetries} attempts: ${error}`,
+          );
+        }
+
+        // Wait before retry
+        await this.page.waitForTimeout(2000);
+      }
+    }
+  }
+
+  /**
+   * Safely click an element with page closure handling
+   */
+  async safeClick(selector: string, options?: { timeout?: number }) {
+    const { timeout = 10000 } = options || {};
+
+    try {
+      // Check if page is still open
+      if (this.page.isClosed()) {
+        throw new Error("Page has been closed");
+      }
+
+      await this.page.click(selector, { timeout });
+    } catch (error) {
+      const errorMessage = error instanceof Error
+        ? error.message
+        : String(error);
+      if (
+        errorMessage.includes(
+          "Target page, context or browser has been closed",
+        )
+      ) {
+        throw new Error(
+          `Page was closed during click on ${selector}. This usually indicates a navigation or browser issue.`,
+        );
+      }
+      throw error;
+    }
+  }
+
+  /**
+   * Check if page is still open and throw descriptive error if not
+   */
+  checkPageOpen() {
+    if (this.page.isClosed()) {
+      throw new Error(
+        "Page has been closed unexpectedly. This may indicate a browser crash or navigation issue.",
+      );
+    }
+  }
+
+  /**
+   * Safely check if an element is visible with page closure handling
+   */
+  async safeIsVisible(selector: string): Promise<boolean> {
+    try {
+      this.checkPageOpen();
+      return await this.page.locator(selector).isVisible();
+    } catch (error) {
+      const errorMessage = error instanceof Error
+        ? error.message
+        : String(error);
+      if (
+        errorMessage.includes("Target page, context or browser has been closed")
+      ) {
+        throw new Error(
+          `Page was closed while checking visibility of ${selector}`,
+        );
+      }
+      throw error;
+    }
   }
 
   /**

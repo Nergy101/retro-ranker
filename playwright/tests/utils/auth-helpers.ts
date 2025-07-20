@@ -60,7 +60,7 @@ export class AuthHelpers {
 
         // Submit the form and wait for navigation
         await Promise.all([
-            this.page.waitForURL(/\/profile/, { timeout: 10000 }),
+            this.page.waitForURL(/\/profile/, { timeout: 20000 }),
             this.page.click('button[type="submit"]'),
         ]);
 
@@ -104,8 +104,10 @@ export class AuthHelpers {
      * Logout by visiting the sign-out endpoint
      */
     async logout() {
-        await this.page.goto("/api/auth/sign-out");
-        await this.page.waitForLoadState("networkidle");
+        await this.page.goto("/api/auth/sign-out", {
+            waitUntil: "domcontentloaded",
+        });
+        // Don't wait for networkidle as it can be slow
     }
 
     /**

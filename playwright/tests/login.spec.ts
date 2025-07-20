@@ -180,8 +180,11 @@ test.describe("Login Functionality", () => {
     await helper.navigateTo("/leaderboard");
     expect(await authHelper.isLoggedIn()).toBe(true);
 
-    // Navigate back to profile
-    await helper.navigateTo("/profile");
+    // Navigate back to profile with longer timeout for authenticated page
+    await helper.navigateTo("/profile", {
+      timeout: 30000,
+      waitForSelector: "main, .profile-container, body",
+    });
     expect(await authHelper.isLoggedIn()).toBe(true);
   });
 

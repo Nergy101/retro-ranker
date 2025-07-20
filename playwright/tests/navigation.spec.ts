@@ -1,34 +1,48 @@
 import { expect, test } from "@playwright/test";
+import { createTestHelper } from "./utils/test-helpers.ts";
 
 test.describe("Navigation", () => {
+  test("should verify page context is stable", async ({ page }) => {
+    const helper = createTestHelper(page);
+
+    // Simple test to verify page context works
+    await helper.navigateTo("/");
+    helper.checkPageOpen();
+
+    // Basic visibility check
+    await expect(page.locator("body")).toBeVisible();
+    helper.checkPageOpen();
+  });
+
   test("should navigate to all main pages", async ({ page }) => {
+    const helper = createTestHelper(page);
+
     // Start from home page
-    await page.goto("/");
+    await helper.navigateTo("/");
 
     // Test navigation to leaderboard
-    await page.goto("/leaderboard");
+    await helper.navigateTo("/leaderboard");
     await expect(page).toHaveURL(/\/leaderboard/);
 
     // Test navigation to FAQ
-    await page.goto("/faq");
+    await helper.navigateTo("/faq");
     await expect(page).toHaveURL(/\/faq/);
 
     // Test navigation to terms
-    await page.goto("/terms");
+    await helper.navigateTo("/terms");
     await expect(page).toHaveURL(/\/terms/);
 
     // Test navigation to release timeline
-    await page.goto("/release-timeline");
+    await helper.navigateTo("/release-timeline");
     await expect(page).toHaveURL(/\/release-timeline/);
   });
 
   test("should have working navigation links on desktop", async ({ page }) => {
+    const helper = createTestHelper(page);
+
     // Set desktop viewport
     await page.setViewportSize({ width: 1280, height: 720 });
-    await page.goto("/");
-
-    // Wait for navigation to load
-    await page.waitForLoadState("networkidle");
+    await helper.navigateTo("/");
 
     // Test desktop navigation links
     const navLinks = page.locator(".desktop-nav a[href]");
@@ -54,7 +68,7 @@ test.describe("Navigation", () => {
           await expect(page).toHaveURL(new RegExp(href.replace("/", "\\/")));
           await page.goBack();
           // Wait for the page to load after going back
-          await page.waitForLoadState("networkidle");
+          await helper.waitForPageReady();
         } catch (error) {
           // Log the error but continue with other links
           console.log(`Failed to test desktop link ${href}:`, error);
@@ -64,15 +78,18 @@ test.describe("Navigation", () => {
   });
 
   test("should have working mobile navigation with burger menu", async ({ page }) => {
+    const helper = createTestHelper(page);
+
     // Set mobile viewport
     await page.setViewportSize({ width: 375, height: 667 });
-    await page.goto("/");
+    await helper.navigateTo("/");
 
-    // Wait for navigation to load
-    await page.waitForLoadState("networkidle");
+    // Check that page is still open before proceeding
+    helper.checkPageOpen();
 
     // Check that mobile navigation is present
-    await expect(page.locator(".mobile-nav")).toBeVisible();
+    const mobileNav = page.locator(".mobile-nav");
+    await expect(mobileNav).toBeVisible();
 
     // Check that burger menu button is present
     const burgerMenu = page.locator(".burger-menu");
@@ -83,7 +100,7 @@ test.describe("Navigation", () => {
     await expect(mobileNavContent).toBeAttached();
 
     // Click burger menu to open mobile navigation
-    await burgerMenu.click();
+    await helper.safeClick(".burger-menu");
 
     // Wait for mobile nav content to be visible (should have 'show' class)
     await expect(mobileNavContent).toHaveClass(/show/);
@@ -111,7 +128,7 @@ test.describe("Navigation", () => {
 
           // Navigate back and reopen mobile menu for next test
           await page.goBack();
-          await page.waitForLoadState("networkidle");
+          await helper.waitForPageReady();
 
           // Reopen mobile menu for next test
           await burgerMenu.click();
@@ -129,12 +146,11 @@ test.describe("Navigation", () => {
   });
 
   test("should have mobile search functionality", async ({ page }) => {
+    const helper = createTestHelper(page);
+
     // Set mobile viewport
     await page.setViewportSize({ width: 375, height: 667 });
-    await page.goto("/");
-
-    // Wait for navigation to load
-    await page.waitForLoadState("networkidle");
+    await helper.navigateTo("/");
 
     // Check that mobile search container is present
     await expect(page.locator(".mobile-nav-search-container")).toBeVisible();
@@ -158,12 +174,11 @@ test.describe("Navigation", () => {
   });
 
   test("should have mobile controls (theme and language)", async ({ page }) => {
+    const helper = createTestHelper(page);
+
     // Set mobile viewport
     await page.setViewportSize({ width: 375, height: 667 });
-    await page.goto("/");
-
-    // Wait for navigation to load
-    await page.waitForLoadState("networkidle");
+    await helper.navigateTo("/");
 
     // Check that mobile controls are present
     await expect(page.locator(".mobile-nav-controls")).toBeVisible();
@@ -200,21 +215,25 @@ test.describe("Navigation", () => {
   });
 
   test("should switch between mobile and desktop navigation based on viewport", async ({ page }) => {
-    await page.goto("/");
-    await page.waitForLoadState("networkidle");
+    const helper = createTestHelper(page);
+
+    await helper.navigateTo("/");
 
     // Test desktop view
     await page.setViewportSize({ width: 1280, height: 720 });
+    helper.checkPageOpen();
     await expect(page.locator(".desktop-nav")).toBeVisible();
     await expect(page.locator(".mobile-nav")).not.toBeVisible();
 
     // Test mobile view
     await page.setViewportSize({ width: 375, height: 667 });
+    helper.checkPageOpen();
     await expect(page.locator(".mobile-nav")).toBeVisible();
     await expect(page.locator(".desktop-nav")).not.toBeVisible();
 
     // Test tablet view (should show mobile nav)
     await page.setViewportSize({ width: 768, height: 1024 });
+    helper.checkPageOpen();
     await expect(page.locator(".mobile-nav")).toBeVisible();
     await expect(page.locator(".desktop-nav")).not.toBeVisible();
   });

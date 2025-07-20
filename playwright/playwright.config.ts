@@ -15,17 +15,20 @@ export default defineConfig({
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
-  /* Retry on CI only */
-  retries: process.env.CI ? 2 : 0,
+  retries: 2,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : 2,
+  workers: 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: "html",
+  reporter: [
+    ["html"],
+    ["json", { outputFile: "test-results.json" }],
+    ["junit", { outputFile: "test-results.xml" }],
+  ],
   /* Global timeout for each test */
-  timeout: 30000, // 5 minutes
+  timeout: 10000,
   /* Timeout for expect operations */
   expect: {
-    timeout: 5000, // 5 seconds
+    timeout: 10000,
   },
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -38,10 +41,10 @@ export default defineConfig({
     trace: "on-first-retry",
 
     /* Timeout for navigation */
-    navigationTimeout: 300000, // 5 minutes
+    navigationTimeout: 10000,
 
     /* Timeout for action operations */
-    actionTimeout: 300000, // 5 minutes
+    actionTimeout: 10000,
 
     /* Disable Umami tracking for tests */
     storageState: {

@@ -8,6 +8,7 @@
     "test:ui": "playwright test --ui",
     "test:debug": "playwright test --debug",
     "test:report": "playwright show-report",
+    "test:chromium": "playwright test --project=chromium",
     "install-browsers": "playwright install",
     "codegen": "playwright codegen http://localhost:8000"
   },

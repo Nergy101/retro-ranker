@@ -9,6 +9,8 @@ test-results/
 playwright-report/
 playwright/.cache/
 screenshots/*.png
+test-results.xml
+test-results.json
 
 # Environment variables
 .env
