@@ -95,20 +95,20 @@ jobs:
               PASSED=$(jq '.stats.passed' test-results.json 2>/dev/null || echo '0')
               FAILED=$(jq '.stats.failed' test-results.json 2>/dev/null || echo '0')
               SKIPPED=$(jq '.stats.skipped' test-results.json 2>/dev/null || echo '0')
-              
+
               echo "📈 Test Statistics:"
               echo "   Total tests: $TOTAL"
               echo "   Passed: $PASSED"
               echo "   Failed: $FAILED"
               echo "   Skipped: $SKIPPED"
-              
+
               if [ "$FAILED" -eq 0 ]; then
                 echo "✅ All tests passed for ${{ matrix.browser }}!"
                 echo "::notice::All tests passed for ${{ matrix.browser }} (${{ matrix.project }})"
               else
                 echo "❌ $FAILED test(s) failed for ${{ matrix.browser }}"
                 echo "::error::$FAILED test(s) failed for ${{ matrix.browser }} (${{ matrix.project }})"
-                
+
                 # List failed test names if available
                 echo "📋 Failed tests:"
                 jq -r '.suites[] | select(.specs != null) | .specs[] | select(.tests != null) | .tests[] | select(.results[] | .status == "failed") | .title' test-results.json 2>/dev/null | head -5 | while read test; do
