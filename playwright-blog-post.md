@@ -7,9 +7,17 @@ tags: [Testing, Playwright, TypeScript, Deno, Fresh]
 
 # Playwright Testing Setup for Retro Ranker
 
-Testing web applications can be a daunting task, especially when you need to ensure your app works across different browsers, devices, and user interactions. Manual testing becomes unsustainable as your application grows, and that's where [Playwright](https://playwright.dev) comes in as a powerful end-to-end testing solution.
+Testing web applications can be a daunting task, especially when you need to
+ensure your app works across different browsers, devices, and user interactions.
+Manual testing becomes unsustainable as your application grows, and that's where
+[Playwright](https://playwright.dev) comes in as a powerful end-to-end testing
+solution.
 
-In this post, I'll walk through how I set up a comprehensive Playwright testing suite for [Retro Ranker](https://retroranker.site), a Fresh/Deno-based web application for comparing retro gaming handhelds. This setup includes multi-browser testing, CI/CD integration, helper utilities, and robust test patterns.
+In this post, I'll walk through how I set up a comprehensive Playwright testing
+suite for [Retro Ranker](https://retroranker.site), a Fresh/Deno-based web
+application for comparing retro gaming handhelds. This setup includes
+multi-browser testing, CI/CD integration, helper utilities, and robust test
+patterns.
 
 ## Table of Contents
 
@@ -39,7 +47,9 @@ In this post, I'll walk through how I set up a comprehensive Playwright testing 
 
 ## Introduction
 
-Playwright is a modern end-to-end testing framework that supports multiple browsers (Chromium, Firefox, Safari) and provides excellent developer experience. For Retro Ranker, I needed a testing solution that could:
+Playwright is a modern end-to-end testing framework that supports multiple
+browsers (Chromium, Firefox, Safari) and provides excellent developer
+experience. For Retro Ranker, I needed a testing solution that could:
 
 - Test across multiple browsers and devices
 - Handle authentication flows
@@ -51,7 +61,8 @@ Let's dive into how I achieved this.
 
 ## Project Structure
 
-My Playwright setup is organized in a dedicated `playwright/` directory within the project:
+My Playwright setup is organized in a dedicated `playwright/` directory within
+the project:
 
 ```
 playwright/
@@ -72,11 +83,13 @@ playwright/
 └── test-workflow.sh
 ```
 
-This structure separates concerns and makes the test suite maintainable and scalable.
+This structure separates concerns and makes the test suite maintainable and
+scalable.
 
 ## Configuration Setup
 
-The heart of my Playwright setup is the `playwright.config.ts` file. Here's how I configured it for optimal performance and reliability:
+The heart of my Playwright setup is the `playwright.config.ts` file. Here's how
+I configured it for optimal performance and reliability:
 
 ```typescript
 import { defineConfig, devices } from "@playwright/test";
@@ -126,43 +139,46 @@ export default defineConfig({
 
   projects: process.env.CI
     ? [
-        // CI: Test Chrome desktop and mobile for speed
-        { name: "chromium", use: { ...devices["Desktop Chrome"] } },
-        { name: "Mobile Chrome", use: { ...devices["Pixel 5"] } },
-      ]
+      // CI: Test Chrome desktop and mobile for speed
+      { name: "chromium", use: { ...devices["Desktop Chrome"] } },
+      { name: "Mobile Chrome", use: { ...devices["Pixel 5"] } },
+    ]
     : [
-        // Local: Test all browsers for comprehensive coverage
-        { name: "chromium", use: { ...devices["Desktop Chrome"] } },
-        { name: "firefox", use: { ...devices["Desktop Firefox"] } },
-        { name: "webkit", use: { ...devices["Desktop Safari"] } },
-        { name: "Mobile Chrome", use: { ...devices["Pixel 5"] } },
-        { name: "Mobile Safari", use: { ...devices["iPhone 12"] } },
-      ],
+      // Local: Test all browsers for comprehensive coverage
+      { name: "chromium", use: { ...devices["Desktop Chrome"] } },
+      { name: "firefox", use: { ...devices["Desktop Firefox"] } },
+      { name: "webkit", use: { ...devices["Desktop Safari"] } },
+      { name: "Mobile Chrome", use: { ...devices["Pixel 5"] } },
+      { name: "Mobile Safari", use: { ...devices["iPhone 12"] } },
+    ],
 
   // Auto-start dev server for local development
-  ...(process.env.CI
-    ? {}
-    : {
-        webServer: {
-          command: "deno task start",
-          cwd: path.join(__dirname, ".."),
-          url: "http://localhost:8000",
-          reuseExistingServer: true,
-        },
-      }),
+  ...(process.env.CI ? {} : {
+    webServer: {
+      command: "deno task start",
+      cwd: path.join(__dirname, ".."),
+      url: "http://localhost:8000",
+      reuseExistingServer: true,
+    },
+  }),
 });
 ```
 
 Key configuration highlights:
 
-- **Environment-aware base URL**: Uses localhost for development, production URL for CI
+- **Environment-aware base URL**: Uses localhost for development, production URL
+  for CI
 - **Analytics disabling**: Prevents test runs from polluting analytics data
-- **Conditional browser testing**: Full browser suite locally, optimized set for CI
-- **Auto-server startup**: Automatically starts the Deno dev server for local testing
+- **Conditional browser testing**: Full browser suite locally, optimized set for
+  CI
+- **Auto-server startup**: Automatically starts the Deno dev server for local
+  testing
 
 ## Test Helper Architecture
 
-One of the most powerful aspects of my setup is the comprehensive helper utilities that make tests more readable and maintainable. The architecture is built around three core components:
+One of the most powerful aspects of my setup is the comprehensive helper
+utilities that make tests more readable and maintainable. The architecture is
+built around three core components:
 
 ### TestHelpers Class
 
@@ -179,7 +195,7 @@ export class TestHelpers {
       timeout?: number;
       waitForLoadState?: "load" | "domcontentloaded" | "networkidle";
       waitUntil?: "load" | "domcontentloaded" | "networkidle" | "commit";
-    }
+    },
   ) {
     const {
       waitForSelector = "main, body",
@@ -198,7 +214,7 @@ export class TestHelpers {
       await this.page.waitForLoadState(waitForLoadState, { timeout });
     } catch (error) {
       console.log(
-        `Warning: Load state '${waitForLoadState}' timed out for ${path}`
+        `Warning: Load state '${waitForLoadState}' timed out for ${path}`,
       );
     }
 
@@ -268,7 +284,7 @@ export class AuthHelpers {
 
     if (!nickname || !password) {
       throw new Error(
-        "TEST_USER_NICKNAME and TEST_USER_PASSWORD must be set in .env file"
+        "TEST_USER_NICKNAME and TEST_USER_PASSWORD must be set in .env file",
       );
     }
 
@@ -277,7 +293,7 @@ export class AuthHelpers {
 
     // Verify CSRF token is present
     await expect(this.page.locator('input[name="csrf_token"]')).toHaveValue(
-      /^.+$/
+      /^.+$/,
     );
 
     // Fill in the login form
@@ -332,13 +348,15 @@ export class AuthHelpers {
 The `AuthHelpers` class provides:
 
 - **Environment-based login**: Uses credentials from environment variables
-- **Session state detection**: Intelligently detects login state across mobile/desktop
+- **Session state detection**: Intelligently detects login state across
+  mobile/desktop
 - **CSRF token handling**: Manages CSRF tokens for secure form submissions
 - **Logout functionality**: Handles logout flows consistently
 
 ### Constants Management
 
-I use a centralized constants file to maintain consistent selectors across all tests:
+I use a centralized constants file to maintain consistent selectors across all
+tests:
 
 ```typescript
 export const SELECTORS = {
@@ -362,11 +380,13 @@ export const TEST_DATA = {
 } as const;
 ```
 
-This allows me to write tests using consistent selectors and makes maintenance much easier.
+This allows me to write tests using consistent selectors and makes maintenance
+much easier.
 
 ## Writing Effective Tests
 
-With our helper utilities in place, writing tests becomes much cleaner and more maintainable. Let's look at examples from different types of tests.
+With our helper utilities in place, writing tests becomes much cleaner and more
+maintainable. Let's look at examples from different types of tests.
 
 ### Home Page Tests
 
@@ -377,9 +397,7 @@ import { expect, test } from "@playwright/test";
 import { createTestHelper } from "./utils/index.ts";
 
 test.describe("Home Page", () => {
-  test("should load the home page with correct title and meta", async ({
-    page,
-  }) => {
+  test("should load the home page with correct title and meta", async ({ page }) => {
     const helper = createTestHelper(page);
     await helper.navigateTo("/", {
       waitForLoadState: "networkidle",
@@ -392,7 +410,7 @@ test.describe("Home Page", () => {
     // Check for meta description
     await expect(page.locator('meta[name="description"]')).toHaveAttribute(
       "content",
-      /Retro Ranker - Home to browse and compare retro gaming handhelds/
+      /Retro Ranker - Home to browse and compare retro gaming handhelds/,
     );
   });
 
@@ -411,13 +429,11 @@ test.describe("Home Page", () => {
 
     // Check for join community button
     await helper.elementShouldBeVisible(
-      '.hero-section a[href="/auth/sign-in"]'
+      '.hero-section a[href="/auth/sign-in"]',
     );
   });
 
-  test("should be responsive across different viewport sizes", async ({
-    page,
-  }) => {
+  test("should be responsive across different viewport sizes", async ({ page }) => {
     const helper = createTestHelper(page);
     await helper.navigateTo("/");
 
@@ -437,9 +453,7 @@ import process from "node:process";
 import { createAuthHelper, createTestHelper } from "./utils/index.ts";
 
 test.describe("Login Functionality", () => {
-  test("should login successfully with valid credentials from .env", async ({
-    page,
-  }) => {
+  test("should login successfully with valid credentials from .env", async ({ page }) => {
     const authHelper = createAuthHelper(page);
 
     // Check if credentials are available
@@ -522,7 +536,8 @@ Key testing patterns I follow:
 
 ## CI/CD Integration
 
-My Playwright setup integrates seamlessly with GitHub Actions for automated testing. The configuration automatically adapts to the CI environment:
+My Playwright setup integrates seamlessly with GitHub Actions for automated
+testing. The configuration automatically adapts to the CI environment:
 
 ```yaml
 # .github/workflows/playwright-tests.yml
@@ -577,7 +592,8 @@ The CI setup provides:
 
 ## Best Practices and Patterns
 
-Throughout my Playwright implementation, I've established several best practices:
+Throughout my Playwright implementation, I've established several best
+practices:
 
 ### 1. Environment Configuration
 
@@ -660,7 +676,9 @@ async testResponsiveDesign() {
 
 ## Conclusion
 
-Setting up Playwright for Retro Ranker has provided me with a robust, maintainable testing solution that scales with my application. The key benefits I've achieved include:
+Setting up Playwright for Retro Ranker has provided me with a robust,
+maintainable testing solution that scales with my application. The key benefits
+I've achieved include:
 
 - **Comprehensive coverage**: Multi-browser testing across desktop and mobile
 - **Developer experience**: Clean, readable tests with helpful utilities
@@ -668,8 +686,15 @@ Setting up Playwright for Retro Ranker has provided me with a robust, maintainab
 - **Maintainability**: Well-structured code with clear separation of concerns
 - **Reliability**: Robust error handling and recovery mechanisms
 
-The combination of thoughtful configuration, comprehensive helper utilities, and established testing patterns has created a testing suite that not only catches bugs but also serves as living documentation of my application's expected behavior.
+The combination of thoughtful configuration, comprehensive helper utilities, and
+established testing patterns has created a testing suite that not only catches
+bugs but also serves as living documentation of my application's expected
+behavior.
 
-Whether you're building a Fresh/Deno application like Retro Ranker or working with any modern web framework, Playwright provides the tools you need to build confidence in your application's quality and reliability.
+Whether you're building a Fresh/Deno application like Retro Ranker or working
+with any modern web framework, Playwright provides the tools you need to build
+confidence in your application's quality and reliability.
 
-For more details about my specific implementation, check out the [Retro Ranker repository](https://github.com/nergy101/retro-ranker) and explore the `playwright/` directory to see how these patterns work in practice.
+For more details about my specific implementation, check out the
+[Retro Ranker repository](https://github.com/nergy101/retro-ranker) and explore
+the `playwright/` directory to see how these patterns work in practice.
