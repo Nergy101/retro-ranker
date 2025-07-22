@@ -1,11 +1,15 @@
 name: 🧪 Playwright Tests
 
 on:
-  push:
-    branches: [main, develop]
   pull_request:
     branches: [main, develop]
   workflow_dispatch:
+  workflow_run:
+    workflows: ["🚀 Deploy Fresh App"]
+    types:
+      - completed
+    branches:
+      - main
 
 concurrency:
   group: playwright-tests-${{ github.ref }}
@@ -16,6 +20,7 @@ jobs:
     name: Run Playwright Tests
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name != 'workflow_run' }}
 
     steps:
       - name: Checkout code
@@ -109,7 +114,7 @@ jobs:
     name: Comment on PR
     runs-on: ubuntu-latest
     needs: test
-    if: github.event_name == 'pull_request' && always()
+    if: (github.event_name == 'pull_request' || github.event_name == 'workflow_run') && always()
 
     steps:
       - name: Comment on PR
@@ -138,9 +143,12 @@ jobs:
             const summary =
               `## 🧪 Playwright Test Results\n\n**Status:** ${status}\n\n**Artifacts:**\n- 📄 [Test Results](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts)\n- 📸 [Screenshots](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts)\n- 📋 [HTML Report](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts)\n\nDownload the artifacts to view detailed test results and screenshots.`;
 
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-              body: summary
-            });
+            // Only create PR comments if this is a pull request
+            if (context.eventName === 'pull_request') {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: summary
+              });
+            }
