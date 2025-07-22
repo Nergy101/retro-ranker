@@ -62,25 +62,16 @@ jobs:
       - name: Create screenshots directory
         run: mkdir -p playwright/screenshots
 
-      - name: Make test failure handler executable
-        run: chmod +x playwright/test-failure-handler.sh
-
-      - name: Run Safari/WebKit tests with failure handler
+      - name: Run Safari/WebKit tests
         working-directory: playwright
-        run: |
-          # Set environment variables for the test failure handler
-          export CI=true
-          export TEST_USER_NICKNAME="${{ secrets.TEST_USER_NICKNAME }}"
-          export TEST_USER_PASSWORD="${{ secrets.TEST_USER_PASSWORD }}"
-          export TEST_USER_2_NICKNAME="${{ secrets.TEST_USER_2_NICKNAME }}"
-          export TEST_USER_2_PASSWORD="${{ secrets.TEST_USER_2_PASSWORD }}"
-
-          # Run tests with specific project
-          npx playwright test --project=${{ matrix.project }} || true
-
-          # Run the failure handler to process results
-          ./test-failure-handler.sh
+        run: npx playwright test --project="${{ matrix.project }}"
         continue-on-error: true
+        env:
+          CI: true
+          TEST_USER_NICKNAME: ${{ secrets.TEST_USER_NICKNAME }}
+          TEST_USER_PASSWORD: ${{ secrets.TEST_USER_PASSWORD }}
+          TEST_USER_2_NICKNAME: ${{ secrets.TEST_USER_2_NICKNAME }}
+          TEST_USER_2_PASSWORD: ${{ secrets.TEST_USER_2_PASSWORD }}
 
       - name: Upload test results
         if: always()

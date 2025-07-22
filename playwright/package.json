@@ -15,7 +15,6 @@
     "test:headed:non-blocking": "playwright test --headed || true",
     "test:chromium:non-blocking": "playwright test --project=chromium || true",
     "test:webkit:non-blocking": "playwright test --project=webkit || true",
-    "test:smart": "./test-failure-handler.sh",
     "install-browsers": "playwright install",
     "codegen": "playwright codegen http://localhost:8000"
   },
