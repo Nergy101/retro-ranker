@@ -82,58 +82,6 @@ jobs:
           ./test-failure-handler.sh
         continue-on-error: true
 
-      - name: Analyze test results and generate summary
-        working-directory: playwright
-        run: |
-          echo "📊 Test Results Summary for ${{ matrix.browser }} (${{ matrix.project }})"
-          echo "=========================================="
-
-          if [ -f "test-results.json" ]; then
-            # Use jq to parse the JSON and extract test statistics
-            if command -v jq &> /dev/null; then
-              TOTAL=$(jq '.stats.total' test-results.json 2>/dev/null || echo '0')
-              PASSED=$(jq '.stats.passed' test-results.json 2>/dev/null || echo '0')
-              FAILED=$(jq '.stats.failed' test-results.json 2>/dev/null || echo '0')
-              SKIPPED=$(jq '.stats.skipped' test-results.json 2>/dev/null || echo '0')
-
-              echo "📈 Test Statistics:"
-              echo "   Total tests: $TOTAL"
-              echo "   Passed: $PASSED"
-              echo "   Failed: $FAILED"
-              echo "   Skipped: $SKIPPED"
-
-              if [ "$FAILED" -eq 0 ]; then
-                echo "✅ All tests passed for ${{ matrix.browser }}!"
-                echo "::notice::All tests passed for ${{ matrix.browser }} (${{ matrix.project }})"
-              else
-                echo "❌ $FAILED test(s) failed for ${{ matrix.browser }}"
-                echo "::error::$FAILED test(s) failed for ${{ matrix.browser }} (${{ matrix.project }})"
-
-                # List failed test names if available
-                echo "📋 Failed tests:"
-                jq -r '.suites[] | select(.specs != null) | .specs[] | select(.tests != null) | .tests[] | select(.results[] | .status == "failed") | .title' test-results.json 2>/dev/null | head -5 | while read test; do
-                  if [ -n "$test" ]; then
-                    echo "   - $test"
-                  fi
-                done
-              fi
-            else
-              echo "⚠️  jq not available, using basic parsing..."
-              if grep -q '"failed":[1-9]' test-results.json 2>/dev/null; then
-                echo "❌ Tests failed for ${{ matrix.browser }}"
-                echo "::error::Tests failed for ${{ matrix.browser }} (${{ matrix.project }})"
-              else
-                echo "✅ All tests passed for ${{ matrix.browser }}!"
-                echo "::notice::All tests passed for ${{ matrix.browser }} (${{ matrix.project }})"
-              fi
-            fi
-          else
-            echo "⚠️  No test-results.json found"
-            echo "::warning::No test results found for ${{ matrix.browser }} (${{ matrix.project }})"
-          fi
-
-          echo "=========================================="
-
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v4
