@@ -25,6 +25,10 @@ help:
 	@echo "  build            Build for production"
 	@echo "  preview          Preview production build"
 	@echo "  update           Update Fresh framework"
+	@echo "  test             Run Playwright tests (fails on test failure)"
+	@echo "  test:non-blocking Run Playwright tests (continues on failure)"
+	@echo "  test:headed      Run Playwright tests in headed mode"
+	@echo "  test:headed:non-blocking Run Playwright tests in headed mode (continues on failure)"
 	@echo "  refresh-all      Refresh all data"
 	@echo "  sources          Get new data sources"
 	@echo "  generate-devices Generate device data"
@@ -51,6 +55,19 @@ preview:
 
 update:
 	deno task update
+
+# Testing commands
+test:
+	cd playwright && npm test
+
+test:non-blocking:
+	cd playwright && npm run test:non-blocking
+
+test:headed:
+	cd playwright && npm run test:headed
+
+test:headed:non-blocking:
+	cd playwright && npm run test:headed:non-blocking
 
 # Data management commands
 refresh-all:

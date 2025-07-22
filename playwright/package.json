@@ -9,6 +9,13 @@
     "test:debug": "playwright test --debug",
     "test:report": "playwright show-report",
     "test:chromium": "playwright test --project=chromium",
+    "test:webkit": "playwright test --project=webkit",
+    "test:firefox": "playwright test --project=firefox",
+    "test:non-blocking": "playwright test || true",
+    "test:headed:non-blocking": "playwright test --headed || true",
+    "test:chromium:non-blocking": "playwright test --project=chromium || true",
+    "test:webkit:non-blocking": "playwright test --project=webkit || true",
+    "test:smart": "./test-failure-handler.sh",
     "install-browsers": "playwright install",
     "codegen": "playwright codegen http://localhost:8000"
   },

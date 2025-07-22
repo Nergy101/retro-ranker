@@ -1,30 +1,32 @@
-name: 🌙 Nightly Playwright Tests
+name: 🌙 Nightly Safari Tests
 
 on:
   schedule:
-    # Run at 2 AM UTC every day
-    - cron: "0 2 * * *"
+    # Run at 3 AM UTC every day (1 hour after main nightly tests)
+    - cron: "0 3 * * *"
   workflow_dispatch: # Allow manual triggering
 
 concurrency:
-  group: nightly-tests
+  group: nightly-safari-tests
   cancel-in-progress: true
 
 jobs:
-  test:
-    name: Run Playwright Tests - ${{ matrix.browser }}
-    runs-on: ubuntu-latest
+  test-safari:
+    name: Run Safari/WebKit Tests - ${{ matrix.browser }}
+    runs-on: ${{ matrix.runner }}
     timeout-minutes: 30
     strategy:
+      fail-fast: false
       matrix:
-        browser: [chromium, "Mobile Chrome", firefox]
         include:
-          - browser: chromium
-            project: chromium
-          - browser: "Mobile Chrome"
-            project: "Mobile Chrome"
-          - browser: firefox
-            project: firefox
+          - browser: "WebKit (Desktop)"
+            project: "webkit"
+            runner: "macos-latest"
+            device: "Desktop Safari"
+          - browser: "Safari Mobile"
+            project: "webkit-mobile"
+            runner: "macos-latest"
+            device: "iPhone 12"
 
     steps:
       - name: Checkout code
@@ -44,33 +46,41 @@ jobs:
           path: |
             ~/.cache/ms-playwright
             playwright/.cache
-          key: ${{ runner.os }}-playwright-${{ hashFiles('playwright/package-lock.json') }}
+          key: ${{ runner.os }}-playwright-${{ matrix.project }}-${{ hashFiles('playwright/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-playwright-
+            ${{ runner.os }}-playwright-${{ matrix.project }}-
 
       - name: Install Playwright dependencies
         working-directory: playwright
         run: npm ci
 
-      - name: Install Playwright browsers
+      - name: Install Playwright browsers (WebKit only)
         working-directory: playwright
-        run: npx playwright install --with-deps
+        run: npx playwright install webkit
         if: steps.cache-playwright.outputs.cache-hit != 'true'
 
       - name: Create screenshots directory
         run: mkdir -p playwright/screenshots
 
-      - name: Run Playwright tests
+      - name: Make test failure handler executable
+        run: chmod +x playwright/test-failure-handler.sh
+
+      - name: Run Safari/WebKit tests with failure handler
         working-directory: playwright
-        run: npx playwright test --project="${{ matrix.project }}"
+        run: |
+          # Set environment variables for the test failure handler
+          export CI=true
+          export TEST_USER_NICKNAME="${{ secrets.TEST_USER_NICKNAME }}"
+          export TEST_USER_PASSWORD="${{ secrets.TEST_USER_PASSWORD }}"
+          export TEST_USER_2_NICKNAME="${{ secrets.TEST_USER_2_NICKNAME }}"
+          export TEST_USER_2_PASSWORD="${{ secrets.TEST_USER_2_PASSWORD }}"
+
+          # Run tests with specific project
+          npx playwright test --project=${{ matrix.project }} || true
+
+          # Run the failure handler to process results
+          ./test-failure-handler.sh
         continue-on-error: true
-        env:
-          # Set CI environment variable for Playwright
-          CI: true
-          TEST_USER_NICKNAME: ${{ secrets.TEST_USER_NICKNAME }}
-          TEST_USER_PASSWORD: ${{ secrets.TEST_USER_PASSWORD }}
-          TEST_USER_2_NICKNAME: ${{ secrets.TEST_USER_2_NICKNAME }}
-          TEST_USER_2_PASSWORD: ${{ secrets.TEST_USER_2_PASSWORD }}
 
       - name: Analyze test results and generate summary
         working-directory: playwright
@@ -128,7 +138,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-test-results-${{ matrix.browser }}-${{ github.run_number }}
+          name: safari-test-results-${{ matrix.browser }}-${{ github.run_number }}
           path: |
             playwright/test-results/
             playwright/playwright-report/
@@ -138,6 +148,6 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-screenshots-${{ matrix.browser }}-${{ github.run_number }}
+          name: safari-screenshots-${{ matrix.browser }}-${{ github.run_number }}
           path: playwright/screenshots/
           retention-days: 30

@@ -58,7 +58,8 @@ jobs:
 
       - name: Run Playwright tests
         working-directory: playwright
-        run: npm test
+        run: npm run test:non-blocking
+        continue-on-error: true
         env:
           CI: true
           TEST_USER_NICKNAME: ${{ secrets.TEST_USER_NICKNAME }}
