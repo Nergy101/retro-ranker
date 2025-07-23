@@ -1,1847 +1,1842 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://retroranker.site/devices</loc>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/release-timeline</loc>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/compare</loc>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/leaderboard</loc>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/charts</loc>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/faq</loc>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/mangmi-air-x</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/one-35</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/pocket-s2</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-477m</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/flip-1s</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/onexsugar-sugar-1</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rog-xbox-ally</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rog-xbox-ally-x</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/legion-go-gen-2</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/zotac-zone-2</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rgb50</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/miyoo-mini-flip</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/action-pi-</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/zero-40</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-slide</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-35xx-pro</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/aokzoe-a1x</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/abxylute-one-pro</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/pocket-ace</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/v90s</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-34xxsp</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/retroid-pocket-mini-v2</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/ayaneo-3</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-557</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/retroid-pocket-classic</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/k56</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/retroid-pocket-flip-2</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/ayaneo-pocket-micro-classic</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/onexplayer-g1</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/my-mini</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gamemt-e6-max</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/u8</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/qrd-vortex-f5</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/batlexp-g350</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gpd-win-mini-2025</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/v20</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rx6h</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/legion-go-s</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gkd-pixel-2</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/msi-claw-8-ai+</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/msi-claw-7-ai+</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/z35s-hg3506</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/onexplayer-x1-pro</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/mini-zero-28</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/odin-2-portal</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/x35h</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/r36h</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/miyoo-flip</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gpd-win-4-2025</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gpd-win-max-2-2025</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-34xx</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/g28</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/r36-max</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/onexfly-f1-pro</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/ayaneo-pocket-dmg</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/ayaneo-pocket-evo</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-406h</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/retroid-pocket-5</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/trimui-smart-brick</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/m22-pro</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/sf3000</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/r39s</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-cube-xx</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rgb20-pro</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/zotac-zone</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gkd-bubble</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/retroid-pocket-mini</loc>
-  </url>
-
-  <url>
-    <loc
-    >https://retroranker.site/devices/ayaneo-pocket-micro-antech-core-micro</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-406v</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rgb10x</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/r46s</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-40xxv</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/tjd-t80</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/zpg-a1-unicorn</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/k36</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/x35s</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/xu-mini-m</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rog-ally-x</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-40xxh</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/onexplayer-x1-mini</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gamemt-e5</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/m21</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/odin-2-mini</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/v10</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gamemt-e6-plus</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-cube</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gpd-win-max-2-(2024)</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/ayaneo-pocket-s</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/r40s</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-35xx-sp</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/miyoo-a30-282</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/m19</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gpd-win-mini-2024</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-28xx</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rgb20sx</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/d-r35s-plus</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/ayaneo-flip-ds</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/ayaneo-flip-kb</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-35xx-2024</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/r50s</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/msi-claw-a1m</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-556</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rgb10max3</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gameforce-ace</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/aokzoe-a2</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/ayaneo-next-lite</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/onexplayer-x1</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/retroid-pocket-4</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/tjd-t101</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gkd-pixel</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/retroid-pocket-4-pro</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-35xx-h</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/m18-r43-pro</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/r33s</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gb300</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/ayaneo-slide-antech-core-hs</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gamemt-e6</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gpd-win-mini</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-35xx-plus</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-arc-d</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-arc-s</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/steam-deck-oled</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/xu10</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/trimui-smart-pro</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/r36s</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/lenovo-legion-go</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/odin-2</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/ayaneo-kun</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/m17</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/ayaneo-pocket-air</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/loki-mini-pro</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/onexfly</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gpd-win-4(7640u-7840u)</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-405v</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/powkiddy-rgb30</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/loki-zero</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/retroid-pocket-2s</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gpd-win-max-2(7640u-7840u)</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/ayaneo-air-1s</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/ayaneo-geek-1s</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/abxylute-cloud-gaming-handheld</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/kt-r1</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/r35s</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/powkiddy-rgb10-max-3-pro</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/x6</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/uconsole</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/aokzoe-a1-pro</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/ayaneo-2s</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/ayaneo-air-plus</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-nano</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rog-ally</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/loki</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/loki-max</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rk2023(wifi-model)</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/pimax-portal</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/retro-pixel-pocket</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/d-007</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/powkiddy-x28</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-353ps</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/powkiddy-x55</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/ayaneo-air-plus-amd-6800u</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/retroid-pocket-flip</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/data-frog-sf2000</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-405m</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gpd-win-4</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rk2023</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/miyoo-mini-plus</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/onexplayer-2</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/razer-edge-5g</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gkd-mini-plus-classic</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gkd-mini-plus</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/ayaneo-2</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-35xx</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gpi-case-2w</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/pocketstar</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-505</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/retroid-pocket-3-plus</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/one-xplayer-mini-pro</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-353m</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/logitech-g-cloud</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gpd-win-max-2</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/odroid-go-ultra</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/aokzoe-a1</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/ayaneo-air-pro</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-353v</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-353vs</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/piboy-xrs</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/ayaneo-air</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/retroid-pocket-3</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/trimui-smart</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gpd-xp-plus</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/win600</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/odin-lite</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-353p</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/powkiddy-rgb20s</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-503</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/ayaneo-next</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/pip</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/powkiddy-rgb10s</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/steam-deck</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/powkiddy-x39</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/thumby</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/odin</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/one-xplayer-mini</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/digi-dock-2</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/retro-dreamer(game-4-all-cm4)</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gpi-case-2</loc>
-  </url>
-
-  <url>
-    <loc
-    >https://retroranker.site/devices/retroid-pocket-2+(rp2-pcb-upgrade)</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/powkiddy-q36-mini</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/analogue-pocket</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-552</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/miyoo-mini</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/powkiddy-a20</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/powkiddy-a30</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/one-xplayer-amd</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/ayaneo-pro(retro-power)</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gpd-xp</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/powkiddy-rgb10-max-2</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/one-xplayer-1s</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gpm280-cm4</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/powkiddy-x18s</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gpd-win-max-2021</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-351mp</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/a380-gamemax</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/devterm</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-300x</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/microbyte</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/powkiddy-q20-mini</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/powkiddy-x17</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/one-xplayer</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/ayaneo</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gameboy-esp32</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gameforce</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gpd-win-3</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/lcl-cm4-boy</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/powkiddy-rgb10-max</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/trdr-pocket</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-351v</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gkd-mini</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/retro-pixel-dmg</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/funkey-s</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/odroid-go-super</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-351m</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/dragonbox-pyra</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gamebox-mini</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/game-case-gba-cm3</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/onegx1-pro</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gpm280-cm3</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/pocket-go-s30</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/trimui-model-s-powkiddy-a66</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-280v</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/powkiddy-rgb20</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/powkiddy-x20</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/q500-ps5000-lintian-lt-8203</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-351p</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gpd-win-max</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/coolbaby-rs-63-rs3128</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/z-pocket-game-pro</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/super-pocketgo-cm3</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/piboy-dmg</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/retro-gp430</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/onegx1</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/retroid-pocket-2</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-fc520</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/powkiddy-rgb10</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-350p</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/powkiddy-j6</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-280m</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/powkiddy-v90</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/q900-ps7000</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rk2020</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/q400</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/odroid-go-advance-black-edition</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/arduboy-fx</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/powkiddy-x2</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-350m</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/retroid-pocket</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/odroid-go-advance</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/cartboy</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gkd-350h</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/lyra</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/new-pocketgo-playgo-miyoo-max</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/powkiddy-q90</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/retrostone-2</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/17pocket-system</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/digi-dock</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/powkiddy-x15</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/powkiddy-x19</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/z-pocket-game</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-350</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gamepi20</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gamepi43</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/retro-carnival-cm3</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gpd-win-2(2019-model)</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/retro-cm3</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/32blit</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gpi-case</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/ldk-landscape</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/pocketgo</loc>
-  </url>
-
-  <url>
-    <loc
-    >https://retroranker.site/devices/retrogame-rs-97(anniversary-edition-ips-screen-model)</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/rg-300</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/moqi-i7s</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/tiny-gamepi15</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/bittboy-v3</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/ldk-game</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/1up-pi-boy-xl</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/powkiddy-x18</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/digi-retroboy</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/game-hat</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gameshell</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gpd-xd+</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/mgsp</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/odroid-go</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/powkiddy-x16</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/retrogame-rs-97-plus</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/retrostone-1</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/1up-pi-boy-micro</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/1up-pix-portable</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/pap-gameta-ii</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/freeplay-cm3-zero</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gopher-2</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/lcl-pi-gameboy</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/moqi-i7</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/retrogame-rs-97</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/retromini-rs-90</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gpd-win</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/pap-kiii-plus</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gpd-xd</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gpd-g5a</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/much-w1-78p01</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gpd-q9</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gpd-g58</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/joyou-a320+</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/jxd-s7800b</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/tlex-ulike</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gcw-zero</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/iben-l1-x</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/shield-portable</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/yinlips-ydpg19</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/yinlips-ydpg17</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gamegadget</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/k101-plus</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gemei-x760+-le</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/dingoo-a380</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/ritmix-rzx-50</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/dingoo-a330</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gemei-a330</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gp2x-caanoo</loc>
-  </url>
-
-  <url>
-    <loc
-    >https://retroranker.site/devices/letcool-n350jp-defender-multimix-magic-mishark64</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/openpandora</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/dingoo-a320</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gemei-x760+</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gp2x-wiz</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gp2x-f-200</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/sega-gopher</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gizmondo</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gp2x</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/tapwave-zodiac</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gp32</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gpd-q88+</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/pocket-sprite</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/jxd-300</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gameboy-null</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/joyou-g500</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gpd-g7</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gpd-g7a</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gpd-g5</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gpd-q89</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gpd-5005</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gpd-7018</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/tinypi-pro</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/jxd-200</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/jxd-3000</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/jxd-s5110b</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/jxd-s7300c</loc>
-  </url>
-
-  <url>
-    <loc
-    >https://retroranker.site/devices/jxd-s192k-double-quote-singularity-double-quote-</loc>
-  </url>
-
-  <url>
-    <loc
-    >https://retroranker.site/devices/jxd-s192-double-quote-singularity-double-quote-</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/jxd-s5100</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/jxd-s5600a</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/jxd-s5800</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/jxd-s601</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/jxd-s602</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/jxd-s7100</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/jxd-v5200</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/jxd-s5110</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/jxd-s603</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/jxd-300b</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/jxd-s5300</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/jxd-s602b</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/jxd-s7800a</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/lotiyo-l-1000</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/coolbaby-rs-08</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/pocket-battlefield</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/coolbaby-rs18</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/retroid-boy-se</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/coolbaby-x20</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/egp-1000</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/odroid-s</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/yinlips-ydpg16</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/yinlips-ydpg18a</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gameking-i</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/picosystem</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/powkiddy-x21</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/pocket-battlefield-2</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/retro-arcade-for-education</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/pocket-arcade</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/odroid-android-handheld</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/powkiddy-v2</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/d008</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/d-28s</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/d50-plus</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/nitro-blaze-8</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/nitro-blaze-11</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/sunday-dragon-3d-one</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/m20</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/coolbaby-rg19</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/jxd-683</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/jxd-100</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/jxd-a1000</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/jxd-f3000</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/jxd-s7300b</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/jxd-s7300a</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/jxd-s5600b</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gameking-ii</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/gameking-iii</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/r36xx</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/m27</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/xf35h</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/xf40h</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/ds</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/ds-lite</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/dsi</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/dsi-xl</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/3ds</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/3ds-xl</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/2ds</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/new-3ds</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/new-3ds-xl</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/new-2ds-xl</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/switch</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/switch-lite</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/switch-oled</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/psp-1000</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/psp-2000(psp-slim)</loc>
-  </url>
-
-  <url>
-    <loc
-    >https://retroranker.site/devices/psp-3000(psp-slim-and-lite-psp-brite)</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/psp-street(psp-e1000)</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/psp-go(psp-n1000)</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/playstation-vita(pch-1000)</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/playstation-vita(pch-2000)</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/xperia-play</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/playdate</loc>
-  </url>
-
-  <url>
-    <loc>https://retroranker.site/devices/switch-2</loc>
-  </url>
-</urlset>
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    
+        <url>
+            <loc>https://retroranker.site/devices</loc>
+            <priority>0.9</priority>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/release-timeline</loc>
+            <priority>0.8</priority>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/compare</loc>
+            <priority>0.9</priority>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/leaderboard</loc>
+            <priority>0.7</priority>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/charts</loc>
+            <priority>0.7</priority>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/faq</loc>
+            <priority>0.6</priority>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-477m</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/mangmi-air-x</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/one-35</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/pocket-s2</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/flip-1s</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/onexsugar-sugar-1</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rog-xbox-ally</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rog-xbox-ally-x</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/legion-go-gen-2</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/zotac-zone-2</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rgb50</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/miyoo-mini-flip</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/action-pi-</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/zero-40</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-slide</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-35xx-pro</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/aokzoe-a1x</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/abxylute-one-pro</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/pocket-ace</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/v90s</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-34xxsp</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/retroid-pocket-mini-v2</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/ayaneo-3</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-557</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/retroid-pocket-classic</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/k56</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/retroid-pocket-flip-2</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/ayaneo-pocket-micro-classic</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/onexplayer-g1</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/my-mini</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gamemt-e6-max</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/u8</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/qrd-vortex-f5</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/batlexp-g350</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpd-win-mini-2025</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/v20</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rx6h</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/legion-go-s</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gkd-pixel-2</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/msi-claw-8-ai+</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/msi-claw-7-ai+</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/z35s-hg3506</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/onexplayer-x1-pro</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/mini-zero-28</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/odin-2-portal</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/x35h</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/r36h</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/miyoo-flip</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpd-win-4-2025</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpd-win-max-2-2025</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-34xx</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/g28</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/r36-max</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/onexfly-f1-pro</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/ayaneo-pocket-dmg</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/ayaneo-pocket-evo</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-406h</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/retroid-pocket-5</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/trimui-smart-brick</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/m22-pro</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/sf3000</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/r39s</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-cube-xx</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rgb20-pro</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/zotac-zone</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gkd-bubble</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/retroid-pocket-mini</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/ayaneo-pocket-micro-antech-core-micro</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-406v</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rgb10x</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/r46s</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-40xxv</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/tjd-t80</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/zpg-a1-unicorn</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/k36</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/x35s</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/xu-mini-m</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rog-ally-x</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-40xxh</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/onexplayer-x1-mini</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gamemt-e5</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/m21</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/odin-2-mini</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/v10</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gamemt-e6-plus</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-cube</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpd-win-max-2-(2024)</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/ayaneo-pocket-s</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/r40s</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-35xx-sp</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/miyoo-a30-282</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/m19</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpd-win-mini-2024</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-28xx</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rgb20sx</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/d-r35s-plus</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/ayaneo-flip-ds</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/ayaneo-flip-kb</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-35xx-2024</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/r50s</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/msi-claw-a1m</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-556</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rgb10max3</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gameforce-ace</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/aokzoe-a2</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/ayaneo-next-lite</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/onexplayer-x1</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/retroid-pocket-4</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/tjd-t101</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gkd-pixel</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/retroid-pocket-4-pro</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-35xx-h</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/m18-r43-pro</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/r33s</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gb300</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/ayaneo-slide-antech-core-hs</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gamemt-e6</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpd-win-mini</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-35xx-plus</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-arc-d</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-arc-s</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/steam-deck-oled</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/xu10</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/trimui-smart-pro</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/r36s</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/lenovo-legion-go</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/odin-2</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/ayaneo-kun</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/m17</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/ayaneo-pocket-air</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/loki-mini-pro</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/onexfly</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpd-win-4(7640u-7840u)</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-405v</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/powkiddy-rgb30</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/loki-zero</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/retroid-pocket-2s</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpd-win-max-2(7640u-7840u)</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/ayaneo-air-1s</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/ayaneo-geek-1s</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/abxylute-cloud-gaming-handheld</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/kt-r1</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/r35s</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/powkiddy-rgb10-max-3-pro</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/x6</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/uconsole</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/aokzoe-a1-pro</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/ayaneo-2s</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/ayaneo-air-plus</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-nano</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rog-ally</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/loki</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/loki-max</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rk2023(wifi-model)</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/pimax-portal</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/retro-pixel-pocket</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/d-007</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/powkiddy-x28</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-353ps</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/powkiddy-x55</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/ayaneo-air-plus-amd-6800u</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/retroid-pocket-flip</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/data-frog-sf2000</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-405m</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpd-win-4</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rk2023</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/miyoo-mini-plus</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/onexplayer-2</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/razer-edge-5g</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gkd-mini-plus-classic</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gkd-mini-plus</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/ayaneo-2</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-35xx</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpi-case-2w</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/pocketstar</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-505</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/retroid-pocket-3-plus</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/one-xplayer-mini-pro</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-353m</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/logitech-g-cloud</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpd-win-max-2</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/odroid-go-ultra</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/aokzoe-a1</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/ayaneo-air-pro</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-353v</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-353vs</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/piboy-xrs</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/ayaneo-air</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/retroid-pocket-3</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/trimui-smart</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpd-xp-plus</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/win600</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/odin-lite</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-353p</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/powkiddy-rgb20s</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-503</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/ayaneo-next</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/pip</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/powkiddy-rgb10s</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/steam-deck</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/powkiddy-x39</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/thumby</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/odin</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/one-xplayer-mini</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/digi-dock-2</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/retro-dreamer(game-4-all-cm4)</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpi-case-2</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/retroid-pocket-2+(rp2-pcb-upgrade)</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/powkiddy-q36-mini</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/analogue-pocket</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-552</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/miyoo-mini</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/powkiddy-a20</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/powkiddy-a30</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/one-xplayer-amd</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/ayaneo-pro(retro-power)</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpd-xp</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/powkiddy-rgb10-max-2</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/one-xplayer-1s</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpm280-cm4</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/powkiddy-x18s</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpd-win-max-2021</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-351mp</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/a380-gamemax</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/devterm</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-300x</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/microbyte</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/powkiddy-q20-mini</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/powkiddy-x17</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/one-xplayer</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/ayaneo</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gameboy-esp32</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gameforce</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpd-win-3</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/lcl-cm4-boy</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/powkiddy-rgb10-max</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/trdr-pocket</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-351v</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gkd-mini</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/retro-pixel-dmg</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/funkey-s</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/odroid-go-super</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-351m</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/dragonbox-pyra</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gamebox-mini</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/game-case-gba-cm3</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/onegx1-pro</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpm280-cm3</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/pocket-go-s30</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/trimui-model-s-powkiddy-a66</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-280v</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/powkiddy-rgb20</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/powkiddy-x20</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/q500-ps5000-lintian-lt-8203</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-351p</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpd-win-max</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/coolbaby-rs-63-rs3128</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/z-pocket-game-pro</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/super-pocketgo-cm3</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/piboy-dmg</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/retro-gp430</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/onegx1</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/retroid-pocket-2</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-fc520</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/powkiddy-rgb10</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-350p</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/powkiddy-j6</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-280m</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/powkiddy-v90</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/q900-ps7000</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rk2020</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/q400</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/odroid-go-advance-black-edition</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/arduboy-fx</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/powkiddy-x2</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-350m</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/retroid-pocket</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/odroid-go-advance</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/cartboy</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gkd-350h</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/lyra</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/new-pocketgo-playgo-miyoo-max</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/powkiddy-q90</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/retrostone-2</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/17pocket-system</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/digi-dock</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/powkiddy-x15</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/powkiddy-x19</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/z-pocket-game</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-350</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gamepi20</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gamepi43</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/retro-carnival-cm3</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpd-win-2(2019-model)</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/retro-cm3</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/32blit</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpi-case</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/ldk-landscape</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/pocketgo</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/retrogame-rs-97(anniversary-edition-ips-screen-model)</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-300</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/moqi-i7s</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/tiny-gamepi15</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/bittboy-v3</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/ldk-game</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/1up-pi-boy-xl</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/powkiddy-x18</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/digi-retroboy</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/game-hat</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gameshell</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpd-xd+</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/mgsp</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/odroid-go</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/powkiddy-x16</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/retrogame-rs-97-plus</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/retrostone-1</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/1up-pi-boy-micro</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/1up-pix-portable</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/pap-gameta-ii</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/freeplay-cm3-zero</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gopher-2</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/lcl-pi-gameboy</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/moqi-i7</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/retrogame-rs-97</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/retromini-rs-90</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpd-win</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/pap-kiii-plus</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpd-xd</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpd-g5a</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/much-w1-78p01</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpd-q9</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpd-g58</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/joyou-a320+</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/jxd-s7800b</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/tlex-ulike</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gcw-zero</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/iben-l1-x</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/shield-portable</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/yinlips-ydpg19</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/yinlips-ydpg17</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gamegadget</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/k101-plus</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gemei-x760+-le</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/dingoo-a380</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/ritmix-rzx-50</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/dingoo-a330</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gemei-a330</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gp2x-caanoo</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/letcool-n350jp-defender-multimix-magic-mishark64</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/openpandora</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/dingoo-a320</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gemei-x760+</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gp2x-wiz</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gp2x-f-200</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/sega-gopher</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gizmondo</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gp2x</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/tapwave-zodiac</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gp32</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpd-q88+</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/pocket-sprite</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/jxd-300</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gameboy-null</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/joyou-g500</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpd-g7</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpd-g7a</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpd-g5</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpd-q89</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpd-5005</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpd-7018</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/tinypi-pro</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/jxd-200</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/jxd-3000</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/jxd-s5110b</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/jxd-s7300c</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/jxd-s192k-double-quote-singularity-double-quote-</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/jxd-s192-double-quote-singularity-double-quote-</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/jxd-s5100</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/jxd-s5600a</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/jxd-s5800</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/jxd-s601</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/jxd-s602</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/jxd-s7100</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/jxd-v5200</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/jxd-s5110</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/jxd-s603</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/jxd-300b</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/jxd-s5300</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/jxd-s602b</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/jxd-s7800a</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/lotiyo-l-1000</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/coolbaby-rs-08</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/pocket-battlefield</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/coolbaby-rs18</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/retroid-boy-se</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/coolbaby-x20</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/egp-1000</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/odroid-s</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/yinlips-ydpg16</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/yinlips-ydpg18a</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gameking-i</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/picosystem</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/powkiddy-x21</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/pocket-battlefield-2</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/retro-arcade-for-education</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/pocket-arcade</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/odroid-android-handheld</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/powkiddy-v2</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/d008</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/d-28s</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/d50-plus</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/nitro-blaze-8</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/nitro-blaze-11</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/sunday-dragon-3d-one</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/m20</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/coolbaby-rg19</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/jxd-683</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/jxd-100</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/jxd-a1000</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/jxd-f3000</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/jxd-s7300b</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/jxd-s7300a</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/jxd-s5600b</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gameking-ii</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gameking-iii</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/r36xx</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/m27</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/xf35h</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/xf40h</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/ds</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/ds-lite</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/dsi</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/dsi-xl</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/3ds</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/3ds-xl</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/2ds</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/new-3ds</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/new-3ds-xl</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/new-2ds-xl</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/switch</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/switch-lite</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/switch-oled</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/psp-1000</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/psp-2000(psp-slim)</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/psp-3000(psp-slim-and-lite-psp-brite)</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/psp-street(psp-e1000)</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/psp-go(psp-n1000)</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/playstation-vita(pch-1000)</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/playstation-vita(pch-2000)</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/xperia-play</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/playdate</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/switch-2</loc>
+        </url>
+        
+  </urlset>
