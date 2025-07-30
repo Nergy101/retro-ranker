@@ -209,6 +209,36 @@ export default function Home(
 
           <hr />
 
+          {/* Upcoming Section */}
+          <section class="home-section">
+            <article class="home-section-content">
+              <h2 class="home-section-title">
+                <PiCalendar /> {TranslationPipe(translations, "home.upcoming")}
+              </h2>
+              <div class="device-row-grid">
+                {upcoming.map((device) => (
+                  <a
+                    href={`/devices/${device.name.sanitized}`}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <DeviceCardMedium
+                      device={device}
+                      isActive={false}
+                      isLoggedIn={!!user}
+                      likes={likesCountMap[device.id] ?? 0}
+                      isLiked={userLikedMap[device.id] ?? false}
+                      isFavorited={userFavoritedMap[device.id] ?? false}
+                    />
+                  </a>
+                ))}
+                <SeeMoreCard
+                  href="/devices?tags=upcoming"
+                  text={TranslationPipe(translations, "home.moreUpcoming")}
+                />
+              </div>
+            </article>
+          </section>
+
           <section class="home-section">
             <article class="home-section-content">
               <h2 class="home-section-title">
@@ -276,36 +306,6 @@ export default function Home(
                 <SeeMoreCard
                   href="/devices?tags=mid&sort=highly-ranked"
                   text={TranslationPipe(translations, "home.moreHighlyRanked")}
-                />
-              </div>
-            </article>
-          </section>
-
-          {/* Upcoming Section */}
-          <section class="home-section">
-            <article class="home-section-content">
-              <h2 class="home-section-title">
-                <PiCalendar /> {TranslationPipe(translations, "home.upcoming")}
-              </h2>
-              <div class="device-row-grid">
-                {upcoming.map((device) => (
-                  <a
-                    href={`/devices/${device.name.sanitized}`}
-                    style={{ textDecoration: "none" }}
-                  >
-                    <DeviceCardMedium
-                      device={device}
-                      isActive={false}
-                      isLoggedIn={!!user}
-                      likes={likesCountMap[device.id] ?? 0}
-                      isLiked={userLikedMap[device.id] ?? false}
-                      isFavorited={userFavoritedMap[device.id] ?? false}
-                    />
-                  </a>
-                ))}
-                <SeeMoreCard
-                  href="/devices?tags=upcoming"
-                  text={TranslationPipe(translations, "home.moreUpcoming")}
                 />
               </div>
             </article>

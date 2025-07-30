@@ -9,7 +9,8 @@ export interface TagModel {
     | "price"
     | "os"
     | "personalPick"
-    | "screenType";
+    | "screenType"
+    | "deviceType";
 }
 
 export const TAG_FRIENDLY_NAMES = {
@@ -20,4 +21,5 @@ export const TAG_FRIENDLY_NAMES = {
   os: "OS",
   personalPick: "Personal Pick",
   screenType: "Screen Type",
+  deviceType: "Device Type",
 };

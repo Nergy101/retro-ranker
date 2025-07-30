@@ -15,6 +15,10 @@ export interface DeviceEntity extends BaseEntity {
 
   totalRating: number; // the total rating of the device, scale of 0-10
 
+  deviceType: "handheld" | "oem"; // track the type of device
+
+  index: number; // the index/order of the device in the source data
+
   pricing: Pricing;
   performance: Performance;
   systemRatings: SystemRating[];

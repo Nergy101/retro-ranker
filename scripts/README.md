@@ -9,3 +9,5 @@ executed with `deno run -A` or through the tasks defined in `deno.jsonc`.
 - `refresh-all.ts` – run the full refresh pipeline
 - `scrape-images.ts` – fetch device images
 - `generate-sitemap.ts` – update `static/sitemap.xml`
+- `migrate-device-type.ts` – migrate existing devices to include deviceType field
+- `migrate-device-index.ts` – migrate existing devices to include index field

@@ -28,9 +28,10 @@ export class DeviceParser {
     });
 
     // Process data rows (skip header)
-    rows.slice(1).each((_, row) => {
+    rows.slice(1).each((rowIndex, row) => {
       const device: Device = {
         id: "",
+        index: rowIndex,
         name: {
           raw: "",
           sanitized: "",
@@ -82,6 +83,7 @@ export class DeviceParser {
         },
         formFactor: null,
         systemRatings: [],
+        deviceType: "handheld",
         connectivity: {
           hasWifi: null,
           hasBluetooth: null,
@@ -273,9 +275,10 @@ export class DeviceParser {
     });
 
     // Process data rows (skip header)
-    rows.slice(1).each((_, row) => {
+    rows.slice(1).each((rowIndex, row) => {
       const device: Device = {
         id: "",
+        index: rowIndex,
         name: {
           raw: "",
           sanitized: "",
@@ -327,6 +330,7 @@ export class DeviceParser {
           mentionedDate: null,
         },
         formFactor: null,
+        deviceType: "oem",
         connectivity: {
           hasWifi: false,
           hasBluetooth: false,
@@ -512,7 +516,7 @@ export class DeviceParser {
   }
 
   private static getTags(device: Device): TagModel[] {
-    return [
+    const tags: (TagModel | null)[] = [
       ...this.getOsTags(device),
       this.getBrandTag(device),
       this.getPriceTag(device),
@@ -520,7 +524,24 @@ export class DeviceParser {
       this.getScreenTypeTag(device),
       this.getReleaseDateTag(device),
       this.getPersonalPickTag(device),
-    ].filter((tag) =>
+    ];
+
+    // Add device type tags
+    if (device.deviceType === "oem") {
+      tags.push({
+        name: "OEM",
+        slug: "oem",
+        type: "deviceType",
+      } as TagModel);
+    } else if (device.deviceType === "handheld") {
+      tags.push({
+        name: "Handheld",
+        slug: "handheld",
+        type: "deviceType",
+      } as TagModel);
+    }
+
+    return tags.filter((tag) =>
       tag !== null &&
       tag.slug !== "" &&
       tag.name !== "?"

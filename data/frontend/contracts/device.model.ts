@@ -26,6 +26,7 @@ import { TagModel } from "../models/tag.model.ts";
 
 export interface Device {
   id: string; // the id of the device, this is the same as the name.sanitized
+  index: number; // the index/order of the device in the source data
   name: DeviceName;
   brand: DeviceBrand;
   totalRating: number; // the total rating of the device, scale of 0-10
@@ -35,6 +36,7 @@ export interface Device {
   os: DeviceOs;
   performance: DevicePerformance;
   systemRatings: SystemRating[];
+  deviceType: "handheld" | "oem"; // track the type of device
 
   systemOnChip: string | null;
   architecture: DeviceArchitecture;

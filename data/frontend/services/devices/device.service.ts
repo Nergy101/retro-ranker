@@ -330,17 +330,77 @@ export class DeviceService {
   }
 
   public async getUpcoming(amount: number = 5): Promise<Device[]> {
-    const result = await this.pocketBaseService.getList(
+    // Get all upcoming devices first
+    const allUpcomingResult = await this.pocketBaseService.getList(
       "devices",
       1,
-      amount,
+      100, // Get a large number to ensure we have enough
       {
         filter: `deviceData.released ~ 'upcoming'`,
         sort: "",
         expand: "",
       },
     );
-    return result.items.map((device) => device.deviceData);
+
+    const allUpcomingDevices = allUpcomingResult.items.map((device) =>
+      device.deviceData
+    );
+
+    // Separate by device type
+    const handheldDevices = allUpcomingDevices
+      .filter((d) => d.deviceType === "handheld")
+      .sort((a, b) => a.index - b.index); // descending
+
+    const oemDevices = allUpcomingDevices
+      .filter((d) => d.deviceType === "oem")
+      .sort((a, b) => a.index - b.index); // ascending
+
+    // Take first 3 handhelds
+    const selectedHandhelds = handheldDevices.slice(0, 3);
+
+    // Take first 2 OEMs
+    const selectedOEMs = oemDevices.slice(0, 2);
+
+    // If we don't have enough total devices, prioritize handhelds (non-OEM) to fill to 5
+    let remainingSlots = amount - selectedHandhelds.length -
+      selectedOEMs.length;
+    let additionalHandhelds: Device[] = [];
+    let additionalOEMs: Device[] = [];
+
+    if (remainingSlots > 0) {
+      // First, try to fill with more handhelds (non-OEM devices)
+      if (selectedHandhelds.length < handheldDevices.length) {
+        const handheldsNeeded = Math.min(
+          remainingSlots,
+          handheldDevices.length - selectedHandhelds.length,
+        );
+        additionalHandhelds = handheldDevices.slice(
+          selectedHandhelds.length,
+          selectedHandhelds.length + handheldsNeeded,
+        );
+        remainingSlots -= handheldsNeeded;
+      }
+
+      // If we still need more devices, fill with OEMs
+      if (remainingSlots > 0 && selectedOEMs.length < oemDevices.length) {
+        const oemsNeeded = Math.min(
+          remainingSlots,
+          oemDevices.length - selectedOEMs.length,
+        );
+        additionalOEMs = oemDevices.slice(
+          selectedOEMs.length,
+          selectedOEMs.length + oemsNeeded,
+        );
+      }
+    }
+
+    // Combine all results
+    return [
+      ...selectedHandhelds,
+      ...additionalHandhelds,
+      ...selectedOEMs,
+      ...additionalOEMs,
+    ];
   }
 
   public async getHighlyRated(amount: number = 5): Promise<Device[]> {

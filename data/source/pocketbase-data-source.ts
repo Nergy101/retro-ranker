@@ -200,6 +200,8 @@ async function insertDevices(
           brandSanitized: unknownOrValue(device.brand.sanitized),
           released: device.released.mentionedDate,
           totalRating: device.totalRating ?? 0,
+          deviceType: device.deviceType,
+          index: device.index,
           deviceData: JSON.stringify(device),
           systemRatings: device.systemRatings.map((rating) =>
             systemRatingsMap.get(`${rating.system}:${rating.ratingNumber}`)?.id
@@ -258,6 +260,8 @@ async function insertDevices(
           brandSanitized: unknownOrValue(device.brand.sanitized),
           released: device.released.mentionedDate,
           totalRating: device.totalRating ?? 0,
+          deviceType: device.deviceType,
+          index: device.index,
           deviceData: JSON.stringify(device),
           systemRatings: device.systemRatings.map((rating) =>
             systemRatingsMap.get(`${rating.system}:${rating.ratingNumber}`)?.id
