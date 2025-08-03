@@ -1,3 +1,27 @@
+@font-face {
+  font-family: "Relevance";
+  src: url("/fonts/relevance/Relevance-trial-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Runic";
+  src: url("/fonts/runic-zen-love-long/runic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "RetroParty";
+  src: url("/fonts/retro_party.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 *,
 *::before,
 *::after {
@@ -456,11 +480,11 @@ body.paused-animation::before {
   gap: 1rem;
   grid-template-areas:
     "header performance"
+    "specs specs"
     "radar similar"
     "links links"
     "reviews reviews"
-    "comments comments"
-    "specs specs";
+    "comments comments";
   grid-template-columns: 1fr 3fr;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
@@ -481,11 +505,11 @@ body.paused-animation::before {
       "header"
       "performance"
       "links"
+      "specs"
       "reviews"
       "comments"
       "similar"
-      "radar"
-      "specs";
+      "radar";
     grid-template-columns: 1fr;
   }
 }
@@ -644,15 +668,17 @@ body.paused-animation::before {
 
 .specs-grid {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, auto);
   gap: 1rem;
   width: 100%;
   max-width: 100%;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 768px) {
   .specs-grid {
     grid-template-columns: 1fr;
+    grid-template-rows: auto;
   }
 }
 
@@ -927,6 +953,10 @@ body.paused-animation::before {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
+
+  .device-card {
+    min-width: 10em;
+  }
 
   @media (max-width: 500px) {
     grid-template-columns: repeat(2, 1fr);

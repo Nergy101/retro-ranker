@@ -10,12 +10,25 @@ export function MiscellaneousSpecs(
   { device }: MiscellaneousSpecsProps,
 ) {
   return (
-    <section class="specs-section overflow-auto">
-      <h3>
-        <PiGear />
-        Miscellaneous
-      </h3>
-      <MiscellaneousSpecsTable device={device} />
-    </section>
+    <details>
+      <summary
+        style={{
+          cursor: "pointer",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          gap: "0.5rem",
+          margin: 0,
+        }}
+      >
+        <h3 style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <PiGear />
+          Miscellaneous
+        </h3>
+      </summary>
+      <section class="specs-section overflow-auto">
+        <MiscellaneousSpecsTable device={device} />
+      </section>
+    </details>
   );
 }

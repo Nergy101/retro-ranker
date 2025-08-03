@@ -8,12 +8,25 @@ interface AudioSpecsProps {
 
 export function AudioSpecs({ device }: AudioSpecsProps) {
   return (
-    <section class="specs-section overflow-auto">
-      <h3>
-        <PiSpeakerHigh />
-        Audio
-      </h3>
-      <AudioTable device={device} />
-    </section>
+    <details>
+      <summary
+        style={{
+          cursor: "pointer",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          gap: "0.5rem",
+          margin: 0,
+        }}
+      >
+        <h3 style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <PiSpeakerHigh />
+          Audio
+        </h3>
+      </summary>
+      <section class="specs-section overflow-auto">
+        <AudioTable device={device} />
+      </section>
+    </details>
   );
 }

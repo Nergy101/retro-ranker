@@ -8,12 +8,25 @@ interface PhysicalSpecsProps {
 
 export function PhysicalSpecs({ device }: PhysicalSpecsProps) {
   return (
-    <section class="specs-section overflow-auto">
-      <h3>
-        <PiRuler />
-        Physical
-      </h3>
-      <PhysicalSpecsTable device={device} />
-    </section>
+    <details>
+      <summary
+        style={{
+          cursor: "pointer",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          gap: "0.5rem",
+          margin: 0,
+        }}
+      >
+        <h3 style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <PiRuler />
+          Physical
+        </h3>
+      </summary>
+      <section class="specs-section overflow-auto">
+        <PhysicalSpecsTable device={device} />
+      </section>
+    </details>
   );
 }

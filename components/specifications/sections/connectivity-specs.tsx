@@ -8,12 +8,25 @@ interface ConnectivitySpecsProps {
 
 export function ConnectivitySpecs({ device }: ConnectivitySpecsProps) {
   return (
-    <section class="specs-section overflow-auto">
-      <h3>
-        <PiWifiHigh />
-        Connectivity
-      </h3>
-      <ConnectivityTable device={device} />
-    </section>
+    <details>
+      <summary
+        style={{
+          cursor: "pointer",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          gap: "0.5rem",
+          margin: 0,
+        }}
+      >
+        <h3 style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <PiWifiHigh />
+          Connectivity
+        </h3>
+      </summary>
+      <section class="specs-section overflow-auto">
+        <ConnectivityTable device={device} />
+      </section>
+    </details>
   );
 }

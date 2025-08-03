@@ -8,12 +8,25 @@ interface DisplaySpecsProps {
 
 export function DisplaySpecs({ device }: DisplaySpecsProps) {
   return (
-    <section class="specs-section overflow-auto">
-      <h3>
-        <PiMonitor />
-        Display
-      </h3>
-      <DisplaySpecsTable device={device} />
-    </section>
+    <details>
+      <summary
+        style={{
+          cursor: "pointer",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          gap: "0.5rem",
+          margin: 0,
+        }}
+      >
+        <h3 style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <PiMonitor />
+          Display
+        </h3>
+      </summary>
+      <section class="specs-section overflow-auto">
+        <DisplaySpecsTable device={device} />
+      </section>
+    </details>
   );
 }
