@@ -92,8 +92,7 @@ export function SummaryTable({ device }: SummaryTableProps) {
 
                     {gpu.clockSpeed && (
                       <span class="gpu-clock">
-                        @ {gpu.clockSpeed.max}
-                        {gpu.clockSpeed.unit}
+                        @ {gpu.clockSpeed.max} {gpu.clockSpeed.unit}
                       </span>
                     )}
                   </div>
@@ -147,7 +146,7 @@ export function SummaryTable({ device }: SummaryTableProps) {
             <td class="details-cell">
               <div class="detail-content">
                 <div class="screen-basic">
-                  {device.screen.size} {device.screen.type?.type}
+                  {device.screen.size} {device.screen.type?.type}{" "}
                   {device.screen.type?.isTouchscreen && (
                     <span class="screen-feature">(Touch)</span>
                   )}
