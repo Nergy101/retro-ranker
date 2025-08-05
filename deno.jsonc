@@ -32,6 +32,7 @@
     "data/source/data-source.ipynb",
     "static/pico.pumpkin.min.css",
     "static/styles.css",
+    "static/sitemap.xml",
     "**/node_modules/*",
     "**/volumes/*",
     "playwright/**/*"
