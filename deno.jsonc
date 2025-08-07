@@ -38,10 +38,10 @@
     "playwright/**/*"
   ],
   "imports": {
-    "fresh": "jsr:@fresh/core@^2.0.0-alpha.37",
-    "preact": "npm:preact@^10.26.9",
-    "@preact/signals": "npm:preact@^10.26.9/signals",
-    "@preact/hooks": "npm:preact@^10.26.9/hooks",
+    "fresh": "jsr:@fresh/core@2.0.0-alpha.37",
+    "preact": "npm:preact@10.26.9",
+    "@preact/signals": "npm:preact@10.26.9/signals",
+    "@preact/hooks": "npm:preact@10.26.9/hooks",
 
     "$fresh_charts/": "https://deno.land/x/fresh_charts@0.3.1/",
     "$std/": "https://deno.land/std@0.216.0/",
@@ -59,21 +59,9 @@
     "@interfaces/": "./interfaces/"
   },
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.asynciterable",
-      "dom.iterable",
-      "deno.ns"
-    ],
+    "lib": ["dom", "dom.asynciterable", "dom.iterable", "deno.ns"],
     "jsx": "precompile",
     "jsxImportSource": "preact",
-    "jsxPrecompileSkipElements": [
-      "a",
-      "img",
-      "source",
-      "body",
-      "html",
-      "head"
-    ]
+    "jsxPrecompileSkipElements": ["a", "img", "source", "body", "html", "head"]
   }
 }
