@@ -16,17 +16,17 @@ COPY deno.json* ./
 COPY . .
 
 # Cache dependencies at build time
-RUN deno cache main.ts
-RUN deno run -A dev.ts build
+# RUN deno cache main.ts
+# RUN deno run -A dev.ts build
 
 # Expose any required ports (if needed)
 EXPOSE 8000
 
 # Run the application without re-downloading dependencies
-CMD ["run", "-A", "main.ts"]
+CMD ["run", "prod"]
 
 ### Usage notes:
-# docker build -t retro-ranker:latest . 
+# docker build -t retro-ranker:latest .
 # docker compose up
 
 ### tag as ...:retro-ranker:latest
