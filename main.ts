@@ -2,6 +2,9 @@
 import { App, fsRoutes, staticFiles } from "fresh";
 import { State } from "./utils.ts";
 import { initializeTranslations } from "./data/frontend/services/i18n/i18n.service.ts";
+import { load } from "$std/dotenv/mod.ts";
+
+await load({ envPath: ".env", allowEmptyValues: true, export: true });
 
 export const app = new App<State>({ root: import.meta.url });
 
