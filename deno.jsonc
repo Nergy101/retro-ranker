@@ -51,7 +51,7 @@
     "@opentelemetry/api": "npm:@opentelemetry/api@^1.9.0",
     "@cap.js/server": "npm:@cap.js/server@^2.0.0",
     "@cap.js/widget": "npm:@cap.js/widget@^0.1.25",
-    "pocketbase": "npm:pocketbase@^0.26.1",
+    "pocketbase": "npm:pocketbase@0.26.1",
     "unique-names-generator": "npm:unique-names-generator@^4.7.1",
     "@components/": "./components/",
     "@data/": "./data/",
