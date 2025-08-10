@@ -1,7 +1,7 @@
 services:
   retro-ranker:
-    image: retroranker:latest
-    container_name: retroranker
+    image: retro-ranker:latest
+    container_name: retro-ranker
     restart: unless-stopped
     ports:
       - "8000:8000"
