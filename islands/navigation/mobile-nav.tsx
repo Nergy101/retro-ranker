@@ -17,6 +17,7 @@ import {
   PiRanking,
   PiScroll,
   PiSignIn,
+  PiX,
 } from "@preact-icons/pi";
 import { useEffect, useRef, useState } from "preact/hooks";
 import { LanguageSwitcher } from "./language-switcher.tsx";
@@ -33,62 +34,67 @@ export function MobileNav({
   user: User | null;
   translations: Record<string, string>;
 }) {
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const mobileNavContent = document.querySelector(".mobile-nav-content");
-      const burgerMenu = document.querySelector(".burger-menu");
-
-      if (!mobileNavContent || !burgerMenu) return;
-
-      // Check if click is outside both the menu content and burger button
-      if (
-        !mobileNavContent.contains(event.target as Node) &&
-        !burgerMenu.contains(event.target as Node) &&
-        mobileNavContent.classList.contains("show")
-      ) {
-        mobileNavContent.classList.remove("show");
-      }
-    };
-
-    // Add event listener
-    document.addEventListener("click", handleClickOutside);
-
-    // Cleanup
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  });
-
   const suggestionsRef = useRef<HTMLUListElement>(null);
+  const drawerRef = useRef<HTMLDivElement>(null);
+  const searchInputRef = useRef<HTMLInputElement>(null);
 
   const [selectedDevice, setSelectedDevice] = useState<Device | null>(null);
   const [suggestions, setSuggestions] = useState<Device[]>([]);
   const [query, setQuery] = useState<string>("");
-  const isActive = (deviceName: string) => {
-    return deviceName.toLowerCase() === selectedDevice?.name.raw.toLowerCase();
-  };
+  const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
+  const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
 
+  const isActive = (deviceName: string) =>
+    deviceName.toLowerCase() === selectedDevice?.name.raw.toLowerCase();
+
+  // Global close handlers (ESC, outside click) and body scroll lock
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        suggestionsRef.current &&
-        !suggestionsRef.current.contains(event.target as Node)
-      ) {
-        setSuggestions([]);
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsDrawerOpen(false);
+        setIsSearchOpen(false);
       }
     };
-
-    document.addEventListener("click", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
+    const onClick = (e: MouseEvent) => {
+      if (
+        isDrawerOpen &&
+        drawerRef.current &&
+        !drawerRef.current.contains(e.target as Node)
+      ) {
+        setIsDrawerOpen(false);
+      }
     };
-  });
+    document.addEventListener("keydown", onKeyDown);
+    document.addEventListener("mousedown", onClick);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.removeEventListener("mousedown", onClick);
+    };
+  }, [isDrawerOpen]);
+
+  useEffect(() => {
+    // Lock body scroll when overlays open
+    if (isDrawerOpen || isSearchOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [isDrawerOpen, isSearchOpen]);
+
+  useEffect(() => {
+    if (isSearchOpen) {
+      // Focus search input when search overlay opens
+      setTimeout(() => searchInputRef.current?.focus(), 0);
+    } else {
+      setSuggestions([]);
+      setQuery("");
+      setSelectedDevice(null);
+    }
+  }, [isSearchOpen]);
 
   const queryChanged = (value: string) => {
     setQuery(value);
-    setSuggestions(searchDevices(value, allDevices));
-
+    setSuggestions(searchDevices(value.trim(), allDevices));
     setSelectedDevice(
       allDevices.find(
         (device) => device.name.raw.toLowerCase() === value.toLowerCase(),
@@ -99,7 +105,6 @@ export function MobileNav({
   const setQuerySuggestion = (value: string) => {
     queryChanged(value);
     setSuggestions([]);
-
     if (selectedDevice) {
       globalThis.location.href = `/devices/${selectedDevice.name.sanitized}`;
     }
@@ -131,174 +136,222 @@ export function MobileNav({
 
   return (
     <div>
-      <nav class="mobile-nav">
-        {/* Row 1: Logo and Search */}
-        <div class="mobile-nav-row-1">
-          <a href="/" aria-label="Home" class="mobile-nav-logo">
-            <img
-              loading="lazy"
-              src="/logos/retro-ranker/rr-logo.svg"
-              alt="retro ranker logo"
-              width="100"
-              style={{
-                height: "2.5em",
-                width: "2.5em",
-                objectFit: "contain",
-                padding: "0.25rem 0",
-              }}
-            />
-          </a>
+      {/* Top bar: single row */}
+      <nav class="mobile-topbar">
+        <button
+          type="button"
+          class="burger-menu"
+          aria-label="Open menu"
+          onClick={() => setIsDrawerOpen(true)}
+        >
+          <PiListBold />
+        </button>
 
-          <div class="mobile-nav-search-container">
+        <a href="/" aria-label="Home" class="mobile-nav-logo">
+          <img
+            loading="lazy"
+            src="/logos/retro-ranker/rr-logo.svg"
+            alt="retro ranker logo"
+            width="100"
+            style={{ height: "2.2em", width: "2.2em", objectFit: "contain" }}
+          />
+        </a>
+
+        <div class="mobile-actions">
+          <a
+            href="#"
+            aria-label="Search"
+            class="icon-button"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              color: "var(--pico-contrast)",
+            }}
+            onClick={(e) => {
+              e.preventDefault();
+              setIsSearchOpen(true);
+            }}
+            data-tooltip="Search"
+            data-placement="bottom"
+            role="button"
+          >
+            <span
+              style={{
+                color: "var(--pico-contrast)",
+                fontSize: "1.2rem",
+              }}
+            >
+              <PiMagnifyingGlass />
+            </span>
+          </a>
+          <ThemeSwitcher showTooltip={false} showNames={false} compact={true} />
+          {user
+            ? (
+              <a
+                href="/profile"
+                aria-label="Profile"
+                class="icon-button"
+                data-tooltip={user.nickname}
+                data-placement="bottom"
+              >
+                <ProfileImage name={user.nickname} size={24} />
+              </a>
+            )
+            : (
+              <a
+                href="/auth/sign-in"
+                aria-label="Log In"
+                class="icon-button icon-button--primary"
+                data-tooltip="Log In"
+                data-placement="bottom"
+              >
+                <PiSignIn />
+              </a>
+            )}
+        </div>
+      </nav>
+
+      {/* Drawer overlay */}
+      {isDrawerOpen && (
+        <div
+          class="mobile-drawer-overlay"
+          onClick={() => setIsDrawerOpen(false)}
+        />
+      )}
+
+      {/* Side drawer */}
+      <aside
+        class={isDrawerOpen ? "mobile-drawer open" : "mobile-drawer"}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Main menu"
+        ref={drawerRef}
+      >
+        <header class="mobile-drawer-header">
+          <span class="drawer-title">Menu</span>
+          <LanguageSwitcher translations={translations} />
+        </header>
+
+        <ul class="mobile-drawer-list">
+          {getAllNavigationItems().map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class={item.isActive(pathname)
+                  ? "drawer-link active"
+                  : "drawer-link"}
+                onClick={() => setIsDrawerOpen(false)}
+              >
+                <span class="drawer-link-icon">
+                  {item.icon && getIcon(item.icon)}
+                </span>
+                <span class="drawer-link-label">
+                  {TranslationPipe(translations, item.i18nKey ?? item.label)}
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <footer class="mobile-drawer-footer">
+          {user
+            ? (
+              <a
+                href="/profile"
+                class="profile-link"
+                onClick={() => setIsDrawerOpen(false)}
+              >
+                <ProfileImage name={user.nickname} />
+                <span class="profile-name">{user.nickname}</span>
+              </a>
+            )
+            : (
+              <a
+                href="/auth/sign-in"
+                class="signin-link"
+                onClick={() => setIsDrawerOpen(false)}
+              >
+                <PiSignIn />
+                <span>Log In</span>
+              </a>
+            )}
+        </footer>
+      </aside>
+
+      {/* Search overlay */}
+      {isSearchOpen && (
+        <div
+          class="mobile-search-overlay"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Search"
+        >
+          <div class="mobile-search-bar">
             <input
+              ref={searchInputRef}
               type="search"
               placeholder="Search devices..."
               name="search"
               aria-label="Search"
-              style={{ margin: 0 }}
+              value={query}
               onInput={(e) => queryChanged(e.currentTarget.value)}
               onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  handleSubmit();
-                }
+                if (e.key === "Enter") handleSubmit();
+                if (e.key === "Escape") setIsSearchOpen(false);
               }}
             />
             <button
               type="button"
-              aria-label="Search"
-              class="outline search-button-mobile"
+              class="icon-button"
               onClick={handleSubmit}
+              aria-label="Go"
             >
-              <PiMagnifyingGlass />
+              <span
+                style={{
+                  color: "var(--pico-contrast)",
+                  fontSize: "1rem",
+                }}
+              >
+                <PiMagnifyingGlass />
+              </span>
+            </button>
+            <button
+              type="button"
+              class="icon-button"
+              onClick={() => setIsSearchOpen(false)}
+              aria-label="Close search"
+            >
+              <span
+                style={{
+                  color: "var(--pico-contrast)",
+                  fontSize: "1rem",
+                }}
+              >
+                <PiX />
+              </span>
             </button>
           </div>
-        </div>
-
-        {/* Row 2: Menu, Theme, and Language */}
-        <div class="mobile-nav-row-2">
-          <button
-            type="button"
-            class="burger-menu"
-            onClick={() => {
-              document
-                .querySelector(".mobile-nav-content")
-                ?.classList.toggle("show");
-            }}
-            aria-label="Toggle menu"
-          >
-            <PiListBold />
-          </button>
-
-          <div class="mobile-nav-controls">
-            <ThemeSwitcher showTooltip={false} showNames={false} />
-            <LanguageSwitcher translations={translations} />
+          <div class="mobile-search-results">
+            {suggestions.length > 0 && (
+              <ul class="suggestions-list" ref={suggestionsRef}>
+                {suggestions.map((device) => (
+                  <li
+                    key={device.name.sanitized}
+                    onClick={() => setQuerySuggestion(device.name.raw)}
+                    class="suggestions-list-item"
+                  >
+                    <DeviceCardMedium
+                      device={device}
+                      isActive={isActive(device.name.raw)}
+                    />
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </div>
-
-        <div
-          class="mobile-nav-content"
-          style={{
-            borderBottom: "3px solid var(--pico-primary)",
-          }}
-        >
-          <ul>
-            {getAllNavigationItems().map((item) => (
-              <li style={{ padding: "0" }}>
-                <a
-                  href={item.href}
-                  class={item.isActive(pathname)
-                    ? "mobile-active mobile-nav-button"
-                    : "mobile-nav-button"}
-                >
-                  <span
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      fontSize: "1.3rem",
-                    }}
-                  >
-                    {item.icon && getIcon(item.icon)}
-                    &nbsp;{TranslationPipe(
-                      translations,
-                      item.i18nKey ?? item.label,
-                    )}
-                  </span>
-                </a>
-              </li>
-            ))}
-            {user
-              ? (
-                <li class="nav-theme-item last">
-                  <a
-                    href="/profile"
-                    aria-label="Profile"
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      gap: "0.5rem",
-                      width: "100%",
-                    }}
-                  >
-                    <ProfileImage name={user.nickname} />
-                    <span style={{ fontSize: "0.5rem", textWrap: "nowrap" }}>
-                      {user.nickname}
-                    </span>
-                  </a>
-                </li>
-              )
-              : (
-                <li
-                  class="nav-theme-item last"
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    width: "100%",
-                  }}
-                >
-                  <a
-                    href="/auth/sign-in"
-                    style={{
-                      fontSize: "1.5rem",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      gap: "0.5rem",
-                      padding: "0.75rem 1.5rem",
-                      borderRadius: "0.5rem",
-                      border: "1px solid var(--pico-primary)",
-                      backgroundColor: "var(--pico-background-color)",
-                      color: "var(--pico-color)",
-                      textDecoration: "none",
-                      transition: "all 0.2s ease",
-                    }}
-                  >
-                    <PiSignIn /> Log In
-                  </a>
-                </li>
-              )}
-          </ul>
-        </div>
-      </nav>
-
-      <div id="suggestions-container">
-        {suggestions.length > 0 && (
-          <ul class="suggestions-list" ref={suggestionsRef}>
-            {suggestions.map((device) => (
-              <li
-                key={device.name.sanitized}
-                onClick={() => setQuerySuggestion(device.name.raw)}
-                class="suggestions-list-item"
-              >
-                <DeviceCardMedium
-                  device={device}
-                  isActive={isActive(device.name.raw)}
-                />
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
+      )}
     </div>
   );
 }

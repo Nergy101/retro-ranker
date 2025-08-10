@@ -2,10 +2,18 @@ import { PiMoonStars, PiSun } from "@preact-icons/pi";
 import { useEffect, useState } from "preact/hooks";
 
 export function ThemeSwitcher(
-  { showNames = true, showTooltip = true, tooltipLocation = "bottom" }: {
+  {
+    showNames = true,
+    showTooltip = true,
+    tooltipLocation = "bottom",
+    compact = false,
+    className,
+  }: {
     showNames?: boolean;
     showTooltip?: boolean;
     tooltipLocation?: "left" | "bottom" | "right" | "top";
+    compact?: boolean;
+    className?: string;
   },
 ) {
   const [theme, setTheme] = useState<"light" | "dark">("dark");
@@ -60,7 +68,8 @@ export function ThemeSwitcher(
       aria-label="auto"
       aria-live="polite"
       name="theme-switcher"
-      class="outline"
+      class={(compact ? "icon-button" : "outline") +
+        (className ? ` ${className}` : "")}
       onClick={toggleTheme}
       disabled={isAnimating}
       style={{
@@ -73,7 +82,7 @@ export function ThemeSwitcher(
         alignItems: "center",
         justifyContent: "center",
         gap: "0.25rem",
-        minWidth: showNames ? "10em" : "2.5rem",
+        ...(compact ? {} : { minWidth: showNames ? "10em" : "2.5rem" }),
         opacity: isAnimating ? 0.8 : 1,
       }}
       data-tooltip={showTooltip
@@ -98,12 +107,13 @@ export function ThemeSwitcher(
           <span
             class="theme-icon"
             style={{
+              color: "var(--pico-contrast)",
               fontSize: "1.2rem",
             }}
           >
             <PiMoonStars />
           </span>
-          {showNames && <span>Dark side</span>}
+          {!compact && showNames && <span>Dark side</span>}
         </div>
       )}
 
@@ -114,12 +124,13 @@ export function ThemeSwitcher(
           <span
             class="theme-icon"
             style={{
+              color: "var(--pico-contrast)",
               fontSize: "1.2rem",
             }}
           >
             <PiSun />
           </span>
-          {showNames && <span>Light side</span>}
+          {!compact && showNames && <span>Light side</span>}
         </div>
       )}
     </button>

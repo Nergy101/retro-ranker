@@ -1666,157 +1666,238 @@ body.paused-animation::before {
 
 /* Mobile Nav */
 
-.mobile-nav {
+/* New mobile top bar and drawer */
+.mobile-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
   background-color: var(--pico-background-color);
   border-bottom: 1px solid var(--pico-primary);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-}
-
-.mobile-nav-row-1 {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 0.5rem;
-  gap: 0.75rem;
-}
-
-.mobile-nav-row-2 {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.25rem 0.5rem;
-  border-top: 1px solid var(--pico-muted-border-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .burger-menu {
-  margin-left: 1rem;
-  margin-bottom: 0 !important;
-
   min-width: 2.5rem;
   background: none;
-  border: none;
   font-size: 1.2rem;
-  cursor: pointer;
   padding: 0.5rem;
   color: var(--pico-primary);
   border: 1px solid var(--pico-primary);
   border-radius: 0.5rem;
 }
 
-.mobile-nav-content {
-  display: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.mobile-nav-content.show {
-  display: block;
-  background-color: var(--pico-background-color-solid);
-  position: absolute;
-  top: 6.5rem;
-  left: 0;
-  right: 0;
-  z-index: 1100;
-  animation: slideDown 0.3s ease forwards;
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.mobile-nav-content ul {
-  display: grid;
-  gap: 0.5rem;
-  grid-template-columns: repeat(2, minmax(100px, 1fr));
-  margin: 0;
-  padding: 0 1rem;
-}
-
-.mobile-nav-content li {
-  list-style: none;
-}
-
-.mobile-nav-search-container {
+.mobile-actions {
   display: flex;
-  gap: 0.5rem;
-  flex-direction: row;
   align-items: center;
-  flex: 1;
+  gap: 0.35rem;
 }
 
-.mobile-nav-search-container input {
-  flex: 1;
-  min-width: 0;
-}
-
-.mobile-nav-controls {
-  display: flex;
-  gap: 0.5rem;
+.icon-button {
+  display: inline-flex;
   align-items: center;
-}
-
-.mobile-nav-logo {
-  flex-shrink: 0;
-}
-
-.mobile-active {
-  background-color: var(--pico-primary-focus);
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.2rem;
+  padding: 0;
+  border: 1px solid var(--pico-primary);
+  border-radius: 0.5rem;
+  background: var(--pico-card-background-color) !important;
   color: var(--pico-contrast);
-  font-weight: bold;
+  text-decoration: none;
+  line-height: 1;
+}
+
+/* Ensure images/icons inside icon-button scale and clip nicely */
+.icon-button img,
+.icon-button svg,
+.icon-button span.theme-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: block;
+  font-size: 2em;
+}
+
+/* Make search overlay action icons fill more of the button space */
+.mobile-search-bar .icon-button img,
+.mobile-search-bar .icon-button svg,
+.mobile-search-bar .icon-button span.theme-icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* Normalize hover so buttons don't shift differently than links */
+.icon-button:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Primary filled variant for emphasis actions (e.g., Log In) */
+.icon-button--primary {
+  background: var(--pico-primary) !important;
+  color: var(--pico-primary-inverse);
+  border-color: var(--pico-primary);
+}
+.icon-button--primary:hover {
+  filter: brightness(0.95);
+}
+
+.mobile-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1099;
+}
+
+.mobile-drawer {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: min(85vw, 320px);
+  transform: translateX(-100%);
+  transition: transform 200ms ease;
+  background: var(--pico-background-color);
+  border-right: 1px solid var(--pico-primary);
+  box-shadow: 4px 0 16px rgba(0, 0, 0, 0.2);
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-drawer.open {
+  transform: translateX(0);
+}
+
+.mobile-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--pico-primary-focus);
+}
+
+/* Ensure language select stays compact (flag-only) in drawer header */
+.mobile-drawer-header select {
+  width: fit-content !important;
+  max-width: none !important;
+  flex: 0 0 auto !important;
+  display: inline-flex !important;
+}
+
+.drawer-title {
+  font-weight: 700;
+}
+
+.mobile-drawer-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.drawer-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: var(--pico-contrast);
+  border: 1px solid transparent;
+}
+
+.drawer-link:hover {
+  border-color: var(--pico-primary);
+  background: var(--pico-primary-focus);
+}
+
+.drawer-link.active {
+  border: 1px solid var(--pico-primary);
+  background: var(--pico-primary-focus);
+}
+
+.drawer-link-icon {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.25rem;
+}
+
+.drawer-link-label {
+  font-size: 1rem;
+}
+
+.mobile-drawer-footer {
+  margin-top: auto;
+  padding: 0.75rem;
+  border-top: 1px solid var(--pico-primary-focus);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.profile-link,
+.signin-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--pico-contrast);
+  border: 1px solid var(--pico-primary);
+  border-radius: 0.5rem;
+  padding: 0.4rem 0.6rem;
+}
+
+.profile-name {
+  font-size: 0.85rem;
+}
+
+/* Search overlay */
+.mobile-search-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--pico-background-color);
+  z-index: 1200;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-search-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--pico-primary);
+}
+
+.mobile-search-bar input {
+  flex: 1;
+}
+
+.close-search {
+  padding: 0.5rem 0.75rem !important;
+}
+
+.mobile-search-results {
+  position: relative;
+  padding: 0.75rem;
 }
 
 @media (max-width: 500px) {
   h3 span {
     display: none;
   }
-
-  .mobile-nav-row-1 {
-    padding: 0.4rem;
-    gap: 0.5rem;
-  }
-
-  .mobile-nav-row-2 {
-    padding: 0.2rem 0.4rem;
-  }
-
-  .mobile-nav-logo img {
-    height: 2.2em !important;
-    width: 2.2em !important;
-  }
-
   .burger-menu span {
     display: none;
   }
 }
 
 @media (max-width: 375px) {
-  .mobile-nav-row-1 {
-    padding: 0.3rem;
-    gap: 0.4rem;
-  }
-
-  .mobile-nav-row-2 {
-    padding: 0.15rem 0.3rem;
-  }
-
-  .mobile-nav-logo img {
-    height: 2em !important;
-    width: 2em !important;
-  }
-
-  .mobile-nav-controls {
+  .mobile-actions {
     gap: 0.3rem;
   }
 }

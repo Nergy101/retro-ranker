@@ -409,7 +409,12 @@ export default function CatalogPage(ctx: FreshContext) {
                   marginTop: "1rem",
                 }}
               >
-                <p>{TranslationPipe(translations, "devices.noResults")}</p>
+                <p>
+                  {TranslationPipe(
+                    translations,
+                    "devices.catalog.noResultsDescription",
+                  )}
+                </p>
               </div>
             )
             : (
