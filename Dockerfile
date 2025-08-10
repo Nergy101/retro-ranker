@@ -1,4 +1,7 @@
 FROM denoland/deno:alpine
+USER root
+RUN apk add --no-cache ca-certificates && update-ca-certificates
+ENV DENO_TLS_CA_STORE=system
 
 # Set working directory
 WORKDIR /app
