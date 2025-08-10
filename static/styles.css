@@ -1891,9 +1891,6 @@ body.paused-animation::before {
   h3 span {
     display: none;
   }
-  .burger-menu span {
-    display: none;
-  }
 }
 
 @media (max-width: 375px) {
