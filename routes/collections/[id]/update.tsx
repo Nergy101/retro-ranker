@@ -36,9 +36,7 @@ export default async function UpdateCollection(
   );
 
   if (!existingCollection) {
-    return (
-      <div>{TranslationPipe(translations, "collections.error.notFound")}</div>
-    );
+    return <div>{TranslationPipe(translations, "collections.notFound")}</div>;
   }
 
   const existingCollectionData =
@@ -48,7 +46,7 @@ export default async function UpdateCollection(
 
   return (
     <div>
-      <h1>{TranslationPipe(translations, "collections.update.title")}</h1>
+      <h1>{TranslationPipe(translations, "collections.update")}</h1>
       <CollectionUpdateForm
         allDevices={devices}
         existingCollectionDevices={existingCollectionDevices}

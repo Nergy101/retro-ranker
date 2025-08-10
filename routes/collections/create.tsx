@@ -22,7 +22,7 @@ export default async function CreateCollection(ctx: FreshContext) {
 
   return (
     <div>
-      <h1>{TranslationPipe(translations, "collections.create.title")}</h1>
+      <h1>{TranslationPipe(translations, "collections.create")}</h1>
       <CollectionCreateForm devices={devices} />
     </div>
   );

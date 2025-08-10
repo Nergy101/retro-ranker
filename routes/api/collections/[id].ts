@@ -17,6 +17,19 @@ export const handler = {
     const description = form.get("description")?.toString();
     const deviceIds: string[] = form.get("devices")?.toString().split(",") ??
       [];
+    const type = form.get("type")?.toString();
+    const orderRaw = form.get("order")?.toString();
+    let order: Array<Record<string, number>> | undefined = undefined;
+    if (orderRaw) {
+      try {
+        const parsed = JSON.parse(orderRaw);
+        if (Array.isArray(parsed)) {
+          order = parsed as Array<Record<string, number>>;
+        }
+      } catch {
+        // ignore invalid order payload
+      }
+    }
 
     if (!name || !description) {
       return new Response("Missing name or description", { status: 400 });
@@ -34,11 +47,19 @@ export const handler = {
       return new Response("Unauthorized", { status: 401 });
     }
 
-    const updatedCollection = await pbService.update("device_collections", id, {
+    const payload: Record<string, unknown> = {
       name,
       description,
       devices: deviceIds,
-    });
+    };
+    if (type) payload.type = type;
+    if (order) payload.order = order;
+
+    const updatedCollection = await pbService.update(
+      "device_collections",
+      id,
+      payload,
+    );
 
     return new Response(JSON.stringify(updatedCollection), { status: 200 });
   },

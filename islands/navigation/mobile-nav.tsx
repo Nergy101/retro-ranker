@@ -17,6 +17,7 @@ import {
   PiRanking,
   PiScroll,
   PiSignIn,
+  PiUserPlus,
   PiX,
 } from "@preact-icons/pi";
 import { useEffect, useRef, useState } from "preact/hooks";
@@ -143,10 +144,20 @@ export function MobileNav({
           data-placement="bottom"
           type="button"
           class="burger-menu"
+          style={{
+            marginBottom: 0,
+          }}
           aria-label="Open menu"
           onClick={() => setIsDrawerOpen(true)}
         >
-          <PiListBold />
+          <span
+            style={{
+              color: "var(--pico-primary-inverse)",
+              fontSize: "1.2rem",
+            }}
+          >
+            <PiListBold />
+          </span>
         </button>
 
         <a
@@ -212,15 +223,26 @@ export function MobileNav({
               </a>
             )
             : (
-              <a
-                href="/auth/sign-in"
-                aria-label="Log In"
-                class="icon-button icon-button--primary"
-                data-tooltip="Log In"
-                data-placement="bottom"
-              >
-                <PiSignIn />
-              </a>
+              <>
+                <a
+                  href="/auth/sign-up"
+                  aria-label="Sign Up"
+                  class="icon-button"
+                  data-tooltip="Sign Up"
+                  data-placement="bottom"
+                >
+                  <PiUserPlus />
+                </a>
+                <a
+                  href="/auth/sign-in"
+                  aria-label="Log In"
+                  class="icon-button icon-button--primary"
+                  data-tooltip="Log In"
+                  data-placement="bottom"
+                >
+                  <PiSignIn />
+                </a>
+              </>
             )}
         </div>
       </nav>
@@ -280,14 +302,24 @@ export function MobileNav({
               </a>
             )
             : (
-              <a
-                href="/auth/sign-in"
-                class="signin-link"
-                onClick={() => setIsDrawerOpen(false)}
-              >
-                <PiSignIn />
-                <span>Log In</span>
-              </a>
+              <>
+                <a
+                  href="/auth/sign-up"
+                  class="signin-link"
+                  onClick={() => setIsDrawerOpen(false)}
+                >
+                  <PiUserPlus />
+                  <span>Sign Up</span>
+                </a>
+                <a
+                  href="/auth/sign-in"
+                  class="signin-link"
+                  onClick={() => setIsDrawerOpen(false)}
+                >
+                  <PiSignIn />
+                  <span>Log In</span>
+                </a>
+              </>
             )}
         </footer>
       </aside>

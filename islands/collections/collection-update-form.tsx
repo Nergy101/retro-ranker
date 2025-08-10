@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "preact/hooks";
 import { DeviceCollection } from "@data/frontend/contracts/device-collection.ts";
 import { Device } from "@data/frontend/contracts/device.model.ts";
 import { searchDevices } from "@data/frontend/services/utils/search.utils.ts";
-import { createLoggedInPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
+// import { createLoggedInPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
 import { DeviceCardMedium } from "@components/cards/device-card-medium.tsx";
 
 export function CollectionUpdateForm(
@@ -158,10 +158,6 @@ export function CollectionUpdateForm(
     setIsSubmitting(true);
 
     try {
-      const pocketbaseClient = await createLoggedInPocketBaseService(
-        document.cookie,
-      );
-
       let orderArr: Array<Record<string, number>> = [];
       if (collectionType === "Ranked") {
         orderArr = selectedDevices.map((device) => ({
@@ -169,13 +165,26 @@ export function CollectionUpdateForm(
         }));
       }
 
-      await pocketbaseClient.update("device_collections", collection.id, {
-        name: name.trim(),
-        description: description.trim(),
-        devices: selectedDevices.map((device) => device.id),
-        type: collectionType,
-        order: orderArr,
+      const formData = new FormData();
+      formData.append("name", name.trim());
+      formData.append("description", description.trim());
+      formData.append(
+        "devices",
+        selectedDevices.map((device) => device.id).join(","),
+      );
+      formData.append("type", collectionType);
+      if (collectionType === "Ranked") {
+        formData.append("order", JSON.stringify(orderArr));
+      }
+
+      const response = await fetch(`/api/collections/${collection.id}`, {
+        method: "PUT",
+        body: formData,
       });
+
+      if (!response.ok) {
+        throw new Error(`Failed with status ${response.status}`);
+      }
 
       globalThis.location.href = "/profile";
     } catch (error) {
