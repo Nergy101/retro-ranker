@@ -139,6 +139,8 @@ export function MobileNav({
       {/* Top bar: single row */}
       <nav class="mobile-topbar">
         <button
+          data-tooltip="Menu"
+          data-placement="bottom"
           type="button"
           class="burger-menu"
           aria-label="Open menu"
@@ -147,7 +149,13 @@ export function MobileNav({
           <PiListBold />
         </button>
 
-        <a href="/" aria-label="Home" class="mobile-nav-logo">
+        <a
+          href="/"
+          aria-label="Home"
+          class="mobile-nav-logo"
+          data-tooltip="Retro Ranker"
+          data-placement="bottom"
+        >
           <img
             loading="lazy"
             src="/logos/retro-ranker/rr-logo.svg"
@@ -158,6 +166,12 @@ export function MobileNav({
         </a>
 
         <div class="mobile-actions">
+          <ThemeSwitcher
+            showTooltip={true}
+            tooltipLocation="left"
+            showNames={false}
+            compact={true}
+          />
           <a
             href="#"
             aria-label="Search"
@@ -185,7 +199,6 @@ export function MobileNav({
               <PiMagnifyingGlass />
             </span>
           </a>
-          <ThemeSwitcher showTooltip={false} showNames={false} compact={true} />
           {user
             ? (
               <a

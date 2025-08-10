@@ -1685,7 +1685,7 @@ body.paused-animation::before {
   background: none;
   font-size: 1.2rem;
   padding: 0.5rem;
-  color: var(--pico-primary);
+  color: var(--pico-primary-inverse);
   border: 1px solid var(--pico-primary);
   border-radius: 0.5rem;
 }

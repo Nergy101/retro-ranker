@@ -223,7 +223,7 @@ export function SignIn(
         </div>
       )}
       <div class="auth-form-footer">
-        {pleaseWait && (
+        {!pleaseWait && (
           <a
             href="/auth/sign-up"
             role="button"
