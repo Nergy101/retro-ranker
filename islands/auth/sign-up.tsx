@@ -1,4 +1,11 @@
-import { PiLock, PiPassword, PiUser, PiUserPlus } from "@preact-icons/pi";
+import {
+  PiDiscordLogo,
+  PiGoogleLogo,
+  PiLock,
+  PiPassword,
+  PiUser,
+  PiUserPlus,
+} from "@preact-icons/pi";
 import { IS_BROWSER } from "fresh/runtime";
 import { useEffect, useState } from "preact/hooks";
 
@@ -233,6 +240,27 @@ export function SignUp({
           {error}
         </div>
       )}
+
+      <div class="auth-signin-btn-row">
+        <a
+          href="/api/auth/discord"
+          role="button"
+          class="auth-signin-btn auth-signin-btn--discord"
+          aria-label={translations["auth.logInWithDiscord"]}
+          data-tooltip={translations["auth.logInWithDiscord"]}
+        >
+          <PiDiscordLogo size={32} />
+        </a>
+        <a
+          href="/api/auth/google"
+          role="button"
+          class="auth-signin-btn auth-signin-btn--google"
+          aria-label={translations["auth.logInWithGoogle"]}
+          data-tooltip={translations["auth.logInWithGoogle"]}
+        >
+          <PiGoogleLogo size={32} />
+        </a>
+      </div>
 
       <form
         method="POST"
