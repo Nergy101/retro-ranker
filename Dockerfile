@@ -3,27 +3,29 @@ FROM denoland/deno:alpine
 # Set working directory
 WORKDIR /app
 
-# Set a fixed cache directory inside the container
+# Environment
 ENV DENO_DIR=/deno_cache
 ENV DENO_ENV=production
 
-RUN deno install
-
-# Copy dependencies definition files first to leverage Docker cache
+# Copy dependency metadata first (better layer caching)
 COPY deno.json* ./
+COPY deno.lock ./deno.lock
 
-# Copy the rest of the application
+# Pre-cache deps used by build/runtime to reduce peak RAM during container start
+RUN deno cache main.ts dev.ts || true
+
+# Copy the full application
 COPY . .
 
-# Cache dependencies at build time
-# RUN deno cache main.ts
-# RUN deno run -A dev.ts build
+# Build Fresh assets at image build time (avoid building at container runtime)
+RUN deno task build
 
-# Expose any required ports (if needed)
+# Expose port
 EXPOSE 8000
 
-# Run the application without re-downloading dependencies
-CMD ["run", "prod"]
+# Run with a conservative V8 heap cap to avoid OOM on small VPS
+# Adjust --max-old-space-size (in MB) to fit your host (e.g. 384, 512, 768)
+CMD ["run", "-A", "--v8-flags=--max-old-space-size=512", "main.ts"]
 
 ### Usage notes:
 # docker build -t retro-ranker:latest .

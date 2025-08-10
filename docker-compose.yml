@@ -7,6 +7,9 @@ services:
       - "8000:8000"
     env_file:
       - .env
+    # Constrain memory/CPU to protect the VPS from OOM (works without Swarm)
+    # mem_limit: 1024m
+    # cpus: 0.75
 
   pocketbase:
     image: ghcr.io/muchobien/pocketbase:latest
