@@ -27,6 +27,7 @@ export default function AppWrapper(
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="color-scheme" content="dark light" />
         {seo.title && <title>{seo.title}</title>}
         {seo.description && (
           <meta name="description" content={seo.description} />
@@ -54,6 +55,14 @@ export default function AppWrapper(
             dangerouslySetInnerHTML={{ __html: seo.jsonLd }}
           />
         )}
+        {/* Inline theme init to avoid flash of incorrect theme before first paint */}
+        <script
+          // deno-lint-ignore react-no-danger
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}else if(globalThis.matchMedia&&globalThis.matchMedia('(prefers-color-scheme: dark)').matches){document.documentElement.setAttribute('data-theme','dark');}else{document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();",
+          }}
+        />
         <link rel="stylesheet" href="/styles.css" />
         <script defer src="/scripts/konami.js" />
         <script
@@ -76,7 +85,6 @@ export default function AppWrapper(
           href="/favicon-16x16.png"
         />
         <link rel="stylesheet" href="/pico.pumpkin.min.css" />
-        <script defer src="/scripts/theme-sync.js" />
         <script defer src="/scripts/lang-sync.js" />
       </head>
       <body>

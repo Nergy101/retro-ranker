@@ -19,19 +19,25 @@ export function ThemeSwitcher(
   const [theme, setTheme] = useState<"light" | "dark">("dark");
   const [isAnimating, setIsAnimating] = useState(false);
 
-  // Initialize theme from localStorage or system preference
+  // Initialize theme from existing DOM attribute or storage once
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      setTheme(savedTheme as "light" | "dark");
-      document.documentElement.setAttribute("data-theme", savedTheme);
-    } else {
-      const prefersDark =
-        globalThis.matchMedia("(prefers-color-scheme: dark)").matches;
-      setTheme(prefersDark ? "dark" : "light");
-      document.documentElement.setAttribute("data-theme", theme);
+    const existing = document.documentElement.getAttribute("data-theme");
+    if (existing === "light" || existing === "dark") {
+      setTheme(existing);
+      return;
     }
-  });
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light" || savedTheme === "dark") {
+      setTheme(savedTheme);
+      document.documentElement.setAttribute("data-theme", savedTheme);
+      return;
+    }
+    const prefersDark = !!globalThis.matchMedia &&
+      globalThis.matchMedia("(prefers-color-scheme: dark)").matches;
+    const initial = prefersDark ? "dark" : "light";
+    setTheme(initial);
+    document.documentElement.setAttribute("data-theme", initial);
+  }, []);
 
   const toggleTheme = () => {
     if (isAnimating) return; // Prevent multiple clicks during animation
