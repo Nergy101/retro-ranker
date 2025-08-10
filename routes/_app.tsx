@@ -1,20 +1,11 @@
 import { FreshContext, page } from "fresh";
-import { Device } from "@data/frontend/contracts/device.model.ts";
 import { User } from "@data/frontend/contracts/user.contract.ts";
-import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
 import { CustomFreshState } from "@interfaces/state.ts";
 import { Footer } from "@components/footer.tsx";
 import { TopNavbar } from "@islands/navigation/top-navbar.tsx";
 
 export const handler = {
   async GET(ctx: FreshContext) {
-    const deviceService = await DeviceService.getInstance();
-    const allDevices = await deviceService.getAllDevices();
-    // deno-lint-ignore no-explicit-any
-    (ctx.params as any) = {
-      allDevices,
-    };
-
     return page(ctx);
   },
 };
@@ -25,8 +16,6 @@ export default function AppWrapper(
   const seo = (ctx.state as CustomFreshState).seo ?? {};
 
   // const state = ctx.state as CustomFreshState;
-  const params = ctx.params as any;
-  const allDevices = params.allDevices as Device[];
   const user = (ctx.state as CustomFreshState).user as User | null;
   const language = (ctx.state as CustomFreshState).language ?? "en-US";
   const translations = (ctx.state as CustomFreshState).translations ?? {};
@@ -93,7 +82,6 @@ export default function AppWrapper(
       <body>
         <TopNavbar
           pathname={url.pathname}
-          allDevices={allDevices}
           user={user}
           translations={translations}
         />

@@ -8,7 +8,7 @@ services:
     env_file:
       - .env
     # Constrain memory/CPU to protect the VPS from OOM (works without Swarm)
-    # mem_limit: 1024m
+    # mem_limit: 2048m
     # cpus: 0.75
 
   pocketbase:

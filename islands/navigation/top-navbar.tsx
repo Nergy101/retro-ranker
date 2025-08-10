@@ -5,15 +5,16 @@ import { DesktopNav } from "./desktop-nav.tsx";
 import { MobileNav } from "./mobile-nav.tsx";
 
 export function TopNavbar(
-  { pathname, allDevices, user, translations }: {
+  { pathname, user, translations }: {
     pathname: string;
-    allDevices: Device[];
     user: User | null;
     translations: Record<string, string>;
   },
 ) {
   const [isMobile, setIsMobile] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [_suggestions, _setSuggestions] = useState<Device[]>([]);
+  const [_query, _setQuery] = useState<string>("");
 
   useEffect(() => {
     const handleResize = () => {
@@ -55,7 +56,7 @@ export function TopNavbar(
         ? (
           <MobileNav
             pathname={pathname}
-            allDevices={allDevices}
+            allDevices={[]}
             user={user}
             translations={translations}
           />
@@ -63,7 +64,7 @@ export function TopNavbar(
         : (
           <DesktopNav
             pathname={pathname}
-            allDevices={allDevices}
+            allDevices={[]}
             user={user}
             translations={translations}
           />

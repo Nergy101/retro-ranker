@@ -34,7 +34,7 @@ export const handler = {
     )).filter((tag) => tag !== null) as TagModel[];
 
     if (searchQuery || category || sortBy || filter || pageNumber || pageSize) {
-      const devices = deviceService.searchDevices(
+      const devices = await deviceService.searchDevices(
         searchQuery || "",
         category,
         sortBy,
@@ -56,6 +56,6 @@ export const handler = {
 
     // If no search query, return all devices
     console.info("API call success for all devices: devices/index ");
-    return Response.json(deviceService.getAllDevices(), { status: 200 });
+    return Response.json(await deviceService.getAllDevices(), { status: 200 });
   },
 };

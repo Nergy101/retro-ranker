@@ -29,6 +29,9 @@ export function DeviceComparisonForm({
   const [isLoading1, setIsLoading1] = useState(false);
   const [isLoading2, setIsLoading2] = useState(false);
   const [isLoading3, setIsLoading3] = useState(false);
+  const [isLoading4, setIsLoading4] = useState(false);
+  const [isLoading5, setIsLoading5] = useState(false);
+  const [isLoading6, setIsLoading6] = useState(false);
 
   const [queryA, setQueryA] = useState(originalDeviceA?.name.raw || "");
   const [queryB, setQueryB] = useState(originalDeviceB?.name.raw || "");
@@ -168,6 +171,12 @@ export function DeviceComparisonForm({
       setIsLoading2(true);
     } else if (index === 3) {
       setIsLoading3(true);
+    } else if (index === 4) {
+      setIsLoading4(true);
+    } else if (index === 5) {
+      setIsLoading5(true);
+    } else if (index === 6) {
+      setIsLoading6(true);
     }
     globalThis.location.href = `/compare?devices=${deviceA},${deviceB}`;
   };
@@ -354,55 +363,196 @@ export function DeviceComparisonForm({
         )}
       </div>
 
-      {/* Examples */}
-      <div class="compare-form-examples">
-        <button
-          class="secondary"
-          onClick={() => handleExampleComparison("miyoo-flip", "rg-35xx-sp", 1)}
-          type="submit"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-          aria-busy={isLoading1}
-        >
-          <span style={{ display: "flex", gap: "0.25rem" }}>
-            Miyoo Flip <PiGitDiff /> RG-35XX SP
-          </span>
-        </button>
-        <button
-          class="secondary"
-          onClick={() =>
-            handleExampleComparison("retroid-pocket-5", "rg-406h", 2)}
-          type="submit"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-          aria-busy={isLoading2}
-        >
-          <span style={{ display: "flex", gap: "0.25rem" }}>
-            Retroid Pocket 5 <PiGitDiff /> RG-406H
-          </span>
-        </button>
-        <button
-          class="secondary"
-          onClick={() =>
-            handleExampleComparison("ayaneo-pocket-evo", "odin-2-portal", 3)}
-          type="submit"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-          aria-busy={isLoading3}
-        >
-          <span style={{ display: "flex", gap: "0.25rem" }}>
-            AYANEO Pocket Evo <PiGitDiff /> Odin 2 Portal
-          </span>
-        </button>
+      {/* Quick comparisons (dynamic) */}
+      <style>
+        {`
+        @media (max-width: 640px) {
+          .compare-form-examples {
+            display: grid;
+            grid-template-columns: 1fr !important;
+            gap: 0.75rem;
+          }
+        }
+        @media (min-width: 641px) {
+          .compare-form-examples {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.75rem;
+          }
+        }
+        `}
+      </style>
+      <div
+        class="compare-form-examples"
+        style={{
+          display: "grid",
+          gap: "0.75rem",
+        }}
+      >
+        {
+          /* Compute quick comparisons from allDevices */
+        }
+        {(() => {
+          const handhelds = allDevices.filter((d) =>
+            d.deviceType === "handheld"
+          );
+          const nonUpcomingHandhelds = handhelds.filter((d) =>
+            !(d.released.raw?.toLowerCase().includes("upcoming"))
+          );
+          const midPriced = nonUpcomingHandhelds.filter((d) =>
+            d.pricing?.category === "mid"
+          );
+          const sortedByScore = [...midPriced].sort((a, b) =>
+            (b.totalRating ?? 0) - (a.totalRating ?? 0)
+          );
+
+          // Top two vertical (match substrings; exclude clamshell variants)
+          const verticalCandidates = sortedByScore
+            .filter((d) => {
+              const ff = d.formFactor?.toLowerCase() ?? "";
+              return ff.includes("vertical") && !ff.includes("clamshell");
+            });
+
+          // Top two horizontal (match substrings; exclude clamshell variants)
+          const horizontalCandidates = sortedByScore
+            .filter((d) => {
+              const ff = d.formFactor?.toLowerCase() ?? "";
+              return ff.includes("horizontal") && !ff.includes("clamshell");
+            });
+
+          // Top two clamshells
+          const clamshellCandidates = sortedByScore
+            .filter((d) => {
+              const ff = d.formFactor?.toLowerCase() ?? "";
+              return ff.includes("clamshell");
+            });
+
+          const pickTopTwoDifferentBrands = (list: Device[]): Device[] => {
+            for (let i = 0; i < list.length; i++) {
+              for (let j = i + 1; j < list.length; j++) {
+                const a = list[i];
+                const b = list[j];
+                const brandA = a.brand?.normalized?.toLowerCase() ??
+                  a.brand?.raw?.toLowerCase() ?? "";
+                const brandB = b.brand?.normalized?.toLowerCase() ??
+                  b.brand?.raw?.toLowerCase() ?? "";
+                if (brandA && brandB && brandA !== brandB) {
+                  return [a, b];
+                }
+              }
+            }
+            return list.slice(0, 2);
+          };
+
+          const horizontalTop2 = pickTopTwoDifferentBrands(
+            horizontalCandidates,
+          );
+          const verticalTop2 = pickTopTwoDifferentBrands(verticalCandidates);
+          const clamshellTop2 = pickTopTwoDifferentBrands(clamshellCandidates);
+          const overallTop2 = pickTopTwoDifferentBrands(sortedByScore);
+
+          // Build unique set of pairs (avoid duplicates across dynamic and user-defined)
+          const makePairKey = (a: Device, b: Device) => {
+            const ids = [a.name.sanitized, b.name.sanitized].sort();
+            return ids.join("|");
+          };
+          const seenPairs = new Set<string>();
+          const dynamicPairs: { a: Device; b: Device; index: number }[] = [];
+          const tryAddDynamic = (pair: Device[] | null, index: number) => {
+            if (!pair || pair.length !== 2) return;
+            const key = makePairKey(pair[0], pair[1]);
+            if (seenPairs.has(key)) return;
+            seenPairs.add(key);
+            dynamicPairs.push({ a: pair[0], b: pair[1], index });
+          };
+
+          // Order: 1=Horizontal, 2=Vertical, 3=Clamshell, 4=Overall
+          tryAddDynamic(horizontalTop2.length === 2 ? horizontalTop2 : null, 1);
+          tryAddDynamic(verticalTop2.length === 2 ? verticalTop2 : null, 2);
+          tryAddDynamic(clamshellTop2.length === 2 ? clamshellTop2 : null, 3);
+          tryAddDynamic(overallTop2.length === 2 ? overallTop2 : null, 4);
+
+          // User-defined comparisons (editable by name)
+          const userDefinedComparisons: { deviceA: string; deviceB: string }[] =
+            [
+              { deviceA: "Miyoo Flip", deviceB: "RG-35XX SP" },
+              { deviceA: "RG-477M", deviceB: "RG-406H" },
+              { deviceA: "AYANEO Pocket Evo", deviceB: "Odin 2 Portal" },
+            ];
+
+          const resolveByName = (name: string): Device | undefined => {
+            const lower = name.toLowerCase();
+            return allDevices.find((d) => d.name.raw.toLowerCase() === lower) ||
+              allDevices.find((d) => d.name.sanitized.toLowerCase() === lower);
+          };
+
+          // Compose final list: dynamic first, then user-defined until 6 total, skipping duplicates
+          const buttons: { a: Device; b: Device; index: number }[] = [
+            ...dynamicPairs,
+          ];
+          for (
+            let i = 0;
+            i < userDefinedComparisons.length && buttons.length < 6;
+            i++
+          ) {
+            const pair = userDefinedComparisons[i];
+            const a = resolveByName(pair.deviceA);
+            const b = resolveByName(pair.deviceB);
+            if (!a || !b) continue;
+            const key = makePairKey(a, b);
+            if (seenPairs.has(key)) continue;
+            seenPairs.add(key);
+            // manual buttons start from index 5
+            buttons.push({
+              a,
+              b,
+              index: 4 + buttons.filter((p) => p.index <= 4).length +
+                (buttons.filter((p) => p.index > 4).length + 1),
+            });
+          }
+
+          return (
+            <>
+              {buttons.map(({ a, b, index }) => {
+                const isBusy = index === 1
+                  ? isLoading1
+                  : index === 2
+                  ? isLoading2
+                  : index === 3
+                  ? isLoading3
+                  : index === 4
+                  ? isLoading4
+                  : index === 5
+                  ? isLoading5
+                  : isLoading6;
+                return (
+                  <button
+                    key={`${a.name.sanitized}-${b.name.sanitized}-${index}`}
+                    class="secondary"
+                    onClick={() =>
+                      handleExampleComparison(
+                        a.name.sanitized,
+                        b.name.sanitized,
+                        index,
+                      )}
+                    type="submit"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      width: "100%",
+                    }}
+                    aria-busy={isBusy}
+                  >
+                    <span style={{ display: "flex", gap: "0.25rem" }}>
+                      {a.name.raw} <PiGitDiff /> {b.name.raw}
+                    </span>
+                  </button>
+                );
+              })}
+            </>
+          );
+        })()}
       </div>
     </div>
   );
