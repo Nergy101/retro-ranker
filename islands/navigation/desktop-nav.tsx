@@ -154,8 +154,14 @@ export function DesktopNav({
           <li class="nav-search-item">
             <input
               style={{
-                width: "3em",
+                width: "15em",
                 transition: "width 0.3s ease-in-out",
+                height: "2.5rem",
+                border: "1px solid var(--pico-primary)",
+                borderRadius: "0.5rem",
+                background: "var(--pico-card-background-color)",
+                color: "var(--pico-contrast)",
+                padding: "0 0.75rem",
               }}
               onFocus={(e) => {
                 e.currentTarget.style.width = "12em";
@@ -163,6 +169,7 @@ export function DesktopNav({
               onBlur={(e) => {
                 e.currentTarget.style.width = "3em";
               }}
+              placeholder={TranslationPipe(translations, "search.placeholder")}
               type="search"
               name="search"
               aria-label="Search"
@@ -173,24 +180,36 @@ export function DesktopNav({
                 }
               }}
             />
-            <button
+            <a
+              href="#"
               type="button"
               aria-label="Search"
-              class="outline search-button"
-              onClick={handleSubmit}
+              class="icon-button magnifying-glass"
+              onClick={(e) => {
+                e.preventDefault();
+                handleSubmit();
+              }}
+              data-tooltip={TranslationPipe(translations, "nav.go")}
+              data-placement="bottom"
             >
-              <PiMagnifyingGlass />
-              <span style={{ marginLeft: "0.25rem" }}>
-                {TranslationPipe(translations, "nav.go")}
+              <span
+                style={{
+                  color: "var(--pico-contrast)",
+                  fontSize: "1.2rem",
+                }}
+              >
+                <PiMagnifyingGlass />
               </span>
-            </button>
+            </a>
           </li>
-          <li class="nav-theme-item">
-            <LanguageSwitcher translations={translations} />
-          </li>
-          <li class="nav-theme-item">
-            <ThemeSwitcher showNames={false} showTooltip={true} />
-          </li>
+
+          <LanguageSwitcher translations={translations} compact={true} />
+
+          <ThemeSwitcher
+            showNames={false}
+            showTooltip={true}
+            compact={true}
+          />
 
           {user
             ? (
@@ -198,23 +217,15 @@ export function DesktopNav({
                 <a
                   href="/profile"
                   aria-label="Profile"
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    gap: "0.5rem",
-                  }}
+                  class="icon-button"
+                  data-tooltip={user.nickname}
+                  data-placement="bottom"
                 >
-                  <div
-                    data-tooltip={user.nickname}
-                    data-placement="left"
-                    style={{
-                      border: "none",
-                      cursor: "pointer",
-                    }}
-                  >
-                    <ProfileImage name={user.nickname} />
-                  </div>
+                  <ProfileImage
+                    name={user.nickname}
+                    size={24}
+                    showBorder={false}
+                  />
                 </a>
               </li>
             )
@@ -228,9 +239,7 @@ export function DesktopNav({
                   <a
                     href="/auth/sign-up"
                     aria-label="Sign Up"
-                    style={{
-                      fontSize: "1.5rem",
-                    }}
+                    class="icon-button"
                   >
                     <PiUserPlus />
                   </a>
@@ -243,9 +252,7 @@ export function DesktopNav({
                   <a
                     href="/auth/sign-in"
                     aria-label="Log In"
-                    style={{
-                      fontSize: "1.5rem",
-                    }}
+                    class="icon-button"
                   >
                     <PiSignIn />
                   </a>

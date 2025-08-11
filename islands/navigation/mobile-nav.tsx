@@ -139,43 +139,43 @@ export function MobileNav({
     <div>
       {/* Top bar: single row */}
       <nav class="mobile-topbar">
-        <button
-          data-tooltip="Menu"
-          data-placement="bottom"
-          type="button"
-          class="burger-menu"
-          style={{
-            marginBottom: 0,
-          }}
-          aria-label="Open menu"
-          onClick={() => setIsDrawerOpen(true)}
-        >
-          <span
-            style={{
-              color: "var(--pico-primary-inverse)",
-              fontSize: "1.2rem",
-            }}
+        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <a
+            href="/"
+            aria-label="Home"
+            class="mobile-nav-logo"
+            data-tooltip="Retro Ranker"
+            data-placement="bottom"
           >
-            <PiListBold />
-          </span>
-        </button>
-
-        <a
-          href="/"
-          aria-label="Home"
-          class="mobile-nav-logo"
-          data-tooltip="Retro Ranker"
-          data-placement="bottom"
-        >
-          <img
-            loading="lazy"
-            src="/logos/retro-ranker/rr-logo.svg"
-            alt="retro ranker logo"
-            width="100"
-            style={{ height: "2.2em", width: "2.2em", objectFit: "contain" }}
-          />
-        </a>
-
+            <img
+              loading="lazy"
+              src="/logos/retro-ranker/rr-logo.svg"
+              alt="retro ranker logo"
+              width="100"
+              style={{ height: "2.2em", width: "2.2em", objectFit: "contain" }}
+            />
+          </a>
+          <button
+            data-tooltip="Menu"
+            data-placement="bottom"
+            type="button"
+            class="burger-menu"
+            style={{
+              marginBottom: 0,
+            }}
+            aria-label="Open menu"
+            onClick={() => setIsDrawerOpen(true)}
+          >
+            <span
+              style={{
+                color: "var(--pico-primary-inverse)",
+                fontSize: "1.2rem",
+              }}
+            >
+              <PiListBold />
+            </span>
+          </button>
+        </div>
         <div class="mobile-actions">
           <ThemeSwitcher
             showTooltip={true}

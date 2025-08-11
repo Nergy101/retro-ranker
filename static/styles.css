@@ -1554,6 +1554,7 @@ body.paused-animation::before {
   width: 100%;
   display: flex;
   flex-direction: row;
+  gap: 0.5rem;
   list-style: none;
   padding: 0;
   align-items: center;
@@ -1633,6 +1634,7 @@ body.paused-animation::before {
   display: flex;
   flex-direction: row;
   align-items: center;
+  gap: 0.5rem;
 }
 
 .search-button {
@@ -1705,11 +1707,25 @@ body.paused-animation::before {
   font-size: 1.2rem;
   padding: 0;
   border: 1px solid var(--pico-primary);
-  border-radius: 0.5rem;
+  border-radius: 0.5rem !important;
   background: var(--pico-card-background-color) !important;
   color: var(--pico-contrast);
   text-decoration: none;
   line-height: 1;
+}
+
+.magnifying-glass {
+  margin-top: 0;
+  margin-right: 0;
+  padding: 0;
+}
+
+.icon-button a {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
 }
 
 /* Ensure images/icons inside icon-button scale and clip nicely */

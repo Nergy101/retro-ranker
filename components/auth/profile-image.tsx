@@ -3,6 +3,7 @@ interface ProfileImageProps {
   size?: number;
   className?: string;
   backgroundType?: "solid" | "gradientLinear" | string;
+  showBorder?: boolean;
 }
 
 export function ProfileImage({
@@ -10,6 +11,7 @@ export function ProfileImage({
   size = 40,
   className = "",
   backgroundType = "solid,gradientLinear",
+  showBorder = true,
 }: ProfileImageProps) {
   const safeName = encodeURIComponent(name);
 
@@ -31,8 +33,8 @@ export function ProfileImage({
           width: `${size}px`,
           height: `${size}px`,
           borderRadius: "50%",
-          border: "2px solid var(--pico-primary-border)",
-          boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+          border: showBorder ? "2px solid var(--pico-primary-border)" : "none",
+          boxShadow: showBorder ? "0 2px 4px rgba(0, 0, 0, 0.1)" : "none",
         }}
       />
     </div>

@@ -4,8 +4,10 @@ import { useEffect, useState } from "preact/hooks";
 
 export function LanguageSwitcher({
   translations,
+  compact = false,
 }: {
   translations: Record<string, string>;
+  compact?: boolean;
 }) {
   const [lang, setLang] = useState<string>("en-US");
 
@@ -72,9 +74,10 @@ export function LanguageSwitcher({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        minWidth: "2.5rem",
+        minWidth: compact ? undefined : "2.5rem",
+        width: compact ? "2.5rem" : undefined,
         height: "2.5rem",
-        padding: "0.5rem",
+        padding: compact ? "0" : "0.5rem",
         border: "1px solid var(--pico-primary)",
         backgroundColor: "var(--pico-background-color)",
         color: "var(--pico-color)",
@@ -82,9 +85,9 @@ export function LanguageSwitcher({
         textAlign: "center",
         appearance: "none",
         backgroundRepeat: "no-repeat",
-        backgroundPosition: "right 0.5rem center",
-        backgroundSize: "1rem",
-        paddingRight: "2rem",
+        backgroundPosition: compact ? "center" : "right 0.5rem center",
+        backgroundSize: compact ? "0" : "1rem",
+        paddingRight: compact ? "0" : "2rem",
         lineHeight: "1",
         verticalAlign: "middle",
       }}
