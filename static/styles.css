@@ -481,8 +481,9 @@ body.paused-animation::before {
   grid-template-areas:
     "header performance"
     "specs specs"
-    "radar similar"
     "links links"
+    "similar similar"
+    "radar radar"
     "reviews reviews"
     "comments comments";
   grid-template-columns: 1fr 3fr;
@@ -504,12 +505,12 @@ body.paused-animation::before {
     grid-template-areas:
       "header"
       "performance"
-      "links"
       "specs"
-      "reviews"
-      "comments"
       "similar"
-      "radar";
+      "radar"
+      "links"
+      "reviews"
+      "comments";
     grid-template-columns: 1fr;
   }
 }
@@ -958,7 +959,7 @@ body.paused-animation::before {
     min-width: 10em;
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 1250px) {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -1499,7 +1500,7 @@ body.paused-animation::before {
 }
 
 .video-reviews {
-  height: 15em;
+  height: 30em;
   overflow-x: scroll;
   overflow-y: scroll;
 
@@ -1507,12 +1508,12 @@ body.paused-animation::before {
   justify-items: center;
 
   gap: 0.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(4, minmax(auto, 1fr));
 
   .video-review {
     border-radius: 0.5rem;
     overflow: hidden;
-    border: 1px solid var(--pico-secondary);
+    border: 1px solid var(--pico-primary);
   }
 
   @media (width <=1024px) {
