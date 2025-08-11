@@ -163,12 +163,6 @@ export function DesktopNav({
                 color: "var(--pico-contrast)",
                 padding: "0 0.75rem",
               }}
-              onFocus={(e) => {
-                e.currentTarget.style.width = "12em";
-              }}
-              onBlur={(e) => {
-                e.currentTarget.style.width = "3em";
-              }}
               placeholder={TranslationPipe(translations, "search.placeholder")}
               type="search"
               name="search"
@@ -189,7 +183,7 @@ export function DesktopNav({
                 e.preventDefault();
                 handleSubmit();
               }}
-              data-tooltip={TranslationPipe(translations, "nav.go")}
+              data-tooltip={TranslationPipe(translations, "search.button")}
               data-placement="bottom"
             >
               <span
@@ -203,7 +197,9 @@ export function DesktopNav({
             </a>
           </li>
 
-          <LanguageSwitcher translations={translations} compact={true} />
+          <div style={{ maxWidth: "5em", width: "5em" }}>
+            <LanguageSwitcher translations={translations} compact={false} />
+          </div>
 
           <ThemeSwitcher
             showNames={false}

@@ -236,7 +236,7 @@ export function MobileNav({
                 <a
                   href="/auth/sign-in"
                   aria-label="Log In"
-                  class="icon-button icon-button--primary"
+                  class="icon-button icon-button"
                   data-tooltip="Log In"
                   data-placement="bottom"
                 >

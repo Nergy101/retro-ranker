@@ -1718,6 +1718,7 @@ body.paused-animation::before {
   margin-top: 0;
   margin-right: 0;
   padding: 0;
+  height: 2.5rem !important;
 }
 
 .icon-button a {
@@ -1750,16 +1751,6 @@ body.paused-animation::before {
 .icon-button:hover {
   transform: none;
   box-shadow: none;
-}
-
-/* Primary filled variant for emphasis actions (e.g., Log In) */
-.icon-button--primary {
-  background: var(--pico-primary) !important;
-  color: var(--pico-primary-inverse);
-  border-color: var(--pico-primary);
-}
-.icon-button--primary:hover {
-  filter: brightness(0.95);
 }
 
 .mobile-drawer-overlay {
@@ -3055,7 +3046,6 @@ textarea:focus {
   width: 100px;
   height: 100px;
   object-fit: contain;
-  border-radius: 1em;
 }
 
 .device-card-stats {

@@ -60,10 +60,10 @@ export function Footer(
             <ul class="footer-grid-item-list">
               <li style={{ listStyle: "none" }}>
                 <a href="/privacy">
-                  <div style={{ display: "flex" }}>
+                  <div style={{ display: "flex", gap: "0.5rem" }}>
                     <PiShield />
                     <span>
-                      &nbsp;{footerPrivacy}
+                      {footerPrivacy}
                     </span>
                   </div>
                 </a>
@@ -71,10 +71,10 @@ export function Footer(
 
               <li style={{ listStyle: "none" }}>
                 <a href="/terms">
-                  <div style={{ display: "flex" }}>
+                  <div style={{ display: "flex", gap: "0.5rem" }}>
                     <PiFileText />
                     <span>
-                      &nbsp;{footerTos}
+                      {footerTos}
                     </span>
                   </div>
                 </a>
@@ -97,10 +97,10 @@ export function Footer(
                   href="https://bsky.app/profile/nergy101.bsky.social"
                   target="_blank"
                 >
-                  <div style={{ display: "flex" }}>
+                  <div style={{ display: "flex", gap: "0.5rem" }}>
                     <PiChatText />
                     <span>
-                      &nbsp;{footerBluesky}
+                      {footerBluesky}
                     </span>
                   </div>
                 </a>
@@ -110,10 +110,10 @@ export function Footer(
                   href="https://github.com/Nergy101/retro-ranker"
                   target="_blank"
                 >
-                  <div style={{ display: "flex" }}>
+                  <div style={{ display: "flex", gap: "0.5rem" }}>
                     <PiGithubLogo />
                     <span>
-                      &nbsp;{footerGithub}
+                      {footerGithub}
                     </span>
                   </div>
                 </a>
@@ -133,20 +133,20 @@ export function Footer(
             <ul class="footer-grid-item-list">
               <li style={{ listStyle: "none" }}>
                 <a href="/about">
-                  <div style={{ display: "flex" }}>
+                  <div style={{ display: "flex", gap: "0.5rem" }}>
                     <PiInfo />
                     <span>
-                      &nbsp;{footerAbout}
+                      {footerAbout}
                     </span>
                   </div>
                 </a>
               </li>
               <li style={{ listStyle: "none" }}>
                 <a href="/contact">
-                  <div style={{ display: "flex" }}>
+                  <div style={{ display: "flex", gap: "0.5rem" }}>
                     <PiChatText />
                     <span>
-                      &nbsp;{footerContact}
+                      {footerContact}
                     </span>
                   </div>
                 </a>
