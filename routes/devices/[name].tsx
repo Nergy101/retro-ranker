@@ -525,6 +525,30 @@ export default function DeviceDetail(ctx: FreshContext) {
       </div>
 
       <div class="device-detail-performance">
+        <h3
+          style={{
+            textAlign: "center",
+            padding: 0,
+            margin: "1rem 0",
+          }}
+        >
+          Tags
+        </h3>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "0.5rem",
+            justifyContent: "center",
+          }}
+        >
+          {device.tags.map((tag) => (
+            <TagComponent
+              key={tag.name}
+              tag={tag}
+            />
+          ))}
+        </div>
         <EmulationPerformance
           device={device}
           user={user}
