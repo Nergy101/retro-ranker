@@ -2075,6 +2075,35 @@ body.paused-animation::before {
 .mobile-search-results {
   position: relative;
   padding: 0.75rem;
+  container-type: inline-size;
+}
+
+/* Desktop search overlay */
+.desktop-search-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--pico-background-color);
+  z-index: 1200;
+  display: flex;
+  flex-direction: column;
+}
+
+.desktop-search-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--pico-primary);
+}
+
+.desktop-search-bar input {
+  flex: 1;
+}
+
+.desktop-search-results {
+  position: relative;
+  padding: 0.75rem;
+  container-type: inline-size;
 }
 
 @media (max-width: 500px) {

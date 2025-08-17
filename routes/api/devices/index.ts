@@ -13,18 +13,15 @@ export const handler = {
       | "all"
       | "low"
       | "mid"
-      | "high"
-      | "all";
+      | "high";
     const sortBy = params.get("sort") as
       | "all"
       | "highly-ranked"
-      | "new-arrivals"
-      | "all";
+      | "new-arrivals";
     const filter = params.get("filter") as
       | "all"
       | "upcoming"
-      | "personal-picks"
-      | "all";
+      | "personal-picks";
     const pageNumber = Number.parseInt(params.get("pageNumber") || "1");
     const pageSize = Number.parseInt(params.get("pageSize") || "9");
     const tagsParam = params.get("tags")?.split(",") || [];
@@ -43,6 +40,7 @@ export const handler = {
         pageNumber,
         pageSize,
       );
+      console.log(devices);
       console.info("API call success: devices/index ", {
         searchQuery,
         category,
@@ -50,6 +48,7 @@ export const handler = {
         filter,
         pageNumber,
         pageSize,
+        deviceCount: devices.page.length,
       });
       return Response.json(devices, { status: 200 });
     }

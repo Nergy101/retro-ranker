@@ -44,6 +44,19 @@ export function MobileNav({
   const [query, setQuery] = useState<string>("");
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
   const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
+  const [localAllDevices, setLocalAllDevices] = useState<Device[]>(
+    allDevices ?? [],
+  );
+  const defaultDeviceSlugs = [
+    "rg-477m",
+    "retroid-pocket-flip-2",
+    "retroid-pocket-5",
+    "miyoo-flip",
+    "pocket-s2",
+    "gkd-pixel-2",
+    "trimui-smart-brick",
+    "zero-40",
+  ];
 
   const isActive = (deviceName: string) =>
     deviceName.toLowerCase() === selectedDevice?.name.raw.toLowerCase();
@@ -57,6 +70,7 @@ export function MobileNav({
       }
     };
     const onClick = (e: MouseEvent) => {
+      // Only handle outside-click for drawer; do not clear search suggestions overlay
       if (
         isDrawerOpen &&
         drawerRef.current &&
@@ -82,10 +96,61 @@ export function MobileNav({
     }
   }, [isDrawerOpen, isSearchOpen]);
 
+  const ensureDevicesLoaded = async () => {
+    if (localAllDevices && localAllDevices.length > 0) return;
+    try {
+      const res = await fetch("/api/devices");
+      const data = await res.json();
+      const devices: Device[] = Array.isArray(data) ? data : (data.page || []);
+      setLocalAllDevices(devices);
+    } catch {
+      // noop
+    }
+  };
+
+  const getDefaultDevices = (source: Device[]): Device[] => {
+    if (!source || source.length === 0) return [];
+    const bySlug = new Map(source.map((d) => [d.name.sanitized, d] as const));
+    return defaultDeviceSlugs
+      .map((slug) => bySlug.get(slug))
+      .filter(Boolean) as Device[];
+  };
+
   useEffect(() => {
     if (isSearchOpen) {
       // Focus search input when search overlay opens
       setTimeout(() => searchInputRef.current?.focus(), 0);
+      ensureDevicesLoaded();
+      // If query empty, show defaults immediately
+      if (query.trim().length === 0) {
+        const source = (localAllDevices && localAllDevices.length > 0)
+          ? localAllDevices
+          : allDevices;
+        if (source && source.length > 0) {
+          setSuggestions(getDefaultDevices(source));
+        } else {
+          (async () => {
+            try {
+              const results: Device[] = [];
+              await Promise.all(defaultDeviceSlugs.map(async (slug) => {
+                const res = await fetch(
+                  `/api/devices?search=${
+                    encodeURIComponent(slug)
+                  }&pageSize=1&category=all&sort=all&filter=all`,
+                );
+                const data = await res.json();
+                const page: Device[] = Array.isArray(data)
+                  ? data
+                  : (data.page || []);
+                if (page[0]) results.push(page[0]);
+              }));
+              setSuggestions(results);
+            } catch (_) {
+              // ignore
+            }
+          })();
+        }
+      }
     } else {
       setSuggestions([]);
       setQuery("");
@@ -93,15 +158,117 @@ export function MobileNav({
     }
   }, [isSearchOpen]);
 
+  // Recompute suggestions once devices load while user is typing
+  useEffect(() => {
+    if (!isSearchOpen) return;
+    const source = (localAllDevices && localAllDevices.length > 0)
+      ? localAllDevices
+      : allDevices;
+    if (query.trim().length > 0) {
+      setSuggestions(searchDevices(query.trim(), source));
+      setSelectedDevice(
+        source.find(
+          (device) => device.name.raw.toLowerCase() === query.toLowerCase(),
+        ) ?? null,
+      );
+    } else if (
+      (localAllDevices && localAllDevices.length > 0) ||
+      (allDevices && allDevices.length > 0)
+    ) {
+      // Only switch to local defaults when we have the list; otherwise keep API-fetched defaults to avoid flicker
+      setSuggestions(getDefaultDevices(source));
+      setSelectedDevice(null);
+    }
+  }, [localAllDevices]);
+
   const queryChanged = (value: string) => {
     setQuery(value);
-    setSuggestions(searchDevices(value.trim(), allDevices));
+    const source = (localAllDevices && localAllDevices.length > 0)
+      ? localAllDevices
+      : allDevices;
+    const trimmed = value.trim();
+    if (trimmed.length === 0) {
+      if (
+        (localAllDevices && localAllDevices.length > 0) ||
+        (allDevices && allDevices.length > 0)
+      ) {
+        setSuggestions(getDefaultDevices(source));
+      }
+      setSelectedDevice(null);
+      return;
+    }
+    setSuggestions(searchDevices(trimmed, source));
     setSelectedDevice(
-      allDevices.find(
-        (device) => device.name.raw.toLowerCase() === value.toLowerCase(),
+      source.find(
+        (device) => device.name.raw.toLowerCase() === trimmed.toLowerCase(),
       ) ?? null,
     );
   };
+
+  // Debounced API-backed search when local list isn't yet available
+  useEffect(() => {
+    if (!isSearchOpen) return;
+    const trimmed = query.trim();
+    if (trimmed.length === 0) {
+      if (!localAllDevices || localAllDevices.length === 0) {
+        const controller = new AbortController();
+        (async () => {
+          try {
+            const results: Device[] = [];
+            await Promise.all(defaultDeviceSlugs.map(async (slug) => {
+              const res = await fetch(
+                `/api/devices?search=${
+                  encodeURIComponent(slug)
+                }&pageSize=1&category=all&sort=all&filter=all`,
+                { signal: controller.signal },
+              );
+              const data = await res.json();
+              const page: Device[] = Array.isArray(data)
+                ? data
+                : (data.page || []);
+              if (page[0]) results.push(page[0]);
+            }));
+            setSuggestions(results);
+          } catch (_) {
+            // ignore
+          }
+        })();
+      } else {
+        setSuggestions(getDefaultDevices(localAllDevices));
+      }
+      setSelectedDevice(null);
+      return;
+    }
+    if (localAllDevices && localAllDevices.length > 0) return; // local search already active
+
+    const controller = new AbortController();
+    const timeout = setTimeout(async () => {
+      try {
+        const res = await fetch(
+          `/api/devices?search=${
+            encodeURIComponent(trimmed)
+          }&pageSize=24&category=all&sort=all&filter=all`,
+          { signal: controller.signal },
+        );
+        const data = await res.json();
+        const page: Device[] = Array.isArray(data) ? data : (data.page || []);
+        setSuggestions(page);
+        setSelectedDevice(
+          page.find((d) =>
+            d.name.raw.toLowerCase() === trimmed.toLowerCase()
+          ) ||
+            null,
+        );
+      } catch (_) {
+        // ignore aborted/failed
+      }
+    }, 200);
+
+    return () => {
+      controller.abort();
+      clearTimeout(timeout);
+    };
+  }, [query, isSearchOpen, localAllDevices]);
 
   const setQuerySuggestion = (value: string) => {
     queryChanged(value);
@@ -383,7 +550,10 @@ export function MobileNav({
                 {suggestions.map((device) => (
                   <li
                     key={device.name.sanitized}
-                    onClick={() => setQuerySuggestion(device.name.raw)}
+                    onClick={() => {
+                      globalThis.location.href =
+                        `/devices/${device.name.sanitized}`;
+                    }}
                     class="suggestions-list-item"
                   >
                     <DeviceCardMedium
