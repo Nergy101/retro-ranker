@@ -229,19 +229,6 @@ export function DesktopNav({
               <>
                 <li
                   class="nav-theme-item"
-                  data-tooltip="Sign Up"
-                  data-placement="bottom"
-                >
-                  <a
-                    href="/auth/sign-up"
-                    aria-label="Sign Up"
-                    class="icon-button"
-                  >
-                    <PiUserPlus />
-                  </a>
-                </li>
-                <li
-                  class="nav-theme-item"
                   data-tooltip="Log In"
                   data-placement="bottom"
                 >

@@ -145,7 +145,7 @@ export function MobileNav({
             aria-label="Home"
             class="mobile-nav-logo"
             data-tooltip="Retro Ranker"
-            data-placement="bottom"
+            data-placement="right"
           >
             <img
               loading="lazy"
@@ -157,7 +157,7 @@ export function MobileNav({
           </a>
           <button
             data-tooltip="Menu"
-            data-placement="bottom"
+            data-placement="right"
             type="button"
             class="burger-menu"
             style={{

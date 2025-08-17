@@ -6,6 +6,71 @@
   font-display: swap;
 }
 
+/* Relevance full weight range */
+@font-face {
+  font-family: "Relevance";
+  src: url("/fonts/relevance/Relevance-trial-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Relevance";
+  src: url("/fonts/relevance/Relevance-trial-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Relevance";
+  src: url("/fonts/relevance/Relevance-trial-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Relevance";
+  src: url("/fonts/relevance/Relevance-trial-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Relevance";
+  src: url("/fonts/relevance/Relevance-trial-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Relevance";
+  src: url("/fonts/relevance/Relevance-trial-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Relevance";
+  src: url("/fonts/relevance/Relevance-trial-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Relevance";
+  src: url("/fonts/relevance/Relevance-trial-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Relevance";
+  src: url("/fonts/relevance/Relevance-trial-Heavy.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @font-face {
   font-family: "Runic";
   src: url("/fonts/runic-zen-love-long/runic.ttf") format("truetype");
@@ -20,6 +85,12 @@
   font-weight: normal;
   font-style: normal;
   font-display: swap;
+}
+
+:root {
+  --font-sans: "Relevance", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Arial, sans-serif;
+  --font-runic: "Runic", var(--font-sans);
 }
 
 *,
@@ -72,9 +143,6 @@ svg {
 
 html,
 body,
-code,
-pre,
-kbd,
 a,
 input,
 textarea,
@@ -90,9 +158,17 @@ h4,
 h5,
 h6,
 ::placeholder {
-  font-family: "Azeret Mono", monospace, system-ui, -apple-system,
-    BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-family: var(--font-sans) !important;
 }
+
+/* Display typography: use RetroParty for large headings and hero accents */
+/* h1,
+h2,
+.hero-button,
+.drawer-title {
+  font-family: var(--font-runic) !important;
+  letter-spacing: 0.02em;
+} */
 
 html,
 body {
@@ -1740,6 +1816,7 @@ body.paused-animation::before {
   flex-direction: row;
   align-items: center;
   gap: 0.5rem;
+  padding: 0;
 }
 
 .search-button {
@@ -2546,6 +2623,7 @@ textarea {
   transition: all 0.3s ease;
   background-color: var(--pico-background-color);
   color: var(--pico-contrast);
+  caret-color: var(--pico-primary);
 }
 
 input:focus,
@@ -2553,17 +2631,44 @@ select:focus,
 textarea:focus {
   outline: none;
   border-color: var(--pico-primary);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 0 3px var(--pico-primary-focus), 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: var(--pico-card-background-color-darker);
 }
+
+input:active,
+select:active,
+textarea:active {
+  border-color: var(--pico-primary);
+  box-shadow: 0 0 0 3px var(--pico-primary-focus), 0 1px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Valid/invalid feedback while focused
+input:focus:invalid,
+select:focus:invalid,
+textarea:focus:invalid {
+  border-color: var(--pico-del-color);
+  box-shadow: 0 0 0 3px
+      color-mix(in srgb, var(--pico-del-color) 35%, transparent),
+    0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+input:focus:valid,
+select:focus:valid,
+textarea:focus:valid {
+  border-color: var(--pico-ins-color);
+  box-shadow: 0 0 0 3px
+      color-mix(in srgb, var(--pico-ins-color) 35%, transparent),
+    0 2px 10px rgba(0, 0, 0, 0.1);
+} */
 
 /* Auth form styles */
 .auth-form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  /* gap: 1rem; */
   max-width: 25rem;
   margin: 1rem auto;
-  padding: 1.5rem 2rem;
+  /* padding: 1.5rem 2rem; */
   border-radius: 8px;
   box-shadow: 0 4px 10px 5px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
@@ -2613,7 +2718,7 @@ textarea:focus {
 .auth-form form {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  /* gap: 0.5rem; */
 }
 
 .auth-form label {

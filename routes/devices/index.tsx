@@ -279,15 +279,6 @@ export default function CatalogPage(ctx: FreshContext) {
   const data = (ctx.state as CustomFreshState).data;
   const translations = (ctx.state as CustomFreshState).translations ?? {};
 
-  // Debug logging for translations
-  logJson("info", "CatalogPage - Translations Debug", {
-    hasTranslations: !!translations,
-    translationKeys: Object.keys(translations).length,
-    sampleKeys: Object.keys(translations).slice(0, 5),
-    hasCatalogTitle: !!translations["devices.catalog.title"],
-    catalogTitle: translations["devices.catalog.title"],
-  });
-
   const allAvailableTags = data.allAvailableTags;
   const selectedTags = data.selectedTags as TagModel[];
   const pageResults = data.pageResults as Device[];
@@ -328,18 +319,15 @@ export default function CatalogPage(ctx: FreshContext) {
 
   return (
     <div class="devices-page">
-      {
-        /* <SEO
-        title="Device Catalog"
-        description="Browse our catalog of retro gaming handhelds with specs."
-        url={`https://retroranker.site${url.pathname}`}
-        keywords="retro gaming handhelds, emulation devices, retro console comparison, handheld gaming systems, retro gaming devices catalog, Anbernic devices, Miyoo handhelds, retro gaming specs, portable emulation systems"
-      /> */
-      }
       <header style={{ textAlign: "center", marginBottom: "1.5rem" }}>
         <hgroup>
           <h1>{TranslationPipe(translations, "devices.catalog.title")}</h1>
-          <p>
+          <p
+            style={{
+              fontFamily: "var(--font-sans) !important",
+              letterSpacing: "0.03em",
+            }}
+          >
             {TranslationPipe(translations, "devices.catalog.description")}
           </p>
         </hgroup>

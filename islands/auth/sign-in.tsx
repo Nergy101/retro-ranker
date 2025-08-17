@@ -75,10 +75,10 @@ export function SignIn(
         style={{
           display: "flex",
           alignItems: "center",
-          gap: "0.5rem",
           justifyContent: "center",
           textAlign: "center",
-          marginBottom: "1.25rem",
+          margin: 0,
+          padding: 0,
         }}
       >
         <img
@@ -127,6 +127,7 @@ export function SignIn(
                   translations,
                   "auth.logInWithDiscord",
                 )}
+                data-placement="left"
               >
                 <PiDiscordLogo size={32} />
               </a>
@@ -142,6 +143,7 @@ export function SignIn(
                   translations,
                   "auth.logInWithGoogle",
                 )}
+                data-placement="right"
               >
                 <PiGoogleLogo size={32} />
               </a>
@@ -160,7 +162,6 @@ export function SignIn(
               display: "flex",
               alignItems: "center",
               gap: "0.5rem",
-              marginBottom: "0.5rem",
             }}
           >
             <PiUser /> {TranslationPipe(translations, "auth.nickname")}
@@ -181,7 +182,6 @@ export function SignIn(
               display: "flex",
               alignItems: "center",
               gap: "0.5rem",
-              marginBottom: "0.5rem",
             }}
           >
             <PiPassword /> {TranslationPipe(translations, "auth.password")}
@@ -199,7 +199,7 @@ export function SignIn(
           type="submit"
           class="bg-rr-primary"
           style={{
-            marginTop: "1rem",
+            margin: 0,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
