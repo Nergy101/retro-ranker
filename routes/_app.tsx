@@ -86,6 +86,7 @@ export default function AppWrapper(
         />
         <link rel="stylesheet" href="/pico.pumpkin.min.css" />
         <script defer src="/scripts/lang-sync.js" />
+        <script defer src="/scripts/card-effects.js" />
       </head>
       <body>
         <TopNavbar

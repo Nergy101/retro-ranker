@@ -931,6 +931,110 @@ body.paused-animation::before {
   }
 }
 
+/* Interactive card micro-interactions: sheen + ripple */
+.device-search-card,
+.small-card,
+.device-card-row {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Subtle sheen sweep on hover */
+.device-search-card::before,
+.small-card::before,
+.device-card-row::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background: linear-gradient(
+    120deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.06) 40%,
+    transparent 60%
+  );
+  transform: translateX(-120%);
+  pointer-events: none;
+  opacity: 0;
+}
+
+.device-search-card:hover::before,
+.small-card:hover::before,
+.device-card-row:hover::before {
+  animation: card-sheen 1200ms ease;
+}
+
+@keyframes card-sheen {
+  0% {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+}
+
+/* Click ripple effect using CSS variables set by JS */
+.device-search-card::after,
+.small-card::after,
+.device-card-row::after {
+  content: "";
+  position: absolute;
+  width: var(--ripple-size, 0px);
+  height: var(--ripple-size, 0px);
+  top: calc(var(--ripple-y, 50%) - (var(--ripple-size, 0px) / 2));
+  left: calc(var(--ripple-x, 50%) - (var(--ripple-size, 0px) / 2));
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle,
+    rgba(254, 182, 112, 0.35) 0%,
+    rgba(254, 182, 112, 0.25) 40%,
+    rgba(254, 182, 112, 0) 70%
+  );
+  transform: scale(0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ripple-animate::after {
+  animation: card-ripple 650ms ease-out forwards;
+}
+
+@keyframes card-ripple {
+  0% {
+    transform: scale(0.2);
+    opacity: 0.35;
+  }
+  80% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .device-search-card:hover,
+  .small-card:hover,
+  .device-card-row:hover {
+    transform: none;
+  }
+  .device-search-card::before,
+  .small-card::before,
+  .device-card-row::before,
+  .device-search-card::after,
+  .small-card::after,
+  .device-card-row::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
 .device-search-form {
   display: flex;
   flex-direction: row;
