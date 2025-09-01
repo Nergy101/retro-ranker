@@ -1,37 +1,32 @@
 FROM denoland/deno:alpine
-USER root
-RUN apk add --no-cache ca-certificates && update-ca-certificates
-ENV DENO_TLS_CA_STORE=system
 
 # Set working directory
 WORKDIR /app
 
-# Environment
+# Set a fixed cache directory inside the container
 ENV DENO_DIR=/deno_cache
 ENV DENO_ENV=production
 
-# Copy dependency metadata first (better layer caching)
+RUN deno install
+
+# Copy dependencies definition files first to leverage Docker cache
 COPY deno.json* ./
-COPY deno.lock ./deno.lock
 
-# Pre-cache deps used by build/runtime to reduce peak RAM during container start
-RUN deno cache main.ts dev.ts || true
-
-# Copy the full application
+# Copy the rest of the application
 COPY . .
 
-# Build Fresh assets at image build time (avoid building at container runtime)
-RUN deno task build
+# Cache dependencies at build time
+RUN deno cache main.ts
+RUN deno run -A dev.ts build
 
-# Expose port
+# Expose any required ports (if needed)
 EXPOSE 8000
 
-# Run with a conservative V8 heap cap to avoid OOM on small VPS
-# Adjust --max-old-space-size (in MB) to fit your host (e.g. 384, 512, 768)
-CMD ["run", "-A", "--v8-flags=--max-old-space-size=512", "main.ts"]
+# Run the application without re-downloading dependencies
+CMD ["run", "-A", "main.ts"]
 
 ### Usage notes:
-# docker build -t retro-ranker:latest .
+# docker build -t retro-ranker:latest . 
 # docker compose up
 
 ### tag as ...:retro-ranker:latest
