@@ -254,15 +254,6 @@ export function DesktopNav({
     };
   }, [query, isSearchOpen, localAllDevices]);
 
-  const setQuerySuggestion = (value: string) => {
-    queryChanged(value);
-    setSuggestions([]);
-
-    if (selectedDevice) {
-      globalThis.location.href = `/devices/${selectedDevice.name.sanitized}`;
-    }
-  };
-
   const icons = new Map<string, any>([
     ["PiScroll", <PiScroll key="PiScroll" />],
     ["PiCalendar", <PiCalendar key="PiCalendar" />],

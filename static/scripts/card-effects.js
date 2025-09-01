@@ -24,7 +24,6 @@
 
         el.classList.remove("ripple-animate");
         // Force reflow to restart animation
-        // deno-lint-ignore no-unused-expressions
         el.offsetHeight;
         el.classList.add("ripple-animate");
 
