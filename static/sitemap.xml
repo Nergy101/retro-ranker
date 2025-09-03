@@ -32,10 +32,6 @@
         </url>
         
         <url>
-            <loc>https://retroranker.site/devices/thor</loc>
-        </url>
-        
-        <url>
             <loc>https://retroranker.site/devices/one-35</loc>
         </url>
         
@@ -64,6 +60,10 @@
         </url>
         
         <url>
+            <loc>https://retroranker.site/devices/thor</loc>
+        </url>
+        
+        <url>
             <loc>https://retroranker.site/devices/legion-go-gen-2</loc>
         </url>
         
@@ -85,6 +85,10 @@
         
         <url>
             <loc>https://retroranker.site/devices/xu35-h50</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/odin-3</loc>
         </url>
         
         <url>
