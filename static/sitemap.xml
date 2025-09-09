@@ -32,10 +32,6 @@
         </url>
         
         <url>
-            <loc>https://retroranker.site/devices/odin-3</loc>
-        </url>
-        
-        <url>
             <loc>https://retroranker.site/devices/one-35</loc>
         </url>
         
@@ -69,6 +65,10 @@
         
         <url>
             <loc>https://retroranker.site/devices/thor</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/odin-3</loc>
         </url>
         
         <url>
