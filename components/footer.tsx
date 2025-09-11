@@ -6,38 +6,7 @@ import {
   PiShield,
 } from "@preact-icons/pi";
 import { VersionTag } from "./shared/version-tag.tsx";
-import { BatchTranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
-
-export function Footer(
-  { translations }: { translations: Record<string, string> },
-) {
-  // Batch load all translations needed for the footer
-  const [
-    footerOther,
-    footerPrivacy,
-    footerTos,
-    footerConnect,
-    footerBluesky,
-    footerGithub,
-    footerMore,
-    footerAbout,
-    footerContact,
-    footerRights,
-    footerMadeWith,
-  ] = BatchTranslationPipe(translations, [
-    "footer.other",
-    "footer.privacy",
-    "footer.tos",
-    "footer.connect",
-    "footer.bluesky",
-    "footer.github",
-    "footer.more",
-    "footer.about",
-    "footer.contact",
-    "footer.rights",
-    "footer.madeWith",
-  ]);
-
+export function Footer() {
   return (
     <footer
       style={{
@@ -56,14 +25,14 @@ export function Footer(
               alignItems: "center",
             }}
           >
-            <span>{footerOther}</span>
+            <span>Other</span>
             <ul class="footer-grid-item-list">
               <li style={{ listStyle: "none" }}>
                 <a href="/privacy">
                   <div style={{ display: "flex", gap: "0.5rem" }}>
                     <PiShield />
                     <span>
-                      {footerPrivacy}
+                      Privacy
                     </span>
                   </div>
                 </a>
@@ -74,7 +43,7 @@ export function Footer(
                   <div style={{ display: "flex", gap: "0.5rem" }}>
                     <PiFileText />
                     <span>
-                      {footerTos}
+                      ToS
                     </span>
                   </div>
                 </a>
@@ -90,7 +59,7 @@ export function Footer(
               alignItems: "center",
             }}
           >
-            <span>{footerConnect}</span>
+            <span>Connect</span>
             <ul class="footer-grid-item-list">
               <li style={{ listStyle: "none" }}>
                 <a
@@ -100,7 +69,7 @@ export function Footer(
                   <div style={{ display: "flex", gap: "0.5rem" }}>
                     <PiChatText />
                     <span>
-                      {footerBluesky}
+                      Bluesky
                     </span>
                   </div>
                 </a>
@@ -113,7 +82,7 @@ export function Footer(
                   <div style={{ display: "flex", gap: "0.5rem" }}>
                     <PiGithubLogo />
                     <span>
-                      {footerGithub}
+                      GitHub
                     </span>
                   </div>
                 </a>
@@ -129,24 +98,14 @@ export function Footer(
               alignItems: "center",
             }}
           >
-            <span>{footerMore}</span>
+            <span>More</span>
             <ul class="footer-grid-item-list">
               <li style={{ listStyle: "none" }}>
                 <a href="/about">
                   <div style={{ display: "flex", gap: "0.5rem" }}>
                     <PiInfo />
                     <span>
-                      {footerAbout}
-                    </span>
-                  </div>
-                </a>
-              </li>
-              <li style={{ listStyle: "none" }}>
-                <a href="/contact">
-                  <div style={{ display: "flex", gap: "0.5rem" }}>
-                    <PiChatText />
-                    <span>
-                      {footerContact}
+                      About
                     </span>
                   </div>
                 </a>
@@ -162,10 +121,9 @@ export function Footer(
               alignItems: "center",
             }}
           >
-            <span>{footerRights}</span>
+            <span>All rights reserved.</span>
             <span>
-              {footerMadeWith}{" "}
-              <a href="https://github.com/Nergy101">Nergy101</a>
+              Made with ❤️ by <a href="https://github.com/Nergy101">Nergy101</a>
             </span>
             <VersionTag />
           </div>

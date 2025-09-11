@@ -1,252 +1,187 @@
-# Retro Ranker 🎮
+# Retro Ranker 2 - Fresh 2 Beta Port
 
-![Retro Ranker](https://retroranker.site/images/rr-star.png)
+This is a complete port of the Retro Ranker project from Fresh 2-alpha to Fresh
+2-beta, showcasing the new patterns and features available in the latest version
+of Fresh.
 
-![Playwright Tests](https://github.com/nergy101/retro-ranker/workflows/%F0%9F%A7%AA%20Playwright%20Tests/badge.svg)
-![Nightly Tests](https://github.com/nergy101/retro-ranker/workflows/%F0%9F%8C%99%20Nightly%20Playwright%20Tests/badge.svg)
+## 🚀 What's Been Ported
 
-## Overview
+### Core Routes
 
-Retro Ranker is a comprehensive comparison tool for retro handheld gaming
-devices that helps enthusiasts make informed purchase decisions. Our database
-provides detailed specifications, performance metrics, and side-by-side
-comparisons of the latest handhelds.
+- **Home Page** (`/`) - Complete with device showcases, popular searches, and
+  hero section
+- **Devices Page** (`/devices`) - Full device catalog with search, filtering,
+  and pagination
+- **Device Detail Page** (`/devices/[name]`) - Individual device pages with
+  specifications and similar devices
+- **FAQ Page** (`/faq`) - Comprehensive FAQ with collapsible sections
+- **Release Timeline** (`/release-timeline`) - Chronological timeline of device
+  releases
 
-**[Visit Retro Ranker](https://retroranker.site)**
+### Key Features Implemented
 
-## ✨ Features
+- ✅ **useSignal & useSignalEffect** - Modern reactive state management
+- ✅ **Fresh 2-beta Page Definition** - Using `define.page()` pattern
+- ✅ **Responsive Design** - Mobile-first approach with CSS Grid and Flexbox
+- ✅ **SEO Optimization** - Proper meta tags and structured data
+- ✅ **TypeScript Support** - Full type safety throughout
+- ✅ **Component Architecture** - Reusable components with proper interfaces
 
-- **Comprehensive Database**: Detailed technical specifications for popular
-  retro gaming handhelds
-- **Performance Analysis**: Accurate ratings and emulation capabilities for
-  different systems
-- **Compare Tool**: Side-by-side device comparisons to find your perfect
-  handheld
-- **Real Performance Metrics**: Actual gameplay benchmarks rather than just
-  specs
-- **Price Tracking**: Current pricing from major retailers
-- **Advanced Search**: Filter devices by capabilities, price range, and features
-- **Modern UI**: Clean, accessible interface with dark mode support
-- **Mobile-Friendly**: Responsive design works on all your devices
-- **Leaderboard**: Community-driven leaderboard of top-rated handhelds
-- **Charts & Analytics**: Interactive charts and data visualizations for brands,
-  ratings, release trends, and more
-- **Release Timeline**: Chronological timeline of handheld releases and upcoming
-  devices
-- **Device Reviews**: Users can leave and browse reviews for each device
-- **Device Likes & Favorites**: Like and favorite devices to curate your own
-  list and influence rankings
-- **Device Comments**: Comment on devices and join the discussion
-- **User Collections**: Maintain and showcase your own collection of handhelds
-- **SSO Authentication**: Sign in with Discord or Google, in addition to
-  email/password
-- **User Profiles**: View and manage your reviews, comments, likes, favorites,
-  and collections
-- **Community Features**: Engage with other users through comments, reviews, and
-  leaderboards
+## 🛠️ Technical Stack
 
-## 🚀 Current State & Roadmap
+- **Framework**: Fresh 2-beta with Vite
+- **Runtime**: Deno
+- **UI Library**: Preact with Signals
+- **Styling**: Custom CSS with CSS Variables
+- **Database**: PocketBase (simplified service layer)
+- **TypeScript**: Full type safety
 
-- [x] Search devices
-  - [x] Filter devices
-  - [x] Filter devices on multiple tags and a search field
-- [x] User accounts
-  - [x] Non-SSO sign-up & log-in (using Pocketbase)
-  - [x] SSO (Discord, Google)
-- [x] Community Handheld leaderboards
-  - [x] Liking devices
-  - [x] Leaving comments on devices
-  - [x] Leaving reviews on devices
-- [x] Maintaining and showcasing (your own) collections of handhelds
-  - [ ] More properties and data to add
-- [x] Device favorites (curate your own favorite list)
-- [x] Release timeline (historical & upcoming)
-- [x] Charts & analytics (brand, rating, release trends, etc.)
-  - [ ] More charts to come!
-- [x] Device comparisons
-- [x] User profiles (manage your activity)
-- [ ] Manual moderation step for device data
-- [ ] More features to come!
+## 📁 Project Structure
 
-[Or see the trello board here.](https://trello.com/invite/b/678ef0a0da4f850675889b50/ATTIc9374d330560a0a058af22a41386dff245955816/retroranker)
+```
+retro-ranker-2/
+├── routes/                    # Page routes
+│   ├── index.tsx             # Home page
+│   ├── devices/
+│   │   ├── index.tsx         # Device catalog
+│   │   └── [name].tsx        # Device detail pages
+│   ├── faq/
+│   │   └── index.tsx         # FAQ page
+│   └── release-timeline/
+│       └── index.tsx         # Release timeline
+├── components/               # Reusable components
+│   └── Button.tsx           # Button component
+├── data/                     # Data layer
+│   ├── frontend/
+│   │   ├── contracts/        # Type definitions
+│   │   └── services/         # Business logic
+│   └── pocketbase/           # Database service
+├── interfaces/               # TypeScript interfaces
+├── static/                   # Static assets
+├── assets/                   # CSS and other assets
+└── utils.ts                  # Utility functions
+```
 
-## 🛠️ Tech Stack
+## 🎯 Fresh 2-beta Patterns Used
 
-- **[Deno](https://deno.land/)**: Secure JavaScript/TypeScript runtime
-- **[Fresh](https://fresh.deno.dev/)**: Modern web framework for Deno
-- **[Deno Deploy](https://deno.com/deploy)**: Serverless deployment platform
-- **[PicoCSS](https://picocss.com/)**: Lightweight, semantic CSS framework
+### 1. Page Definition
 
-## 🚀 Development
+```tsx
+export default define.page(function HomePage(ctx) {
+  // Page logic here
+});
+```
+
+### 2. Signal-based State Management
+
+```tsx
+const devices = useSignal<Device[]>([]);
+const isLoading = useSignal(true);
+
+useSignalEffect(() => {
+  const loadData = async () => {
+    // Async data loading
+  };
+  loadData();
+});
+```
+
+### 3. SEO Integration
+
+```tsx
+ctx.state.seo = {
+  title: "Page Title",
+  description: "Page description",
+  keywords: "relevant, keywords",
+};
+```
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
-- [Deno](https://deno.land/manual/getting_started/installation)
-- Git
+- [Deno](https://deno.land/manual/getting_started/installation) 1.40+
 
-### Local Setup
+### Development
 
 ```bash
-# Clone the repository
-git clone https://github.com/Nergy101/retro-ranker.git
-cd retro-ranker
+# Start development server
+deno task dev
 
-# Start the development server
+# Build for production
+deno task build
+
+# Start production server
 deno task start
 
-# Format, lint, and type-check the code
+# Type check
 deno task check
 ```
 
-#### Environment Setup
+## 🔧 Key Improvements Over Fresh 2-alpha
 
-Copy the sample environment file and adjust its values:
+1. **Simplified State Management**: Using `useSignal` and `useSignalEffect`
+   instead of complex state management
+2. **Better Type Safety**: Improved TypeScript integration with proper
+   interfaces
+3. **Modern Build System**: Vite integration for faster development and building
+4. **Cleaner Architecture**: Simplified component structure and data flow
+5. **Performance**: Optimized rendering with Fresh 2-beta's improvements
 
-```bash
-cp .env.example .env
-```
+## 📱 Features
 
-Environment variables in `.env`:
+### Device Catalog
 
-- `BASE_API_URL` – Base URL for the API.
-- `POCKETBASE_URL` – Address of your PocketBase instance.
-- `POCKETBASE_SUPERUSER_EMAIL` – PocketBase superuser email.
-- `POCKETBASE_SUPERUSER_PASSWORD` – Password for the superuser account.
-- `OTEL_*` – OpenTelemetry settings (`OTEL_DENO`, `OTEL_EXPORTER_OTLP_ENDPOINT`,
-  `OTEL_SERVICE_NAME`).
+- Search and filter devices by multiple criteria
+- Multiple layout options (grid 9, grid 4, list)
+- Pagination with customizable page sizes
+- Tag-based filtering system
 
-Refer to `.env.defaults` for example values used with local `docker-compose`.
+### Device Details
 
-### Available Tasks
+- Comprehensive device specifications
+- Similar device recommendations
+- Vendor links and pricing information
+- Responsive image galleries
 
-#### Development Tasks
+### Release Timeline
 
-- `deno task start` - Run development server with hot reload
-- `deno task dev` - Clean and start development server
-- `deno task build` - Build for production
-- `deno task preview` - Preview production build
-- `deno task deploy` - Build and deploy to Deno Deploy
+- Chronological device release history
+- Visual timeline with device cards
+- Filter by release date and category
 
-#### Code Quality Tasks
+### FAQ System
 
-- `deno task check` - Run all code quality checks (format, lint, type-check)
-- `deno fmt` - Format code
-- `deno lint` - Run linter
+- Collapsible question sections
+- Comprehensive device and comparison information
+- Search-friendly content structure
 
-#### Data Management Tasks
+## 🎨 Styling
 
-- `deno task refresh-all` - Refresh all data sources
-- `deno task sources` - Update data sources
-- `deno task generate-devices` - Generate device data
-- `deno task patch-devices` - Patch device data
-- `deno task scrape` - Scrape device images
-- `deno task sitemap` - Generate sitemap.xml
+The project uses a custom CSS system with:
 
-### Development Workflow
+- CSS Variables for theming
+- Responsive design patterns
+- Utility classes for common patterns
+- Dark mode support via `prefers-color-scheme`
 
-1. Start development:
+## 🔮 Future Enhancements
 
-   ```bash
-   deno task dev
-   ```
+- [ ] User authentication and profiles
+- [ ] Device comparison tool
+- [ ] User reviews and ratings
+- [ ] Advanced search filters
+- [ ] Data visualization charts
+- [ ] Mobile app integration
 
-2. Before committing changes:
-
-   ```bash
-   deno task validate
-   ```
-
-3. For production deployment:
-
-   ```bash
-   deno task prod
-   ```
-
-4. To update dependencies:
-   ```bash
-   deno task update-deps
-   ```
-
-### Project Structure
-
-```
-retro-ranker/
-├── components/ # Reusable UI components
-├── data/       # Data models and services
-├── islands/    # Interactive client-side components
-├── routes/     # Page components and API endpoints
-├── scripts/    # Utility scripts
-├── static/     # Static assets (images, styles)
-└── main.ts     # Application entry point
-```
-
-### Directory Guide
-
-- [`components/`](components/README.md) – reusable UI pieces
-- [`islands/`](islands/README.md) – client-side interactive components
-- [`routes/`](routes/README.md) – pages and API endpoints
-- [`scripts/`](scripts/README.md) – helper scripts for data management
-- [`data/`](data/README.md) – data models and source helpers
-- [`static/`](static/README.md) – images, icons and other static assets
-
-### CSRF Protection
-
-Retro Ranker protects write operations with a double-submit cookie scheme. When
-a page renders a form, the server issues a random token in a `csrf_token`
-cookie. The same value is included as a hidden input in the form and validated
-by the corresponding API route. Requests with mismatched tokens result in
-`HTTP 403`.
-
-## 🐳 Docker
-
-Build the container image and run the project via Docker Compose.
-
-1. Build the image:
-
-   ```bash
-   docker build -t retro-ranker .
-   ```
-
-2. Start the services:
-
-   ```bash
-   docker compose up
-   ```
-
-`docker-compose` reads the `.env` file to configure services. Copy
-`.env.example` to `.env` and update the settings before starting Docker.
-
-## 🤝 Contributing
-
-Contributions are welcome! To contribute:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m '✨ Add amazing feature'`)
-4. Push to your branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📝 License
+## 📄 License
 
 This project is licensed under the MIT License - see the LICENSE file for
 details.
 
 ## 🙏 Acknowledgments
 
-- Data powered by the [Retro Handhelds](https://retro-handhelds.com) community
-- Device specifications from the
-  [Handheld Overview Datasheet](https://docs.google.com/spreadsheets/d/1irg60f9qsZOkhp0cwOU7Cy4rJQeyusEUzTNQzhoTYTU/edit?gid=0#gid=0)
-- Community contributions and feedback
-
-## 📱 Connect With Me
-
-- [GitHub](https://github.com/nergy101)
-- [BlueSky](https://bsky.app/profile/nergy101.bsky.social)
-
-## 💝 Support the Project
-
-If you find Retro Ranker helpful, consider:
-
-- [Buying us a coffee](https://ko-fi.com/nergy)
-- Contributing to the codebase
-- Sharing with fellow retro gaming enthusiasts
+- Original Retro Ranker project for inspiration and data structure
+- Fresh team for the amazing framework
+- Deno team for the excellent runtime
+- Preact team for the lightweight React alternative

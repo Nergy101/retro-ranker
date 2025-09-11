@@ -1,10 +1,9 @@
-import { CustomFreshState } from "@interfaces/state.ts";
-import { SignUp } from "@islands/auth/sign-up.tsx";
-import { FreshContext, page } from "fresh";
+import { CustomFreshState } from "../../interfaces/state.ts";
+import { SignUp } from "../../islands/auth/sign-up.tsx";
+import { Context, page } from "fresh";
 import { createCsrfCookie, generateCsrfToken } from "../../utils.ts";
 
-export default function SignUpPage(ctx: FreshContext) {
-  const translations = (ctx.state as CustomFreshState).translations ?? {};
+export default function SignUpPage(ctx: Context<CustomFreshState>) {
   const baseApiUrl = Deno.env.get("BASE_API_URL")!;
   const csrfToken = (ctx.state as CustomFreshState).csrfToken;
 
@@ -22,7 +21,6 @@ export default function SignUpPage(ctx: FreshContext) {
       <article>
         <SignUp
           baseApiUrl={baseApiUrl}
-          translations={translations}
           csrfToken={csrfToken}
         />
       </article>
@@ -31,11 +29,11 @@ export default function SignUpPage(ctx: FreshContext) {
 }
 
 export const handler = {
-  GET(ctx: FreshContext) {
+  GET(ctx: Context<CustomFreshState>) {
     const state = ctx.state as CustomFreshState;
     state.seo = {
       title: "Retro Ranker - Sign up",
-      description: "Create your Retro Ranker account",
+      description: "Join Retro Ranker using Discord or Google",
     };
 
     if (state.user) {

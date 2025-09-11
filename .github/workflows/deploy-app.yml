@@ -1,4 +1,4 @@
-name: 🚀 Deploy Fresh App
+name: 🚀 Deploy App
 
 on:
   workflow_dispatch:

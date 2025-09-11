@@ -76,3 +76,11 @@ export interface Device {
   notes: string[];
   tags: TagModel[];
 }
+
+// Keep the simplified Tag interface for backward compatibility
+export interface Tag {
+  id: string;
+  name: string;
+  slug: string;
+  color?: string;
+}

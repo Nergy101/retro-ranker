@@ -1,22 +1,23 @@
-import { FreshContext, page } from "fresh";
-import { DeviceCardLarge } from "@components/cards/device-card-large.tsx";
-import { DeviceCardRow } from "@components/cards/device-card-row.tsx";
-import { DeviceCardMedium } from "@components/cards/device-card-medium.tsx";
-import { PaginationNav } from "@components/shared/pagination-nav.tsx";
-import { Device } from "@data/frontend/contracts/device.model.ts";
-import { User } from "@data/frontend/contracts/user.contract.ts";
-import { TagModel } from "@data/frontend/models/tag.model.ts";
-import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
-import { createSuperUserPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
-import { CustomFreshState } from "@interfaces/state.ts";
-import { DeviceSearchForm } from "@islands/forms/device-search-form.tsx";
-import { LayoutSelector } from "@islands/forms/layout-selector.tsx";
-import { TagTypeahead } from "@islands/forms/tag-type-ahead.tsx";
-import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
-import { logJson } from "@data/tracing/tracer.ts";
+import { Context, FreshContext, page } from "fresh";
+import { DeviceCardLarge } from "../../components/cards/device-card-large.tsx";
+import { DeviceCardRow } from "../../components/cards/device-card-row.tsx";
+import { DeviceCardMedium } from "../../components/cards/device-card-medium.tsx";
+import { PaginationNav } from "../../components/shared/pagination-nav.tsx";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
+import { User } from "../../data/frontend/contracts/user.contract.ts";
+import { TagModel } from "../../data/frontend/models/tag.model.ts";
+import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
+import { createSuperUserPocketBaseService } from "../../data/pocketbase/pocketbase.service.ts";
+import { CustomFreshState } from "../../interfaces/state.ts";
+import { DeviceSearchForm } from "../../islands/forms/device-search-form.tsx";
+import { LayoutSelector } from "../../islands/forms/layout-selector.tsx";
+import { TagTypeahead } from "../../islands/forms/tag-type-ahead.tsx";
+import { CollapsibleTagList } from "../../islands/forms/collapsible-tag-list.tsx";
+import { logJson } from "../../data/tracing/tracer.ts";
+import { State } from "../../utils.ts";
 
 export const handler = {
-  async GET(ctx: FreshContext) {
+  async GET(ctx: Context<State>) {
     const startTime = performance.now();
     const url = new URL(ctx.req.url);
     const path = url.pathname;
@@ -251,6 +252,7 @@ export const handler = {
     });
 
     (ctx.state as CustomFreshState).data = {
+      allTags,
       allAvailableTags,
       selectedTags,
       devicesWithSelectedTags: pageResults,
@@ -279,6 +281,7 @@ export default function CatalogPage(ctx: FreshContext) {
   const data = (ctx.state as CustomFreshState).data;
   const translations = (ctx.state as CustomFreshState).translations ?? {};
 
+  const allTags = data.allTags as TagModel[];
   const allAvailableTags = data.allAvailableTags;
   const selectedTags = data.selectedTags as TagModel[];
   const pageResults = data.pageResults as Device[];
@@ -321,14 +324,14 @@ export default function CatalogPage(ctx: FreshContext) {
     <div class="devices-page">
       <header style={{ textAlign: "center", marginBottom: "1.5rem" }}>
         <hgroup>
-          <h1>{TranslationPipe(translations, "devices.catalog.title")}</h1>
+          <h1>Device Catalog</h1>
           <p
             style={{
               fontFamily: "var(--font-sans) !important",
               letterSpacing: "0.03em",
             }}
           >
-            {TranslationPipe(translations, "devices.catalog.description")}
+            Browse our catalog of retro gaming handhelds with specs.
           </p>
         </hgroup>
       </header>
@@ -350,6 +353,14 @@ export default function CatalogPage(ctx: FreshContext) {
               translations={translations}
             />
           </div>
+          <div style={{ marginBottom: "2rem" }}>
+            <CollapsibleTagList
+              allTags={allTags}
+              selectedTags={selectedTags}
+              baseUrl={url.origin}
+              translations={translations}
+            />
+          </div>
         </aside>
         {/* Main Content */}
         <main class="devices-catalog-main">
@@ -367,11 +378,10 @@ export default function CatalogPage(ctx: FreshContext) {
               <DeviceSearchForm
                 initialSearch={searchQuery}
                 initialCategory={searchCategory}
-                initialPage={pageNumber}
+                _initialPage={pageNumber}
                 initialSort={sortBy}
                 initialFilter={filter}
-                initialTags={selectedTags}
-                translations={translations}
+                _initialTags={selectedTags}
               />
             </div>
           </div>
@@ -398,10 +408,8 @@ export default function CatalogPage(ctx: FreshContext) {
                 }}
               >
                 <p>
-                  {TranslationPipe(
-                    translations,
-                    "devices.catalog.noResultsDescription",
-                  )}
+                  No devices found matching your criteria. Try adjusting your
+                  filters or search terms.
                 </p>
               </div>
             )

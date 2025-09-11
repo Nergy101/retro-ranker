@@ -1,14 +1,14 @@
-import { FreshContext, page } from "fresh";
-import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
+import { Context, page } from "fresh";
+import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 
-import { CustomFreshState } from "@interfaces/state.ts";
-import { DevicesPerBrandBarChart } from "@islands/charts/devices-per-brand-bar-chart.tsx";
-import { DevicesPerRatingBarChart } from "@islands/charts/devices-per-ranking-bar-chart.tsx";
-import { DevicesPerReleaseYearLineChart } from "@islands/charts/devices-per-release-year-line-chart.tsx";
-import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
+import { CustomFreshState } from "../../interfaces/state.ts";
+import { DevicesPerBrandBarChart } from "../../islands/charts/devices-per-brand-bar-chart.tsx";
+import { DevicesPerRatingBarChart } from "../../islands/charts/devices-per-ranking-bar-chart.tsx";
+import { DevicesPerReleaseYearLineChart } from "../../islands/charts/devices-per-release-year-line-chart.tsx";
+import { State } from "../../utils.ts";
 
 export const handler = {
-  async GET(ctx: FreshContext) {
+  async GET(ctx: Context<State>) {
     (ctx.state as CustomFreshState).seo = {
       title: "Retro Ranker - Charts",
       description:
@@ -25,40 +25,36 @@ export const handler = {
   },
 };
 
-export default async function ChartsIndex(ctx: FreshContext) {
+export default async function ChartsIndex(ctx: Context<State>) {
   const devices = (ctx.state as CustomFreshState).data.devices;
-  const translations = (ctx.state as CustomFreshState).translations ?? {};
 
   return (
     <div class="charts-page">
       <hgroup style={{ textAlign: "center" }}>
-        <h1>{TranslationPipe(translations, "charts.title")}</h1>
+        <h1>Charts & Analytics</h1>
         <p>
-          {TranslationPipe(translations, "charts.description")}{" "}
+          Explore interactive charts and data visualizations of retro gaming handhelds. View statistics on{" "}
           <span style={{ color: "var(--pico-primary)" }}>
             {devices.length}
           </span>{" "}
-          {TranslationPipe(translations, "charts.devices")}
+          devices
         </p>
       </hgroup>
       <div class="chart-wrapper">
         <DevicesPerReleaseYearLineChart
           devices={devices}
-          translations={translations}
         />
       </div>
       <hr />
       <div class="chart-wrapper">
         <DevicesPerBrandBarChart
           devices={devices}
-          translations={translations}
         />
       </div>
       <hr />
       <div class="chart-wrapper">
         <DevicesPerRatingBarChart
           devices={devices}
-          translations={translations}
         />
       </div>
     </div>

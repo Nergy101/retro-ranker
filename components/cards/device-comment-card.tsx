@@ -1,4 +1,4 @@
-import { CommentContract } from "@data/frontend/contracts/comment.contract.ts";
+import { CommentContract } from "../../data/frontend/contracts/comment.contract.ts";
 import { ProfileImage } from "../auth/profile-image.tsx";
 
 interface DeviceCommentCardProps {
@@ -50,54 +50,45 @@ export function DeviceCommentCard({ comment }: DeviceCommentCardProps) {
           display: "flex",
           alignItems: "center",
           gap: "0.75rem",
-          marginRight: "auto",
         }}
       >
-        <ProfileImage name={comment.expand.user.nickname} size={32} />
-        <span
-          style={{
-            fontWeight: "600",
-            color: "var(--pico-primary)",
-            fontSize: "0.875rem",
-          }}
-        >
-          {comment.expand.user.nickname}
-        </span>
+        <ProfileImage
+          user={comment.expand?.user}
+          size={40}
+        />
+        <div style={{ flex: 1 }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              marginBottom: "0.25rem",
+            }}
+          >
+            <strong style={{ color: "var(--pico-primary)" }}>
+              {comment.expand?.user?.nickname || "Anonymous"}
+            </strong>
+            <span
+              style={{
+                fontSize: "0.8rem",
+                color: "var(--pico-muted-color)",
+              }}
+            >
+              {formatDate(comment.created)}
+            </span>
+          </div>
+        </div>
       </div>
+
       <div
         style={{
-          whiteSpace: "pre-wrap",
-          wordBreak: "break-word",
           lineHeight: "1.6",
-          color: "var(--pico-contrast)",
-          fontSize: "0.9375rem",
-          padding: "0.5rem 0",
-          width: "100%",
-          textAlign: "left",
+          color: "var(--pico-color)",
         }}
-        // deno-lint-ignore react-no-danger
-        dangerouslySetInnerHTML={{ __html: sanitizeHTML(comment.content) }}
+        dangerouslySetInnerHTML={{
+          __html: sanitizeHTML(comment.content),
+        }}
       />
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "flex-end",
-          alignItems: "center",
-          fontSize: "0.75rem",
-          color: "var(--pico-muted-color)",
-          marginLeft: "auto",
-        }}
-      >
-        <span
-          data-tooltip={comment.updated !== comment.created
-            ? `Created: ${formatDate(comment.created)}`
-            : undefined}
-        >
-          {comment.updated !== comment.created
-            ? `Updated: ${formatDate(comment.updated)}`
-            : formatDate(comment.created)}
-        </span>
-      </div>
     </article>
   );
 }

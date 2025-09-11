@@ -1,9 +1,9 @@
 import { PiQuestion } from "@preact-icons/pi";
-import { Device } from "@data/frontend/contracts/device.model.ts";
-import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
-import { RatingInfo } from "@islands/devices/rating-info.tsx";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
+import { DeviceHelpers } from "../../data/frontend/helpers/device.helpers.ts";
+import { RatingInfo } from "../../islands/devices/rating-info.tsx";
 import { CurrencyIcon } from "../shared/currency-icon.tsx";
-import { DeviceCardActions } from "@islands/devices/device-card-actions.tsx";
+import { DeviceCardActions } from "../../islands/devices/device-card-actions.tsx";
 
 interface DeviceCardMediumProps {
   device: Device;
@@ -13,6 +13,7 @@ interface DeviceCardMediumProps {
   isLiked?: boolean;
   isFavorited?: boolean;
   showLikeButton?: boolean;
+  borderColor?: string;
 }
 
 export function DeviceCardMedium(
@@ -24,6 +25,7 @@ export function DeviceCardMedium(
     isLiked = false,
     isFavorited = false,
     showLikeButton = true,
+    borderColor,
   }: DeviceCardMediumProps,
 ) {
   const getPriceIndicator = () => {
@@ -62,12 +64,15 @@ export function DeviceCardMedium(
     }
   };
 
-  const upToSystemA = DeviceService.getUptoSystemA(device);
-  const upToSystemCOrLower = DeviceService.getUptoSystemCOrLower(device);
+  const upToSystemA = DeviceHelpers.getUptoSystemA(device);
+  const upToSystemCOrLower = DeviceHelpers.getUptoSystemCOrLower(device);
 
   return (
     <article
       class={`device-search-card device-card ${isActive ? "active" : ""}`}
+      style={borderColor
+        ? { borderColor, borderWidth: "2px", borderStyle: "solid" }
+        : {}}
     >
       <header class="device-card-header">
         <hgroup class="device-card-hgroup">
@@ -147,7 +152,7 @@ export function DeviceCardMedium(
           {device.os.icons.map((icon, idx) =>
             // Decorative icons, hide from screen readers
             <span key={idx} aria-hidden="true" style="display:inline;">
-              {DeviceService.getOsIconComponent(icon)}
+              {DeviceHelpers.getOsIconComponent(icon)}
             </span>
           )}
         </span>

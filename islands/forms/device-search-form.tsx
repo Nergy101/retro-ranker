@@ -1,92 +1,88 @@
 import { useEffect, useState } from "preact/hooks";
-import { TagModel } from "@data/frontend/models/tag.model.ts";
-import { UmamiService } from "@data/frontend/services/umami/umami.service.ts";
-import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
+import { TagModel } from "../../data/frontend/models/tag.model.ts";
 
 interface DeviceSearchFormProps {
   initialSearch: string;
   initialCategory: string;
-  initialPage: number;
+  _initialPage: number;
   initialSort: string;
   initialFilter: string;
-  initialTags: TagModel[];
-  translations: Record<string, string>;
+  _initialTags: TagModel[];
 }
 
 export function DeviceSearchForm(
   {
     initialSearch,
     initialCategory,
-    initialPage,
+    _initialPage,
     initialSort,
     initialFilter,
-    initialTags,
-    translations,
+    _initialTags,
   }: DeviceSearchFormProps,
 ) {
-  const umamiService = UmamiService.getInstance();
-  const [searchQuery, _setSearchQuery] = useState(initialSearch);
-  const [category, _setCategory] = useState(initialCategory);
+  const [searchQuery, setSearchQuery] = useState(initialSearch);
+  const [category, setCategory] = useState(initialCategory);
   const [sort, setSort] = useState(initialSort);
-  const [filter, _setFilter] = useState(initialFilter);
-  const [page, _setPage] = useState(initialPage);
-
+  const [filter, setFilter] = useState(initialFilter);
   const [viewportWidth, setViewportWidth] = useState(globalThis.innerWidth);
+
+  const handleSubmit = (e: Event) => {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+
+    const url = new URL(globalThis.location.href);
+    url.searchParams.set("search", formData.get("search") as string || "");
+    url.searchParams.set(
+      "category",
+      formData.get("category") as string || "all",
+    );
+    url.searchParams.set(
+      "sort",
+      formData.get("sort") as string || "alphabetical",
+    );
+    url.searchParams.set("filter", formData.get("filter") as string || "all");
+    url.searchParams.set("page", "1");
+
+    globalThis.location.href = url.toString();
+  };
 
   const handleSortChange = (e: Event) => {
     const select = e.target as HTMLSelectElement;
     setSort(select.value);
-    // Update the page input value explicitly
-    const pageInput = select.form?.querySelector(
-      'input[name="page"]',
-    ) as HTMLInputElement;
 
-    if (pageInput) {
-      pageInput.value = page.toString();
-    }
+    const url = new URL(globalThis.location.href);
+    url.searchParams.set("sort", select.value);
+    url.searchParams.set("page", "1");
 
-    submitForm();
+    globalThis.location.href = url.toString();
+  };
+
+  const handleFilterChange = (e: Event) => {
+    const select = e.target as HTMLSelectElement;
+    setFilter(select.value);
+
+    const url = new URL(globalThis.location.href);
+    url.searchParams.set("filter", select.value);
+    url.searchParams.set("page", "1");
+
+    globalThis.location.href = url.toString();
   };
 
   const getSearchPlaceholder = () => {
     const random = Math.random();
     const placeholders = [
-      TranslationPipe(translations, "search.placeholder"),
-      TranslationPipe(translations, "search.placeholder.anbernic"),
-      TranslationPipe(translations, "search.placeholder.miyoo"),
-      TranslationPipe(translations, "search.placeholder.pocket"),
-      TranslationPipe(translations, "search.placeholder.flip"),
-      TranslationPipe(translations, "search.placeholder.plus"),
-      TranslationPipe(translations, "search.placeholder.mini"),
-      TranslationPipe(translations, "search.placeholder.android"),
-      TranslationPipe(translations, "search.placeholder.batocera"),
+      "Search devices...",
+      "Search Anbernic devices...",
+      "Search Miyoo devices...",
+      "Search Pocket devices...",
+      "Search Flip devices...",
+      "Search Plus devices...",
+      "Search Mini devices...",
+      "Search Android devices...",
+      "Search Batocera devices...",
     ];
     return placeholders[Math.floor(random * placeholders.length)];
-  };
-
-  const submitForm = async () => {
-    await umamiService.sendEvent("search", {
-      search: searchQuery,
-      category: category,
-      sort: sort,
-      filter: filter,
-      page: page,
-      tags: initialTags.map((t) => t.slug).join(","),
-    });
-
-    if (viewportWidth < 500) {
-      const form = document.getElementsByClassName(
-        "device-search-form-mobile",
-      )[0] as HTMLFormElement;
-
-      form?.submit();
-    } else {
-      const form = document.getElementsByClassName(
-        "device-search-form",
-      )[0] as HTMLFormElement;
-
-      form?.submit();
-    }
   };
 
   useEffect(() => {
@@ -94,10 +90,7 @@ export function DeviceSearchForm(
       setViewportWidth(globalThis.innerWidth);
     };
 
-    // Add event listener
     globalThis.addEventListener("resize", handleResize);
-
-    // Cleanup
     return () => {
       globalThis.removeEventListener("resize", handleResize);
     };
@@ -105,132 +98,160 @@ export function DeviceSearchForm(
 
   if (viewportWidth <= 1024) {
     return (
-      <div
-        style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
-      >
-        <form
-          style={{ padding: "0" }}
-          method="get"
-          class="device-search-form-mobile"
-          f-client-nav={false}
-        >
-          <input
-            name="search"
-            type="search"
-            placeholder={getSearchPlaceholder()}
-            value={searchQuery}
-            aria-label={TranslationPipe(translations, "search.ariaLabel")}
-            class="tag-search-input"
-          />
-          <input
-            style={{ display: "none" }}
-            name="page"
-            type="number"
-            value={page}
-          />
-          <input
-            style={{ display: "none" }}
-            name="tags"
-            type="text"
-            value={initialTags.map((t) => t.slug).join(",")}
-          />
-          <div>
-            <select
-              name="sort"
-              aria-label={TranslationPipe(translations, "sort.ariaLabel")}
-              value={sort}
-              onChange={handleSortChange}
-            >
-              <option value="new-arrivals">
-                {TranslationPipe(translations, "sort.newest")}
-              </option>
-              <option value="high-low-price">
-                {TranslationPipe(translations, "sort.expensiveToCheapest")}
-              </option>
-              <option value="low-high-price">
-                {TranslationPipe(translations, "sort.cheapestToExpensive")}
-              </option>
-              <option value="highly-ranked">
-                {TranslationPipe(translations, "sort.highestRanking")}
-              </option>
-              <option value="alphabetical">
-                {TranslationPipe(translations, "sort.alphabetical")}
-              </option>
-              <option value="reverse-alphabetical">
-                {TranslationPipe(translations, "sort.reverse")}
-              </option>
-            </select>
+      <div class="device-search-container-mobile">
+        <form onSubmit={handleSubmit} class="device-search-form-mobile-clean">
+          {/* Row 1: Search input and button */}
+          <div class="search-row-mobile">
+            <div class="search-input-group-mobile">
+              <input
+                type="text"
+                name="search"
+                placeholder={getSearchPlaceholder()}
+                value={searchQuery}
+                onInput={(e) =>
+                  setSearchQuery((e.target as HTMLInputElement).value)}
+                class="search-input-mobile-clean"
+              />
+              <button
+                type="submit"
+                class="search-button-mobile-clean"
+                aria-label="Search"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <path d="m21 21-4.35-4.35"></path>
+                </svg>
+              </button>
+            </div>
           </div>
-          <input
-            type="submit"
-            value={TranslationPipe(translations, "search.button")}
-            style={{ borderRadius: "2em" }}
-          />
+
+          {/* Row 2: Sort and Filter dropdowns */}
+          <div class="controls-row-mobile">
+            <div class="control-group-mobile">
+              <label for="sort-select-mobile" class="control-label-mobile">
+                Sort by:
+              </label>
+              <select
+                id="sort-select-mobile"
+                name="sort"
+                value={sort}
+                onChange={handleSortChange}
+                class="control-select-mobile"
+              >
+                <option value="alphabetical">Alphabetical</option>
+                <option value="reverse-alphabetical">
+                  Reverse Alphabetical
+                </option>
+                <option value="high-low-price">Price: High to Low</option>
+                <option value="low-high-price">Price: Low to High</option>
+                <option value="highly-ranked">Highly Ranked</option>
+                <option value="new-arrivals">New Arrivals</option>
+              </select>
+            </div>
+
+            <div class="control-group-mobile">
+              <label for="filter-select-mobile" class="control-label-mobile">
+                Filter:
+              </label>
+              <select
+                id="filter-select-mobile"
+                name="filter"
+                value={filter}
+                onChange={handleFilterChange}
+                class="control-select-mobile"
+              >
+                <option value="all">All Devices</option>
+                <option value="upcoming">Upcoming</option>
+                <option value="personal-picks">Personal Picks</option>
+              </select>
+            </div>
+          </div>
         </form>
       </div>
     );
   }
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-      <form
-        style={{ padding: "0" }}
-        role="search"
-        method="get"
-        class="device-search-form"
-        f-client-nav={false}
-      >
-        <input
-          name="search"
-          type="search"
-          placeholder={getSearchPlaceholder()}
-          value={searchQuery}
-          aria-label={TranslationPipe(translations, "search.ariaLabel")}
-          class="tag-search-input"
-        />
-        <input
-          style={{ display: "none" }}
-          name="page"
-          type="number"
-          value={page}
-        />
-        <input
-          style={{ display: "none" }}
-          name="tags"
-          type="text"
-          value={initialTags.map((t) => t.slug).join(",")}
-        />
-        <select
-          name="sort"
-          aria-label={TranslationPipe(translations, "sort.ariaLabel")}
-          value={sort}
-          onChange={handleSortChange}
-          class="tag-search-input"
-        >
-          <option value="new-arrivals">
-            {TranslationPipe(translations, "sort.newest")}
-          </option>
-          <option value="high-low-price">
-            {TranslationPipe(translations, "sort.expensive")}
-          </option>
-          <option value="low-high-price">
-            {TranslationPipe(translations, "sort.cheapest")}
-          </option>
-          <option value="highly-ranked">
-            {TranslationPipe(translations, "sort.highest")}
-          </option>
-          <option value="alphabetical">
-            {TranslationPipe(translations, "sort.alphabetical")}
-          </option>
-          <option value="reverse-alphabetical">
-            {TranslationPipe(translations, "sort.reverse")}
-          </option>
-        </select>
-        <input
-          type="submit"
-          value={TranslationPipe(translations, "search.button")}
-          aria-label={TranslationPipe(translations, "search.button")}
-        />
+    <div class="device-search-container">
+      <form onSubmit={handleSubmit} class="device-search-form-clean">
+        {/* Row 1: Search input and button */}
+        <div class="search-row">
+          <div class="search-input-group">
+            <input
+              type="text"
+              name="search"
+              placeholder={getSearchPlaceholder()}
+              value={searchQuery}
+              onInput={(e) =>
+                setSearchQuery((e.target as HTMLInputElement).value)}
+              class="search-input-clean"
+            />
+            <button
+              type="submit"
+              class="search-button-clean"
+              aria-label="Search"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        {/* Row 2: Sort and Filter dropdowns */}
+        <div class="controls-row">
+          <div class="control-group">
+            <label for="sort-select" class="control-label">Sort by:</label>
+            <select
+              id="sort-select"
+              name="sort"
+              value={sort}
+              onChange={handleSortChange}
+              class="control-select"
+            >
+              <option value="alphabetical">Alphabetical</option>
+              <option value="reverse-alphabetical">Reverse Alphabetical</option>
+              <option value="high-low-price">Price: High to Low</option>
+              <option value="low-high-price">Price: Low to High</option>
+              <option value="highly-ranked">Highly Ranked</option>
+              <option value="new-arrivals">New Arrivals</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label for="filter-select" class="control-label">Filter:</label>
+            <select
+              id="filter-select"
+              name="filter"
+              value={filter}
+              onChange={handleFilterChange}
+              class="control-select"
+            >
+              <option value="all">All Devices</option>
+              <option value="upcoming">Upcoming</option>
+              <option value="personal-picks">Personal Picks</option>
+            </select>
+          </div>
+        </div>
       </form>
     </div>
   );

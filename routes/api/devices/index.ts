@@ -1,10 +1,11 @@
 // deno-lint-ignore-file no-console
-import { FreshContext } from "fresh";
-import { TagModel } from "@data/frontend/models/tag.model.ts";
-import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
+import { Context } from "fresh";
+import { TagModel } from "../../../data/frontend/models/tag.model.ts";
+import { DeviceService } from "../../../data/frontend/services/devices/device.service.ts";
+import { State } from "../../../utils.ts";
 
 export const handler = {
-  async GET(ctx: FreshContext) {
+  async GET(ctx: Context<State>) {
     const deviceService = await DeviceService.getInstance();
 
     const params = new URLSearchParams(ctx.url.search);

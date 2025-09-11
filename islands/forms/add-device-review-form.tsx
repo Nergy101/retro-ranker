@@ -1,8 +1,8 @@
 import { PiPaperPlaneRight } from "@preact-icons/pi";
 import { useState } from "preact/hooks";
-import { ProfileImage } from "@components/auth/profile-image.tsx";
-import { Device } from "@data/frontend/contracts/device.model.ts";
-import { User } from "@data/frontend/contracts/user.contract.ts";
+import { ProfileImage } from "../../components/auth/profile-image.tsx";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
+import { User } from "../../data/frontend/contracts/user.contract.ts";
 
 const RATING_FIELDS = [
   { name: "performance_rating", label: "Performance" },
@@ -57,80 +57,92 @@ export function AddDeviceReviewForm({
       >
         <input type="hidden" name="device" value={device.id} />
         <input type="hidden" name="user" value={user.id} />
+
         <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-          <ProfileImage name={user.nickname} size={32} />
+          <ProfileImage
+            user={user}
+            size={32}
+          />
           <span style={{ fontWeight: "bold", whiteSpace: "nowrap" }}>
             {user.nickname}
           </span>
         </div>
-        <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
-          <textarea
-            placeholder="Write your review here..."
-            name="content"
-            value={review}
-            onInput={(
-              e,
-            ) => setReview((e.target as HTMLTextAreaElement).value)}
-            style={{
-              flex: 1,
-              padding: "0.5rem",
-              borderRadius: "0.25rem",
-              border: "1px solid var(--pico-muted-border-color)",
-              minHeight: "100px",
-              resize: "vertical",
-            }}
-          />
-        </div>
-        <div style={{ margin: "0.5em 0" }}>
-        </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: "1em" }}>
+
+        {/* Rating Fields */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+            gap: "1rem",
+          }}
+        >
           {RATING_FIELDS.map((field) => (
             <div
               key={field.name}
-              style={{ display: "flex", alignItems: "center", gap: "1em" }}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.25rem",
+              }}
             >
-              <label style={{ minWidth: "120px" }} htmlFor={field.name}>
-                {field.label}:
+              <label
+                htmlFor={field.name}
+                style={{ fontSize: "0.9rem", fontWeight: "bold" }}
+              >
+                {field.label}: {ratings[field.name as keyof typeof ratings]}/5
               </label>
               <input
                 type="range"
                 id={field.name}
                 name={field.name}
-                min="0"
-                max="10"
-                step="1"
+                min="1"
+                max="5"
                 value={ratings[field.name as keyof typeof ratings]}
                 onInput={(e) => handleSliderChange(e, field.name)}
-                style={{ flex: 1 }}
+                style={{ width: "100%" }}
               />
-              <span style={{ width: "2em", textAlign: "center" }}>
-                {ratings[field.name as keyof typeof ratings]}
-              </span>
             </div>
           ))}
         </div>
-        <button
-          type="submit"
-          role="button"
-          class="primary"
-          style={{
-            padding: "0.5rem 1rem",
-            borderRadius: "0.25rem",
-            color: "var(--pico-color)",
-            width: "fit-content",
-          }}
+
+        <div
+          style={{ display: "flex", gap: "0.5rem", alignItems: "flex-start" }}
         >
-          <span
+          <textarea
+            placeholder="Write your review here..."
+            name="content"
+            value={review}
+            onInput={(e) => setReview((e.target as HTMLTextAreaElement).value)}
             style={{
+              flex: 1,
+              padding: "0.5rem",
+              border: "1px solid var(--pico-border-color)",
+              borderRadius: "0.25rem",
+              resize: "vertical",
+              minHeight: "100px",
+            }}
+            required
+          />
+          <button
+            type="submit"
+            style={{
+              padding: "0.5rem",
+              background: "var(--pico-primary)",
+              color: "var(--pico-primary-inverse)",
+              border: "none",
+              borderRadius: "0.25rem",
+              cursor: "pointer",
               display: "flex",
               alignItems: "center",
               gap: "0.25rem",
-              cursor: "pointer",
+              alignSelf: "flex-start",
             }}
+            disabled={!review.trim()}
           >
-            <PiPaperPlaneRight /> Add review
-          </span>
-        </button>
+            <PiPaperPlaneRight size={16} />
+            Submit Review
+          </button>
+        </div>
       </form>
     </div>
   );

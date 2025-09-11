@@ -92,3 +92,4 @@ export function SuggestionForm({ csrfToken }: { csrfToken: string }) {
     </form>
   );
 }
+

@@ -1,7 +1,7 @@
 import { PiStar, PiStarFill, PiStarHalfFill } from "@preact-icons/pi";
-import { Device } from "@data/frontend/contracts/device.model.ts";
-import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
-import { ScoreCalculatorService } from "@data/frontend/services/devices/score-calculator.service.ts";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
+import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
+import { ScoreCalculatorService } from "../../data/frontend/services/devices/score-calculator.service.ts";
 
 interface StarRatingProps {
   device: Device;
@@ -51,9 +51,10 @@ export function StarRating({ device }: StarRatingProps) {
       {hasHalfStar && <PiStarHalfFill />}
 
       {/* Empty stars */}
-      {Array.from({ length: 5 - fullStars - (hasHalfStar ? 1 : 0) }).map(() => (
-        <PiStar />
-      ))}
+      {Array.from({ length: 5 - fullStars - (hasHalfStar ? 1 : 0) }).map((
+        _,
+        index,
+      ) => <PiStar key={index} />)}
     </span>
   );
 }

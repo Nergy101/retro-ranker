@@ -1,15 +1,8 @@
-import { Device } from "./device.model.ts";
-import { User } from "./user.contract.ts";
-
 export interface ReviewContract {
   id: string;
-  created: string;
-  updated: string;
-
   content: string;
-  user: string;
   device: string;
-
+  user: string;
   performance_rating: number;
   monitor_rating: number;
   audio_rating: number;
@@ -17,9 +10,12 @@ export interface ReviewContract {
   misc_rating: number;
   connectivity_rating: number;
   overall_rating: number;
-
-  expand: {
-    user: User;
-    device: Device;
+  created: string;
+  updated: string;
+  expand?: {
+    user?: {
+      id: string;
+      nickname: string;
+    };
   };
 }

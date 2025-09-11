@@ -1,23 +1,14 @@
-// main.ts
-import { App, fsRoutes, staticFiles } from "fresh";
-import { State } from "./utils.ts";
-import { initializeTranslations } from "./data/frontend/services/i18n/i18n.service.ts";
-import { load } from "$std/dotenv/mod.ts";
+import { App, staticFiles } from "fresh";
+import { type State } from "./utils.ts";
+import { load } from "@std/dotenv";
 
-await load({ envPath: ".env", allowEmptyValues: true, export: true });
+// Load environment variables
+await load({ envPath: ".env", export: true });
 
-export const app = new App<State>({ root: import.meta.url });
+export const app = new App<State>();
 
-app.use(staticFiles());
+app.use(staticFiles())
+  .fsRoutes();
 
-// Initialize translations at startup for better performance
-await initializeTranslations();
-
-await fsRoutes(app, {
-  loadIsland: (path) => import(`./islands/${path}`),
-  loadRoute: (path) => import(`./routes/${path}`),
-});
-
-if (import.meta.main) {
-  await app.listen();
-}
+// Export the app for Fresh 2
+export default app;

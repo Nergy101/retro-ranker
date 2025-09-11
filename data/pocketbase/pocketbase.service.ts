@@ -7,7 +7,7 @@ import PocketBase, {
   RecordModel,
 } from "npm:pocketbase";
 import { User } from "../frontend/contracts/user.contract.ts";
-import { logJson, tracer } from "../tracing/tracer.ts";
+import { logJson } from "../tracing/tracer.ts";
 
 /**
  * PocketBaseService - A service to interface with PocketBase in a Deno environment
@@ -40,56 +40,31 @@ export class PocketBaseService {
     redirectUrl: string,
     createData: Record<string, any>,
   ): Promise<any> {
-    return await tracer.startActiveSpan("authWithOAuth2", async (span) => {
-      try {
-        logJson("info", "PocketBase OAuth2 parameters", {
-          provider,
-          code,
-          codeVerifier,
-          redirectUrl,
-          createData,
-        });
-        const result = await this.pb.collection("users").authWithOAuth2Code(
-          provider,
-          code,
-          codeVerifier,
-          redirectUrl,
-          createData,
-        );
-        logJson("info", "PocketBase OAuth2 result", { provider, result });
+    try {
+      logJson("info", "PocketBase OAuth2 parameters", {
+        provider,
+        code,
+        codeVerifier,
+        redirectUrl,
+        createData,
+      });
+      const result = await this.pb.collection("users").authWithOAuth2Code(
+        provider,
+        code,
+        codeVerifier,
+        redirectUrl,
+        createData,
+      );
+      logJson("info", "PocketBase OAuth2 result", { provider, result });
 
-        span.setStatus({ code: 0 }); // OK
-        return result;
-      } catch (error: unknown) {
-        logJson("error", "PocketBase OAuth2 error", {
-          error: error instanceof Error ? error.message : String(error),
-        });
-        span.setStatus({
-          code: 2,
-          message: error instanceof Error ? error.message : String(error),
-        });
-        throw error;
-      } finally {
-        span.end();
-      }
-    });
+      return result;
+    } catch (error: unknown) {
+      logJson("error", "PocketBase OAuth2 error", {
+        error: error instanceof Error ? error.message : String(error),
+      });
+      throw error;
+    }
   }
-
-  // public async authWithOAuth2(
-  //   provider: string,
-  //   redirectUrl: string,
-  //   createData?: Record<string, any>,
-  // ): Promise<any> {
-  //   return await tracer.startActiveSpan("authWithOAuth2", async (span) => {
-  //     const result = await this.pb.collection("users").auth(
-  //       provider,
-  //       redirectUrl,
-  //       createData,
-  //     );
-  //     span.setStatus({ code: 0 }); // OK
-  //     return result;
-  //   });
-  // }
 
   /**
    * Authenticate a user with nickname and password
@@ -101,27 +76,18 @@ export class PocketBaseService {
     nickname: string,
     password: string,
   ): Promise<any> {
-    return await tracer.startActiveSpan("authWithPassword", async (span) => {
-      try {
-        const result = await this.pb.collection("users").authWithPassword(
-          nickname,
-          password,
-        );
-        span.setStatus({ code: 0 }); // OK
-        return result;
-      } catch (error: unknown) {
-        const errorMessage = error instanceof Error
-          ? error.message
-          : "Unknown error";
-        span.setStatus({ code: 2, message: errorMessage }); // ERROR
-        if (error instanceof ClientResponseError) {
-          logJson("error", "Authentication error", { error: error.message });
-        }
-        throw error;
-      } finally {
-        span.end();
+    try {
+      const result = await this.pb.collection("users").authWithPassword(
+        nickname,
+        password,
+      );
+      return result;
+    } catch (error: unknown) {
+      if (error instanceof ClientResponseError) {
+        logJson("error", "Authentication error", { error: error.message });
       }
-    });
+      throw error;
+    }
   }
 
   /**
@@ -136,32 +102,23 @@ export class PocketBaseService {
     password: string,
     passwordConfirm: string,
   ): Promise<any> {
-    return await tracer.startActiveSpan("createUser", async (span) => {
-      try {
-        const data = {
-          nickname,
-          password,
-          passwordConfirm,
-          emailVisibility: false,
-          verified: false,
-        };
+    try {
+      const data = {
+        nickname,
+        password,
+        passwordConfirm,
+        emailVisibility: false,
+        verified: false,
+      };
 
-        const result = await this.pb.collection("users").create(data);
-        span.setStatus({ code: 0 }); // OK
-        return result;
-      } catch (error: unknown) {
-        const errorMessage = error instanceof Error
-          ? error.message
-          : "Unknown error";
-        span.setStatus({ code: 2, message: errorMessage }); // ERROR
-        if (error instanceof ClientResponseError) {
-          logJson("error", "User creation error", { error: error.message });
-        }
-        throw error;
-      } finally {
-        span.end();
+      const result = await this.pb.collection("users").create(data);
+      return result;
+    } catch (error: unknown) {
+      if (error instanceof ClientResponseError) {
+        logJson("error", "User creation error", { error: error.message });
       }
-    });
+      throw error;
+    }
   }
 
   public async getAll(
@@ -176,52 +133,39 @@ export class PocketBaseService {
       sort: "",
     },
   ): Promise<any[]> {
-    return await tracer.startActiveSpan("getAll", async (span) => {
-      const startTime = performance.now();
-      try {
-        span.setAttribute("collection", collection);
-        span.setAttribute("filter", options.filter);
-        span.setAttribute("expand", options.expand);
+    const startTime = performance.now();
+    try {
+      logJson("info", "PocketBase getAll - Starting", {
+        collection,
+        filter: options.filter,
+        expand: options.expand,
+        sort: options.sort,
+      });
 
-        logJson("info", "PocketBase getAll - Starting", {
-          collection,
-          filter: options.filter,
-          expand: options.expand,
-          sort: options.sort,
+      const result = await this.pb.collection(collection).getFullList(
+        options,
+      );
+      const totalTime = performance.now() - startTime;
+
+      logJson("info", "PocketBase getAll - Completed", {
+        collection,
+        resultCount: result.length,
+        totalTime: `${totalTime.toFixed(2)}ms`,
+        filter: options.filter,
+        expand: options.expand,
+        sort: options.sort,
+      });
+
+      return result;
+    } catch (error: unknown) {
+      if (error instanceof ClientResponseError) {
+        logJson("error", `Error fetching ${collection}`, {
+          error: error.message,
+          totalTime: `${(performance.now() - startTime).toFixed(2)}ms`,
         });
-
-        const result = await this.pb.collection(collection).getFullList(
-          options,
-        );
-        const totalTime = performance.now() - startTime;
-
-        logJson("info", "PocketBase getAll - Completed", {
-          collection,
-          resultCount: result.length,
-          totalTime: `${totalTime.toFixed(2)}ms`,
-          filter: options.filter,
-          expand: options.expand,
-          sort: options.sort,
-        });
-
-        span.setStatus({ code: 0 }); // OK
-        return result;
-      } catch (error: unknown) {
-        const errorMessage = error instanceof Error
-          ? error.message
-          : "Unknown error";
-        span.setStatus({ code: 2, message: errorMessage }); // ERROR
-        if (error instanceof ClientResponseError) {
-          logJson("error", `Error fetching ${collection}`, {
-            error: error.message,
-            totalTime: `${(performance.now() - startTime).toFixed(2)}ms`,
-          });
-        }
-        throw error;
-      } finally {
-        span.end();
       }
-    });
+      throw error;
+    }
   }
 
   /**
@@ -246,41 +190,25 @@ export class PocketBaseService {
       expand: "",
     },
   ): Promise<ListResult<any>> {
-    return await tracer.startActiveSpan("getList", async (span) => {
-      try {
-        span.setAttribute("collection", collection);
-        span.setAttribute("page", page);
-        span.setAttribute("perPage", perPage);
-        span.setAttribute("filter", options.filter);
-        span.setAttribute("sort", options.sort);
-        span.setAttribute("expand", options.expand);
-
-        const result = await this.pb.collection(collection).getList(
-          page,
-          perPage,
-          {
-            filter: options.filter,
-            sort: options.sort,
-            expand: options.expand,
-          },
-        );
-        span.setStatus({ code: 0 }); // OK
-        return result;
-      } catch (error: unknown) {
-        const errorMessage = error instanceof Error
-          ? error.message
-          : "Unknown error";
-        span.setStatus({ code: 2, message: errorMessage }); // ERROR
-        if (error instanceof ClientResponseError) {
-          logJson("error", `Error fetching ${collection}`, {
-            error: error.message,
-          });
-        }
-        throw error;
-      } finally {
-        span.end();
+    try {
+      const result = await this.pb.collection(collection).getList(
+        page,
+        perPage,
+        {
+          filter: options.filter,
+          sort: options.sort,
+          expand: options.expand,
+        },
+      );
+      return result;
+    } catch (error: unknown) {
+      if (error instanceof ClientResponseError) {
+        logJson("error", `Error fetching ${collection}`, {
+          error: error.message,
+        });
       }
-    });
+      throw error;
+    }
   }
 
   /**
@@ -294,32 +222,19 @@ export class PocketBaseService {
     id: string,
     expand: string = "",
   ): Promise<RecordModel> {
-    return await tracer.startActiveSpan("getOne", async (span) => {
-      try {
-        span.setAttribute("collection", collection);
-        span.setAttribute("id", id);
-        span.setAttribute("expand", expand);
-
-        const result = await this.pb.collection(collection).getOne(id, {
-          expand,
+    try {
+      const result = await this.pb.collection(collection).getOne(id, {
+        expand,
+      });
+      return result;
+    } catch (error: unknown) {
+      if (error instanceof ClientResponseError) {
+        logJson("error", `Error fetching ${collection} record`, {
+          error: error.message,
         });
-        span.setStatus({ code: 0 }); // OK
-        return result;
-      } catch (error: unknown) {
-        const errorMessage = error instanceof Error
-          ? error.message
-          : "Unknown error";
-        span.setStatus({ code: 2, message: errorMessage }); // ERROR
-        if (error instanceof ClientResponseError) {
-          logJson("error", `Error fetching ${collection} record`, {
-            error: error.message,
-          });
-        }
-        throw error;
-      } finally {
-        span.end();
       }
-    });
+      throw error;
+    }
   }
 
   /**
@@ -332,28 +247,17 @@ export class PocketBaseService {
     collection: string,
     data: Record<string, any>,
   ): Promise<any> {
-    return await tracer.startActiveSpan("create", async (span) => {
-      try {
-        span.setAttribute("collection", collection);
-
-        const result = await this.pb.collection(collection).create(data);
-        span.setStatus({ code: 0 }); // OK
-        return result;
-      } catch (error: unknown) {
-        const errorMessage = error instanceof Error
-          ? error.message
-          : "Unknown error";
-        span.setStatus({ code: 2, message: errorMessage }); // ERROR
-        if (error instanceof ClientResponseError) {
-          logJson("error", `Error creating ${collection} record`, {
-            error: error.message,
-          });
-        }
-        throw error;
-      } finally {
-        span.end();
+    try {
+      const result = await this.pb.collection(collection).create(data);
+      return result;
+    } catch (error: unknown) {
+      if (error instanceof ClientResponseError) {
+        logJson("error", `Error creating ${collection} record`, {
+          error: error.message,
+        });
       }
-    });
+      throw error;
+    }
   }
 
   /**
@@ -368,29 +272,17 @@ export class PocketBaseService {
     id: string,
     data: Record<string, any>,
   ): Promise<any> {
-    return await tracer.startActiveSpan("update", async (span) => {
-      try {
-        span.setAttribute("collection", collection);
-        span.setAttribute("id", id);
-
-        const result = await this.pb.collection(collection).update(id, data);
-        span.setStatus({ code: 0 }); // OK
-        return result;
-      } catch (error: unknown) {
-        const errorMessage = error instanceof Error
-          ? error.message
-          : "Unknown error";
-        span.setStatus({ code: 2, message: errorMessage }); // ERROR
-        if (error instanceof ClientResponseError) {
-          logJson("error", `Error updating ${collection} record`, {
-            error: error.message,
-          });
-        }
-        throw error;
-      } finally {
-        span.end();
+    try {
+      const result = await this.pb.collection(collection).update(id, data);
+      return result;
+    } catch (error: unknown) {
+      if (error instanceof ClientResponseError) {
+        logJson("error", `Error updating ${collection} record`, {
+          error: error.message,
+        });
       }
-    });
+      throw error;
+    }
   }
 
   /**
@@ -400,28 +292,16 @@ export class PocketBaseService {
    * @returns void
    */
   public async delete(collection: string, id: string): Promise<void> {
-    return await tracer.startActiveSpan("delete", async (span) => {
-      try {
-        span.setAttribute("collection", collection);
-        span.setAttribute("id", id);
-
-        await this.pb.collection(collection).delete(id);
-        span.setStatus({ code: 0 }); // OK
-      } catch (error: unknown) {
-        const errorMessage = error instanceof Error
-          ? error.message
-          : "Unknown error";
-        span.setStatus({ code: 2, message: errorMessage }); // ERROR
-        if (error instanceof ClientResponseError) {
-          logJson("error", `Error deleting ${collection} record`, {
-            error: error.message,
-          });
-        }
-        throw error;
-      } finally {
-        span.end();
+    try {
+      await this.pb.collection(collection).delete(id);
+    } catch (error: unknown) {
+      if (error instanceof ClientResponseError) {
+        logJson("error", `Error deleting ${collection} record`, {
+          error: error.message,
+        });
       }
-    });
+      throw error;
+    }
   }
 
   /**
@@ -441,22 +321,9 @@ export class PocketBaseService {
   }
 
   public async authRefresh(): Promise<void> {
-    return await tracer.startActiveSpan("authRefresh", async (span) => {
-      try {
-        if (this.pb.authStore.isValid) {
-          await this.pb.collection("users").authRefresh();
-        }
-        span.setStatus({ code: 0 }); // OK
-      } catch (error: unknown) {
-        const errorMessage = error instanceof Error
-          ? error.message
-          : "Unknown error";
-        span.setStatus({ code: 2, message: errorMessage }); // ERROR
-        throw error;
-      } finally {
-        span.end();
-      }
-    });
+    if (this.pb.authStore.isValid) {
+      await this.pb.collection("users").authRefresh();
+    }
   }
 
   public getAuthStore(): LocalAuthStore {
@@ -464,48 +331,42 @@ export class PocketBaseService {
   }
 
   public async getUser(cookieHeader: string): Promise<User> {
-    return await tracer.startActiveSpan("getUser", async (span) => {
-      const startTime = performance.now();
-      try {
-        logJson("info", "PocketBase getUser - Starting", {
-          hasCookieHeader: !!cookieHeader,
-          cookieLength: cookieHeader?.length || 0,
-        });
+    const startTime = performance.now();
+    try {
+      logJson("info", "PocketBase getUser - Starting", {
+        hasCookieHeader: !!cookieHeader,
+        cookieLength: cookieHeader?.length || 0,
+      });
 
-        const jwt = cookieHeader?.split("pb_auth=")[1]?.split(";")[0];
-        this.pb.authStore.save(jwt, null);
+      const jwt = cookieHeader?.split("pb_auth=")[1]?.split(";")[0];
+      this.pb.authStore.save(jwt, null);
 
-        const authStart = performance.now();
-        const user = await this.pb.collection("users").authRefresh();
-        const authEnd = performance.now();
+      const authStart = performance.now();
+      const user = await this.pb.collection("users").authRefresh();
+      const authEnd = performance.now();
 
-        const totalTime = performance.now() - startTime;
+      const totalTime = performance.now() - startTime;
 
-        logJson("info", "PocketBase getUser - Completed", {
-          authTime: `${(authEnd - authStart).toFixed(2)}ms`,
-          totalTime: `${totalTime.toFixed(2)}ms`,
-          hasUser: !!user.record,
-          userId: user.record?.id,
-        });
+      logJson("info", "PocketBase getUser - Completed", {
+        authTime: `${(authEnd - authStart).toFixed(2)}ms`,
+        totalTime: `${totalTime.toFixed(2)}ms`,
+        hasUser: !!user.record,
+        userId: user.record?.id,
+      });
 
-        span.setStatus({ code: 0 }); // OK
-        return user.record as unknown as User;
-      } catch (error: unknown) {
-        const errorMessage = error instanceof Error
-          ? error.message
-          : "Unknown error";
-        span.setStatus({ code: 2, message: errorMessage }); // ERROR
+      return user.record as unknown as User;
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error
+        ? error.message
+        : "Unknown error";
 
-        logJson("error", "PocketBase getUser - Error", {
-          error: errorMessage,
-          totalTime: `${(performance.now() - startTime).toFixed(2)}ms`,
-        });
+      logJson("error", "PocketBase getUser - Error", {
+        error: errorMessage,
+        totalTime: `${(performance.now() - startTime).toFixed(2)}ms`,
+      });
 
-        throw error;
-      } finally {
-        span.end();
-      }
-    });
+      throw error;
+    }
   }
 
   /**

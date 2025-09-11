@@ -1,8 +1,8 @@
 import { PiPaperPlaneRight } from "@preact-icons/pi";
 import { useState } from "preact/hooks";
-import { ProfileImage } from "@components/auth/profile-image.tsx";
-import { Device } from "@data/frontend/contracts/device.model.ts";
-import { User } from "@data/frontend/contracts/user.contract.ts";
+import { ProfileImage } from "../../components/auth/profile-image.tsx";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
+import { User } from "../../data/frontend/contracts/user.contract.ts";
 
 export function AddDeviceCommentForm({
   device,
@@ -34,7 +34,10 @@ export function AddDeviceCommentForm({
         <input type="hidden" name="device" value={device.id} />
         <input type="hidden" name="user" value={user.id} />
         <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-          <ProfileImage name={user.nickname} size={32} />
+          <ProfileImage
+            user={user}
+            size={32}
+          />
           <span style={{ fontWeight: "bold", whiteSpace: "nowrap" }}>
             {user.nickname}
           </span>
@@ -48,35 +51,32 @@ export function AddDeviceCommentForm({
             style={{
               flex: 1,
               padding: "0.5rem",
+              border: "1px solid var(--pico-border-color)",
               borderRadius: "0.25rem",
-              border: "1px solid var(--pico-muted-border-color)",
-              minHeight: "80px",
               resize: "vertical",
+              minHeight: "80px",
             }}
+            required
           />
-        </div>
-        <button
-          type="submit"
-          role="button"
-          class="primary"
-          style={{
-            padding: "0.5rem 1rem",
-            borderRadius: "0.25rem",
-            color: "var(--pico-color)",
-            width: "fit-content",
-          }}
-        >
-          <span
+          <button
+            type="submit"
             style={{
+              padding: "0.5rem",
+              background: "var(--pico-primary)",
+              color: "var(--pico-primary-inverse)",
+              border: "none",
+              borderRadius: "0.25rem",
+              cursor: "pointer",
               display: "flex",
               alignItems: "center",
               gap: "0.25rem",
-              cursor: "pointer",
             }}
+            disabled={!comment.trim()}
           >
-            <PiPaperPlaneRight /> Add comment
-          </span>
-        </button>
+            <PiPaperPlaneRight size={16} />
+            Post
+          </button>
+        </div>
       </form>
     </div>
   );

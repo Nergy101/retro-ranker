@@ -7,6 +7,56 @@
 
 # Fresh build directory
 _fresh/
+# npm + other dependencies
+node_modules/
+vendor/
+
+# dotenv environment variable files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# Fresh build directory
+_fresh/
+# npm dependencies
+node_modules/
+
+.DS_Store
+
+.vscode/
+
+# CAP tokens and data
+.data/
+tokensList.json
+
+
+# Docker compose and such
+volumes/
+
+# Deno cache
+deno_cache/
+
+# Deno build
+build/
+
+# Deno lock
+deno.lock
+
+# Screenshots
+screenshots/
+playwright/screenshots/
+
+# dotenv environment variable files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# Fresh build directory
+_fresh/
 # npm dependencies
 node_modules/
 

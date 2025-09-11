@@ -1,20 +1,27 @@
 import { PiGitDiff } from "@preact-icons/pi";
 import { useEffect, useRef, useState } from "preact/hooks";
-import { DeviceCardMedium } from "@components/cards/device-card-medium.tsx";
-import { Device } from "@data/frontend/contracts/device.model.ts";
-import { searchDevices } from "@data/frontend/services/utils/search.utils.ts";
-import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
+import { DeviceCardMedium } from "../../components/cards/device-card-medium.tsx";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
+import { generateDeviceColors } from "../../data/frontend/services/utils/chart-colors.utils.ts";
+
+// Simple search function for devices
+const searchDevices = (query: string, devices: Device[]): Device[] => {
+  if (!query.trim()) return [];
+  const lowerQuery = query.toLowerCase();
+  return devices.filter((device) =>
+    device.name.raw.toLowerCase().includes(lowerQuery) ||
+    device.brand.raw.toLowerCase().includes(lowerQuery)
+  ).slice(0, 5);
+};
 
 export function DeviceComparisonForm({
   allDevices,
   devicesToCompare,
   similarDevices,
-  translations,
 }: {
   allDevices: Device[];
   devicesToCompare: Device[];
   similarDevices: Device[];
-  translations: Record<string, string>;
 }) {
   const originalDeviceA = devicesToCompare?.[0];
   const originalDeviceB = devicesToCompare?.[1];
@@ -89,7 +96,7 @@ export function DeviceComparisonForm({
 
     const device =
       allDevices.find((device) =>
-        device.name.raw.toLowerCase() === queryA.toLowerCase()
+        device.name.raw.toLowerCase() === value.toLowerCase()
       ) ?? null;
 
     setSelectedDeviceA(device);
@@ -102,7 +109,7 @@ export function DeviceComparisonForm({
 
     const device =
       allDevices.find((device) =>
-        device.name.raw.toLowerCase() === queryB.toLowerCase()
+        device.name.raw.toLowerCase() === value.toLowerCase()
       ) ?? null;
 
     setSelectedDeviceB(device);
@@ -136,27 +143,13 @@ export function DeviceComparisonForm({
     }
   };
 
-  // useEffect(() => {
-  //   if (
-  //     selectedDeviceA &&
-  //     selectedDeviceB &&
-  //     (
-  //       selectedDeviceA.name.sanitized !== originalDeviceA?.name.sanitized ||
-  //       selectedDeviceB.name.sanitized !== originalDeviceB?.name.sanitized
-  //     )
-  //   ) {
-  //     handleSubmit();
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [selectedDeviceA, selectedDeviceB]);
-
   const handleSubmit = () => {
     if (selectedDeviceA && selectedDeviceB) {
       const sanitizedA = selectedDeviceA.name.sanitized;
       const sanitizedB = selectedDeviceB.name.sanitized;
       globalThis.location.href = `/compare?devices=${sanitizedA},${sanitizedB}`;
     } else {
-      alert(TranslationPipe(translations, "compare.selectValidDevices"));
+      alert("Please select valid devices");
     }
   };
 
@@ -205,17 +198,14 @@ export function DeviceComparisonForm({
                 gap: "0.5rem",
               }}
             >
-              {TranslationPipe(translations, "compare.compare")}
+              Compare
             </span>
             <input
               type="search"
               value={queryA}
               onInput={(e) => queryAChanged(e.currentTarget.value)}
-              placeholder={TranslationPipe(translations, "compare.startTyping")}
-              aria-label={TranslationPipe(
-                translations,
-                "compare.searchDevices",
-              )}
+              placeholder="Start typing..."
+              aria-label="Search devices"
               {...(queryA === "" ? {} : {
                 ariaInvalid: deviceNameIsInvalid(queryA),
               })}
@@ -234,17 +224,14 @@ export function DeviceComparisonForm({
                 gap: "0.5rem",
               }}
             >
-              {TranslationPipe(translations, "compare.with")}
+              with
             </span>
             <input
               type="search"
               value={queryB}
               onInput={(e) => queryBChanged(e.currentTarget.value)}
-              placeholder={TranslationPipe(translations, "compare.startTyping")}
-              aria-label={TranslationPipe(
-                translations,
-                "compare.searchDevices",
-              )}
+              placeholder="Start typing..."
+              aria-label="Search devices"
               {...(queryB === "" ? {} : {
                 ariaInvalid: deviceNameIsInvalid(queryB),
               })}
@@ -301,29 +288,39 @@ export function DeviceComparisonForm({
             <summary class="flex">
               <div style={{ display: "flex", alignItems: "center" }}>
                 <PiGitDiff />
-                &nbsp;{TranslationPipe(
-                  translations,
-                  "compare.similarDevicesTo",
-                )} {originalDeviceA.name.raw}
+                &nbsp;Similar devices to {originalDeviceA.name.raw}
               </div>
             </summary>
             <div class="similar-devices-compare-grid">
-              {similarDevices.slice(0, 8).map((device) => (
-                <div
-                  key={device.name.sanitized}
-                  style={{
-                    cursor: "pointer",
-                    borderRadius: "0.5rem",
-                  }}
-                  onClick={() => setQueryASuggestion(device.name.sanitized)}
-                >
-                  <DeviceCardMedium
-                    device={device}
-                    isActive={isActive(device.name.raw)}
-                    showLikeButton={false}
-                  />
-                </div>
-              ))}
+              {(() => {
+                // Generate colors for similar devices (starting from index 1 since index 0 would be the main device)
+                const deviceColors = generateDeviceColors([
+                  originalDeviceA,
+                  ...similarDevices.slice(0, 8),
+                ]);
+
+                return similarDevices.slice(0, 8).map((device) => {
+                  const borderColor = deviceColors[device.name.sanitized];
+
+                  return (
+                    <div
+                      key={device.name.sanitized}
+                      style={{
+                        cursor: "pointer",
+                        borderRadius: "0.5rem",
+                      }}
+                      onClick={() => setQueryASuggestion(device.name.sanitized)}
+                    >
+                      <DeviceCardMedium
+                        device={device}
+                        isActive={isActive(device.name.raw)}
+                        showLikeButton={false}
+                        borderColor={borderColor}
+                      />
+                    </div>
+                  );
+                });
+              })()}
             </div>
           </details>
         )}
@@ -333,50 +330,62 @@ export function DeviceComparisonForm({
             <summary class="flex">
               <div style={{ display: "flex", alignItems: "center" }}>
                 <PiGitDiff />
-                &nbsp;{TranslationPipe(
-                  translations,
-                  "compare.similarDevicesTo",
-                )} {originalDeviceB?.name.raw}
+                &nbsp;Similar devices to {originalDeviceB?.name.raw}
               </div>
             </summary>
             <div class="similar-devices-compare-grid">
-              {similarDevices.slice(8, 16).map((device) => (
-                <div
-                  key={device.name.sanitized}
-                  onClick={() => setQueryBSuggestion(device.name.sanitized)}
-                  style={{
-                    cursor: "pointer",
-                    backgroundColor: device.name.raw === queryB
-                      ? "var(--color-primary)"
-                      : "transparent",
-                  }}
-                >
-                  <DeviceCardMedium
-                    device={device}
-                    isActive={isActive(device.name.raw)}
-                    showLikeButton={false}
-                  />
-                </div>
-              ))}
+              {(() => {
+                // Generate colors for similar devices (starting from index 1 since index 0 would be the main device)
+                const deviceColors = generateDeviceColors([
+                  originalDeviceB,
+                  ...similarDevices.slice(8, 16),
+                ]);
+
+                return similarDevices.slice(8, 16).map((device) => {
+                  const borderColor = deviceColors[device.name.sanitized];
+
+                  return (
+                    <div
+                      key={device.name.sanitized}
+                      onClick={() => setQueryBSuggestion(device.name.sanitized)}
+                      style={{
+                        cursor: "pointer",
+                        backgroundColor: device.name.raw === queryB
+                          ? "var(--color-primary)"
+                          : "transparent",
+                      }}
+                    >
+                      <DeviceCardMedium
+                        device={device}
+                        isActive={isActive(device.name.raw)}
+                        showLikeButton={false}
+                        borderColor={borderColor}
+                      />
+                    </div>
+                  );
+                });
+              })()}
             </div>
           </details>
         )}
       </div>
 
-      {/* Quick comparisons (dynamic) */}
+      {/* Quick comparisons */}
       <style>
         {`
-        @media (max-width: 640px) {
+        .compare-form-examples {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 0.75rem;
+        }
+        @container (max-width: 600px) {
           .compare-form-examples {
-            display: grid;
-            grid-template-columns: 1fr !important;
+            grid-template-columns: repeat(2, 1fr);
             gap: 0.75rem;
           }
         }
-        @media (min-width: 641px) {
+        @container (max-width: 400px) {
           .compare-form-examples {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: 1fr;
             gap: 0.75rem;
           }
         }
@@ -389,10 +398,8 @@ export function DeviceComparisonForm({
           gap: "0.75rem",
         }}
       >
-        {
-          /* Compute quick comparisons from allDevices */
-        }
         {(() => {
+          /* Compute quick comparisons from allDevices */
           const handhelds = allDevices.filter((d) =>
             d.deviceType === "handheld"
           );

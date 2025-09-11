@@ -1,15 +1,14 @@
-import { DeviceCardMedium } from "@components/cards/device-card-medium.tsx";
-import { SeeMoreCard } from "@components/cards/see-more-card.tsx";
-import { TagComponent } from "@components/shared/tag-component.tsx";
-import { Device } from "@data/frontend/contracts/device.model.ts";
-import { User } from "@data/frontend/contracts/user.contract.ts";
-import { TagModel } from "@data/frontend/models/tag.model.ts";
-import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
-import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
-import { createSuperUserPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
-import { tracer } from "@data/tracing/tracer.ts";
-import { CustomFreshState } from "@interfaces/state.ts";
-import { Hero } from "@islands/hero/hero.tsx";
+import { DeviceCardMedium } from "../components/cards/device-card-medium.tsx";
+import { SeeMoreCard } from "../components/cards/see-more-card.tsx";
+import { TagComponent } from "../components/shared/tag-component.tsx";
+import { Device } from "../data/frontend/contracts/device.model.ts";
+import { User } from "../data/frontend/contracts/user.contract.ts";
+import { TagModel } from "../data/frontend/models/tag.model.ts";
+import { DeviceService } from "../data/frontend/services/devices/device.service.ts";
+import { createSuperUserPocketBaseService } from "../data/pocketbase/pocketbase.service.ts";
+import { tracer } from "../data/tracing/tracer.ts";
+import { State } from "../utils.ts";
+import { Hero } from "../islands/hero/hero.tsx";
 import {
   PiCalendar,
   PiChartLine,
@@ -20,11 +19,11 @@ import {
   PiSparkle,
   PiUserCheck,
 } from "@preact-icons/pi";
-import { FreshContext, page } from "fresh";
+import { Context, page } from "fresh";
 
 export const handler = {
-  async GET(ctx: FreshContext) {
-    (ctx.state as CustomFreshState).seo = {
+  async GET(ctx: Context<State>) {
+    ctx.state.seo = {
       title: "Retro Ranker - Home",
       description:
         "Retro Ranker - Home to browse and compare retro gaming handhelds",
@@ -84,7 +83,7 @@ export const handler = {
       : [];
     const likesCountMap: Record<string, number> = {};
     const userLikedMap: Record<string, boolean> = {};
-    const currentUser = (ctx.state as CustomFreshState).user as User | null;
+    const currentUser = ctx.state.user as User | null;
     for (const r of likeRecords) {
       likesCountMap[r.device] = (likesCountMap[r.device] || 0) + 1;
       if (currentUser && r.user === currentUser.id) {
@@ -109,7 +108,7 @@ export const handler = {
       userFavoritedMap[r.device] = true;
     }
 
-    (ctx.state as CustomFreshState).data = {
+    ctx.state.data = {
       newArrivals,
       personalPicks,
       highlyRated,
@@ -118,12 +117,12 @@ export const handler = {
       likesCountMap,
       userLikedMap,
       userFavoritedMap,
-      user: (ctx.state as CustomFreshState).user,
+      user: ctx.state.user,
     };
 
-    return await tracer.startActiveSpan("route:index", async (span) => {
+    return await tracer.startActiveSpan("route:index", async (span: any) => {
       try {
-        const user = (ctx.state as CustomFreshState)?.user as User | null;
+        const user = ctx.state?.user as User | null;
         span.setAttribute("user.authenticated", !!user);
         if (user && "email" in user) {
           span.setAttribute("user.email", user.email);
@@ -146,11 +145,10 @@ export const handler = {
 };
 
 export default function Home(
-  ctx: FreshContext,
+  ctx: Context<State>,
 ) {
-  const state = ctx.state as CustomFreshState;
+  const state = ctx.state;
   const data = state.data;
-  const translations = state.translations ?? {};
 
   const newArrivals = data.newArrivals as Device[];
   const personalPicks = data.personalPicks as Device[];
@@ -164,7 +162,7 @@ export default function Home(
 
   return (
     <div class="home-page">
-      <Hero translations={translations} />
+      <Hero />
       <div
         style={{
           display: "flex",
@@ -185,8 +183,7 @@ export default function Home(
                   gap: "0.5rem",
                 }}
               >
-                <PiMagnifyingGlass />{" "}
-                {TranslationPipe(translations, "home.popularSearches")}
+                <PiMagnifyingGlass /> Popular Searches
               </h3>
 
               <div
@@ -213,7 +210,7 @@ export default function Home(
           <section class="home-section">
             <article class="home-section-content">
               <h2 class="home-section-title">
-                <PiCalendar /> {TranslationPipe(translations, "home.upcoming")}
+                <PiCalendar /> Upcoming
               </h2>
               <div class="device-row-grid">
                 {upcoming.map((device) => (
@@ -233,7 +230,7 @@ export default function Home(
                 ))}
                 <SeeMoreCard
                   href="/devices?tags=upcoming"
-                  text={TranslationPipe(translations, "home.moreUpcoming")}
+                  text="More Upcoming"
                 />
               </div>
             </article>
@@ -242,8 +239,7 @@ export default function Home(
           <section class="home-section">
             <article class="home-section-content">
               <h2 class="home-section-title">
-                <PiSparkle />{" "}
-                {TranslationPipe(translations, "home.newArrivals")}
+                <PiSparkle /> New Arrivals
               </h2>
               <div class="device-row-grid">
                 {newArrivals.map((device) => (
@@ -263,7 +259,7 @@ export default function Home(
                 ))}
                 <SeeMoreCard
                   href="/devices?sort=new-arrivals"
-                  text={TranslationPipe(translations, "home.moreNewArrivals")}
+                  text="More New Arrivals"
                 />
               </div>
             </article>
@@ -273,8 +269,7 @@ export default function Home(
           <section class="home-section">
             <article class="home-section-content">
               <h2 class="home-section-title">
-                <PiRanking />{" "}
-                {TranslationPipe(translations, "home.bangForBuck")}
+                <PiRanking /> Bang for your buck
                 <div
                   style={{
                     display: "flex",
@@ -305,7 +300,7 @@ export default function Home(
                 ))}
                 <SeeMoreCard
                   href="/devices?tags=mid&sort=highly-ranked"
-                  text={TranslationPipe(translations, "home.moreHighlyRanked")}
+                  text="More Highly Ranked"
                 />
               </div>
             </article>
@@ -315,8 +310,7 @@ export default function Home(
           <section class="home-section">
             <article class="home-section-content">
               <h2 class="home-section-title">
-                <PiUserCheck />{" "}
-                {TranslationPipe(translations, "home.personalPicks")}
+                <PiUserCheck /> Personal Picks
               </h2>
               <div class="device-row-grid">
                 {personalPicks.map((device) => (
@@ -336,7 +330,7 @@ export default function Home(
                 ))}
                 <SeeMoreCard
                   href="/devices?tags=personal-pick"
-                  text={TranslationPipe(translations, "home.morePersonalPicks")}
+                  text="More Personal Picks"
                 />
               </div>
             </article>
@@ -355,10 +349,10 @@ export default function Home(
                       textAlign: "center",
                     }}
                   >
-                    {TranslationPipe(translations, "home.handheldDatabase")}
+                    A Handheld Database
                   </h2>
                   <p style={{ textAlign: "center" }}>
-                    {TranslationPipe(translations, "home.poweredBy")}
+                    Powered by the Retro Handhelds community
                   </p>
                 </hgroup>
 
@@ -372,7 +366,11 @@ export default function Home(
                   <strong style={{ color: "var(--pico-primary)" }}>
                     Retro Ranker {" "}
                   </strong>
-                  {TranslationPipe(translations, "home.retroRankerDesc")}
+                  is a comprehensive database of retro gaming handhelds,
+                  designed to help you find the perfect device for your gaming
+                  needs. Whether you're a seasoned collector or just getting
+                  started, our platform provides detailed specifications,
+                  performance ratings, and user reviews to guide your decision.
                 </p>
                 <div class="index-buttons">
                   <a
@@ -387,7 +385,7 @@ export default function Home(
                       color: "var(--pico-contrast)",
                     }}
                   >
-                    <PiScroll /> {TranslationPipe(translations, "nav.devices")}
+                    <PiScroll /> Devices
                   </a>
                   <a
                     href="/compare"
@@ -401,7 +399,7 @@ export default function Home(
                       color: "var(--pico-contrast)",
                     }}
                   >
-                    <PiGitDiff /> {TranslationPipe(translations, "nav.compare")}
+                    <PiGitDiff /> Compare
                   </a>
 
                   <a
@@ -416,8 +414,7 @@ export default function Home(
                       color: "var(--pico-contrast)",
                     }}
                   >
-                    <PiCalendar />{" "}
-                    {TranslationPipe(translations, "nav.releases")}
+                    <PiCalendar /> Releases
                   </a>
 
                   <a
@@ -432,8 +429,7 @@ export default function Home(
                       color: "var(--pico-contrast)",
                     }}
                   >
-                    <PiChartLine />{" "}
-                    {TranslationPipe(translations, "nav.charts")}
+                    <PiChartLine /> Charts
                   </a>
                 </div>
               </div>

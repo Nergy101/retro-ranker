@@ -1,15 +1,11 @@
-import { Device } from "@data/frontend/contracts/device.model.ts";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { FreshChart } from "./fresh-chart.tsx";
-import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 
 interface BarChartProps {
   devices: Device[];
-  translations?: Record<string, string>;
 }
 
-export function DevicesPerRatingBarChart(
-  { devices, translations = {} }: BarChartProps,
-) {
+export function DevicesPerRatingBarChart({ devices }: BarChartProps) {
   const possibleColors = [
     ["#FF5733", "#FF573350"], // vivid red-orange
     ["#33FF57", "#33FF5750"], // bright lime green
@@ -83,10 +79,7 @@ export function DevicesPerRatingBarChart(
   const getBarChartLabels = () => {
     return Array.from(
       { length: 10 },
-      (_, i) =>
-        `${TranslationPipe(translations, "charts.basedOnRanking")}: ${i} - ${
-          i + 1
-        }`,
+      (_, i) => `Rating: ${i} - ${i + 1}`,
     );
   };
 
@@ -101,10 +94,11 @@ export function DevicesPerRatingBarChart(
 
   return (
     <div>
-      <h2>{TranslationPipe(translations, "charts.devicesPerRanking")}</h2>
-      <p>{TranslationPipe(translations, "charts.basedOnRanking")}</p>
+      <h2>Devices per Rating</h2>
+      <p>Based on rating</p>
       <p>
-        {TranslationPipe(translations, "charts.rankingExplanation")}
+        This chart shows the distribution of devices across different rating
+        ranges, grouped by brand.
       </p>
       <FreshChart
         type="bar"
@@ -118,12 +112,7 @@ export function DevicesPerRatingBarChart(
               intersect: true,
               callbacks: {
                 label: (context) => {
-                  return `${context.dataset.label}: ${context.raw} ${
-                    TranslationPipe(
-                      translations,
-                      "charts.devicesPerRankingTooltip",
-                    )
-                  }`;
+                  return `${context.dataset.label}: ${context.raw} devices`;
                 },
               },
             },

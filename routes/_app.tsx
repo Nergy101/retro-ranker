@@ -1,29 +1,26 @@
-import { FreshContext, page } from "fresh";
-import { User } from "@data/frontend/contracts/user.contract.ts";
-import { CustomFreshState } from "@interfaces/state.ts";
-import { Footer } from "@components/footer.tsx";
-import { TopNavbar } from "@islands/navigation/top-navbar.tsx";
+import { AppProps, page } from "fresh";
+import { User } from "../data/frontend/contracts/user.contract.ts";
+import { CustomFreshState } from "../interfaces/state.ts";
+import { Footer } from "../components/footer.tsx";
+import { TopNavbar } from "../islands/navigation/top-navbar.tsx";
 
 export const handler = {
-  async GET(ctx: FreshContext) {
+  async GET(ctx: AppProps) {
     return page(ctx);
   },
 };
 
-export default function AppWrapper(
-  ctx: FreshContext,
-) {
-  const seo = (ctx.state as CustomFreshState).seo ?? {};
+export default function AppWrapper(props: AppProps) {
+  const { Component, state, req } = props;
+  const customState = state as CustomFreshState;
 
-  // const state = ctx.state as CustomFreshState;
-  const user = (ctx.state as CustomFreshState).user as User | null;
-  const language = (ctx.state as CustomFreshState).language ?? "en-US";
-  const translations = (ctx.state as CustomFreshState).translations ?? {};
+  const seo = customState.seo ?? {};
+  const user = customState.user as User | null;
 
-  const url = new URL(ctx.req.url);
+  const url = new URL(req.url);
 
   const page = (
-    <html class="transition-colors" lang={language}>
+    <html class="transition-colors" lang="en-US">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -85,20 +82,17 @@ export default function AppWrapper(
           href="/favicon-16x16.png"
         />
         <link rel="stylesheet" href="/pico.pumpkin.min.css" />
-        <script defer src="/scripts/lang-sync.js" />
         <script defer src="/scripts/card-effects.js" />
       </head>
       <body>
         <TopNavbar
           pathname={url.pathname}
           user={user}
-          translations={translations}
         />
         <main class="main-content">
-          {/* @ts-ignore */}
-          <ctx.Component />
+          <Component />
         </main>
-        <Footer translations={translations} />
+        <Footer />
       </body>
     </html>
   );

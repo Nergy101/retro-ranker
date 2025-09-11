@@ -1,13 +1,14 @@
 import {
   generateCodeChallenge,
   generateCodeVerifier,
-} from "@data/pkce/pkce.service.ts";
-import pkceSessionService from "@data/pkce/pkce.service.ts";
-import { logJson, tracer } from "@data/tracing/tracer.ts";
-import { FreshContext } from "fresh";
+} from "../../../../data/pkce/pkce.service.ts";
+import pkceSessionService from "../../../../data/pkce/pkce.service.ts";
+import { logJson, tracer } from "../../../../data/tracing/tracer.ts";
+import { Context } from "fresh";
+import { State } from "../../../../utils.ts";
 
 export const handler = {
-  async GET(ctx: FreshContext) {
+  async GET(ctx: Context<State>) {
     const req = ctx.req;
 
     return await tracer.startActiveSpan("google-auth-start", async (span) => {

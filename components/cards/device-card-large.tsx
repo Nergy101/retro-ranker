@@ -1,10 +1,11 @@
 import { PiQuestion } from "@preact-icons/pi";
-import { Device } from "@data/frontend/contracts/device.model.ts";
-import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
+import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 import { EmulationPerformance } from "../devices/emulation-performance.tsx";
 import { StarRating } from "../ratings/star-rating.tsx";
 import { CurrencyIcon } from "../shared/currency-icon.tsx";
-import { DeviceCardActions } from "@islands/devices/device-card-actions.tsx";
+import { DeviceCardActions } from "../../islands/devices/device-card-actions.tsx";
+import { DeviceHelpers } from "../../data/frontend/helpers/device.helpers.ts";
 
 interface DeviceCardLargeProps {
   device: Device;
@@ -143,7 +144,7 @@ export function DeviceCardLarge(
               {device.os.icons.map((icon, idx) =>
                 // Decorative OS icons
                 <span key={idx} aria-hidden="true">
-                  {DeviceService.getOsIconComponent(icon)}
+                  {DeviceHelpers.getOsIconComponent(icon)}
                 </span>
               )}
             </span>

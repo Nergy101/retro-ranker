@@ -1,8 +1,9 @@
-import { createSuperUserPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
-import { FreshContext } from "fresh";
+import { createSuperUserPocketBaseService } from "../../../../data/pocketbase/pocketbase.service.ts";
+import { Context } from "fresh";
+import { State } from "../../../../utils.ts";
 
 export const handler = {
-  async POST(ctx: FreshContext) {
+  async POST(ctx: Context<State>) {
     const req = ctx.req;
 
     try {

@@ -15,3 +15,21 @@ export const searchDevices = (query: string, devices: Device[]) => {
       return dateB - dateA;
     });
 };
+
+export const getNewestDevices = (
+  devices: Device[],
+  count: number = 6,
+): Device[] => {
+  return devices
+    .filter((device) => device.released.mentionedDate) // Only devices with release dates
+    .sort((a, b) => {
+      const dateA = a.released.mentionedDate
+        ? new Date(a.released.mentionedDate).getTime()
+        : 0;
+      const dateB = b.released.mentionedDate
+        ? new Date(b.released.mentionedDate).getTime()
+        : 0;
+      return dateB - dateA; // Newest first
+    })
+    .slice(0, count);
+};

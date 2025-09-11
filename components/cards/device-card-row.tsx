@@ -1,9 +1,10 @@
 import { PiQuestion } from "@preact-icons/pi";
-import { Device } from "@data/frontend/contracts/device.model.ts";
-import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
-import { RatingInfo } from "@islands/devices/rating-info.tsx";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
+import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
+import { RatingInfo } from "../../islands/devices/rating-info.tsx";
 import { CurrencyIcon } from "../shared/currency-icon.tsx";
-import { DeviceCardActions } from "@islands/devices/device-card-actions.tsx";
+import { DeviceCardActions } from "../../islands/devices/device-card-actions.tsx";
+import { DeviceHelpers } from "../../data/frontend/helpers/device.helpers.ts";
 
 interface DeviceCardRowProps {
   device: Device;
@@ -24,8 +25,8 @@ export function DeviceCardRow(
     showLikeButton = true,
   }: DeviceCardRowProps,
 ) {
-  const upToSystemA = DeviceService.getUptoSystemA(device);
-  const upToSystemC = DeviceService.getUptoSystemCOrLower(device);
+  const upToSystemA = DeviceHelpers.getUptoSystemA(device);
+  const upToSystemC = DeviceHelpers.getUptoSystemCOrLower(device);
 
   return (
     <div class="device-card-row">

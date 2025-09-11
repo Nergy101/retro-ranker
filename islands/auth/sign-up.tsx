@@ -1,212 +1,16 @@
 import {
   PiDiscordLogo,
   PiGoogleLogo,
-  PiLock,
-  PiPassword,
-  PiUser,
   PiUserPlus,
 } from "@preact-icons/pi";
-import { IS_BROWSER } from "fresh/runtime";
-import { useEffect, useState } from "preact/hooks";
 
 export function SignUp({
   baseApiUrl,
-  translations,
   csrfToken,
 }: {
   baseApiUrl: string;
-  translations: Record<string, string>;
   csrfToken: string;
 }) {
-  const [error, setError] = useState<string | null>(null);
-  const [mounted, setMounted] = useState(false);
-
-  // Track both validation state and whether field has been touched
-  const [nicknameTouched, setNicknameTouched] = useState(false);
-  const [passwordTouched, setPasswordTouched] = useState(false);
-  const [confirmPasswordTouched, setConfirmPasswordTouched] = useState(false);
-
-  const [nicknameValid, setNicknameValid] = useState<boolean | null>(null);
-  const [passwordValid, setPasswordValid] = useState<boolean | null>(null);
-  const [confirmPasswordValid, setConfirmPasswordValid] = useState<
-    boolean | null
-  >(null);
-  const [capSolution, setCapSolution] = useState<
-    { success: boolean; token: string } | null
-  >(
-    null,
-  );
-
-  // Initialize Cap widget only once when component mounts
-  useEffect(() => {
-    if (IS_BROWSER && !mounted) {
-      setMounted(true);
-      import("@cap.js/widget").then(async ({ default: Cap }) => {
-        const capInstance = new Cap({
-          apiEndpoint: baseApiUrl + "/captcha/",
-        });
-
-        setCapSolution(
-          await capInstance.solve() as {
-            success: boolean;
-            token: string;
-          },
-        );
-      });
-    }
-  });
-
-  const validateNickname = (e: Event) => {
-    const input = e.target as HTMLInputElement;
-    setNicknameTouched(true);
-
-    // Reset validation state if field is empty
-    if (!input.value.trim()) {
-      setNicknameValid(null);
-      return;
-    }
-
-    setNicknameValid(input.value.trim().length >= 3);
-  };
-
-  const validatePassword = (e: Event) => {
-    const input = e.target as HTMLInputElement;
-    setPasswordTouched(true);
-
-    // Reset validation state if field is empty
-    if (!input.value) {
-      setPasswordValid(null);
-      return;
-    }
-
-    const isValid = input.value.length >= 8;
-    setPasswordValid(isValid);
-
-    // Only validate confirm password if it's been touched and has a value
-    if (confirmPasswordTouched) {
-      const confirmInput = document.getElementById(
-        "confirmPassword",
-      ) as HTMLInputElement;
-
-      if (!confirmInput.value) {
-        setConfirmPasswordValid(null);
-      } else {
-        setConfirmPasswordValid(
-          confirmInput.value.length >= 8 &&
-            confirmInput.value === input.value,
-        );
-      }
-    }
-  };
-
-  const validateConfirmPassword = (e: Event) => {
-    const input = e.target as HTMLInputElement;
-    setConfirmPasswordTouched(true);
-
-    // Reset validation state if field is empty
-    if (!input.value) {
-      setConfirmPasswordValid(null);
-      return;
-    }
-
-    const passwordInput = document.getElementById(
-      "password",
-    ) as HTMLInputElement;
-    const isValid = input.value.length >= 8 &&
-      input.value === passwordInput.value;
-    setConfirmPasswordValid(isValid);
-  };
-
-  // Handle input changes to reset validation when field is emptied
-  const handleInputChange = (e: Event, validateFn: (e: Event) => void) => {
-    const input = e.target as HTMLInputElement;
-
-    // If the field is empty and has been touched, reset its validation state
-    if (!input.value.trim()) {
-      validateFn(e);
-    } else {
-      // Otherwise, validate normally
-      validateFn(e);
-    }
-  };
-
-  const handleSubmit = (e: Event) => {
-    e.preventDefault();
-
-    // Mark all fields as touched
-    setNicknameTouched(true);
-    setPasswordTouched(true);
-    setConfirmPasswordTouched(true);
-
-    // Validate all fields
-    const nicknameInput = document.getElementById(
-      "nickname",
-    ) as HTMLInputElement;
-    const passwordInput = document.getElementById(
-      "password",
-    ) as HTMLInputElement;
-    const confirmInput = document.getElementById(
-      "confirmPassword",
-    ) as HTMLInputElement;
-
-    // Reset validation for empty fields
-    setNicknameValid(
-      nicknameInput.value.trim()
-        ? nicknameInput.value.trim().length >= 3
-        : null,
-    );
-    setPasswordValid(
-      passwordInput.value ? passwordInput.value.length >= 8 : null,
-    );
-
-    if (confirmInput.value) {
-      setConfirmPasswordValid(
-        confirmInput.value.length >= 8 &&
-          confirmInput.value === passwordInput.value,
-      );
-    } else {
-      setConfirmPasswordValid(null);
-    }
-
-    // Check if any fields are invalid (false) or empty (null)
-    const hasInvalidFields = nicknameValid === false ||
-      passwordValid === false ||
-      confirmPasswordValid === false;
-
-    const hasEmptyRequiredFields = nicknameValid === null ||
-      passwordValid === null ||
-      confirmPasswordValid === null;
-
-    if (hasInvalidFields || hasEmptyRequiredFields) {
-      setError(translations["auth.fillRequiredFields"]);
-      return;
-    }
-
-    // check if cap was successful
-    if (capSolution?.success === false) {
-      setError(translations["auth.solveCaptcha"]);
-      return;
-    }
-
-    const form = e.target as HTMLFormElement;
-
-    const hidden = document.createElement("input");
-    hidden.type = "hidden";
-    hidden.name = "capToken";
-    hidden.value = capSolution?.token ?? "";
-    form.appendChild(hidden);
-
-    form.submit();
-  };
-
-  // Helper function to determine aria-invalid state
-  const getAriaInvalid = (
-    touched: boolean,
-    valid: boolean | null,
-  ): boolean | undefined => {
-    if (!touched || valid === null) return undefined; // Field not touched or empty, no aria-invalid
-    return valid === false ? true : false;
-  };
 
   return (
     <div
@@ -223,31 +27,26 @@ export function SignUp({
           marginBottom: "1.25rem",
         }}
       >
-        <PiUserPlus /> {translations["auth.signUp"]}
+        <PiUserPlus /> Sign Up
       </h1>
 
-      {error && (
-        <div
-          role="alert"
-          style={{
-            backgroundColor: "#ffebee",
-            color: "#c62828",
-            padding: "0.625rem",
-            marginBottom: "1.25rem",
-            borderRadius: "0.25rem",
-          }}
-        >
-          {error}
-        </div>
-      )}
+      <div
+        style={{
+          textAlign: "center",
+          marginBottom: "2rem",
+          color: "var(--muted-color)",
+        }}
+      >
+        <p>Join Retro Ranker using your existing account</p>
+      </div>
 
       <div class="auth-signin-btn-row">
         <a
           href="/api/auth/discord"
           role="button"
           class="auth-signin-btn auth-signin-btn--discord"
-          aria-label={translations["auth.logInWithDiscord"]}
-          data-tooltip={translations["auth.logInWithDiscord"]}
+          aria-label="Sign up with Discord"
+          data-tooltip="Sign up with Discord"
         >
           <PiDiscordLogo size={32} />
         </a>
@@ -255,191 +54,12 @@ export function SignUp({
           href="/api/auth/google"
           role="button"
           class="auth-signin-btn auth-signin-btn--google"
-          aria-label={translations["auth.logInWithGoogle"]}
-          data-tooltip={translations["auth.logInWithGoogle"]}
+          aria-label="Sign up with Google"
+          data-tooltip="Sign up with Google"
         >
           <PiGoogleLogo size={32} />
         </a>
       </div>
-
-      <form
-        method="POST"
-        action="/api/auth/sign-up"
-        style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
-        onSubmit={handleSubmit}
-      >
-        <input type="hidden" name="csrf_token" value={csrfToken} />
-        <div>
-          <label
-            for="nickname"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "0.5rem",
-              marginBottom: "0.5rem",
-            }}
-          >
-            <PiUser /> {translations["auth.nickname"]}
-          </label>
-          <input
-            id="nickname"
-            name="nickname"
-            type="text"
-            required
-            aria-required="true"
-            aria-invalid={getAriaInvalid(
-              nicknameTouched,
-              nicknameValid,
-            )}
-            onBlur={validateNickname}
-            onChange={(e) => handleInputChange(e, validateNickname)}
-            style={{
-              width: "100%",
-              padding: "0.5rem",
-              border: `0.0625rem solid ${
-                !nicknameTouched || nicknameValid !== false ? "none" : "#c62828"
-              }`,
-              borderRadius: "0.25rem",
-            }}
-          />
-          {nicknameTouched && nicknameValid === false && (
-            <div
-              role="alert"
-              style={{
-                color: "#c62828",
-                fontSize: "1rem",
-                marginTop: "0.5rem",
-              }}
-            >
-              {translations["auth.nicknameMinLength"]}
-            </div>
-          )}
-        </div>
-
-        <div>
-          <label
-            for="password"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "0.5rem",
-              marginBottom: "0.5rem",
-            }}
-          >
-            <PiPassword /> {translations["auth.password"]}
-          </label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            required
-            aria-required="true"
-            aria-invalid={getAriaInvalid(
-              passwordTouched,
-              passwordValid,
-            )}
-            onBlur={validatePassword}
-            onChange={(e) => handleInputChange(e, validatePassword)}
-            style={{
-              width: "100%",
-              padding: "0.5rem",
-              border: `0.0625rem solid ${
-                !passwordTouched || passwordValid === null
-                  ? "none"
-                  : passwordValid === false
-                  ? "#c62828"
-                  : "#4caf50"
-              }`,
-              borderRadius: "0.25rem",
-            }}
-          />
-          {passwordTouched && passwordValid === false && (
-            <div
-              role="alert"
-              style={{
-                color: "#c62828",
-                fontSize: "0.875rem",
-                marginTop: "0.3125rem",
-              }}
-            >
-              {translations["auth.passwordMinLength"]}
-            </div>
-          )}
-        </div>
-
-        <div>
-          <label
-            for="confirmPassword"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "0.5rem",
-              marginBottom: "0.5rem",
-            }}
-          >
-            <PiLock /> {translations["auth.confirmPassword"]}
-          </label>
-          <input
-            id="confirmPassword"
-            name="confirmPassword"
-            type="password"
-            required
-            aria-required="true"
-            aria-invalid={getAriaInvalid(
-              confirmPasswordTouched,
-              confirmPasswordValid,
-            )}
-            onBlur={validateConfirmPassword}
-            onChange={(e) => handleInputChange(e, validateConfirmPassword)}
-            style={{
-              width: "100%",
-              padding: "0.5rem",
-              border: `0.0625rem solid ${
-                !confirmPasswordTouched ||
-                  confirmPasswordValid === null
-                  ? "none"
-                  : confirmPasswordValid === false
-                  ? "#c62828"
-                  : "#4caf50"
-              }`,
-              borderRadius: "0.25rem",
-            }}
-          />
-          {confirmPasswordTouched &&
-            confirmPasswordValid === false && (
-            <div
-              role="alert"
-              style={{
-                color: "#c62828",
-                fontSize: "0.875rem",
-                marginTop: "0.3125rem",
-              }}
-            >
-              {passwordValid === false
-                ? translations["auth.passwordMinLength"]
-                : translations["auth.passwordsDoNotMatch"]}
-            </div>
-          )}
-        </div>
-
-        <button
-          type="submit"
-          class="bg-rr-primary"
-          style={{
-            padding: "0.625rem",
-            border: "none",
-            borderRadius: "0.25rem",
-            cursor: "pointer",
-            marginTop: "0.625rem",
-            display: "flex",
-            alignItems: "center",
-            gap: "0.5rem",
-            justifyContent: "center",
-          }}
-        >
-          <PiUserPlus /> {translations["auth.signUp"]}
-        </button>
-      </form>
 
       <div
         style={{ textAlign: "center", marginTop: "1.25rem" }}
@@ -451,8 +71,8 @@ export function SignUp({
           role="button"
           class="outline"
         >
-          {translations["auth.alreadyHaveAccount"]} <br />{" "}
-          {translations["auth.logInInstead"]}
+          Already have an account? <br />{" "}
+          Log in instead
         </a>
       </div>
     </div>

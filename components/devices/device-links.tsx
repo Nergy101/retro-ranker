@@ -1,6 +1,7 @@
 import { PiCaretCircleDoubleDown } from "@preact-icons/pi";
-import { Device } from "@data/frontend/contracts/device.model.ts";
-import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
+import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
+import { DeviceHelpers } from "../../data/frontend/helpers/device.helpers.ts";
 
 export function DeviceLinks({ device }: { device: Device }) {
   return (
@@ -54,7 +55,7 @@ export function DeviceLinks({ device }: { device: Device }) {
                     <iframe
                       width="300"
                       height="200"
-                      src={DeviceService.getEmbedUrl(review.url)}
+                      src={DeviceHelpers.getEmbedUrl(review.url)}
                       // target="_blank"
                       // alt={review.name}
                       // defer
@@ -136,7 +137,7 @@ export function DeviceLinks({ device }: { device: Device }) {
             }}
           >
             {device.vendorLinks.map((link) => (
-              <a href={link.url} target="_blank">{link.name}</a>
+              <a key={link.url} href={link.url} target="_blank">{link.name}</a>
             ))}
           </div>
         </div>
@@ -157,7 +158,9 @@ export function DeviceLinks({ device }: { device: Device }) {
             }}
           >
             {device.hackingGuides.map((guide) => (
-              <a href={guide.url} target="_blank">{guide.name}</a>
+              <a key={guide.url} href={guide.url} target="_blank">
+                {guide.name}
+              </a>
             ))}
           </div>
         </div>

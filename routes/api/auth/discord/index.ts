@@ -1,12 +1,13 @@
-import { FreshContext } from "fresh";
+import { Context } from "fresh";
 import pkceSessionService, {
   generateCodeChallenge,
   generateCodeVerifier,
-} from "@data/pkce/pkce.service.ts";
-import { logJson, tracer } from "@data/tracing/tracer.ts";
+} from "../../../../data/pkce/pkce.service.ts";
+import { logJson, tracer } from "../../../../data/tracing/tracer.ts";
+import { State } from "../../../../utils.ts";
 
 export const handler = {
-  async GET(ctx: FreshContext) {
+  async GET(ctx: Context<State>) {
     const req = ctx.req;
 
     return await tracer.startActiveSpan("discord-auth-start", async (span) => {

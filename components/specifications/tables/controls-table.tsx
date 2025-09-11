@@ -1,5 +1,6 @@
-import { Device } from "@data/frontend/contracts/device.model.ts";
-import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
+import { Device } from "../../../data/frontend/contracts/device.model.ts";
+import { DeviceHelpers } from "../../../data/frontend/helpers/device.helpers.ts";
+
 interface ControlsTableProps {
   device: Device;
 }
@@ -28,7 +29,7 @@ export function ControlsTable({ device }: ControlsTableProps) {
   };
 
   const getAnalogSticks = () => {
-    if (!device.controls.analogs) return null;
+    if (!device.controls?.analogs) return null;
     const analogSticksText = [
       device.controls.analogs.dual && "Dual",
       device.controls.analogs.single && "Single",
@@ -49,7 +50,7 @@ export function ControlsTable({ device }: ControlsTableProps) {
   return (
     <table class="striped">
       <tbody>
-        {device.controls.dPad?.raw && (
+        {device.controls?.dPad?.raw && (
           <tr>
             <th>D-Pad</th>
             <td>{device.controls.dPad.type}</td>
@@ -68,17 +69,17 @@ export function ControlsTable({ device }: ControlsTableProps) {
             <tr>
               <th>Analog Sticks</th>
               <td>
-                {DeviceService.getPropertyIconByCharacter("❌")}
+                {DeviceHelpers.getPropertyIconByCharacter("❌")}
               </td>
             </tr>
           )}
-        {device.controls.numberOfFaceButtons && (
+        {device.controls?.numberOfFaceButtons && (
           <tr>
             <th>Face Buttons</th>
             <td>{device.controls.numberOfFaceButtons}</td>
           </tr>
         )}
-        {device.controls.shoulderButtons?.raw && (
+        {device.controls?.shoulderButtons?.raw && (
           <tr>
             <th>Shoulder Buttons</th>
             <td>
@@ -104,7 +105,7 @@ export function ControlsTable({ device }: ControlsTableProps) {
             </td>
           </tr>
         )}
-        {device.controls.extraButtons && (
+        {device.controls?.extraButtons && (
           <tr>
             <th>Extra Buttons</th>
             <td>
@@ -132,7 +133,7 @@ export function ControlsTable({ device }: ControlsTableProps) {
           <tr>
             <th>Rumble</th>
             <td>
-              {DeviceService.getPropertyIconByBool(device.rumble)}
+              {DeviceHelpers.getPropertyIconByBool(device.rumble)}
             </td>
           </tr>
         )}

@@ -1,5 +1,6 @@
-import { Device } from "@data/frontend/contracts/device.model.ts";
-import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
+import { Device } from "../../../data/frontend/contracts/device.model.ts";
+import { DeviceHelpers } from "../../../data/frontend/helpers/device.helpers.ts";
+
 interface DisplaySpecsTableProps {
   device: Device;
 }
@@ -7,31 +8,31 @@ interface DisplaySpecsTableProps {
 export function DisplaySpecsTable({ device }: DisplaySpecsTableProps) {
   const videoOutputList = () => {
     const videoOutputs = [];
-    if (device.outputs.videoOutput?.hasUsbC) {
+    if (device.outputs?.videoOutput?.hasUsbC) {
       videoOutputs.push("USB-C");
     }
-    if (device.outputs.videoOutput?.hasMicroHdmi) {
+    if (device.outputs?.videoOutput?.hasMicroHdmi) {
       videoOutputs.push("Micro HDMI");
     }
-    if (device.outputs.videoOutput?.hasMiniHdmi) {
+    if (device.outputs?.videoOutput?.hasMiniHdmi) {
       videoOutputs.push("Mini HDMI");
     }
-    if (device.outputs.videoOutput?.hasHdmi) {
+    if (device.outputs?.videoOutput?.hasHdmi) {
       videoOutputs.push("HDMI");
     }
-    if (device.outputs.videoOutput?.hasDvi) {
+    if (device.outputs?.videoOutput?.hasDvi) {
       videoOutputs.push("DVI");
     }
-    if (device.outputs.videoOutput?.hasVga) {
+    if (device.outputs?.videoOutput?.hasVga) {
       videoOutputs.push("VGA");
     }
-    if (device.outputs.videoOutput?.hasDisplayPort) {
+    if (device.outputs?.videoOutput?.hasDisplayPort) {
       videoOutputs.push("DisplayPort");
     }
-    if (device.outputs.videoOutput?.OcuLink) {
+    if (device.outputs?.videoOutput?.OcuLink) {
       videoOutputs.push("OcuLink");
     }
-    if (device.outputs.videoOutput?.AV) {
+    if (device.outputs?.videoOutput?.AV) {
       videoOutputs.push("AV");
     }
     return videoOutputs;
@@ -42,13 +43,13 @@ export function DisplaySpecsTable({ device }: DisplaySpecsTableProps) {
   return (
     <table class="striped">
       <tbody>
-        {device.screen.size && (
+        {device.screen?.size && (
           <tr>
             <th>Screen Size</th>
             <td>{device.screen.size}"</td>
           </tr>
         )}
-        {device.screen.type?.raw && (
+        {device.screen?.type?.raw && (
           <tr>
             <th>Panel Type</th>
             <td>
@@ -58,7 +59,7 @@ export function DisplaySpecsTable({ device }: DisplaySpecsTableProps) {
             </td>
           </tr>
         )}
-        {device.screen.resolution && device.screen.resolution.length > 0 && (
+        {device.screen?.resolution && device.screen.resolution.length > 0 && (
           <tr>
             <th>Resolution</th>
             <td>
@@ -70,13 +71,13 @@ export function DisplaySpecsTable({ device }: DisplaySpecsTableProps) {
             </td>
           </tr>
         )}
-        {device.screen.aspectRatio && (
+        {device.screen?.aspectRatio && (
           <tr>
             <th>Aspect Ratio</th>
             <td>{device.screen.aspectRatio}</td>
           </tr>
         )}
-        {device.screen.ppi && device.screen.ppi.length > 0
+        {device.screen?.ppi && device.screen.ppi.length > 0
           ? (
             <tr>
               <th>PPI</th>
@@ -87,7 +88,7 @@ export function DisplaySpecsTable({ device }: DisplaySpecsTableProps) {
             <tr>
               <th>PPI</th>
               <td>
-                {DeviceService.getPropertyIconByCharacter("?")}
+                {DeviceHelpers.getPropertyIconByCharacter("?")}
               </td>
             </tr>
           )}
@@ -102,16 +103,16 @@ export function DisplaySpecsTable({ device }: DisplaySpecsTableProps) {
             <tr>
               <th>Video Output</th>
               <td>
-                {DeviceService.getPropertyIconByCharacter("❌")}
+                {DeviceHelpers.getPropertyIconByCharacter("❌")}
               </td>
             </tr>
           )}
-        {device.screen.type?.isTouchscreen
+        {device.screen?.type?.isTouchscreen
           ? (
             <tr>
               <th>Touch Input</th>
               <td>
-                {DeviceService.getPropertyIconByCharacter("✅")}
+                {DeviceHelpers.getPropertyIconByCharacter("✅")}
               </td>
             </tr>
           )
@@ -119,16 +120,16 @@ export function DisplaySpecsTable({ device }: DisplaySpecsTableProps) {
             <tr>
               <th>Touch Input</th>
               <td>
-                {DeviceService.getPropertyIconByCharacter("❌")}
+                {DeviceHelpers.getPropertyIconByCharacter("❌")}
               </td>
             </tr>
           )}
-        {device.screen.type?.isPenCapable
+        {device.screen?.type?.isPenCapable
           ? (
             <tr>
               <th>Pen Support</th>
               <td>
-                {DeviceService.getPropertyIconByCharacter("✅")}
+                {DeviceHelpers.getPropertyIconByCharacter("✅")}
               </td>
             </tr>
           )
@@ -136,7 +137,7 @@ export function DisplaySpecsTable({ device }: DisplaySpecsTableProps) {
             <tr>
               <th>Pen Support</th>
               <td>
-                {DeviceService.getPropertyIconByCharacter("❌")}
+                {DeviceHelpers.getPropertyIconByCharacter("❌")}
               </td>
             </tr>
           )}

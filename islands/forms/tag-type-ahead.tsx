@@ -1,10 +1,7 @@
 import { PiTag, PiX } from "@preact-icons/pi";
-import { useEffect, useState } from "preact/hooks";
-import { FilterTag } from "@components/shared/filter-tag.tsx";
-import {
-  TAG_FRIENDLY_NAMES,
-  TagModel,
-} from "@data/frontend/models/tag.model.ts";
+import { useState } from "preact/hooks";
+import { TagModel } from "../../data/frontend/models/tag.model.ts";
+import { TagComponent } from "../../components/shared/tag-component.tsx";
 
 interface TagTypeaheadProps {
   allTags: TagModel[];
@@ -17,276 +14,132 @@ export function TagTypeahead(
   { allTags, initialSelectedTags, baseUrl, translations = {} }:
     TagTypeaheadProps,
 ) {
-  const [selectedTags, _setSelectedTags] = useState<TagModel[]>(
+  const [selectedTags, setSelectedTags] = useState<TagModel[]>(
     initialSelectedTags,
   );
   const [searchTerm, setSearchTerm] = useState<string>("");
-
-  const [viewportWidth, setViewportWidth] = useState(globalThis.innerWidth);
 
   const getTranslation = (key: string, fallback: string) => {
     return translations[key] || fallback;
   };
 
-  const getComputedPlaceholder = () => {
-    if (viewportWidth >= 768 && viewportWidth <= 1024) {
-      return getTranslation("forms.search.placeholder", "Search...");
-    }
-    return getTranslation("forms.search.tags", "Search for tags...");
-  };
-
-  useEffect(() => {
-    const handleResize = () => {
-      setViewportWidth(globalThis.innerWidth);
-    };
-
-    // Add event listener
-    globalThis.addEventListener("resize", handleResize);
-
-    // Cleanup
-    return () => {
-      globalThis.removeEventListener("resize", handleResize);
-    };
-  });
-
-  // Use a signal for currentSearchParams to keep it in sync with the browser location
-  const [currentSearchParams, setCurrentSearchParams] = useState<
-    URLSearchParams | undefined
-  >(
-    undefined,
+  const filteredTags = allTags.filter((tag) =>
+    tag.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
+    !selectedTags.some((selected) => selected.slug === tag.slug)
   );
 
-  useEffect(() => {
-    const updateSearchParams = () => {
-      setCurrentSearchParams(
-        new URLSearchParams(
-          globalThis.location.search,
-        ),
-      );
-    };
-    globalThis.addEventListener("popstate", updateSearchParams);
-    globalThis.addEventListener("pushstate", updateSearchParams);
-    globalThis.addEventListener("replacestate", updateSearchParams);
-    updateSearchParams();
-    return () => {
-      globalThis.removeEventListener("popstate", updateSearchParams);
-      globalThis.removeEventListener("pushstate", updateSearchParams);
-      globalThis.removeEventListener("replacestate", updateSearchParams);
-    };
-  });
-
-  const filteredTags = [
-    ...new Set(
-      allTags.filter((tag) =>
-        tag.name.toLowerCase().includes(searchTerm.toLowerCase())
-      ),
-    ),
-  ];
-
-  const getFriendlyTagName = (type: string) => {
-    return TAG_FRIENDLY_NAMES[type as keyof typeof TAG_FRIENDLY_NAMES] ?? type;
+  const addTag = (tag: TagModel) => {
+    const newSelectedTags = [...selectedTags, tag];
+    setSelectedTags(newSelectedTags);
+    updateUrl(newSelectedTags);
   };
 
-  const removeTagsUrl = () => {
-    const newSearchParams = new URLSearchParams(currentSearchParams);
-    newSearchParams.delete("tags");
-    return `${baseUrl}/devices?${newSearchParams.toString()}`;
+  const removeTag = (tagToRemove: TagModel) => {
+    const newSelectedTags = selectedTags.filter(
+      (tag) => tag.slug !== tagToRemove.slug,
+    );
+    setSelectedTags(newSelectedTags);
+    updateUrl(newSelectedTags);
   };
 
-  const getTagsHref = (
-    tag: TagModel,
-    type: "add" | "remove",
-    currentSearchParams: URLSearchParams,
-    selectedTagsList: TagModel[],
-  ): URL => {
-    let tagSlugs = "";
-    let filteredTags = [];
-
-    if (type === "add") {
-      filteredTags = selectedTagsList.filter((t) => t.type !== tag.type)
-        .concat(tag)
-        .filter((t) => t.slug !== "");
+  const updateUrl = (tags: TagModel[]) => {
+    const url = new URL(globalThis.location.href);
+    if (tags.length > 0) {
+      url.searchParams.set("tags", tags.map((tag) => tag.slug).join(","));
     } else {
-      filteredTags = selectedTagsList.filter((t) => t.type !== tag.type)
-        .filter((t) => t.slug !== "");
+      url.searchParams.delete("tags");
     }
-
-    tagSlugs = filteredTags.map((t) => t.slug).join(",");
-
-    const newSearchParams = new URLSearchParams(currentSearchParams);
-
-    if (tagSlugs != "") {
-      newSearchParams.set("tags", tagSlugs);
-    } else {
-      newSearchParams.delete("tags");
-    }
-
-    const url = new URL(`${baseUrl}/devices`);
-    url.search = newSearchParams.toString().replaceAll("%2C", ",");
-    return url;
+    url.searchParams.set("page", "1");
+    globalThis.location.href = url.toString();
   };
-
-  const groupedTags = filteredTags.reduce((acc, tag) => {
-    if (!acc[tag.type]) {
-      acc[tag.type] = [];
-    }
-    acc[tag.type].push(tag);
-    return acc;
-  }, {} as Record<string, TagModel[]>);
-
-  // First sort the tag types according to the predefined order
-  const sortedGroupedTags = Object.fromEntries(
-    Object.entries(groupedTags).sort(([a], [b]) => {
-      const order = [
-        "formFactor",
-        "price",
-        "screenType",
-        "releaseDate",
-        "os",
-        "brand",
-        "personalPick",
-      ];
-      return order.indexOf(a) - order.indexOf(b);
-    }).map(([type, tags]) => {
-      if (type === "price") {
-        // pick out the 1 entry with ?? in the name and put that before the others
-        const qTag = tags.find((t) => t.name.includes("??"));
-        if (qTag) {
-          tags = tags.filter((t) => t !== qTag);
-          tags.unshift(qTag);
-        }
-        return [type, tags];
-      }
-
-      if (type === "releaseDate") {
-        // sort by release year, newest to oldest
-        tags = tags.sort((a, b) => b.name.localeCompare(a.name));
-        return [type, tags];
-      }
-
-      // Then sort the tags within each type alphabetically by name
-      const sortedTags = [...tags].sort((a, b) => a.name.localeCompare(b.name));
-      return [type, sortedTags];
-    }),
-  );
 
   return (
-    <div>
-      <div class="selected-tags-container">
-        {selectedTags.length > 0
-          ? (
-            <>
-              <h4
-                style={{
-                  textAlign: "center",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: "0.5em",
-                }}
-              >
-                {getTranslation("forms.selectedTags", "Selected tags")}{" "}
-                <a
-                  href={removeTagsUrl()}
-                  data-tooltip={getTranslation(
-                    "forms.clearAllTags",
-                    "Clear all tags",
-                  )}
-                >
-                  <PiX />
-                </a>
-              </h4>
-              <div class="tags">
-                {selectedTags.map((tag) => (
-                  <FilterTag
-                    key={tag.slug}
-                    tag={tag}
-                    type="remove"
-                    href={getTagsHref(
-                      tag,
-                      "remove",
-                      currentSearchParams ?? new URLSearchParams(),
-                      selectedTags,
-                    )}
-                  />
-                ))}
-              </div>
-            </>
-          )
-          : (
-            <div class="empty-selection">
-              <span>
-                {getTranslation(
-                  "forms.selectTagsToFilter",
-                  "Select tags below to filter.",
-                )}
-              </span>
-            </div>
-          )}
-      </div>
-
-      <div class="search-container">
+    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+      <div>
+        <label htmlFor="tag-search">
+          {getTranslation("forms.tags.search", "Search for tags:")}
+        </label>
         <input
-          type="search"
-          placeholder={getComputedPlaceholder()}
+          id="tag-search"
+          type="text"
+          placeholder={getTranslation(
+            "forms.tags.placeholder",
+            "Type to search tags...",
+          )}
           value={searchTerm}
-          onInput={(e) => setSearchTerm(e.currentTarget.value)}
-          class="tag-search-input"
+          onInput={(e) => setSearchTerm((e.target as HTMLInputElement).value)}
+          style={{ width: "100%" }}
         />
       </div>
 
-      <div class="filter-categories">
-        {Object.entries(sortedGroupedTags).map(([type, tags]) => (
-          <details
-            key={type}
-            class="filter-category"
-            open={searchTerm.length > 0}
-          >
-            <summary class="category-header">
-              <span
-                class="category-icon"
+      {selectedTags.length > 0 && (
+        <div>
+          <h4>{getTranslation("forms.tags.selected", "Selected Tags:")}</h4>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
+            {selectedTags.map((tag) => (
+              <div
+                key={tag.slug}
                 style={{
-                  display: "inline-flex",
-                  alignItems: "space-between",
-                  gap: "0.4em",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.25rem",
+                  background: "var(--pico-primary)",
+                  color: "var(--pico-primary-inverse)",
+                  padding: "0.25rem 0.5rem",
+                  borderRadius: "0.25rem",
                 }}
               >
-                <span
+                <TagComponent tag={tag} />
+                <button
+                  type="button"
+                  onClick={() => removeTag(tag)}
                   style={{
-                    fontSize: "20px",
+                    background: "transparent",
+                    border: "none",
+                    color: "inherit",
+                    cursor: "pointer",
+                    padding: "0",
                     display: "flex",
                     alignItems: "center",
                   }}
+                  aria-label={`Remove ${tag.name} tag`}
                 >
-                  <PiTag />
-                </span>
-                <span
-                  class="category-label"
-                  style={{ fontSize: "0.95em", fontWeight: "bold" }}
-                >
-                  {getFriendlyTagName(type)}
-                </span>
-              </span>
-              <span class="tag-count">({tags.length})</span>
-            </summary>
-            <div class="tag-options">
-              {tags.map((tag) => (
-                <FilterTag
-                  key={tag.slug}
-                  tag={tag}
-                  type="add"
-                  href={getTagsHref(
-                    tag,
-                    "add",
-                    currentSearchParams ?? new URLSearchParams(),
-                    selectedTags,
-                  )}
-                />
-              ))}
-            </div>
-          </details>
-        ))}
-      </div>
+                  <PiX size={16} />
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {searchTerm && filteredTags.length > 0 && (
+        <div>
+          <h4>{getTranslation("forms.tags.available", "Available Tags:")}</h4>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
+            {filteredTags.slice(0, 10).map((tag) => (
+              <button
+                key={tag.slug}
+                type="button"
+                onClick={() => addTag(tag)}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.25rem",
+                  background: "var(--pico-secondary)",
+                  color: "var(--pico-secondary-inverse)",
+                  border: "1px solid var(--pico-secondary-border)",
+                  padding: "0.25rem 0.5rem",
+                  borderRadius: "0.25rem",
+                  cursor: "pointer",
+                }}
+              >
+                <PiTag size={14} />
+                {tag.name}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -14,3 +14,4 @@ export default function Layout({ Component }: PageProps) {
     </div>
   );
 }
+

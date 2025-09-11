@@ -1,5 +1,5 @@
 // deno-lint-ignore-file no-console no-explicit-any
-import { load } from "$std/dotenv/mod.ts";
+import { load } from "@std/dotenv";
 import { nanoid } from "https://deno.land/x/nanoid@v3.0.0/mod.ts";
 import { Device as DeviceContract } from "../frontend/contracts/device.model.ts";
 import { createSuperUserPocketBaseService } from "../pocketbase/pocketbase.service.ts";
@@ -10,19 +10,40 @@ import { SystemRating } from "../entities/system-rating.entity.ts";
 import { TagModel } from "../entities/tag.entity.ts";
 import { unknownOrValue } from "./device-parser/device.parser.helpers.ts";
 
-const env = await load({
-  envPath: "../../.env",
-  allowEmptyValues: true,
-  export: true,
-});
+let env: Record<string, string> = {};
+
+try {
+  env = await load({
+    envPath: "../../.env",
+    export: true,
+  });
+} catch (_error) {
+  console.warn(chalk.yellow("Warning: Could not load .env file. Using environment variables from system."));
+  // Fall back to system environment variables
+  env = {
+    POCKETBASE_SUPERUSER_EMAIL: Deno.env.get("POCKETBASE_SUPERUSER_EMAIL") || "",
+    POCKETBASE_SUPERUSER_PASSWORD: Deno.env.get("POCKETBASE_SUPERUSER_PASSWORD") || "",
+    POCKETBASE_URL: Deno.env.get("POCKETBASE_URL") || "",
+  };
+}
 
 if (
-  env.POCKETBASE_SUPERUSER_EMAIL == "" ||
-  env.POCKETBASE_SUPERUSER_PASSWORD == "" ||
-  env.POCKETBASE_URL == ""
+  !env.POCKETBASE_SUPERUSER_EMAIL ||
+  !env.POCKETBASE_SUPERUSER_PASSWORD ||
+  !env.POCKETBASE_URL ||
+  env.POCKETBASE_SUPERUSER_EMAIL === "" ||
+  env.POCKETBASE_SUPERUSER_PASSWORD === "" ||
+  env.POCKETBASE_URL === ""
 ) {
-  console.error(chalk.red("Pocketbase environment variables are not set"));
-  Deno.exit(0);
+  console.error(chalk.red("❌ PocketBase environment variables are not set"));
+  console.error(chalk.yellow("Please set the following environment variables:"));
+  console.error(chalk.cyan("  - POCKETBASE_URL"));
+  console.error(chalk.cyan("  - POCKETBASE_SUPERUSER_EMAIL"));
+  console.error(chalk.cyan("  - POCKETBASE_SUPERUSER_PASSWORD"));
+  console.error(chalk.dim("\nYou can either:"));
+  console.error(chalk.dim("1. Create a .env file in the project root"));
+  console.error(chalk.dim("2. Set them as system environment variables"));
+  Deno.exit(1);
 }
 
 const pb = await createSuperUserPocketBaseService(

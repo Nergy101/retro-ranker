@@ -1,14 +1,13 @@
-import { useEffect, useState } from "@preact/hooks";
-import { Device } from "@data/frontend/contracts/device.model.ts";
-import { User } from "@data/frontend/contracts/user.contract.ts";
+import { useEffect, useState } from "preact/hooks";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
+import { User } from "../../data/frontend/contracts/user.contract.ts";
 import { DesktopNav } from "./desktop-nav.tsx";
 import { MobileNav } from "./mobile-nav.tsx";
 
 export function TopNavbar(
-  { pathname, user, translations }: {
+  { pathname, user }: {
     pathname: string;
     user: User | null;
-    translations: Record<string, string>;
   },
 ) {
   const [isMobile, setIsMobile] = useState(false);
@@ -58,7 +57,6 @@ export function TopNavbar(
             pathname={pathname}
             allDevices={[]}
             user={user}
-            translations={translations}
           />
         )
         : (
@@ -66,7 +64,6 @@ export function TopNavbar(
             pathname={pathname}
             allDevices={[]}
             user={user}
-            translations={translations}
           />
         )}
     </>

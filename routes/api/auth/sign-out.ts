@@ -1,8 +1,8 @@
-import { FreshContext } from "fresh";
-import { deleteAuthCookie } from "../../../utils.ts";
+import { Context } from "fresh";
+import { deleteAuthCookie, State } from "../../../utils.ts";
 
 export const handler = {
-  GET(ctx: FreshContext) {
+  GET(ctx: Context<State>) {
     const req = ctx.req;
     const url = new URL(req.url);
     const headers = new Headers(req.headers);

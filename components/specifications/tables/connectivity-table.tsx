@@ -1,5 +1,5 @@
-import { Device } from "@data/frontend/contracts/device.model.ts";
-import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
+import { Device } from "../../../data/frontend/contracts/device.model.ts";
+import { DeviceHelpers } from "../../../data/frontend/helpers/device.helpers.ts";
 
 interface ConnectivityTableProps {
   device: Device;
@@ -18,7 +18,7 @@ export function ConnectivityTable({ device }: ConnectivityTableProps) {
             <tr>
               <th>USB-C</th>
               <td>
-                {DeviceService.getPropertyIconByBool(
+                {DeviceHelpers.getPropertyIconByBool(
                   toBoolOrNull(device.connectivity?.hasUsbC),
                 )}
               </td>
@@ -26,7 +26,7 @@ export function ConnectivityTable({ device }: ConnectivityTableProps) {
             <tr>
               <th>Wifi</th>
               <td>
-                {DeviceService.getPropertyIconByBool(
+                {DeviceHelpers.getPropertyIconByBool(
                   toBoolOrNull(device.connectivity?.hasWifi),
                 )}
               </td>
@@ -34,7 +34,7 @@ export function ConnectivityTable({ device }: ConnectivityTableProps) {
             <tr>
               <th>Bluetooth</th>
               <td>
-                {DeviceService.getPropertyIconByBool(
+                {DeviceHelpers.getPropertyIconByBool(
                   toBoolOrNull(device.connectivity?.hasBluetooth),
                 )}
               </td>
@@ -42,7 +42,7 @@ export function ConnectivityTable({ device }: ConnectivityTableProps) {
             <tr>
               <th>NFC</th>
               <td>
-                {DeviceService.getPropertyIconByBool(
+                {DeviceHelpers.getPropertyIconByBool(
                   toBoolOrNull(device.connectivity?.hasNfc),
                 )}
               </td>
@@ -50,7 +50,7 @@ export function ConnectivityTable({ device }: ConnectivityTableProps) {
             <tr>
               <th>USB</th>
               <td>
-                {DeviceService.getPropertyIconByBool(
+                {DeviceHelpers.getPropertyIconByBool(
                   toBoolOrNull(device.connectivity?.hasUsb),
                 )}
               </td>
@@ -58,7 +58,7 @@ export function ConnectivityTable({ device }: ConnectivityTableProps) {
             <tr>
               <th>HDMI</th>
               <td>
-                {DeviceService.getPropertyIconByBool(
+                {DeviceHelpers.getPropertyIconByBool(
                   toBoolOrNull(device.outputs?.videoOutput?.hasHdmi),
                 )}
               </td>
@@ -66,7 +66,7 @@ export function ConnectivityTable({ device }: ConnectivityTableProps) {
             <tr>
               <th>DisplayPort</th>
               <td>
-                {DeviceService.getPropertyIconByBool(
+                {DeviceHelpers.getPropertyIconByBool(
                   toBoolOrNull(device.outputs?.videoOutput?.hasDisplayPort),
                 )}
               </td>
@@ -74,7 +74,7 @@ export function ConnectivityTable({ device }: ConnectivityTableProps) {
             <tr>
               <th>VGA</th>
               <td>
-                {DeviceService.getPropertyIconByBool(
+                {DeviceHelpers.getPropertyIconByBool(
                   toBoolOrNull(device.outputs?.videoOutput?.hasVga),
                 )}
               </td>
@@ -82,7 +82,7 @@ export function ConnectivityTable({ device }: ConnectivityTableProps) {
             <tr>
               <th>DVI</th>
               <td>
-                {DeviceService.getPropertyIconByBool(
+                {DeviceHelpers.getPropertyIconByBool(
                   toBoolOrNull(device.outputs?.videoOutput?.hasDvi),
                 )}
               </td>
@@ -90,7 +90,7 @@ export function ConnectivityTable({ device }: ConnectivityTableProps) {
             <tr>
               <th>Micro HDMI</th>
               <td>
-                {DeviceService.getPropertyIconByBool(
+                {DeviceHelpers.getPropertyIconByBool(
                   toBoolOrNull(device.outputs?.videoOutput?.hasMicroHdmi),
                 )}
               </td>
@@ -98,7 +98,7 @@ export function ConnectivityTable({ device }: ConnectivityTableProps) {
             <tr>
               <th>Mini HDMI</th>
               <td>
-                {DeviceService.getPropertyIconByBool(
+                {DeviceHelpers.getPropertyIconByBool(
                   toBoolOrNull(device.outputs?.videoOutput?.hasMiniHdmi),
                 )}
               </td>
@@ -106,7 +106,7 @@ export function ConnectivityTable({ device }: ConnectivityTableProps) {
             <tr>
               <th>OcuLink</th>
               <td>
-                {DeviceService.getPropertyIconByBool(
+                {DeviceHelpers.getPropertyIconByBool(
                   toBoolOrNull(device.outputs?.videoOutput?.OcuLink),
                 )}
               </td>

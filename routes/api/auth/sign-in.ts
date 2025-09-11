@@ -1,15 +1,15 @@
-import { ProblemDetail } from "@data/frontend/contracts/problem-detail.ts";
-import { createPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
-import { FreshContext } from "fresh";
-import { setAuthCookie } from "../../../utils.ts";
+import { ProblemDetail } from "../../../data/frontend/contracts/problem-detail.ts";
+import { createPocketBaseService } from "../../../data/pocketbase/pocketbase.service.ts";
+import { Context } from "fresh";
+import { setAuthCookie, State } from "../../../utils.ts";
 import { validateCsrfToken } from "../../../utils.ts";
 
 export const handler = {
-  async GET(_ctx: FreshContext) {
+  async GET(_ctx: Context<State>) {
     // render the sign-in page
     return new Response(null, { status: 200 });
   },
-  async POST(ctx: FreshContext) {
+  async POST(ctx: Context<State>) {
     const req = ctx.req;
     const responseHeaders = new Headers();
 

@@ -1,10 +1,11 @@
-import { User } from "@data/frontend/contracts/user.contract.ts";
-import { createSuperUserPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
-import { FreshContext } from "fresh";
-import { CustomFreshState } from "@interfaces/state.ts";
+import { User } from "../../../data/frontend/contracts/user.contract.ts";
+import { createSuperUserPocketBaseService } from "../../../data/pocketbase/pocketbase.service.ts";
+import { Context } from "fresh";
+import { CustomFreshState } from "../../../interfaces/state.ts";
+import { State } from "../../../utils.ts";
 
 export const handler = {
-  async PUT(ctx: FreshContext) {
+  async PUT(ctx: Context<State>) {
     const request = ctx.req;
     const pbService = await createSuperUserPocketBaseService(
       Deno.env.get("POCKETBASE_SUPERUSER_EMAIL")!,
@@ -64,7 +65,7 @@ export const handler = {
     return new Response(JSON.stringify(updatedCollection), { status: 200 });
   },
 
-  async DELETE(ctx: FreshContext) {
+  async DELETE(ctx: Context<any>) {
     const { id } = ctx.params;
 
     const pbService = await createSuperUserPocketBaseService(

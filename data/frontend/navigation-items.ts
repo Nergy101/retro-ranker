@@ -32,14 +32,14 @@ export const navigationItems: NavigationItem[] = [
     isActive: (pathname) => pathname.startsWith("/compare"),
     priority: 0.9,
   },
-  {
-    href: "/leaderboard",
-    label: "Leaderboard",
-    i18nKey: "nav.leaderboard",
-    icon: "PiRanking",
-    isActive: (pathname) => pathname.startsWith("/leaderboard"),
-    priority: 0.7,
-  },
+  // {
+  //   href: "/leaderboard",
+  //   label: "Leaderboard",
+  //   i18nKey: "nav.leaderboard",
+  //   icon: "PiRanking",
+  //   isActive: (pathname) => pathname.startsWith("/leaderboard"),
+  //   priority: 0.7,
+  // },
   {
     href: "/charts",
     label: "Charts",
@@ -55,6 +55,14 @@ export const navigationItems: NavigationItem[] = [
     icon: "PiQuestion",
     isActive: (pathname) => pathname === "/faq",
     priority: 0.6,
+  },
+  {
+    href: "/about",
+    label: "About",
+    i18nKey: "nav.about",
+    icon: "PiInfo",
+    isActive: (pathname) => pathname === "/about",
+    priority: 0.5,
   },
 ];
 

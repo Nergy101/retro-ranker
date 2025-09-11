@@ -1,10 +1,12 @@
-import { ProfileImage } from "@components/auth/profile-image.tsx";
-import { DeviceCardMedium } from "@components/cards/device-card-medium.tsx";
-import { Device } from "@data/frontend/contracts/device.model.ts";
-import { User } from "@data/frontend/contracts/user.contract.ts";
-import { navigationItems } from "@data/frontend/navigation-items.ts";
-import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
-import { searchDevices } from "@data/frontend/services/utils/search.utils.ts";
+import { ProfileImage } from "../../components/auth/profile-image.tsx";
+import { DeviceCardMedium } from "../../components/cards/device-card-medium.tsx";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
+import { User } from "../../data/frontend/contracts/user.contract.ts";
+import { navigationItems } from "../../data/frontend/navigation-items.ts";
+import {
+  getNewestDevices,
+  searchDevices,
+} from "../../data/frontend/services/utils/search.utils.ts";
 import {
   PiCalendar,
   PiChartLine,
@@ -21,19 +23,16 @@ import {
   PiX,
 } from "@preact-icons/pi";
 import { useEffect, useRef, useState } from "preact/hooks";
-import { LanguageSwitcher } from "./language-switcher.tsx";
 import { ThemeSwitcher } from "./theme-switcher.tsx";
 
 export function DesktopNav({
   pathname,
   allDevices,
   user,
-  translations,
 }: {
   pathname: string;
   allDevices: Device[];
   user: User | null;
-  translations: Record<string, string>;
 }) {
   const suggestionsRef = useRef<HTMLUListElement>(null);
   const overlayInputRef = useRef<HTMLInputElement>(null);
@@ -44,16 +43,6 @@ export function DesktopNav({
   const [localAllDevices, setLocalAllDevices] = useState<Device[]>(
     allDevices ?? [],
   );
-  const defaultDeviceSlugs = [
-    "rg-477m",
-    "retroid-pocket-flip-2",
-    "retroid-pocket-5",
-    "miyoo-flip",
-    "pocket-s2",
-    "gkd-pixel-2",
-    "trimui-smart-brick",
-    "zero-40",
-  ];
   const isActive = (deviceName: string) => {
     return deviceName.toLowerCase() === selectedDevice?.name.raw.toLowerCase();
   };
@@ -80,7 +69,10 @@ export function DesktopNav({
   const ensureDevicesLoaded = async () => {
     if (localAllDevices && localAllDevices.length > 0) return;
     try {
-      const res = await fetch("/api/devices");
+      // Use the same API call that works for getting devices
+      const res = await fetch(
+        "/api/devices?pageSize=100&category=all&sort=new-arrivals&filter=all",
+      );
       const data = await res.json();
       const devices: Device[] = Array.isArray(data) ? data : (data.page || []);
       setLocalAllDevices(devices);
@@ -91,10 +83,7 @@ export function DesktopNav({
 
   const getDefaultDevices = (source: Device[]): Device[] => {
     if (!source || source.length === 0) return [];
-    const bySlug = new Map(source.map((d) => [d.name.sanitized, d] as const));
-    return defaultDeviceSlugs
-      .map((slug) => bySlug.get(slug))
-      .filter(Boolean) as Device[];
+    return getNewestDevices(source, 6);
   };
 
   useEffect(() => {
@@ -110,23 +99,17 @@ export function DesktopNav({
         if (source && source.length > 0) {
           setSuggestions(getDefaultDevices(source));
         } else {
-          // Fetch defaults by slug while list isn't ready yet
+          // Fetch newest devices while list isn't ready yet
           (async () => {
             try {
-              const results: Device[] = [];
-              await Promise.all(defaultDeviceSlugs.map(async (slug) => {
-                const res = await fetch(
-                  `/api/devices?search=${
-                    encodeURIComponent(slug)
-                  }&pageSize=1&category=all&sort=all&filter=all`,
-                );
-                const data = await res.json();
-                const page: Device[] = Array.isArray(data)
-                  ? data
-                  : (data.page || []);
-                if (page[0]) results.push(page[0]);
-              }));
-              setSuggestions(results);
+              const res = await fetch(
+                `/api/devices?pageSize=6&category=all&sort=new-arrivals&filter=all`,
+              );
+              const data = await res.json();
+              const page: Device[] = Array.isArray(data)
+                ? data
+                : (data.page || []);
+              setSuggestions(page);
             } catch (_) {
               // ignore
             }
@@ -180,12 +163,20 @@ export function DesktopNav({
       setSelectedDevice(null);
       return;
     }
-    setSuggestions(searchDevices(trimmed, source));
-    setSelectedDevice(
-      source.find(
-        (device) => device.name.raw.toLowerCase() === trimmed.toLowerCase(),
-      ) ?? null,
-    );
+
+    // If we have local devices, use them for immediate search
+    if (source && source.length > 0) {
+      setSuggestions(searchDevices(trimmed, source));
+      setSelectedDevice(
+        source.find(
+          (device) => device.name.raw.toLowerCase() === trimmed.toLowerCase(),
+        ) ?? null,
+      );
+    } else {
+      // If no local devices, clear suggestions and let the debounced API search handle it
+      setSuggestions([]);
+      setSelectedDevice(null);
+    }
   };
 
   // Debounced API-backed search when local list isn't yet available
@@ -194,25 +185,19 @@ export function DesktopNav({
     const trimmed = query.trim();
     if (trimmed.length === 0) {
       if (!localAllDevices || localAllDevices.length === 0) {
-        // Fallback: fetch defaults by slug when local list not loaded
+        // Fallback: fetch newest devices when local list not loaded
         const controller = new AbortController();
         (async () => {
           try {
-            const results: Device[] = [];
-            await Promise.all(defaultDeviceSlugs.map(async (slug) => {
-              const res = await fetch(
-                `/api/devices?search=${
-                  encodeURIComponent(slug)
-                }&pageSize=1&category=all&sort=all&filter=all`,
-                { signal: controller.signal },
-              );
-              const data = await res.json();
-              const page: Device[] = Array.isArray(data)
-                ? data
-                : (data.page || []);
-              if (page[0]) results.push(page[0]);
-            }));
-            setSuggestions(results);
+            const res = await fetch(
+              `/api/devices?pageSize=6&category=all&sort=new-arrivals&filter=all`,
+              { signal: controller.signal },
+            );
+            const data = await res.json();
+            const page: Device[] = Array.isArray(data)
+              ? data
+              : (data.page || []);
+            setSuggestions(page);
           } catch (_) {
             // ignore
           }
@@ -309,10 +294,7 @@ export function DesktopNav({
               <a
                 href={item.href}
                 class={item.isActive(pathname) ? "nav-a active" : "nav-a"}
-                aria-label={TranslationPipe(
-                  translations,
-                  item.i18nKey ?? item.label,
-                )}
+                aria-label={item.label}
               >
                 <span class="nav-item-label">
                   <span
@@ -321,7 +303,7 @@ export function DesktopNav({
                   >
                     {item.icon && getIcon(item.icon)}
                   </span>
-                  {TranslationPipe(translations, item.i18nKey ?? item.label)}
+                  {item.label}
                 </span>
               </a>
             </li>
@@ -338,7 +320,7 @@ export function DesktopNav({
                 color: "var(--pico-contrast)",
                 padding: "0 0.75rem",
               }}
-              placeholder={TranslationPipe(translations, "search.placeholder")}
+              placeholder="Name, Brand or OS..."
               type="search"
               name="search"
               aria-label="Search"
@@ -359,7 +341,7 @@ export function DesktopNav({
                 e.preventDefault();
                 setIsSearchOpen(true);
               }}
-              data-tooltip={TranslationPipe(translations, "search.button")}
+              data-tooltip="Search"
               data-placement="bottom"
             >
               <span
@@ -372,10 +354,6 @@ export function DesktopNav({
               </span>
             </a>
           </li>
-
-          <div style={{ maxWidth: "5em", width: "5em" }}>
-            <LanguageSwitcher translations={translations} compact={false} />
-          </div>
 
           <ThemeSwitcher
             showNames={false}
@@ -432,7 +410,7 @@ export function DesktopNav({
             <input
               ref={overlayInputRef}
               type="search"
-              placeholder={TranslationPipe(translations, "search.placeholder")}
+              placeholder="Name, Brand or OS..."
               name="search"
               aria-label="Search"
               value={query}

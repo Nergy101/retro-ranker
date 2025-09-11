@@ -1,18 +1,14 @@
-import { Device } from "@data/frontend/contracts/device.model.ts";
-import { getBrandColors } from "@data/frontend/services/utils/color.utils.ts";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
+import { getBrandColors } from "../../data/frontend/services/utils/color.utils.ts";
 import { Chart, ChartDataset, LegendItem } from "npm:chart.js";
 import { useCallback, useMemo, useState } from "preact/hooks";
 import { FreshChart } from "./fresh-chart.tsx";
-import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 
 interface LineChartProps {
   devices: Device[];
-  translations?: Record<string, string>;
 }
 
-export function DevicesPerReleaseYearLineChart(
-  { devices, translations = {} }: LineChartProps,
-) {
+export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
   // Compute the full range of years from the devices
   const fullYears = useMemo(() =>
     Array.from(
@@ -111,7 +107,7 @@ export function DevicesPerReleaseYearLineChart(
 
     if (showTotalDevices) {
       data.push({
-        label: TranslationPipe(translations, "charts.totalDevicesReleased"),
+        label: "Total Devices Released",
         data: amountOfDevicesPerYear,
         borderColor: "#e48500",
         pointBackgroundColor: "#e48500",
@@ -216,8 +212,8 @@ export function DevicesPerReleaseYearLineChart(
 
   return (
     <div>
-      <h2>{TranslationPipe(translations, "charts.devicesPerYear")}</h2>
-      <p>{TranslationPipe(translations, "charts.currentYearIncomplete")}</p>
+      <h2>Devices per Year</h2>
+      <p>Note: Current year data may be incomplete</p>
       <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
         <div
           style={{
@@ -228,10 +224,10 @@ export function DevicesPerReleaseYearLineChart(
           }}
         >
           <span>
-            {TranslationPipe(translations, "charts.minYear")}: {selectedMinYear}
+            Min Year: {selectedMinYear}
           </span>
           <input
-            aria-label={TranslationPipe(translations, "charts.minYear")}
+            aria-label="Min Year"
             type="range"
             min={initialMin}
             max={selectedMaxYear}
@@ -251,10 +247,10 @@ export function DevicesPerReleaseYearLineChart(
           }}
         >
           <span>
-            {TranslationPipe(translations, "charts.maxYear")}: {selectedMaxYear}
+            Max Year: {selectedMaxYear}
           </span>
           <input
-            aria-label={TranslationPipe(translations, "charts.maxYear")}
+            aria-label="Max Year"
             type="range"
             min={selectedMinYear}
             max={initialMax}
@@ -276,7 +272,7 @@ export function DevicesPerReleaseYearLineChart(
                 (e.target as HTMLInputElement).checked,
               )}
           />
-          {TranslationPipe(translations, "charts.showBrandsOver10")}
+          Show brands with 10+ devices
         </label>
         <label>
           <input
@@ -285,7 +281,7 @@ export function DevicesPerReleaseYearLineChart(
             onChange={(e) =>
               setShowTotalDevices((e.target as HTMLInputElement).checked)}
           />
-          {TranslationPipe(translations, "charts.showTotalDevices")}
+          Show total devices
         </label>
       </div>
       <FreshChart

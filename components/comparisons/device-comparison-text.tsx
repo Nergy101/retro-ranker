@@ -1,5 +1,5 @@
 import { PiArticle } from "@preact-icons/pi";
-import { Device } from "@data/frontend/contracts/device.model.ts";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
 
 interface DeviceComparisonTextProps {
   devices: Device[];

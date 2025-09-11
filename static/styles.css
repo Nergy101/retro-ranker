@@ -16,7 +16,8 @@
 }
 @font-face {
   font-family: "Relevance";
-  src: url("/fonts/relevance/Relevance-trial-ExtraLight.ttf") format("truetype");
+  src: url("/fonts/relevance/Relevance-trial-ExtraLight.ttf")
+    format("truetype");
   font-weight: 200;
   font-style: normal;
   font-display: swap;
@@ -88,8 +89,9 @@
 }
 
 :root {
-  --font-sans: "Relevance", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, Arial, sans-serif;
+  --font-sans:
+    "Relevance", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Arial, sans-serif;
   --font-runic: "Runic", var(--font-sans);
 }
 
@@ -201,7 +203,8 @@ body.paused-animation::before {
 }
 
 .transition-colors {
-  transition: background-color 200ms cubic-bezier(0.4, 0, 0.2, 1),
+  transition:
+    background-color 200ms cubic-bezier(0.4, 0, 0.2, 1),
     border-color 200ms cubic-bezier(0.4, 0, 0.2, 1),
     color 200ms cubic-bezier(0.4, 0, 0.2, 1),
     fill 200ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -483,7 +486,7 @@ body.paused-animation::before {
   width: 100%;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 
-  @media (width <=425px) {
+  @media (width <= 425px) {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
 }
@@ -1062,8 +1065,8 @@ body.paused-animation::before {
   position: absolute;
   width: var(--ripple-size, 0px);
   height: var(--ripple-size, 0px);
-  top: calc(var(--ripple-y, 50%) - (var(--ripple-size, 0px) / 2));
-  left: calc(var(--ripple-x, 50%) - (var(--ripple-size, 0px) / 2));
+  top: calc(var(--ripple-y, 50%) - var(--ripple-size, 0px) / 2);
+  left: calc(var(--ripple-x, 50%) - var(--ripple-size, 0px) / 2);
   border-radius: 9999px;
   background: radial-gradient(
     circle,
@@ -1128,6 +1131,306 @@ body.paused-animation::before {
 
 [data-theme="dark"] .device-search-form:focus-within {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+/* Device Search Form - Clean Grid Layout */
+.device-search-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.device-search-form-clean {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--pico-background-color);
+  border: 1px solid var(--pico-muted-border-color);
+  border-radius: var(--pico-border-radius);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.device-search-form-clean:focus-within {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-color: var(--pico-primary);
+}
+
+[data-theme="dark"] .device-search-form-clean:focus-within {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+/* Search Row - Input and Button */
+.search-row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.search-input-group {
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+.search-input-clean {
+  flex: 1;
+  min-width: 0;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--pico-muted-border-color);
+  border-radius: var(--pico-border-radius);
+  font-size: 1rem;
+  background: var(--pico-background-color);
+  color: var(--pico-color);
+  transition: all 0.3s ease;
+}
+
+.search-input-clean:focus {
+  outline: none;
+  border-color: var(--pico-primary);
+  box-shadow: 0 0 0 3px var(--pico-primary-focus);
+}
+
+.search-button-clean {
+  flex-shrink: 1;
+  padding: 0;
+  margin: 0;
+  background: var(--pico-primary);
+  color: var(--pico-primary-inverse);
+  border: none;
+  border-radius: var(--pico-border-radius);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  max-width: 3rem;
+  height: 3rem;
+}
+
+.search-button-clean:hover {
+  background: var(--pico-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.search-button-clean:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Controls Row - Sort and Filter */
+.controls-row {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.control-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--pico-muted-color);
+  margin: 0;
+}
+
+.control-select {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--pico-muted-border-color);
+  border-radius: var(--pico-border-radius);
+  font-size: 1rem;
+  background: var(--pico-background-color);
+  color: var(--pico-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.control-select:focus {
+  outline: none;
+  border-color: var(--pico-primary);
+  box-shadow: 0 0 0 3px var(--pico-primary-focus);
+}
+
+.control-select:hover {
+  border-color: var(--pico-primary-hover);
+}
+
+/* Mobile Styles */
+.device-search-container-mobile {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.device-search-form-mobile-clean {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--pico-background-color);
+  border: 1px solid var(--pico-muted-border-color);
+  border-radius: var(--pico-border-radius);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.device-search-form-mobile-clean:focus-within {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-color: var(--pico-primary);
+}
+
+[data-theme="dark"] .device-search-form-mobile-clean:focus-within {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+.search-row-mobile {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.search-input-group-mobile {
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+.search-input-mobile-clean {
+  flex: 1;
+  min-width: 0;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--pico-muted-border-color);
+  border-radius: var(--pico-border-radius);
+  font-size: 1rem;
+  background: var(--pico-background-color);
+  color: var(--pico-color);
+  transition: all 0.3s ease;
+}
+
+.search-input-mobile-clean:focus {
+  outline: none;
+  border-color: var(--pico-primary);
+  box-shadow: 0 0 0 3px var(--pico-primary-focus);
+}
+
+.search-button-mobile-clean {
+  flex-shrink: 1;
+  padding: 0.75rem;
+  background: var(--pico-primary);
+  color: var(--pico-primary-inverse);
+  border: none;
+  border-radius: var(--pico-border-radius);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  min-width: 2.5rem;
+  height: 3rem;
+}
+
+.search-button-mobile-clean:hover {
+  background: var(--pico-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.search-button-mobile-clean:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.controls-row-mobile {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.control-group-mobile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.control-label-mobile {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--pico-muted-color);
+  margin: 0;
+}
+
+.control-select-mobile {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--pico-muted-border-color);
+  border-radius: var(--pico-border-radius);
+  font-size: 1rem;
+  background: var(--pico-background-color);
+  color: var(--pico-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.control-select-mobile:focus {
+  outline: none;
+  border-color: var(--pico-primary);
+  box-shadow: 0 0 0 3px var(--pico-primary-focus);
+}
+
+.control-select-mobile:hover {
+  border-color: var(--pico-primary-hover);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .controls-row {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .controls-row-mobile {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .device-search-form-clean,
+  .device-search-form-mobile-clean {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .search-row-mobile {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .search-input-group,
+  .search-input-group-mobile {
+    flex-direction: column;
+  }
+
+  .search-button-clean,
+  .search-button-mobile-clean {
+    width: 100%;
+    height: auto;
+    padding: 0.75rem 1rem;
+  }
 }
 
 .similar-devices-grid {
@@ -1696,7 +1999,7 @@ body.paused-animation::before {
     border: 1px solid var(--pico-primary);
   }
 
-  @media (width <=1024px) {
+  @media (width <= 1024px) {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -2237,12 +2540,131 @@ body.paused-animation::before {
   margin-bottom: 1rem;
 }
 
-.contact {
+.faq-page {
   background-color: var(--pico-background-color);
   border-radius: var(--pico-border-radius);
   padding: 1rem;
   margin-bottom: 1rem;
 }
+
+/* FAQ Details Styling */
+.faq-details {
+  background-color: var(--pico-card-background-color);
+  border: 1px solid var(--pico-primary-focus);
+  border-radius: var(--pico-border-radius);
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.faq-details:hover {
+  border-color: var(--pico-primary);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.faq-details summary {
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--pico-contrast);
+  background: none;
+  border: none;
+  outline: none;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+}
+
+.faq-details summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Removed the CSS chevron since we're using icon components */
+
+.faq-details summary:hover {
+  color: var(--pico-primary);
+  background-color: var(--pico-primary-focus);
+}
+
+.faq-details[open] summary {
+  border-bottom: 1px solid var(--pico-primary-focus);
+  background-color: var(--pico-primary-focus);
+}
+
+.faq-details p {
+  padding: 1rem 1.25rem;
+  margin: 0;
+  line-height: 1.6;
+  color: var(--pico-contrast);
+  background-color: var(--pico-background-color);
+  border-radius: 0 0 var(--pico-border-radius) var(--pico-border-radius);
+}
+
+.faq-details ul {
+  padding: 1rem 1.25rem;
+  margin: 0;
+  line-height: 1.6;
+  color: var(--pico-contrast);
+  background-color: var(--pico-background-color);
+  border-radius: 0 0 var(--pico-border-radius) var(--pico-border-radius);
+}
+
+.faq-details li {
+  margin-bottom: 0.5rem;
+}
+
+.faq-details strong {
+  color: var(--pico-primary);
+  font-weight: 600;
+}
+
+.faq-details a {
+  color: var(--pico-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.faq-details a:hover {
+  color: var(--pico-primary-hover);
+  text-decoration: underline;
+}
+
+/* FAQ Responsive Styles */
+@media (max-width: 768px) {
+  .faq-page {
+    padding: 0.5rem;
+  }
+  
+  .faq-details summary {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .faq-details p,
+  .faq-details ul {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Removed reference to CSS chevron */
+}
+
+@media (max-width: 480px) {
+  .faq-details summary {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+  }
+  
+  .faq-details p,
+  .faq-details ul {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+  }
+}
+
 
 .footer {
   background-color: var(--pico-background-color);
@@ -2660,7 +3082,9 @@ select:focus,
 textarea:focus {
   outline: none;
   border-color: var(--pico-primary);
-  box-shadow: 0 0 0 3px var(--pico-primary-focus), 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 0 0 3px var(--pico-primary-focus),
+    0 2px 10px rgba(0, 0, 0, 0.1);
   background-color: var(--pico-card-background-color-darker);
 }
 
@@ -2668,7 +3092,9 @@ input:active,
 select:active,
 textarea:active {
   border-color: var(--pico-primary);
-  box-shadow: 0 0 0 3px var(--pico-primary-focus), 0 1px 6px rgba(0, 0, 0, 0.15);
+  box-shadow:
+    0 0 0 3px var(--pico-primary-focus),
+    0 1px 6px rgba(0, 0, 0, 0.15);
 }
 
 /* Valid/invalid feedback while focused
@@ -2789,6 +3215,21 @@ textarea:focus:valid {
   transform: translateY(-2px);
   box-shadow: 0 4px 16px rgba(245, 158, 11, 0.8);
   color: var(--pico-muted-border-color);
+}
+
+.auth-form-wait {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--pico-primary);
+  border-radius: var(--pico-border-radius);
+  box-shadow: 0 0 1rem 0 var(--pico-primary);
+  padding: 2rem;
+  background: rgba(var(--pico-primary-rgb), 0.1);
 }
 
 .site-introduction {
@@ -2985,81 +3426,6 @@ textarea:focus:valid {
   will-change: transform;
 }
 
-/* Sign-in button gradients and animation */
-.auth-signin-btn-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.auth-signin-btn--discord {
-  background: #5865f2 !important;
-  color: #fff !important;
-  border: none !important;
-  border-radius: 8px;
-  padding: 0.5rem 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  font-weight: 600;
-  font-size: 1.1rem;
-  box-shadow: 0 8px 36px #5865f2;
-}
-.auth-signin-btn--discord:hover,
-.auth-signin-btn--discord:focus {
-  background: #4752c4;
-  color: #fff;
-  box-shadow: 0 4px 16px 0 #5865f2;
-  transform: translateY(-2px) scale(1.03);
-  text-decoration: none;
-  border: none;
-}
-
-.auth-signin-btn--google {
-  background: linear-gradient(
-    135deg,
-    #4285f4 0%,
-    #4285f4 25%,
-    #34a853 25%,
-    #34a853 50%,
-    #f4b400 50%,
-    #f4b400 75%,
-    #ea4335 75%,
-    #ea4335 100%
-  );
-  color: #fff !important;
-  border: none !important;
-  border-radius: 8px;
-  padding: 0.5rem 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  font-weight: 600;
-  font-size: 1.1rem;
-}
-.auth-signin-btn--google:hover,
-.auth-signin-btn--google:focus {
-  background: linear-gradient(
-    135deg,
-    #4285f4 0%,
-    #4285f4 25%,
-    #34a853 25%,
-    #34a853 50%,
-    #f4b400 50%,
-    #f4b400 75%,
-    #ea4335 75%,
-    #ea4335 100%
-  );
-
-  color: white;
-  box-shadow: 0 4px 16px #ea4335;
-  transform: translateY(-2px) scale(1.03);
-  text-decoration: none;
-  border: none;
-}
 
 .sign-in-article {
   position: relative;
@@ -3120,7 +3486,7 @@ textarea:focus:valid {
 }
 
 .insert-btn {
-  color: var(--pico-ins-color) !important;
+  color: var(--pico-color-inverse) !important;
   border-color: var(--pico-ins-color) !important;
 
   &:hover {
@@ -3474,3 +3840,194 @@ textarea:focus:valid {
 }
 
 /* Mobile Nav */
+
+
+/* Clean auth button styles */
+.auth-signin-btn-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.auth-signin-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: none;
+  position: relative;
+}
+
+.auth-signin-btn svg {
+  display: block;
+  line-height: 1;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.auth-signin-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Enhanced Discord button styles from retro-ranker */
+.auth-signin-btn--discord {
+  background: #5865f2 !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 8px;
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 8px 36px #5865f2;
+}
+
+.auth-signin-btn--discord:hover,
+.auth-signin-btn--discord:focus {
+  background: #4752c4;
+  color: #fff;
+  box-shadow: 0 4px 16px 0 #5865f2;
+  transform: translateY(-2px) scale(1.03);
+  text-decoration: none;
+  border: none;
+}
+
+/* Enhanced Google button styles from retro-ranker */
+.auth-signin-btn--google {
+  background: linear-gradient(
+    135deg,
+    #4285f4 0%,
+    #4285f4 25%,
+    #34a853 25%,
+    #34a853 50%,
+    #f4b400 50%,
+    #f4b400 75%,
+    #ea4335 75%,
+    #ea4335 100%
+  );
+  color: #fff !important;
+  border: none !important;
+  border-radius: 8px;
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.auth-signin-btn--google:hover,
+.auth-signin-btn--google:focus {
+  background: linear-gradient(
+    135deg,
+    #4285f4 0%,
+    #4285f4 25%,
+    #34a853 25%,
+    #34a853 50%,
+    #f4b400 50%,
+    #f4b400 75%,
+    #ea4335 75%,
+    #ea4335 100%
+  );
+  color: white;
+  box-shadow: 0 4px 16px #ea4335;
+  transform: translateY(-2px) scale(1.03);
+  text-decoration: none;
+  border: none;
+}
+
+
+.bg-rr-primary {
+  background: linear-gradient(
+    135deg,
+    var(--pico-primary),
+    var(--pico-primary-hover)
+  );
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(var(--pico-primary-rgb), 0.3);
+}
+
+.bg-rr-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(var(--pico-primary-rgb), 0.4);
+}
+
+.bg-rr-primary:active {
+  transform: translateY(0);
+}
+
+.bg-rr-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+
+/* Sign out button styles */
+.sign-out-button {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: pointer;
+  color: var(--pico-color-inverse);
+  border: 1px solid var(--pico-del-color);
+  background: transparent;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+}
+
+.sign-out-button:hover {
+  background: var(--pico-del-color);
+  color: white;
+}
+
+.delete-btn {
+  background: transparent;
+  border: 1px solid var(--pico-del-color);
+  color: var(--pico-del-color);
+}
+
+.delete-btn:hover {
+  background: var(--pico-del-color);
+  color: var(--pico-color-inverse);
+}
+
+.create-btn {
+  background: transparent;
+  border: 1px solid var(--pico-primary);
+  color: var(--pico-color-inverse);
+}
+
+.create-btn:hover {
+  background: var(--pico-primary);
+  color: var(--pico-color-inverse);
+}

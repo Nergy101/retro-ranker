@@ -1,11 +1,10 @@
 import { FreshContext, page } from "fresh";
-import { DeviceCollection } from "@data/frontend/contracts/device-collection.ts";
-import { Device } from "@data/frontend/contracts/device.model.ts";
-import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
-import { createLoggedInPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
-import { CollectionUpdateForm } from "@islands/collections/collection-update-form.tsx";
-import { CustomFreshState } from "@interfaces/state.ts";
-import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
+import { DeviceCollection } from "../../../data/frontend/contracts/device-collection.ts";
+import { Device } from "../../../data/frontend/contracts/device.model.ts";
+import { DeviceService } from "../../../data/frontend/services/devices/device.service.ts";
+import { createLoggedInPocketBaseService } from "../../../data/pocketbase/pocketbase.service.ts";
+import { CollectionUpdateForm } from "../../../islands/collections/collection-update-form.tsx";
+import { CustomFreshState } from "../../../interfaces/state.ts";
 
 export const handler = {
   GET(ctx: FreshContext) {
@@ -21,7 +20,6 @@ export const handler = {
 export default async function UpdateCollection(
   ctx: FreshContext,
 ) {
-  const translations = (ctx.state as CustomFreshState).translations ?? {};
   const pocketbaseClient = await createLoggedInPocketBaseService(
     ctx.req.headers.get("cookie") ?? "",
   );
@@ -36,7 +34,7 @@ export default async function UpdateCollection(
   );
 
   if (!existingCollection) {
-    return <div>{TranslationPipe(translations, "collections.notFound")}</div>;
+    return <div>Collection not found</div>;
   }
 
   const existingCollectionData =
@@ -46,7 +44,7 @@ export default async function UpdateCollection(
 
   return (
     <div>
-      <h1>{TranslationPipe(translations, "collections.update")}</h1>
+      <h1>Update Collection</h1>
       <CollectionUpdateForm
         allDevices={devices}
         existingCollectionDevices={existingCollectionDevices}

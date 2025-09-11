@@ -1,9 +1,10 @@
-import { ProblemDetail } from "@data/frontend/contracts/problem-detail.ts";
-import { createLoggedInPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
-import { FreshContext } from "fresh";
+import { ProblemDetail } from "../../../../data/frontend/contracts/problem-detail.ts";
+import { createLoggedInPocketBaseService } from "../../../../data/pocketbase/pocketbase.service.ts";
+import { Context } from "fresh";
+import { State } from "../../../../utils.ts";
 
 export const handler = {
-  async POST(ctx: FreshContext) {
+  async POST(ctx: Context<State>) {
     const req = ctx.req;
     const deviceId = ctx.params.id;
     const cookie = req.headers.get("cookie");
@@ -55,7 +56,7 @@ export const handler = {
     }
   },
 
-  async DELETE(ctx: FreshContext) {
+  async DELETE(ctx: Context<any>) {
     const req = ctx.req;
     const deviceId = ctx.params.id;
     const cookie = req.headers.get("cookie");

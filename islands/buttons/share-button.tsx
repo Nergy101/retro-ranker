@@ -20,11 +20,52 @@ export function ShareButton(
     return 16;
   };
 
-  const handleShare = () => {
-    navigator.share({
-      title: shareTitle,
-      url,
-    });
+  const handleShare = async () => {
+    // Check if the Web Share API is supported
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: shareTitle,
+          url,
+        });
+      } catch (error) {
+        // User cancelled the share dialog or other error
+        console.log('Share cancelled or failed:', error);
+      }
+    } else {
+      // Fallback: Copy URL to clipboard
+      try {
+        await navigator.clipboard.writeText(url);
+        // Show a temporary notification
+        const notification = document.createElement('div');
+        notification.textContent = 'Link copied to clipboard!';
+        notification.style.cssText = `
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          background: var(--pico-primary);
+          color: white;
+          padding: 0.5rem 1rem;
+          border-radius: 0.25rem;
+          z-index: 1000;
+          font-size: 0.875rem;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        `;
+        document.body.appendChild(notification);
+        
+        // Remove notification after 3 seconds
+        setTimeout(() => {
+          if (notification.parentNode) {
+            notification.parentNode.removeChild(notification);
+          }
+        }, 3000);
+      } catch (error) {
+        // Fallback for browsers that don't support clipboard API
+        console.error('Failed to copy to clipboard:', error);
+        // Show an alert as last resort
+        alert(`Share this link: ${url}`);
+      }
+    }
   };
 
   if (
