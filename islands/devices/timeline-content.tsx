@@ -21,7 +21,7 @@ export function TimelineContent(
     likesCountMap,
     userLikedMap,
     userFavoritedMap,
-    translations,
+    translations: _translations,
     language,
   }: TimelineContentProps,
 ) {

@@ -32,7 +32,8 @@ export function DeviceReviewCard({ review }: DeviceReviewCardProps) {
   const ratingValues = RATING_FIELDS.map((field) =>
     review[field.name as keyof typeof review] as number
   );
-  const average = ratingValues.reduce((a, b) => a + b, 0) / ratingValues.length;
+  const _average = ratingValues.reduce((a, b) => a + b, 0) /
+    ratingValues.length;
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);

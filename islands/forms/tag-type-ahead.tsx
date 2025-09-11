@@ -11,7 +11,7 @@ interface TagTypeaheadProps {
 }
 
 export function TagTypeahead(
-  { allTags, initialSelectedTags, baseUrl, translations = {} }:
+  { allTags, initialSelectedTags, baseUrl: _baseUrl, translations = {} }:
     TagTypeaheadProps,
 ) {
   const [selectedTags, setSelectedTags] = useState<TagModel[]>(

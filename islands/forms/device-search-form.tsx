@@ -21,7 +21,7 @@ export function DeviceSearchForm(
   }: DeviceSearchFormProps,
 ) {
   const [searchQuery, setSearchQuery] = useState(initialSearch);
-  const [category, setCategory] = useState(initialCategory);
+  const [_category, _setCategory] = useState(initialCategory);
   const [sort, setSort] = useState(initialSort);
   const [filter, setFilter] = useState(initialFilter);
   const [viewportWidth, setViewportWidth] = useState(globalThis.innerWidth);

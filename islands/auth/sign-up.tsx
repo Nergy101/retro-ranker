@@ -1,8 +1,8 @@
 import { PiDiscordLogo, PiGoogleLogo, PiUserPlus } from "@preact-icons/pi";
 
 export function SignUp({
-  baseApiUrl,
-  csrfToken,
+  baseApiUrl: _baseApiUrl,
+  csrfToken: _csrfToken,
 }: {
   baseApiUrl: string;
   csrfToken: string;

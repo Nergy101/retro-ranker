@@ -1,6 +1,6 @@
 import { PiQuestion } from "@preact-icons/pi";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
-import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
+import { DeviceService as _DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 import { RatingInfo } from "../../islands/devices/rating-info.tsx";
 import { CurrencyIcon } from "../shared/currency-icon.tsx";
 import { DeviceCardActions } from "../../islands/devices/device-card-actions.tsx";

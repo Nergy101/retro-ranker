@@ -14,7 +14,7 @@ export const handler = {
   },
 };
 
-export default async function CreateCollection(ctx: FreshContext) {
+export default async function CreateCollection(_ctx: FreshContext) {
   const deviceService = await DeviceService.getInstance();
   const devices = await deviceService.getAllDevices();
 

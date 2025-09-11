@@ -14,7 +14,7 @@ export const handler = {
 };
 
 export default function ErrorPage(props: PageProps) {
-  const fallbackTranslations: Record<string, string> = {
+  const _fallbackTranslations: Record<string, string> = {
     "error.404.title": "Page Not Found",
     "error.404.description": "The page you're looking for doesn't exist.",
     "error.404.suggestion": "Go back home",

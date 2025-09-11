@@ -16,7 +16,7 @@ export function CollapsibleTagList(
   { allTags, selectedTags, baseUrl, translations = {} }:
     CollapsibleTagListProps,
 ) {
-  const getTranslation = (key: string, fallback: string) => {
+  const _getTranslation = (key: string, fallback: string) => {
     return translations[key] || fallback;
   };
 

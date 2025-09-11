@@ -43,7 +43,7 @@ export const handler = {
 
 export default function Privacy(ctx: Context<State>) {
   const state = ctx.state;
-  const translations = state.translations ?? {};
+  const _translations = state.translations ?? {};
 
   return (
     <div class="privacy-page">

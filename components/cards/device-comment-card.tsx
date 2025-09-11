@@ -5,8 +5,8 @@ interface DeviceCommentCardProps {
   comment: CommentContract;
 }
 
-// Basic HTML sanitization function
-function sanitizeHTML(html: string): string {
+// Basic HTML sanitization function (currently unused)
+function _sanitizeHTML(html: string): string {
   // Remove potentially dangerous tags and attributes
   return html
     .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "")
@@ -84,11 +84,11 @@ export function DeviceCommentCard({ comment }: DeviceCommentCardProps) {
         style={{
           lineHeight: "1.6",
           color: "var(--pico-color)",
+          whiteSpace: "pre-wrap",
         }}
-        dangerouslySetInnerHTML={{
-          __html: sanitizeHTML(comment.content),
-        }}
-      />
+      >
+        {comment.content}
+      </div>
     </article>
   );
 }

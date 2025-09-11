@@ -1,4 +1,4 @@
-import { PiFloppyDisk, PiTrash } from "@preact-icons/pi";
+import { PiFloppyDisk, PiTrash as _PiTrash } from "@preact-icons/pi";
 import { useEffect, useRef, useState } from "preact/hooks";
 import { DeviceCollection } from "../../data/frontend/contracts/device-collection.ts";
 import { Device } from "../../data/frontend/contracts/device.model.ts";

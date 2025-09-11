@@ -1,6 +1,6 @@
 import { PiCaretCircleDoubleDown } from "@preact-icons/pi";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
-import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
+import { DeviceService as _DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 import { DeviceHelpers } from "../../data/frontend/helpers/device.helpers.ts";
 
 export function DeviceLinks({ device }: { device: Device }) {

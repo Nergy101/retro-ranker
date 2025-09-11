@@ -2,7 +2,7 @@ import { PiQuestionFill, PiVibrate } from "@preact-icons/pi";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { User } from "../../data/frontend/contracts/user.contract.ts";
 import { Cooling } from "../../data/frontend/models/cooling.model.ts";
-import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
+import { DeviceService as _DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 import { FavoriteButton } from "../../islands/buttons/favorite-button.tsx";
 import { ThumbsUp } from "../../islands/buttons/thumbs-up.tsx";
 import { RatingInfo } from "../../islands/devices/rating-info.tsx";

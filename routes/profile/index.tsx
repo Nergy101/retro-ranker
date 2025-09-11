@@ -41,7 +41,7 @@ export const handler = {
 export default async function ProfilePage(
   ctx: FreshContext,
 ) {
-  const translations = (ctx.state as CustomFreshState).translations ?? {};
+  const _translations = (ctx.state as CustomFreshState).translations ?? {};
   const req = ctx.req;
   const state = ctx.state as CustomFreshState;
   const csrfToken = state.csrfToken;
