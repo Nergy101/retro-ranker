@@ -1,16 +1,23 @@
-import { AppProps, page } from "fresh";
+import { page } from "fresh";
+// import { Context } from "jsr:@fresh/core@2.0.0-beta.4";
 import { User } from "../data/frontend/contracts/user.contract.ts";
 import { CustomFreshState } from "../interfaces/state.ts";
 import { Footer } from "../components/footer.tsx";
 import { TopNavbar } from "../islands/navigation/top-navbar.tsx";
 
 export const handler = {
-  async GET(ctx: AppProps) {
+  async GET(ctx: any) {
     return page(ctx);
   },
 };
 
-export default function AppWrapper(props: AppProps) {
+interface AppWrapperProps {
+  Component: any;
+  state: any;
+  req: Request;
+}
+
+export default function AppWrapper(props: AppWrapperProps) {
   const { Component, state, req } = props;
   const customState = state as CustomFreshState;
 

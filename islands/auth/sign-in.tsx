@@ -209,8 +209,7 @@ export function SignIn(
             role="button"
             class="outline"
           >
-            No account? <br />{" "}
-            Sign up now
+            No account? <br /> Sign up now
           </a>
         )}
       </div>

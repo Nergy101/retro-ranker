@@ -228,16 +228,19 @@ export function DeviceComparisonResult(
             </span>
           </div>
         </a>
-        <div class="compare-result-tags" style={{ margin: "1rem 0", textAlign: "center" }}>
-        <div class="tags">
-          {device.tags.map((tag) => (
-            <TagComponent
-              key={tag.name}
-              tag={tag}
-            />
-          ))}
+        <div
+          class="compare-result-tags"
+          style={{ margin: "1rem 0", textAlign: "center" }}
+        >
+          <div class="tags">
+            {device.tags.map((tag) => (
+              <TagComponent
+                key={tag.name}
+                tag={tag}
+              />
+            ))}
+          </div>
         </div>
-      </div>
       </div>
 
       <div class={`compare-result-summary overflow-auto ${isBest("all")}`}>

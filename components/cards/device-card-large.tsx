@@ -118,7 +118,7 @@ export function DeviceCardLarge(
                 ? (
                   <span
                     style={{ display: "flex", fontSize: "1rem" }}
-                    data-tooltip={`${device.pricing.range.min}-${device.pricing.range.max} ${device.pricing.currency}`}
+                    data-tooltip={`${device.pricing.range?.min}-${device.pricing.range?.max} ${device.pricing.currency}`}
                   >
                     {getPriceIndicator()}
                   </span>

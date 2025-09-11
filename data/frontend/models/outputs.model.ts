@@ -9,13 +9,15 @@ export interface DeviceOutputs {
     hasMicroHdmi?: boolean;
     hasMiniHdmi?: boolean;
     OcuLink?: boolean;
-  };
+    raw: string;
+  } | null;
   audioOutput?: {
     has35mmJack?: boolean;
     hasHeadphoneJack?: boolean;
     hasUsbC?: boolean;
-  };
+    raw: string;
+  } | null;
   speaker?: {
     type: string;
-  };
+  } | null;
 }

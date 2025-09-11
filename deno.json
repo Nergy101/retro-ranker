@@ -23,7 +23,9 @@
     }
   },
   "exclude": [
-    "**/_fresh/*"
+    "**/_fresh/*",
+    "/data/source/files/*",
+    "/data/source/results/*"
   ],
   "imports": {
     "fresh": "jsr:@fresh/core@^2.0.0-beta.4",

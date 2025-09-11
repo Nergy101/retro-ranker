@@ -30,15 +30,15 @@ export function ShareButton(
         });
       } catch (error) {
         // User cancelled the share dialog or other error
-        console.log('Share cancelled or failed:', error);
+        console.log("Share cancelled or failed:", error);
       }
     } else {
       // Fallback: Copy URL to clipboard
       try {
         await navigator.clipboard.writeText(url);
         // Show a temporary notification
-        const notification = document.createElement('div');
-        notification.textContent = 'Link copied to clipboard!';
+        const notification = document.createElement("div");
+        notification.textContent = "Link copied to clipboard!";
         notification.style.cssText = `
           position: fixed;
           top: 20px;
@@ -52,7 +52,7 @@ export function ShareButton(
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         `;
         document.body.appendChild(notification);
-        
+
         // Remove notification after 3 seconds
         setTimeout(() => {
           if (notification.parentNode) {
@@ -61,7 +61,7 @@ export function ShareButton(
         }, 3000);
       } catch (error) {
         // Fallback for browsers that don't support clipboard API
-        console.error('Failed to copy to clipboard:', error);
+        console.error("Failed to copy to clipboard:", error);
         // Show an alert as last resort
         alert(`Share this link: ${url}`);
       }

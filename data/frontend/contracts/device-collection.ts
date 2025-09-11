@@ -10,4 +10,3 @@ export interface DeviceCollection {
   type: "Normal" | "Ranked";
   order: Array<Record<string, number>>;
 }
-

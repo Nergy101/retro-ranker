@@ -1,9 +1,20 @@
 export interface DeviceScreen {
-  size?: number;
+  size?: number | null;
   type?: {
     type: string;
+    raw: string;
     isTouchscreen?: boolean;
     isPenCapable?: boolean;
-  };
-  ppi?: number[];
+  } | null;
+  resolution?:
+    | Array<{
+      raw: string;
+      width: number;
+      height: number;
+    }>
+    | null;
+  aspectRatio?: string | null;
+  refreshRate?: string;
+  ppi?: number[] | null;
+  lens?: string | null;
 }

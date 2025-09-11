@@ -34,17 +34,21 @@ export function CollectionCard(
       const response = await fetch(`/api/collections/${collection.id}`, {
         method: "DELETE",
       });
-      
+
       if (response.ok) {
         // Refresh the page after successful deletion
         globalThis.location.reload();
       } else {
-        console.error('Failed to delete collection:', response.status, response.statusText);
-        alert('Failed to delete collection. Please try again.');
+        console.error(
+          "Failed to delete collection:",
+          response.status,
+          response.statusText,
+        );
+        alert("Failed to delete collection. Please try again.");
       }
     } catch (error) {
-      console.error('Error deleting collection:', error);
-      alert('Failed to delete collection. Please try again.');
+      console.error("Error deleting collection:", error);
+      alert("Failed to delete collection. Please try again.");
     }
   };
 

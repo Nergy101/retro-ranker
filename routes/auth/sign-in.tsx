@@ -34,7 +34,8 @@ export const handler = {
 
     state.seo = {
       title: "Sign In - Retro Ranker",
-      description: "Sign in to your Retro Ranker account to access personalized features and save your preferences.",
+      description:
+        "Sign in to your Retro Ranker account to access personalized features and save your preferences.",
     };
 
     if (state.user) {

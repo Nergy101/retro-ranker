@@ -1,3 +1,3 @@
 export interface DeviceArchitecture {
-  type: string;
+  type: "ARM" | "x86-64" | "MIPS" | "other";
 }

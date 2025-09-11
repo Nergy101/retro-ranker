@@ -94,13 +94,12 @@ export default async function CollectionView(ctx: FreshContext) {
             </h1>
             <p>{collection.description}</p>
             <p style={{ fontSize: "0.8rem" }}>
-              Created:{" "}
-              {new Date(collection.created).toLocaleDateString()} |{" "}
-              Last Updated:{" "}
-              {new Date(collection.updated).toLocaleDateString()} |{" "}
-              {collection.devices.length} {collection.devices.length === 1
-                ? "device"
-                : "devices"}
+              Created: {new Date(collection.created).toLocaleDateString()} |
+              {" "}
+              Last Updated: {new Date(collection.updated).toLocaleDateString()}
+              {" "}
+              | {collection.devices.length}{" "}
+              {collection.devices.length === 1 ? "device" : "devices"}
             </p>
           </hgroup>
         </header>

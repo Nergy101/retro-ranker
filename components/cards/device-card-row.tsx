@@ -102,10 +102,10 @@ export function DeviceCardRow(
                 display: "flex",
                 alignItems: "center",
               }}
-              data-tooltip={device.pricing.range.min ===
-                  device.pricing.range.max
+              data-tooltip={device.pricing.range?.min ===
+                  device.pricing.range?.max
                 ? device.pricing.average
-                : `${device.pricing.range.min} - ${device.pricing.range.max}`}
+                : `${device.pricing.range?.min} - ${device.pricing.range?.max}`}
             >
               <CurrencyIcon currencyCode={device.pricing.currency} />
               {device.pricing.average}

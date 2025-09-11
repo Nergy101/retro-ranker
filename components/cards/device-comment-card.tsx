@@ -53,7 +53,7 @@ export function DeviceCommentCard({ comment }: DeviceCommentCardProps) {
         }}
       >
         <ProfileImage
-          user={comment.expand?.user}
+          name={comment.expand?.user?.nickname || "Anonymous"}
           size={40}
         />
         <div style={{ flex: 1 }}>

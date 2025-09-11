@@ -2,8 +2,8 @@ import { ProfileImage } from "../auth/profile-image.tsx";
 
 interface DeviceReviewCardProps {
   review: {
-    expand: {
-      user: { id: string; nickname: string };
+    expand?: {
+      user?: { id: string; nickname: string };
     };
     content: string;
     performance_rating: number;
@@ -80,7 +80,7 @@ export function DeviceReviewCard({ review }: DeviceReviewCardProps) {
         }}
       >
         <ProfileImage
-          user={review.expand?.user}
+          name={review.expand?.user?.nickname || "Anonymous"}
           size={40}
         />
         <div style={{ flex: 1 }}>

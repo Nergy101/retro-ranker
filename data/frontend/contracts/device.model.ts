@@ -39,7 +39,7 @@ export interface Device {
   deviceType: "handheld" | "oem"; // track the type of device
 
   systemOnChip: string | null;
-  architecture: DeviceArchitecture;
+  architecture: DeviceArchitecture | null;
 
   cpus: DeviceCpu[] | null;
   gpus: DeviceGpu[] | null;
@@ -57,9 +57,9 @@ export interface Device {
   sensors: DeviceSensors | null;
   lowBatteryIndicator: string | null;
 
-  volumeControl: DeviceControlConfig["volumeControl"];
-  brightnessControl: DeviceControlConfig["brightnessControl"];
-  powerControl: DeviceControlConfig["powerControl"];
+  volumeControl: DeviceControlConfig["volumeControl"] | null;
+  brightnessControl: DeviceControlConfig["brightnessControl"] | null;
+  powerControl: DeviceControlConfig["powerControl"] | null;
 
   dimensions: DevicePhysical["dimensions"];
   weight: DevicePhysical["weight"];

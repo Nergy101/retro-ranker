@@ -64,7 +64,7 @@ export function CollectionUpdateForm(
   );
 
   const [selectedDevice, setSelectedDevice] = useState<Device | null>(null);
-  const suggestionsRef = useRef<HTMLDivElement | null>(null);
+  const suggestionsRef = useRef<HTMLUListElement | null>(null);
   const [suggestions, setSuggestions] = useState<Device[]>([]);
   const [query, setQuery] = useState<string>("");
 
@@ -351,7 +351,8 @@ export function CollectionUpdateForm(
                             value={deviceOrder[device.id] || 1}
                             onClick={(e) => e.stopPropagation()}
                             onInput={(e) => {
-                              const val = (e.currentTarget as HTMLInputElement).value;
+                              const val =
+                                (e.currentTarget as HTMLInputElement).value;
                               const order = parseInt(val, 10);
                               if (!isNaN(order)) {
                                 setDeviceOrder({

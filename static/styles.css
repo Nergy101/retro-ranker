@@ -2637,18 +2637,18 @@ body.paused-animation::before {
   .faq-page {
     padding: 0.5rem;
   }
-  
+
   .faq-details summary {
     padding: 0.75rem 1rem;
     font-size: 0.9rem;
   }
-  
+
   .faq-details p,
   .faq-details ul {
     padding: 0.75rem 1rem;
     font-size: 0.9rem;
   }
-  
+
   /* Removed reference to CSS chevron */
 }
 
@@ -2657,14 +2657,13 @@ body.paused-animation::before {
     padding: 0.5rem 0.75rem;
     font-size: 0.85rem;
   }
-  
+
   .faq-details p,
   .faq-details ul {
     padding: 0.5rem 0.75rem;
     font-size: 0.85rem;
   }
 }
-
 
 .footer {
   background-color: var(--pico-background-color);
@@ -3426,7 +3425,6 @@ textarea:focus:valid {
   will-change: transform;
 }
 
-
 .sign-in-article {
   position: relative;
   overflow: hidden;
@@ -3841,7 +3839,6 @@ textarea:focus:valid {
 
 /* Mobile Nav */
 
-
 /* Clean auth button styles */
 .auth-signin-btn-row {
   display: flex;
@@ -3881,7 +3878,6 @@ textarea:focus:valid {
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
-
 
 /* Enhanced Discord button styles from retro-ranker */
 .auth-signin-btn--discord {
@@ -3956,7 +3952,6 @@ textarea:focus:valid {
   border: none;
 }
 
-
 .bg-rr-primary {
   background: linear-gradient(
     135deg,
@@ -3988,7 +3983,6 @@ textarea:focus:valid {
   cursor: not-allowed;
   transform: none;
 }
-
 
 /* Sign out button styles */
 .sign-out-button {

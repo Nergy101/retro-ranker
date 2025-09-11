@@ -4,6 +4,7 @@ interface ProfileImageProps {
   className?: string;
   backgroundType?: "solid" | "gradientLinear" | string;
   showBorder?: boolean;
+  user?: any;
 }
 
 export function ProfileImage({

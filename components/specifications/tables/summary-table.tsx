@@ -1,5 +1,5 @@
-import { Device } from "../../../../data/frontend/contracts/device.model.ts";
-import { DeviceService } from "../../../../data/frontend/services/devices/device.service.ts";
+import { Device } from "../../../data/frontend/contracts/device.model.ts";
+import { DeviceService } from "../../../data/frontend/services/devices/device.service.ts";
 import {
   PiBatteryFull,
   PiBracketsSquare,
@@ -51,7 +51,7 @@ export function SummaryTable({ device }: SummaryTableProps) {
             </td>
             <td class="details-cell">
               <div class="detail-content">
-                {device.cpu?.name || "Unknown"}
+                {device.cpus?.[0]?.name || "Unknown"}
               </div>
             </td>
           </tr>
@@ -62,8 +62,8 @@ export function SummaryTable({ device }: SummaryTableProps) {
             </td>
             <td class="details-cell">
               <div class="detail-content">
-                {device.cpu?.cores || "Unknown"} cores @{" "}
-                {device.cpu?.frequency || "Unknown"}
+                {device.cpus?.[0]?.cores || "Unknown"} cores @{" "}
+                {device.cpus?.[0]?.frequency || "Unknown"}
               </div>
             </td>
           </tr>
@@ -74,7 +74,7 @@ export function SummaryTable({ device }: SummaryTableProps) {
             </td>
             <td class="details-cell">
               <div class="detail-content">
-                {device.gpu?.name || "Unknown"}
+                {device.gpus?.[0]?.name || "Unknown"}
               </div>
             </td>
           </tr>
@@ -123,7 +123,9 @@ export function SummaryTable({ device }: SummaryTableProps) {
             </td>
             <td class="details-cell">
               <div class="detail-content">
-                {device.physical?.dimensions || "Unknown"}
+                {device.dimensions
+                  ? `${device.dimensions.length}x${device.dimensions.width}x${device.dimensions.height}`
+                  : "Unknown"}
               </div>
             </td>
           </tr>

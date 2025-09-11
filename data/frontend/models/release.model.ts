@@ -1,4 +1,4 @@
 export interface DeviceRelease {
-  raw: string;
-  mentionedDate: Date;
+  raw: string | null;
+  mentionedDate: Date | null;
 }

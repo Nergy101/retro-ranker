@@ -35,6 +35,7 @@ export function AddDeviceCommentForm({
         <input type="hidden" name="user" value={user.id} />
         <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
           <ProfileImage
+            name={user.nickname}
             user={user}
             size={32}
           />

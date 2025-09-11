@@ -1,8 +1,4 @@
-import {
-  PiDiscordLogo,
-  PiGoogleLogo,
-  PiUserPlus,
-} from "@preact-icons/pi";
+import { PiDiscordLogo, PiGoogleLogo, PiUserPlus } from "@preact-icons/pi";
 
 export function SignUp({
   baseApiUrl,
@@ -11,7 +7,6 @@ export function SignUp({
   baseApiUrl: string;
   csrfToken: string;
 }) {
-
   return (
     <div
       class="auth-form"
@@ -71,8 +66,7 @@ export function SignUp({
           role="button"
           class="outline"
         >
-          Already have an account? <br />{" "}
-          Log in instead
+          Already have an account? <br /> Log in instead
         </a>
       </div>
     </div>

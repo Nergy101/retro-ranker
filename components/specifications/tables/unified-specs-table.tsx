@@ -1,4 +1,4 @@
-import { Device } from "../../../../data/frontend/contracts/device.model.ts";
+import { Device } from "../../../data/frontend/contracts/device.model.ts";
 import { PiCheckCircleFill, PiXCircle } from "@preact-icons/pi";
 
 interface UnifiedSpecsTableProps {
@@ -63,24 +63,24 @@ export function UnifiedSpecsTable({ device }: UnifiedSpecsTableProps) {
         <tbody>
           {/* Processing Section */}
           <tr class="subheader-row">
-            <th colspan="2" class="subheader">
+            <th colSpan={2} class="subheader">
               <strong>Processing</strong>
             </th>
           </tr>
-          {device.cpu?.name && (
+          {device.cpus?.[0]?.name && (
             <tr>
               <th>CPU</th>
               <td>
-                {device.cpu.name}
-                {device.cpu.cores && ` (${device.cpu.cores} cores)`}
-                {device.cpu.frequency && ` @ ${device.cpu.frequency}`}
+                {device.cpus[0].name}
+                {device.cpus[0].cores && ` (${device.cpus[0].cores} cores)`}
+                {device.cpus[0].frequency && ` @ ${device.cpus[0].frequency}`}
               </td>
             </tr>
           )}
-          {device.gpu?.name && (
+          {device.gpus?.[0]?.name && (
             <tr>
               <th>GPU</th>
-              <td>{device.gpu.name}</td>
+              <td>{device.gpus[0].name}</td>
             </tr>
           )}
           {device.ram && (
@@ -102,7 +102,7 @@ export function UnifiedSpecsTable({ device }: UnifiedSpecsTableProps) {
 
           {/* Display Section */}
           <tr class="subheader-row">
-            <th colspan="2" class="subheader">
+            <th colSpan={2} class="subheader">
               <strong>Display</strong>
             </th>
           </tr>
@@ -139,7 +139,7 @@ export function UnifiedSpecsTable({ device }: UnifiedSpecsTableProps) {
 
           {/* Connectivity Section */}
           <tr class="subheader-row">
-            <th colspan="2" class="subheader">
+            <th colSpan={2} class="subheader">
               <strong>Connectivity</strong>
             </th>
           </tr>
@@ -186,7 +186,7 @@ export function UnifiedSpecsTable({ device }: UnifiedSpecsTableProps) {
 
           {/* Video Output Section */}
           <tr class="subheader-row">
-            <th colspan="2" class="subheader">
+            <th colSpan={2} class="subheader">
               <strong>Video Output</strong>
             </th>
           </tr>
@@ -249,7 +249,7 @@ export function UnifiedSpecsTable({ device }: UnifiedSpecsTableProps) {
 
           {/* Audio Section */}
           <tr class="subheader-row">
-            <th colspan="2" class="subheader">
+            <th colSpan={2} class="subheader">
               <strong>Audio</strong>
             </th>
           </tr>
@@ -278,20 +278,24 @@ export function UnifiedSpecsTable({ device }: UnifiedSpecsTableProps) {
 
           {/* Physical Section */}
           <tr class="subheader-row">
-            <th colspan="2" class="subheader">
+            <th colSpan={2} class="subheader">
               <strong>Physical</strong>
             </th>
           </tr>
-          {device.physical?.dimensions && (
+          {device.dimensions && (
             <tr>
               <th>Dimensions</th>
-              <td>{device.physical.dimensions}</td>
+              <td>
+                {device.dimensions
+                  ? `${device.dimensions.length}x${device.dimensions.width}x${device.dimensions.height}`
+                  : "Unknown"}
+              </td>
             </tr>
           )}
-          {device.physical?.weight && (
+          {device.weight && (
             <tr>
               <th>Weight</th>
-              <td>{device.physical.weight}</td>
+              <td>{device.weight}</td>
             </tr>
           )}
           {device.formFactor && (
@@ -300,22 +304,22 @@ export function UnifiedSpecsTable({ device }: UnifiedSpecsTableProps) {
               <td>{device.formFactor}</td>
             </tr>
           )}
-          {device.physical?.material && (
+          {device.shellMaterial && (
             <tr>
               <th>Material</th>
-              <td>{device.physical.material}</td>
+              <td>{device.shellMaterial?.raw || "Unknown"}</td>
             </tr>
           )}
-          {device.physical?.color && (
+          {device.colors && device.colors.length > 0 && (
             <tr>
               <th>Color</th>
-              <td>{device.physical.color}</td>
+              <td>{device.colors.join(", ")}</td>
             </tr>
           )}
 
           {/* Battery Section */}
           <tr class="subheader-row">
-            <th colspan="2" class="subheader">
+            <th colSpan={2} class="subheader">
               <strong>Battery</strong>
             </th>
           </tr>
@@ -346,7 +350,7 @@ export function UnifiedSpecsTable({ device }: UnifiedSpecsTableProps) {
 
           {/* Controls Section */}
           <tr class="subheader-row">
-            <th colspan="2" class="subheader">
+            <th colSpan={2} class="subheader">
               <strong>Controls</strong>
             </th>
           </tr>
@@ -383,7 +387,7 @@ export function UnifiedSpecsTable({ device }: UnifiedSpecsTableProps) {
 
           {/* Miscellaneous Section */}
           <tr class="subheader-row">
-            <th colspan="2" class="subheader">
+            <th colSpan={2} class="subheader">
               <strong>Miscellaneous</strong>
             </th>
           </tr>

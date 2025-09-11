@@ -33,7 +33,8 @@ export default async function ChartsIndex(ctx: Context<State>) {
       <hgroup style={{ textAlign: "center" }}>
         <h1>Charts & Analytics</h1>
         <p>
-          Explore interactive charts and data visualizations of retro gaming handhelds. View statistics on{" "}
+          Explore interactive charts and data visualizations of retro gaming
+          handhelds. View statistics on{" "}
           <span style={{ color: "var(--pico-primary)" }}>
             {devices.length}
           </span>{" "}

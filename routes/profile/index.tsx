@@ -183,9 +183,7 @@ export default async function ProfilePage(
         <header>
           <h1>
             <span style={{ color: "var(--pico-primary)" }}>
-              {getWelcomeText()}{" "}
-              Back,{" "}
-              {user.nickname}.
+              {getWelcomeText()}, welcome {user.nickname}.
             </span>
           </h1>
         </header>
@@ -210,7 +208,8 @@ export default async function ProfilePage(
             <div class="empty-favorites-message">
               <p>No favorites yet</p>
               <p>
-                Start exploring devices and add them to your favorites to see them here.
+                Start exploring devices and add them to your favorites to see
+                them here.
               </p>
             </div>
           )}
@@ -263,8 +262,7 @@ export default async function ProfilePage(
                   gap: "0.5rem",
                 }}
               >
-                <PiPlus />{" "}
-                Create New
+                <PiPlus /> Create New
               </a>
             )}
           </div>
@@ -310,8 +308,7 @@ export default async function ProfilePage(
           style={{ marginTop: "2rem", marginBottom: "2rem" }}
         >
           <h2 style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-            <PiChatCentered />{" "}
-            Feedback
+            <PiChatCentered /> Feedback
           </h2>
           <SuggestionForm csrfToken={csrfToken} />
         </section>

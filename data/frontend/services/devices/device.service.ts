@@ -6,6 +6,7 @@ import {
 import { Device } from "../../contracts/device.model.ts";
 import { personalPicks } from "../../enums/personal-picks.ts";
 import { TagModel } from "../../models/tag.model.ts";
+import { DeviceHelpers } from "../../helpers/device.helpers.ts";
 import { RatingsService } from "./ratings.service.ts";
 
 export class DeviceService {
@@ -447,5 +448,11 @@ export class DeviceService {
       this.tagsCache = { data: tagsMerged, timestamp: now };
     }
     return resultItems;
+  }
+
+  public static getPropertyIconByCharacter(
+    char: "✅" | "❌" | "?" | string | null,
+  ) {
+    return DeviceHelpers.getPropertyIconByCharacter(char);
   }
 }

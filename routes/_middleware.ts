@@ -1,5 +1,5 @@
 // deno-lint-ignore-file
-import { AppProps } from "fresh";
+// import { Context } from "jsr:@fresh/core@2.0.0-beta.4";
 import { createPocketBaseService } from "../data/pocketbase/pocketbase.service.ts";
 import { logJson } from "../data/tracing/tracer.ts";
 import { CustomFreshState } from "../interfaces/state.ts";
@@ -50,7 +50,7 @@ function shouldLogVisit(path: string): boolean {
   return true;
 }
 
-export async function handler(ctx: AppProps) {
+export async function handler(ctx: any) {
   const startTime = performance.now();
   const req = ctx.req;
   const url = new URL(req.url);

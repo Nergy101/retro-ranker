@@ -18,11 +18,17 @@ try {
     export: true,
   });
 } catch (_error) {
-  console.warn(chalk.yellow("Warning: Could not load .env file. Using environment variables from system."));
+  console.warn(
+    chalk.yellow(
+      "Warning: Could not load .env file. Using environment variables from system.",
+    ),
+  );
   // Fall back to system environment variables
   env = {
-    POCKETBASE_SUPERUSER_EMAIL: Deno.env.get("POCKETBASE_SUPERUSER_EMAIL") || "",
-    POCKETBASE_SUPERUSER_PASSWORD: Deno.env.get("POCKETBASE_SUPERUSER_PASSWORD") || "",
+    POCKETBASE_SUPERUSER_EMAIL: Deno.env.get("POCKETBASE_SUPERUSER_EMAIL") ||
+      "",
+    POCKETBASE_SUPERUSER_PASSWORD:
+      Deno.env.get("POCKETBASE_SUPERUSER_PASSWORD") || "",
     POCKETBASE_URL: Deno.env.get("POCKETBASE_URL") || "",
   };
 }
@@ -36,7 +42,9 @@ if (
   env.POCKETBASE_URL === ""
 ) {
   console.error(chalk.red("❌ PocketBase environment variables are not set"));
-  console.error(chalk.yellow("Please set the following environment variables:"));
+  console.error(
+    chalk.yellow("Please set the following environment variables:"),
+  );
   console.error(chalk.cyan("  - POCKETBASE_URL"));
   console.error(chalk.cyan("  - POCKETBASE_SUPERUSER_EMAIL"));
   console.error(chalk.cyan("  - POCKETBASE_SUPERUSER_PASSWORD"));
@@ -194,8 +202,8 @@ async function insertDevices(
     try {
       const pricingData = {
         average: device.pricing.average,
-        min: device.pricing.range.min,
-        max: device.pricing.range.max,
+        min: device.pricing.range?.min,
+        max: device.pricing.range?.max,
         currency: device.pricing.currency,
         category: device.pricing.category,
         discontinued: device.pricing.discontinued,

@@ -259,14 +259,16 @@ export function mapHandheldsColumnToDevice(
     case 31:
       {
         const arch = value;
-        device.architecture = arch.includes("arm")
-          ? "ARM"
-          : arch.includes("x86-64") || arch.includes("x86_64")
-          ? "x86-64"
-          : arch.includes("mips")
-          ? "MIPS"
-          : arch
-          ? "other"
+        device.architecture = arch
+          ? {
+            type: arch.includes("arm")
+              ? "ARM"
+              : arch.includes("x86-64") || arch.includes("x86_64")
+              ? "x86-64"
+              : arch.includes("mips")
+              ? "MIPS"
+              : "other",
+          }
           : null;
       }
       break;
@@ -279,7 +281,7 @@ export function mapHandheldsColumnToDevice(
       break;
     case 33:
       if (device.gpus?.[0]) {
-        device.gpus[0].cores = value;
+        device.gpus[0].cores = value ? parseInt(value) : null;
       }
       break;
     case 34:
@@ -338,31 +340,33 @@ export function mapHandheldsColumnToDevice(
       break;
     case 37: {
       const screenType = value;
-      device.screen.type = {
-        raw: rawValue,
-        isTouchscreen: screenType.includes("touch"),
-        isPenCapable: screenType.includes("pen"),
-        type: screenType.includes("ips")
-          ? "IPS"
-          : screenType.includes("ads")
-          ? "ADS"
-          : screenType.includes("hips")
-          ? "HIPS"
-          : screenType.includes("oled")
-          ? "OLED"
-          : screenType.includes("monochrome") &&
-              screenType.includes("oled")
-          ? "MonochromeOLED"
-          : screenType.includes("lcd")
-          ? "LCD"
-          : screenType.includes("ltps")
-          ? "LTPS"
-          : screenType.includes("tft")
-          ? "TFT"
-          : screenType.includes("amoled")
-          ? "AMOLED"
-          : null,
-      };
+      device.screen.type = screenType
+        ? {
+          raw: rawValue,
+          isTouchscreen: screenType.includes("touch"),
+          isPenCapable: screenType.includes("pen"),
+          type: screenType.includes("ips")
+            ? "IPS"
+            : screenType.includes("ads")
+            ? "ADS"
+            : screenType.includes("hips")
+            ? "HIPS"
+            : screenType.includes("oled")
+            ? "OLED"
+            : screenType.includes("monochrome") &&
+                screenType.includes("oled")
+            ? "MonochromeOLED"
+            : screenType.includes("lcd")
+            ? "LCD"
+            : screenType.includes("ltps")
+            ? "LTPS"
+            : screenType.includes("tft")
+            ? "TFT"
+            : screenType.includes("amoled")
+            ? "AMOLED"
+            : "Unknown",
+        }
+        : null;
       break;
     }
     case 38:
@@ -373,7 +377,7 @@ export function mapHandheldsColumnToDevice(
       }));
       break;
     case 39:
-      device.screen.ppi = value ? [parseInt(value)] : null;
+      device.screen.ppi = value ? [parseInt(value)] : undefined;
       break;
     case 40:
       device.screen.aspectRatio = value;
@@ -389,6 +393,9 @@ export function mapHandheldsColumnToDevice(
           raw: rawValue,
           capacity: batteryMatch ? parseFloat(batteryMatch[1]) : null,
           unit: batteryMatch ? batteryMatch[2] as "mAh" | "Wh" : null,
+          type: "Lithium-ion",
+          removable: false,
+          charging: "USB-C",
         };
       }
       break;
@@ -576,16 +583,17 @@ export function mapHandheldsColumnToDevice(
     case 54:
       {
         const speakerText = value;
-        device.outputs.speaker = {
-          raw: rawValue,
-          type: speakerText.includes("stereo")
-            ? "stereo"
-            : speakerText.includes("surround")
-            ? "surround"
-            : speakerText.includes("mono")
-            ? "mono"
-            : null,
-        };
+        device.outputs.speaker = speakerText
+          ? {
+            type: speakerText.includes("stereo")
+              ? "stereo"
+              : speakerText.includes("surround")
+              ? "surround"
+              : speakerText.includes("mono")
+              ? "mono"
+              : "unknown",
+          }
+          : null;
       }
       break;
     case 55:
@@ -621,52 +629,55 @@ export function mapHandheldsColumnToDevice(
     case 57:
       {
         const volumeText = value;
-        device.volumeControl = {
-          raw: rawValue,
-          type: volumeText.includes("wheel")
-            ? "wheel"
-            : volumeText.includes("slider")
-            ? "slider"
-            : volumeText.includes("menu")
-            ? "menu"
-            : volumeText.includes("combination")
-            ? "button-combination"
-            : volumeText.includes("button")
-            ? "dedicated-button"
-            : null,
-        };
+        device.volumeControl = volumeText
+          ? {
+            type: volumeText.includes("wheel")
+              ? "wheel"
+              : volumeText.includes("slider")
+              ? "slider"
+              : volumeText.includes("menu")
+              ? "menu"
+              : volumeText.includes("combination")
+              ? "button-combination"
+              : volumeText.includes("button")
+              ? "dedicated-button"
+              : "unknown",
+          }
+          : null;
       }
       break;
     case 58:
       {
         const brightnessText = value;
-        device.brightnessControl = {
-          raw: rawValue,
-          type: brightnessText.includes("wheel")
-            ? "wheel"
-            : brightnessText.includes("slider")
-            ? "slider"
-            : brightnessText.includes("menu")
-            ? "menu"
-            : brightnessText.includes("combination")
-            ? "button-combination"
-            : brightnessText.includes("button")
-            ? "dedicated-button"
-            : null,
-        };
+        device.brightnessControl = brightnessText
+          ? {
+            type: brightnessText.includes("wheel")
+              ? "wheel"
+              : brightnessText.includes("slider")
+              ? "slider"
+              : brightnessText.includes("menu")
+              ? "menu"
+              : brightnessText.includes("combination")
+              ? "button-combination"
+              : brightnessText.includes("button")
+              ? "dedicated-button"
+              : "unknown",
+          }
+          : null;
       }
       break;
     case 59:
       {
         const powerText = value;
-        device.powerControl = {
-          raw: rawValue,
-          type: powerText.includes("switch")
-            ? "switch"
-            : powerText.includes("button")
-            ? "button"
-            : null,
-        };
+        device.powerControl = powerText
+          ? {
+            type: powerText.includes("switch")
+              ? "switch"
+              : powerText.includes("button")
+              ? "button"
+              : "unknown",
+          }
+          : null;
       }
       break;
     case 60:

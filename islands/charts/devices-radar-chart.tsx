@@ -8,6 +8,7 @@ interface RadarChartProps {
   devices: Device[];
   showTitle?: boolean;
   ranking?: Ranking;
+  translations?: Record<string, string>;
 }
 
 export function DevicesRadarChart({

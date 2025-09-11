@@ -1,10 +1,11 @@
 export interface DevicePricing {
-  category: string;
-  average: number;
-  currency: string;
+  category: string | null;
+  average: number | null;
+  currency: string | null;
   range: {
-    min: number;
-    max: number;
-  };
-  discontinued: boolean;
+    min: number | null;
+    max: number | null;
+  } | null;
+  discontinued: boolean | null;
+  raw: string | null;
 }

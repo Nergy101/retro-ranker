@@ -1,7 +1,7 @@
 export interface DeviceConnectivity {
-  hasWifi: boolean;
-  hasBluetooth: boolean;
-  hasUsbC: boolean;
-  hasNfc: boolean;
-  hasUsb: boolean;
+  hasWifi: boolean | null;
+  hasBluetooth: boolean | null;
+  hasUsbC: boolean | null;
+  hasNfc: boolean | null;
+  hasUsb: boolean | null;
 }
