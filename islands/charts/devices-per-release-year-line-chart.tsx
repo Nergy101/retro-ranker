@@ -1,6 +1,6 @@
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { getBrandColors } from "../../data/frontend/services/utils/color.utils.ts";
-import { Chart, ChartDataset, LegendItem } from "npm:chart.js";
+import { Chart, ChartDataset, LegendItem } from "chart.js";
 import { useCallback, useMemo, useState } from "preact/hooks";
 import { FreshChart } from "./fresh-chart.tsx";
 

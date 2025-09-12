@@ -1,6 +1,6 @@
 import { PiChatCentered, PiPlus } from "@preact-icons/pi";
 import { FreshContext, page } from "fresh";
-import { RecordModel } from "npm:pocketbase";
+import { RecordModel } from "pocketbase";
 import { DeviceCardMedium } from "../../components/cards/device-card-medium.tsx";
 import { DeviceCollection } from "../../data/frontend/contracts/device-collection.ts";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
