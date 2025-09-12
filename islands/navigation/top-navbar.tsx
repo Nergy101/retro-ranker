@@ -43,7 +43,7 @@ export function TopNavbar(
       globalThis.removeEventListener("resize", handleResize);
       clearTimeout(timeoutId);
     };
-  });
+  }, []);
 
   if (isLoading) {
     return <article aria-busy="true" aria-live="polite" />;

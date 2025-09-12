@@ -51,7 +51,7 @@ export function SummaryTable({ device }: SummaryTableProps) {
             </td>
             <td class="details-cell">
               <div class="detail-content">
-                {device.cpus?.[0]?.name || "Unknown"}
+                {device.cpus?.[0]?.names.join(", ") || "Unknown"}
               </div>
             </td>
           </tr>
@@ -63,7 +63,8 @@ export function SummaryTable({ device }: SummaryTableProps) {
             <td class="details-cell">
               <div class="detail-content">
                 {device.cpus?.[0]?.cores || "Unknown"} cores @{" "}
-                {device.cpus?.[0]?.frequency || "Unknown"}
+                {device.cpus?.[0]?.clockSpeed?.max || "Unknown"}{" "}
+                {device.cpus?.[0]?.clockSpeed?.unit || "Unknown"}
               </div>
             </td>
           </tr>
@@ -98,8 +99,12 @@ export function SummaryTable({ device }: SummaryTableProps) {
             <td class="details-cell">
               <div class="detail-content">
                 {device.screen?.size || "Unknown"}"{" "}
-                {device.screen?.resolution || "Unknown"}{" "}
-                ({device.screen?.type || "Unknown"})
+                {device.screen?.resolution &&
+                    device.screen.resolution.length > 0
+                  ? device.screen.resolution.map((res) =>
+                    `${res.width}x${res.height}`
+                  ).join(", ")
+                  : "Unknown"} ({device.screen?.type?.type || "Unknown"})
               </div>
             </td>
           </tr>

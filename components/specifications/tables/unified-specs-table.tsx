@@ -59,6 +59,7 @@ export function UnifiedSpecsTable({ device }: UnifiedSpecsTableProps) {
         }
         `}
       </style>
+
       <table class="striped">
         <tbody>
           {/* Processing Section */}
@@ -115,13 +116,24 @@ export function UnifiedSpecsTable({ device }: UnifiedSpecsTableProps) {
           {device.screen?.resolution && (
             <tr>
               <th>Resolution</th>
-              <td>{device.screen.resolution}</td>
+
+              <td>
+                {device.screen.resolution.map((res) => (
+                  <div key={res.raw}>
+                    {res.width}x{res.height}
+                  </div>
+                ))}
+              </td>
             </tr>
           )}
           {device.screen?.type && (
             <tr>
               <th>Type</th>
-              <td>{device.screen.type}</td>
+              <td>
+                {device.screen.type.type}{" "}
+                {device.screen.type.isTouchscreen && " (Touch)"}{" "}
+                {device.screen.type.isPenCapable && " (Pen)"}
+              </td>
             </tr>
           )}
           {device.screen?.aspectRatio && (
@@ -366,10 +378,31 @@ export function UnifiedSpecsTable({ device }: UnifiedSpecsTableProps) {
               <td>{device.controls.faceButtons}</td>
             </tr>
           )}
-          {device.controls?.shoulderButtons && (
+          {device.controls?.shoulderButtons?.raw && (
             <tr>
               <th>Shoulder Buttons</th>
-              <td>{device.controls.shoulderButtons}</td>
+              <td>
+                {[
+                  device.controls.shoulderButtons.ZL && "ZL",
+                  device.controls.shoulderButtons.ZRVertical && "ZR Vertical",
+                  device.controls.shoulderButtons.ZRHorizontal &&
+                  "ZR Horizontal",
+                  device.controls.shoulderButtons.L && "L",
+                  device.controls.shoulderButtons.L1 && "L1",
+                  device.controls.shoulderButtons.L2 && "L2",
+                  device.controls.shoulderButtons.L3 && "L3",
+                  device.controls.shoulderButtons.R && "R",
+                  device.controls.shoulderButtons.R1 && "R1",
+                  device.controls.shoulderButtons.R2 && "R2",
+                  device.controls.shoulderButtons.R3 && "R3",
+                  device.controls.shoulderButtons.M1 && "M1",
+                  device.controls.shoulderButtons.M2 && "M2",
+                  device.controls.shoulderButtons.LC && "LC",
+                  device.controls.shoulderButtons.RC && "RC",
+                ]
+                  .filter(Boolean)
+                  .join(", ")}
+              </td>
             </tr>
           )}
           {device.controls?.analogSticks && (

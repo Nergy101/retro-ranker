@@ -370,11 +370,34 @@ export function mapHandheldsColumnToDevice(
       break;
     }
     case 38:
-      device.screen.resolution = value.split(",").map((res) => ({
-        raw: res,
-        width: parseInt(res.split(" x ")[0]),
-        height: parseInt(res.split(" x ")[1]),
-      }));
+      device.screen.resolution = value.split(",")
+        .map((res) => {
+          // Handle various spacing patterns around 'x': "10x10", "10 x 10", "10x 10", "10 x10"
+          const trimmedRes = res.trim();
+          const xIndex = trimmedRes.toLowerCase().indexOf("x");
+
+          if (xIndex === -1) {
+            // No 'x' found, return null to filter out later
+            return null;
+          }
+
+          const widthStr = trimmedRes.substring(0, xIndex).trim();
+          const heightStr = trimmedRes.substring(xIndex + 1).trim();
+          const width = parseInt(widthStr);
+          const height = parseInt(heightStr);
+
+          // Only return valid resolutions
+          if (isNaN(width) || isNaN(height)) {
+            return null;
+          }
+
+          return {
+            raw: res,
+            width,
+            height,
+          };
+        })
+        .filter((res): res is NonNullable<typeof res> => res !== null);
       break;
     case 39:
       device.screen.ppi = value ? [parseInt(value)] : undefined;
