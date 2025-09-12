@@ -50,7 +50,7 @@
 
     "@cap.js/server": "npm:@cap.js/server@^2.0.0",
     "@cap.js/widget": "npm:@cap.js/widget@^0.1.25",
-    "@optimizt": "npm:@343dev/optimizt@^11.0.0",
+    // "@optimizt": "npm:@343dev/optimizt@^11.0.0",
 
     "@opentelemetry/api": "npm:@opentelemetry/api@^1.8.0",
     "unique-names-generator": "npm:unique-names-generator@^4.0.0",

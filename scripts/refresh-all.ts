@@ -41,22 +41,25 @@ const scrapeImagesStatus = await scrapeImagesProcess.status;
 if (!scrapeImagesStatus.success) {
   Deno.exit(1);
 }
+try {
+  console.info("");
+  console.info(chalk.blue("--- Optimizing images ---"));
+  const optimizeImagesCommand = new Deno.Command("optimizt", {
+    args: ["--webp", "../static/devices"],
+    cwd: denoCwd,
+  });
 
-console.info("");
-console.info(chalk.blue("--- Optimizing images ---"));
-const optimizeImagesCommand = new Deno.Command("optimizt", {
-  args: ["--webp", "../static/devices"],
-  cwd: denoCwd,
-});
+  const optimizeImagesProcess = optimizeImagesCommand.spawn();
+  const optimizeImagesStatus = await optimizeImagesProcess.status;
+  if (!optimizeImagesStatus.success) {
+    Deno.exit(1);
+  }
 
-const optimizeImagesProcess = optimizeImagesCommand.spawn();
-const optimizeImagesStatus = await optimizeImagesProcess.status;
-if (!optimizeImagesStatus.success) {
-  Deno.exit(1);
+  console.info(chalk.green("Optimized images"));
+} catch (error) {
+  console.error(chalk.red("Error optimizing images, is optimizt installed?"));
+  console.error(error);
 }
-
-console.info(chalk.green("Optimized images"));
-
 console.info("");
 const generateSitemapCommand = new Deno.Command(Deno.execPath(), {
   args: ["run", "--allow-all", "generate-sitemap.ts"],
