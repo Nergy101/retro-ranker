@@ -212,8 +212,10 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
 
   return (
     <div>
-      <h2>Devices per Year</h2>
-      <p>Note: Current year data may be incomplete</p>
+      <h2>Amount of Devices released per year</h2>
+      <p class="secondary" style={{ marginTop: "1rem" }}>
+        <strong>Note:</strong> Current year data may be incomplete
+      </p>
       <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
         <div
           style={{

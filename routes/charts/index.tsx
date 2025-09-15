@@ -3,8 +3,12 @@ import { DeviceService } from "../../data/frontend/services/devices/device.servi
 
 import { CustomFreshState } from "../../interfaces/state.ts";
 import { DevicesPerBrandBarChart } from "../../islands/charts/devices-per-brand-bar-chart.tsx";
-import { DevicesPerRatingBarChart } from "../../islands/charts/devices-per-ranking-bar-chart.tsx";
 import { DevicesPerReleaseYearLineChart } from "../../islands/charts/devices-per-release-year-line-chart.tsx";
+import { PerformanceVsPriceScatterPlot } from "../../islands/charts/performance-vs-price-scatter.tsx";
+import { PriceRangeDistribution } from "../../islands/charts/price-range-distribution.tsx";
+import { PriceVsReleaseYear } from "../../islands/charts/price-vs-release-year.tsx";
+import { OperatingSystemDistribution } from "../../islands/charts/os-distribution.tsx";
+import { YearOverYearImprovement } from "../../islands/charts/year-over-year-improvement.tsx";
 import { State } from "../../utils.ts";
 
 export const handler = {
@@ -54,7 +58,31 @@ export default async function ChartsIndex(ctx: Context<State>) {
       </div>
       <hr />
       <div class="chart-wrapper">
-        <DevicesPerRatingBarChart
+        <PerformanceVsPriceScatterPlot
+          devices={devices}
+        />
+      </div>
+      <hr />
+      <div class="chart-wrapper">
+        <PriceRangeDistribution
+          devices={devices}
+        />
+      </div>
+      <hr />
+      <div class="chart-wrapper">
+        <PriceVsReleaseYear
+          devices={devices}
+        />
+      </div>
+      <hr />
+      <div class="chart-wrapper">
+        <OperatingSystemDistribution
+          devices={devices}
+        />
+      </div>
+      <hr />
+      <div class="chart-wrapper">
+        <YearOverYearImprovement
           devices={devices}
         />
       </div>
