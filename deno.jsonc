@@ -1,4 +1,5 @@
 {
+  "lock": true,
   "nodeModulesDir": "auto",
   "tasks": {
     "check": "deno fmt --check . && deno lint . && deno check",
@@ -36,8 +37,8 @@
     "**/sitemap.xml"
   ],
   "imports": {
-    "fresh": "jsr:@fresh/core@^2.0.0-beta.4",
-    "@fresh/plugin-vite": "jsr:@fresh/plugin-vite@^0.9.13",
+    "fresh": "jsr:@fresh/core@^2.1.0",
+    "@fresh/plugin-vite": "jsr:@fresh/plugin-vite@^1.0.3",
     "vite": "npm:vite@^7.1.3",
 
     "preact": "npm:preact",

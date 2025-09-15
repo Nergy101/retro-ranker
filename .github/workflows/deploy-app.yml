@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   build-and-push:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
     steps:
       - uses: actions/checkout@v5
