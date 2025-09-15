@@ -32,7 +32,8 @@
     "**/deno.jsonc",
     "**/_fresh/*",
     "**/data/source/files/*",
-    "**/data/source/results/*"
+    "**/data/source/results/*",
+    "**/sitemap.xml"
   ],
   "imports": {
     "fresh": "jsr:@fresh/core@^2.0.0-beta.4",
