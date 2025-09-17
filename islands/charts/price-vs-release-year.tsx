@@ -7,7 +7,7 @@ interface LineChartProps {
 }
 
 export function PriceVsReleaseYear({ devices }: LineChartProps) {
-  const [minYear, setMinYear] = useState(2017);
+  const [minYear, setMinYear] = useState(2020);
   const [maxYear, setMaxYear] = useState(new Date().getFullYear());
 
   // Get all available years (2017 and above)
@@ -110,9 +110,6 @@ export function PriceVsReleaseYear({ devices }: LineChartProps) {
               return [
                 `Average: $${value.toFixed(0)}`,
                 `Median: $${yearData?.median.toFixed(0) || "N/A"}`,
-                `Range: $${yearData?.min.toFixed(0) || "N/A"} - $${
-                  yearData?.max.toFixed(0) || "N/A"
-                }`,
                 `Devices: ${yearData?.count || 0}`,
               ];
             } else if (datasetLabel === "Trend Line") {
@@ -199,7 +196,7 @@ export function PriceVsReleaseYear({ devices }: LineChartProps) {
             }}
           >
             <div>
-              <strong>Average Price Change:</strong> {lineChartData.length > 1
+              <strong>Average Price increase:</strong> {lineChartData.length > 1
                 ? `$${
                   ((lineChartData[lineChartData.length - 1].average -
                     lineChartData[0].average) / (lineChartData.length - 1))

@@ -52,7 +52,13 @@ export default async function ChartsIndex(ctx: Context<State>) {
       </div>
       <hr />
       <div class="chart-wrapper">
-        <DevicesPerBrandBarChart
+        <OperatingSystemDistribution
+          devices={devices}
+        />
+      </div>
+      <hr />
+      <div class="chart-wrapper">
+        <PriceVsReleaseYear
           devices={devices}
         />
       </div>
@@ -70,13 +76,7 @@ export default async function ChartsIndex(ctx: Context<State>) {
       </div>
       <hr />
       <div class="chart-wrapper">
-        <PriceVsReleaseYear
-          devices={devices}
-        />
-      </div>
-      <hr />
-      <div class="chart-wrapper">
-        <OperatingSystemDistribution
+        <DevicesPerBrandBarChart
           devices={devices}
         />
       </div>
