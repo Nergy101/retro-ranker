@@ -19,7 +19,6 @@ import {
   PiRanking,
   PiScroll,
   PiSignIn,
-  PiUserPlus,
   PiX,
 } from "@preact-icons/pi";
 import { useEffect, useRef, useState } from "preact/hooks";
@@ -322,6 +321,42 @@ export function MobileNav({
             </span>
           </button>
         </div>
+
+        {/* Search input in the middle */}
+        <div
+          class="mobile-search-container"
+          style={{
+            flex: 1,
+            marginLeft: "0.5rem",
+            marginRight: "0.5rem",
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <input
+            ref={searchInputRef}
+            type="search"
+            name="search"
+            aria-label="Search devices"
+            value={query}
+            onInput={(e) => queryChanged(e.currentTarget.value)}
+            onFocus={() => setIsSearchOpen(true)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") handleSubmit();
+            }}
+            style={{
+              width: "100%",
+              borderRadius: "0.375rem",
+              border: "1px solid var(--pico-muted-border-color)",
+              backgroundColor: "var(--pico-background-color)",
+              color: "var(--pico-color)",
+              fontSize: "0.9rem",
+              padding: "0",
+              margin: "0",
+            }}
+          />
+        </div>
+
         <div class="mobile-actions">
           <ThemeSwitcher
             showTooltip={true}
@@ -329,33 +364,6 @@ export function MobileNav({
             showNames={false}
             compact={true}
           />
-          <a
-            href="#"
-            aria-label="Search"
-            class="icon-button"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "var(--pico-contrast)",
-            }}
-            onClick={(e) => {
-              e.preventDefault();
-              setIsSearchOpen(true);
-            }}
-            data-tooltip="Search"
-            data-placement="bottom"
-            role="button"
-          >
-            <span
-              style={{
-                color: "var(--pico-contrast)",
-                fontSize: "1.2rem",
-              }}
-            >
-              <PiMagnifyingGlass />
-            </span>
-          </a>
           {user
             ? (
               <a
@@ -370,15 +378,6 @@ export function MobileNav({
             )
             : (
               <>
-                <a
-                  href="/auth/sign-up"
-                  aria-label="Sign Up"
-                  class="icon-button"
-                  data-tooltip="Sign Up"
-                  data-placement="bottom"
-                >
-                  <PiUserPlus />
-                </a>
                 <a
                   href="/auth/sign-in"
                   aria-label="Log In"
@@ -448,14 +447,6 @@ export function MobileNav({
             )
             : (
               <>
-                <a
-                  href="/auth/sign-up"
-                  class="signin-link"
-                  onClick={() => setIsDrawerOpen(false)}
-                >
-                  <PiUserPlus />
-                  <span>Sign Up</span>
-                </a>
                 <a
                   href="/auth/sign-in"
                   class="signin-link"

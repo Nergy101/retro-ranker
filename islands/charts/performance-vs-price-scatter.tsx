@@ -245,7 +245,7 @@ export function PerformanceVsPriceScatterPlot({ devices }: ScatterPlotProps) {
         },
         callbacks: {
           title: (context: any) => {
-            return context[0].raw.device;
+            return `${context[0].raw.device} - Click to view device page`;
           },
           label: (context: any) => {
             const data = context.raw;

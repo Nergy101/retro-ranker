@@ -112,106 +112,32 @@ export function SignIn(
             </article>
           )
           : (
-            <div class="auth-signin-btn-row">
-              <a
-                href="/api/auth/discord"
-                role="button"
-                class="auth-signin-btn auth-signin-btn--discord"
-                aria-label="Log in with Discord"
-                data-tooltip="Log in with Discord"
-                data-placement="left"
-              >
-                <PiDiscordLogo size={32} />
-              </a>
-              <a
-                href="/api/auth/google"
-                role="button"
-                class="auth-signin-btn auth-signin-btn--google"
-                aria-label="Log in with Google"
-                data-tooltip="Log in with Google"
-                data-placement="right"
-              >
-                <PiGoogleLogo size={32} />
-              </a>
+            <div>
+              <h2 style={{ textAlign: "center" }}>Continue with</h2>
+              <div class="auth-signin-btn-row">
+                <a
+                  href="/api/auth/discord"
+                  role="button"
+                  class="auth-signin-btn auth-signin-btn--discord"
+                  aria-label="Continue with Discord"
+                  data-tooltip="Continue with Discord"
+                  data-placement="left"
+                >
+                  <PiDiscordLogo size={32} />
+                </a>
+                <a
+                  href="/api/auth/google"
+                  role="button"
+                  class="auth-signin-btn auth-signin-btn--google"
+                  aria-label="Continue with Google"
+                  data-tooltip="Continue with Google"
+                  data-placement="right"
+                >
+                  <PiGoogleLogo size={32} />
+                </a>
+              </div>
             </div>
           )}
-      </div>
-      <form
-        method="POST"
-        action="/api/auth/sign-in"
-      >
-        <input type="hidden" name="csrf_token" value={csrfToken} />
-        <div>
-          <label
-            for="nickname"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "0.5rem",
-            }}
-          >
-            <PiUser /> Nickname
-          </label>
-          <input
-            id="nickname"
-            name="nickname"
-            type="text"
-            required
-            disabled={pleaseWait}
-          />
-        </div>
-
-        <div>
-          <label
-            for="password"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "0.5rem",
-            }}
-          >
-            <PiPassword /> Password
-          </label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            required
-            disabled={pleaseWait}
-          />
-        </div>
-
-        <button
-          type="submit"
-          class="primary"
-          style={{
-            margin: 0,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "0.5rem",
-          }}
-          disabled={pleaseWait}
-          data-tooltip="Log In"
-        >
-          <PiSignIn /> {getSignInText()}
-        </button>
-      </form>
-      {error && (
-        <div class="auth-form-error" role="alert">
-          Invalid credentials
-        </div>
-      )}
-      <div class="auth-form-footer">
-        {!pleaseWait && (
-          <a
-            href="/auth/sign-up"
-            role="button"
-            class="outline"
-          >
-            No account? <br /> Sign up now
-          </a>
-        )}
       </div>
     </article>
   );

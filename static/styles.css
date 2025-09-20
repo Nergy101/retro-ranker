@@ -271,7 +271,7 @@ body.paused-animation::before {
   );
   color: #fff;
   border-radius: 1.5rem;
-  padding: 3rem 1.5rem 2.5rem 1.5rem;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
   margin: 0 auto 1rem auto;
   max-width: 900px;
   box-shadow: 0 8px 32px 0 rgba(40, 60, 120, 0.18);
@@ -319,7 +319,7 @@ body.paused-animation::before {
   box-shadow: 0 2px 12px 0 rgba(88, 101, 242, 0.18);
   text-decoration: none;
   transition: background 0.2s, box-shadow 0.2s;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   display: inline-block;
 
   &:hover {
@@ -340,11 +340,11 @@ body.paused-animation::before {
 
 .hero-image {
   position: absolute;
-  bottom: -8em;
+  bottom: -4em;
   right: 3em;
   z-index: 0;
-  max-width: 35%;
-  max-height: 90%;
+  max-width: 30%;
+  max-height: 70%;
   height: auto;
   pointer-events: none;
   object-fit: contain;
@@ -2918,6 +2918,11 @@ table td {
         @media (max-width: 425px) {
           grid-template-columns: repeat(2, 1fr);
         }
+
+        > * {
+          width: 100%;
+          height: 100%;
+        }
       }
     }
   }
@@ -3664,6 +3669,8 @@ textarea:focus:valid {
 
 .device-card-rating-row {
   margin-bottom: 0.5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -4024,4 +4031,50 @@ textarea:focus:valid {
 .create-btn:hover {
   background: var(--pico-primary);
   color: var(--pico-color-inverse);
+}
+
+/* OS Distribution Chart Responsive Styles */
+.os-distribution-container {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.chart-section {
+  flex: 1;
+  min-width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chart-section canvas {
+  margin: 0 auto;
+}
+
+.stats-section {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .os-distribution-container {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .chart-section {
+    min-width: unset;
+    width: 100%;
+  }
+
+  .stats-section {
+    min-width: unset;
+    width: 100%;
+  }
 }

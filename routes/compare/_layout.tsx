@@ -4,7 +4,7 @@ export default function Layout(props: PageProps) {
   const { Component } = props;
   // do something with state here
   return (
-    <div class="container-fluid content">
+    <div class="container content">
       <Component />
     </div>
   );

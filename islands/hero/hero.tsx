@@ -148,7 +148,7 @@ export function Hero() {
       <section class="hero-section">
         <h1
           style={{
-            marginBottom: "0.5rem",
+            marginBottom: "0.25rem",
             letterSpacing: "-1px",
             textAlign: "center",
             color: "#F0F1F3",
@@ -160,7 +160,7 @@ export function Hero() {
           <span
             style={{
               color: "var(--pico-primary-background)",
-              fontSize: "2.8rem",
+              fontSize: "2.2rem",
               fontWeight: 800,
               textShadow: "0 0 1rem #23272a",
             }}
@@ -170,17 +170,16 @@ export function Hero() {
         </h1>
         <p
           style={{
-            fontSize: "1.35rem",
-            marginBottom: "1.5rem",
+            fontSize: "1.1rem",
+            marginBottom: "1rem",
             textAlign: "center",
             maxWidth: "600px",
             color: "#e0e6f0",
             textShadow: "0 0 1rem #23272a",
           }}
         >
-          Join a vibrant community of retro gaming fans. Discover, rank, and
-          discuss 400+ handhelds together. <br />{" "}
-          Your next favorite device is only a click away!
+          Discover, rank, and discuss 400+ devices. Your next favorite is only a
+          click away!
         </p>
         <a
           href="/auth/sign-in"

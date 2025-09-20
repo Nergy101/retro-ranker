@@ -103,6 +103,7 @@ export function OperatingSystemDistribution({ devices }: PieChartProps) {
             return [
               `Devices: ${osData.count}`,
               `Percentage: ${osData.percentage.toFixed(1)}%`,
+              "Click to view devices with this operating system",
             ];
           },
         },
@@ -133,9 +134,9 @@ export function OperatingSystemDistribution({ devices }: PieChartProps) {
         <strong>Total Devices:</strong> {devices.length}
       </div>
 
-      <div style={{ display: "flex", gap: "2rem", alignItems: "flex-start" }}>
-        <div style={{ flex: "1", minWidth: "400px" }}>
-          <div style={{ height: "500px", width: "100%" }}>
+      <div class="os-distribution-container">
+        <div class="chart-section">
+          <div style={{ height: "350px", width: "100%" }}>
             <FreshChart
               type="pie"
               data={{
@@ -152,7 +153,7 @@ export function OperatingSystemDistribution({ devices }: PieChartProps) {
           </div>
         </div>
 
-        <div style={{ flex: "1", minWidth: "300px" }}>
+        <div class="stats-section">
           <h3>📊 Top 3 OS Statistics</h3>
           <div
             style={{ display: "flex", flexDirection: "column", gap: "1rem" }}

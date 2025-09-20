@@ -20,6 +20,8 @@ import {
   PiUserCheck,
 } from "@preact-icons/pi";
 import { Context, page } from "fresh";
+import { OperatingSystemDistribution } from "../islands/charts/os-distribution.tsx";
+import { DevicesPerReleaseYearLineChart } from "../islands/charts/devices-per-release-year-line-chart.tsx";
 
 export const handler = {
   async GET(ctx: Context<State>) {
@@ -108,7 +110,10 @@ export const handler = {
       userFavoritedMap[r.device] = true;
     }
 
+    const devices = await deviceService.getAllDevices();
+
     ctx.state.data = {
+      devices,
       newArrivals,
       personalPicks,
       highlyRated,
@@ -149,7 +154,7 @@ export default function Home(
 ) {
   const state = ctx.state;
   const data = state.data;
-
+  const devices = data.devices as Device[];
   const newArrivals = data.newArrivals as Device[];
   const personalPicks = data.personalPicks as Device[];
   const highlyRated = data.highlyRated as Device[];
@@ -337,7 +342,37 @@ export default function Home(
           </section>
 
           <hr />
-
+          <section class="site-charts-showcase">
+            <article class="site-charts-showcase-content">
+              <h2
+                style={{
+                  textAlign: "center",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "0.5rem",
+                }}
+              >
+                <PiChartLine /> Charts & Analytics
+              </h2>
+              <p>
+                This is a showcase of some of the charts about the current state
+                of devices. <br /> <a href="/charts">View all charts here.</a>
+              </p>
+              <hr />
+              <div class="chart-wrapper" style={{ marginBottom: "1rem" }}>
+                <DevicesPerReleaseYearLineChart
+                  devices={devices}
+                />
+              </div>
+              <div class="chart-wrapper" style={{ marginBottom: "1rem" }}>
+                <OperatingSystemDistribution
+                  devices={devices}
+                />
+              </div>
+            </article>
+          </section>
+          <hr />
           <section class="site-introduction">
             <article class="site-introduction-content">
               <div class="site-introduction-text">
