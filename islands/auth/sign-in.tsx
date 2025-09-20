@@ -1,14 +1,8 @@
-import {
-  PiDiscordLogo,
-  PiGoogleLogo,
-  PiPassword,
-  PiSignIn,
-  PiUser,
-} from "@preact-icons/pi";
+import { PiDiscordLogo, PiGoogleLogo } from "@preact-icons/pi";
 import { useEffect } from "preact/hooks";
 
 export function SignIn(
-  { error, pleaseWait, csrfToken }: {
+  { pleaseWait }: {
     error: string | null;
     pleaseWait: boolean;
     csrfToken: string;
@@ -35,24 +29,6 @@ export function SignIn(
     const interval = setInterval(checkAuth, 1000);
     return () => clearInterval(interval);
   });
-
-  const getSignInText = () => {
-    const texts = [
-      "Press Start",
-      "Insert Cartridge",
-      "Boot Up",
-      "Load Save",
-      "Continue Game",
-      "Join Party",
-      "Enter Dungeon",
-      "Link Up",
-      "Power On",
-      "Select Player",
-      "Unlock Console",
-      "Konami Code",
-    ];
-    return texts[Math.floor(Math.random() * texts.length)];
-  };
 
   const getLoggingInText = () => {
     const texts = [
