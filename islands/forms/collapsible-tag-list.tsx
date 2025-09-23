@@ -1,4 +1,4 @@
-import { PiPlusBold, PiTag, PiXBold } from "@preact-icons/pi";
+import { PiInfo, PiPlusBold, PiTag, PiXBold } from "@preact-icons/pi";
 import { useEffect, useState } from "preact/hooks";
 import {
   TAG_FRIENDLY_NAMES,
@@ -13,13 +13,8 @@ interface CollapsibleTagListProps {
 }
 
 export function CollapsibleTagList(
-  { allTags, selectedTags, baseUrl, translations = {} }:
-    CollapsibleTagListProps,
+  { allTags, selectedTags, baseUrl }: CollapsibleTagListProps,
 ) {
-  const _getTranslation = (key: string, fallback: string) => {
-    return translations[key] || fallback;
-  };
-
   const getFriendlyTagName = (type: string) => {
     return TAG_FRIENDLY_NAMES[type as keyof typeof TAG_FRIENDLY_NAMES] ?? type;
   };
@@ -92,6 +87,39 @@ export function CollapsibleTagList(
     return acc;
   }, {} as Record<string, TagModel[]>);
 
+  const OsTagsToMoveToTop = [
+    "linux",
+    "android",
+    "windows-11",
+    "windows-10",
+    "arm-windows-1011",
+    "windows",
+    "steam-os",
+    "batocera",
+    "linux-bazzite",
+    "linux-manjaro",
+    "nintendo",
+  ];
+
+  const BrandTagsToMoveToTop = [
+    "anbernic",
+    "retroid-moorechip",
+    "ayaneo",
+    "ayn-technologies",
+    "valve",
+    "asus",
+    "lenovo",
+    "msi",
+    "nintendo",
+    "sony",
+    "miyoo-bittboy",
+    "trimui",
+    "game-kiddy",
+    "powkiddy",
+    "gpd",
+    "onexplayer",
+  ];
+
   // First sort the tag types according to the predefined order
   const sortedGroupedTags = Object.fromEntries(
     Object.entries(groupedTags).sort(([a], [b]) => {
@@ -119,6 +147,58 @@ export function CollapsibleTagList(
       if (type === "releaseDate") {
         // sort by release year, newest to oldest
         tags = tags.sort((a, b) => b.name.localeCompare(a.name));
+        return [type, tags];
+      }
+
+      if (type === "os") {
+        // place the specified tags at the start of the array, ordered by index in OsTagsToMoveToTop
+        const osTagsToMoveToStart = tags.filter((t) =>
+          OsTagsToMoveToTop.includes(
+            t.slug.toLowerCase() || t.name.toLowerCase(),
+          )
+        ).sort((a, b) => {
+          const indexA = OsTagsToMoveToTop.indexOf(
+            a.slug.toLowerCase() || a.name.toLowerCase(),
+          );
+          const indexB = OsTagsToMoveToTop.indexOf(
+            b.slug.toLowerCase() || b.name.toLowerCase(),
+          );
+          return indexA - indexB;
+        }) as TagModel[];
+
+        const remainingTags = tags.filter((t) =>
+          !OsTagsToMoveToTop.includes(
+            t.slug.toLowerCase() || t.name.toLowerCase(),
+          )
+        ).sort((a, b) => a.name.localeCompare(b.name)) as TagModel[];
+
+        tags = osTagsToMoveToStart.concat(remainingTags);
+        return [type, tags];
+      }
+
+      if (type === "brand") {
+        // place the specified tags at the start of the array, ordered by index in BrandTagsToMoveToTop
+        const brandTagsToMoveToStart = tags.filter((t) =>
+          BrandTagsToMoveToTop.includes(
+            t.slug.toLowerCase() || t.name.toLowerCase(),
+          )
+        ).sort((a, b) => {
+          const indexA = BrandTagsToMoveToTop.indexOf(
+            a.slug.toLowerCase() || a.name.toLowerCase(),
+          );
+          const indexB = BrandTagsToMoveToTop.indexOf(
+            b.slug.toLowerCase() || b.name.toLowerCase(),
+          );
+          return indexA - indexB;
+        }) as TagModel[];
+
+        const remainingTags = tags.filter((t) =>
+          !BrandTagsToMoveToTop.includes(
+            t.slug.toLowerCase() || t.name.toLowerCase(),
+          )
+        ).sort((a, b) => a.name.localeCompare(b.name)) as TagModel[];
+
+        tags = brandTagsToMoveToStart.concat(remainingTags);
         return [type, tags];
       }
 
@@ -167,6 +247,11 @@ export function CollapsibleTagList(
             <span class="tag-count">({tags.length})</span>
           </summary>
           <div class="tag-options">
+            {(type === "os" || type === "brand") && (
+              <>
+                <PiInfo />&nbsp; Most used tags are at the top
+              </>
+            )}
             {tags.map((tag) => {
               const selected = isTagSelected(tag);
               const friendlyName = TAG_FRIENDLY_NAMES[tag.type];
