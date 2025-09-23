@@ -14,7 +14,7 @@ import { State } from "../../utils.ts";
 export const handler = {
   async GET(ctx: Context<State>) {
     (ctx.state as CustomFreshState).seo = {
-      title: "Retro Ranker - Charts",
+      title: "Gaming Handheld Charts & Analytics | Retro Ranker",
       description:
         "Explore interactive charts and data visualizations of retro gaming handhelds. View statistics on device brands, performance ratings, release trends, and market analysis of portable emulation systems.",
       keywords:

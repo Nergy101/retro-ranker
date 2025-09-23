@@ -148,27 +148,25 @@ export default function About(ctx: Context<State>) {
 
         <section style={{ marginBottom: "2rem" }}>
           <h2 style={{ color: "var(--pico-primary)", marginBottom: "1rem" }}>
-            Our Values
+            Like what we do?
           </h2>
           <ul style={{ lineHeight: "1.6" }}>
             <li>
-              <strong>Accuracy:</strong>{" "}
-              We strive to provide the most accurate and up-to-date information
-              available.
+              <a href="https://ko-fi.com/nergy">
+                <strong>Consider a donation at Ko-Fi</strong>
+              </a>
             </li>
             <li>
-              <strong>Transparency:</strong>{" "}
-              Our ranking methodology is open and clearly explained.
+              <strong>
+                <a href="https://discord.gg/V6qwXmtCqa">Join the Discord</a>
+              </strong>
             </li>
             <li>
               <strong>Community:</strong>{" "}
-              We value input from the retro gaming community and incorporate
-              user feedback.
-            </li>
-            <li>
-              <strong>Accessibility:</strong>{" "}
-              Our platform is designed to be accessible to users of all
-              technical levels.
+              We value input from the (retro) gaming community and incorporate
+              user feedback. You can join the discord above, leave a comment on
+              the Ko-Fi page, or log-in and leave feedback from your profile
+              page.
             </li>
           </ul>
         </section>

@@ -2,7 +2,6 @@ import { PiGitDiff } from "@preact-icons/pi";
 import { useEffect, useRef, useState } from "preact/hooks";
 import { DeviceCardMedium } from "../../components/cards/device-card-medium.tsx";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
-import { generateDeviceColors } from "../../data/frontend/services/utils/chart-colors.utils.ts";
 
 // Simple search function for devices
 const searchDevices = (query: string, devices: Device[]): Device[] => {
@@ -10,8 +9,9 @@ const searchDevices = (query: string, devices: Device[]): Device[] => {
   const lowerQuery = query.toLowerCase();
   return devices.filter((device) =>
     device.name.raw.toLowerCase().includes(lowerQuery) ||
-    device.brand.raw.toLowerCase().includes(lowerQuery)
-  ).slice(0, 5);
+    device.brand.raw.toLowerCase().includes(lowerQuery) ||
+    device.name.sanitized.toLowerCase().includes(lowerQuery)
+  ).slice(0, 10);
 };
 
 export function DeviceComparisonForm({
@@ -27,10 +27,16 @@ export function DeviceComparisonForm({
   const originalDeviceB = devicesToCompare?.[1];
 
   const allDeviceRawNames = allDevices.map((device) => device.name.raw);
+  const allDeviceSanitizedNames = allDevices.map((device) =>
+    device.name.sanitized
+  );
 
   const deviceNameIsInvalid = (deviceName: string) =>
     !allDeviceRawNames.some((name) =>
-      name.toLowerCase() === deviceName.toLowerCase()
+      name.toLowerCase() === deviceName.toLowerCase() ||
+      allDeviceSanitizedNames.some((name) =>
+        name.toLowerCase() === deviceName.toLowerCase()
+      )
     );
 
   const [isLoading1, setIsLoading1] = useState(false);
@@ -96,7 +102,8 @@ export function DeviceComparisonForm({
 
     const device =
       allDevices.find((device) =>
-        device.name.raw.toLowerCase() === value.toLowerCase()
+        device.name.raw.toLowerCase() === value.toLowerCase() ||
+        device.name.sanitized.toLowerCase() === value.toLowerCase()
       ) ?? null;
 
     setSelectedDeviceA(device);
@@ -109,7 +116,8 @@ export function DeviceComparisonForm({
 
     const device =
       allDevices.find((device) =>
-        device.name.raw.toLowerCase() === value.toLowerCase()
+        device.name.raw.toLowerCase() === value.toLowerCase() ||
+        device.name.sanitized.toLowerCase() === value.toLowerCase()
       ) ?? null;
 
     setSelectedDeviceB(device);
@@ -120,7 +128,8 @@ export function DeviceComparisonForm({
     setSuggestionsA([]);
 
     const device = allDevices.find((device) =>
-      device.name.raw.toLowerCase() === value.toLowerCase()
+      device.name.raw.toLowerCase() === value.toLowerCase() ||
+      device.name.sanitized.toLowerCase() === value.toLowerCase()
     );
 
     if (device) {
@@ -134,7 +143,8 @@ export function DeviceComparisonForm({
     setSuggestionsB([]);
 
     const device = allDevices.find((device) =>
-      device.name.raw.toLowerCase() === value.toLowerCase()
+      device.name.raw.toLowerCase() === value.toLowerCase() ||
+      device.name.sanitized.toLowerCase() === value.toLowerCase()
     );
 
     if (device) {
@@ -283,25 +293,49 @@ export function DeviceComparisonForm({
         </div>
 
         {/* Similar Devices */}
+        {originalDeviceB && (
+          <details>
+            <summary class="flex">
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <PiGitDiff />
+                &nbsp;Compare {originalDeviceA?.name.raw} against...
+              </div>
+            </summary>
+            <div class="similar-devices-compare-grid">
+              {(() => {
+                return similarDevices.slice(8, 16).map((device) => {
+                  return (
+                    <div
+                      key={device.name.sanitized}
+                      style={{
+                        cursor: "pointer",
+                        borderRadius: "0.5rem",
+                      }}
+                      onClick={() => setQueryBSuggestion(device.name.sanitized)}
+                    >
+                      <DeviceCardMedium
+                        device={device}
+                        isActive={isActive(device.name.raw)}
+                        showLikeButton={false}
+                      />
+                    </div>
+                  );
+                });
+              })()}
+            </div>
+          </details>
+        )}
         {originalDeviceA && (
           <details>
             <summary class="flex">
               <div style={{ display: "flex", alignItems: "center" }}>
                 <PiGitDiff />
-                &nbsp;Similar devices to {originalDeviceA.name.raw}
+                &nbsp;Compare {originalDeviceB.name.raw} against...
               </div>
             </summary>
             <div class="similar-devices-compare-grid">
               {(() => {
-                // Generate colors for similar devices (starting from index 1 since index 0 would be the main device)
-                const deviceColors = generateDeviceColors([
-                  originalDeviceA,
-                  ...similarDevices.slice(0, 8),
-                ]);
-
                 return similarDevices.slice(0, 8).map((device) => {
-                  const borderColor = deviceColors[device.name.sanitized];
-
                   return (
                     <div
                       key={device.name.sanitized}
@@ -315,51 +349,6 @@ export function DeviceComparisonForm({
                         device={device}
                         isActive={isActive(device.name.raw)}
                         showLikeButton={false}
-                        borderColor={borderColor}
-                      />
-                    </div>
-                  );
-                });
-              })()}
-            </div>
-          </details>
-        )}
-
-        {originalDeviceB && (
-          <details>
-            <summary class="flex">
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <PiGitDiff />
-                &nbsp;Similar devices to {originalDeviceB?.name.raw}
-              </div>
-            </summary>
-            <div class="similar-devices-compare-grid">
-              {(() => {
-                // Generate colors for similar devices (starting from index 1 since index 0 would be the main device)
-                const deviceColors = generateDeviceColors([
-                  originalDeviceB,
-                  ...similarDevices.slice(8, 16),
-                ]);
-
-                return similarDevices.slice(8, 16).map((device) => {
-                  const borderColor = deviceColors[device.name.sanitized];
-
-                  return (
-                    <div
-                      key={device.name.sanitized}
-                      onClick={() => setQueryBSuggestion(device.name.sanitized)}
-                      style={{
-                        cursor: "pointer",
-                        backgroundColor: device.name.raw === queryB
-                          ? "var(--color-primary)"
-                          : "transparent",
-                      }}
-                    >
-                      <DeviceCardMedium
-                        device={device}
-                        isActive={isActive(device.name.raw)}
-                        showLikeButton={false}
-                        borderColor={borderColor}
                       />
                     </div>
                   );

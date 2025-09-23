@@ -42,9 +42,9 @@ export const handler = {
       ranking,
     };
 
-    let seoTitle = "Retro Ranker - Compare";
+    let seoTitle = "Compare Gaming Handhelds | Retro Ranker";
     let seoDescription =
-      "Compare retro handhelds side-by-side with detailed specs.";
+      "Compare gaming handhelds side-by-side with detailed specs.";
 
     if (devicesToCompare.length === 2) {
       const [device1, device2] = devicesToCompare;

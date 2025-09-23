@@ -26,9 +26,9 @@ import { DevicesPerReleaseYearLineChart } from "../islands/charts/devices-per-re
 export const handler = {
   async GET(ctx: Context<State>) {
     ctx.state.seo = {
-      title: "Retro Ranker - Home",
+      title: "Retro Gaming Handheld Database & Reviews | Retro Ranker",
       description:
-        "Retro Ranker - Home to browse and compare retro gaming handhelds",
+        "Home to browse and compare retro gaming handhelds. Reviews, specs, and more.",
       keywords:
         "retro gaming, handheld consoles, emulation devices, retro handhelds, gaming comparison, Anbernic, Miyoo, retro game emulation, portable gaming systems, retro gaming comparison",
     };
