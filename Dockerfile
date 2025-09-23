@@ -5,8 +5,19 @@ ENV DENO_DEPLOYMENT_ID=${GIT_REVISION}
 
 WORKDIR /app
 
+# Copy dependency files first for better layer caching
+COPY deno.json deno.lock ./
+
+# Cache dependencies - this layer will only rebuild if dependencies change
+RUN deno cache deno.json
+
+# Copy the rest of the application code
 COPY . .
+
+# Build the application
 RUN deno task build
+
+# Cache the server entry point
 RUN deno cache _fresh/server.js
 
 EXPOSE 8000

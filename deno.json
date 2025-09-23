@@ -1,0 +1,87 @@
+{
+  "lock": true,
+  "nodeModulesDir": "auto",
+  "tasks": {
+    "check": "deno fmt --check . && deno lint . && deno check",
+    "dev": "vite",
+    "build": "vite build",
+    "start": "deno serve -A _fresh/server.js",
+    "update": "deno run -A -r jsr:@fresh/update .",
+    "refresh-all": "cd scripts && deno run -A refresh-all.ts",
+    "sources": "cd scripts && deno run -A get-new-sources.ts",
+    "generate-devices": "cd scripts && deno run -A generate-devices.ts",
+    "patch-devices": "cd scripts && deno run -A patch-devices.ts",
+    "scrape": "cd scripts && deno run -A scrape-images.ts",
+    "sitemap": "cd scripts && deno run -A generate-sitemap.ts"
+  },
+  "lint": {
+    "rules": {
+      "tags": [
+        "fresh",
+        "recommended"
+      ],
+      "exclude": [
+        "require-await",
+        "jsx-boolean-value",
+        "no-explicit-any",
+        "no-unversioned-import"
+      ]
+    }
+  },
+  "exclude": [
+    "**/deno.lock",
+    "**/deno.json",
+    "**/_fresh/*",
+    "**/data/source/files/*",
+    "**/data/source/results/*",
+    "**/sitemap.xml"
+  ],
+  "imports": {
+    "fresh": "jsr:@fresh/core@^2.1.0",
+    "@fresh/plugin-vite": "jsr:@fresh/plugin-vite@^1.0.3",
+    "vite": "npm:vite@^7.1.3",
+    "preact": "npm:preact",
+    "@preact/signals": "npm:@preact/signals",
+    "preact-render-to-string": "npm:preact-render-to-string",
+    "pocketbase": "npm:pocketbase@^0.26.1",
+    "chart.js": "npm:chart.js@^4.4.0",
+    "@std/dotenv": "jsr:@std/dotenv@^0.225.5",
+    "@std/fs": "jsr:@std/fs@^0.225.5",
+    "@preact-icons/pi": "jsr:@preact-icons/pi@^1.0.12",
+    "@std/http": "jsr:@std/http@^1.0.20",
+    "@cap.js/server": "npm:@cap.js/server@^2.0.0",
+    "@cap.js/widget": "npm:@cap.js/widget@^0.1.25",
+    "@opentelemetry/api": "npm:@opentelemetry/api@^1.8.0",
+    "unique-names-generator": "npm:unique-names-generator@^4.0.0",
+    "$fresh_charts/": "https://deno.land/x/fresh_charts@0.3.1/"
+  },
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "dom.asynciterable",
+      "dom.iterable",
+      "deno.ns"
+    ],
+    "jsx": "precompile",
+    "jsxImportSource": "preact",
+    "jsxPrecompileSkipElements": [
+      "a",
+      "img",
+      "source",
+      "body",
+      "html",
+      "head",
+      "title",
+      "meta",
+      "script",
+      "link",
+      "style",
+      "base",
+      "noscript",
+      "template"
+    ],
+    "types": [
+      "vite/client"
+    ]
+  }
+}

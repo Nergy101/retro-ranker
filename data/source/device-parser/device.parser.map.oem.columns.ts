@@ -13,6 +13,7 @@ slugify.extend({
   "?": "-question-mark-",
   '"': "-double-quote-",
   " ": "-",
+  "+": "-plus-",
 });
 
 export function mapOEMsColumnToDevice(

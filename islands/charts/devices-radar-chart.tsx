@@ -18,7 +18,7 @@ export function DevicesRadarChart({
 }: RadarChartProps) {
   // Create an instance of the ratings service.
   const ratingsService = RatingsService.getInstance();
-  const [viewportWidth, setViewportWidth] = useState(globalThis.innerWidth);
+  const [viewportWidth, setViewportWidth] = useState(1920); // Default to desktop width
   const [chartSize, setChartSize] = useState({
     width: "350px",
     height: "350px",
@@ -29,6 +29,12 @@ export function DevicesRadarChart({
       setViewportWidth(globalThis.innerWidth);
       adjustChartSize();
     };
+
+    // Initialize viewport width
+    if (typeof globalThis !== "undefined" && globalThis.innerWidth) {
+      setViewportWidth(globalThis.innerWidth);
+      adjustChartSize();
+    }
 
     // Add event listener
     globalThis.addEventListener("resize", handleResize);

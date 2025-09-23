@@ -293,7 +293,7 @@ export function DeviceComparisonForm({
         </div>
 
         {/* Similar Devices */}
-        {originalDeviceB && (
+        {(originalDeviceA && originalDeviceB) && (
           <details>
             <summary class="flex">
               <div style={{ display: "flex", alignItems: "center" }}>
@@ -325,7 +325,7 @@ export function DeviceComparisonForm({
             </div>
           </details>
         )}
-        {originalDeviceA && (
+        {(originalDeviceA && originalDeviceB) && (
           <details>
             <summary class="flex">
               <div style={{ display: "flex", alignItems: "center" }}>

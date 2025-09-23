@@ -107,47 +107,6 @@ export default function BangForYourBuckPage(ctx: Context<State>) {
         </header>
 
         <section>
-          <h2>Interactive Performance vs Price Analysis</h2>
-          <p>
-            The scatter plot below shows every device in our database plotted by
-            its performance rating (vertical axis) against its average price
-            (horizontal axis). Each dot represents a device, with different
-            colors indicating different brands. This visualization helps you
-            identify:
-          </p>
-          <ul>
-            <li>
-              <strong>Value Champions:</strong>{" "}
-              Devices that sit high on the performance scale relative to their
-              price (upper-left area)
-            </li>
-            <li>
-              <strong>Premium Options:</strong>{" "}
-              High-performance devices that command premium prices (upper-right
-              area)
-            </li>
-            <li>
-              <strong>Budget Performers:</strong>{" "}
-              Affordable devices that punch above their weight (lower-left area)
-            </li>
-            <li>
-              <strong>Brand Positioning:</strong>{" "}
-              How different manufacturers position their devices in the market
-            </li>
-          </ul>
-          <p>
-            Use the interactive controls to filter by brand, minimum rating, and
-            price range. Click on any device dot to view its detailed page.
-          </p>
-        </section>
-
-        <section>
-          <div style="margin: 2rem 0;">
-            <PerformanceVsPriceScatterPlot devices={devices} />
-          </div>
-        </section>
-
-        <section>
           <h2>Value Champions by Price Bracket</h2>
           <p>
             Below are the top 5 value champions in each price bracket, ranked by
@@ -222,6 +181,47 @@ export default function BangForYourBuckPage(ctx: Context<State>) {
                 its versatility and long-term usefulness.
               </p>
             </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Interactive Performance vs Price Analysis</h2>
+          <p>
+            The scatter plot below shows every device in our database plotted by
+            its performance rating (vertical axis) against its average price
+            (horizontal axis). Each dot represents a device, with different
+            colors indicating different brands. This visualization helps you
+            identify:
+          </p>
+          <ul>
+            <li>
+              <strong>Value Champions:</strong>{" "}
+              Devices that sit high on the performance scale relative to their
+              price (upper-left area)
+            </li>
+            <li>
+              <strong>Premium Options:</strong>{" "}
+              High-performance devices that command premium prices (upper-right
+              area)
+            </li>
+            <li>
+              <strong>Budget Performers:</strong>{" "}
+              Affordable devices that punch above their weight (lower-left area)
+            </li>
+            <li>
+              <strong>Brand Positioning:</strong>{" "}
+              How different manufacturers position their devices in the market
+            </li>
+          </ul>
+          <p>
+            Use the interactive controls to filter by brand, minimum rating, and
+            price range. Click on any device dot to view its detailed page.
+          </p>
+        </section>
+
+        <section>
+          <div style="margin: 2rem 0;">
+            <PerformanceVsPriceScatterPlot devices={devices} />
           </div>
         </section>
 
