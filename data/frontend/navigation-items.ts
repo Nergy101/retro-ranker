@@ -5,6 +5,7 @@ export interface NavigationItem {
   icon?: string;
   isActive: (pathname: string) => boolean;
   priority?: number;
+  children?: NavigationItem[];
 }
 
 export const navigationItems: NavigationItem[] = [
@@ -17,14 +18,6 @@ export const navigationItems: NavigationItem[] = [
     priority: 0.9,
   },
   {
-    href: "/release-timeline",
-    label: "Releases",
-    i18nKey: "nav.releases",
-    icon: "PiCalendar",
-    isActive: (pathname) => pathname.startsWith("/release-timeline"),
-    priority: 0.8,
-  },
-  {
     href: "/compare",
     label: "Compare",
     i18nKey: "nav.compare",
@@ -32,14 +25,22 @@ export const navigationItems: NavigationItem[] = [
     isActive: (pathname) => pathname.startsWith("/compare"),
     priority: 0.9,
   },
-  // {
-  //   href: "/leaderboard",
-  //   label: "Leaderboard",
-  //   i18nKey: "nav.leaderboard",
-  //   icon: "PiRanking",
-  //   isActive: (pathname) => pathname.startsWith("/leaderboard"),
-  //   priority: 0.7,
-  // },
+  {
+    href: "/articles/bang-for-your-buck",
+    label: "Best Value",
+    i18nKey: "nav.bang-for-your-buck",
+    icon: "PiMoney",
+    isActive: (pathname) => pathname.startsWith("/articles/bang-for-your-buck"),
+    priority: 0.8,
+  },
+  {
+    href: "/release-timeline",
+    label: "Releases",
+    i18nKey: "nav.releases",
+    icon: "PiCalendar",
+    isActive: (pathname) => pathname.startsWith("/release-timeline"),
+    priority: 0.8,
+  },
   {
     href: "/charts",
     label: "Charts",
