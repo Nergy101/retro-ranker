@@ -445,6 +445,7 @@ export function MobileNav({
                     <button
                       class="drawer-link drawer-link-button"
                       onClick={() => toggleExpanded(item.href)}
+                      type="button"
                     >
                       <span class="drawer-link-icon">
                         ☰

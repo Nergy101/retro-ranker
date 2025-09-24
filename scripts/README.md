@@ -11,9 +11,12 @@ executed with `deno run -A` or through the tasks defined in `deno.json`.
 - `migrate-device-type.ts` – migrate existing devices to include deviceType
   field
 - `migrate-device-index.ts` – migrate existing devices to include index field
-- `analyze-duplicates.ts` – analyze database for potential duplicate devices (in `data/source/`)
-- `merge-duplicate-devices.ts` – merge duplicate devices while preserving user data (in `data/source/`)
+- `analyze-duplicates.ts` – analyze database for potential duplicate devices (in
+  `data/source/`)
+- `merge-duplicate-devices.ts` – merge duplicate devices while preserving user
+  data (in `data/source/`)
 
 ## Duplicate Management
 
-See [DUPLICATE_MANAGEMENT.md](../data/source/DUPLICATE_MANAGEMENT.md) for detailed information about managing duplicate devices in the database.
+See [DUPLICATE_MANAGEMENT.md](../data/source/DUPLICATE_MANAGEMENT.md) for
+detailed information about managing duplicate devices in the database.

@@ -1,10 +1,15 @@
 # Device Duplicate Management
 
-This document explains how to handle duplicate devices in the retro-ranker database.
+This document explains how to handle duplicate devices in the retro-ranker
+database.
 
 ## The Problem
 
-When device names change slightly (e.g., "RG35XX Pro" vs "RG-35XX Pro"), the sanitized versions become different ("rg35xx-pro" vs "rg-35xx-pro"), creating different device IDs. This results in duplicate entries for the same physical device, with user data (likes, favorites, comments, reviews) split across multiple records.
+When device names change slightly (e.g., "RG35XX Pro" vs "RG-35XX Pro"), the
+sanitized versions become different ("rg35xx-pro" vs "rg-35xx-pro"), creating
+different device IDs. This results in duplicate entries for the same physical
+device, with user data (likes, favorites, comments, reviews) split across
+multiple records.
 
 ## The Solution
 
@@ -12,7 +17,8 @@ We've created two scripts to detect and merge duplicate devices:
 
 ### 1. `analyze-duplicates.ts` - Analysis Only
 
-This script analyzes the database and identifies potential duplicate devices without making any changes.
+This script analyzes the database and identifies potential duplicate devices
+without making any changes.
 
 ```bash
 deno run --allow-net --allow-read --allow-env data/source/analyze-duplicates.ts
@@ -44,7 +50,8 @@ Anbernic - RG35XX Pro vs RG-35XX Pro
 
 ### 2. `merge-duplicate-devices.ts` - Merge Duplicates
 
-This script actually merges the duplicate devices while preserving all user data.
+This script actually merges the duplicate devices while preserving all user
+data.
 
 **Dry Run (Safe - No Changes):**
 
@@ -61,14 +68,18 @@ deno run --allow-net --allow-read --allow-env data/source/merge-duplicate-device
 **What it does:**
 
 - Identifies duplicate groups using the same logic as the analysis script
-- Selects the best device as the primary (highest rating, most recent, most complete data)
-- Updates all user data (likes, favorites, comments, reviews) to point to the primary device
+- Selects the best device as the primary (highest rating, most recent, most
+  complete data)
+- Updates all user data (likes, favorites, comments, reviews) to point to the
+  primary device
 - Deletes the duplicate devices
 - Provides detailed logging of all operations
 
 ## Integration with Refresh Process
 
-The duplicate analysis is automatically run as the final step in the `refresh-all.ts` script. This ensures that after each data refresh, you're aware of any new duplicates that may have been introduced.
+The duplicate analysis is automatically run as the final step in the
+`refresh-all.ts` script. This ensures that after each data refresh, you're aware
+of any new duplicates that may have been introduced.
 
 ## Duplicate Detection Logic
 
@@ -77,7 +88,8 @@ The scripts use several criteria to identify duplicates:
 1. **Same Brand**: Devices must have the same brand to be considered duplicates
 2. **Name Similarity**: Uses Levenshtein distance to calculate string similarity
 3. **Normalization**: Removes all non-alphanumeric characters for comparison
-4. **Pattern Matching**: Detects common patterns like "rg35xx-pro" vs "rg-35xx-pro"
+4. **Pattern Matching**: Detects common patterns like "rg35xx-pro" vs
+   "rg-35xx-pro"
 
 **Thresholds:**
 
@@ -106,13 +118,15 @@ All user data is preserved during the merge process:
 ## Safety Features
 
 - **Dry Run Mode**: Default mode shows what would be done without making changes
-- **Detailed Logging**: All operations are logged with clear success/error messages
+- **Detailed Logging**: All operations are logged with clear success/error
+  messages
 - **User Data Counts**: Shows exactly how much user data will be affected
 - **Confirmation**: Execute mode requires explicit `--execute` flag
 
 ## Best Practices
 
-1. **Always run analysis first**: Use `analyze-duplicates.ts` to see what duplicates exist
+1. **Always run analysis first**: Use `analyze-duplicates.ts` to see what
+   duplicates exist
 2. **Review the results**: Check the suggested merges before executing
 3. **Use dry run**: Always test with dry run mode first
 4. **Backup first**: Consider backing up your database before running merges
