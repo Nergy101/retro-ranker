@@ -22,9 +22,9 @@ RUN deno cache _fresh/server.js
 
 EXPOSE 8000
 
-CMD ["serve", "-A", "_fresh/server.js"]
+CMD ["deno", "task", "start"]
 
-# docker buildx build . -t retro-ranker
-# docker run -t -i -p 8000:8000 retro-ranker
+# docker buildx build . -f Dockerfile.prod -t retro-ranker:latest
+# docker run -t -i -p 8000:8000 retro-ranker:latest
 
-# docker build -t retro-ranker:latest . && docker tag retro-ranker:latest nergy101/retro-ranker:latest && docker push nergy101/retro-ranker:latest
+# docker buildx build . -f Dockerfile.prod -t retro-ranker:latest && docker tag retro-ranker:latest nergy101/retro-ranker:latest && docker push nergy101/retro-ranker:latest

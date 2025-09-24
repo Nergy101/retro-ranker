@@ -472,7 +472,7 @@ export function DeviceComparisonForm({
           const userDefinedComparisons: { deviceA: string; deviceB: string }[] =
             [
               { deviceA: "Miyoo Flip", deviceB: "RG-35XX SP" },
-              { deviceA: "RG-477M", deviceB: "RG-406H" },
+              { deviceA: "RG-477M", deviceB: "RG-476H" },
               { deviceA: "AYANEO Pocket Evo", deviceB: "Odin 2 Portal" },
             ];
 
