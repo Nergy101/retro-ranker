@@ -12,7 +12,10 @@
     "generate-devices": "cd scripts && deno run -A generate-devices.ts",
     "patch-devices": "cd scripts && deno run -A patch-devices.ts",
     "scrape": "cd scripts && deno run -A scrape-images.ts",
-    "sitemap": "cd scripts && deno run -A generate-sitemap.ts"
+    "sitemap": "cd scripts && deno run -A generate-sitemap.ts",
+    "docker:dev": "docker buildx build . -f Dockerfile.dev -t retro-ranker:dev && docker run -t -i -p 5173:5173 retro-ranker:dev",
+    "docker:prod": "docker buildx build . -f Dockerfile.prod -t retro-ranker:latest && docker run -t -i -p 8000:8000 retro-ranker:latest",
+    "docker:push": "docker buildx build . -f Dockerfile.prod -t retro-ranker:latest && docker tag retro-ranker:latest nergy101/retro-ranker:latest && docker push nergy101/retro-ranker:latest"
   },
   "lint": {
     "rules": {

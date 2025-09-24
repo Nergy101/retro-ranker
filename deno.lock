@@ -52,6 +52,7 @@
     "npm:esbuild-wasm@0.25.7": "0.25.7",
     "npm:esbuild@0.25.7": "0.25.7",
     "npm:esbuild@~0.25.5": "0.25.7",
+    "npm:pocketbase@*": "0.26.2",
     "npm:pocketbase@~0.26.2": "0.26.2",
     "npm:preact-render-to-string@6.6.1": "6.6.1_preact@10.27.2",
     "npm:preact-render-to-string@^6.5.11": "6.6.1_preact@10.27.2",
