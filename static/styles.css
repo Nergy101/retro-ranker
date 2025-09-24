@@ -2104,6 +2104,10 @@ body.paused-animation::before {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 0.5rem;
 
+  /* Ensure suggestions don't interfere with page scrolling */
+  /* Only capture pointer events on the suggestions themselves, not the background */
+  pointer-events: none;
+
   @media (max-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);
     max-height: 70vh;
@@ -2130,6 +2134,9 @@ body.paused-animation::before {
   list-style: none;
   background-color: var(--pico-card-background-color);
   width: fit-content;
+
+  /* Re-enable pointer events for individual items */
+  pointer-events: auto;
 }
 
 .compare-form-inputs {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "preact/hooks";
+import { useCallback, useEffect, useMemo, useState } from "preact/hooks";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { RatingsService } from "../../data/frontend/services/devices/ratings.service.ts";
 import { FreshChart } from "./fresh-chart.tsx";
@@ -24,16 +24,24 @@ export function DevicesRadarChart({
     height: "350px",
   });
 
+  const adjustChartSize = useCallback((): void => {
+    if (viewportWidth <= 425) {
+      setChartSize({ width: "250px", height: "250px" });
+    } else if (viewportWidth <= 768) {
+      setChartSize({ width: "350px", height: "350px" });
+    } else {
+      setChartSize({ width: "400px", height: "400px" });
+    }
+  }, [viewportWidth]);
+
   useEffect(() => {
     const handleResize = () => {
       setViewportWidth(globalThis.innerWidth);
-      adjustChartSize();
     };
 
     // Initialize viewport width
     if (typeof globalThis !== "undefined" && globalThis.innerWidth) {
       setViewportWidth(globalThis.innerWidth);
-      adjustChartSize();
     }
 
     // Add event listener
@@ -43,20 +51,14 @@ export function DevicesRadarChart({
     return () => {
       globalThis.removeEventListener("resize", handleResize);
     };
-  });
+  }, []);
 
-  const adjustChartSize = (): void => {
-    if (viewportWidth <= 425) {
-      setChartSize({ width: "250px", height: "250px" });
-    } else if (viewportWidth <= 768) {
-      setChartSize({ width: "350px", height: "350px" });
-    } else {
-      setChartSize({ width: "400px", height: "400px" });
-    }
-  };
+  useEffect(() => {
+    adjustChartSize();
+  }, [adjustChartSize]);
 
   // Define the axes for the radar chart.
-  const labels = [
+  const labels = useMemo(() => [
     "Performance",
     "Monitor",
     "Dimensions",
@@ -64,56 +66,60 @@ export function DevicesRadarChart({
     "Audio",
     "Controls",
     "Misc",
-  ];
+  ], []);
 
   // For each device, compute the scores and generate a distinct color.
-  const datasets = devices.map((device, index) => {
-    const performanceScore = ratingsService.calculatePerformanceScore(device);
-    const monitorScore = ratingsService.calculateMonitorScore(device);
-    const dimensionsScore = ratingsService.calculateDimensionScore(device);
-    const connectivityScore = ratingsService.calculateConnectivityScore(device);
-    const audioScore = ratingsService.calculateAudioScore(device);
-    const controlsScore = ratingsService.calculateControlsScore(device);
-    const miscScore = ratingsService.calculateMiscScore(device);
+  const datasets = useMemo(() => {
+    return devices.map((device, index) => {
+      const performanceScore = ratingsService.calculatePerformanceScore(device);
+      const monitorScore = ratingsService.calculateMonitorScore(device);
+      const dimensionsScore = ratingsService.calculateDimensionScore(device);
+      const connectivityScore = ratingsService.calculateConnectivityScore(
+        device,
+      );
+      const audioScore = ratingsService.calculateAudioScore(device);
+      const controlsScore = ratingsService.calculateControlsScore(device);
+      const miscScore = ratingsService.calculateMiscScore(device);
 
-    const data = [
-      performanceScore,
-      monitorScore,
-      dimensionsScore,
-      connectivityScore,
-      audioScore,
-      controlsScore,
-      miscScore,
-    ];
+      const data = [
+        performanceScore,
+        monitorScore,
+        dimensionsScore,
+        connectivityScore,
+        audioScore,
+        controlsScore,
+        miscScore,
+      ];
 
-    // Generate a distinct color for the device.
-    const hue = (index * 137.5) % 360;
-    let borderColor = `hsl(${hue}, 70%, 50%)`;
-    let backgroundColor = `hsla(${hue}, 70%, 50%, 0.3)`;
+      // Generate a distinct color for the device.
+      const hue = (index * 137.5) % 360;
+      let borderColor = `hsl(${hue}, 70%, 50%)`;
+      let backgroundColor = `hsla(${hue}, 70%, 50%, 0.3)`;
 
-    // If a ranking is provided, use the color of the best or worst device.
-    if (ranking) {
-      if (ranking?.all[0] !== "equal") {
-        borderColor = ranking?.all[0] === device.name.sanitized
-          ? "#16833e"
-          : "#ab0d0d";
-        backgroundColor = ranking?.all[0] === device.name.sanitized
-          ? "#16833e30"
-          : "#ab0d0d30";
+      // If a ranking is provided, use the color of the best or worst device.
+      if (ranking) {
+        if (ranking?.all[0] !== "equal") {
+          borderColor = ranking?.all[0] === device.name.sanitized
+            ? "#16833e"
+            : "#ab0d0d";
+          backgroundColor = ranking?.all[0] === device.name.sanitized
+            ? "#16833e30"
+            : "#ab0d0d30";
+        }
       }
-    }
 
-    return {
-      label: device.name.raw, // using the device's raw name for display
-      data,
-      borderColor,
-      backgroundColor,
-      pointBackgroundColor: borderColor,
-      borderWidth: 2,
-    };
-  });
+      return {
+        label: device.name.raw, // using the device's raw name for display
+        data,
+        borderColor,
+        backgroundColor,
+        pointBackgroundColor: borderColor,
+        borderWidth: 2,
+      };
+    });
+  }, [devices, ranking, ratingsService]);
 
-  const options = {
+  const options = useMemo(() => ({
     scales: {
       r: {
         min: 0,
@@ -142,7 +148,7 @@ export function DevicesRadarChart({
         enabled: true,
       },
     },
-  };
+  }), []);
 
   return (
     <div

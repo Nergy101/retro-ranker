@@ -87,6 +87,8 @@ export function MobileNav({
     return () => {
       document.removeEventListener("keydown", onKeyDown);
       document.removeEventListener("mousedown", onClick);
+      // Ensure body scroll is reset on unmount
+      document.body.style.overflow = "";
     };
   }, [isDrawerOpen]);
 
@@ -97,6 +99,11 @@ export function MobileNav({
     } else {
       document.body.style.overflow = "";
     }
+
+    // Cleanup function to ensure overflow is reset
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [isDrawerOpen, isSearchOpen]);
 
   const ensureDevicesLoaded = async () => {

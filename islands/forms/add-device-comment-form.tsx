@@ -43,14 +43,16 @@ export function AddDeviceCommentForm({
             {user.nickname}
           </span>
         </div>
-        <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
+        <div
+          style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}
+        >
           <textarea
             placeholder="Write your comment here..."
             name="content"
             value={comment}
             onInput={(e) => setComment((e.target as HTMLTextAreaElement).value)}
             style={{
-              flex: 1,
+              width: "100%",
               padding: "0.5rem",
               border: "1px solid var(--pico-border-color)",
               borderRadius: "0.25rem",
@@ -59,24 +61,28 @@ export function AddDeviceCommentForm({
             }}
             required
           />
-          <button
-            type="submit"
-            style={{
-              padding: "0.5rem",
-              background: "var(--pico-primary)",
-              color: "var(--pico-primary-inverse)",
-              border: "none",
-              borderRadius: "0.25rem",
-              cursor: "pointer",
-              display: "flex",
-              alignItems: "center",
-              gap: "0.25rem",
-            }}
-            disabled={!comment.trim()}
-          >
-            <PiPaperPlaneRight size={16} />
-            Post
-          </button>
+          <div style={{ display: "flex", justifyContent: "flex-end" }}>
+            <button
+              type="submit"
+              style={{
+                padding: "0.5rem",
+                background: "var(--pico-primary)",
+                color: "var(--pico-primary-inverse)",
+                border: "none",
+                borderRadius: "0.25rem",
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                gap: "0.25rem",
+                whiteSpace: "nowrap",
+                width: "fit-content",
+              }}
+              disabled={!comment.trim()}
+            >
+              <PiPaperPlaneRight size={16} />
+              Post
+            </button>
+          </div>
         </div>
       </form>
     </div>

@@ -125,7 +125,19 @@ export function DesktopNav({
       setQuery("");
       setSelectedDevice(null);
     }
+
+    // Cleanup function to ensure overflow is reset
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [isSearchOpen]);
+
+  // Ensure body scroll is reset on component unmount
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, []);
 
   // Recompute suggestions once devices load while user is typing
   useEffect(() => {

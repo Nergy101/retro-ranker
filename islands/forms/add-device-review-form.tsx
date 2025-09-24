@@ -107,7 +107,7 @@ export function AddDeviceReviewForm({
         </div>
 
         <div
-          style={{ display: "flex", gap: "0.5rem", alignItems: "flex-start" }}
+          style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}
         >
           <textarea
             placeholder="Write your review here..."
@@ -115,7 +115,7 @@ export function AddDeviceReviewForm({
             value={review}
             onInput={(e) => setReview((e.target as HTMLTextAreaElement).value)}
             style={{
-              flex: 1,
+              width: "100%",
               padding: "0.5rem",
               border: "1px solid var(--pico-border-color)",
               borderRadius: "0.25rem",
@@ -124,25 +124,28 @@ export function AddDeviceReviewForm({
             }}
             required
           />
-          <button
-            type="submit"
-            style={{
-              padding: "0.5rem",
-              background: "var(--pico-primary)",
-              color: "var(--pico-primary-inverse)",
-              border: "none",
-              borderRadius: "0.25rem",
-              cursor: "pointer",
-              display: "flex",
-              alignItems: "center",
-              gap: "0.25rem",
-              alignSelf: "flex-start",
-            }}
-            disabled={!review.trim()}
-          >
-            <PiPaperPlaneRight size={16} />
-            Submit Review
-          </button>
+          <div style={{ display: "flex", justifyContent: "flex-end" }}>
+            <button
+              type="submit"
+              style={{
+                padding: "0.5rem",
+                background: "var(--pico-primary)",
+                color: "var(--pico-primary-inverse)",
+                border: "none",
+                borderRadius: "0.25rem",
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                gap: "0.25rem",
+                whiteSpace: "nowrap",
+                width: "fit-content",
+              }}
+              disabled={!review.trim()}
+            >
+              <PiPaperPlaneRight size={16} />
+              Submit Review
+            </button>
+          </div>
         </div>
       </form>
     </div>
