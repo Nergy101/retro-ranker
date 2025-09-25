@@ -12,6 +12,7 @@ import {
   PiCalendar,
   PiChartLine,
   PiChatText,
+  PiClockCounterClockwise,
   PiGitDiff,
   PiInfo,
   PiListBold,
@@ -289,6 +290,10 @@ export function MobileNav({
     ["PiChatText", <PiChatText key="PiChatText" />],
     ["PiBook", <PiBook key="PiBook" />],
     ["PiMoney", <PiMoney key="PiMoney" />],
+    [
+      "PiClockCounterClockwise",
+      <PiClockCounterClockwise key="PiClockCounterClockwise" />,
+    ],
   ]);
 
   const getIcon = (icon: string): any => {

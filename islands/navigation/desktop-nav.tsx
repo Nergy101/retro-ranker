@@ -12,6 +12,7 @@ import {
   PiCalendar,
   PiChartLine,
   PiChatText,
+  PiClockCounterClockwise,
   PiDotsThree,
   PiGitDiff,
   PiInfo,
@@ -266,6 +267,10 @@ export function DesktopNav({
     ["PiThreeDots", <PiDotsThree key="PiThreeDots" />],
     ["PiBook", <PiBook key="PiBook" />],
     ["PiMoney", <PiMoney key="PiMoney" />],
+    [
+      "PiClockCounterClockwise",
+      <PiClockCounterClockwise key="PiClockCounterClockwise" />,
+    ],
   ]);
 
   const getIcon = (icon: string): any => {

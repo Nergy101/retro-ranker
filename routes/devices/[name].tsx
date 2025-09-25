@@ -745,13 +745,8 @@ export default function DeviceDetail(ctx: Context<CustomFreshState>) {
         </div>
         <div class="similar-devices-grid">
           {(() => {
-            // Generate colors for the main device + similar devices (same order as radar chart)
-            const allDevicesForChart = [device, ...similarDevices];
-            const _deviceColors = generateDeviceColors(allDevicesForChart);
-
-            return similarDevices.map((deviceItem, index) => {
+            return similarDevices.map((deviceItem) => {
               // Use index + 1 because index 0 is the main device
-              const _colorIndex = index + 1;
               const borderColor = generateDeviceColors([
                 device,
                 ...similarDevices,

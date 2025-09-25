@@ -124,8 +124,7 @@ export function OperatingSystemDistribution({ devices }: PieChartProps) {
 
   return (
     <div>
-      <h2>Operating System Distribution</h2>
-      <p>
+      <p style={{ marginTop: "0", marginBottom: "1rem" }}>
         Distribution of devices across different operating systems and custom
         firmware.{" "}
         <br />Click on a slice to view devices with that operating system.

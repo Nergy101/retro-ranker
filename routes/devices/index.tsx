@@ -332,6 +332,8 @@ export default function CatalogPage(ctx: FreshContext) {
             }}
           >
             Browse our catalog of retro gaming handhelds with specs.
+            <br />Don't know where to start? Check out our{" "}
+            <a href="/articles/bang-for-your-buck">Best Value</a> article.
           </p>
         </hgroup>
       </header>

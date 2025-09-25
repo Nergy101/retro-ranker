@@ -3,6 +3,7 @@ import {
   PiFileText,
   PiGithubLogo,
   PiInfo,
+  PiQuestion,
   PiShield,
 } from "@preact-icons/pi";
 import { VersionTag } from "./shared/version-tag.tsx";
@@ -106,6 +107,14 @@ export function Footer() {
                     <PiInfo />
                     <span>
                       About
+                    </span>
+                  </div>
+                </a>
+                <a href="/faq">
+                  <div style={{ display: "flex", gap: "0.5rem" }}>
+                    <PiQuestion />
+                    <span>
+                      FAQ
                     </span>
                   </div>
                 </a>

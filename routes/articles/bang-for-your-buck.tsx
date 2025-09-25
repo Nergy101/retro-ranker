@@ -5,6 +5,7 @@ import { State } from "../../utils.ts";
 import { PerformanceVsPriceScatterPlot } from "../../islands/charts/performance-vs-price-scatter.tsx";
 import { PriceVsReleaseYear } from "../../islands/charts/price-vs-release-year.tsx";
 import { PriceRangeTabSection } from "../../islands/tabs/price-range-tab-section.tsx";
+import { PiCalendar, PiChartLine, PiGitDiff, PiScroll } from "@preact-icons/pi";
 
 export const handler = {
   async GET(ctx: Context<State>) {
@@ -74,11 +75,22 @@ export default function BangForYourBuckPage(ctx: Context<State>) {
   return (
     <div class="container">
       {/* Mobile disclaimer */}
-      <div class="mobile-disclaimer">
+      <div
+        class="mobile-disclaimer"
+        style={{
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "0.5rem",
+          borderLeft: "4px solid var(--pico-primary)",
+          borderRight: "4px solid var(--pico-primary)",
+        }}
+      >
         <p>
-          📱 <strong>Mobile Notice:</strong>{" "}
-          This article contains interactive charts and detailed analysis that
-          are best viewed on a desktop or tablet for the optimal experience.
+          <strong>⚠️ Mobile Notice</strong>
+          <br />
+          This article contains multiple interactive charts and detailed
+          analysis that are best viewed on a desktop or tablet for the optimal
+          experience. <br />You can try rotating your device to view the charts.
         </p>
       </div>
 
@@ -340,16 +352,107 @@ export default function BangForYourBuckPage(ctx: Context<State>) {
             device with cutting-edge features, there's a value champion that
             fits your budget and gaming needs.
           </p>
-
-          <div style="margin-top: 2rem; padding: 1rem; background: var(--pico-background-color); border-left: 4px solid var(--pico-primary);">
-            <p style="margin: 0;">
-              <strong>Ready to explore more devices?</strong>
-              Check out our <a href="/devices">complete device database</a>{" "}
-              or use our <a href="/compare">comparison tool</a>{" "}
-              to find the perfect device for your needs.
-            </p>
-          </div>
         </section>
+
+        <article
+          class="site-introduction-content"
+          style={{ marginTop: "2rem" }}
+        >
+          <div class="site-introduction-text">
+            <hgroup>
+              <h2
+                style={{
+                  fontSize: "1.5rem",
+                  color: "var(--pico-contrast)",
+                  textAlign: "center",
+                }}
+              >
+                Ready to explore for yourself?
+              </h2>
+              <p style={{ textAlign: "center" }}>
+                Check out the links below to browse our device database, compare
+                devices, view the release timeline, or view our charts.
+              </p>
+            </hgroup>
+
+            <p
+              style={{
+                marginBottom: "1rem",
+                lineHeight: "1.6",
+                textAlign: "center",
+              }}
+            >
+              <strong style={{ color: "var(--pico-primary)" }}>
+                Retro Ranker {" "}
+              </strong>
+              is a comprehensive database of retro gaming handhelds, designed to
+              help you find the perfect device for your gaming needs. Whether
+              you're a seasoned collector or just getting started, our platform
+              provides detailed specifications, performance ratings, and user
+              reviews to guide your decision.
+            </p>
+            <div class="index-buttons">
+              <a
+                role="button"
+                class="button outline"
+                href="/devices"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "0.5rem",
+                  color: "var(--pico-contrast)",
+                }}
+              >
+                <PiScroll /> Devices
+              </a>
+              <a
+                href="/compare"
+                role="button"
+                class="button outline"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "0.5rem",
+                  color: "var(--pico-contrast)",
+                }}
+              >
+                <PiGitDiff /> Compare
+              </a>
+
+              <a
+                href="/release-timeline"
+                role="button"
+                class="button outline"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "0.5rem",
+                  color: "var(--pico-contrast)",
+                }}
+              >
+                <PiCalendar /> Releases
+              </a>
+
+              <a
+                href="/charts"
+                role="button"
+                class="button outline"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "0.5rem",
+                  color: "var(--pico-contrast)",
+                }}
+              >
+                <PiChartLine /> Charts
+              </a>
+            </div>
+          </div>
+        </article>
       </article>
     </div>
   );

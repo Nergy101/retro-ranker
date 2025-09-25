@@ -1,6 +1,7 @@
 # Retro Ranker 2
 
-A modern, responsive, and feature-rich device catalog website built with Fresh 2 and Deno.
+A modern, responsive, and feature-rich device catalog website built with Fresh 2
+and Deno.
 
 [![Made with Fresh](https://fresh.deno.dev/fresh-badge.svg)](https://fresh.deno.dev)
 

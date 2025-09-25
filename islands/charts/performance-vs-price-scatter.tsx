@@ -331,8 +331,7 @@ export function PerformanceVsPriceScatterPlot({ devices }: ScatterPlotProps) {
 
   return (
     <div>
-      <h2>Performance vs Price Analysis</h2>
-      <p>
+      <p style={{ marginTop: "0", marginBottom: "1rem" }}>
         Compare device performance ratings against their average price to
         identify value champions and market positioning
       </p>

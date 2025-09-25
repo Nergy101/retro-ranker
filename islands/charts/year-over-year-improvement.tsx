@@ -277,8 +277,7 @@ export function YearOverYearImprovement({ devices }: LineChartProps) {
 
   return (
     <div>
-      <h2>Year-over-Year Trends (Last 5 Years)</h2>
-      <p>
+      <p style={{ marginTop: "0", marginBottom: "1rem" }}>
         How device specifications and performance have changed over the last 5
         years
       </p>

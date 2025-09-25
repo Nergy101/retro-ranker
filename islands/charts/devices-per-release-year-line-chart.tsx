@@ -6,9 +6,12 @@ import { FreshChart } from "./fresh-chart.tsx";
 
 interface LineChartProps {
   devices: Device[];
+  minYear?: number;
 }
 
-export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
+export function DevicesPerReleaseYearLineChart(
+  { devices, minYear }: LineChartProps,
+) {
   // Compute the full range of years from the devices
   const fullYears = useMemo(() =>
     Array.from(
@@ -27,7 +30,7 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
   const initialMax = new Date().getFullYear();
 
   // Signals to store the current filter values for minimum and maximum year
-  const [selectedMinYear, setSelectedMinYear] = useState(2020);
+  const [selectedMinYear, setSelectedMinYear] = useState(minYear ?? 2020);
   const [selectedMaxYear, setSelectedMaxYear] = useState(initialMax);
   const [showTotalDevices, setShowTotalDevices] = useState(false);
   const [minimalOf12DevicesProduced, setMinimalOf12DevicesProduced] = useState(
@@ -212,8 +215,7 @@ export function DevicesPerReleaseYearLineChart({ devices }: LineChartProps) {
 
   return (
     <div>
-      <h2>Amount of Devices released per year</h2>
-      <p class="secondary" style={{ marginTop: "1rem" }}>
+      <p class="secondary" style={{ marginTop: "0", marginBottom: "1rem" }}>
         <strong>Note:</strong> Current year data may be incomplete
       </p>
       <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
