@@ -17,6 +17,11 @@
         </url>
         
         <url>
+            <loc>https://retroranker.site/articles/a-handhelds-history</loc>
+            <priority>0.8</priority>
+        </url>
+        
+        <url>
             <loc>https://retroranker.site/release-timeline</loc>
             <priority>0.8</priority>
         </url>
@@ -24,16 +29,6 @@
         <url>
             <loc>https://retroranker.site/charts</loc>
             <priority>0.7</priority>
-        </url>
-        
-        <url>
-            <loc>https://retroranker.site/faq</loc>
-            <priority>0.6</priority>
-        </url>
-        
-        <url>
-            <loc>https://retroranker.site/about</loc>
-            <priority>0.5</priority>
         </url>
         
         <url>
