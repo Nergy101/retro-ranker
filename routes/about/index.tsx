@@ -6,11 +6,13 @@ import { Context, page } from "fresh";
 export const handler = {
   async GET(ctx: Context<State>) {
     ctx.state.seo = {
-      title: "Retro Ranker - About Us",
+      title:
+        "About Retro Ranker | Comprehensive Retro Gaming Handheld Platform",
       description:
-        "Learn about Retro Ranker, the comprehensive platform for ranking and comparing retro gaming handhelds.",
+        "Learn about Retro Ranker's mission to help retro gaming enthusiasts find their perfect handheld device. Discover our comprehensive database, comparison tools, and community-driven approach to portable gaming.",
       keywords:
-        "about retro ranker, retro gaming platform, handheld comparison tool, retro gaming community",
+        "about retro ranker, retro gaming platform, handheld comparison tool, retro gaming community, portable gaming database, emulation device reviews, retro gaming resources, handheld gaming guide",
+      url: `https://retroranker.site${ctx.url.pathname}`,
     };
 
     ctx.state.data = {
@@ -47,14 +49,6 @@ export default function About(ctx: Context<State>) {
 
   return (
     <div class="about-page">
-      <Head>
-        <title>Retro Ranker - About Us</title>
-        <meta
-          name="description"
-          content="Learn about Retro Ranker, the comprehensive platform for ranking and comparing retro gaming handhelds."
-        />
-      </Head>
-
       <div style={{ maxWidth: "800px", margin: "0 auto", padding: "0 1rem" }}>
         <hgroup style={{ textAlign: "center", marginBottom: "2rem" }}>
           <h1 style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>

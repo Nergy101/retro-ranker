@@ -11,11 +11,12 @@ export const handler = {
   async GET(ctx: Context<State>) {
     (ctx.state as CustomFreshState).seo = {
       title:
-        "Top 10 Best Bang-for-Your-Buck Retro Gaming Handhelds Over $100 | Retro Ranker",
+        "Best Value Retro Gaming Handhelds: Bang for Your Buck Analysis | Retro Ranker",
       description:
-        "Discover the best value retro gaming handhelds over $100. Our comprehensive analysis reveals the top devices that deliver exceptional performance per dollar spent in the mid-range and premium segments.",
+        "Discover the best value retro gaming handhelds across all price ranges. Our comprehensive analysis reveals the top devices that deliver exceptional performance per dollar spent, from budget-friendly options to premium devices.",
       keywords:
-        "best value retro handhelds, bang for buck gaming devices, affordable retro gaming, value gaming handhelds, budget retro consoles, performance per dollar, retro gaming value analysis",
+        "best value retro handhelds, bang for buck gaming devices, affordable retro gaming, value gaming handhelds, budget retro consoles, performance per dollar, retro gaming value analysis, handheld value comparison, emulation device value, portable gaming value",
+      url: `https://retroranker.site${ctx.url.pathname}`,
     };
 
     const deviceService = await DeviceService.getInstance();

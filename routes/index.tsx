@@ -28,9 +28,10 @@ export const handler = {
     ctx.state.seo = {
       title: "Retro Gaming Handheld Database & Reviews | Retro Ranker",
       description:
-        "Home to browse and compare retro gaming handhelds. Reviews, specs, and more.",
+        "Discover the ultimate retro gaming handheld database. Compare specs, read reviews, and find your perfect portable emulation device. Browse 400+ devices from Anbernic, Miyoo, Steam Deck, and more.",
       keywords:
-        "retro gaming, handheld consoles, emulation devices, retro handhelds, gaming comparison, Anbernic, Miyoo, retro game emulation, portable gaming systems, retro gaming comparison",
+        "retro gaming handhelds, emulation devices, portable gaming, retro console comparison, handheld reviews, Anbernic, Miyoo, Steam Deck, retro gaming database, handheld specs, emulation performance, retro gaming community",
+      url: `https://retroranker.site${ctx.url.pathname}`,
     };
 
     const deviceService = await DeviceService.getInstance();

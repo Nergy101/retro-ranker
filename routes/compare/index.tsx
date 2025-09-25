@@ -65,7 +65,8 @@ export const handler = {
       title: seoTitle,
       description: seoDescription,
       keywords:
-        "retro handhelds, compare, side-by-side, specs, emulation, performance, dimensions, connectivity, audio, controls, misc",
+        "retro handhelds comparison, handheld device specs, emulation performance comparison, portable gaming devices, handheld reviews, device comparison tool, retro gaming handhelds, side-by-side comparison, handheld specifications, emulation device comparison",
+      url: `https://retroranker.site${ctx.url.pathname}`,
     };
 
     return page(ctx);

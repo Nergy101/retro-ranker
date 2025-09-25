@@ -13,9 +13,10 @@ export const handler = {
       title:
         "The Evolution of Handheld Gaming: A Journey Through Innovation | Retro Ranker",
       description:
-        "Explore the fascinating evolution of handheld gaming devices from the early 2000s to today. Discover the game-changing devices that revolutionized portable gaming and shaped the industry.",
+        "Explore the fascinating evolution of handheld gaming devices from the early 2000s to today. Discover the game-changing devices that revolutionized portable gaming, from early emulation boxes to modern Steam Deck and beyond.",
       keywords:
-        "handheld gaming evolution, portable gaming history, retro gaming devices, gaming handheld timeline, portable console development, handheld gaming milestones",
+        "handheld gaming evolution, portable gaming history, retro gaming devices, gaming handheld timeline, portable console development, handheld gaming milestones, emulation device history, retro gaming innovation, portable gaming evolution, handheld gaming timeline",
+      url: `https://retroranker.site${ctx.url.pathname}`,
     };
     const deviceService = await DeviceService.getInstance();
     const devices = await deviceService.getAllDevices();
