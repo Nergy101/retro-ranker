@@ -37,42 +37,56 @@ export default async function HandheldsHistory(ctx: Context<State>) {
   ];
 
   const devices2021To2023Names = [
+    "steam-deck-oled",
+    "retroid-pocket-2s",
     "analogue-pocket",
+    "miyoo-mini-plus",
+    "rg-405m",
     "ayaneo-pocket-air",
     "rog-ally",
     "loki-zero",
-    "retroid-pocket-2s",
-    "rg-405m",
-    "steam-deck-oled",
-    "miyoo-mini-plus",
   ];
 
   const devices2024ToPresentNames = [
-    "switch-2",
     "retroid-pocket-flip-2",
-    "retroid-pocket-classic",
-    "ayaneo-3",
-    "rg-477m",
-    "rg-476h",
     "flip-1s-ds",
-    "pocket-s2",
-    "retroid-pocket-mini-v2",
-    "gkd-pixel-2",
-    "legion-go-s",
+    "thor",
     "miyoo-flip",
+    "retroid-pocket-classic",
+    "gkd-pixel-2",
+    "retroid-pocket-mini-v2",
+    "rg-477m",
+    "ayaneo-3",
+    "switch-2",
+    "rg-476h",
+    "pocket-s2",
   ];
 
-  const devices2020 = devices.filter((device) =>
-    devices2020Names.includes(device.name.sanitized)
-  );
+  const devices2020 = devices
+    .filter((device) => devices2020Names.includes(device.name.sanitized))
+    .sort((a, b) => {
+      const indexA = devices2020Names.indexOf(a.name.sanitized);
+      const indexB = devices2020Names.indexOf(b.name.sanitized);
+      return indexA - indexB;
+    });
 
-  const devices2021To2023 = devices.filter((device) =>
-    devices2021To2023Names.includes(device.name.sanitized)
-  );
+  const devices2021To2023 = devices
+    .filter((device) => devices2021To2023Names.includes(device.name.sanitized))
+    .sort((a, b) => {
+      const indexA = devices2021To2023Names.indexOf(a.name.sanitized);
+      const indexB = devices2021To2023Names.indexOf(b.name.sanitized);
+      return indexA - indexB;
+    });
 
-  const devices2024ToPresent = devices.filter((device) =>
-    devices2024ToPresentNames.includes(device.name.sanitized)
-  );
+  const devices2024ToPresent = devices
+    .filter((device) =>
+      devices2024ToPresentNames.includes(device.name.sanitized)
+    )
+    .sort((a, b) => {
+      const indexA = devices2024ToPresentNames.indexOf(a.name.sanitized);
+      const indexB = devices2024ToPresentNames.indexOf(b.name.sanitized);
+      return indexA - indexB;
+    });
 
   return (
     <div class="article-page">

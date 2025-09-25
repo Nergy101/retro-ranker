@@ -4375,6 +4375,7 @@ textarea:focus:valid {
 }
 
 .tab-button {
+  flex: 1;
   background: var(--pico-background-color);
   border: 1px solid var(--pico-muted-border-color);
   padding: 0.5rem 1rem;

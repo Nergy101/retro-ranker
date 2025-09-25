@@ -45,28 +45,28 @@ export function PriceRangeTabSection(
           class="tab-button active"
           onClick={() => showTab("tab-budget")}
         >
-          $0 - $100 ({budgetDevices.length} devices)
+          $0 - $100
         </button>
         <button
           type="button"
           class="tab-button"
           onClick={() => showTab("tab-100-200")}
         >
-          $100 - $200 ({range100to200.length} devices)
+          $100 - $200
         </button>
         <button
           type="button"
           class="tab-button"
           onClick={() => showTab("tab-200-500")}
         >
-          $200 - $500 ({range200to500.length} devices)
+          $200 - $500
         </button>
         <button
           type="button"
           class="tab-button"
           onClick={() => showTab("tab-500-plus")}
         >
-          $500+ ({range500plus.length} devices)
+          $500+
         </button>
       </div>
 
@@ -79,8 +79,8 @@ export function PriceRangeTabSection(
           performance for classic 8-bit and 16-bit systems.
         </p>
 
-        <div class="grid">
-          {budgetDevices.slice(0, 5).map((device: any, _index: number) => (
+        <div class="similar-devices-grid">
+          {budgetDevices.slice(0, 6).map((device: any, _index: number) => (
             <a
               key={device.id}
               href={`/devices/${device.name.sanitized}`}
@@ -105,8 +105,8 @@ export function PriceRangeTabSection(
           systems like PlayStation 1 and some PSP games.
         </p>
 
-        <div class="grid">
-          {range100to200.slice(0, 5).map((device: any, _index: number) => (
+        <div class="similar-devices-grid">
+          {range100to200.slice(0, 6).map((device: any, _index: number) => (
             <a
               key={device.id}
               href={`/devices/${device.name.sanitized}`}
@@ -131,8 +131,8 @@ export function PriceRangeTabSection(
           premium materials and advanced features.
         </p>
 
-        <div class="grid">
-          {range200to500.slice(0, 5).map((device: any, _index: number) => (
+        <div class="similar-devices-grid">
+          {range200to500.slice(0, 6).map((device: any, _index: number) => (
             <a
               key={device.id}
               href={`/devices/${device.name.sanitized}`}
@@ -157,8 +157,8 @@ export function PriceRangeTabSection(
           premium build quality and features.
         </p>
 
-        <div class="grid">
-          {range500plus.slice(0, 5).map((device: any, _index: number) => (
+        <div class="similar-devices-grid">
+          {range500plus.slice(0, 6).map((device: any, _index: number) => (
             <a
               key={device.id}
               href={`/devices/${device.name.sanitized}`}

@@ -73,7 +73,7 @@ export default function BangForYourBuckPage(ctx: Context<State>) {
   } = data;
 
   return (
-    <div class="container">
+    <div class="article-page">
       {/* Mobile disclaimer */}
       <div
         class="mobile-disclaimer"
