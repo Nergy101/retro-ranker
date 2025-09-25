@@ -1,4 +1,3 @@
-import { Head } from "fresh/runtime";
 import { tracer } from "../../data/tracing/tracer.ts";
 import { State } from "../../utils.ts";
 import { Context, page } from "fresh";

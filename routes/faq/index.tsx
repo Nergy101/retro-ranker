@@ -1,4 +1,3 @@
-import { Head } from "fresh/runtime";
 import { PiChartLine, PiInfo, PiQuestion } from "@preact-icons/pi";
 import { tracer } from "../../data/tracing/tracer.ts";
 import { State } from "../../utils.ts";

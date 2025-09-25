@@ -354,7 +354,6 @@ export default function CatalogPage(ctx: FreshContext) {
               allTags={allAvailableTags}
               initialSelectedTags={selectedTags}
               baseUrl={url.origin}
-              translations={translations}
             />
           </div>
           <div style={{ marginBottom: "2rem" }}>
