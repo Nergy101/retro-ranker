@@ -1,4 +1,14 @@
-# Retro Ranker 2 - Fresh 2 Beta Port
+# Retro Ranker 2
+
+A modern, responsive, and feature-rich device catalog website built with Fresh 2 and Deno.
+
+[![Made with Fresh](https://fresh.deno.dev/fresh-badge.svg)](https://fresh.deno.dev)
+
+<div style="display: flex; align-items: center; gap: 20px; justify-content: center; margin: 20px 0;">
+  <img src="./static/images/rr-star.png" alt="Retro Ranker" style="height: 90px; width: auto;" />
+  <img src="./static/logos/retro-handhelds/rh-logo-text.png" alt="Retro Handhelds" style="height: 60px; width: auto;" />
+  <img src="./static/logos/nergy/nergy-circle-cutout.png" alt="Nergy" style="height: 60px; width: auto;" />
+</div>
 
 This is a complete port of the Retro Ranker project from Fresh 2-alpha to Fresh
 2-beta, showcasing the new patterns and features available in the latest version
