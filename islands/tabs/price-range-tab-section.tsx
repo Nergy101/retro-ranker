@@ -1,4 +1,5 @@
 import { DeviceCardMedium } from "../../components/cards/device-card-medium.tsx";
+import { useEffect, useState } from "preact/hooks";
 
 interface PriceRangeTabSectionProps {
   budgetDevices: any[];
@@ -11,6 +12,28 @@ export function PriceRangeTabSection(
   { budgetDevices, range100to200, range200to500, range500plus }:
     PriceRangeTabSectionProps,
 ) {
+  const [deviceCount, setDeviceCount] = useState(6); // Default to mobile count
+
+  useEffect(() => {
+    const updateDeviceCount = () => {
+      // Check if screen width is desktop size (768px and above)
+      if (globalThis.innerWidth >= 768) {
+        setDeviceCount(8);
+      } else {
+        setDeviceCount(6);
+      }
+    };
+
+    // Set initial count
+    updateDeviceCount();
+
+    // Listen for resize events
+    globalThis.addEventListener("resize", updateDeviceCount);
+
+    // Cleanup
+    return () => globalThis.removeEventListener("resize", updateDeviceCount);
+  }, []);
+
   const showTab = (tabId: string) => {
     // Hide all tab contents
     const tabContents = document.querySelectorAll(".tab-content");
@@ -80,7 +103,10 @@ export function PriceRangeTabSection(
         </p>
 
         <div class="similar-devices-grid">
-          {budgetDevices.slice(0, 6).map((device: any, _index: number) => (
+          {budgetDevices.slice(0, deviceCount).map((
+            device: any,
+            _index: number,
+          ) => (
             <a
               key={device.id}
               href={`/devices/${device.name.sanitized}`}
@@ -106,7 +132,10 @@ export function PriceRangeTabSection(
         </p>
 
         <div class="similar-devices-grid">
-          {range100to200.slice(0, 6).map((device: any, _index: number) => (
+          {range100to200.slice(0, deviceCount).map((
+            device: any,
+            _index: number,
+          ) => (
             <a
               key={device.id}
               href={`/devices/${device.name.sanitized}`}
@@ -132,7 +161,10 @@ export function PriceRangeTabSection(
         </p>
 
         <div class="similar-devices-grid">
-          {range200to500.slice(0, 6).map((device: any, _index: number) => (
+          {range200to500.slice(0, deviceCount).map((
+            device: any,
+            _index: number,
+          ) => (
             <a
               key={device.id}
               href={`/devices/${device.name.sanitized}`}
@@ -158,7 +190,10 @@ export function PriceRangeTabSection(
         </p>
 
         <div class="similar-devices-grid">
-          {range500plus.slice(0, 6).map((device: any, _index: number) => (
+          {range500plus.slice(0, deviceCount).map((
+            device: any,
+            _index: number,
+          ) => (
             <a
               key={device.id}
               href={`/devices/${device.name.sanitized}`}

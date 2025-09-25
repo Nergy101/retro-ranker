@@ -103,9 +103,9 @@ export default function BangForYourBuckPage(ctx: Context<State>) {
             Discover which retro gaming handhelds deliver the most performance
             for your dollar. Our interactive scatter plot reveals the
             relationship between device ratings and pricing, while our value
-            champion tabs highlight the top performers in each price
-            bracket—from budget-friendly options under $100 to premium devices
-            over $500.
+            champion tabs highlight the top performers in each price bracket -
+            from budget-friendly options under $100 to premium devices over
+            $500.
           </p>
           <div class="grid" style="margin-top: 2rem;">
             <div>
@@ -201,51 +201,25 @@ export default function BangForYourBuckPage(ctx: Context<State>) {
           <p>
             The scatter plot below shows every device in our database plotted by
             its performance rating (vertical axis) against its average price
-            (horizontal axis). Each dot represents a device, with different
-            colors indicating different brands. This visualization helps you
-            identify:
+            (horizontal axis).
+            <br />Each dot represents a device, with different colors indicating
+            different brands.
           </p>
-          <ul>
-            <li>
-              <strong>Value Champions:</strong>{" "}
-              Devices that sit high on the performance scale relative to their
-              price (upper-left area)
-            </li>
-            <li>
-              <strong>Premium Options:</strong>{" "}
-              High-performance devices that command premium prices (upper-right
-              area)
-            </li>
-            <li>
-              <strong>Budget Performers:</strong>{" "}
-              Affordable devices that punch above their weight (lower-left area)
-            </li>
-            <li>
-              <strong>Brand Positioning:</strong>{" "}
-              How different manufacturers position their devices in the market
-            </li>
-          </ul>
-          <p>
-            Use the interactive controls to filter by brand, minimum rating, and
-            price range. Click on any device dot to view its detailed page.
-          </p>
-        </section>
-
-        <section>
           <div style="margin: 2rem 0;">
             <PerformanceVsPriceScatterPlot devices={devices} />
           </div>
         </section>
 
         <section>
-          <div style="margin: 2rem 0;">
-            <PriceVsReleaseYear devices={devices} />
-          </div>
           <p>
             This chart shows how device pricing has evolved over time.{" "}
             <br />As you can see, prices have generally increased over time, but
             there have been some fluctuations.
           </p>
+          <div style="margin: 2rem 0;">
+            <PriceVsReleaseYear devices={devices} />
+          </div>
+
           <h2>Market Trends and Insights</h2>
           <p>
             Our analysis reveals several interesting trends in the retro gaming
@@ -334,9 +308,8 @@ export default function BangForYourBuckPage(ctx: Context<State>) {
             </li>
             <li>
               <strong>Performance Scaling:</strong>{" "}
-              Higher prices generally correlate with better performance, but the
-              relationship isn't linear—some mid-range devices offer exceptional
-              value
+              Higher prices generally correlate with better performance, but
+              some mid-range devices offer exceptional value
             </li>
             <li>
               <strong>Market Segmentation:</strong>{" "}

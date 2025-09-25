@@ -332,8 +332,10 @@ export function PerformanceVsPriceScatterPlot({ devices }: ScatterPlotProps) {
   return (
     <div>
       <p style={{ marginTop: "0", marginBottom: "1rem" }}>
-        Compare device performance ratings against their average price to
-        identify value champions and market positioning
+        Use the interactive controls to filter by brand, minimum rating, and
+        price range.
+        <br />Hover a dot to see the device image and click on any dot to go to
+        the device page.
       </p>
 
       {/* Device Image Tooltip */}
