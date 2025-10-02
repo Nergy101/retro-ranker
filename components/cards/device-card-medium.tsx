@@ -93,6 +93,14 @@ export function DeviceCardMedium(
               : device.brand.raw}
           >
             {device.brand.normalized}
+            {" | "}
+            <span
+              style={{ fontSize: "0.6rem", color: "var(--pico-muted-color)" }}
+            >
+              {device.released.raw?.toLowerCase().includes("upcoming")
+                ? "Upcoming"
+                : device.released.raw}
+            </span>
           </span>
         </hgroup>
       </header>
