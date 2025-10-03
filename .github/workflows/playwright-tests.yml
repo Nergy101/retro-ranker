@@ -1,4 +1,4 @@
-name: Playwright Tests
+name: 🎭 Playwright Tests
 
 on:
   push:
@@ -101,11 +101,11 @@ jobs:
         run: deno task test:install
 
       - name: Generate merged report
-        run: deno run -A npm:@playwright/test@^1.40.0 merge-reports playwright-reports/ --output merged-report.html
+        run: deno run -A npm:@playwright/test@^1.40.0 merge-reports --reporter=html playwright-reports/
 
       - name: Upload merged report
         uses: actions/upload-artifact@v4
         with:
           name: playwright-merged-report
-          path: merged-report.html
+          path: playwright-report/
           retention-days: 30
