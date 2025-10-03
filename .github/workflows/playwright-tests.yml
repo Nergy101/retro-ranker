@@ -54,7 +54,6 @@ jobs:
             project: "Mobile Safari Large"
           - os: ubuntu-latest
             project: "Tablet Safari"
-          - os: macos-latest
 
     steps:
       - uses: actions/checkout@v4
