@@ -281,14 +281,16 @@ test.describe("Mobile Viewport Tests", () => {
     await page.setViewportSize({ width: 375, height: 667 });
 
     // Test that we can scroll through all sections
-    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+    await page.evaluate(() =>
+      globalThis.scrollTo(0, document.body.scrollHeight)
+    );
 
     // Check that footer or bottom content is accessible
     await expect(page.locator('h2:has-text("A Handheld Database")'))
       .toBeVisible();
 
     // Scroll back to top
-    await page.evaluate(() => window.scrollTo(0, 0));
+    await page.evaluate(() => globalThis.scrollTo(0, 0));
     await expect(page.locator('h2:has-text("Upcoming")')).toBeVisible();
   });
 

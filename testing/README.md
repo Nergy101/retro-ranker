@@ -1,6 +1,7 @@
 # Playwright Testing
 
-This directory contains Playwright end-to-end tests for the Retro Ranker application.
+This directory contains Playwright end-to-end tests for the Retro Ranker
+application.
 
 ## Setup
 
