@@ -100,8 +100,36 @@ jobs:
       - name: Install Playwright HTML Reporter
         run: deno task test:install
 
+      - name: Debug - List downloaded reports
+        run: |
+          echo "Contents of playwright-reports directory:"
+          find playwright-reports/ -type f -name "*.json" -o -name "*.html" | head -20
+          echo "Directory structure:"
+          ls -la playwright-reports/
+
       - name: Generate merged report
-        run: deno run -A npm:@playwright/test@^1.40.0 merge-reports --reporter=html playwright-reports/
+        run: |
+          # Create a temporary directory for merged reports
+          mkdir -p merged-reports
+
+          # Find all report directories and copy their contents
+          find playwright-reports/ -name "playwright-report" -type d | while read dir; do
+            echo "Found report directory: $dir"
+            # Copy all files from each report directory
+            cp -r "$dir"/* merged-reports/ 2>/dev/null || true
+          done
+
+          # List what we have in merged-reports
+          echo "Contents of merged-reports:"
+          ls -la merged-reports/
+
+          # Try to merge reports from the merged directory
+          if [ -d "merged-reports" ] && [ "$(ls -A merged-reports)" ]; then
+            deno run -A npm:@playwright/test@^1.40.0 merge-reports --reporter=html merged-reports/
+          else
+            echo "No reports found to merge"
+            exit 1
+          fi
 
       - name: Upload merged report
         uses: actions/upload-artifact@v4
