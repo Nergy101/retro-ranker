@@ -20,16 +20,30 @@ jobs:
             firefox,
             webkit,
             "Mobile Chrome",
-            "Mobile Safari",
             "Mobile Chrome Small",
-            "Mobile Safari Small",
             "Mobile Chrome Large",
-            "Mobile Safari Large",
             "Tablet Chrome",
+            "Mobile Safari",
+            "Mobile Safari Small",
+            "Mobile Safari Large",
             "Tablet Safari",
           ]
         exclude:
-          # Safari/WebKit is only available on macOS
+          # macOS doesnt have to run chromium/firefox
+          - os: macos-latest
+            project: chromium
+          - os: macos-latest
+            project: firefox
+          - os: macos-latest
+            project: "Mobile Chrome"
+          - os: macos-latest
+            project: "Mobile Chrome Small"
+          - os: macos-latest
+            project: "Mobile Chrome Large"
+          - os: macos-latest
+            project: "Tablet Chrome"
+
+          # macOS runs the webkit / safari tests
           - os: ubuntu-latest
             project: webkit
           - os: ubuntu-latest
@@ -40,6 +54,7 @@ jobs:
             project: "Mobile Safari Large"
           - os: ubuntu-latest
             project: "Tablet Safari"
+          - os: macos-latest
 
     steps:
       - uses: actions/checkout@v4
