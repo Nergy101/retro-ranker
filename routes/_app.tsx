@@ -32,6 +32,7 @@ export default function AppWrapper(props: AppWrapperProps) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="color-scheme" content="dark light" />
+        <meta name="theme-color" id="theme-color" content="#ff9500"></meta>
         {seo.title && <title>{seo.title}</title>}
         {seo.description && (
           <meta name="description" content={seo.description} />
