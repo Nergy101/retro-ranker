@@ -32,6 +32,7 @@ import { DevicesSimilarRadarChart } from "../../islands/charts/devices-similar-r
 import { generateDeviceColors } from "../../data/frontend/services/utils/chart-colors.utils.ts";
 import { AddDeviceCommentForm } from "../../islands/forms/add-device-comment-form.tsx";
 import { AddDeviceReviewForm } from "../../islands/forms/add-device-review-form.tsx";
+import { CommentThread } from "../../islands/comments/comment-thread.tsx";
 import { DeviceHelpers } from "../../data/frontend/helpers/device.helpers.ts";
 
 export const handler = {
@@ -81,16 +82,73 @@ export const handler = {
       userFavorited = userFavorite.items.length > 0;
     }
 
-    const comments = (await pb.getList(
+    // Get top-level comments (no parent) with their user and reactions
+    const topLevelComments = (await pb.getList(
       "device_comments",
       1,
       100,
       {
-        filter: `device="${deviceId}"`,
+        filter: `device="${deviceId}" && parent_comment=""`,
         sort: "-created",
-        expand: "user",
+        expand: "user,reactions.user",
       },
     )).items;
+
+    // For each top-level comment, get its replies recursively
+    const comments = await Promise.all(
+      topLevelComments.map(async (comment) => {
+        const loadReplies = async (
+          parentId: string,
+          depth = 0,
+        ): Promise<any[]> => {
+          if (depth > 3) return []; // Prevent infinite recursion
+
+          const replies = (await pb.getList(
+            "device_comments",
+            1,
+            100,
+            {
+              filter: `parent_comment="${parentId}"`,
+              sort: "-created",
+              expand: "user,reactions.user",
+            },
+          )).items;
+
+          // Recursively load nested replies
+          const nestedReplies = await Promise.all(
+            replies.map(async (reply) => ({
+              ...reply,
+              expand: {
+                ...reply.expand,
+                replies: await loadReplies(reply.id, depth + 1),
+              },
+            })),
+          );
+
+          return nestedReplies;
+        };
+
+        const replies = await loadReplies(comment.id);
+        return {
+          ...comment,
+          expand: {
+            ...comment.expand,
+            replies,
+          },
+        };
+      }),
+    );
+
+    // Debug: Log the loaded comments structure
+    console.log(
+      "Loaded comments:",
+      comments.map((c) => ({
+        id: c.id,
+        content: c.content.substring(0, 50) + "...",
+        replies: c.expand?.replies?.length || 0,
+        depth: c.depth,
+      })),
+    );
 
     const reviews = (await pb.getList(
       "device_reviews",
@@ -102,6 +160,16 @@ export const handler = {
         expand: "user",
       },
     )).items;
+
+    // Get total favorites count
+    const favorites = await pb.getAll(
+      "device_favorites",
+      {
+        filter: `device="${deviceId}"`,
+        expand: "",
+        sort: "",
+      },
+    );
 
     const jsonLdForDevice = (device: Device | null) => {
       if (!device) return "";
@@ -266,6 +334,7 @@ export const handler = {
       comments,
       reviews,
       releaseDate,
+      totalFavorites: favorites.length,
     };
 
     return page(ctx);
@@ -543,6 +612,28 @@ export default function DeviceDetail(ctx: Context<CustomFreshState>) {
           likes={likesCount}
           isLiked={userLiked}
           userFavorited={userFavorited}
+          totalComments={comments.reduce((total, comment) => {
+            const countReplies = (replies: any[]): number => {
+              return replies.reduce((replyTotal, reply) => {
+                const nestedReplies = reply.expand?.replies
+                  ? countReplies(reply.expand.replies)
+                  : 0;
+                return replyTotal + 1 + nestedReplies;
+              }, 0);
+            };
+            const nestedReplies = comment.expand?.replies
+              ? countReplies(comment.expand.replies)
+              : 0;
+            return total + 1 + nestedReplies;
+          }, 0)}
+          totalReviews={reviews.length}
+          averageReviewScore={reviews.length > 0
+            ? reviews.reduce(
+              (sum, review) => sum + (review.overall_rating || 0),
+              0,
+            ) / reviews.length
+            : null}
+          totalFavorites={data.totalFavorites || null}
         />
       </div>
 
@@ -709,13 +800,11 @@ export default function DeviceDetail(ctx: Context<CustomFreshState>) {
 
               {comments?.length > 0
                 ? (
-                  <>
-                    {comments.map((comment) => (
-                      <DeviceCommentCard
-                        comment={comment}
-                      />
-                    ))}
-                  </>
+                  <CommentThread
+                    comments={comments}
+                    user={user}
+                    deviceId={device.id}
+                  />
                 )
                 : (
                   <>
