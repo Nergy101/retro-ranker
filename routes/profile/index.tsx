@@ -7,7 +7,6 @@ import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { buildAchievementBoard } from "../../data/frontend/helpers/achievement.helpers.ts";
 import { UserAchievementRecord } from "../../data/frontend/contracts/achievement.contract.ts";
 import {
-  createLoggedInPocketBaseService,
   createSuperUserPocketBaseService,
 } from "../../data/pocketbase/pocketbase.service.ts";
 import type { PocketBaseService } from "../../data/pocketbase/pocketbase.service.ts";
@@ -46,7 +45,7 @@ export default async function ProfilePage(
   ctx: FreshContext,
 ) {
   const _translations = (ctx.state as CustomFreshState).translations ?? {};
-  const req = ctx.req;
+  const _req = ctx.req;
   const state = ctx.state as CustomFreshState;
   const csrfToken = state.csrfToken;
 
@@ -67,8 +66,10 @@ export default async function ProfilePage(
 
   const user = state.user;
 
-  const pbService = await createLoggedInPocketBaseService(
-    req.headers.get("cookie") ?? "",
+  const pbService = await createSuperUserPocketBaseService(
+    Deno.env.get("POCKETBASE_SUPERUSER_EMAIL")!,
+    Deno.env.get("POCKETBASE_SUPERUSER_PASSWORD")!,
+    Deno.env.get("POCKETBASE_URL")!,
   );
 
   const getCollections = async (
@@ -131,7 +132,7 @@ export default async function ProfilePage(
         1,
         1,
         {
-          filter: `user = "${user.id}"`,
+          filter: `user = "${user.id}" && parent_comment = ""`,
           sort: "-created",
           expand: "",
         },
@@ -173,11 +174,11 @@ export default async function ProfilePage(
   ): Promise<number> => {
     try {
       const replies = await client.getList(
-        "device_comment_replies",
+        "device_comments",
         1,
         1,
         {
-          filter: `user = "${user.id}"`,
+          filter: `user = "${user.id}" && parent_comment != ""`,
           sort: "-created",
           expand: "",
         },
@@ -196,7 +197,7 @@ export default async function ProfilePage(
   ): Promise<number> => {
     try {
       const reactions = await client.getList(
-        "device_comment_reactions",
+        "comment_reactions",
         1,
         1,
         {
@@ -342,180 +343,242 @@ export default async function ProfilePage(
           </h1>
         </header>
 
-        {/* Achievements Section */}
-        <section class="achievements-section">
-          <div class="achievements-header">
-            <h2>
-              <PiTrophy /> Achievements
-            </h2>
+        {/* Achievements Section - Collapsible */}
+        <details class="profile-section achievements-section">
+          <summary class="profile-section-toggle">
+            <div class="section-header">
+              <h2>
+                <PiTrophy /> Achievements
+              </h2>
+              <span class="section-count">
+                {achievements.filter((achievement) => achievement.unlocked)
+                  .length} / {achievements.length}
+              </span>
+            </div>
+          </summary>
+
+          <div class="section-content">
             <p class="achievements-subtitle">
               Collect playful emblems as you explore Retro Ranker.
             </p>
-          </div>
-          <div class="achievements-grid">
-            {achievements.map((achievement) => (
-              <article
-                class={`achievement-card ${
-                  achievement.unlocked ? "unlocked" : "locked"
-                }`}
-                key={achievement.id}
-              >
-                <div class="achievement-icon" aria-hidden="true">
-                  {achievement.icon}
-                </div>
-                <div class="achievement-body">
-                  <span class="achievement-category">
-                    {achievement.category}
-                  </span>
-                  <h3>{achievement.name}</h3>
-                  <p>{achievement.description}</p>
-                </div>
-                <div class="achievement-progress">
-                  <progress
-                    max={achievement.threshold}
-                    value={achievement.progress}
+
+            {/* Locked Achievements */}
+            <div class="achievements-grid">
+              {achievements
+                .filter((achievement) => !achievement.unlocked)
+                .map((achievement) => (
+                  <article
+                    class={`achievement-card locked`}
+                    key={achievement.id}
                   >
-                  </progress>
-                  <div class="achievement-progress-meta">
-                    <span>{achievement.progressLabel}</span>
-                    <span
-                      class={`achievement-status ${
-                        achievement.unlocked ? "is-unlocked" : ""
-                      }`}
-                    >
-                      {achievement.statusText}
-                    </span>
-                  </div>
+                    <div class="achievement-icon" aria-hidden="true">
+                      {achievement.icon}
+                    </div>
+                    <div class="achievement-body">
+                      <span class="achievement-category">
+                        {achievement.category}
+                      </span>
+                      <h3>{achievement.name}</h3>
+                      <p>{achievement.description}</p>
+                    </div>
+                    <div class="achievement-progress">
+                      <progress
+                        max={achievement.threshold}
+                        value={achievement.progress}
+                      >
+                      </progress>
+                      <div class="achievement-progress-meta">
+                        <span>{achievement.progressLabel}</span>
+                        <span class="achievement-status">
+                          {achievement.statusText}
+                        </span>
+                      </div>
+                    </div>
+                  </article>
+                ))}
+            </div>
+
+            {/* Achieved Achievements - Nested Collapsible */}
+            {achievements.filter((achievement) => achievement.unlocked).length >
+                0 && (
+              <details class="achieved-achievements-section">
+                <summary class="achieved-achievements-toggle">
+                  <span class="achieved-count">
+                    {achievements.filter((achievement) => achievement.unlocked)
+                      .length} Achieved
+                  </span>
+                </summary>
+                <div class="achievements-grid achieved-grid">
+                  {achievements
+                    .filter((achievement) => achievement.unlocked)
+                    .map((achievement) => (
+                      <article
+                        class={`achievement-card unlocked`}
+                        key={achievement.id}
+                      >
+                        <div class="achievement-icon" aria-hidden="true">
+                          {achievement.icon}
+                        </div>
+                        <div class="achievement-body">
+                          <span class="achievement-category">
+                            {achievement.category}
+                          </span>
+                          <h3>{achievement.name}</h3>
+                          <p>{achievement.description}</p>
+                        </div>
+                        <div class="achievement-progress">
+                          <progress
+                            max={achievement.threshold}
+                            value={achievement.progress}
+                          >
+                          </progress>
+                          <div class="achievement-progress-meta">
+                            <span>{achievement.progressLabel}</span>
+                            <span class="achievement-status is-unlocked">
+                              {achievement.statusText}
+                            </span>
+                          </div>
+                        </div>
+                      </article>
+                    ))}
                 </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        {/* Favorites Section */}
-        <section class="favorites-section">
-          <h2 style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-            <img
-              src="/images/rr-heart.png"
-              alt="Retro Ranker Heart"
-              style={{
-                width: "auto",
-                height: "4em",
-                marginLeft: "0.5rem",
-                transform: "scaleX(-1)",
-              }}
-            />
-            Favorites
-          </h2>
-
-          {favoritedDevices.length === 0 && (
-            <div class="empty-favorites-message">
-              <p>No favorites yet</p>
-              <p>
-                Start exploring devices and add them to your favorites to see
-                them here.
-              </p>
-            </div>
-          )}
-
-          {favoritedDevices.length > 0 && (
-            <div class="device-row-grid">
-              {favoritedDevices.map((device) => (
-                <a
-                  href={`/devices/${device.name.sanitized}`}
-                  style={{ textDecoration: "none" }}
-                >
-                  <DeviceCardMedium
-                    device={device}
-                    isActive={false}
-                    isLoggedIn={true}
-                    likes={likesCountMap[device.id] ?? 0}
-                    isLiked={userLikedMap[device.id] ?? false}
-                    isFavorited={true}
-                  />
-                </a>
-              ))}
-            </div>
-          )}
-        </section>
-
-        <hr />
-
-        {/* Collection Section */}
-        <section class="collection-section">
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "0.5rem",
-              justifyContent: "space-between",
-            }}
-          >
-            <h2>
-              Collections
-            </h2>
-            {collections.length > 0 && (
-              <a
-                href={`/collections/create`}
-                role="button"
-                type="button"
-                class="button outline insert-btn create-btn"
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.5rem",
-                }}
-              >
-                <PiPlus /> Create New
-              </a>
+              </details>
             )}
           </div>
+        </details>
 
-          {collections.length === 0 && (
-            <div class="empty-collection-message">
-              <p>
-                No collections yet
-              </p>
-              <a
-                href={`/collections/create`}
-                role="button"
-                class="outline insert-btn create-btn"
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.25rem",
-                  width: "fit-content",
-                }}
-              >
-                <PiPlus />
-                Create New
-              </a>
+        {/* Favorites Section - Collapsible */}
+        <details class="profile-section favorites-section">
+          <summary class="profile-section-toggle">
+            <div class="section-header">
+              <h2>
+                ❤️ Favorites
+              </h2>
+              <span class="section-count">
+                {favoritedDevices.length}{" "}
+                {favoritedDevices.length === 1 ? "device" : "devices"}
+              </span>
             </div>
-          )}
+          </summary>
 
-          <div class="collection-container">
-            <DeviceCollections
-              collections={collections}
-              isLoggedIn={true}
-              likesCountMap={likesCountMap}
-              userLikedMap={userLikedMap}
-              userFavoritedMap={userFavoritedMap}
-            />
+          <div class="section-content">
+            {favoritedDevices.length === 0 && (
+              <div class="empty-favorites-message">
+                <p>No favorites yet</p>
+                <p>
+                  Start exploring devices and add them to your favorites to see
+                  them here.
+                </p>
+              </div>
+            )}
+
+            {favoritedDevices.length > 0 && (
+              <div class="device-row-grid">
+                {favoritedDevices.map((device) => (
+                  <a
+                    href={`/devices/${device.name.sanitized}`}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <DeviceCardMedium
+                      device={device}
+                      isActive={false}
+                      isLoggedIn={true}
+                      likes={likesCountMap[device.id] ?? 0}
+                      isLiked={userLikedMap[device.id] ?? false}
+                      isFavorited={true}
+                    />
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
-        </section>
+        </details>
 
-        <hr />
+        {/* Collections Section - Collapsible */}
+        <details class="profile-section collections-section">
+          <summary class="profile-section-toggle">
+            <div class="section-header">
+              <h2>
+                📚 Collections
+              </h2>
+              <span class="section-count">
+                {collections.length}{" "}
+                {collections.length === 1 ? "collection" : "collections"}
+              </span>
+            </div>
+          </summary>
 
-        {/* Suggestions Section */}
-        <section
-          class="suggestions-section"
-          style={{ marginTop: "2rem", marginBottom: "2rem" }}
-        >
-          <h2 style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-            <PiChatCentered /> Feedback
-          </h2>
-          <SuggestionForm csrfToken={csrfToken} />
-        </section>
+          <div class="section-content">
+            <div class="collections-actions">
+              {collections.length > 0 && (
+                <a
+                  href={`/collections/create`}
+                  role="button"
+                  type="button"
+                  class="button outline insert-btn create-btn"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.5rem",
+                    marginBottom: "1rem",
+                  }}
+                >
+                  <PiPlus /> Create New
+                </a>
+              )}
+
+              {collections.length === 0 && (
+                <div class="empty-collection-message">
+                  <p>
+                    No collections yet
+                  </p>
+                  <a
+                    href={`/collections/create`}
+                    role="button"
+                    class="outline insert-btn create-btn"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "0.25rem",
+                      width: "fit-content",
+                    }}
+                  >
+                    <PiPlus />
+                    Create New
+                  </a>
+                </div>
+              )}
+            </div>
+
+            <div class="collection-container">
+              <DeviceCollections
+                collections={collections}
+                isLoggedIn={true}
+                likesCountMap={likesCountMap}
+                userLikedMap={userLikedMap}
+                userFavoritedMap={userFavoritedMap}
+              />
+            </div>
+          </div>
+        </details>
+
+        {/* Feedback Section - Collapsible */}
+        <details class="profile-section suggestions-section">
+          <summary class="profile-section-toggle">
+            <div class="section-header">
+              <h2>
+                <PiChatCentered /> Feedback
+              </h2>
+              <span class="section-count">
+                Share your thoughts
+              </span>
+            </div>
+          </summary>
+
+          <div class="section-content">
+            <SuggestionForm csrfToken={csrfToken} />
+          </div>
+        </details>
 
         <footer
           style={{ display: "flex", gap: "0.5rem" }}

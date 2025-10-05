@@ -7,7 +7,6 @@ import {
 } from "@preact-icons/pi";
 import { Context, page } from "fresh";
 import { DeviceCardMedium } from "../../components/cards/device-card-medium.tsx";
-import { DeviceCommentCard } from "../../components/cards/device-comment-card.tsx";
 import { DeviceReviewCard } from "../../components/cards/device-review-card.tsx";
 import { DeviceLinks } from "../../components/devices/device-links.tsx";
 import { EmulationPerformance } from "../../components/devices/emulation-performance.tsx";
@@ -629,7 +628,8 @@ export default function DeviceDetail(ctx: Context<CustomFreshState>) {
           totalReviews={reviews.length}
           averageReviewScore={reviews.length > 0
             ? reviews.reduce(
-              (sum, review) => sum + (review.overall_rating || 0),
+              (sum: any, review: { overall_rating: any }) =>
+                sum + (review.overall_rating || 0),
               0,
             ) / reviews.length
             : null}

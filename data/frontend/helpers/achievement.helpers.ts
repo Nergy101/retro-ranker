@@ -111,7 +111,8 @@ const ACHIEVEMENT_DEFINITIONS: AchievementDefinition[] = [
   {
     id: "collection-legend",
     name: "Shelf Maestro",
-    description: "Maintain five personal collections for the community to enjoy.",
+    description:
+      "Maintain five personal collections for the community to enjoy.",
     icon: "🎼",
     category: "Curator",
     metric: "collectionCount",
