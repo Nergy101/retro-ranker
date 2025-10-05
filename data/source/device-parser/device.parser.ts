@@ -177,7 +177,6 @@ export class DeviceParser {
         if (colIndex === 0) {
           // get the image url
           const imageUrl = $(cell).find("img").attr("src");
-          console.log("imageUrl", imageUrl);
           if (imageUrl) {
             // Handle resources folder images - collect for later copying
             if (imageUrl.startsWith("resources/")) {
@@ -288,9 +287,6 @@ export class DeviceParser {
     });
 
     // Copy all images from resources to static/devices folder
-    console.log(
-      `Copying ${imageCopyOperations.length} images from resources folder...`,
-    );
     for (const operation of imageCopyOperations) {
       try {
         // Find the corresponding device for this image
@@ -313,10 +309,6 @@ export class DeviceParser {
 
         // Write the image to static/devices with device name
         await Deno.writeFile(targetPath, imageData);
-
-        console.log(
-          `Copied image from ${operation.sourcePath} to ${targetPath}`,
-        );
       } catch (error) {
         console.warn(`Failed to copy image ${operation.sourcePath}:`, error);
       }
@@ -487,7 +479,6 @@ export class DeviceParser {
         if (colIndex === 0) {
           // get the image url
           const imageUrl = $(cell).find("img").attr("src");
-          console.log("imageUrl 2", imageUrl);
           if (imageUrl) {
             // Handle resources folder images - collect for later copying
             if (imageUrl.startsWith("resources/")) {
@@ -611,9 +602,6 @@ export class DeviceParser {
     });
 
     // Copy all images from resources to static/devices folder
-    console.log(
-      `Copying ${imageCopyOperations.length} images from resources folder...`,
-    );
     for (const operation of imageCopyOperations) {
       try {
         // Find the corresponding device for this image
@@ -636,10 +624,6 @@ export class DeviceParser {
 
         // Write the image to static/devices with device name
         await Deno.writeFile(targetPath, imageData);
-
-        console.log(
-          `Copied image from ${operation.sourcePath} to ${targetPath}`,
-        );
       } catch (error) {
         console.warn(`Failed to copy image ${operation.sourcePath}:`, error);
       }

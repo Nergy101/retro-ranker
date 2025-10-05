@@ -48,7 +48,6 @@ for (const deviceToUpdate of devicesToUpdate) {
 
 // Save the updated devices back to file
 const updatedJson = JSON.stringify(devices, null, 2);
-console.log(filePath);
 await Deno.writeFile(filePath, new TextEncoder().encode(updatedJson));
 
 console.info("Devices updated and saved successfully!");

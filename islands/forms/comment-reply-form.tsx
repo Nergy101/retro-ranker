@@ -70,13 +70,11 @@ export function CommentReplyForm({
       });
 
       if (!response.ok) {
-        console.error("Failed to submit reply");
         // Note: In a real app, you might want to show an error message
         // and remove the optimistic update, but since the API redirects,
         // the page will reload anyway
       }
-    } catch (error) {
-      console.error("Error submitting reply:", error);
+    } catch (_error) {
       // Note: Same as above - page will reload on success
     } finally {
       setIsSubmitting(false);

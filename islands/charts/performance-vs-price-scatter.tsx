@@ -72,18 +72,12 @@ export function PerformanceVsPriceScatterPlot({ devices }: ScatterPlotProps) {
 
   // Filter brands based on search term
   const filteredBrands = useMemo(() => {
-    console.log("Filtering with search term:", brandSearchTerm.value);
     if (!brandSearchTerm.value.trim()) {
-      console.log(
-        "No search term, returning all brands:",
-        availableBrands.length,
-      );
       return availableBrands;
     }
     const filtered = availableBrands.filter(({ brand }) =>
       brand.toLowerCase().includes(brandSearchTerm.value.toLowerCase())
     );
-    console.log("Filtered results:", filtered.length, "brands");
     return filtered;
   }, [availableBrands, brandSearchTerm.value]);
 
@@ -503,7 +497,6 @@ export function PerformanceVsPriceScatterPlot({ devices }: ScatterPlotProps) {
                 value={brandSearchTerm.value}
                 onChange={(e) => {
                   const value = e.currentTarget.value;
-                  console.log("Input onChange called with value:", value);
                   brandSearchTerm.value = value;
                   setShowBrandDropdown(true);
                 }}
@@ -540,11 +533,6 @@ export function PerformanceVsPriceScatterPlot({ devices }: ScatterPlotProps) {
                   }}
                 >
                   {(() => {
-                      console.log(
-                        "Rendering dropdown with",
-                        filteredBrands.length,
-                        "brands",
-                      );
                       return filteredBrands.length > 0;
                     })()
                     ? (

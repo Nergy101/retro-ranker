@@ -22,12 +22,6 @@ export const handler = {
       const body = await req.json();
       const { device_id, parent_comment_id, content } = body;
 
-      console.log("Creating reply:", {
-        device_id,
-        parent_comment_id,
-        content: content.substring(0, 50) + "...",
-      });
-
       if (!device_id || !parent_comment_id || !content) {
         return new Response("Missing required fields", { status: 400 });
       }
@@ -36,9 +30,7 @@ export const handler = {
       const parentComment = await pb.getOne(
         "device_comments",
         parent_comment_id,
-        {
-          expand: "",
-        },
+        "",
       );
 
       if (!parentComment) {
@@ -54,7 +46,7 @@ export const handler = {
       }
 
       // Create the reply
-      const reply = await pb.create("device_comments", {
+      await pb.create("device_comments", {
         device: device_id,
         user: user.id,
         content,
@@ -62,8 +54,6 @@ export const handler = {
         thread_id: threadId,
         depth,
       });
-
-      console.log("Reply created successfully:", reply.id);
 
       // Get the referer URL from the request headers
       const referer = req.headers.get("referer") || "/";

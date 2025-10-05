@@ -41,7 +41,6 @@ export const handler = {
         pageNumber,
         pageSize,
       );
-      console.log(devices);
       console.info("API call success: devices/index ", {
         searchQuery,
         category,

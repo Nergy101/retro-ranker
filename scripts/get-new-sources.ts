@@ -30,8 +30,6 @@ try {
   const buffer = await Deno.readFile(fullZipPath);
 
   for (const { name, data } of await extract(buffer)) {
-    console.log("file name", name);
-
     if (name === "Handhelds.html" || name === "OEM.html") {
       await Deno.writeFile(`${extractPath}/${name}`, data, {
         create: true,

@@ -5,7 +5,6 @@ import chalk from "https://deno.land/x/chalk_deno@v4.1.1-deno/source/index.js";
 console.info(chalk.blue(" --- Refreshing all data --- "));
 
 const denoCwd = Deno.cwd();
-console.log("cwd", denoCwd);
 
 const getNewSourcesCommand = new Deno.Command(Deno.execPath(), {
   args: ["run", "--allow-all", `get-new-sources.ts`],

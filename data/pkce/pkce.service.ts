@@ -14,7 +14,6 @@ class PkceSessionService {
   }
 
   storeInSession(stateId: string, codeVerifier: string) {
-    console.log("Storing codeVerifier in session", { stateId });
     this.sessions.set(stateId, codeVerifier);
   }
 
@@ -24,16 +23,12 @@ class PkceSessionService {
   ): string | undefined {
     const codeVerifier = this.sessions.get(stateId);
     if (codeVerifier) {
-      console.log("Retrieved codeVerifier from session", {
-        stateId,
-        codeVerifier,
-      });
+      console.log(`Code verifier ${codeVerifier} found in session ${stateId}`);
     } else {
-      console.warn("No codeVerifier found in session", { stateId });
+      console.warn(`No code verifier found in session ${stateId}`);
     }
     if (options?.remove) {
       this.sessions.delete(stateId);
-      console.log("Removed codeVerifier from session", { stateId });
     }
     return codeVerifier;
   }

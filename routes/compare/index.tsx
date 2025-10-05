@@ -22,7 +22,6 @@ export const handler = {
       (await Promise.all(devices.map((d) => deviceService.getDeviceByName(d))))
         .filter((device) => device !== null && device !== undefined);
 
-    console.log("devices to compare", devicesToCompare.length);
     const deviceNames = devicesToCompare.map((device) => device.name.raw);
     const allDevices = (await deviceService.getAllDevices())
       .sort((a, b) => a.name.raw.localeCompare(b.name.raw));
@@ -47,7 +46,6 @@ export const handler = {
     let seoDescription =
       "Compare gaming handhelds side-by-side with detailed specs.";
 
-    console.log("devices to compare", devicesToCompare.length);
     if (devicesToCompare.length === 2) {
       const [device1, device2] = devicesToCompare;
       seoTitle =

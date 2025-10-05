@@ -28,9 +28,8 @@ export function ShareButton(
           title: shareTitle,
           url,
         });
-      } catch (error) {
+      } catch (_error) {
         // User cancelled the share dialog or other error
-        console.log("Share cancelled or failed:", error);
       }
     } else {
       // Fallback: Copy URL to clipboard
