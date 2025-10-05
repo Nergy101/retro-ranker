@@ -4365,261 +4365,557 @@ textarea:focus:valid {
   }
 }
 
-/* Tab Interface Styles */
-.tab-container {
-  margin: 2rem 0;
-}
-
-.tab-buttons {
+/* Profile achievements */
+.achievements-section {
+  margin: 3rem 0;
   display: flex;
-  gap: 0.25rem;
-  margin-bottom: 1.5rem;
-  border-bottom: 1px solid var(--pico-muted-border-color);
-  padding-bottom: 0.5rem;
+  flex-direction: column;
 }
 
-.tab-button {
-  flex: 1;
-  background: var(--pico-background-color);
-  border: 1px solid var(--pico-muted-border-color);
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  font-weight: 500;
-  color: var(--pico-muted-color);
-  border-radius: 0.375rem;
-  transition: all 0.2s ease;
-  position: relative;
-  font-size: 0.875rem;
-}
-
-.tab-button:hover {
-  color: var(--pico-color);
-  background-color: var(--pico-secondary-background);
-  border-color: var(--pico-secondary-border);
-}
-
-.tab-button.active {
-  color: var(--pico-color);
-  background-color: var(--pico-secondary-background);
-  border-color: var(--pico-secondary-border);
-  border-bottom: 1px solid var(--pico-secondary-border);
-}
-.tab-content.active {
-  display: block;
-}
-
-/* Remove orange background from tab content */
-.tab-content {
-  background-color: transparent !important;
-  padding: 1.5rem 0;
-  display: none;
-  animation: fadeIn 0.3s ease-in-out;
-  margin: 2rem 0;
-  padding: 1rem;
-}
-
-.tab-content .card {
-  background-color: var(--pico-background-color) !important;
-  padding: 1.25rem;
-  margin-bottom: 1rem;
-}
-
-.tab-content h3 {
-  margin-bottom: 1rem;
-}
-
-.tab-content p {
-  margin-bottom: 1rem;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive tab buttons */
-@media (max-width: 768px) {
-  .tab-buttons {
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-
-  .tab-button {
-    text-align: center;
-    border-radius: 0.375rem;
-    margin-bottom: 0.25rem;
-  }
-
-  .tab-button.active {
-    border-bottom: 1px solid var(--pico-secondary-border);
-    background-color: var(--pico-secondary-background);
-    color: var(--pico-color);
-  }
-}
-
-/* Article section borders for better visual separation */
-article section {
-  border-left: 3px solid var(--pico-muted-border-color);
-  padding-left: 1.5rem;
-  margin: 2rem 0;
-  transition: border-color 0.2s ease;
-}
-
-article section:hover {
-  border-left-color: var(--pico-secondary-border);
-}
-
-article section:first-of-type {
-  margin-top: 0;
-}
-
-article section:last-of-type {
-  margin-bottom: 0;
-}
-
-/* Special styling for the header section */
-article header {
-  border-left: none;
-  padding-left: 0;
-  margin-bottom: 2rem;
-}
-
-/* New Navigation Dropdown Styles */
-.nav-item {
-  position: relative;
-}
-
-/* Hamburger menu icon styling for navigation items with children */
-.nav-item-label-icon {
-  font-size: 0.875rem;
-  font-weight: bold;
-  opacity: 0.7;
-  transition: opacity 0.2s ease;
-}
-
-.nav-item:hover .nav-item-label-icon {
-  opacity: 1;
-}
-
-.nav-dropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  min-width: 200px;
-  background-color: var(--pico-background-color);
-  border: 1px solid var(--pico-primary-focus);
-  border-radius: 4px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  list-style: none;
-  margin: 0;
-  padding: 0.5rem 0;
-  z-index: 1000;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-10px);
-  transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
-}
-
-.nav-item:hover .nav-dropdown {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.nav-dropdown li {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-dropdown-link {
+.achievements-header h2 {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.75rem 1rem;
-  color: var(--pico-contrast);
-  text-decoration: none;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  margin: 0;
 }
 
-.nav-dropdown-link:hover {
-  background-color: var(--pico-primary-focus);
-  color: var(--pico-primary);
+.achievements-subtitle {
+  margin: 0;
+  color: var(--pico-muted-color);
 }
 
-.nav-dropdown-link.active {
-  background-color: var(--pico-primary-focus);
-  color: var(--pico-primary);
+.achievements-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.achievement-card {
+  background-color: var(--pico-card-background-color-darker);
+  border: 1px solid var(--pico-muted-border-color);
+  border-radius: var(--pico-border-radius);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-height: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.achievement-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--pico-card-box-shadow);
+}
+
+.achievement-card.unlocked {
+  border-color: var(--pico-ins-color);
+  box-shadow: var(--pico-card-box-shadow);
+}
+
+.achievement-card.locked {
+  opacity: 0.85;
+}
+
+.achievement-icon {
+  font-size: 2.5rem;
+}
+
+.achievement-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.achievement-body h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.achievement-body p {
+  margin: 0;
+  color: var(--pico-muted-color);
+}
+
+.achievement-category {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--pico-muted-color);
   font-weight: 600;
 }
 
-.nav-dropdown-link-icon {
-  min-width: 1rem;
+.achievement-progress {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  gap: 0.35rem;
 }
 
-/* Mobile Navigation Expandable Styles */
-.drawer-link-button {
-  background: none;
-  border: none;
+.achievement-progress progress {
   width: 100%;
-  text-align: left;
+  height: 0.5rem;
+  accent-color: var(--pico-primary);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.achievement-progress-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.achievement-status {
+  color: var(--pico-muted-color);
+  font-weight: 500;
+  text-align: right;
+}
+
+.achievement-status.is-unlocked {
+  color: var(--pico-ins-color);
+}
+
+/* Profile Collapsible Sections */
+.profile-section {
+  margin: 1.5rem 0;
+  border: 1px solid var(--pico-muted-border-color);
+  border-radius: var(--pico-border-radius);
+  background-color: var(--pico-card-background-color);
+  overflow: hidden;
+}
+
+.profile-section-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
   cursor: pointer;
+  background-color: var(--pico-card-background-color-darker);
+  border: none;
+  transition: background-color 0.2s ease;
+  list-style: none;
+  font-weight: 600;
+  color: var(--pico-contrast);
+}
+
+.profile-section-toggle:hover {
+  background-color: var(--pico-primary-focus);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.section-header h2 {
+  margin: 0;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.75rem;
-  color: var(--pico-contrast);
-  text-decoration: none;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  font-size: 1.25rem;
 }
 
-.drawer-link-button:hover {
-  background-color: var(--pico-primary-focus);
-  color: var(--pico-primary);
-}
-
-/* Hamburger menu icon styling for mobile navigation items with children */
-.drawer-link-icon {
+.section-count {
   font-size: 0.875rem;
-  font-weight: bold;
-  opacity: 0.7;
-  transition: opacity 0.2s ease;
-}
-
-.drawer-link-button:hover .drawer-link-icon {
-  opacity: 1;
-}
-
-.mobile-drawer-sublist {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  color: var(--pico-muted-color);
+  font-weight: 500;
   background-color: var(--pico-primary-focus);
-  border-radius: 4px;
-  margin-top: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
 }
 
-.mobile-drawer-sublist li {
+.toggle-icon {
+  font-size: 0.875rem;
+  transition: transform 0.2s ease;
+  color: var(--pico-muted-color);
+}
+
+.profile-section[open] .toggle-icon {
+  transform: rotate(180deg);
+}
+
+.section-content {
+  padding: 1.5rem;
+  background-color: var(--pico-card-background-color);
+  border-top: 1px solid var(--pico-muted-border-color);
+}
+
+/* Collapsible achieved achievements section */
+.achieved-achievements-section {
+  margin-top: 1.5rem;
+  border: 1px solid var(--pico-muted-border-color);
+  border-radius: var(--pico-border-radius);
+  background-color: var(--pico-card-background-color);
+}
+
+.achieved-achievements-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  background-color: var(--pico-card-background-color-darker);
+  border-radius: var(--pico-border-radius);
+  transition: background-color 0.2s ease;
   list-style: none;
-  margin: 0;
-  padding: 0;
+  font-weight: 600;
+  color: var(--pico-ins-color);
 }
 
-.drawer-sublink {
-  padding-left: 2rem !important;
-  font-size: 0.9rem;
-  opacity: 0.9;
+.achieved-achievements-toggle:hover {
+  background-color: var(--pico-primary-focus);
 }
 
-.drawer-sublink:hover {
-  opacity: 1;
+.achieved-count {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.achieved-achievements-section[open] .toggle-icon {
+  transform: rotate(180deg);
+}
+
+.achieved-grid {
+  padding: 1.25rem;
+  border-top: 1px solid var(--pico-muted-border-color);
+  background-color: var(--pico-card-background-color);
+}
+
+.achieved-grid .achievement-card {
+  background-color: var(--pico-card-background-color-darker);
+}
+
+.achieved-grid .achievement-card.unlocked {
+  border-color: var(--pico-ins-color);
+  background-color: var(--pico-ins-background-color);
+}
+
+/* Collections specific styling */
+.collections-actions {
+  margin-bottom: 1rem;
+}
+
+/* Empty state improvements */
+.empty-favorites-message,
+.empty-collection-message {
+  text-align: center;
+  padding: 2rem;
+  color: var(--pico-muted-color);
+}
+
+.empty-favorites-message p,
+.empty-collection-message p {
+  margin: 0.5rem 0;
+}
+
+/* Responsive design for collapsible sections */
+@media (max-width: 768px) {
+  .profile-section-toggle {
+    padding: 1rem;
+  }
+
+  .section-content {
+    padding: 1rem;
+  }
+
+  .section-header {
+    gap: 0.5rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.1rem;
+  }
+
+  .section-count {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.4rem;
+  }
+
+  .achieved-achievements-toggle {
+    padding: 0.875rem 1rem;
+  }
+
+  .achieved-grid {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .achievements-section {
+    margin: 2rem 0;
+  }
+
+  .achievements-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .achieved-achievements-toggle {
+    padding: 0.875rem 1rem;
+  }
+
+  .achieved-grid {
+    padding: 1rem;
+  }
+  /* Tab Interface Styles */
+  .tab-container {
+    margin: 2rem 0;
+  }
+
+  .tab-buttons {
+    display: flex;
+    gap: 0.25rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--pico-muted-border-color);
+    padding-bottom: 0.5rem;
+  }
+
+  .tab-button {
+    flex: 1;
+    background: var(--pico-background-color);
+    border: 1px solid var(--pico-muted-border-color);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--pico-muted-color);
+    border-radius: 0.375rem;
+    transition: all 0.2s ease;
+    position: relative;
+    font-size: 0.875rem;
+  }
+
+  .tab-button:hover {
+    color: var(--pico-color);
+    background-color: var(--pico-secondary-background);
+    border-color: var(--pico-secondary-border);
+  }
+
+  .tab-button.active {
+    color: var(--pico-color);
+    background-color: var(--pico-secondary-background);
+    border-color: var(--pico-secondary-border);
+    border-bottom: 1px solid var(--pico-secondary-border);
+  }
+  .tab-content.active {
+    display: block;
+  }
+
+  /* Remove orange background from tab content */
+  .tab-content {
+    background-color: transparent !important;
+    padding: 1.5rem 0;
+    display: none;
+    animation: fadeIn 0.3s ease-in-out;
+    margin: 2rem 0;
+    padding: 1rem;
+  }
+
+  .tab-content .card {
+    background-color: var(--pico-background-color) !important;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .tab-content h3 {
+    margin-bottom: 1rem;
+  }
+
+  .tab-content p {
+    margin-bottom: 1rem;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Responsive tab buttons */
+  @media (max-width: 768px) {
+    .tab-buttons {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .tab-button {
+      text-align: center;
+      border-radius: 0.375rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .tab-button.active {
+      border-bottom: 1px solid var(--pico-secondary-border);
+      background-color: var(--pico-secondary-background);
+      color: var(--pico-color);
+    }
+  }
+
+  /* Article section borders for better visual separation */
+  article section {
+    border-left: 3px solid var(--pico-muted-border-color);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    transition: border-color 0.2s ease;
+  }
+
+  article section:hover {
+    border-left-color: var(--pico-secondary-border);
+  }
+
+  article section:first-of-type {
+    margin-top: 0;
+  }
+
+  article section:last-of-type {
+    margin-bottom: 0;
+  }
+
+  /* Special styling for the header section */
+  article header {
+    border-left: none;
+    padding-left: 0;
+    margin-bottom: 2rem;
+  }
+
+  /* New Navigation Dropdown Styles */
+  .nav-item {
+    position: relative;
+  }
+
+  /* Hamburger menu icon styling for navigation items with children */
+  .nav-item-label-icon {
+    font-size: 0.875rem;
+    font-weight: bold;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+  }
+
+  .nav-item:hover .nav-item-label-icon {
+    opacity: 1;
+  }
+
+  .nav-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    background-color: var(--pico-background-color);
+    border: 1px solid var(--pico-primary-focus);
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+  }
+
+  .nav-item:hover .nav-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav-dropdown li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-dropdown-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    color: var(--pico-contrast);
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .nav-dropdown-link:hover {
+    background-color: var(--pico-primary-focus);
+    color: var(--pico-primary);
+  }
+
+  .nav-dropdown-link.active {
+    background-color: var(--pico-primary-focus);
+    color: var(--pico-primary);
+    font-weight: 600;
+  }
+
+  .nav-dropdown-link-icon {
+    min-width: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Mobile Navigation Expandable Styles */
+  .drawer-link-button {
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    color: var(--pico-contrast);
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .drawer-link-button:hover {
+    background-color: var(--pico-primary-focus);
+    color: var(--pico-primary);
+  }
+
+  /* Hamburger menu icon styling for mobile navigation items with children */
+  .drawer-link-icon {
+    font-size: 0.875rem;
+    font-weight: bold;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+  }
+
+  .drawer-link-button:hover .drawer-link-icon {
+    opacity: 1;
+  }
+
+  .mobile-drawer-sublist {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: var(--pico-primary-focus);
+    border-radius: 4px;
+    margin-top: 0.25rem;
+  }
+
+  .mobile-drawer-sublist li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .drawer-sublink {
+    padding-left: 2rem !important;
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+
+  .drawer-sublink:hover {
+    opacity: 1;
+  }
 }

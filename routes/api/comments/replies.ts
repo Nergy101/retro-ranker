@@ -1,4 +1,8 @@
-import { createLoggedInPocketBaseService } from "../../../data/pocketbase/pocketbase.service.ts";
+import {
+  createLoggedInPocketBaseService,
+  createSuperUserPocketBaseService,
+} from "../../../data/pocketbase/pocketbase.service.ts";
+import { AchievementService } from "../../../data/frontend/services/achievement.service.ts";
 import { Context } from "fresh";
 import { State } from "../../../utils.ts";
 
@@ -30,7 +34,6 @@ export const handler = {
       const parentComment = await pb.getOne(
         "device_comments",
         parent_comment_id,
-        "",
       );
 
       if (!parentComment) {
@@ -46,7 +49,7 @@ export const handler = {
       }
 
       // Create the reply
-      await pb.create("device_comments", {
+      const reply = await pb.create("device_comments", {
         device: device_id,
         user: user.id,
         content,
@@ -54,6 +57,17 @@ export const handler = {
         thread_id: threadId,
         depth,
       });
+
+      console.log("Reply created successfully:", reply.id);
+
+      // Check and unlock achievements using superuser service
+      const superUserPb = await createSuperUserPocketBaseService(
+        Deno.env.get("POCKETBASE_SUPERUSER_EMAIL")!,
+        Deno.env.get("POCKETBASE_SUPERUSER_PASSWORD")!,
+        Deno.env.get("POCKETBASE_URL")!,
+      );
+      const achievementService = new AchievementService(superUserPb);
+      await achievementService.checkAndUnlockAchievements(user.id);
 
       // Get the referer URL from the request headers
       const referer = req.headers.get("referer") || "/";
