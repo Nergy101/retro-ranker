@@ -2,6 +2,7 @@ import {
   createLoggedInPocketBaseService,
   createSuperUserPocketBaseService,
 } from "../../../../data/pocketbase/pocketbase.service.ts";
+import { AchievementService } from "../../../../data/frontend/services/achievement.service.ts";
 import { Context } from "fresh";
 import { State } from "../../../../utils.ts";
 
@@ -132,6 +133,15 @@ export const handler = {
         user: user.id,
         reaction_type,
       });
+
+      // Check and unlock achievements using superuser service
+      const superUserPb = await createSuperUserPocketBaseService(
+        Deno.env.get("POCKETBASE_SUPERUSER_EMAIL")!,
+        Deno.env.get("POCKETBASE_SUPERUSER_PASSWORD")!,
+        Deno.env.get("POCKETBASE_URL")!,
+      );
+      const achievementService = new AchievementService(superUserPb);
+      await achievementService.checkAndUnlockAchievements(user.id);
 
       return new Response(null, { status: 201 });
     } catch (error) {

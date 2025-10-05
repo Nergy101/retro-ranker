@@ -3,6 +3,7 @@ import {
   createLoggedInPocketBaseService,
   createSuperUserPocketBaseService,
 } from "../../../../data/pocketbase/pocketbase.service.ts";
+import { AchievementService } from "../../../../data/frontend/services/achievement.service.ts";
 import { Context } from "fresh";
 import { State } from "../../../../utils.ts";
 
@@ -93,6 +94,10 @@ export const handler = {
         device: deviceId,
         user: user.id,
       });
+
+      // Check and unlock achievements
+      const achievementService = new AchievementService(adminPb);
+      await achievementService.checkAndUnlockAchievements(user.id);
 
       return new Response(null, { status: 201 });
     } catch {
