@@ -14,11 +14,12 @@ import { State } from "../../utils.ts";
 export const handler = {
   async GET(ctx: Context<State>) {
     (ctx.state as CustomFreshState).seo = {
-      title: "Retro Ranker - Charts",
+      title: "Retro Gaming Handheld Charts & Analytics | Retro Ranker",
       description:
-        "Explore interactive charts and data visualizations of retro gaming handhelds. View statistics on device brands, performance ratings, release trends, and market analysis of portable emulation systems.",
+        "Explore comprehensive data visualizations and analytics for retro gaming handhelds. View interactive charts on device performance, pricing trends, release timelines, and market analysis of portable emulation systems.",
       keywords:
-        "retro gaming charts, handheld device statistics, emulation device analytics, retro console data, gaming hardware trends, retro gaming market analysis, handheld comparison graphs",
+        "retro gaming charts, handheld device statistics, emulation device analytics, retro console data, gaming hardware trends, retro gaming market analysis, handheld comparison graphs, portable gaming statistics, emulation device trends, retro gaming data",
+      url: `https://retroranker.site${ctx.url.pathname}`,
     };
     const deviceService = await DeviceService.getInstance();
     const devices = await deviceService.getAllDevices();

@@ -1,4 +1,4 @@
-import { useState } from "preact/hooks";
+import { useCallback, useMemo, useState } from "preact/hooks";
 import type { Device } from "../../data/frontend/contracts/device.model.ts";
 import { DevicesRadarChart } from "./devices-radar-chart.tsx";
 
@@ -17,9 +17,13 @@ export function DevicesSimilarRadarChart({
 }: DevicesSimilarRadarChartProps) {
   const [showSimilarDevices, setShowSimilarDevices] = useState(true);
 
-  const toggleShow = (e: Event) => {
+  const toggleShow = useCallback((e: Event) => {
     setShowSimilarDevices((e.target as HTMLInputElement).checked);
-  };
+  }, []);
+
+  const devicesToShow = useMemo(() => {
+    return showSimilarDevices ? [device, ...similarDevices] : [device];
+  }, [device, similarDevices, showSimilarDevices]);
 
   return (
     <div
@@ -30,21 +34,11 @@ export function DevicesSimilarRadarChart({
         alignItems: "center",
       }}
     >
-      {showSimilarDevices
-        ? (
-          <DevicesRadarChart
-            devices={[device, ...similarDevices]}
-            showTitle={showTitle}
-            translations={translations}
-          />
-        )
-        : (
-          <DevicesRadarChart
-            devices={[device]}
-            showTitle={showTitle}
-            translations={translations}
-          />
-        )}
+      <DevicesRadarChart
+        devices={devicesToShow}
+        showTitle={showTitle}
+        translations={translations}
+      />
       <label
         style={{
           display: "flex",

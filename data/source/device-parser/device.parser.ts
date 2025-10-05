@@ -7,10 +7,27 @@ import { TagModel } from "../../frontend/models/tag.model.ts";
 import { ScoreCalculatorService } from "../../frontend/services/devices/score-calculator.service.ts";
 import { mapHandheldsColumnToDevice } from "./device.parser.map.handheld.columns.ts";
 import { mapOEMsColumnToDevice } from "./device.parser.map.oem.columns.ts";
+slugify.extend({
+  "?": "-question-mark-",
+  '"': "-double-quote-",
+  " ": "-",
+  "+": "-plus-",
+});
 
 export class DeviceParser {
-  public static parseHandheldsHtml(fileContent: string): Device[] {
+  public static async parseHandheldsHtml(
+    fileContent: string,
+  ): Promise<Device[]> {
     const devices: Device[] = [];
+    const imageCopyOperations: Array<
+      {
+        sourcePath: string;
+        targetPath: string;
+        deviceName: string;
+        imageUrl: string;
+        rowIndex: number;
+      }
+    > = [];
     const $ = cheerio.load(fileContent);
 
     const table = $("tbody");
@@ -160,7 +177,21 @@ export class DeviceParser {
         if (colIndex === 0) {
           // get the image url
           const imageUrl = $(cell).find("img").attr("src");
+          console.log("imageUrl", imageUrl);
           if (imageUrl) {
+            // Handle resources folder images - collect for later copying
+            if (imageUrl.startsWith("resources/")) {
+              const sourcePath = `./files/${imageUrl}`;
+
+              imageCopyOperations.push({
+                sourcePath,
+                targetPath: "", // Will be set later when device name is available
+                deviceName: "", // Will be set later when device name is available
+                imageUrl: imageUrl,
+                rowIndex: rowIndex,
+              });
+            }
+
             device.image = {
               originalUrl: imageUrl,
               pngUrl: null, // set later
@@ -256,13 +287,57 @@ export class DeviceParser {
       devices.push(device);
     });
 
+    // Copy all images from resources to static/devices folder
+    console.log(
+      `Copying ${imageCopyOperations.length} images from resources folder...`,
+    );
+    for (const operation of imageCopyOperations) {
+      try {
+        // Find the corresponding device for this image
+        const device = devices.find((d) => d.index === operation.rowIndex);
+        if (!device || !device.name.sanitized) {
+          console.warn(
+            `No device found for image ${operation.imageUrl} at row ${operation.rowIndex}`,
+          );
+          continue;
+        }
+
+        const sanitizedDeviceName = device.name.sanitized;
+        const targetPath = `../../static/devices/${sanitizedDeviceName}.jpg`;
+
+        // Read the image file from resources
+        const imageData = await Deno.readFile(operation.sourcePath);
+
+        // Ensure static/devices directory exists
+        await Deno.mkdir("../../static/devices", { recursive: true });
+
+        // Write the image to static/devices with device name
+        await Deno.writeFile(targetPath, imageData);
+
+        console.log(
+          `Copied image from ${operation.sourcePath} to ${targetPath}`,
+        );
+      } catch (error) {
+        console.warn(`Failed to copy image ${operation.sourcePath}:`, error);
+      }
+    }
+
     // filter out devices that have too much information missing
     return devices.filter((device) => device.brand.raw !== "Unknown" // && device.name.raw !== "Unknown"
     );
   }
 
-  public static parseOEMsHtml(fileContent: string): Device[] {
+  public static async parseOEMsHtml(fileContent: string): Promise<Device[]> {
     const devices: Device[] = [];
+    const imageCopyOperations: Array<
+      {
+        sourcePath: string;
+        targetPath: string;
+        deviceName: string;
+        imageUrl: string;
+        rowIndex: number;
+      }
+    > = [];
     const $ = cheerio.load(fileContent);
 
     const table = $("tbody");
@@ -412,7 +487,21 @@ export class DeviceParser {
         if (colIndex === 0) {
           // get the image url
           const imageUrl = $(cell).find("img").attr("src");
+          console.log("imageUrl 2", imageUrl);
           if (imageUrl) {
+            // Handle resources folder images - collect for later copying
+            if (imageUrl.startsWith("resources/")) {
+              const sourcePath = `./files/${imageUrl}`;
+
+              imageCopyOperations.push({
+                sourcePath,
+                targetPath: "", // Will be set later when device name is available
+                deviceName: "", // Will be set later when device name is available
+                imageUrl: imageUrl,
+                rowIndex: rowIndex,
+              });
+            }
+
             device.image = {
               originalUrl: imageUrl,
               pngUrl: null, // set later
@@ -520,6 +609,41 @@ export class DeviceParser {
 
       devices.push(device);
     });
+
+    // Copy all images from resources to static/devices folder
+    console.log(
+      `Copying ${imageCopyOperations.length} images from resources folder...`,
+    );
+    for (const operation of imageCopyOperations) {
+      try {
+        // Find the corresponding device for this image
+        const device = devices.find((d) => d.index === operation.rowIndex);
+        if (!device || !device.name.sanitized) {
+          console.warn(
+            `No device found for image ${operation.imageUrl} at row ${operation.rowIndex}`,
+          );
+          continue;
+        }
+
+        const sanitizedDeviceName = device.name.sanitized;
+        const targetPath = `../../static/devices/${sanitizedDeviceName}.jpg`;
+
+        // Read the image file from resources
+        const imageData = await Deno.readFile(operation.sourcePath);
+
+        // Ensure static/devices directory exists
+        await Deno.mkdir("../../static/devices", { recursive: true });
+
+        // Write the image to static/devices with device name
+        await Deno.writeFile(targetPath, imageData);
+
+        console.log(
+          `Copied image from ${operation.sourcePath} to ${targetPath}`,
+        );
+      } catch (error) {
+        console.warn(`Failed to copy image ${operation.sourcePath}:`, error);
+      }
+    }
 
     return devices.filter((device) => device.brand.raw !== "Unknown" // && device.name.raw !== "Unknown"
     );

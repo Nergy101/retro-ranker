@@ -8,13 +8,16 @@ import {
   searchDevices,
 } from "../../data/frontend/services/utils/search.utils.ts";
 import {
+  PiBook,
   PiCalendar,
   PiChartLine,
   PiChatText,
+  PiClockCounterClockwise,
   PiGitDiff,
   PiInfo,
   PiListBold,
   PiMagnifyingGlass,
+  PiMoney,
   PiQuestion,
   PiRanking,
   PiScroll,
@@ -42,12 +45,25 @@ export function MobileNav({
   const [query, setQuery] = useState<string>("");
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
   const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
+  const [expandedItems, setExpandedItems] = useState<Set<string>>(new Set());
   const [localAllDevices, setLocalAllDevices] = useState<Device[]>(
     allDevices ?? [],
   );
 
   const isActive = (deviceName: string) =>
     deviceName.toLowerCase() === selectedDevice?.name.raw.toLowerCase();
+
+  const toggleExpanded = (itemHref: string) => {
+    setExpandedItems((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(itemHref)) {
+        newSet.delete(itemHref);
+      } else {
+        newSet.add(itemHref);
+      }
+      return newSet;
+    });
+  };
 
   // Global close handlers (ESC, outside click) and body scroll lock
   useEffect(() => {
@@ -72,6 +88,8 @@ export function MobileNav({
     return () => {
       document.removeEventListener("keydown", onKeyDown);
       document.removeEventListener("mousedown", onClick);
+      // Ensure body scroll is reset on unmount
+      document.body.style.overflow = "";
     };
   }, [isDrawerOpen]);
 
@@ -82,6 +100,11 @@ export function MobileNav({
     } else {
       document.body.style.overflow = "";
     }
+
+    // Cleanup function to ensure overflow is reset
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [isDrawerOpen, isSearchOpen]);
 
   const ensureDevicesLoaded = async () => {
@@ -265,6 +288,12 @@ export function MobileNav({
     ["PiRanking", <PiRanking key="PiRanking" />],
     ["PiChartLine", <PiChartLine key="PiChartLine" />],
     ["PiChatText", <PiChatText key="PiChatText" />],
+    ["PiBook", <PiBook key="PiBook" />],
+    ["PiMoney", <PiMoney key="PiMoney" />],
+    [
+      "PiClockCounterClockwise",
+      <PiClockCounterClockwise key="PiClockCounterClockwise" />,
+    ],
   ]);
 
   const getIcon = (icon: string): any => {
@@ -415,20 +444,61 @@ export function MobileNav({
         <ul class="mobile-drawer-list">
           {getAllNavigationItems().map((item) => (
             <li>
-              <a
-                href={item.href}
-                class={item.isActive(pathname)
-                  ? "drawer-link active"
-                  : "drawer-link"}
-                onClick={() => setIsDrawerOpen(false)}
-              >
-                <span class="drawer-link-icon">
-                  {item.icon && getIcon(item.icon)}
-                </span>
-                <span class="drawer-link-label">
-                  {item.label}
-                </span>
-              </a>
+              {item.children
+                ? (
+                  <>
+                    <button
+                      class="drawer-link drawer-link-button"
+                      onClick={() => toggleExpanded(item.href)}
+                      type="button"
+                    >
+                      <span class="drawer-link-icon">
+                        ☰
+                      </span>
+                      <span class="drawer-link-label">
+                        {item.label}
+                      </span>
+                    </button>
+                    {expandedItems.has(item.href) && (
+                      <ul class="mobile-drawer-sublist">
+                        {item.children.map((child) => (
+                          <li>
+                            <a
+                              href={child.href}
+                              class={child.isActive(pathname)
+                                ? "drawer-link drawer-sublink active"
+                                : "drawer-link drawer-sublink"}
+                              onClick={() => setIsDrawerOpen(false)}
+                            >
+                              <span class="drawer-link-icon">
+                                {child.icon && getIcon(child.icon)}
+                              </span>
+                              <span class="drawer-link-label">
+                                {child.label}
+                              </span>
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </>
+                )
+                : (
+                  <a
+                    href={item.href}
+                    class={item.isActive(pathname)
+                      ? "drawer-link active"
+                      : "drawer-link"}
+                    onClick={() => setIsDrawerOpen(false)}
+                  >
+                    <span class="drawer-link-icon">
+                      {item.icon && getIcon(item.icon)}
+                    </span>
+                    <span class="drawer-link-label">
+                      {item.label}
+                    </span>
+                  </a>
+                )}
             </li>
           ))}
         </ul>

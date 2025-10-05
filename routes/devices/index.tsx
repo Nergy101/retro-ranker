@@ -29,10 +29,12 @@ export const handler = {
     });
 
     (ctx.state as CustomFreshState).seo = {
-      title: "Retro Ranker - Device Catalog",
-      description: "Browse our catalog of retro gaming handhelds with specs.",
+      title: "Retro Gaming Handheld Device Catalog | Retro Ranker",
+      description:
+        "Browse our comprehensive catalog of 400+ retro gaming handhelds with detailed specifications, reviews, and comparisons. Filter by price, brand, release year, and features to find your perfect portable emulation device.",
       keywords:
-        "retro gaming handhelds, emulation devices, retro console comparison, handheld gaming systems, retro gaming devices catalog, Anbernic devices, Miyoo handhelds, retro gaming specs, portable emulation systems",
+        "retro gaming handhelds catalog, emulation devices database, retro console comparison, handheld gaming systems, retro gaming devices, Anbernic devices, Miyoo handhelds, Steam Deck, retro gaming specs, portable emulation systems, handheld device reviews, retro gaming database",
+      url: `https://retroranker.site${ctx.url.pathname}`,
     };
 
     const deviceServiceStart = performance.now();
@@ -332,6 +334,8 @@ export default function CatalogPage(ctx: FreshContext) {
             }}
           >
             Browse our catalog of retro gaming handhelds with specs.
+            <br />Don't know where to start? Check out our{" "}
+            <a href="/articles/bang-for-your-buck">Best Value</a> article.
           </p>
         </hgroup>
       </header>
@@ -350,7 +354,6 @@ export default function CatalogPage(ctx: FreshContext) {
               allTags={allAvailableTags}
               initialSelectedTags={selectedTags}
               baseUrl={url.origin}
-              translations={translations}
             />
           </div>
           <div style={{ marginBottom: "2rem" }}>

@@ -18,12 +18,12 @@ const chunkArray = (arr: any[], size: number): any[][] => {
 export const handler = {
   async GET(ctx: Context<State>) {
     ctx.state.seo = {
-      title: "Gaming Handheld Release Timeline",
+      title: "Retro Gaming Handheld Release Timeline | Retro Ranker",
       description:
-        "Explore the complete chronological release timeline of retro gaming handhelds. Track upcoming releases, view historical launch dates, and discover the evolution of portable emulation devices over time.",
+        "Explore the complete chronological release timeline of retro gaming handhelds. Track upcoming releases, view historical launch dates, and discover the evolution of portable emulation devices from 2004 to present.",
       url: `https://retroranker.site${ctx.url.pathname}`,
       keywords:
-        "retro gaming timeline, handheld release dates, emulation device history, upcoming retro handhelds, retro console releases, gaming device roadmap, retro gaming calendar, handheld launch dates",
+        "retro gaming timeline, handheld release dates, emulation device history, upcoming retro handhelds, retro console releases, gaming device roadmap, retro gaming calendar, handheld launch dates, portable gaming evolution, emulation device timeline",
     };
 
     const deviceService = await DeviceService.getInstance();

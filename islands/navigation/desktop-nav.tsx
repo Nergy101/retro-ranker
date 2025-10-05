@@ -8,13 +8,16 @@ import {
   searchDevices,
 } from "../../data/frontend/services/utils/search.utils.ts";
 import {
+  PiBook,
   PiCalendar,
   PiChartLine,
   PiChatText,
+  PiClockCounterClockwise,
   PiDotsThree,
   PiGitDiff,
   PiInfo,
   PiMagnifyingGlass,
+  PiMoney,
   PiQuestion,
   PiRanking,
   PiScroll,
@@ -40,6 +43,7 @@ export function DesktopNav({
   const [suggestions, setSuggestions] = useState<Device[]>([]);
   const [query, setQuery] = useState<string>("");
   const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [localAllDevices, setLocalAllDevices] = useState<Device[]>(
     allDevices ?? [],
   );
@@ -122,7 +126,19 @@ export function DesktopNav({
       setQuery("");
       setSelectedDevice(null);
     }
+
+    // Cleanup function to ensure overflow is reset
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [isSearchOpen]);
+
+  // Ensure body scroll is reset on component unmount
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, []);
 
   // Recompute suggestions once devices load while user is typing
   useEffect(() => {
@@ -249,6 +265,12 @@ export function DesktopNav({
     ["PiChartLine", <PiChartLine key="PiChartLine" />],
     ["PiChatText", <PiChatText key="PiChatText" />],
     ["PiThreeDots", <PiDotsThree key="PiThreeDots" />],
+    ["PiBook", <PiBook key="PiBook" />],
+    ["PiMoney", <PiMoney key="PiMoney" />],
+    [
+      "PiClockCounterClockwise",
+      <PiClockCounterClockwise key="PiClockCounterClockwise" />,
+    ],
   ]);
 
   const getIcon = (icon: string): any => {
@@ -290,7 +312,11 @@ export function DesktopNav({
             </a>
           </li>
           {navigationItems.map((item) => (
-            <li class="nav-item">
+            <li
+              class="nav-item"
+              onMouseEnter={() => item.children && setOpenDropdown(item.href)}
+              onMouseLeave={() => setOpenDropdown(null)}
+            >
               <a
                 href={item.href}
                 class={item.isActive(pathname) ? "nav-a active" : "nav-a"}
@@ -301,11 +327,31 @@ export function DesktopNav({
                     class="nav-item-label-icon"
                     style={{ minWidth: "1rem" }}
                   >
-                    {item.icon && getIcon(item.icon)}
+                    {item.children ? "☰" : (item.icon && getIcon(item.icon))}
                   </span>
                   {item.label}
                 </span>
               </a>
+              {item.children && openDropdown === item.href && (
+                <ul class="nav-dropdown">
+                  {item.children.map((child) => (
+                    <li>
+                      <a
+                        href={child.href}
+                        class={child.isActive(pathname)
+                          ? "nav-dropdown-link active"
+                          : "nav-dropdown-link"}
+                        aria-label={child.label}
+                      >
+                        <span class="nav-dropdown-link-icon">
+                          {child.icon && getIcon(child.icon)}
+                        </span>
+                        {child.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </li>
           ))}
           <li class="nav-search-item">

@@ -1,4 +1,3 @@
-import { Head } from "fresh/runtime";
 import { tracer } from "../../data/tracing/tracer.ts";
 import { State } from "../../utils.ts";
 import { Context, page } from "fresh";
@@ -6,11 +5,13 @@ import { Context, page } from "fresh";
 export const handler = {
   async GET(ctx: Context<State>) {
     ctx.state.seo = {
-      title: "Retro Ranker - About Us",
+      title:
+        "About Retro Ranker | Comprehensive Retro Gaming Handheld Platform",
       description:
-        "Learn about Retro Ranker, the comprehensive platform for ranking and comparing retro gaming handhelds.",
+        "Learn about Retro Ranker's mission to help retro gaming enthusiasts find their perfect handheld device. Discover our comprehensive database, comparison tools, and community-driven approach to portable gaming.",
       keywords:
-        "about retro ranker, retro gaming platform, handheld comparison tool, retro gaming community",
+        "about retro ranker, retro gaming platform, handheld comparison tool, retro gaming community, portable gaming database, emulation device reviews, retro gaming resources, handheld gaming guide",
+      url: `https://retroranker.site${ctx.url.pathname}`,
     };
 
     ctx.state.data = {
@@ -47,14 +48,6 @@ export default function About(ctx: Context<State>) {
 
   return (
     <div class="about-page">
-      <Head>
-        <title>Retro Ranker - About Us</title>
-        <meta
-          name="description"
-          content="Learn about Retro Ranker, the comprehensive platform for ranking and comparing retro gaming handhelds."
-        />
-      </Head>
-
       <div style={{ maxWidth: "800px", margin: "0 auto", padding: "0 1rem" }}>
         <hgroup style={{ textAlign: "center", marginBottom: "2rem" }}>
           <h1 style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>
@@ -148,27 +141,25 @@ export default function About(ctx: Context<State>) {
 
         <section style={{ marginBottom: "2rem" }}>
           <h2 style={{ color: "var(--pico-primary)", marginBottom: "1rem" }}>
-            Our Values
+            Like what we do?
           </h2>
           <ul style={{ lineHeight: "1.6" }}>
             <li>
-              <strong>Accuracy:</strong>{" "}
-              We strive to provide the most accurate and up-to-date information
-              available.
+              <a href="https://ko-fi.com/nergy">
+                <strong>Consider a donation at Ko-Fi</strong>
+              </a>
             </li>
             <li>
-              <strong>Transparency:</strong>{" "}
-              Our ranking methodology is open and clearly explained.
+              <strong>
+                <a href="https://discord.gg/V6qwXmtCqa">Join the Discord</a>
+              </strong>
             </li>
             <li>
               <strong>Community:</strong>{" "}
-              We value input from the retro gaming community and incorporate
-              user feedback.
-            </li>
-            <li>
-              <strong>Accessibility:</strong>{" "}
-              Our platform is designed to be accessible to users of all
-              technical levels.
+              We value input from the (retro) gaming community and incorporate
+              user feedback. You can join the discord above, leave a comment on
+              the Ko-Fi page, or log-in and leave feedback from your profile
+              page.
             </li>
           </ul>
         </section>

@@ -31,16 +31,6 @@ if (!generateDevicesStatus.success) {
 }
 
 console.info("");
-const scrapeImagesCommand = new Deno.Command(Deno.execPath(), {
-  args: ["run", "--allow-all", "scrape-images.ts"],
-  cwd: denoCwd,
-});
-
-const scrapeImagesProcess = scrapeImagesCommand.spawn();
-const scrapeImagesStatus = await scrapeImagesProcess.status;
-if (!scrapeImagesStatus.success) {
-  Deno.exit(1);
-}
 try {
   console.info("");
   console.info(chalk.blue("--- Optimizing images ---"));
@@ -56,6 +46,25 @@ try {
   }
 
   console.info(chalk.green("Optimized images"));
+
+  // Remove all .jpg files from static/devices folder
+  console.info(chalk.blue("--- Removing .jpg files ---"));
+  try {
+    const devicesPath = "../static/devices";
+    let jpgCount = 0;
+
+    for await (const dirEntry of Deno.readDir(devicesPath)) {
+      if (dirEntry.isFile && dirEntry.name.endsWith(".jpg")) {
+        await Deno.remove(`${devicesPath}/${dirEntry.name}`);
+        jpgCount++;
+      }
+    }
+
+    console.info(chalk.green(`Removed ${jpgCount} .jpg files`));
+  } catch (error) {
+    console.error(chalk.red("Error removing .jpg files:"));
+    console.error(error);
+  }
 } catch (error) {
   console.error(chalk.red("Error optimizing images, is optimizt installed?"));
   console.error(error);
@@ -88,3 +97,21 @@ if (!refreshPocketbaseStatus.success) {
 }
 
 console.info(chalk.green("✅Refreshed pocketbase"));
+
+console.info("");
+console.info(chalk.blue("--- Analyzing for duplicate devices ---"));
+
+const analyzeDuplicatesCommand = new Deno.Command(Deno.execPath(), {
+  args: ["run", "--allow-all", "analyze-duplicates.ts"],
+  cwd: "../data/source",
+});
+
+const analyzeDuplicatesProcess = analyzeDuplicatesCommand.spawn();
+const analyzeDuplicatesStatus = await analyzeDuplicatesProcess.status;
+if (!analyzeDuplicatesStatus.success) {
+  console.warn(
+    chalk.yellow("⚠️  Duplicate analysis failed, but continuing..."),
+  );
+} else {
+  console.info(chalk.green("✅ Duplicate analysis complete"));
+}

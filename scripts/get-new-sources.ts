@@ -30,11 +30,28 @@ try {
   const buffer = await Deno.readFile(fullZipPath);
 
   for (const { name, data } of await extract(buffer)) {
+    console.log("file name", name);
+
     if (name === "Handhelds.html" || name === "OEM.html") {
       await Deno.writeFile(`${extractPath}/${name}`, data, {
         create: true,
       });
       console.info(chalk.blue(`Saved ${name}`));
+    } else if (name.startsWith("resources/")) {
+      // Extract images from resources folder
+      const resourcePath = `${extractPath}/${name}`;
+
+      // Create directory structure for resources
+      const resourceDir = resourcePath.substring(
+        0,
+        resourcePath.lastIndexOf("/"),
+      );
+      await Deno.mkdir(resourceDir, { recursive: true });
+
+      await Deno.writeFile(resourcePath, data, {
+        create: true,
+      });
+      console.info(chalk.blue(`Saved resource: ${name}`));
     }
   }
 } finally {
@@ -42,4 +59,6 @@ try {
   console.info(chalk.blue(`Removed zip file: ${fullZipPath}`));
 }
 
-console.info(chalk.green(`Saved Handhelds.html and OEM.html!`));
+console.info(
+  chalk.green(`Saved Handhelds.html, OEM.html, and resources folder!`),
+);

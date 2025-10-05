@@ -7,13 +7,23 @@
         </url>
         
         <url>
-            <loc>https://retroranker.site/release-timeline</loc>
+            <loc>https://retroranker.site/compare</loc>
+            <priority>0.9</priority>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/articles/bang-for-your-buck</loc>
             <priority>0.8</priority>
         </url>
         
         <url>
-            <loc>https://retroranker.site/compare</loc>
-            <priority>0.9</priority>
+            <loc>https://retroranker.site/articles/a-handhelds-history</loc>
+            <priority>0.8</priority>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/release-timeline</loc>
+            <priority>0.8</priority>
         </url>
         
         <url>
@@ -22,41 +32,11 @@
         </url>
         
         <url>
-            <loc>https://retroranker.site/faq</loc>
-            <priority>0.6</priority>
-        </url>
-        
-        <url>
-            <loc>https://retroranker.site/about</loc>
-            <priority>0.5</priority>
-        </url>
-        
-        <url>
-            <loc>https://retroranker.site/devices/rg-476h</loc>
-        </url>
-        
-        <url>
             <loc>https://retroranker.site/devices/one-35</loc>
         </url>
         
         <url>
-            <loc>https://retroranker.site/devices/onexsugar-sugar-1</loc>
-        </url>
-        
-        <url>
             <loc>https://retroranker.site/devices/mangmi-air-x</loc>
-        </url>
-        
-        <url>
-            <loc>https://retroranker.site/devices/flip-1s-ds</loc>
-        </url>
-        
-        <url>
-            <loc>https://retroranker.site/devices/pocket-ds</loc>
-        </url>
-        
-        <url>
-            <loc>https://retroranker.site/devices/konkr-pocket-fit</loc>
         </url>
         
         <url>
@@ -68,7 +48,19 @@
         </url>
         
         <url>
+            <loc>https://retroranker.site/devices/pocket-ds</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/konkr-pocket-fit</loc>
+        </url>
+        
+        <url>
             <loc>https://retroranker.site/devices/thor</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/legion-go-gen-2</loc>
         </url>
         
         <url>
@@ -76,7 +68,7 @@
         </url>
         
         <url>
-            <loc>https://retroranker.site/devices/legion-go-gen-2</loc>
+            <loc>https://retroranker.site/devices/gpd-win-5</loc>
         </url>
         
         <url>
@@ -93,6 +85,22 @@
         
         <url>
             <loc>https://retroranker.site/devices/xu35-h50</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-ds</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/onexsugar-sugar-1</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/rg-476h</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/flip-1s-ds</loc>
         </url>
         
         <url>
@@ -216,11 +224,11 @@
         </url>
         
         <url>
-            <loc>https://retroranker.site/devices/msi-claw-8-ai+</loc>
+            <loc>https://retroranker.site/devices/msi-claw-8-ai-plus-</loc>
         </url>
         
         <url>
-            <loc>https://retroranker.site/devices/msi-claw-7-ai+</loc>
+            <loc>https://retroranker.site/devices/msi-claw-7-ai-plus-</loc>
         </url>
         
         <url>
@@ -888,7 +896,7 @@
         </url>
         
         <url>
-            <loc>https://retroranker.site/devices/retroid-pocket-2+(rp2-pcb-upgrade)</loc>
+            <loc>https://retroranker.site/devices/retroid-pocket-2-plus-(rp2-pcb-upgrade)</loc>
         </url>
         
         <url>
@@ -1300,7 +1308,7 @@
         </url>
         
         <url>
-            <loc>https://retroranker.site/devices/gpd-xd+</loc>
+            <loc>https://retroranker.site/devices/gpd-xd-plus-</loc>
         </url>
         
         <url>
@@ -1388,7 +1396,7 @@
         </url>
         
         <url>
-            <loc>https://retroranker.site/devices/joyou-a320+</loc>
+            <loc>https://retroranker.site/devices/joyou-a320-plus-</loc>
         </url>
         
         <url>
@@ -1428,7 +1436,7 @@
         </url>
         
         <url>
-            <loc>https://retroranker.site/devices/gemei-x760+-le</loc>
+            <loc>https://retroranker.site/devices/gemei-x760-plus-le</loc>
         </url>
         
         <url>
@@ -1464,7 +1472,7 @@
         </url>
         
         <url>
-            <loc>https://retroranker.site/devices/gemei-x760+</loc>
+            <loc>https://retroranker.site/devices/gemei-x760-plus-</loc>
         </url>
         
         <url>
@@ -1496,7 +1504,7 @@
         </url>
         
         <url>
-            <loc>https://retroranker.site/devices/gpd-q88+</loc>
+            <loc>https://retroranker.site/devices/gpd-q88-plus-</loc>
         </url>
         
         <url>

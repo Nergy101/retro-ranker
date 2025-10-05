@@ -20,8 +20,9 @@ export const handler = {
 
     const devicesToCompare =
       (await Promise.all(devices.map((d) => deviceService.getDeviceByName(d))))
-        .filter((device) => device !== null);
+        .filter((device) => device !== null && device !== undefined);
 
+    console.log("devices to compare", devicesToCompare.length);
     const deviceNames = devicesToCompare.map((device) => device.name.raw);
     const allDevices = (await deviceService.getAllDevices())
       .sort((a, b) => a.name.raw.localeCompare(b.name.raw));
@@ -42,10 +43,11 @@ export const handler = {
       ranking,
     };
 
-    let seoTitle = "Retro Ranker - Compare";
+    let seoTitle = "Compare Gaming Handhelds | Retro Ranker";
     let seoDescription =
-      "Compare retro handhelds side-by-side with detailed specs.";
+      "Compare gaming handhelds side-by-side with detailed specs.";
 
+    console.log("devices to compare", devicesToCompare.length);
     if (devicesToCompare.length === 2) {
       const [device1, device2] = devicesToCompare;
       seoTitle =
@@ -63,7 +65,8 @@ export const handler = {
       title: seoTitle,
       description: seoDescription,
       keywords:
-        "retro handhelds, compare, side-by-side, specs, emulation, performance, dimensions, connectivity, audio, controls, misc",
+        "retro handhelds comparison, handheld device specs, emulation performance comparison, portable gaming devices, handheld reviews, device comparison tool, retro gaming handhelds, side-by-side comparison, handheld specifications, emulation device comparison",
+      url: `https://retroranker.site${ctx.url.pathname}`,
     };
 
     return page(ctx);
@@ -89,11 +92,20 @@ export default function Compare(ctx: Context<State>) {
       <header>
         <hgroup style={{ textAlign: "center" }}>
           <h1>Device Comparison</h1>
-          {deviceNames.length > 0
+          {deviceNames.length >= 2
             ? (
               <p>
                 Comparing devices: <br />
                 {deviceNames.join(", ")}
+              </p>
+            )
+            : deviceNames.length === 1
+            ? (
+              <p>
+                Select a second device to compare with{" "}
+                <span style={{ color: "var(--pico-primary)" }}>
+                  {deviceNames[0]}
+                </span>
               </p>
             )
             : (
@@ -240,15 +252,17 @@ export default function Compare(ctx: Context<State>) {
         </div>
       </details>
 
-      <div class="compare-container">
-        {devicesToCompare.map((device) => (
-          <DeviceComparisonResult
-            key={device.id}
-            device={device}
-            ranking={ranking}
-          />
-        ))}
-      </div>
+      {devicesToCompare.length >= 2 && (
+        <div class="compare-container">
+          {devicesToCompare.map((device) => (
+            <DeviceComparisonResult
+              key={device.id}
+              device={device}
+              ranking={ranking}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

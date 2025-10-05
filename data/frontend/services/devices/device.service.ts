@@ -391,7 +391,7 @@ export class DeviceService {
       {
         filter:
           `totalRating > 0 && pricing.category = "mid" && deviceData.released.raw!~"upcoming"`,
-        sort: "-totalRating",
+        sort: "-totalRating,-released",
         expand: "",
       },
     );

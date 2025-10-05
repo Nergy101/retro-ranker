@@ -45,13 +45,13 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and Push Docker Image
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          file: Dockerfile
-          push: true
-          tags: nergy101/retro-ranker:latest
-          platforms: linux/arm64
+        run: |
+          docker buildx build \
+            --platform linux/arm64 \
+            --file Dockerfile.prod \
+            --tag nergy101/retro-ranker:latest \
+            --push \
+            .
 
   deploy:
     runs-on: ubuntu-latest

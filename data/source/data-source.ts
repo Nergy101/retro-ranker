@@ -9,23 +9,27 @@ import { exists } from "jsr:@std/fs/exists";
 console.info(chalk.blue(" --- Generating devices json --- "));
 
 slugify.extend({
-  "?": "question-mark",
+  "?": "-question-mark-",
+  '"': "-double-quote-",
+  " ": "-",
+  "+": "-plus-",
 });
 
 // living data path
 const filePath = `results/handhelds.json`;
 const handheldsFileContent = await Deno.readTextFile("./files/Handhelds.html");
 const oemsFileContent = await Deno.readTextFile("./files/OEM.html");
+const _resourcesPath = "./files/resources";
 
 // parse handhelds html
-const parsedDevicesHandhelds = DeviceParser.parseHandheldsHtml(
+const parsedDevicesHandhelds = await DeviceParser.parseHandheldsHtml(
   handheldsFileContent,
 );
 console.info(
   chalk.blue("parsed handheld devices: ", parsedDevicesHandhelds.length),
 );
 
-const parsedDevicesOEMs = DeviceParser.parseOEMsHtml(oemsFileContent);
+const parsedDevicesOEMs = await DeviceParser.parseOEMsHtml(oemsFileContent);
 console.info(chalk.blue("parsed OEM devices: ", parsedDevicesOEMs.length));
 
 const allDevices = [...parsedDevicesHandhelds, ...parsedDevicesOEMs];
@@ -65,3 +69,24 @@ await Deno.mkdir("results", { recursive: true });
 await Deno.writeFile(filePath, devicesJsonBytes);
 
 console.info(chalk.green("Devices json saved to: ", filePath));
+
+// Clean up temporary files after processing
+console.info(chalk.blue("Cleaning up temporary files..."));
+try {
+  // Remove HTML files
+  await Deno.remove("./files/Handhelds.html");
+  await Deno.remove("./files/OEM.html");
+  console.info(chalk.green("Removed HTML files"));
+
+  // Remove resources folder if it exists
+  try {
+    await Deno.remove("./files/resources", { recursive: true });
+    console.info(chalk.green("Removed resources folder"));
+  } catch (_error) {
+    console.info(chalk.yellow("Resources folder not found or already removed"));
+  }
+
+  console.info(chalk.green("Cleanup completed successfully"));
+} catch (error) {
+  console.error(chalk.red("Error during cleanup:"), error);
+}

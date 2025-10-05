@@ -1,0 +1,79 @@
+name: 🎭 Playwright Tests
+
+on:
+  push:
+    branches: [main, develop]
+  workflow_dispatch:
+
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        project:
+          [
+            chromium,
+            firefox,
+            webkit,
+            "Mobile Chrome",
+            "Mobile Chrome Small",
+            "Mobile Chrome Large",
+            "Tablet Chrome",
+            "Mobile Safari",
+            "Mobile Safari Small",
+            "Mobile Safari Large",
+            "Tablet Safari",
+          ]
+        exclude:
+          # macOS doesnt have to run chromium/firefox
+          - os: macos-latest
+            project: chromium
+          - os: macos-latest
+            project: firefox
+          - os: macos-latest
+            project: "Mobile Chrome"
+          - os: macos-latest
+            project: "Mobile Chrome Small"
+          - os: macos-latest
+            project: "Mobile Chrome Large"
+          - os: macos-latest
+            project: "Tablet Chrome"
+
+          # macOS runs the webkit / safari tests
+          - os: ubuntu-latest
+            project: webkit
+          - os: ubuntu-latest
+            project: "Mobile Safari"
+          - os: ubuntu-latest
+            project: "Mobile Safari Small"
+          - os: ubuntu-latest
+            project: "Mobile Safari Large"
+          - os: ubuntu-latest
+            project: "Tablet Safari"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v2.5
+
+      - name: Install Playwright Browsers
+        run: deno task test:install
+
+      - name: Install dependencies
+        run: deno cache --lock=deno.lock main.ts
+
+      - name: Run Playwright tests
+        run: deno task test --project="${{ matrix.project }}"
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report-${{ matrix.os }}-${{ matrix.project }}
+          path: playwright-report/
+          retention-days: 30

@@ -6,10 +6,12 @@ interface ThumbsUpProps {
   initialLikes: number;
   isLiked: boolean;
   isLoggedIn: boolean;
+  showCount?: boolean;
 }
 
 export function ThumbsUp(props: ThumbsUpProps) {
-  const { deviceId, initialLikes, isLiked, isLoggedIn } = props;
+  const { deviceId, initialLikes, isLiked, isLoggedIn, showCount = true } =
+    props;
   const [likes, setLikes] = useState(initialLikes);
   const [liked, setLiked] = useState(isLiked);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -91,7 +93,7 @@ export function ThumbsUp(props: ThumbsUpProps) {
               class={isAnimating ? "thumbs-up-animation" : ""}
             />
           )}
-        <span>{likes}</span>
+        {showCount && <span>{likes}</span>}
       </button>
     </div>
   );

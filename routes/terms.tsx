@@ -1,4 +1,3 @@
-import { Head } from "fresh/runtime";
 import { tracer } from "../data/tracing/tracer.ts";
 import { State } from "../utils.ts";
 import { Context, page } from "fresh";
@@ -6,11 +5,12 @@ import { Context, page } from "fresh";
 export const handler = {
   async GET(ctx: Context<State>) {
     ctx.state.seo = {
-      title: "Retro Ranker - Terms of Service",
+      title: "Terms of Service | Retro Ranker",
       description:
-        "Read the terms and conditions for using Retro Ranker's services and platform.",
+        "Read the comprehensive terms and conditions for using Retro Ranker's services and platform. Understand your rights and responsibilities when using our retro gaming handheld database and comparison tools.",
       keywords:
-        "terms of service, terms and conditions, retro ranker terms, user agreement, legal terms",
+        "terms of service, terms and conditions, retro ranker terms, user agreement, legal terms, retro gaming platform terms, handheld device platform terms, emulation platform terms, user rights, service agreement",
+      url: `https://retroranker.site${ctx.url.pathname}`,
     };
 
     ctx.state.data = {
@@ -47,14 +47,6 @@ export default function Terms(ctx: Context<State>) {
 
   return (
     <div class="terms-page">
-      <Head>
-        <title>Retro Ranker - Terms of Service</title>
-        <meta
-          name="description"
-          content="Read the terms and conditions for using Retro Ranker's services and platform."
-        />
-      </Head>
-
       <div style={{ maxWidth: "800px", margin: "0 auto", padding: "0 1rem" }}>
         <hgroup style={{ textAlign: "center", marginBottom: "2rem" }}>
           <h1 style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>

@@ -1,4 +1,3 @@
-import { Head } from "fresh/runtime";
 import { tracer } from "../data/tracing/tracer.ts";
 import { State } from "../utils.ts";
 import { Context, page } from "fresh";
@@ -6,11 +5,12 @@ import { Context, page } from "fresh";
 export const handler = {
   async GET(ctx: Context<State>) {
     ctx.state.seo = {
-      title: "Retro Ranker - Privacy Policy",
+      title: "Privacy Policy | Retro Ranker",
       description:
-        "Learn how Retro Ranker collects, uses, and protects your personal information.",
+        "Learn how Retro Ranker collects, uses, and protects your personal information. Our comprehensive privacy policy covers data collection, usage, and your rights as a user of our retro gaming handheld platform.",
       keywords:
-        "privacy policy, data protection, retro ranker privacy, user data, privacy rights",
+        "privacy policy, data protection, retro ranker privacy, user data, privacy rights, retro gaming privacy, handheld device privacy, emulation platform privacy, user data protection, privacy compliance",
+      url: `https://retroranker.site${ctx.url.pathname}`,
     };
 
     ctx.state.data = {
@@ -47,14 +47,6 @@ export default function Privacy(ctx: Context<State>) {
 
   return (
     <div class="privacy-page">
-      <Head>
-        <title>Retro Ranker - Privacy Policy</title>
-        <meta
-          name="description"
-          content="Learn how Retro Ranker collects, uses, and protects your personal information."
-        />
-      </Head>
-
       <div style={{ maxWidth: "800px", margin: "0 auto", padding: "0 1rem" }}>
         <hgroup style={{ textAlign: "center", marginBottom: "2rem" }}>
           <h1 style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>

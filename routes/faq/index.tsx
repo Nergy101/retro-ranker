@@ -1,4 +1,3 @@
-import { Head } from "fresh/runtime";
 import { PiChartLine, PiInfo, PiQuestion } from "@preact-icons/pi";
 import { tracer } from "../../data/tracing/tracer.ts";
 import { State } from "../../utils.ts";
@@ -7,10 +6,12 @@ import { Context, page } from "fresh";
 export const handler = {
   async GET(ctx: Context<State>) {
     ctx.state.seo = {
-      title: "Retro Ranker - FAQ",
-      description: "Frequently Asked Questions (FAQ)",
+      title: "Retro Gaming Handheld FAQ | Retro Ranker",
+      description:
+        "Find answers to frequently asked questions about retro gaming handhelds, device comparisons, emulation performance, and how to use Retro Ranker's comprehensive database and tools.",
       keywords:
-        "retro ranker faq, retro gaming questions, handheld comparison help, device catalog faq, emulation device questions",
+        "retro gaming handheld faq, emulation device questions, handheld comparison help, retro console guide, portable gaming faq, retro gaming handheld support, device catalog help, emulation performance questions, retro gaming community help",
+      url: `https://retroranker.site${ctx.url.pathname}`,
     };
 
     ctx.state.data = {
@@ -47,11 +48,6 @@ export default function FAQ(ctx: Context<State>) {
 
   return (
     <div class="faq-page">
-      <Head>
-        <title>Retro Ranker - FAQ</title>
-        <meta name="description" content="Frequently Asked Questions (FAQ)" />
-      </Head>
-
       <div style={{ maxWidth: "800px", margin: "0 auto", padding: "0 1rem" }}>
         <hgroup style={{ textAlign: "center", marginBottom: "2rem" }}>
           <h1 style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>

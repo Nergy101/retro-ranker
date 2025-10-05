@@ -1,0 +1,109 @@
+{
+  "lock": true,
+  "nodeModulesDir": "auto",
+  "tasks": {
+    "check": "deno fmt --check . && deno lint . && deno check",
+    "dev": "vite",
+    "build": "vite build",
+    "start": "deno serve -A _fresh/server.js",
+    "update": "deno run -A -r jsr:@fresh/update .",
+    "refresh-all": "cd scripts && deno run -A refresh-all.ts",
+    "sources": "cd scripts && deno run -A get-new-sources.ts",
+    "generate-devices": "cd scripts && deno run -A generate-devices.ts",
+    "patch-devices": "cd scripts && deno run -A patch-devices.ts",
+    "scrape": "cd scripts && deno run -A scrape-images.ts",
+    "sitemap": "cd scripts && deno run -A generate-sitemap.ts",
+    "docker:dev": "docker buildx build . -f Dockerfile.dev -t retro-ranker:dev && docker run -t -i -p 5173:5173 retro-ranker:dev",
+    "docker:prod": "docker buildx build . -f Dockerfile.prod -t retro-ranker:latest && docker run -t -i -p 8000:8000 retro-ranker:latest",
+    "docker:push": "docker buildx build . -f Dockerfile.prod -t retro-ranker:latest && docker tag retro-ranker:latest nergy101/retro-ranker:latest && docker push nergy101/retro-ranker:latest",
+    "test": "deno run -A npm:@playwright/test@^1.40.0 test",
+    "test:ui": "deno run -A npm:@playwright/test@^1.40.0 test --ui",
+    "test:headed": "deno run -A npm:@playwright/test@^1.40.0 test --headed",
+    "test:debug": "deno run -A npm:@playwright/test@^1.40.0 test --debug",
+    "test:chromium": "deno run -A npm:@playwright/test@^1.40.0 test --project=chromium",
+    "test:firefox": "deno run -A npm:@playwright/test@^1.40.0 test --project=firefox",
+    "test:webkit": "deno run -A npm:@playwright/test@^1.40.0 test --project=webkit",
+    "test:mobile-chrome": "deno run -A npm:@playwright/test@^1.40.0 test --project=\"Mobile Chrome\"",
+    "test:mobile-safari": "deno run -A npm:@playwright/test@^1.40.0 test --project=\"Mobile Safari\"",
+    "test:mobile-chrome-small": "deno run -A npm:@playwright/test@^1.40.0 test --project=\"Mobile Chrome Small\"",
+    "test:mobile-safari-small": "deno run -A npm:@playwright/test@^1.40.0 test --project=\"Mobile Safari Small\"",
+    "test:mobile-chrome-large": "deno run -A npm:@playwright/test@^1.40.0 test --project=\"Mobile Chrome Large\"",
+    "test:mobile-safari-large": "deno run -A npm:@playwright/test@^1.40.0 test --project=\"Mobile Safari Large\"",
+    "test:tablet-chrome": "deno run -A npm:@playwright/test@^1.40.0 test --project=\"Tablet Chrome\"",
+    "test:tablet-safari": "deno run -A npm:@playwright/test@^1.40.0 test --project=\"Tablet Safari\"",
+    "test:report": "deno run -A npm:@playwright/test@^1.40.0 show-report",
+    "test:install": "deno run -A npm:playwright@^1.40.0 install"
+  },
+  "lint": {
+    "rules": {
+      "tags": [
+        "fresh",
+        "recommended"
+      ],
+      "exclude": [
+        "require-await",
+        "jsx-boolean-value",
+        "no-explicit-any",
+        "no-unversioned-import"
+      ]
+    }
+  },
+  "exclude": [
+    "**/deno.lock",
+    "**/deno.json",
+    "**/_fresh/*",
+    "**/data/source/files/*",
+    "**/data/source/results/*",
+    "**/sitemap.xml"
+  ],
+  "imports": {
+    "fresh": "jsr:@fresh/core@^2.1.1",
+    "@fresh/plugin-vite": "jsr:@fresh/plugin-vite@^1.0.4",
+    "vite": "npm:vite@^7.1.7",
+    "preact": "npm:preact@10.27.2",
+    "@preact/signals": "npm:@preact/signals@2.3.1",
+    "preact-render-to-string": "npm:preact-render-to-string@6.6.1",
+    "pocketbase": "npm:pocketbase@^0.26.2",
+    "chart.js": "npm:chart.js@^4.5.0",
+    "@std/dotenv": "jsr:@std/dotenv@^0.225.5",
+    "@std/fs": "jsr:@std/fs@^0.225.5",
+    "@preact-icons/pi": "jsr:@preact-icons/pi@^1.0.13",
+    "@std/http": "jsr:@std/http@^1.0.20",
+    "@cap.js/server": "npm:@cap.js/server@^2.0.0",
+    "@cap.js/widget": "npm:@cap.js/widget@^0.1.29",
+    "@opentelemetry/api": "npm:@opentelemetry/api@^1.9.0",
+    "unique-names-generator": "npm:unique-names-generator@^4.7.1",
+    "$fresh_charts/": "https://deno.land/x/fresh_charts@0.3.1/",
+    "@playwright/test": "npm:@playwright/test@^1.40.0",
+    "playwright": "npm:playwright@^1.40.0"
+  },
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "dom.asynciterable",
+      "dom.iterable",
+      "deno.ns"
+    ],
+    "jsx": "precompile",
+    "jsxImportSource": "preact",
+    "jsxPrecompileSkipElements": [
+      "a",
+      "img",
+      "source",
+      "body",
+      "html",
+      "head",
+      "title",
+      "meta",
+      "script",
+      "link",
+      "style",
+      "base",
+      "noscript",
+      "template"
+    ],
+    "types": [
+      "vite/client"
+    ]
+  }
+}

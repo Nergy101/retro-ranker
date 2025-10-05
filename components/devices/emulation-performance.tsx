@@ -17,6 +17,10 @@ interface EmulationPerformanceProps {
   isLiked: boolean | null;
   userFavorited: boolean | null;
   hideLikeButton?: boolean;
+  totalComments?: number | null;
+  totalReviews?: number | null;
+  averageReviewScore?: number | null;
+  totalFavorites?: number | null;
 }
 
 export function EmulationPerformance(
@@ -29,6 +33,10 @@ export function EmulationPerformance(
     isLiked,
     userFavorited,
     hideLikeButton = false,
+    totalComments,
+    totalReviews,
+    averageReviewScore,
+    totalFavorites,
   }: EmulationPerformanceProps,
 ) {
   const ratings = device.systemRatings;
@@ -153,10 +161,136 @@ export function EmulationPerformance(
         {renderCoolingSection()}
         {renderRumbleSection()}
       </div>
+      <h3 style={{ textAlign: "center", padding: 0, margin: 0 }}>
+        Community Stats
+      </h3>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          gap: "0.5rem",
+          justifyContent: "center",
+          flexWrap: "wrap",
+        }}
+      >
+        {likes !== null && (
+          <div
+            class="rating-info rating-b"
+            style={{
+              padding: "0.25rem",
+              borderRadius: "0.5em",
+              textAlign: "center",
+              fontSize: "0.75rem",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              minWidth: "60px",
+            }}
+            data-tooltip={`${likes} likes`}
+          >
+            <strong>Likes</strong>
+            <span style={{ fontSize: "0.9rem", fontWeight: "bold" }}>
+              {likes}
+            </span>
+          </div>
+        )}
+        {totalFavorites !== null && (
+          <div
+            class="rating-info rating-a"
+            style={{
+              padding: "0.25rem",
+              borderRadius: "0.5em",
+              textAlign: "center",
+              fontSize: "0.75rem",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              minWidth: "60px",
+            }}
+            data-tooltip={`${totalFavorites} favorites`}
+          >
+            <strong>Favorites</strong>
+            <span style={{ fontSize: "0.9rem", fontWeight: "bold" }}>
+              {totalFavorites}
+            </span>
+          </div>
+        )}
+        {totalComments !== null && (
+          <div
+            class="rating-info rating-c"
+            style={{
+              padding: "0.25rem",
+              borderRadius: "0.5em",
+              textAlign: "center",
+              fontSize: "0.75rem",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              minWidth: "60px",
+            }}
+            data-tooltip={`${totalComments} comments`}
+          >
+            <strong>Comments</strong>
+            <span style={{ fontSize: "0.9rem", fontWeight: "bold" }}>
+              {totalComments}
+            </span>
+          </div>
+        )}
+        {totalReviews !== null && (
+          <div
+            class="rating-info rating-b"
+            style={{
+              padding: "0.25rem",
+              borderRadius: "0.5em",
+              textAlign: "center",
+              fontSize: "0.75rem",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              minWidth: "60px",
+            }}
+            data-tooltip={`${totalReviews} reviews`}
+          >
+            <strong>Reviews</strong>
+            <span style={{ fontSize: "0.9rem", fontWeight: "bold" }}>
+              {totalReviews}
+            </span>
+          </div>
+        )}
+        {averageReviewScore !== null && averageReviewScore !== undefined && (
+          <div
+            class="rating-info rating-a"
+            style={{
+              padding: "0.25rem",
+              borderRadius: "0.5em",
+              textAlign: "center",
+              fontSize: "0.75rem",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              minWidth: "60px",
+            }}
+            data-tooltip={`Average review score: ${
+              averageReviewScore.toFixed(1)
+            }/10`}
+          >
+            <strong>Avg Score</strong>
+            <span style={{ fontSize: "0.9rem", fontWeight: "bold" }}>
+              {averageReviewScore.toFixed(1)}
+            </span>
+          </div>
+        )}
+      </div>
+
       {!hideLikeButton && (
         <>
           <h3 style={{ textAlign: "center", padding: 0, margin: 0 }}>
-            Stats
+            Actions
           </h3>
 
           <div
@@ -172,6 +306,7 @@ export function EmulationPerformance(
               initialLikes={likes ?? 0}
               isLiked={isLiked ?? false}
               isLoggedIn={!!user}
+              showCount={false}
             />
           </div>
         </>

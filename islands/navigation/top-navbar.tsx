@@ -17,7 +17,9 @@ export function TopNavbar(
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(globalThis.innerWidth <= 1250);
+      if (typeof globalThis !== "undefined" && globalThis.innerWidth) {
+        setIsMobile(globalThis.innerWidth <= 1250);
+      }
     };
 
     // Set a timeout to prevent infinite loading
@@ -27,10 +29,14 @@ export function TopNavbar(
 
     try {
       // Add resize listener
-      globalThis.addEventListener("resize", handleResize);
+      if (typeof globalThis !== "undefined") {
+        globalThis.addEventListener("resize", handleResize);
 
-      // Set initial mobile state
-      setIsMobile(globalThis.innerWidth <= 1250);
+        // Set initial mobile state - only after component mounts
+        if (globalThis.innerWidth) {
+          setIsMobile(globalThis.innerWidth <= 1250);
+        }
+      }
 
       // Set loading to false once initial width is determined
       setIsLoading(false);
@@ -40,7 +46,9 @@ export function TopNavbar(
     }
 
     return () => {
-      globalThis.removeEventListener("resize", handleResize);
+      if (typeof globalThis !== "undefined") {
+        globalThis.removeEventListener("resize", handleResize);
+      }
       clearTimeout(timeoutId);
     };
   }, []);

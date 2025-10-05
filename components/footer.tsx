@@ -3,9 +3,9 @@ import {
   PiFileText,
   PiGithubLogo,
   PiInfo,
+  PiQuestion,
   PiShield,
 } from "@preact-icons/pi";
-import { VersionTag } from "./shared/version-tag.tsx";
 export function Footer() {
   return (
     <footer
@@ -109,6 +109,14 @@ export function Footer() {
                     </span>
                   </div>
                 </a>
+                <a href="/faq">
+                  <div style={{ display: "flex", gap: "0.5rem" }}>
+                    <PiQuestion />
+                    <span>
+                      FAQ
+                    </span>
+                  </div>
+                </a>
               </li>
             </ul>
           </div>
@@ -125,7 +133,6 @@ export function Footer() {
             <span>
               Made with ❤️ by <a href="https://github.com/Nergy101">Nergy101</a>
             </span>
-            <VersionTag />
           </div>
         </div>
       </div>
