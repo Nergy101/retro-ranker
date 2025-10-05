@@ -45,16 +45,47 @@ export function DeviceReviewCard({ review }: DeviceReviewCardProps) {
   };
 
   const renderStars = (rating: number) => {
-    return Array.from({ length: 5 }, (_, i) => (
-      <span
-        key={i}
-        style={{
-          color: i < rating ? "var(--pico-primary)" : "var(--pico-muted-color)",
-        }}
-      >
-        ★
-      </span>
-    ));
+    // Round to nearest 0.5 for display
+    const roundedRating = Math.round(rating * 2) / 2;
+    const fullStars = Math.floor(roundedRating);
+    const hasHalfStar = roundedRating % 1 !== 0;
+
+    return (
+      <>
+        {/* Full stars */}
+        {Array.from({ length: fullStars }).map((_, i) => (
+          <span
+            key={`full-${i}`}
+            style={{ color: "var(--pico-primary)" }}
+          >
+            ★
+          </span>
+        ))}
+
+        {/* Half star */}
+        {hasHalfStar && (
+          <span
+            key="half"
+            style={{ color: "var(--pico-primary)" }}
+          >
+            ☆
+          </span>
+        )}
+
+        {/* Empty stars */}
+        {Array.from({ length: 5 - fullStars - (hasHalfStar ? 1 : 0) }).map((
+          _,
+          i,
+        ) => (
+          <span
+            key={`empty-${i}`}
+            style={{ color: "var(--pico-muted-color)" }}
+          >
+            ★
+          </span>
+        ))}
+      </>
+    );
   };
 
   return (

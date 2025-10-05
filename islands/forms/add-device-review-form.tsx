@@ -11,8 +11,9 @@ const RATING_FIELDS = [
   { name: "controls_rating", label: "Controls" },
   { name: "misc_rating", label: "Misc" },
   { name: "connectivity_rating", label: "Connectivity" },
-  { name: "overall_rating", label: "Overall" },
 ];
+
+const OVERALL_RATING_FIELD = { name: "overall_rating", label: "Overall" };
 
 export function AddDeviceReviewForm({
   device,
@@ -23,18 +24,30 @@ export function AddDeviceReviewForm({
 }) {
   const [review, setReview] = useState("");
   const [ratings, setRatings] = useState({
-    performance_rating: 5,
-    monitor_rating: 5,
-    audio_rating: 5,
-    controls_rating: 5,
-    misc_rating: 5,
-    connectivity_rating: 5,
-    overall_rating: 5,
+    performance_rating: 5.0,
+    monitor_rating: 5.0,
+    audio_rating: 5.0,
+    controls_rating: 5.0,
+    misc_rating: 5.0,
+    connectivity_rating: 5.0,
+    overall_rating: 5.0,
   });
 
+  function calculateOverallRating(ratings: any) {
+    const factorRatings = RATING_FIELDS.map((field) =>
+      ratings[field.name as keyof typeof ratings]
+    );
+    const sum = factorRatings.reduce((acc, rating) => acc + rating, 0);
+    const average = sum / factorRatings.length;
+    // Round to nearest 0.5
+    return Math.round(average * 2) / 2;
+  }
+
   function handleSliderChange(e: Event, field: string) {
-    const value = parseInt((e.target as HTMLInputElement).value, 10);
-    setRatings({ ...ratings, [field]: value });
+    const value = parseFloat((e.target as HTMLInputElement).value);
+    const newRatings = { ...ratings, [field]: value };
+    const overallRating = calculateOverallRating(newRatings);
+    setRatings({ ...newRatings, overall_rating: overallRating });
   }
 
   return (
@@ -98,12 +111,50 @@ export function AddDeviceReviewForm({
                 name={field.name}
                 min="1"
                 max="5"
+                step="0.5"
                 value={ratings[field.name as keyof typeof ratings]}
                 onInput={(e) => handleSliderChange(e, field.name)}
                 style={{ width: "100%" }}
               />
             </div>
           ))}
+        </div>
+
+        {/* Overall Rating (Read-only) */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "0.25rem",
+            marginTop: "1rem",
+            padding: "1rem",
+            backgroundColor: "var(--pico-muted-background)",
+            borderRadius: "0.25rem",
+            border: "1px solid var(--pico-border-color)",
+          }}
+        >
+          <label
+            htmlFor={OVERALL_RATING_FIELD.name}
+            style={{ fontSize: "0.9rem", fontWeight: "bold" }}
+          >
+            {OVERALL_RATING_FIELD.label}:{" "}
+            {ratings.overall_rating}/5 (Auto-calculated)
+          </label>
+          <input
+            type="range"
+            id={OVERALL_RATING_FIELD.name}
+            name={OVERALL_RATING_FIELD.name}
+            min="1"
+            max="5"
+            step="0.5"
+            value={ratings.overall_rating}
+            disabled
+            style={{
+              width: "100%",
+              opacity: 0.7,
+              cursor: "not-allowed",
+            }}
+          />
         </div>
 
         <div
