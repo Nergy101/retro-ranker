@@ -4,6 +4,7 @@ import { DeviceHelpers } from "../../data/frontend/helpers/device.helpers.ts";
 import { RatingInfo } from "../../islands/devices/rating-info.tsx";
 import { CurrencyIcon } from "../shared/currency-icon.tsx";
 import { DeviceCardActions } from "../../islands/devices/device-card-actions.tsx";
+import { ProgressiveImage } from "../../islands/ProgressiveImage.tsx";
 
 interface DeviceCardMediumProps {
   device: Device;
@@ -105,28 +106,12 @@ export function DeviceCardMedium(
         </hgroup>
       </header>
       <div class="device-card-info">
-        {device.image?.originalUrl
-          ? (
-            <img
-              loading="lazy"
-              src={device.image?.webpUrl ?? "/images/placeholder-100x100.svg"}
-              width={100}
-              height={100}
-              alt={device.image?.alt ?? "A device image"}
-              class="device-card-image"
-            />
-          )
-          : (
-            <span>
-              <img
-                src="/images/placeholder-100x100.svg"
-                width={100}
-                height={100}
-                alt="A placeholder image"
-                class="device-card-image"
-              />
-            </span>
-          )}
+        <ProgressiveImage
+          src={device.image?.webpUrl ?? "/images/placeholder-100x100.svg"}
+          alt={device.image?.alt ?? "A device image"}
+          className="device-card-image"
+          loading="lazy"
+        />
       </div>
       <div class="device-card-stats">
         <div class="device-card-price-container">

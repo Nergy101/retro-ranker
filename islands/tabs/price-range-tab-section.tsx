@@ -34,7 +34,7 @@ export function PriceRangeTabSection(
     return () => globalThis.removeEventListener("resize", updateDeviceCount);
   }, []);
 
-  const showTab = (tabId: string) => {
+  const showTab = (tabId: string, event?: Event) => {
     // Hide all tab contents
     const tabContents = document.querySelectorAll(".tab-content");
     tabContents.forEach((content) => {
@@ -66,28 +66,28 @@ export function PriceRangeTabSection(
         <button
           type="button"
           class="tab-button active"
-          onClick={() => showTab("tab-budget")}
+          onClick={(e) => showTab("tab-budget", e)}
         >
           $0 - $100
         </button>
         <button
           type="button"
           class="tab-button"
-          onClick={() => showTab("tab-100-200")}
+          onClick={(e) => showTab("tab-100-200", e)}
         >
           $100 - $200
         </button>
         <button
           type="button"
           class="tab-button"
-          onClick={() => showTab("tab-200-500")}
+          onClick={(e) => showTab("tab-200-500", e)}
         >
           $200 - $500
         </button>
         <button
           type="button"
           class="tab-button"
-          onClick={() => showTab("tab-500-plus")}
+          onClick={(e) => showTab("tab-500-plus", e)}
         >
           $500+
         </button>

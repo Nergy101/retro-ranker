@@ -9,6 +9,7 @@ import { createSuperUserPocketBaseService } from "../data/pocketbase/pocketbase.
 import { tracer } from "../data/tracing/tracer.ts";
 import { State } from "../utils.ts";
 import { Hero } from "../islands/hero/hero.tsx";
+import { SkeletonLoader } from "../islands/SkeletonLoader.tsx";
 import {
   PiCalendar,
   PiChartLine,
@@ -150,6 +151,31 @@ export const handler = {
   },
 };
 
+// Helper component for device card skeletons
+function DeviceCardSkeleton() {
+  return (
+    <div class="device-card-skeleton">
+      <SkeletonLoader type="card" width="100%" height="200px" />
+    </div>
+  );
+}
+
+// Helper component for section skeletons
+function SectionSkeleton({ title, icon }: { title: string; icon: any }) {
+  return (
+    <section class="home-section">
+      <article class="home-section-content">
+        <h2 class="home-section-title">
+          {icon} {title}
+        </h2>
+        <div class="device-row-grid">
+          {Array.from({ length: 6 }, (_, i) => <DeviceCardSkeleton key={i} />)}
+        </div>
+      </article>
+    </section>
+  );
+}
+
 export default function Home(
   ctx: Context<State>,
 ) {
@@ -200,12 +226,27 @@ export default function Home(
                   justifyContent: "center",
                 }}
               >
-                {defaultTags.map((tag) => (
-                  <TagComponent
-                    key={tag.name}
-                    tag={tag}
-                  />
-                ))}
+                {defaultTags.length > 0
+                  ? (
+                    defaultTags.map((tag) => (
+                      <TagComponent
+                        key={tag.name}
+                        tag={tag}
+                      />
+                    ))
+                  )
+                  : (
+                    // Skeleton loading for tags
+                    Array.from({ length: 8 }, (_, i) => (
+                      <SkeletonLoader
+                        key={i}
+                        type="button"
+                        width="80px"
+                        height="32px"
+                        className="tag-skeleton"
+                      />
+                    ))
+                  )}
               </div>
             </article>
           </section>
@@ -213,134 +254,155 @@ export default function Home(
           <hr />
 
           {/* Upcoming Section */}
-          <section class="home-section">
-            <article class="home-section-content">
-              <h2 class="home-section-title">
-                <PiCalendar /> Upcoming
-              </h2>
-              <div class="device-row-grid">
-                {upcoming.map((device) => (
-                  <a
-                    href={`/devices/${device.name.sanitized}`}
-                    style={{ textDecoration: "none" }}
-                  >
-                    <DeviceCardMedium
-                      device={device}
-                      isActive={false}
-                      isLoggedIn={!!user}
-                      likes={likesCountMap[device.id] ?? 0}
-                      isLiked={userLikedMap[device.id] ?? false}
-                      isFavorited={userFavoritedMap[device.id] ?? false}
+          {upcoming.length > 0
+            ? (
+              <section class="home-section">
+                <article class="home-section-content">
+                  <h2 class="home-section-title">
+                    <PiCalendar /> Upcoming
+                  </h2>
+                  <div class="device-row-grid">
+                    {upcoming.map((device) => (
+                      <a
+                        href={`/devices/${device.name.sanitized}`}
+                        style={{ textDecoration: "none" }}
+                      >
+                        <DeviceCardMedium
+                          device={device}
+                          isActive={false}
+                          isLoggedIn={!!user}
+                          likes={likesCountMap[device.id] ?? 0}
+                          isLiked={userLikedMap[device.id] ?? false}
+                          isFavorited={userFavoritedMap[device.id] ?? false}
+                        />
+                      </a>
+                    ))}
+                    <SeeMoreCard
+                      href="/devices?tags=upcoming"
+                      text="More Upcoming"
                     />
-                  </a>
-                ))}
-                <SeeMoreCard
-                  href="/devices?tags=upcoming"
-                  text="More Upcoming"
-                />
-              </div>
-            </article>
-          </section>
+                  </div>
+                </article>
+              </section>
+            )
+            : <SectionSkeleton title="Upcoming" icon={<PiCalendar />} />}
 
-          <section class="home-section">
-            <article class="home-section-content">
-              <h2 class="home-section-title">
-                <PiSparkle /> New Arrivals
-              </h2>
-              <div class="device-row-grid">
-                {newArrivals.map((device) => (
-                  <a
-                    href={`/devices/${device.name.sanitized}`}
-                    style={{ textDecoration: "none" }}
-                  >
-                    <DeviceCardMedium
-                      device={device}
-                      isActive={false}
-                      isLoggedIn={!!user}
-                      likes={likesCountMap[device.id] ?? 0}
-                      isLiked={userLikedMap[device.id] ?? false}
-                      isFavorited={userFavoritedMap[device.id] ?? false}
+          {newArrivals.length > 0
+            ? (
+              <section class="home-section">
+                <article class="home-section-content">
+                  <h2 class="home-section-title">
+                    <PiSparkle /> New Arrivals
+                  </h2>
+                  <div class="device-row-grid">
+                    {newArrivals.map((device) => (
+                      <a
+                        href={`/devices/${device.name.sanitized}`}
+                        style={{ textDecoration: "none" }}
+                      >
+                        <DeviceCardMedium
+                          device={device}
+                          isActive={false}
+                          isLoggedIn={!!user}
+                          likes={likesCountMap[device.id] ?? 0}
+                          isLiked={userLikedMap[device.id] ?? false}
+                          isFavorited={userFavoritedMap[device.id] ?? false}
+                        />
+                      </a>
+                    ))}
+                    <SeeMoreCard
+                      href="/devices?sort=new-arrivals"
+                      text="More New Arrivals"
                     />
-                  </a>
-                ))}
-                <SeeMoreCard
-                  href="/devices?sort=new-arrivals"
-                  text="More New Arrivals"
-                />
-              </div>
-            </article>
-          </section>
+                  </div>
+                </article>
+              </section>
+            )
+            : <SectionSkeleton title="New Arrivals" icon={<PiSparkle />} />}
 
           {/* Highly Rated Section */}
-          <section class="home-section">
-            <article class="home-section-content">
-              <h2 class="home-section-title">
-                <PiRanking /> Bang for your buck
-                <div
-                  style={{
-                    display: "flex",
-                    gap: "0.5rem",
-                    alignItems: "center",
-                  }}
-                >
-                  <span style={{ fontSize: "0.8rem" }}>
-                    ($$)
-                  </span>
-                </div>
-              </h2>
-              <div class="device-row-grid">
-                {highlyRated.map((device) => (
-                  <a
-                    href={`/devices/${device.name.sanitized}`}
-                    style={{ textDecoration: "none" }}
-                  >
-                    <DeviceCardMedium
-                      device={device}
-                      isActive={false}
-                      isLoggedIn={!!user}
-                      likes={likesCountMap[device.id] ?? 0}
-                      isLiked={userLikedMap[device.id] ?? false}
-                      isFavorited={userFavoritedMap[device.id] ?? false}
+          {highlyRated.length > 0
+            ? (
+              <section class="home-section">
+                <article class="home-section-content">
+                  <h2 class="home-section-title">
+                    <PiRanking /> Bang for your buck
+                    <div
+                      style={{
+                        display: "flex",
+                        gap: "0.5rem",
+                        alignItems: "center",
+                      }}
+                    >
+                      <span style={{ fontSize: "0.8rem" }}>
+                        ($$)
+                      </span>
+                    </div>
+                  </h2>
+                  <div class="device-row-grid">
+                    {highlyRated.map((device) => (
+                      <a
+                        href={`/devices/${device.name.sanitized}`}
+                        style={{ textDecoration: "none" }}
+                      >
+                        <DeviceCardMedium
+                          device={device}
+                          isActive={false}
+                          isLoggedIn={!!user}
+                          likes={likesCountMap[device.id] ?? 0}
+                          isLiked={userLikedMap[device.id] ?? false}
+                          isFavorited={userFavoritedMap[device.id] ?? false}
+                        />
+                      </a>
+                    ))}
+                    <SeeMoreCard
+                      href="/devices?tags=mid&sort=highly-ranked"
+                      text="More Highly Ranked"
                     />
-                  </a>
-                ))}
-                <SeeMoreCard
-                  href="/devices?tags=mid&sort=highly-ranked"
-                  text="More Highly Ranked"
-                />
-              </div>
-            </article>
-          </section>
+                  </div>
+                </article>
+              </section>
+            )
+            : (
+              <SectionSkeleton
+                title="Bang for your buck"
+                icon={<PiRanking />}
+              />
+            )}
 
           {/* personal Picks Section */}
-          <section class="home-section">
-            <article class="home-section-content">
-              <h2 class="home-section-title">
-                <PiUserCheck /> Personal Picks
-              </h2>
-              <div class="device-row-grid">
-                {personalPicks.map((device) => (
-                  <a
-                    href={`/devices/${device.name.sanitized}`}
-                    style={{ textDecoration: "none" }}
-                  >
-                    <DeviceCardMedium
-                      device={device}
-                      isActive={false}
-                      isLoggedIn={!!user}
-                      likes={likesCountMap[device.id] ?? 0}
-                      isLiked={userLikedMap[device.id] ?? false}
-                      isFavorited={userFavoritedMap[device.id] ?? false}
+          {personalPicks.length > 0
+            ? (
+              <section class="home-section">
+                <article class="home-section-content">
+                  <h2 class="home-section-title">
+                    <PiUserCheck /> Personal Picks
+                  </h2>
+                  <div class="device-row-grid">
+                    {personalPicks.map((device) => (
+                      <a
+                        href={`/devices/${device.name.sanitized}`}
+                        style={{ textDecoration: "none" }}
+                      >
+                        <DeviceCardMedium
+                          device={device}
+                          isActive={false}
+                          isLoggedIn={!!user}
+                          likes={likesCountMap[device.id] ?? 0}
+                          isLiked={userLikedMap[device.id] ?? false}
+                          isFavorited={userFavoritedMap[device.id] ?? false}
+                        />
+                      </a>
+                    ))}
+                    <SeeMoreCard
+                      href="/devices?tags=personal-pick"
+                      text="More Personal Picks"
                     />
-                  </a>
-                ))}
-                <SeeMoreCard
-                  href="/devices?tags=personal-pick"
-                  text="More Personal Picks"
-                />
-              </div>
-            </article>
-          </section>
+                  </div>
+                </article>
+              </section>
+            )
+            : <SectionSkeleton title="Personal Picks" icon={<PiUserCheck />} />}
 
           <hr />
           <section class="site-charts-showcase">
@@ -361,16 +423,42 @@ export default function Home(
                 of devices. <br /> <a href="/charts">View all charts here.</a>
               </p>
               <hr />
-              <div class="chart-wrapper" style={{ marginBottom: "1rem" }}>
-                <DevicesPerReleaseYearLineChart
-                  devices={devices}
-                />
-              </div>
-              <div class="chart-wrapper" style={{ marginBottom: "1rem" }}>
-                <OperatingSystemDistribution
-                  devices={devices}
-                />
-              </div>
+              {devices.length > 0
+                ? (
+                  <>
+                    <div class="chart-wrapper" style={{ marginBottom: "1rem" }}>
+                      <DevicesPerReleaseYearLineChart
+                        devices={devices}
+                      />
+                    </div>
+                    <div class="chart-wrapper" style={{ marginBottom: "1rem" }}>
+                      <OperatingSystemDistribution
+                        devices={devices}
+                      />
+                    </div>
+                  </>
+                )
+                : (
+                  // Skeleton loading for charts
+                  <>
+                    <div class="chart-wrapper" style={{ marginBottom: "1rem" }}>
+                      <SkeletonLoader
+                        type="card"
+                        width="100%"
+                        height="300px"
+                        className="chart-skeleton"
+                      />
+                    </div>
+                    <div class="chart-wrapper" style={{ marginBottom: "1rem" }}>
+                      <SkeletonLoader
+                        type="card"
+                        width="100%"
+                        height="300px"
+                        className="chart-skeleton"
+                      />
+                    </div>
+                  </>
+                )}
             </article>
           </section>
           <hr />
