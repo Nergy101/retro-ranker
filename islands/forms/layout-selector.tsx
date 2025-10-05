@@ -56,9 +56,9 @@ export function LayoutSelector(
             cursor: "pointer",
             padding: "0.5rem",
           }}
-          data-tooltip="Grid 9 layout"
         >
           <PiGridNine size={20} />
+          <span>Default</span>
         </button>
         <button
           type="button"
@@ -70,9 +70,9 @@ export function LayoutSelector(
             cursor: "pointer",
             padding: "0.5rem",
           }}
-          data-tooltip="Grid 4 layout"
         >
           <PiSquaresFour size={20} />
+          <span>Large</span>
         </button>
         <button
           type="button"
@@ -84,9 +84,9 @@ export function LayoutSelector(
             cursor: "pointer",
             padding: "0.5rem",
           }}
-          data-tooltip="List layout"
         >
           <PiList size={20} />
+          <span>Small</span>
         </button>
       </div>
 

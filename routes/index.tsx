@@ -9,7 +9,6 @@ import { createSuperUserPocketBaseService } from "../data/pocketbase/pocketbase.
 import { tracer } from "../data/tracing/tracer.ts";
 import { State } from "../utils.ts";
 import { Hero } from "../islands/hero/hero.tsx";
-import { SkeletonLoader } from "../islands/SkeletonLoader.tsx";
 import {
   PiCalendar,
   PiChartLine,
@@ -151,31 +150,6 @@ export const handler = {
   },
 };
 
-// Helper component for device card skeletons
-function DeviceCardSkeleton() {
-  return (
-    <div class="device-card-skeleton">
-      <SkeletonLoader type="card" width="100%" height="200px" />
-    </div>
-  );
-}
-
-// Helper component for section skeletons
-function SectionSkeleton({ title, icon }: { title: string; icon: any }) {
-  return (
-    <section class="home-section">
-      <article class="home-section-content">
-        <h2 class="home-section-title">
-          {icon} {title}
-        </h2>
-        <div class="device-row-grid">
-          {Array.from({ length: 6 }, (_, i) => <DeviceCardSkeleton key={i} />)}
-        </div>
-      </article>
-    </section>
-  );
-}
-
 export default function Home(
   ctx: Context<State>,
 ) {
@@ -226,27 +200,12 @@ export default function Home(
                   justifyContent: "center",
                 }}
               >
-                {defaultTags.length > 0
-                  ? (
-                    defaultTags.map((tag) => (
-                      <TagComponent
-                        key={tag.name}
-                        tag={tag}
-                      />
-                    ))
-                  )
-                  : (
-                    // Skeleton loading for tags
-                    Array.from({ length: 8 }, (_, i) => (
-                      <SkeletonLoader
-                        key={i}
-                        type="button"
-                        width="80px"
-                        height="32px"
-                        className="tag-skeleton"
-                      />
-                    ))
-                  )}
+                {defaultTags.map((tag) => (
+                  <TagComponent
+                    key={tag.name}
+                    tag={tag}
+                  />
+                ))}
               </div>
             </article>
           </section>
@@ -285,7 +244,7 @@ export default function Home(
                 </article>
               </section>
             )
-            : <SectionSkeleton title="Upcoming" icon={<PiCalendar />} />}
+            : null}
 
           {newArrivals.length > 0
             ? (
@@ -318,7 +277,7 @@ export default function Home(
                 </article>
               </section>
             )
-            : <SectionSkeleton title="New Arrivals" icon={<PiSparkle />} />}
+            : null}
 
           {/* Highly Rated Section */}
           {highlyRated.length > 0
@@ -363,12 +322,7 @@ export default function Home(
                 </article>
               </section>
             )
-            : (
-              <SectionSkeleton
-                title="Bang for your buck"
-                icon={<PiRanking />}
-              />
-            )}
+            : null}
 
           {/* personal Picks Section */}
           {personalPicks.length > 0
@@ -402,7 +356,7 @@ export default function Home(
                 </article>
               </section>
             )
-            : <SectionSkeleton title="Personal Picks" icon={<PiUserCheck />} />}
+            : null}
 
           <hr />
           <section class="site-charts-showcase">
@@ -438,27 +392,7 @@ export default function Home(
                     </div>
                   </>
                 )
-                : (
-                  // Skeleton loading for charts
-                  <>
-                    <div class="chart-wrapper" style={{ marginBottom: "1rem" }}>
-                      <SkeletonLoader
-                        type="card"
-                        width="100%"
-                        height="300px"
-                        className="chart-skeleton"
-                      />
-                    </div>
-                    <div class="chart-wrapper" style={{ marginBottom: "1rem" }}>
-                      <SkeletonLoader
-                        type="card"
-                        width="100%"
-                        height="300px"
-                        className="chart-skeleton"
-                      />
-                    </div>
-                  </>
-                )}
+                : null}
             </article>
           </section>
           <hr />

@@ -1626,6 +1626,7 @@ body.paused-animation::before {
 .device-search-card:hover::before,
 .small-card:hover::before,
 .device-card-row:hover::before {
+  opacity: 1;
   animation: card-sheen 1200ms ease;
 }
 
@@ -3470,18 +3471,68 @@ body.paused-animation::before {
 
 .device-card-row {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 120px 1fr auto 100px auto;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
   border: 1px solid var(--pico-primary);
-  padding: 0.25rem;
-  border-radius: var(--pico-radius);
+  padding: 1rem;
+  border-radius: 12px;
   width: 100%;
+  background-color: var(--pico-card-background-color);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
 
   &:hover {
     background-color: var(--pico-primary-focus);
-    transform: scale(1.02);
-    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-color: var(--pico-primary-hover);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Enhanced mobile responsiveness */
+  @media (max-width: 768px) {
+    grid-template-columns: 80px 1fr auto;
+    gap: 0.75rem;
+    padding: 0.75rem;
+
+    .device-card-rating-row {
+      display: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 60px 1fr auto;
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+}
+
+/* Enhanced list layout container styling */
+.devices-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  .device-card-row {
+    border-bottom: 1px solid var(--pico-primary-focus);
+    border-radius: 12px;
+    margin-bottom: 0.5rem;
+
+    &:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    /* Subtle alternating background for better readability */
+    &:nth-child(even) {
+      background-color: var(--pico-card-background-color);
+    }
+
+    &:nth-child(odd) {
+      background-color: var(--pico-background-color);
+    }
   }
 }
 
@@ -4499,14 +4550,30 @@ textarea:focus:valid {
 }
 
 .device-card-rating-row {
-  margin-bottom: 0.5rem;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  background-color: var(--pico-card-background-color-darker);
+  border-radius: 8px;
+  border: 1px solid var(--pico-primary-focus);
+
+  /* Enhanced mobile responsiveness */
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+/* Medium card specific styling for better visual appearance */
+.device-search-card .device-card-rating-row {
+  background-color: var(--pico-card-background-color-darker);
+  border: 1px solid var(--pico-primary-focus);
+  padding: 0.75rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 1rem 1.5rem 1rem 1.5rem;
 }
 
 .device-card-os-icons {
@@ -4514,12 +4581,42 @@ textarea:focus:valid {
   gap: 0.25rem;
   font-size: 1.2rem;
   margin-top: 0.5rem;
+  padding: 0.5rem;
+  background-color: var(--pico-card-background-color);
+  border-radius: 8px;
+  border: 1px solid var(--pico-primary-focus);
+  justify-content: center;
+  align-items: center;
+}
+
+/* Medium card specific OS icons styling */
+.device-search-card .device-card-os-icons {
+  background-color: var(--pico-card-background-color);
+  border-radius: 10px;
+  padding: 0.75rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--pico-primary-focus);
+  margin: 1rem 1.5rem 0.5rem 1.5rem;
 }
 
 .device-card-row-section {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 60px;
+
+  /* Enhanced image section styling */
+  &:first-child {
+    justify-content: flex-start;
+    padding-right: 0.5rem;
+  }
+
+  /* Price section styling */
+  &:nth-child(4) {
+    justify-content: flex-end;
+    font-weight: 600;
+    color: var(--pico-primary);
+  }
 }
 .device-card-price-container {
   display: flex;
@@ -4527,7 +4624,43 @@ textarea:focus:valid {
   flex-direction: column;
 }
 .device-card-row-name {
-  text-align: center;
+  text-align: left;
+  padding-left: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100px;
+
+  strong {
+    font-size: 1.1rem;
+    line-height: 1.3;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  span {
+    font-size: 0.9rem;
+    color: var(--pico-muted-color);
+    font-weight: 500;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 768px) {
+    min-height: 80px;
+
+    strong {
+      font-size: 1rem;
+    }
+
+    span {
+      font-size: 0.8rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    min-height: 60px;
+  }
 }
 
 .sr-only {

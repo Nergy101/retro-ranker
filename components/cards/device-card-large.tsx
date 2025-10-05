@@ -157,6 +157,7 @@ export function DeviceCardLarge(
           tooltipUseShortSystemName={true}
           useRatingDescription={false}
           hideLikeButton={true}
+          hideCommunityStats={true}
           user={null}
           likes={null}
           isLiked={false}
