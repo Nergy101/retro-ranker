@@ -1,13 +1,17 @@
-import { PiChatCentered, PiPlus } from "@preact-icons/pi";
+import { PiChatCentered, PiPlus, PiTrophy } from "@preact-icons/pi";
 import { FreshContext, page } from "fresh";
 import { RecordModel } from "pocketbase";
 import { DeviceCardMedium } from "../../components/cards/device-card-medium.tsx";
 import { DeviceCollection } from "../../data/frontend/contracts/device-collection.ts";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
+import { buildAchievementBoard } from "../../data/frontend/helpers/achievement.helpers.ts";
+import { UserAchievementRecord } from "../../data/frontend/contracts/achievement.contract.ts";
 import {
   createLoggedInPocketBaseService,
   createSuperUserPocketBaseService,
 } from "../../data/pocketbase/pocketbase.service.ts";
+import type { PocketBaseService } from "../../data/pocketbase/pocketbase.service.ts";
+import { logJson } from "../../data/tracing/tracer.ts";
 import { CustomFreshState } from "../../interfaces/state.ts";
 import { SignOut } from "../../islands/auth/sign-out.tsx";
 import { DeviceCollections } from "../../islands/collections/device-collections.tsx";
@@ -63,12 +67,14 @@ export default async function ProfilePage(
 
   const user = state.user;
 
-  const getCollections = async (): Promise<DeviceCollection[]> => {
-    const pbService = await createLoggedInPocketBaseService(
-      req.headers.get("cookie") ?? "",
-    );
+  const pbService = await createLoggedInPocketBaseService(
+    req.headers.get("cookie") ?? "",
+  );
 
-    const userCollections = await pbService.getList(
+  const getCollections = async (
+    client: PocketBaseService,
+  ): Promise<DeviceCollection[]> => {
+    const userCollections = await client.getList(
       "device_collections",
       1,
       100,
@@ -97,12 +103,10 @@ export default async function ProfilePage(
     });
   };
 
-  const getFavoritedDevices = async (): Promise<Device[]> => {
-    const pbService = await createLoggedInPocketBaseService(
-      req.headers.get("cookie") ?? "",
-    );
-
-    const favorites = await pbService.getList(
+  const getFavoritedDevices = async (
+    client: PocketBaseService,
+  ): Promise<Device[]> => {
+    const favorites = await client.getList(
       "device_favorites",
       1,
       100,
@@ -118,8 +122,158 @@ export default async function ProfilePage(
     });
   };
 
-  const collections = await getCollections();
-  const favoritedDevices = await getFavoritedDevices();
+  const getUserCommentCount = async (
+    client: PocketBaseService,
+  ): Promise<number> => {
+    try {
+      const comments = await client.getList(
+        "device_comments",
+        1,
+        1,
+        {
+          filter: `user = "${user.id}"`,
+          sort: "-created",
+          expand: "",
+        },
+      );
+      return comments.totalItems ?? comments.items.length ?? 0;
+    } catch (error) {
+      logJson("debug", "Failed to fetch user comment count", {
+        error: error instanceof Error ? error.message : String(error),
+      });
+      return 0;
+    }
+  };
+
+  const getUserReviewCount = async (
+    client: PocketBaseService,
+  ): Promise<number> => {
+    try {
+      const reviews = await client.getList(
+        "device_reviews",
+        1,
+        1,
+        {
+          filter: `user = "${user.id}"`,
+          sort: "-created",
+          expand: "",
+        },
+      );
+      return reviews.totalItems ?? reviews.items.length ?? 0;
+    } catch (error) {
+      logJson("debug", "Failed to fetch user review count", {
+        error: error instanceof Error ? error.message : String(error),
+      });
+      return 0;
+    }
+  };
+
+  const getUserReplyCount = async (
+    client: PocketBaseService,
+  ): Promise<number> => {
+    try {
+      const replies = await client.getList(
+        "device_comment_replies",
+        1,
+        1,
+        {
+          filter: `user = "${user.id}"`,
+          sort: "-created",
+          expand: "",
+        },
+      );
+      return replies.totalItems ?? replies.items.length ?? 0;
+    } catch (error) {
+      logJson("debug", "Failed to fetch user reply count", {
+        error: error instanceof Error ? error.message : String(error),
+      });
+      return 0;
+    }
+  };
+
+  const getUserReactionCount = async (
+    client: PocketBaseService,
+  ): Promise<number> => {
+    try {
+      const reactions = await client.getList(
+        "device_comment_reactions",
+        1,
+        1,
+        {
+          filter: `user = "${user.id}"`,
+          sort: "-created",
+          expand: "",
+        },
+      );
+      return reactions.totalItems ?? reactions.items.length ?? 0;
+    } catch (error) {
+      logJson("debug", "Failed to fetch user reaction count", {
+        error: error instanceof Error ? error.message : String(error),
+      });
+      return 0;
+    }
+  };
+
+  const getUnlockedAchievementIds = async (
+    client: PocketBaseService,
+  ): Promise<string[]> => {
+    try {
+      const result = await client.getList(
+        "user_achievements",
+        1,
+        200,
+        {
+          filter: `user = "${user.id}"`,
+          sort: "-created",
+          expand: "",
+        },
+      );
+
+      return (result?.items ?? []).map(
+        (record: RecordModel & UserAchievementRecord) => record.achievement,
+      );
+    } catch (error) {
+      logJson("debug", "User achievements collection unavailable", {
+        error: error instanceof Error ? error.message : String(error),
+      });
+      return [];
+    }
+  };
+
+  const [
+    collections,
+    favoritedDevices,
+    commentCount,
+    reviewCount,
+    replyCount,
+    reactionCount,
+    unlockedAchievementIds,
+  ] = await Promise.all([
+    getCollections(pbService),
+    getFavoritedDevices(pbService),
+    getUserCommentCount(pbService),
+    getUserReviewCount(pbService),
+    getUserReplyCount(pbService),
+    getUserReactionCount(pbService),
+    getUnlockedAchievementIds(pbService),
+  ]);
+
+  const ownedDeviceIds = new Set(
+    collections.flatMap((collection) => collection.devices.map((d) => d.id)),
+  );
+
+  const achievements = buildAchievementBoard(
+    {
+      ownedDeviceCount: ownedDeviceIds.size,
+      collectionCount: collections.length,
+      favoritesCount: favoritedDevices.length,
+      commentCount,
+      reviewCount,
+      commentReplyCount: replyCount,
+      commentReactionCount: reactionCount,
+    },
+    unlockedAchievementIds,
+  );
 
   const deviceIds = Array.from(
     new Set([
@@ -187,6 +341,56 @@ export default async function ProfilePage(
             </span>
           </h1>
         </header>
+
+        {/* Achievements Section */}
+        <section class="achievements-section">
+          <div class="achievements-header">
+            <h2>
+              <PiTrophy /> Achievements
+            </h2>
+            <p class="achievements-subtitle">
+              Collect playful emblems as you explore Retro Ranker.
+            </p>
+          </div>
+          <div class="achievements-grid">
+            {achievements.map((achievement) => (
+              <article
+                class={`achievement-card ${
+                  achievement.unlocked ? "unlocked" : "locked"
+                }`}
+                key={achievement.id}
+              >
+                <div class="achievement-icon" aria-hidden="true">
+                  {achievement.icon}
+                </div>
+                <div class="achievement-body">
+                  <span class="achievement-category">
+                    {achievement.category}
+                  </span>
+                  <h3>{achievement.name}</h3>
+                  <p>{achievement.description}</p>
+                </div>
+                <div class="achievement-progress">
+                  <progress
+                    max={achievement.threshold}
+                    value={achievement.progress}
+                  >
+                  </progress>
+                  <div class="achievement-progress-meta">
+                    <span>{achievement.progressLabel}</span>
+                    <span
+                      class={`achievement-status ${
+                        achievement.unlocked ? "is-unlocked" : ""
+                      }`}
+                    >
+                      {achievement.statusText}
+                    </span>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
 
         {/* Favorites Section */}
         <section class="favorites-section">
