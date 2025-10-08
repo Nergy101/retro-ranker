@@ -57,6 +57,35 @@ export async function handler(ctx: any) {
   const path = url.pathname;
   const cookies = getCookies(req.headers);
 
+  // Handle devices/tags... redirect to devices?tags=... BEFORE any other processing
+  if (path.startsWith("/devices/tags")) {
+    var rawTags = url.searchParams.get("tags");
+    var tags: string[] = [];
+    if (rawTags) {
+      tags = rawTags.split(",");
+    }
+
+    // Create the redirect URL with tags as query parameter
+    const redirectUrl = new URL("/devices", url.origin);
+    if (tags.length > 0) {
+      redirectUrl.searchParams.set("tags", tags.join(","));
+    }
+
+    // Preserve any existing query parameters
+    for (const [key, value] of url.searchParams.entries()) {
+      if (key !== "tags") { // Don't duplicate tags if they exist in query
+        redirectUrl.searchParams.set(key, value);
+      }
+    }
+
+    return new Response(null, {
+      status: 301,
+      headers: {
+        "Location": redirectUrl.toString(),
+      },
+    });
+  }
+
   // Set language in state immediately
   (ctx.state as CustomFreshState).language = "en-US";
 

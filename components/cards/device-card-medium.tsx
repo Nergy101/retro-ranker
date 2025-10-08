@@ -3,16 +3,10 @@ import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { DeviceHelpers } from "../../data/frontend/helpers/device.helpers.ts";
 import { RatingInfo } from "../../islands/devices/rating-info.tsx";
 import { CurrencyIcon } from "../shared/currency-icon.tsx";
-import { DeviceCardActions } from "../../islands/devices/device-card-actions.tsx";
 
 interface DeviceCardMediumProps {
   device: Device;
   isActive?: boolean;
-  isLoggedIn?: boolean;
-  likes?: number;
-  isLiked?: boolean;
-  isFavorited?: boolean;
-  showLikeButton?: boolean;
   borderColor?: string;
 }
 
@@ -20,11 +14,6 @@ export function DeviceCardMedium(
   {
     device,
     isActive = false,
-    isLoggedIn = false,
-    likes = 0,
-    isLiked = false,
-    isFavorited = false,
-    showLikeButton = true,
     borderColor,
   }: DeviceCardMediumProps,
 ) {
@@ -129,66 +118,81 @@ export function DeviceCardMedium(
           )}
       </div>
       <div class="device-card-stats">
-        <div class="device-card-price-container">
-          {!device.pricing.discontinued && device.pricing.average
-            ? (
-              <span
-                style={{ display: "flex", fontSize: "1rem" }}
-                data-tooltip={`${device.pricing.range?.min}-${device.pricing.range?.max} ${device.pricing.currency}`}
-              >
-                {getPriceIndicator()}
-              </span>
-            )
-            : (
-              <span
-                style={{ display: "flex", fontSize: "1rem" }}
-                data-tooltip="No pricing available"
-                aria-describedby="no-pricing-tooltip"
-              >
-                <CurrencyIcon currencyCode="USD" />
-                <PiQuestion aria-hidden="true" focusable="false" />
-              </span>
+        <div class="device-card-data-row">
+          {/* Left section: price indicator + OS icon */}
+          <div class="device-card-left-section">
+            {!device.pricing.discontinued && device.pricing.average
+              ? (
+                <div class="device-card-os-price-section">
+                  <div
+                    class="device-card-price-indicator"
+                    data-tooltip={`${device.pricing.range?.min}-${device.pricing.range?.max} ${device.pricing.currency}`}
+                  >
+                    {getPriceIndicator()}
+                  </div>
+                  <div
+                    class="device-card-os-icons"
+                    data-tooltip={device.os.list.join(", ") === "?"
+                      ? "No OS information available"
+                      : device.os.list.join(", ")}
+                    aria-describedby="os-icons-tooltip"
+                  >
+                    {device.os.icons.map((icon, idx) =>
+                      // Decorative icons, hide from screen readers
+                      <span
+                        key={idx}
+                        aria-hidden="true"
+                        style="display:inline;"
+                      >
+                        {DeviceHelpers.getOsIconComponent(icon)}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              )
+              : (
+                <div class="device-card-os-price-section">
+                  <div
+                    class="device-card-price-indicator"
+                    data-tooltip="No pricing available"
+                    aria-describedby="no-pricing-tooltip"
+                  >
+                    <CurrencyIcon currencyCode="USD" />
+                    <PiQuestion aria-hidden="true" focusable="false" />
+                  </div>
+                  <div
+                    class="device-card-os-icons"
+                    data-tooltip="No OS information available"
+                    aria-describedby="os-icons-tooltip"
+                  >
+                    <span aria-hidden="true" style="display:inline;">
+                      <PiQuestion />
+                    </span>
+                  </div>
+                </div>
+              )}
+          </div>
+
+          {/* Right section: deviceA/B side by side */}
+          <div class="device-card-right-section">
+            {upToSystemA && (
+              <RatingInfo
+                rating={upToSystemA}
+                tooltipUseShortSystemName={true}
+                tooltipPosition="top"
+              />
             )}
+            {upToSystemCOrLower && (
+              <RatingInfo
+                rating={upToSystemCOrLower}
+                tooltipUseShortSystemName={true}
+                tooltipPosition="top"
+              />
+            )}
+          </div>
         </div>
-        <span
-          class="device-card-os-icons"
-          data-tooltip={device.os.list.join(", ") === "?"
-            ? "No OS information available"
-            : device.os.list.join(", ")}
-          aria-describedby="os-icons-tooltip"
-        >
-          {device.os.icons.map((icon, idx) =>
-            // Decorative icons, hide from screen readers
-            <span key={idx} aria-hidden="true" style="display:inline;">
-              {DeviceHelpers.getOsIconComponent(icon)}
-            </span>
-          )}
-        </span>
       </div>
-      <div class="device-card-rating-row">
-        {upToSystemA && (
-          <RatingInfo
-            rating={upToSystemA}
-            tooltipUseShortSystemName={true}
-            tooltipPosition="top"
-          />
-        )}
-        {upToSystemCOrLower && (
-          <RatingInfo
-            rating={upToSystemCOrLower}
-            tooltipUseShortSystemName={true}
-            tooltipPosition="top"
-          />
-        )}
-      </div>
-      <DeviceCardActions
-        deviceId={device.id}
-        isLoggedIn={isLoggedIn}
-        likes={likes}
-        isLiked={isLiked}
-        isFavorited={isFavorited}
-        showLikeButton={showLikeButton}
-      />
+
       {/* Accessible tooltip descriptions */}
       <span id="discontinued-tooltip" class="sr-only">
         Device is discontinued

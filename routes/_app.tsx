@@ -90,7 +90,6 @@ export default function AppWrapper(props: AppWrapperProps) {
           href="/favicon-16x16.png"
         />
         <link rel="stylesheet" href="/pico.pumpkin.min.css" />
-        <script defer src="/scripts/card-effects.js" />
       </head>
       <body>
         <TopNavbar

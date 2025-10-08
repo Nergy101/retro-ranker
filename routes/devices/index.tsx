@@ -92,7 +92,7 @@ export const handler = {
         case "grid9":
           return 9;
         case "grid4":
-          return 8;
+          return 4;
         default:
           return 20;
       }
@@ -316,7 +316,7 @@ export default function CatalogPage(ctx: FreshContext) {
       case "grid9":
         return 9;
       case "grid4":
-        return 8;
+        return 4;
       default:
         return 20;
     }

@@ -36,6 +36,9 @@ export function LayoutSelector(
   const getStyle = (layout: string) =>
     activeLayout === layout ? "var(--pico-primary)" : "var(--pico-text)";
 
+  const getActiveClass = (layout: string) =>
+    activeLayout === layout ? "layout-active" : "";
+
   return (
     <div
       style={{
@@ -49,6 +52,7 @@ export function LayoutSelector(
         <button
           type="button"
           onClick={() => setActiveLayout("grid9")}
+          className={getActiveClass("grid9")}
           style={{
             color: getStyle("grid9"),
             background: "transparent",
@@ -57,12 +61,22 @@ export function LayoutSelector(
             padding: "0.5rem",
           }}
         >
-          <PiGridNine size={20} />
-          <span>Default</span>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "0.5rem",
+            }}
+          >
+            <PiGridNine size={20} />
+            <span>Default</span>
+          </div>
         </button>
         <button
           type="button"
           onClick={() => setActiveLayout("grid4")}
+          className={getActiveClass("grid4")}
           style={{
             color: getStyle("grid4"),
             background: "transparent",
@@ -71,12 +85,22 @@ export function LayoutSelector(
             padding: "0.5rem",
           }}
         >
-          <PiSquaresFour size={20} />
-          <span>Large</span>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "0.5rem",
+            }}
+          >
+            <PiSquaresFour size={20} />
+            <span>Detailed</span>
+          </div>
         </button>
         <button
           type="button"
           onClick={() => setActiveLayout("list")}
+          className={getActiveClass("list")}
           style={{
             color: getStyle("list"),
             background: "transparent",
@@ -85,8 +109,17 @@ export function LayoutSelector(
             padding: "0.5rem",
           }}
         >
-          <PiList size={20} />
-          <span>Small</span>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "0.5rem",
+            }}
+          >
+            <PiList size={20} />
+            <span>List</span>
+          </div>
         </button>
       </div>
 
@@ -97,6 +130,7 @@ export function LayoutSelector(
           value={pageSize}
           onChange={handlePageSizeChange}
         >
+          <option value={4}>4</option>
           <option value={9}>9</option>
           <option value={12}>12</option>
           <option value={20}>20</option>

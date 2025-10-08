@@ -29,7 +29,7 @@ export function DeviceCardActions(
           isLoggedIn={isLoggedIn}
         />
       )}
-      {showLikeButton && (
+      {showLikeButton && isLoggedIn && (
         <ThumbsUp
           deviceId={deviceId}
           initialLikes={likes}
