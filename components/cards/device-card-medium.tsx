@@ -31,24 +31,61 @@ export function DeviceCardMedium(
     // if low its 1 dollar sign, if medium its 2 dollar signs, if high its 3 dollar signs
     if (device.pricing.category === "low") {
       return (
-        <span style={{ display: "flex", alignItems: "flex-end" }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            flexDirection: "column",
+          }}
+        >
           <CurrencyIcon currencyCode={device.pricing.currency} />
-        </span>
+          <span
+            style={{ fontSize: "0.6rem", color: "var(--pico-muted-color)" }}
+          >
+            {device.pricing.range?.min} - {device.pricing.range?.max}
+          </span>
+        </div>
       );
     } else if (device.pricing.category === "mid") {
       return (
-        <span style={{ display: "flex", alignItems: "flex-end" }}>
-          <CurrencyIcon currencyCode={device.pricing.currency} />
-          <CurrencyIcon currencyCode={device.pricing.currency} />
-        </span>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            flexDirection: "column",
+          }}
+        >
+          <span style={{ display: "flex", alignItems: "center" }}>
+            <CurrencyIcon currencyCode={device.pricing.currency} />
+            <CurrencyIcon currencyCode={device.pricing.currency} />
+          </span>
+          <span
+            style={{ fontSize: "0.6rem", color: "var(--pico-muted-color)" }}
+          >
+            {device.pricing.range?.min} - {device.pricing.range?.max}
+          </span>
+        </div>
       );
     } else if (device.pricing.category === "high") {
       return (
-        <span style={{ display: "flex", alignItems: "flex-end" }}>
-          <CurrencyIcon currencyCode={device.pricing.currency} />
-          <CurrencyIcon currencyCode={device.pricing.currency} />
-          <CurrencyIcon currencyCode={device.pricing.currency} />
-        </span>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            flexDirection: "column",
+          }}
+        >
+          <span style={{ display: "flex", alignItems: "center" }}>
+            <CurrencyIcon currencyCode={device.pricing.currency} />
+            <CurrencyIcon currencyCode={device.pricing.currency} />
+            <CurrencyIcon currencyCode={device.pricing.currency} />
+          </span>
+          <span
+            style={{ fontSize: "0.6rem", color: "var(--pico-muted-color)" }}
+          >
+            {device.pricing.range?.min} - {device.pricing.range?.max}
+          </span>
+        </div>
       );
     }
   };
@@ -137,16 +174,23 @@ export function DeviceCardMedium(
                       : device.os.list.join(", ")}
                     aria-describedby="os-icons-tooltip"
                   >
-                    {device.os.icons.map((icon, idx) =>
-                      // Decorative icons, hide from screen readers
-                      <span
-                        key={idx}
-                        aria-hidden="true"
-                        style="display:inline;"
+                    {device.os.icons.map((icon, idx) => (
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "center",
+                        }}
                       >
-                        {DeviceHelpers.getOsIconComponent(icon)}
-                      </span>
-                    )}
+                        <span
+                          key={idx}
+                          aria-hidden="true"
+                          style="display:inline;"
+                        >
+                          {DeviceHelpers.getOsIconComponent(icon)}
+                        </span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               )
