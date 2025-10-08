@@ -604,7 +604,7 @@ export function PerformanceVsPriceScatterPlot({ devices }: ScatterPlotProps) {
         )}
       </div>
 
-      <div style={{ height: "500px", width: "100%" }}>
+      <div class="chart">
         <FreshChart
           type="scatter"
           data={{

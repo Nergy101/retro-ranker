@@ -102,7 +102,7 @@ export function PriceRangeTabSection(
           performance for classic 8-bit and 16-bit systems.
         </p>
 
-        <div class="similar-devices-grid">
+        <div class="best-value-devices-grid">
           {budgetDevices.slice(0, deviceCount).map((
             device: any,
             _index: number,
@@ -129,7 +129,7 @@ export function PriceRangeTabSection(
           systems like PlayStation 1 and some PSP games.
         </p>
 
-        <div class="similar-devices-grid">
+        <div class="best-value-devices-grid">
           {range100to200.slice(0, deviceCount).map((
             device: any,
             _index: number,
@@ -156,7 +156,7 @@ export function PriceRangeTabSection(
           premium materials and advanced features.
         </p>
 
-        <div class="similar-devices-grid">
+        <div class="best-value-devices-grid">
           {range200to500.slice(0, deviceCount).map((
             device: any,
             _index: number,
@@ -183,7 +183,7 @@ export function PriceRangeTabSection(
           premium build quality and features.
         </p>
 
-        <div class="similar-devices-grid">
+        <div class="best-value-devices-grid">
           {range500plus.slice(0, deviceCount).map((
             device: any,
             _index: number,

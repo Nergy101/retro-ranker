@@ -182,7 +182,7 @@ export default async function HandheldsHistory(ctx: Context<State>) {
             life or controls could be hit-or-miss. Still, these devices cracked
             the door open for what came next.
           </p>
-          <div class="similar-devices-grid">
+          <div class="history-devices-grid">
             {devices2020.map((device) => (
               <a
                 key={device.name.sanitized}
@@ -209,7 +209,7 @@ export default async function HandheldsHistory(ctx: Context<State>) {
             PowKiddy, Game Console, the list goes on. Our database alone has
             over 100 brands.
           </p>
-          <div class="similar-devices-grid">
+          <div class="history-devices-grid">
             {devices2021To2023.map((device) => (
               <a
                 key={device.name.sanitized}
@@ -232,7 +232,7 @@ export default async function HandheldsHistory(ctx: Context<State>) {
             Android/Linux gaming feels genuinely polished. For Linux, Valve's
             groundwork - proton - helped raise the floor for everyone.
           </p>
-          <div class="similar-devices-grid">
+          <div class="history-devices-grid">
             {devices2024ToPresent.map((device) => (
               <a
                 key={device.name.sanitized}

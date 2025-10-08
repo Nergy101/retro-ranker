@@ -224,7 +224,7 @@ export function PriceVsReleaseYear({ devices }: LineChartProps) {
         </div>
       )}
 
-      <div style={{ height: "500px", width: "100%" }}>
+      <div>
         <FreshChart
           type="line"
           data={{
