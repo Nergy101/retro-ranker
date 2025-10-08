@@ -417,7 +417,10 @@ export default function CatalogPage(ctx: FreshContext) {
               </div>
             )
             : (
-              <div class={getLayoutGrid(activeLayout)} f-client-nav={false}>
+              <div
+                class={`${getLayoutGrid(activeLayout)} device-search-grid`}
+                f-client-nav={false}
+              >
                 {pageResults.map((device) => (
                   <a
                     href={`/devices/${device.name.sanitized}`}
