@@ -267,7 +267,6 @@ export function DeviceComparisonForm({
                   <DeviceCardMedium
                     device={device}
                     isActive={isActive(device.name.raw)}
-                    showLikeButton={false}
                   />
                 </li>
               ))}
@@ -284,7 +283,6 @@ export function DeviceComparisonForm({
                   <DeviceCardMedium
                     device={device}
                     isActive={isActive(device.name.raw)}
-                    showLikeButton={false}
                   />
                 </li>
               ))}
@@ -316,7 +314,6 @@ export function DeviceComparisonForm({
                       <DeviceCardMedium
                         device={device}
                         isActive={isActive(device.name.raw)}
-                        showLikeButton={false}
                       />
                     </div>
                   );
@@ -348,7 +345,6 @@ export function DeviceComparisonForm({
                       <DeviceCardMedium
                         device={device}
                         isActive={isActive(device.name.raw)}
-                        showLikeButton={false}
                       />
                     </div>
                   );

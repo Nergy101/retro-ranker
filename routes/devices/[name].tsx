@@ -839,7 +839,6 @@ export default function DeviceDetail(ctx: Context<CustomFreshState>) {
                   <DeviceCardMedium
                     device={deviceItem}
                     isActive={false}
-                    showLikeButton={false}
                     borderColor={borderColor}
                   />
                 </a>

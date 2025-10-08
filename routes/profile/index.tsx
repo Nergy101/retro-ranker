@@ -482,10 +482,6 @@ export default async function ProfilePage(
                     <DeviceCardMedium
                       device={device}
                       isActive={false}
-                      isLoggedIn={true}
-                      likes={likesCountMap[device.id] ?? 0}
-                      isLiked={userLikedMap[device.id] ?? false}
-                      isFavorited={true}
                     />
                   </a>
                 ))}

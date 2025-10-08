@@ -114,8 +114,6 @@ export function PriceRangeTabSection(
             >
               <DeviceCardMedium
                 device={device}
-                isLoggedIn={false}
-                showLikeButton={false}
               />
             </a>
           ))}
@@ -143,8 +141,6 @@ export function PriceRangeTabSection(
             >
               <DeviceCardMedium
                 device={device}
-                isLoggedIn={false}
-                showLikeButton={false}
               />
             </a>
           ))}
@@ -172,8 +168,6 @@ export function PriceRangeTabSection(
             >
               <DeviceCardMedium
                 device={device}
-                isLoggedIn={false}
-                showLikeButton={false}
               />
             </a>
           ))}
@@ -201,8 +195,6 @@ export function PriceRangeTabSection(
             >
               <DeviceCardMedium
                 device={device}
-                isLoggedIn={false}
-                showLikeButton={false}
               />
             </a>
           ))}

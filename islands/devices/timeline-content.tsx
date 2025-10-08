@@ -17,10 +17,10 @@ export function TimelineContent(
   {
     upcomingDevices,
     devicesGroupedByYearAndMonth,
-    isLoggedIn,
-    likesCountMap,
-    userLikedMap,
-    userFavoritedMap,
+    // isLoggedIn,
+    // likesCountMap,
+    // userLikedMap,
+    // userFavoritedMap,
     translations: _translations,
     language,
   }: TimelineContentProps,
@@ -100,10 +100,6 @@ export function TimelineContent(
                   >
                     <DeviceCardMedium
                       device={device}
-                      isLoggedIn={isLoggedIn}
-                      likes={likesCountMap[device.id] ?? 0}
-                      isLiked={userLikedMap[device.id] ?? false}
-                      isFavorited={userFavoritedMap[device.id] ?? false}
                     />
                   </a>
                 );
@@ -148,10 +144,6 @@ export function TimelineContent(
                     >
                       <DeviceCardMedium
                         device={device}
-                        isLoggedIn={isLoggedIn}
-                        likes={likesCountMap[device.id] ?? 0}
-                        isLiked={userLikedMap[device.id] ?? false}
-                        isFavorited={userFavoritedMap[device.id] ?? false}
                       />
                     </a>
                   );

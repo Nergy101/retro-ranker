@@ -192,7 +192,6 @@ export default async function HandheldsHistory(ctx: Context<State>) {
                 <DeviceCardMedium
                   device={device}
                   isActive={false}
-                  showLikeButton={false}
                 />
               </a>
             ))}
@@ -220,7 +219,6 @@ export default async function HandheldsHistory(ctx: Context<State>) {
                 <DeviceCardMedium
                   device={device}
                   isActive={false}
-                  showLikeButton={false}
                 />
               </a>
             ))}
@@ -244,7 +242,6 @@ export default async function HandheldsHistory(ctx: Context<State>) {
                 <DeviceCardMedium
                   device={device}
                   isActive={false}
-                  showLikeButton={false}
                 />
               </a>
             ))}

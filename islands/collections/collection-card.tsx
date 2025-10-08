@@ -15,10 +15,10 @@ interface CollectionCardProps {
 export function CollectionCard(
   {
     collection,
-    isLoggedIn,
-    likesCountMap,
-    userLikedMap,
-    userFavoritedMap,
+    // isLoggedIn,
+    // likesCountMap,
+    // userLikedMap,
+    // userFavoritedMap,
   }: CollectionCardProps,
 ) {
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
@@ -140,10 +140,6 @@ export function CollectionCard(
           <DeviceCardMedium
             device={device}
             key={device.id}
-            isLoggedIn={isLoggedIn}
-            likes={likesCountMap[device.id] ?? 0}
-            isLiked={userLikedMap[device.id] ?? false}
-            isFavorited={userFavoritedMap[device.id] ?? false}
           />
         ))}
 
