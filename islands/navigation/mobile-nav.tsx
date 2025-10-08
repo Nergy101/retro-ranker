@@ -318,8 +318,6 @@ export function MobileNav({
             href="/"
             aria-label="Home"
             class="mobile-nav-logo"
-            data-tooltip="Retro Ranker"
-            data-placement="right"
           >
             <img
               loading="lazy"
@@ -330,8 +328,6 @@ export function MobileNav({
             />
           </a>
           <button
-            data-tooltip="Menu"
-            data-placement="right"
             type="button"
             class="burger-menu"
             style={{
