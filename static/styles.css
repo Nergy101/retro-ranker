@@ -501,23 +501,38 @@ button:active {
   transition: transform var(--timing-fast) var(--ease-out);
 }
 
+/* Default layout button styling - buttons without layout-active class */
+button:not(.layout-active) {
+  border: 1px solid transparent;
+  border-radius: var(--pico-border-radius);
+  transition: border-color var(--timing-fast) var(--ease-out);
+  flex: 1;
+}
+
 .layout-active {
   transform: translateY(0) scale(0.98);
   transition: transform var(--timing-fast) var(--ease-out);
   position: relative;
   overflow: hidden;
+  border: 1px solid var(--pico-primary);
+  border-radius: var(--pico-border-radius);
+  flex: 1;
 }
 
 .layout-active::before {
   content: "";
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: linear-gradient(
     135deg,
     transparent 0%,
     rgba(255, 255, 255, 0.1) 50%,
     transparent 100%
   );
+  border-radius: var(--pico-border-radius);
   opacity: 1;
   transition: opacity var(--timing-normal) var(--ease-out);
   pointer-events: none;
@@ -1914,6 +1929,7 @@ body.paused-animation::before {
   display: flex;
   position: relative;
   width: 100%;
+  align-items: center;
 }
 
 .search-input-clean {
@@ -2045,6 +2061,12 @@ body.paused-animation::before {
   position: relative;
   width: 100%;
 }
+.search-bar-input {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-top-left-radius: var(--pico-border-radius) !important;
+  border-bottom-left-radius: var(--pico-border-radius) !important;
+}
 
 .search-input-mobile-clean {
   flex: 1;
@@ -2070,14 +2092,18 @@ body.paused-animation::before {
   background: var(--pico-primary);
   color: var(--pico-primary-inverse);
   border: none;
-  border-radius: var(--pico-border-radius);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  min-width: 2.5rem;
+  min-width: 2rem;
   height: 3rem;
+
+  /* for larger displays, we want the button to be a square */
+  @media (min-width: 426px) {
+    max-width: 5rem;
+  }
 }
 
 .search-button-mobile-clean:hover {
@@ -2172,6 +2198,11 @@ body.paused-animation::before {
     width: 100%;
     height: auto;
     padding: 0.75rem 1rem;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    border-top-left-radius: var(--pico-border-radius) !important;
+    border-bottom-left-radius: var(--pico-border-radius) !important;
+    margin-bottom: 0 !important;
   }
 }
 
@@ -2781,9 +2812,11 @@ body.paused-animation::before {
 }
 
 .desktop-nav {
-  background-color: var(--pico-background-color);
-  border-bottom: 1px solid var(--pico-primary);
+  background-color: var(--pico-card-background-color-darker) !important;
+  border-bottom: 1px solid var(--pico-muted-border-color);
   max-width: 100vw;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -2794,7 +2827,6 @@ body.paused-animation::before {
 
 .desktop-nav.scrolled {
   box-shadow: var(--shadow-lg);
-  background-color: rgba(var(--pico-background-color-rgb), 0.95);
 }
 
 /* Desktop Nav */
@@ -2848,11 +2880,6 @@ body.paused-animation::before {
   color: var(--pico-contrast);
   position: relative;
   padding: 0.5rem 0.75rem;
-  transition: color 0.2s ease;
-}
-
-.nav-a:hover {
-  color: var(--pico-primary);
 }
 
 .nav-a:after {
@@ -2871,7 +2898,6 @@ body.paused-animation::before {
 }
 
 .active {
-  background-color: var(--pico-primary-focus);
   border: 1px solid var(--pico-primary);
   border-radius: var(--pico-border-radius);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -2884,6 +2910,13 @@ body.paused-animation::before {
   align-items: center;
   gap: 0.5rem;
   padding: 0;
+}
+
+.search-bar-button {
+  border-bottom-left-radius: 0 !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-right-radius: var(--pico-border-radius) !important;
+  border-top-right-radius: var(--pico-border-radius) !important;
 }
 
 .search-button {
@@ -4311,7 +4344,7 @@ textarea:focus:valid {
 
 .popular-searches-container {
   border: 1px solid var(--pico-primary);
-  background-color: var(--pico-card-background-color-darker);
+  background-color: var(--pico-card-background-color);
   border-radius: var(--pico-border-radius);
   padding: 1rem;
   box-shadow: var(--pico-card-box-shadow);
@@ -5668,6 +5701,17 @@ textarea:focus:valid {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-5px);
   }
 }
 

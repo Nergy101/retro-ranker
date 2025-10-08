@@ -184,9 +184,15 @@ export default function Home(
                   marginBottom: "1rem",
                   fontSize: "1.2rem",
                   display: "flex",
+                  marginLeft: "auto",
+                  marginRight: "auto",
                   alignItems: "center",
                   justifyContent: "center",
                   gap: "0.5rem",
+                  backgroundColor: "var(--pico-card-background-color-darker)",
+                  padding: "0.5rem",
+                  maxWidth: "20em",
+                  borderRadius: "var(--pico-border-radius)",
                 }}
               >
                 <PiMagnifyingGlass /> Popular Searches

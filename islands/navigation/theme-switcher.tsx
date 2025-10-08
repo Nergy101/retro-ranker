@@ -88,6 +88,8 @@ export function ThemeSwitcher(
       onClick={toggleTheme}
       disabled={isAnimating}
       style={{
+        maxWidth: "2.5em",
+        border: "1px solid var(--pico-primary)",
         margin: "0",
         borderRadius: "0.5rem",
         cursor: isAnimating ? "not-allowed" : "pointer",

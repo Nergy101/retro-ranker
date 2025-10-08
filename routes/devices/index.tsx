@@ -212,9 +212,6 @@ export const handler = {
 
     // For TagTypeahead - show all tags except selected ones
     const availableTagsStart = performance.now();
-    const allAvailableTags = allTags.filter((tag) =>
-      !selectedTags.some((selectedTag) => selectedTag.slug === tag.slug)
-    );
     const availableTagsEnd = performance.now();
 
     logJson("info", "Available Tags Processed", {
@@ -222,7 +219,6 @@ export const handler = {
       availableTagsTime: `${
         (availableTagsEnd - availableTagsStart).toFixed(2)
       }ms`,
-      availableTagsCount: allAvailableTags.length,
     });
 
     const totalEnd = performance.now();
@@ -249,13 +245,11 @@ export const handler = {
         pageResults: searchResult.page.length,
         hasResults: searchResult.page.length > 0,
         selectedTagsCount: selectedTags.length,
-        availableTagsCount: allAvailableTags.length,
       },
     });
 
     (ctx.state as CustomFreshState).data = {
       allTags,
-      allAvailableTags,
       selectedTags,
       devicesWithSelectedTags: pageResults,
       pageResults,
@@ -284,7 +278,6 @@ export default function CatalogPage(ctx: FreshContext) {
   const translations = (ctx.state as CustomFreshState).translations ?? {};
 
   const allTags = data.allTags as TagModel[];
-  const allAvailableTags = data.allAvailableTags;
   const selectedTags = data.selectedTags as TagModel[];
   const pageResults = data.pageResults as Device[];
   const totalAmountOfResults = data.totalAmountOfResults;
@@ -351,9 +344,8 @@ export default function CatalogPage(ctx: FreshContext) {
           </div>
           <div style={{ marginBottom: "2rem" }}>
             <TagTypeahead
-              allTags={allAvailableTags}
+              allTags={allTags}
               initialSelectedTags={selectedTags}
-              baseUrl={url.origin}
             />
           </div>
           <div style={{ marginBottom: "2rem" }}>
@@ -430,10 +422,6 @@ export default function CatalogPage(ctx: FreshContext) {
                       <DeviceCardMedium
                         device={device}
                         isActive={false}
-                        isLoggedIn={!!user}
-                        likes={likesCountMap[device.id] ?? 0}
-                        isLiked={userLikedMap[device.id] ?? false}
-                        isFavorited={userFavoritedMap[device.id] ?? false}
                       />
                     )}
                     {activeLayout === "grid4" && (

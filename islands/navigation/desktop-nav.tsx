@@ -404,6 +404,7 @@ export function DesktopNav({
           <ThemeSwitcher
             showNames={false}
             showTooltip={true}
+            tooltipLocation="left"
             compact={true}
           />
 

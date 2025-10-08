@@ -33,9 +33,6 @@ export function LayoutSelector(
     globalThis.location.href = url.toString();
   };
 
-  const getStyle = (layout: string) =>
-    activeLayout === layout ? "var(--pico-primary)" : "var(--pico-text)";
-
   const getActiveClass = (layout: string) =>
     activeLayout === layout ? "layout-active" : "";
 
@@ -48,17 +45,29 @@ export function LayoutSelector(
         flexWrap: "wrap",
       }}
     >
-      <div style={{ display: "flex", gap: "0.5rem" }}>
+      <div
+        style={{
+          flex: 1,
+          display: "flex",
+          gap: "0.5rem",
+          backgroundColor: "var(--pico-card-background-color-darker)",
+          borderRadius: "var(--pico-border-radius)",
+          padding: "0.5rem",
+          border: "1px solid var(--pico-muted-border-color)",
+        }}
+      >
         <button
           type="button"
           onClick={() => setActiveLayout("grid9")}
           className={getActiveClass("grid9")}
           style={{
-            color: getStyle("grid9"),
+            marginBottom: 0,
             background: "transparent",
-            border: "none",
             cursor: "pointer",
-            padding: "0.5rem",
+            width: "5rem",
+            color: activeLayout === "grid9"
+              ? "var(--pico-primary)"
+              : "var(--pico-text)",
           }}
         >
           <div
@@ -78,11 +87,13 @@ export function LayoutSelector(
           onClick={() => setActiveLayout("grid4")}
           className={getActiveClass("grid4")}
           style={{
-            color: getStyle("grid4"),
+            marginBottom: 0,
             background: "transparent",
-            border: "none",
             cursor: "pointer",
-            padding: "0.5rem",
+            width: "5rem",
+            color: activeLayout === "grid4"
+              ? "var(--pico-primary)"
+              : "var(--pico-text)",
           }}
         >
           <div
@@ -102,11 +113,13 @@ export function LayoutSelector(
           onClick={() => setActiveLayout("list")}
           className={getActiveClass("list")}
           style={{
-            color: getStyle("list"),
+            marginBottom: 0,
             background: "transparent",
-            border: "none",
             cursor: "pointer",
-            padding: "0.5rem",
+            width: "5rem",
+            color: activeLayout === "list"
+              ? "var(--pico-primary)"
+              : "var(--pico-text)",
           }}
         >
           <div
@@ -115,6 +128,7 @@ export function LayoutSelector(
               flexDirection: "column",
               alignItems: "center",
               gap: "0.5rem",
+              minWidth: "3rem",
             }}
           >
             <PiList size={20} />
@@ -123,9 +137,20 @@ export function LayoutSelector(
         </button>
       </div>
 
-      <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-        <label htmlFor="pageSize">Items per page:</label>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          gap: "1rem",
+          flex: 1,
+        }}
+      >
+        <label htmlFor="pageSize" style={{ flex: 2 }}>
+          Items per page:
+        </label>
         <select
+          style={{ flex: 1, minWidth: "5rem" }}
           id="pageSize"
           value={pageSize}
           onChange={handlePageSizeChange}

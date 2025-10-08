@@ -784,7 +784,7 @@ export class DeviceParser {
     }
 
     if (slug === "unknown") {
-      return { name: "$??", slug: "price-unknown", type: "price" } as TagModel;
+      return { name: "?", slug: "price-unknown", type: "price" } as TagModel;
     }
 
     return null;

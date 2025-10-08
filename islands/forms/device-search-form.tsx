@@ -1,5 +1,6 @@
 import { useEffect, useState } from "preact/hooks";
 import { TagModel } from "../../data/frontend/models/tag.model.ts";
+import { PiMagnifyingGlass } from "@preact-icons/pi";
 
 interface DeviceSearchFormProps {
   initialSearch: string;
@@ -110,26 +111,14 @@ export function DeviceSearchForm(
                 value={searchQuery}
                 onInput={(e) =>
                   setSearchQuery((e.target as HTMLInputElement).value)}
-                class="search-input-mobile-clean"
+                class="search-input-mobile-clean search-bar-input"
               />
               <button
                 type="submit"
-                class="search-button-mobile-clean"
+                class="search-button-mobile-clean search-bar-button"
                 aria-label="Search"
               >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <path d="m21 21-4.35-4.35"></path>
-                </svg>
+                <PiMagnifyingGlass />
               </button>
             </div>
           </div>
@@ -193,26 +182,14 @@ export function DeviceSearchForm(
               value={searchQuery}
               onInput={(e) =>
                 setSearchQuery((e.target as HTMLInputElement).value)}
-              class="search-input-clean"
+              class="search-input-clean search-bar-input"
             />
             <button
               type="submit"
-              class="search-button-clean"
+              class="search-button-clean search-bar-button"
               aria-label="Search"
             >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="11" cy="11" r="8"></circle>
-                <path d="m21 21-4.35-4.35"></path>
-              </svg>
+              <PiMagnifyingGlass />
             </button>
           </div>
         </div>
