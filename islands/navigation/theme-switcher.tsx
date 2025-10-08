@@ -16,55 +16,64 @@ export function ThemeSwitcher(
     className?: string;
   },
 ) {
-  const [theme, setTheme] = useState<"light" | "dark">("dark");
+  const [theme, setTheme] = useState<"light" | "dark" | null>(null);
   const [isAnimating, setIsAnimating] = useState(false);
 
   // Initialize theme from existing DOM attribute or storage once
   useEffect(() => {
-    const existing = document.documentElement.getAttribute("data-theme");
-    if (existing === "light" || existing === "dark") {
-      setTheme(existing);
-      return;
-    }
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "light" || savedTheme === "dark") {
-      setTheme(savedTheme);
-      document.documentElement.setAttribute("data-theme", savedTheme);
-      return;
-    }
-    const prefersDark = !!globalThis.matchMedia &&
-      globalThis.matchMedia("(prefers-color-scheme: dark)").matches;
-    const initial = prefersDark ? "dark" : "light";
-    setTheme(initial);
-    document.documentElement.setAttribute("data-theme", initial);
+    const initializeTheme = () => {
+      const existing = document.documentElement.getAttribute("data-theme");
+      if (existing === "light" || existing === "dark") {
+        setTheme(existing);
+        return;
+      }
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "light" || savedTheme === "dark") {
+        setTheme(savedTheme);
+        document.documentElement.setAttribute("data-theme", savedTheme);
+        return;
+      }
+      const prefersDark = !!globalThis.matchMedia &&
+        globalThis.matchMedia("(prefers-color-scheme: dark)").matches;
+      const initial = prefersDark ? "dark" : "dark";
+      setTheme(initial);
+      document.documentElement.setAttribute("data-theme", initial);
+    };
+
+    // Use requestAnimationFrame to ensure DOM is ready
+    requestAnimationFrame(initializeTheme);
+
+    // Listen for storage changes (theme changes from other tabs)
+    const handleStorageChange = (e: StorageEvent) => {
+      if (
+        e.key === "theme" && (e.newValue === "light" || e.newValue === "dark")
+      ) {
+        setTheme(e.newValue);
+        document.documentElement.setAttribute("data-theme", e.newValue);
+      }
+    };
+
+    globalThis.addEventListener("storage", handleStorageChange);
+
+    return () => {
+      globalThis.removeEventListener("storage", handleStorageChange);
+    };
   }, []);
 
   const toggleTheme = () => {
-    if (isAnimating) return; // Prevent multiple clicks during animation
+    if (isAnimating || theme === null) return; // Prevent multiple clicks during animation or before initialization
 
     setIsAnimating(true);
 
-    // Start the morphing animation
-    const icon = document.querySelector(".theme-icon");
-    if (icon) {
-      icon.classList.add("morphing");
-    }
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
 
-    // Change theme halfway through the animation
+    // Reset animation state after a short delay
     setTimeout(() => {
-      const newTheme = theme === "light" ? "dark" : "light";
-      setTheme(newTheme);
-      document.documentElement.setAttribute("data-theme", newTheme);
-      localStorage.setItem("theme", newTheme);
-    }, 200);
-
-    // Remove animation class and reset state after completion
-    setTimeout(() => {
-      if (icon) {
-        icon.classList.remove("morphing");
-      }
       setIsAnimating(false);
-    }, 400);
+    }, 150);
   };
 
   return (
