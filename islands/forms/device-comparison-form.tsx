@@ -356,33 +356,7 @@ export function DeviceComparisonForm({
       </div>
 
       {/* Quick comparisons */}
-      <style>
-        {`
-        .compare-form-examples {
-          grid-template-columns: repeat(3, 1fr);
-          gap: 0.75rem;
-        }
-        @container (max-width: 600px) {
-          .compare-form-examples {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0.75rem;
-          }
-        }
-        @container (max-width: 400px) {
-          .compare-form-examples {
-            grid-template-columns: 1fr;
-            gap: 0.75rem;
-          }
-        }
-        `}
-      </style>
-      <div
-        class="compare-form-examples"
-        style={{
-          display: "grid",
-          gap: "0.75rem",
-        }}
-      >
+      <div class="compare-form-examples">
         {(() => {
           /* Compute quick comparisons from allDevices */
           const handhelds = allDevices.filter((d) =>
@@ -469,7 +443,7 @@ export function DeviceComparisonForm({
             [
               { deviceA: "Miyoo Flip", deviceB: "RG-35XX SP" },
               { deviceA: "RG-477M", deviceB: "RG-476H" },
-              { deviceA: "AYANEO Pocket Evo", deviceB: "Odin 2 Portal" },
+              { deviceA: "thor", deviceB: "pocket-ds" },
             ];
 
           const resolveByName = (name: string): Device | undefined => {

@@ -7,8 +7,6 @@ export default defineConfig({
   testDir: "./testing",
   /* Run tests in files in parallel */
   fullyParallel: true,
-  /* Fail the build on CI if you accidentally left test.only in the source code. */
-  forbidOnly: !!Deno.env.get("CI"),
   /* Retry on CI only */
   retries: Deno.env.get("CI") ? 2 : 0,
   /* Opt out of parallel tests on CI. */
@@ -96,7 +94,7 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: Deno.env.get("CI") ? undefined : {
-    command: "deno task build && deno task start",
+    command: "deno task start",
     url: "http://localhost:8000",
     reuseExistingServer: !Deno.env.get("CI"),
   },

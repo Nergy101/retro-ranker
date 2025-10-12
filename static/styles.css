@@ -2405,7 +2405,7 @@ body.paused-animation::before {
 .compare-result-header {
   grid-area: header;
   padding: 0.5rem;
-  height: 30em;
+  height: 35em;
 
   display: flex;
   flex-direction: column;
@@ -2431,15 +2431,15 @@ body.paused-animation::before {
     color: #ab0d0d;
   }
 
-  height: 30em;
+  height: 35em;
 
   @media (max-width: 950px) {
-    height: 25em;
+    height: 35em;
   }
 
   @media (max-width: 425px) {
     font-size: 0.75rem;
-    height: 32em;
+    height: 35em;
   }
 }
 
@@ -3246,12 +3246,12 @@ body.paused-animation::before {
 }
 
 .compare-form-examples {
-  display: flex;
+  display: grid;
   gap: 0.5rem;
-  justify-content: center;
+  grid-template-columns: repeat(2, 1fr);
 
   @media (max-width: 500px) {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 }
 
@@ -3346,8 +3346,8 @@ body.paused-animation::before {
 .devices-page {
   background-color: var(--pico-background-color);
   border-radius: var(--pico-border-radius);
-  padding-top: 1rem;
-  margin-bottom: 1rem;
+  /* padding-top: 1rem;
+  margin-bottom: 1rem; */
 }
 
 .about {
@@ -4670,12 +4670,11 @@ textarea:focus:valid {
 .devices-catalog-flex {
   background-color: var(--pico-background-color);
   border-radius: var(--pico-border-radius);
-  padding: 1rem;
 
   display: grid;
   grid-template-areas: "sidebar main";
   grid-template-columns: 1fr 3fr;
-  gap: 2rem;
+  gap: 0.5rem;
   margin: 0 auto;
 
   @media (width < 768px) {
