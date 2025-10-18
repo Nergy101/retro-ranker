@@ -32,10 +32,6 @@
         </url>
         
         <url>
-            <loc>https://retroranker.site/devices/pocket-air-mini</loc>
-        </url>
-        
-        <url>
             <loc>https://retroranker.site/devices/miyoo-mini-flip</loc>
         </url>
         
@@ -61,6 +57,10 @@
         
         <url>
             <loc>https://retroranker.site/devices/one-35</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/pocket-air-mini</loc>
         </url>
         
         <url>
