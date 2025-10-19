@@ -57,25 +57,25 @@
     "**/sitemap.xml"
   ],
   "imports": {
-    "fresh": "jsr:@fresh/core@^2.1.1",
-    "@fresh/plugin-vite": "jsr:@fresh/plugin-vite@^1.0.4",
-    "vite": "npm:vite@^7.1.7",
+    "fresh": "jsr:@fresh/core@^2.1.2",
+    "@fresh/plugin-vite": "jsr:@fresh/plugin-vite@^1.0.5",
+    "vite": "npm:vite@^7.1.10",
     "preact": "npm:preact@10.27.2",
     "@preact/signals": "npm:@preact/signals@2.3.1",
     "preact-render-to-string": "npm:preact-render-to-string@6.6.1",
     "pocketbase": "npm:pocketbase@^0.26.2",
-    "chart.js": "npm:chart.js@^4.5.0",
+    "chart.js": "npm:chart.js@^4.5.1",
     "@std/dotenv": "jsr:@std/dotenv@^0.225.5",
-    "@std/fs": "jsr:@std/fs@^0.225.5",
+    "@std/fs": "jsr:@std/fs@1.0.19",
     "@preact-icons/pi": "jsr:@preact-icons/pi@^1.0.13",
-    "@std/http": "jsr:@std/http@^1.0.20",
+    "@std/http": "jsr:@std/http@^1.0.21",
     "@cap.js/server": "npm:@cap.js/server@^2.0.0",
-    "@cap.js/widget": "npm:@cap.js/widget@^0.1.29",
+    "@cap.js/widget": "npm:@cap.js/widget@^0.1.30",
     "@opentelemetry/api": "npm:@opentelemetry/api@^1.9.0",
     "unique-names-generator": "npm:unique-names-generator@^4.7.1",
     "$fresh_charts/": "https://deno.land/x/fresh_charts@0.3.1/",
-    "@playwright/test": "npm:@playwright/test@^1.40.0",
-    "playwright": "npm:playwright@^1.40.0"
+    "@playwright/test": "npm:@playwright/test@^1.56.1",
+    "playwright": "npm:playwright@^1.56.1"
   },
   "compilerOptions": {
     "lib": [
