@@ -32,10 +32,6 @@
         </url>
         
         <url>
-            <loc>https://retroranker.site/devices/pocket-ds</loc>
-        </url>
-        
-        <url>
             <loc>https://retroranker.site/devices/konkr-pocket-fit</loc>
         </url>
         
@@ -73,6 +69,10 @@
         
         <url>
             <loc>https://retroranker.site/devices/rg-ds</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/pocket-ds</loc>
         </url>
         
         <url>
