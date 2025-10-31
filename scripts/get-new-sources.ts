@@ -10,7 +10,12 @@ const sourceDownloadUrl =
 
 console.info(chalk.blue(`Downloading sources from: ${sourceDownloadUrl}`));
 
-const zipDownloadedFromUrl = await fetch(sourceDownloadUrl);
+// Explicitly use a non-aborting signal to indicate no timeout
+const noTimeoutController = new AbortController();
+const zipDownloadedFromUrl = await fetch(sourceDownloadUrl, {
+  signal: noTimeoutController.signal,
+});
+
 const zip = await zipDownloadedFromUrl.arrayBuffer();
 
 // save zip to local file
