@@ -1,7 +1,6 @@
 import { useEffect, useState } from "preact/hooks";
-import { DeviceCardMedium } from "@components/cards/device-card-medium.tsx";
-import { Device } from "@data/frontend/contracts/device.model.ts";
-import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
+import { DeviceCardMedium } from "../../components/cards/device-card-medium.tsx";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
 
 interface TimelineContentProps {
   upcomingDevices: Device[];
@@ -18,11 +17,11 @@ export function TimelineContent(
   {
     upcomingDevices,
     devicesGroupedByYearAndMonth,
-    isLoggedIn,
-    likesCountMap,
-    userLikedMap,
-    userFavoritedMap,
-    translations,
+    // isLoggedIn,
+    // likesCountMap,
+    // userLikedMap,
+    // userFavoritedMap,
+    translations: _translations,
     language,
   }: TimelineContentProps,
 ) {
@@ -69,7 +68,7 @@ export function TimelineContent(
                 (e.currentTarget as HTMLInputElement).checked,
               )}
           />
-          {TranslationPipe(translations, "timeline.includeUpcoming")}
+          Include upcoming devices
         </label>
       </div>
       {includeUpcoming && (
@@ -83,30 +82,24 @@ export function TimelineContent(
                 `${globalThis.location.origin}/release-timeline#upcoming`,
               );
             }}
-            data-tooltip={TranslationPipe(
-              translations,
-              "timeline.copyLinkTooltip",
-            )}
+            data-tooltip="Copy link to this section"
             data-placement="bottom"
           >
-            <span>{TranslationPipe(translations, "timeline.upcoming")}</span>
+            <span>Upcoming</span>
             <br />
-            <span>{TranslationPipe(translations, "timeline.devices")}</span>
+            <span>devices</span>
           </div>
           <div class="timeline-body">
             <div class="timeline-devices-grid">
               {upcomingDevices.map((device) => {
                 return (
                   <a
+                    key={device.id}
                     href={`/devices/${device.name.sanitized}`}
                     style={{ textDecoration: "none" }}
                   >
                     <DeviceCardMedium
                       device={device}
-                      isLoggedIn={isLoggedIn}
-                      likes={likesCountMap[device.id] ?? 0}
-                      isLiked={userLikedMap[device.id] ?? false}
-                      isFavorited={userFavoritedMap[device.id] ?? false}
                     />
                   </a>
                 );
@@ -122,6 +115,7 @@ export function TimelineContent(
 
         return (
           <div
+            key={key}
             class="timeline-container"
             id={key}
           >
@@ -134,10 +128,7 @@ export function TimelineContent(
                   `${globalThis.location.origin}/release-timeline#${key}`,
                 );
               }}
-              data-tooltip={TranslationPipe(
-                translations,
-                "timeline.copyLinkTooltip",
-              )}
+              data-tooltip="Copy link to this section"
               data-placement="bottom"
             >
               <div>{getKeyName(year, month)}</div>
@@ -147,15 +138,12 @@ export function TimelineContent(
                 {devices.map((device) => {
                   return (
                     <a
+                      key={device.id}
                       href={`/devices/${device.name.sanitized}`}
                       style={{ textDecoration: "none" }}
                     >
                       <DeviceCardMedium
                         device={device}
-                        isLoggedIn={isLoggedIn}
-                        likes={likesCountMap[device.id] ?? 0}
-                        isLiked={userLikedMap[device.id] ?? false}
-                        isFavorited={userFavoritedMap[device.id] ?? false}
                       />
                     </a>
                   );

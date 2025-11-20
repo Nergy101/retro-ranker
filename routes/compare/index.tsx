@@ -1,20 +1,17 @@
-import { FreshContext } from "fresh";
-
 import { PiChartLine, PiInfo } from "@preact-icons/pi";
-import { page } from "fresh";
-import { Device } from "@data/frontend/contracts/device.model.ts";
-import { Ranking } from "@data/frontend/models/ranking.model.ts";
-import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
-import { RatingsService } from "@data/frontend/services/devices/ratings.service.ts";
-import { CustomFreshState } from "@interfaces/state.ts";
-import { DevicesRadarChart } from "@islands/charts/devices-radar-chart.tsx";
-import { DeviceComparisonForm } from "@islands/forms/device-comparison-form.tsx";
-import { DeviceComparisonResult } from "@components/comparisons/device-comparison-result.tsx";
-import { DeviceComparisonText } from "@components/comparisons/device-comparison-text.tsx";
-import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
+import { Ranking } from "../../data/frontend/models/ranking.model.ts";
+import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
+import { RatingsService } from "../../data/frontend/services/devices/ratings.service.ts";
+import { State } from "../../utils.ts";
+import { Context, page } from "fresh";
+import { DeviceComparisonForm } from "../../islands/forms/device-comparison-form.tsx";
+import { DeviceComparisonResult } from "../../components/comparisons/device-comparison-result.tsx";
+import { DeviceComparisonText } from "../../components/comparisons/device-comparison-text.tsx";
+import { DevicesRadarChart } from "../../islands/charts/devices-radar-chart.tsx";
 
 export const handler = {
-  async GET(ctx: FreshContext) {
+  async GET(ctx: Context<State>) {
     const deviceService = await DeviceService.getInstance();
     const ratingsService = RatingsService.getInstance();
 
@@ -23,7 +20,7 @@ export const handler = {
 
     const devicesToCompare =
       (await Promise.all(devices.map((d) => deviceService.getDeviceByName(d))))
-        .filter((device) => device !== null);
+        .filter((device) => device !== null && device !== undefined);
 
     const deviceNames = devicesToCompare.map((device) => device.name.raw);
     const allDevices = (await deviceService.getAllDevices())
@@ -37,7 +34,7 @@ export const handler = {
 
     const ranking = ratingsService.createRanking(devicesToCompare);
 
-    (ctx.state as CustomFreshState).data = {
+    ctx.state.data = {
       devicesToCompare,
       deviceNames,
       allDevices,
@@ -45,9 +42,9 @@ export const handler = {
       ranking,
     };
 
-    let seoTitle = "Retro Ranker - Compare";
+    let seoTitle = "Compare Gaming Handhelds | Retro Ranker";
     let seoDescription =
-      "Compare retro handhelds side-by-side with detailed specs.";
+      "Compare gaming handhelds side-by-side with detailed specs.";
 
     if (devicesToCompare.length === 2) {
       const [device1, device2] = devicesToCompare;
@@ -62,26 +59,26 @@ export const handler = {
       } retro gaming handhelds.`;
     }
 
-    (ctx.state as CustomFreshState).seo = {
+    ctx.state.seo = {
       title: seoTitle,
       description: seoDescription,
       keywords:
-        "retro handhelds, compare, side-by-side, specs, emulation, performance, dimensions, connectivity, audio, controls, misc",
+        "retro handhelds comparison, handheld device specs, emulation performance comparison, portable gaming devices, handheld reviews, device comparison tool, retro gaming handhelds, side-by-side comparison, handheld specifications, emulation device comparison",
+      url: `https://retroranker.site${ctx.url.pathname}`,
     };
 
     return page(ctx);
   },
 };
 
-export default function Compare(ctx: FreshContext) {
-  const data = (ctx.state as CustomFreshState).data as {
+export default function Compare(ctx: Context<State>) {
+  const data = ctx.state.data as {
     devicesToCompare: Device[];
     deviceNames: string[];
     allDevices: Device[];
     similarDevices: Device[];
     ranking: Ranking;
   };
-  const translations = (ctx.state as CustomFreshState).translations ?? {};
   const devicesToCompare = data.devicesToCompare as Device[];
   const deviceNames = data.deviceNames;
   const allDevices = data.allDevices;
@@ -92,22 +89,30 @@ export default function Compare(ctx: FreshContext) {
     <div class="compare-page">
       <header>
         <hgroup style={{ textAlign: "center" }}>
-          <h1>{TranslationPipe(translations, "compare.title")}</h1>
-          {deviceNames.length > 0
+          <h1>Device Comparison</h1>
+          {deviceNames.length >= 2
             ? (
               <p>
-                {TranslationPipe(translations, "compare.comparingDevices")}{" "}
-                <br />
+                Comparing devices: <br />
                 {deviceNames.join(", ")}
+              </p>
+            )
+            : deviceNames.length === 1
+            ? (
+              <p>
+                Select a second device to compare with{" "}
+                <span style={{ color: "var(--pico-primary)" }}>
+                  {deviceNames[0]}
+                </span>
               </p>
             )
             : (
               <p>
-                {TranslationPipe(translations, "compare.compareBetween")}{" "}
+                Compare between{" "}
                 <span style={{ color: "var(--pico-primary)" }}>
                   {allDevices.length}
                 </span>{" "}
-                {TranslationPipe(translations, "compare.devices")}
+                devices
               </p>
             )}
         </hgroup>
@@ -118,7 +123,6 @@ export default function Compare(ctx: FreshContext) {
           allDevices={allDevices}
           devicesToCompare={devicesToCompare}
           similarDevices={similarDevices}
-          translations={translations}
         />
       </div>
 
@@ -135,8 +139,7 @@ export default function Compare(ctx: FreshContext) {
               <div
                 style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
               >
-                <PiChartLine />{" "}
-                {TranslationPipe(translations, "compare.showRankingChart")}
+                <PiChartLine /> Show Ranking Chart
               </div>
             </summary>
             <div style={{ display: "flex", justifyContent: "center" }}>
@@ -152,7 +155,6 @@ export default function Compare(ctx: FreshContext) {
                   devices={devicesToCompare}
                   showTitle={false}
                   ranking={ranking}
-                  translations={translations}
                 />
               </div>
             </div>
@@ -162,42 +164,43 @@ export default function Compare(ctx: FreshContext) {
       <details>
         <summary class="flex">
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-            <PiInfo />{" "}
-            {TranslationPipe(translations, "compare.howRankingWorks")}
+            <PiInfo /> How Ranking Works
           </div>
         </summary>
         <div>
           <p>
-            {TranslationPipe(translations, "compare.rankingDescription")}
+            Our ranking system evaluates devices across multiple categories to
+            provide a comprehensive performance score.
             <br />
-            {TranslationPipe(translations, "compare.rankingExplanation")}
+            Each device is scored in various categories based on their
+            specifications and capabilities.
             <br />
-            {TranslationPipe(translations, "compare.categoryWeights")}:
+            Category weights:
             <div
               style={{ display: "flex", flexDirection: "row", gap: "0.5rem" }}
             >
               <ul>
                 <li>
-                  {TranslationPipe(translations, "compare.performance")} (30%)
+                  Performance (30%)
                 </li>
                 <li>
-                  {TranslationPipe(translations, "compare.monitor")} (10%)
+                  Monitor (10%)
                 </li>
                 <li>
-                  {TranslationPipe(translations, "compare.dimensions")} (10%)
+                  Dimensions (10%)
                 </li>
               </ul>
               <ul>
                 <li>
-                  {TranslationPipe(translations, "compare.connectivity")} (20%)
+                  Connectivity (20%)
                 </li>
-                <li>{TranslationPipe(translations, "compare.audio")} (10%)</li>
+                <li>Audio (10%)</li>
                 <li>
-                  {TranslationPipe(translations, "compare.controls")} (10%)
+                  Controls (10%)
                 </li>
               </ul>
               <ul>
-                <li>{TranslationPipe(translations, "compare.misc")} (10%)</li>
+                <li>Misc (10%)</li>
               </ul>
             </div>
           </p>
@@ -217,7 +220,7 @@ export default function Compare(ctx: FreshContext) {
                 padding: "0.25rem",
               }}
             >
-              {TranslationPipe(translations, "compare.blueMeansEqual")}
+              Blue means equal
             </span>
             <br />
             <span
@@ -229,7 +232,7 @@ export default function Compare(ctx: FreshContext) {
                 padding: "0.25rem",
               }}
             >
-              {TranslationPipe(translations, "compare.greenMeansBetter")}
+              Green means better
             </span>
             <br />
             <span
@@ -241,17 +244,23 @@ export default function Compare(ctx: FreshContext) {
                 padding: "0.25rem",
               }}
             >
-              {TranslationPipe(translations, "compare.redMeansWorse")}
+              Red means worse
             </span>
           </div>
         </div>
       </details>
 
-      <div class="compare-container">
-        {devicesToCompare.map((device) => (
-          <DeviceComparisonResult device={device} ranking={ranking} />
-        ))}
-      </div>
+      {devicesToCompare.length >= 2 && (
+        <div class="compare-container">
+          {devicesToCompare.map((device) => (
+            <DeviceComparisonResult
+              key={device.id}
+              device={device}
+              ranking={ranking}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

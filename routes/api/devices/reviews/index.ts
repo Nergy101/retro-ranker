@@ -1,8 +1,10 @@
-import { createSuperUserPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
-import { FreshContext } from "fresh";
+import { createSuperUserPocketBaseService } from "../../../../data/pocketbase/pocketbase.service.ts";
+import { AchievementService } from "../../../../data/frontend/services/achievement.service.ts";
+import { Context } from "fresh";
+import { State } from "../../../../utils.ts";
 
 export const handler = {
-  async POST(ctx: FreshContext) {
+  async POST(ctx: Context<State>) {
     const req = ctx.req;
 
     try {
@@ -38,6 +40,10 @@ export const handler = {
         connectivity_rating: Number(connectivity_rating),
         overall_rating: Number(overall_rating),
       });
+
+      // Check and unlock achievements
+      const achievementService = new AchievementService(pb);
+      await achievementService.checkAndUnlockAchievements(userId as string);
 
       // Get the referer URL from the request headers
       const referer = req.headers.get("referer") || "/";

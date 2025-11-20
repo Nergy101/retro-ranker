@@ -1,0 +1,12 @@
+FROM denoland/deno:2.5.2
+
+WORKDIR /app
+
+COPY . .
+
+EXPOSE 8000
+
+CMD ["deno", "task", "dev"]
+
+# For local development;
+# docker buildx build -f Dockerfile.dev -t retro-ranker:dev . && docker run -t -i -p 5173:5173 retro-ranker:dev

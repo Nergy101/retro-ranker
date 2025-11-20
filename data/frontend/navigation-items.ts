@@ -5,24 +5,17 @@ export interface NavigationItem {
   icon?: string;
   isActive: (pathname: string) => boolean;
   priority?: number;
+  children?: NavigationItem[];
 }
 
 export const navigationItems: NavigationItem[] = [
   {
     href: "/devices",
-    label: "Devices",
+    label: "Catalog",
     i18nKey: "nav.devices",
     icon: "PiScroll",
     isActive: (pathname) => pathname.startsWith("/devices"),
     priority: 0.9,
-  },
-  {
-    href: "/release-timeline",
-    label: "Releases",
-    i18nKey: "nav.releases",
-    icon: "PiCalendar",
-    isActive: (pathname) => pathname.startsWith("/release-timeline"),
-    priority: 0.8,
   },
   {
     href: "/compare",
@@ -33,12 +26,29 @@ export const navigationItems: NavigationItem[] = [
     priority: 0.9,
   },
   {
-    href: "/leaderboard",
-    label: "Leaderboard",
-    i18nKey: "nav.leaderboard",
-    icon: "PiRanking",
-    isActive: (pathname) => pathname.startsWith("/leaderboard"),
-    priority: 0.7,
+    href: "/articles/bang-for-your-buck",
+    label: "Best Value",
+    i18nKey: "nav.bang-for-your-buck",
+    icon: "PiMoney",
+    isActive: (pathname) => pathname.startsWith("/articles/bang-for-your-buck"),
+    priority: 0.8,
+  },
+  {
+    href: "/articles/a-handhelds-history",
+    label: "Handhelds History",
+    i18nKey: "nav.handhelds-history",
+    icon: "PiClockCounterClockwise",
+    isActive: (pathname) =>
+      pathname.startsWith("/articles/a-handhelds-history"),
+    priority: 0.8,
+  },
+  {
+    href: "/release-timeline",
+    label: "Release Timeline",
+    i18nKey: "nav.releases",
+    icon: "PiCalendar",
+    isActive: (pathname) => pathname.startsWith("/release-timeline"),
+    priority: 0.8,
   },
   {
     href: "/charts",
@@ -48,14 +58,22 @@ export const navigationItems: NavigationItem[] = [
     isActive: (pathname) => pathname.startsWith("/charts"),
     priority: 0.7,
   },
-  {
-    href: "/faq",
-    label: "FAQ",
-    i18nKey: "nav.faq",
-    icon: "PiQuestion",
-    isActive: (pathname) => pathname === "/faq",
-    priority: 0.6,
-  },
+  // {
+  //   href: "/faq",
+  //   label: "FAQ",
+  //   i18nKey: "nav.faq",
+  //   icon: "PiQuestion",
+  //   isActive: (pathname) => pathname === "/faq",
+  //   priority: 0.6,
+  // },
+  // {
+  //   href: "/about",
+  //   label: "About",
+  //   i18nKey: "nav.about",
+  //   icon: "PiInfo",
+  //   isActive: (pathname) => pathname === "/about",
+  //   priority: 0.5,
+  // },
 ];
 
 // Helper function to get all navigation items (flattened, for backward compatibility)

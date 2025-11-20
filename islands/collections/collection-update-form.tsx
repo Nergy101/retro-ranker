@@ -1,10 +1,10 @@
-import { PiFloppyDisk, PiTrash } from "@preact-icons/pi";
+import { PiFloppyDisk, PiTrash as _PiTrash } from "@preact-icons/pi";
 import { useEffect, useRef, useState } from "preact/hooks";
-import { DeviceCollection } from "@data/frontend/contracts/device-collection.ts";
-import { Device } from "@data/frontend/contracts/device.model.ts";
-import { searchDevices } from "@data/frontend/services/utils/search.utils.ts";
-import { createLoggedInPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
-import { DeviceCardMedium } from "@components/cards/device-card-medium.tsx";
+import { DeviceCollection } from "../../data/frontend/contracts/device-collection.ts";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
+import { searchDevices } from "../../data/frontend/services/utils/search.utils.ts";
+// import { createLoggedInPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
+import { DeviceCardMedium } from "../../components/cards/device-card-medium.tsx";
 
 export function CollectionUpdateForm(
   { allDevices, existingCollectionDevices, collection }: {
@@ -64,7 +64,7 @@ export function CollectionUpdateForm(
   );
 
   const [selectedDevice, setSelectedDevice] = useState<Device | null>(null);
-  const suggestionsRef = useRef<HTMLDivElement | null>(null);
+  const suggestionsRef = useRef<HTMLUListElement | null>(null);
   const [suggestions, setSuggestions] = useState<Device[]>([]);
   const [query, setQuery] = useState<string>("");
 
@@ -158,10 +158,6 @@ export function CollectionUpdateForm(
     setIsSubmitting(true);
 
     try {
-      const pocketbaseClient = await createLoggedInPocketBaseService(
-        document.cookie,
-      );
-
       let orderArr: Array<Record<string, number>> = [];
       if (collectionType === "Ranked") {
         orderArr = selectedDevices.map((device) => ({
@@ -169,13 +165,26 @@ export function CollectionUpdateForm(
         }));
       }
 
-      await pocketbaseClient.update("device_collections", collection.id, {
-        name: name.trim(),
-        description: description.trim(),
-        devices: selectedDevices.map((device) => device.id),
-        type: collectionType,
-        order: orderArr,
+      const formData = new FormData();
+      formData.append("name", name.trim());
+      formData.append("description", description.trim());
+      formData.append(
+        "devices",
+        selectedDevices.map((device) => device.id).join(","),
+      );
+      formData.append("type", collectionType);
+      if (collectionType === "Ranked") {
+        formData.append("order", JSON.stringify(orderArr));
+      }
+
+      const response = await fetch(`/api/collections/${collection.id}`, {
+        method: "PUT",
+        body: formData,
       });
+
+      if (!response.ok) {
+        throw new Error(`Failed with status ${response.status}`);
+      }
 
       globalThis.location.href = "/profile";
     } catch (error) {
@@ -219,167 +228,183 @@ export function CollectionUpdateForm(
           Ranked
         </label>
       </div>
-      <form onSubmit={handleSubmit} class="space-y-4">
+      <form onSubmit={handleSubmit}>
         <div>
-          <label for="name" class="block text-sm font-medium text-gray-700">
-            Name
+          <label htmlFor="name">
+            Collection Name
           </label>
           <input
             type="text"
             id="name"
-            value={name}
-            onInput={(e) => adjustName((e.target as HTMLInputElement).value)}
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            name="name"
             required
+            value={name}
+            onChange={(e) => adjustName(e.currentTarget.value)}
+            onKeyDown={(e) => {
+              adjustName(e.currentTarget.value);
+            }}
           />
         </div>
 
         <div>
-          <label
-            for="description"
-            class="block text-sm font-medium text-gray-700"
-          >
-            Description
+          <label htmlFor="description">
+            Description (Optional)
           </label>
           <textarea
             id="description"
-            value={description}
-            onInput={(e) =>
-              adjustDescription((e.target as HTMLTextAreaElement).value)}
+            name="description"
             rows={3}
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            value={description}
+            onChange={(e) => adjustDescription(e.currentTarget.value)}
           />
         </div>
 
         <div>
-          <label
-            for="device-search"
-            class="block text-sm font-medium text-gray-700"
-          >
-            Add Devices
-          </label>
-          <div class="relative mt-1">
-            <input
-              type="text"
-              id="device-search"
-              value={query}
-              onInput={(e) =>
-                queryChanged((e.target as HTMLInputElement).value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  e.preventDefault();
-                  if (selectedDevice) {
-                    handleDeviceSelect(selectedDevice);
-                  }
+          <input
+            type="search"
+            placeholder="Start searching for devices..."
+            name="search"
+            aria-label="Search"
+            value={query}
+            onInput={(e) => queryChanged(e.currentTarget.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                const exactDevice = allDevices.find((device) =>
+                  device.name.raw.toLowerCase() ===
+                    e.currentTarget.value.toLowerCase()
+                ) ?? null;
+                if (exactDevice) {
+                  handleDeviceSelect(exactDevice);
                 }
-              }}
-              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-              placeholder="Search devices..."
-            />
+              }
+            }}
+          />
+
+          <div id="suggestions-container">
             {suggestions.length > 0 && (
-              <div>
-                <div
-                  ref={suggestionsRef}
-                  class="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns:
-                      "repeat(auto-fill, minmax(200px, 1fr))",
-                    gap: "1rem",
-                  }}
-                >
-                  {suggestions.map((device) => (
+              <ul class="suggestions-list" ref={suggestionsRef}>
+                {suggestions.map((device) => (
+                  <li
+                    key={device.name.sanitized}
+                    onClick={() => setQuerySuggestion(device.name.raw)}
+                    class="suggestions-list-item"
+                  >
                     <div
-                      key={device.id}
-                      onClick={() => {
-                        setQuerySuggestion(device.name.raw);
-                        handleDeviceSelect(device);
+                      onClick={() =>
+                        handleDeviceSelect(device)}
+                      style={{
+                        cursor: "pointer",
+                        flex: 1,
                       }}
                     >
-                      <div class="px-3 py-2">
-                        <DeviceCardMedium
-                          device={device}
-                          isActive={isActive(device.name.raw)}
-                        />
-                      </div>
+                      <DeviceCardMedium
+                        device={device}
+                        isActive={isActive(device.name.raw)}
+                      />
                     </div>
-                  ))}
-                </div>
-
-                <hr
-                  style={{ border: "1px solid var(--pico-muted-border-color)" }}
-                />
-              </div>
+                  </li>
+                ))}
+              </ul>
             )}
           </div>
         </div>
 
-        <div class="edit-collection-devices-grid">
-          {selectedDevices.map((device) => (
-            <div key={device.id} class="relative h-full">
-              <div>
-                <DeviceCardMedium device={device} />
-              </div>
-              {collectionType === "Ranked" && (
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "0.5rem",
-                    marginTop: "0.5rem",
-                  }}
-                >
-                  <span>#</span>
-                  <input
-                    type="number"
-                    min={1}
-                    value={deviceOrder[device.id] || 1}
-                    onClick={(e) => e.stopPropagation()}
-                    onInput={(e) => {
-                      const val = (e.currentTarget as HTMLInputElement).value;
-                      const order = parseInt(val, 10);
-                      if (!isNaN(order)) {
-                        setDeviceOrder({
-                          ...deviceOrder,
-                          [device.id]: order,
-                        });
-                      }
+        {selectedDevices.length > 0 && (
+          <div style={{ padding: "2rem" }}>
+            <h2>Selected Devices</h2>
+            <div class="collection-devices-grid">
+              {selectedDevices.map((device) => {
+                return (
+                  <div
+                    class="collection-device-card"
+                    key={device.id}
+                    style={{
+                      marginBottom: "1.5rem",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
                     }}
-                    onBlur={(e) => {
-                      handleOrderChange(
-                        device.id,
-                        (e.currentTarget as HTMLInputElement).value,
-                      );
-                    }}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter") {
-                        handleOrderChange(
-                          device.id,
-                          (e.currentTarget as HTMLInputElement).value,
-                        );
-                      }
-                    }}
-                  />
-                </div>
-              )}
-              <button
-                style={{
-                  margin: 0,
-                  padding: 0,
-                  width: "100%",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-                type="button"
-                onClick={() =>
-                  handleDeviceRemove(device.id)}
-              >
-                <PiTrash />
-              </button>
+                  >
+                    <DeviceCardMedium
+                      device={device}
+                    />
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "0.5rem",
+                      }}
+                    >
+                      {collectionType === "Ranked" && (
+                        <div
+                          style={{
+                            marginTop: "0.5rem",
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "0.5rem",
+                          }}
+                        >
+                          <span>#</span>
+                          <input
+                            type="number"
+                            min={1}
+                            value={deviceOrder[device.id] || 1}
+                            onClick={(e) => e.stopPropagation()}
+                            onInput={(e) => {
+                              const val =
+                                (e.currentTarget as HTMLInputElement).value;
+                              const order = parseInt(val, 10);
+                              if (!isNaN(order)) {
+                                setDeviceOrder({
+                                  ...deviceOrder,
+                                  [device.id]: order,
+                                });
+                              }
+                            }}
+                            onBlur={(e) => {
+                              handleOrderChange(
+                                device.id,
+                                (e.currentTarget as HTMLInputElement).value,
+                              );
+                            }}
+                            onKeyDown={(e) => {
+                              if (e.key === "Enter") {
+                                handleOrderChange(
+                                  device.id,
+                                  (e.currentTarget as HTMLInputElement).value,
+                                );
+                              }
+                            }}
+                          />
+                        </div>
+                      )}
+                      <button
+                        type="button"
+                        onClick={() => handleDeviceRemove(device.id)}
+                        style={{
+                          marginTop: "0.75rem",
+                          background: "#f44336",
+                          color: "white",
+                          border: "none",
+                          borderRadius: "0.3rem",
+                          padding: "0.4rem 1rem",
+                          cursor: "pointer",
+                          fontSize: "0.95em",
+                          fontWeight: 500,
+                          boxShadow: "0 1px 3px rgba(0,0,0,0.07)",
+                          transition: "background 0.2s",
+                        }}
+                        data-tooltip="Remove device"
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-          ))}
-        </div>
+          </div>
+        )}
 
         <div
           style={{

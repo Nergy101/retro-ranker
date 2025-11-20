@@ -1,23 +1,25 @@
-import { useEffect, useState } from "@preact/hooks";
-import { Device } from "@data/frontend/contracts/device.model.ts";
-import { User } from "@data/frontend/contracts/user.contract.ts";
+import { useEffect, useState } from "preact/hooks";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
+import { User } from "../../data/frontend/contracts/user.contract.ts";
 import { DesktopNav } from "./desktop-nav.tsx";
 import { MobileNav } from "./mobile-nav.tsx";
 
 export function TopNavbar(
-  { pathname, allDevices, user, translations }: {
+  { pathname, user }: {
     pathname: string;
-    allDevices: Device[];
     user: User | null;
-    translations: Record<string, string>;
   },
 ) {
   const [isMobile, setIsMobile] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [_suggestions, _setSuggestions] = useState<Device[]>([]);
+  const [_query, _setQuery] = useState<string>("");
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(globalThis.innerWidth <= 1250);
+      if (typeof globalThis !== "undefined" && globalThis.innerWidth) {
+        setIsMobile(globalThis.innerWidth <= 1250);
+      }
     };
 
     // Set a timeout to prevent infinite loading
@@ -27,10 +29,14 @@ export function TopNavbar(
 
     try {
       // Add resize listener
-      globalThis.addEventListener("resize", handleResize);
+      if (typeof globalThis !== "undefined") {
+        globalThis.addEventListener("resize", handleResize);
 
-      // Set initial mobile state
-      setIsMobile(globalThis.innerWidth <= 1250);
+        // Set initial mobile state - only after component mounts
+        if (globalThis.innerWidth) {
+          setIsMobile(globalThis.innerWidth <= 1250);
+        }
+      }
 
       // Set loading to false once initial width is determined
       setIsLoading(false);
@@ -40,10 +46,12 @@ export function TopNavbar(
     }
 
     return () => {
-      globalThis.removeEventListener("resize", handleResize);
+      if (typeof globalThis !== "undefined") {
+        globalThis.removeEventListener("resize", handleResize);
+      }
       clearTimeout(timeoutId);
     };
-  });
+  }, []);
 
   if (isLoading) {
     return <article aria-busy="true" aria-live="polite" />;
@@ -55,17 +63,15 @@ export function TopNavbar(
         ? (
           <MobileNav
             pathname={pathname}
-            allDevices={allDevices}
+            allDevices={[]}
             user={user}
-            translations={translations}
           />
         )
         : (
           <DesktopNav
             pathname={pathname}
-            allDevices={allDevices}
+            allDevices={[]}
             user={user}
-            translations={translations}
           />
         )}
     </>

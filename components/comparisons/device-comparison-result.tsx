@@ -7,10 +7,9 @@ import {
   PiSpeakerHigh,
   PiWifiHigh,
 } from "@preact-icons/pi";
-import { Device } from "@data/frontend/contracts/device.model.ts";
-import { Ranking } from "@data/frontend/models/ranking.model.ts";
-import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
-import { RatingInfo } from "@islands/devices/rating-info.tsx";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
+import { Ranking } from "../../data/frontend/models/ranking.model.ts";
+import { RatingInfo } from "../../islands/devices/rating-info.tsx";
 import { StarRating } from "../ratings/star-rating.tsx";
 import { CurrencyIcon } from "../shared/currency-icon.tsx";
 import { TagComponent } from "../shared/tag-component.tsx";
@@ -21,6 +20,7 @@ import { DisplaySpecsTable } from "../specifications/tables/display-specs-table.
 import { MiscellaneousSpecsTable } from "../specifications/tables/miscellaneous-specs-table.tsx";
 import { PhysicalSpecsTable } from "../specifications/tables/physical-specs-table.tsx";
 import { ProcessingSpecsTable } from "../specifications/tables/processing-specs-table.tsx";
+import { DeviceHelpers } from "../../data/frontend/helpers/device.helpers.ts";
 
 interface DeviceComparisonResultProps {
   device: Device;
@@ -111,45 +111,6 @@ export function DeviceComparisonResult(
     return equalClass;
   };
 
-  // const getReleaseDate = (
-  //   deviceReleased: { raw: string | null; mentionedDate: Date | null },
-  // ): {
-  //   date: string;
-  //   icon: () => VNode<JSX.SVGAttributes>;
-  //   expected: boolean;
-  // } => {
-  //   if (!deviceReleased.raw) {
-  //     return {
-  //       date: "Unknown",
-  //       icon: () => <PiQuestion />,
-  //       expected: false,
-  //     };
-  //   }
-
-  //   if (deviceReleased.mentionedDate) {
-  //     return {
-  //       date: new Date(deviceReleased.mentionedDate).toLocaleDateString(
-  //         "en-US",
-  //         {
-  //           month: "short",
-  //           day: "numeric",
-  //           year: "numeric",
-  //         },
-  //       ),
-  //       icon: () => <PiCalendarCheck />,
-  //       expected: false,
-  //     };
-  //   }
-
-  //   return {
-  //     date: deviceReleased.raw,
-  //     icon: () => <PiCalendarSlash />,
-  //     expected: deviceReleased.raw.toLowerCase().includes("upcoming"),
-  //   };
-  // };
-
-  // const releaseDate = getReleaseDate(device.released);
-
   return (
     <div class="compare-result">
       <div
@@ -163,11 +124,11 @@ export function DeviceComparisonResult(
             flexDirection: "column",
             justifyContent: "space-between",
             alignItems: "center",
-            gap: "1em",
+            gap: ".5rem",
           }}
         >
           <div>
-            <hgroup style={{ textAlign: "center" }}>
+            <hgroup style={{ textAlign: "center", margin: 0, padding: 0 }}>
               <strong
                 title={device.name.sanitized}
               >
@@ -237,7 +198,7 @@ export function DeviceComparisonResult(
               ? (
                 <span
                   style={{ display: "flex", gap: "0.25rem" }}
-                  data-tooltip={`${device.pricing.range.min}-${device.pricing.range.max} ${device.pricing.currency}`}
+                  data-tooltip={`${device.pricing.range?.min}-${device.pricing.range?.max} ${device.pricing.currency}`}
                 >
                   <CurrencyIcon currencyCode={device.pricing.currency} />
                   <span style={{ lineHeight: "normal", fontSize: "0.9rem" }}>
@@ -262,29 +223,24 @@ export function DeviceComparisonResult(
                 : device.os.list.join(", ")}
             >
               {device.os.icons.map((icon) =>
-                DeviceService.getOsIconComponent(icon)
+                DeviceHelpers.getOsIconComponent(icon)
               )}
             </span>
           </div>
-
-          <div>
-            {
-              /* <span
-              style={{
-                color: "var(--pico-color)",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.25rem",
-                fontSize: "0.8rem",
-              }}
-            >
-              {releaseDate.icon()}
-
-              {releaseDate.expected ? "Expected" : releaseDate.date}
-            </span> */
-            }
-          </div>
         </a>
+        <div
+          class="compare-result-tags"
+          style={{ margin: "1rem 0", textAlign: "center" }}
+        >
+          <div class="tags">
+            {device.tags.map((tag) => (
+              <TagComponent
+                key={tag.name}
+                tag={tag}
+              />
+            ))}
+          </div>
+        </div>
       </div>
 
       <div class={`compare-result-summary overflow-auto ${isBest("all")}`}>
@@ -300,31 +256,6 @@ export function DeviceComparisonResult(
           </strong>
         </div>
         <ProcessingSpecsTable device={device} />
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-          }}
-        >
-          <strong
-            style={{
-              marginBottom: "1rem",
-              marginTop: ".5rem",
-              textAlign: "center",
-            }}
-          >
-            Tags
-          </strong>
-          <div class="tags" style={{ margin: "0 1em" }}>
-            {device.tags.map((tag) => (
-              <TagComponent
-                key={tag.name}
-                tag={tag}
-              />
-            ))}
-          </div>
-        </div>
       </div>
 
       <div class={`compare-result-performance ${isBest("emuPerformance")}`}>

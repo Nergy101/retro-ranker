@@ -1,362 +1,194 @@
-import { VersionTag } from "@components/shared/version-tag.tsx";
-import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
-import { CustomFreshState } from "@interfaces/state.ts";
-import {
-  PiCookie,
-  PiDatabase,
-  PiLink,
-  PiListChecks,
-  PiQuestion,
-  PiStack,
-  PiUsers,
-} from "@preact-icons/pi";
-import { FreshContext } from "fresh";
+import { tracer } from "../../data/tracing/tracer.ts";
+import { State } from "../../utils.ts";
+import { Context, page } from "fresh";
 
 export const handler = {
-  GET(ctx: FreshContext) {
-    (ctx.state as CustomFreshState).seo = {
-      title: "Retro Ranker - About",
-      description: "Learn about Retro Ranker's mission and our team.",
-      url: "https://retroranker.site/about",
+  async GET(ctx: Context<State>) {
+    ctx.state.seo = {
+      title:
+        "About Retro Ranker | Comprehensive Retro Gaming Handheld Platform",
+      description:
+        "Learn about Retro Ranker's mission to help retro gaming enthusiasts find their perfect handheld device. Discover our comprehensive database, comparison tools, and community-driven approach to portable gaming.",
       keywords:
-        "retro gaming database, handheld comparison, retro gaming community, emulation device reviews, retro gaming resources",
+        "about retro ranker, retro gaming platform, handheld comparison tool, retro gaming community, portable gaming database, emulation device reviews, retro gaming resources, handheld gaming guide",
+      url: `https://retroranker.site${ctx.url.pathname}`,
     };
-    return page(ctx);
+
+    ctx.state.data = {
+      // No additional data needed for about page
+    };
+
+    return await tracer.startActiveSpan("route:about", async (span: any) => {
+      try {
+        const user = ctx.state?.user;
+        span.setAttribute("user.authenticated", !!user);
+        if (user && "email" in user) {
+          span.setAttribute("user.email", user.email);
+        }
+
+        const result = page(ctx);
+        span.setStatus({ code: 0 }); // OK
+        return result;
+      } catch (error: unknown) {
+        const errorMessage = error instanceof Error
+          ? error.message
+          : "Unknown error";
+        span.setStatus({ code: 2, message: errorMessage }); // ERROR
+        throw error;
+      } finally {
+        span.end();
+      }
+    });
   },
 };
 
-export default function page(ctx: FreshContext) {
-  const translations = (ctx.state as CustomFreshState).translations ?? {};
+export default function About(ctx: Context<State>) {
+  const state = ctx.state;
+  const _translations = state.translations ?? {};
 
   return (
-    <div class="about">
-      {/* Hero Section */}
-      <section
-        class="hero-section"
-        style={{
-          color: "#fff",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        <div style={{ position: "relative", zIndex: 1, textAlign: "center" }}>
-          <div
-            class="flex justify-center"
-            style={{
-              marginBottom: "1.5rem",
-              gap: "2rem",
-              alignItems: "center",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "center",
-            }}
-          >
-            <a href="https://retro-handhelds.com" target="_blank">
-              <img
-                src="/logos/retro-handhelds/rh-logo-text.png"
-                alt="Retro Handhelds Community Logo"
-                width="160"
-                height="160"
-                class="max-w-full h-auto"
-                style={{ borderRadius: "1rem" }}
-              />
-            </a>
+    <div class="about-page">
+      <div style={{ maxWidth: "800px", margin: "0 auto", padding: "0 1rem" }}>
+        <hgroup style={{ textAlign: "center", marginBottom: "2rem" }}>
+          <h1 style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>
+            About Retro Ranker
+          </h1>
+          <p style={{ fontSize: "1.2rem", color: "var(--pico-muted-color)" }}>
+            Your comprehensive guide to retro gaming handhelds
+          </p>
+        </hgroup>
+
+        <section style={{ marginBottom: "2rem" }}>
+          <h2 style={{ color: "var(--pico-primary)", marginBottom: "1rem" }}>
+            Our Mission
+          </h2>
+          <p style={{ lineHeight: "1.6", marginBottom: "1rem" }}>
+            Retro Ranker is dedicated to helping retro gaming enthusiasts make
+            informed decisions when choosing their next handheld gaming device.
+            We believe that everyone deserves access to comprehensive, unbiased
+            information about the latest retro gaming handhelds.
+          </p>
+          <p style={{ lineHeight: "1.6" }}>
+            Our platform combines detailed specifications, performance metrics,
+            and community insights to create the most comprehensive database of
+            retro gaming handhelds available.
+          </p>
+        </section>
+
+        <section style={{ marginBottom: "2rem" }}>
+          <h2 style={{ color: "var(--pico-primary)", marginBottom: "1rem" }}>
+            What We Do
+          </h2>
+          <div style={{ display: "grid", gap: "1rem" }}>
             <div
               style={{
-                fontSize: "4rem",
-                color: "var(--pico-primary)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                margin: "0 1rem",
+                padding: "1rem",
+                background: "var(--pico-background-color)",
+                borderRadius: "0.5rem",
+                border: "1px solid var(--pico-muted-border-color)",
               }}
             >
-              +
+              <h3
+                style={{ margin: "0 0 0.5rem 0", color: "var(--pico-primary)" }}
+              >
+                📊 Comprehensive Comparisons
+              </h3>
+              <p style={{ margin: 0, lineHeight: "1.5" }}>
+                Side-by-side comparisons of devices across multiple categories
+                including performance, build quality, value for money, and user
+                satisfaction.
+              </p>
             </div>
-
-            <img
-              src="/logos/retro-ranker/rr-logo.svg"
-              alt="Retro Ranker Logo"
-              width="120"
-              height="120"
-              class="max-w-full h-auto"
-              style={{ borderRadius: "1rem" }}
-            />
-          </div>
-          <h1
-            class="text-3xl font-bold"
-            style={{
-              textAlign: "center",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "0.5em",
-            }}
-          >
-            <span
+            <div
               style={{
-                color: "#F0F1F3",
+                padding: "1rem",
+                background: "var(--pico-background-color)",
+                borderRadius: "0.5rem",
+                border: "1px solid var(--pico-muted-border-color)",
               }}
             >
-              {TranslationPipe(translations, "nav.about")}
-            </span>{" "}
-            <span style={{ color: "var(--pico-primary)", marginLeft: 8 }}>
-              Retro Ranker
-            </span>
-          </h1>
+              <h3
+                style={{ margin: "0 0 0.5rem 0", color: "var(--pico-primary)" }}
+              >
+                🔍 Detailed Specifications
+              </h3>
+              <p style={{ margin: 0, lineHeight: "1.5" }}>
+                Complete technical specifications, pricing information, and
+                release dates for hundreds of retro gaming handhelds.
+              </p>
+            </div>
+            <div
+              style={{
+                padding: "1rem",
+                background: "var(--pico-background-color)",
+                borderRadius: "0.5rem",
+                border: "1px solid var(--pico-muted-border-color)",
+              }}
+            >
+              <h3
+                style={{ margin: "0 0 0.5rem 0", color: "var(--pico-primary)" }}
+              >
+                ⭐ Community-Driven Rankings
+              </h3>
+              <p style={{ margin: 0, lineHeight: "1.5" }}>
+                Rankings based on real user experiences, reviews, and
+                performance data to help you find the perfect device for your
+                needs.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section style={{ marginBottom: "2rem" }}>
+          <h2 style={{ color: "var(--pico-primary)", marginBottom: "1rem" }}>
+            Like what we do?
+          </h2>
+          <ul style={{ lineHeight: "1.6" }}>
+            <li>
+              <a href="https://ko-fi.com/nergy">
+                <strong>Consider a donation at Ko-Fi</strong>
+              </a>
+            </li>
+            <li>
+              <strong>
+                <a href="https://discord.gg/V6qwXmtCqa">Join the Discord</a>
+              </strong>
+            </li>
+            <li>
+              <strong>Community:</strong>{" "}
+              We value input from the (retro) gaming community and incorporate
+              user feedback. You can join the discord above, leave a comment on
+              the Ko-Fi page, or log-in and leave feedback from your profile
+              page.
+            </li>
+          </ul>
+        </section>
+
+        <section
+          style={{ textAlign: "center", padding: "2rem 0", marginTop: "2rem" }}
+        >
+          <h2 style={{ marginBottom: "1rem" }}>Get Started</h2>
           <p
+            style={{ marginBottom: "1.5rem", color: "var(--pico-muted-color)" }}
+          >
+            Ready to find your perfect retro gaming handheld?
+          </p>
+          <div
             style={{
-              fontSize: "1.2rem",
-              marginTop: "1rem",
-              marginBottom: "0.5rem",
-              color: "#fff",
-              opacity: 0.95,
+              display: "flex",
+              gap: "1rem",
+              justifyContent: "center",
+              flexWrap: "wrap",
             }}
           >
-            {TranslationPipe(translations, "about.description")}
-          </p>
-        </div>
-      </section>
-
-      {/* Main Content */}
-      <div class="about-content">
-        <details open>
-          <summary class="flex items-center gap-2">
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <PiQuestion class="text-3xl" />
-              &nbsp;{TranslationPipe(translations, "about.whatIsRetroRanker")}
-            </div>
-          </summary>
-          <p>
-            {TranslationPipe(translations, "about.whatIsRetroRankerAnswer")}
-          </p>
-        </details>
-
-        <details>
-          <summary class="flex items-center gap-2">
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <PiStack class="text-3xl" />
-              &nbsp;{TranslationPipe(translations, "about.techStack")}
-            </div>
-          </summary>
-          <ul class="flex flex-col gap-4 p-4">
-            <li class="flex items-center gap-4">
-              <img
-                loading="lazy"
-                src="/stack/deno.gif"
-                alt="Deno"
-                width="32"
-                height="32"
-              />
-              <span>
-                &nbsp;{TranslationPipe(translations, "about.techStack.deno")}
-              </span>
-            </li>
-            <li class="flex items-center gap-4">
-              <img
-                loading="lazy"
-                src="/stack/fresh.svg"
-                alt="Fresh"
-                width="32"
-                height="32"
-              />
-              <span>
-                &nbsp;{TranslationPipe(translations, "about.techStack.fresh")}
-              </span>
-            </li>
-
-            <li class="flex items-center gap-4">
-              <img
-                loading="lazy"
-                src="/stack/pocketbase.svg"
-                alt="PocketBase"
-                width="32"
-                height="32"
-              />
-              <span>
-                &nbsp;{TranslationPipe(
-                  translations,
-                  "about.techStack.pocketbase",
-                )}
-              </span>
-            </li>
-            <li class="flex items-center gap-4">
-              <img
-                loading="lazy"
-                src="/stack/pico.svg"
-                alt="PicoCSS"
-                width="32"
-                height="32"
-              />
-              <span>
-                &nbsp;{TranslationPipe(translations, "about.techStack.picocss")}
-              </span>
-            </li>
-            <li class="flex items-center gap-4">
-              <img
-                loading="lazy"
-                src="/stack/chartjs.svg"
-                alt="Chart.js"
-                width="32"
-                height="32"
-              />
-              <span>
-                &nbsp;{TranslationPipe(translations, "about.techStack.chartjs")}
-              </span>
-            </li>
-            <li class="flex items-center gap-4">
-              <img
-                loading="lazy"
-                src="/stack/docker.svg"
-                alt="Docker"
-                width="32"
-                height="32"
-              />
-              <span>
-                &nbsp;{TranslationPipe(translations, "about.techStack.docker")}
-              </span>
-            </li>
-            <li class="flex items-center gap-4">
-              <img
-                loading="lazy"
-                src="/stack/hetzner.svg"
-                alt="Hetzner"
-                width="32"
-                height="32"
-              />
-              <span>
-                &nbsp;{TranslationPipe(translations, "about.techStack.hetzner")}
-              </span>
-            </li>
-          </ul>
-        </details>
-
-        <details>
-          <summary class="flex items-center gap-2">
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <PiListChecks class="text-3xl" />
-              &nbsp;{TranslationPipe(translations, "about.features")}
-            </div>
-          </summary>
-          <ul>
-            <li>
-              {TranslationPipe(translations, "about.features.devices")}
-            </li>
-            <li>
-              {TranslationPipe(translations, "about.features.favorites")}
-            </li>
-            <li>
-              {TranslationPipe(translations, "about.features.reviews")}
-            </li>
-            <li>
-              {TranslationPipe(translations, "about.features.specs")}
-            </li>
-            <li>
-              {TranslationPipe(translations, "about.features.performance")}
-            </li>
-            <li>
-              {TranslationPipe(translations, "about.features.comparisons")}
-            </li>
-            <li>
-              {TranslationPipe(translations, "about.features.charts")}
-            </li>
-          </ul>
-        </details>
-
-        <details>
-          <summary class="flex items-center gap-4">
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <PiQuestion class="text-3xl" />
-              &nbsp;{TranslationPipe(translations, "about.communityWebsites")}
-            </div>
-          </summary>
-          <ul>
-            <li class="flex items-center gap-2">
-              {TranslationPipe(
-                translations,
-                "about.communityWebsites.retroCatalog",
-              )}
-              <a
-                href="https://retrocatalog.com"
-                target="_blank"
-                data-tooltip="Retro Catalog"
-                data-placement="right"
-              >
-                <PiLink class="text-3xl" />
-              </a>
-            </li>
-            <li class="flex items-center gap-2">
-              {TranslationPipe(
-                translations,
-                "about.communityWebsites.retroSizer",
-              )}
-              <a
-                href="https://retrosizer.com"
-                target="_blank"
-                data-tooltip="Retro Sizer"
-                data-placement="right"
-              >
-                <PiLink class="text-3xl" />
-              </a>
-            </li>
-          </ul>
-        </details>
-
-        <details>
-          <summary class="flex items-center gap-4">
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <PiDatabase class="text-3xl" />
-              &nbsp;{TranslationPipe(translations, "about.dataSource")}
-            </div>
-          </summary>
-          <p>
-            {TranslationPipe(translations, "about.dataSource.description")}
-            <br />
-            <br />
-            {TranslationPipe(translations, "about.dataSource.spreadsheet")}
-            <br />
-            {TranslationPipe(translations, "about.dataSource.accuracy")}
-          </p>
-          <section>
-            <VersionTag />
-          </section>
-        </details>
-
-        <details>
-          <summary class="flex items-center gap-4">
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <PiUsers class="text-3xl" />
-              &nbsp;{TranslationPipe(
-                translations,
-                "about.communityContribution",
-              )}
-            </div>
-          </summary>
-          <p>
-            {TranslationPipe(
-              translations,
-              "about.communityContribution.description",
-            )}
-            <br />
-            <br />
-            {TranslationPipe(
-              translations,
-              "about.communityContribution.discord",
-            )}
-          </p>
-        </details>
-
-        <details>
-          <summary class="flex items-center gap-4">
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <PiCookie class="text-3xl" />
-              &nbsp;{TranslationPipe(translations, "about.cookies")}
-            </div>
-          </summary>
-          <p>
-            {TranslationPipe(translations, "about.cookies.description")}
-          </p>
-        </details>
+            <a href="/devices" class="button">
+              📱 Browse Devices
+            </a>
+            <a href="/compare" class="button outline">
+              ⚖️ Compare Devices
+            </a>
+          </div>
+        </section>
       </div>
     </div>
   );

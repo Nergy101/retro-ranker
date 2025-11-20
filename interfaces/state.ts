@@ -1,4 +1,10 @@
-import type { User } from "@data/frontend/contracts/user.contract.ts";
+export interface User {
+  id: string;
+  nickname: string;
+  email?: string;
+  created: string;
+  updated: string;
+}
 
 export interface SeoData {
   title?: string;
@@ -8,7 +14,6 @@ export interface SeoData {
   keywords?: string;
   robots?: string;
   jsonLd?: string;
-  // children?: ComponentChildren;
 }
 
 export interface CustomFreshState {

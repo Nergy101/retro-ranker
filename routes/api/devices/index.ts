@@ -1,10 +1,11 @@
 // deno-lint-ignore-file no-console
-import { FreshContext } from "fresh";
-import { TagModel } from "@data/frontend/models/tag.model.ts";
-import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
+import { Context } from "fresh";
+import { TagModel } from "../../../data/frontend/models/tag.model.ts";
+import { DeviceService } from "../../../data/frontend/services/devices/device.service.ts";
+import { State } from "../../../utils.ts";
 
 export const handler = {
-  async GET(ctx: FreshContext) {
+  async GET(ctx: Context<State>) {
     const deviceService = await DeviceService.getInstance();
 
     const params = new URLSearchParams(ctx.url.search);
@@ -13,18 +14,15 @@ export const handler = {
       | "all"
       | "low"
       | "mid"
-      | "high"
-      | "all";
+      | "high";
     const sortBy = params.get("sort") as
       | "all"
       | "highly-ranked"
-      | "new-arrivals"
-      | "all";
+      | "new-arrivals";
     const filter = params.get("filter") as
       | "all"
       | "upcoming"
-      | "personal-picks"
-      | "all";
+      | "personal-picks";
     const pageNumber = Number.parseInt(params.get("pageNumber") || "1");
     const pageSize = Number.parseInt(params.get("pageSize") || "9");
     const tagsParam = params.get("tags")?.split(",") || [];
@@ -34,7 +32,7 @@ export const handler = {
     )).filter((tag) => tag !== null) as TagModel[];
 
     if (searchQuery || category || sortBy || filter || pageNumber || pageSize) {
-      const devices = deviceService.searchDevices(
+      const devices = await deviceService.searchDevices(
         searchQuery || "",
         category,
         sortBy,
@@ -50,12 +48,13 @@ export const handler = {
         filter,
         pageNumber,
         pageSize,
+        deviceCount: devices.page.length,
       });
       return Response.json(devices, { status: 200 });
     }
 
     // If no search query, return all devices
     console.info("API call success for all devices: devices/index ");
-    return Response.json(deviceService.getAllDevices(), { status: 200 });
+    return Response.json(await deviceService.getAllDevices(), { status: 200 });
   },
 };

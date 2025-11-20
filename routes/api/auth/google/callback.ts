@@ -1,16 +1,16 @@
-import { FreshContext } from "fresh";
+import { Context } from "fresh";
 import {
   animals,
   NumberDictionary,
   uniqueNamesGenerator,
 } from "unique-names-generator";
-import pkceSessionService from "@data/pkce/pkce.service.ts";
-import { createPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
-import { logJson, tracer } from "@data/tracing/tracer.ts";
-import { setAuthCookie } from "../../../../utils.ts";
+import pkceSessionService from "../../../../data/pkce/pkce.service.ts";
+import { createPocketBaseService } from "../../../../data/pocketbase/pocketbase.service.ts";
+import { logJson, tracer } from "../../../../data/tracing/tracer.ts";
+import { setAuthCookie, State } from "../../../../utils.ts";
 
 export const handler = {
-  async GET(ctx: FreshContext) {
+  async GET(ctx: Context<State>) {
     const req = ctx.req;
 
     return await tracer.startActiveSpan(

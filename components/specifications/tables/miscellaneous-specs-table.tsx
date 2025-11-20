@@ -1,4 +1,4 @@
-import { Device } from "@data/frontend/contracts/device.model.ts";
+import { Device } from "../../../data/frontend/contracts/device.model.ts";
 
 interface MiscellaneousSpecsTableProps {
   device: Device;
@@ -10,13 +10,13 @@ export function MiscellaneousSpecsTable(
   return (
     <table class="striped">
       <tbody>
-        {device.performance.emulationLimit && (
+        {device.performance?.emulationLimit && (
           <tr>
             <th>Emulation Limit</th>
             <td>{device.performance.emulationLimit}</td>
           </tr>
         )}
-        {device.performance.maxEmulation && (
+        {device.performance?.maxEmulation && (
           <tr>
             <th>Max Emulation</th>
             <td>{device.performance.maxEmulation}</td>
@@ -36,7 +36,7 @@ export function MiscellaneousSpecsTable(
               <td>{device.notes.join(", ")}</td>
             </tr>
           )}
-        {device.pros.length > 0 && (
+        {device.pros && device.pros.length > 0 && (
           <tr>
             <th>Pros</th>
             <td>
@@ -44,7 +44,7 @@ export function MiscellaneousSpecsTable(
             </td>
           </tr>
         )}
-        {device.cons.length > 0 && (
+        {device.cons && device.cons.length > 0 && (
           <tr>
             <th>Cons</th>
             <td>

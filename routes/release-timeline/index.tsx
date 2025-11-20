@@ -1,12 +1,11 @@
 import { PiCaretCircleDoubleDown } from "@preact-icons/pi";
-import { FreshContext, page } from "fresh";
-import { Device } from "@data/frontend/contracts/device.model.ts";
-import { User } from "@data/frontend/contracts/user.contract.ts";
-import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
-import { createSuperUserPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
-import { CustomFreshState } from "@interfaces/state.ts";
-import { TimelineContent } from "@islands/devices/timeline-content.tsx";
-import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
+import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
+import { User } from "../../data/frontend/contracts/user.contract.ts";
+import { createSuperUserPocketBaseService } from "../../data/pocketbase/pocketbase.service.ts";
+import { State } from "../../utils.ts";
+import { Context, page } from "fresh";
+import { TimelineContent } from "../../islands/devices/timeline-content.tsx";
 
 const chunkArray = (arr: any[], size: number): any[][] => {
   const chunks: any[][] = [];
@@ -17,14 +16,14 @@ const chunkArray = (arr: any[], size: number): any[][] => {
 };
 
 export const handler = {
-  async GET(ctx: FreshContext) {
-    (ctx.state as CustomFreshState).seo = {
-      title: "Gaming Handheld Release Timeline",
+  async GET(ctx: Context<State>) {
+    ctx.state.seo = {
+      title: "Retro Gaming Handheld Release Timeline | Retro Ranker",
       description:
-        "Explore the complete chronological release timeline of retro gaming handhelds. Track upcoming releases, view historical launch dates, and discover the evolution of portable emulation devices over time.",
+        "Explore the complete chronological release timeline of retro gaming handhelds. Track upcoming releases, view historical launch dates, and discover the evolution of portable emulation devices from 2004 to present.",
       url: `https://retroranker.site${ctx.url.pathname}`,
       keywords:
-        "retro gaming timeline, handheld release dates, emulation device history, upcoming retro handhelds, retro console releases, gaming device roadmap, retro gaming calendar, handheld launch dates",
+        "retro gaming timeline, handheld release dates, emulation device history, upcoming retro handhelds, retro console releases, gaming device roadmap, retro gaming calendar, handheld launch dates, portable gaming evolution, emulation device timeline",
     };
 
     const deviceService = await DeviceService.getInstance();
@@ -76,7 +75,7 @@ export const handler = {
 
     const likesCountMap: Record<string, number> = {};
     const userLikedMap: Record<string, boolean> = {};
-    const currentUser = (ctx.state as CustomFreshState).user as User | null;
+    const currentUser = ctx.state.user as User | null;
     for (const r of likeRecords) {
       likesCountMap[r.device] = (likesCountMap[r.device] || 0) + 1;
       if (currentUser && r.user === currentUser.id) {
@@ -103,7 +102,7 @@ export const handler = {
       userFavoritedMap[r.device] = true;
     }
 
-    (ctx.state as CustomFreshState).data = {
+    ctx.state.data = {
       upcomingDevices,
       devicesGroupedByYearAndMonth,
       likesCountMap,
@@ -115,23 +114,23 @@ export const handler = {
   },
 };
 
-export default function ReleaseTimeline(ctx: FreshContext) {
+export default function ReleaseTimeline(ctx: Context<State>) {
   const {
     upcomingDevices,
     devicesGroupedByYearAndMonth,
     likesCountMap,
     userLikedMap,
     userFavoritedMap,
-  } = (ctx.state as CustomFreshState).data as {
+  } = ctx.state.data as {
     upcomingDevices: Device[];
     devicesGroupedByYearAndMonth: Record<string, Device[]>;
     likesCountMap: Record<string, number>;
     userLikedMap: Record<string, boolean>;
     userFavoritedMap: Record<string, boolean>;
   };
-  const translations = (ctx.state as CustomFreshState).translations ?? {};
-  const language = (ctx.state as CustomFreshState).language ?? "en-US";
-  const user = (ctx.state as CustomFreshState).user as User | null;
+  const translations = ctx.state.translations ?? {};
+  const language = ctx.state.language ?? "en-US";
+  const user = ctx.state.user as User | null;
 
   return (
     <div class="release-timeline-page">
@@ -145,10 +144,11 @@ export default function ReleaseTimeline(ctx: FreshContext) {
       }
       <hgroup>
         <h1 style={{ textAlign: "center" }}>
-          {TranslationPipe(translations, "releases.title")}
+          Release Timeline
         </h1>
         <p>
-          {TranslationPipe(translations, "releases.description")}
+          Explore the timeline of retro gaming handheld releases and see how the
+          market has evolved over time
         </p>
       </hgroup>
 
@@ -162,7 +162,7 @@ export default function ReleaseTimeline(ctx: FreshContext) {
       >
         <div
           style={{ display: "flex", alignItems: "center" }}
-          data-tooltip={TranslationPipe(translations, "releases.scrollTooltip")}
+          data-tooltip="Scroll to see more devices"
           data-placement="bottom"
         >
           <PiCaretCircleDoubleDown />

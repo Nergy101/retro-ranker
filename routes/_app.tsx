@@ -1,43 +1,38 @@
-import { FreshContext, page } from "fresh";
-import { Device } from "@data/frontend/contracts/device.model.ts";
-import { User } from "@data/frontend/contracts/user.contract.ts";
-import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
-import { CustomFreshState } from "@interfaces/state.ts";
-import { Footer } from "@components/footer.tsx";
-import { TopNavbar } from "@islands/navigation/top-navbar.tsx";
+import { page } from "fresh";
+// import { Context } from "jsr:@fresh/core@2.0.0-beta.4";
+import { User } from "../data/frontend/contracts/user.contract.ts";
+import { CustomFreshState } from "../interfaces/state.ts";
+import { Footer } from "../components/footer.tsx";
+import { TopNavbar } from "../islands/navigation/top-navbar.tsx";
 
 export const handler = {
-  async GET(ctx: FreshContext) {
-    const deviceService = await DeviceService.getInstance();
-    const allDevices = await deviceService.getAllDevices();
-    // deno-lint-ignore no-explicit-any
-    (ctx.params as any) = {
-      allDevices,
-    };
-
+  async GET(ctx: any) {
     return page(ctx);
   },
 };
 
-export default function AppWrapper(
-  ctx: FreshContext,
-) {
-  const seo = (ctx.state as CustomFreshState).seo ?? {};
+interface AppWrapperProps {
+  Component: any;
+  state: any;
+  req: Request;
+}
 
-  // const state = ctx.state as CustomFreshState;
-  const params = ctx.params as any;
-  const allDevices = params.allDevices as Device[];
-  const user = (ctx.state as CustomFreshState).user as User | null;
-  const language = (ctx.state as CustomFreshState).language ?? "en-US";
-  const translations = (ctx.state as CustomFreshState).translations ?? {};
+export default function AppWrapper(props: AppWrapperProps) {
+  const { Component, state, req } = props;
+  const customState = state as CustomFreshState;
 
-  const url = new URL(ctx.req.url);
+  const seo = customState.seo ?? {};
+  const user = customState.user as User | null;
+
+  const url = new URL(req.url);
 
   const page = (
-    <html class="transition-colors" lang={language}>
+    <html class="transition-colors" lang="en-US">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="color-scheme" content="dark light" />
+        <meta name="theme-color" id="theme-color" content="#ff9500"></meta>
         {seo.title && <title>{seo.title}</title>}
         {seo.description && (
           <meta name="description" content={seo.description} />
@@ -65,6 +60,14 @@ export default function AppWrapper(
             dangerouslySetInnerHTML={{ __html: seo.jsonLd }}
           />
         )}
+        {/* Inline theme init to avoid flash of incorrect theme before first paint */}
+        <script
+          // deno-lint-ignore react-no-danger
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}else if(globalThis.matchMedia&&globalThis.matchMedia('(prefers-color-scheme: dark)').matches){document.documentElement.setAttribute('data-theme','dark');}else{document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})();",
+          }}
+        />
         <link rel="stylesheet" href="/styles.css" />
         <script defer src="/scripts/konami.js" />
         <script
@@ -87,21 +90,16 @@ export default function AppWrapper(
           href="/favicon-16x16.png"
         />
         <link rel="stylesheet" href="/pico.pumpkin.min.css" />
-        <script defer src="/scripts/theme-sync.js" />
-        <script defer src="/scripts/lang-sync.js" />
       </head>
       <body>
         <TopNavbar
           pathname={url.pathname}
-          allDevices={allDevices}
           user={user}
-          translations={translations}
         />
         <main class="main-content">
-          {/* @ts-ignore */}
-          <ctx.Component />
+          <Component />
         </main>
-        <Footer translations={translations} />
+        <Footer />
       </body>
     </html>
   );

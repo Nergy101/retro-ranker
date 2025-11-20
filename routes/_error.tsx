@@ -1,9 +1,9 @@
-import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
-import { CustomFreshState } from "@interfaces/state.ts";
-import { FreshContext, HttpError, page, PageProps } from "fresh";
+import { CustomFreshState } from "../interfaces/state.ts";
+import { Context, HttpError, page, PageProps } from "fresh";
+import { State } from "../utils.ts";
 
 export const handler = {
-  GET(ctx: FreshContext) {
+  GET(ctx: Context<State>) {
     (ctx.state as CustomFreshState).seo = {
       title: "Error",
       description: "An error occurred on Retro Ranker. Please try again later.",
@@ -13,8 +13,8 @@ export const handler = {
   },
 };
 
-export default function ErrorPage(props: PageProps, ctx: FreshContext) {
-  const fallbackTranslations: Record<string, string> = {
+export default function ErrorPage(props: PageProps) {
+  const _fallbackTranslations: Record<string, string> = {
     "error.404.title": "Page Not Found",
     "error.404.description": "The page you're looking for doesn't exist.",
     "error.404.suggestion": "Go back home",
@@ -22,8 +22,6 @@ export default function ErrorPage(props: PageProps, ctx: FreshContext) {
     "error.general.description": "An error occurred. Please try again later.",
     "error.general.suggestion": "Go back home",
   };
-  const translations: Record<string, string> =
-    (ctx?.state as CustomFreshState)?.translations || fallbackTranslations;
   const { error } = props;
 
   const renderNotFound = () => {
@@ -32,13 +30,13 @@ export default function ErrorPage(props: PageProps, ctx: FreshContext) {
         <article>
           <div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">
             <h1 class="text-4xl font-bold">
-              {TranslationPipe(translations, "error.404.title")}
+              Page Not Found
             </h1>
             <span>
-              {TranslationPipe(translations, "error.404.description")}
+              The page you're looking for doesn't exist.
             </span>
             <h2>
-              {TranslationPipe(translations, "error.404.suggestion")}
+              <a href="/">Go back home</a>
             </h2>
           </div>
         </article>
@@ -59,12 +57,14 @@ export default function ErrorPage(props: PageProps, ctx: FreshContext) {
         <article>
           <div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">
             <h1 class="text-4xl font-bold">
-              {TranslationPipe(translations, "error.general.title")}
+              Server Error
             </h1>
             <span>
-              {TranslationPipe(translations, "error.general.description")}
+              Something went wrong on our end. Please try again later.
             </span>
-            <h2>{TranslationPipe(translations, "error.general.suggestion")}</h2>
+            <h2>
+              <a href="/">Go back home</a>
+            </h2>
           </div>
         </article>
       </div>

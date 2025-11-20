@@ -1,12 +1,14 @@
-import { ProblemDetail } from "@data/frontend/contracts/problem-detail.ts";
+import { ProblemDetail } from "../../../../data/frontend/contracts/problem-detail.ts";
 import {
   createLoggedInPocketBaseService,
   createSuperUserPocketBaseService,
-} from "@data/pocketbase/pocketbase.service.ts";
-import { FreshContext } from "fresh";
+} from "../../../../data/pocketbase/pocketbase.service.ts";
+import { AchievementService } from "../../../../data/frontend/services/achievement.service.ts";
+import { Context } from "fresh";
+import { State } from "../../../../utils.ts";
 
 export const handler = {
-  async GET(ctx: FreshContext) {
+  async GET(ctx: Context<State>) {
     const req = ctx.req;
     const deviceId = ctx.params.id;
     const cookie = req.headers.get("cookie");
@@ -46,7 +48,7 @@ export const handler = {
       );
     }
   },
-  async POST(ctx: FreshContext) {
+  async POST(ctx: Context<any>) {
     const req = ctx.req;
     const deviceId = ctx.params.id;
     const cookie = req.headers.get("cookie");
@@ -93,6 +95,10 @@ export const handler = {
         user: user.id,
       });
 
+      // Check and unlock achievements
+      const achievementService = new AchievementService(adminPb);
+      await achievementService.checkAndUnlockAchievements(user.id);
+
       return new Response(null, { status: 201 });
     } catch {
       return new Response(
@@ -104,7 +110,7 @@ export const handler = {
     }
   },
 
-  async DELETE(ctx: FreshContext) {
+  async DELETE(ctx: Context<any>) {
     const req = ctx.req;
     const deviceId = ctx.params.id;
     const cookie = req.headers.get("cookie");

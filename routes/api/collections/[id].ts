@@ -1,10 +1,11 @@
-import { User } from "@data/frontend/contracts/user.contract.ts";
-import { createSuperUserPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
-import { FreshContext } from "fresh";
-import { CustomFreshState } from "@interfaces/state.ts";
+import { User } from "../../../data/frontend/contracts/user.contract.ts";
+import { createSuperUserPocketBaseService } from "../../../data/pocketbase/pocketbase.service.ts";
+import { Context } from "fresh";
+import { CustomFreshState } from "../../../interfaces/state.ts";
+import { State } from "../../../utils.ts";
 
 export const handler = {
-  async PUT(ctx: FreshContext) {
+  async PUT(ctx: Context<State>) {
     const request = ctx.req;
     const pbService = await createSuperUserPocketBaseService(
       Deno.env.get("POCKETBASE_SUPERUSER_EMAIL")!,
@@ -17,6 +18,19 @@ export const handler = {
     const description = form.get("description")?.toString();
     const deviceIds: string[] = form.get("devices")?.toString().split(",") ??
       [];
+    const type = form.get("type")?.toString();
+    const orderRaw = form.get("order")?.toString();
+    let order: Array<Record<string, number>> | undefined = undefined;
+    if (orderRaw) {
+      try {
+        const parsed = JSON.parse(orderRaw);
+        if (Array.isArray(parsed)) {
+          order = parsed as Array<Record<string, number>>;
+        }
+      } catch {
+        // ignore invalid order payload
+      }
+    }
 
     if (!name || !description) {
       return new Response("Missing name or description", { status: 400 });
@@ -34,16 +48,24 @@ export const handler = {
       return new Response("Unauthorized", { status: 401 });
     }
 
-    const updatedCollection = await pbService.update("device_collections", id, {
+    const payload: Record<string, unknown> = {
       name,
       description,
       devices: deviceIds,
-    });
+    };
+    if (type) payload.type = type;
+    if (order) payload.order = order;
+
+    const updatedCollection = await pbService.update(
+      "device_collections",
+      id,
+      payload,
+    );
 
     return new Response(JSON.stringify(updatedCollection), { status: 200 });
   },
 
-  async DELETE(ctx: FreshContext) {
+  async DELETE(ctx: Context<any>) {
     const { id } = ctx.params;
 
     const pbService = await createSuperUserPocketBaseService(

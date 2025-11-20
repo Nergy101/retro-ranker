@@ -1,22 +1,23 @@
-import { FreshContext, page } from "fresh";
-import { DeviceCardLarge } from "@components/cards/device-card-large.tsx";
-import { DeviceCardRow } from "@components/cards/device-card-row.tsx";
-import { DeviceCardMedium } from "@components/cards/device-card-medium.tsx";
-import { PaginationNav } from "@components/shared/pagination-nav.tsx";
-import { Device } from "@data/frontend/contracts/device.model.ts";
-import { User } from "@data/frontend/contracts/user.contract.ts";
-import { TagModel } from "@data/frontend/models/tag.model.ts";
-import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
-import { createSuperUserPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
-import { CustomFreshState } from "@interfaces/state.ts";
-import { DeviceSearchForm } from "@islands/forms/device-search-form.tsx";
-import { LayoutSelector } from "@islands/forms/layout-selector.tsx";
-import { TagTypeahead } from "@islands/forms/tag-type-ahead.tsx";
-import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
-import { logJson } from "@data/tracing/tracer.ts";
+import { Context, FreshContext, page } from "fresh";
+import { DeviceCardLarge } from "../../components/cards/device-card-large.tsx";
+import { DeviceCardRow } from "../../components/cards/device-card-row.tsx";
+import { DeviceCardMedium } from "../../components/cards/device-card-medium.tsx";
+import { PaginationNav } from "../../components/shared/pagination-nav.tsx";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
+import { User } from "../../data/frontend/contracts/user.contract.ts";
+import { TagModel } from "../../data/frontend/models/tag.model.ts";
+import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
+import { createSuperUserPocketBaseService } from "../../data/pocketbase/pocketbase.service.ts";
+import { CustomFreshState } from "../../interfaces/state.ts";
+import { DeviceSearchForm } from "../../islands/forms/device-search-form.tsx";
+import { LayoutSelector } from "../../islands/forms/layout-selector.tsx";
+import { TagTypeahead } from "../../islands/forms/tag-type-ahead.tsx";
+import { CollapsibleTagList } from "../../islands/forms/collapsible-tag-list.tsx";
+import { logJson } from "../../data/tracing/tracer.ts";
+import { State } from "../../utils.ts";
 
 export const handler = {
-  async GET(ctx: FreshContext) {
+  async GET(ctx: Context<State>) {
     const startTime = performance.now();
     const url = new URL(ctx.req.url);
     const path = url.pathname;
@@ -28,11 +29,12 @@ export const handler = {
     });
 
     (ctx.state as CustomFreshState).seo = {
-      title: "Retro Ranker - Device Catalog",
-      description: "Browse our catalog of retro gaming handhelds with specs.",
+      title: "Retro Gaming Handheld Device Catalog | Retro Ranker",
+      description:
+        "Browse our comprehensive catalog of 400+ retro gaming handhelds with detailed specifications, reviews, and comparisons. Filter by price, brand, release year, and features to find your perfect portable emulation device.",
       keywords:
-        "retro gaming handhelds, emulation devices, retro console comparison, handheld gaming systems, retro gaming devices catalog, Anbernic devices, Miyoo handhelds, retro gaming specs, portable emulation systems",
-      url: "https://retroranker.site/devices",
+        "retro gaming handhelds catalog, emulation devices database, retro console comparison, handheld gaming systems, retro gaming devices catalog, Anbernic devices, Miyoo handhelds, Steam Deck, retro gaming specs, portable emulation systems, handheld device reviews, retro gaming database",
+      url: `https://retroranker.site${ctx.url.pathname}`,
     };
 
     const deviceServiceStart = performance.now();
@@ -90,7 +92,7 @@ export const handler = {
         case "grid9":
           return 9;
         case "grid4":
-          return 8;
+          return 4;
         default:
           return 20;
       }
@@ -210,9 +212,6 @@ export const handler = {
 
     // For TagTypeahead - show all tags except selected ones
     const availableTagsStart = performance.now();
-    const allAvailableTags = allTags.filter((tag) =>
-      !selectedTags.some((selectedTag) => selectedTag.slug === tag.slug)
-    );
     const availableTagsEnd = performance.now();
 
     logJson("info", "Available Tags Processed", {
@@ -220,7 +219,6 @@ export const handler = {
       availableTagsTime: `${
         (availableTagsEnd - availableTagsStart).toFixed(2)
       }ms`,
-      availableTagsCount: allAvailableTags.length,
     });
 
     const totalEnd = performance.now();
@@ -247,12 +245,11 @@ export const handler = {
         pageResults: searchResult.page.length,
         hasResults: searchResult.page.length > 0,
         selectedTagsCount: selectedTags.length,
-        availableTagsCount: allAvailableTags.length,
       },
     });
 
     (ctx.state as CustomFreshState).data = {
-      allAvailableTags,
+      allTags,
       selectedTags,
       devicesWithSelectedTags: pageResults,
       pageResults,
@@ -280,16 +277,7 @@ export default function CatalogPage(ctx: FreshContext) {
   const data = (ctx.state as CustomFreshState).data;
   const translations = (ctx.state as CustomFreshState).translations ?? {};
 
-  // Debug logging for translations
-  logJson("info", "CatalogPage - Translations Debug", {
-    hasTranslations: !!translations,
-    translationKeys: Object.keys(translations).length,
-    sampleKeys: Object.keys(translations).slice(0, 5),
-    hasCatalogTitle: !!translations["devices.catalog.title"],
-    catalogTitle: translations["devices.catalog.title"],
-  });
-
-  const allAvailableTags = data.allAvailableTags;
+  const allTags = data.allTags as TagModel[];
   const selectedTags = data.selectedTags as TagModel[];
   const pageResults = data.pageResults as Device[];
   const totalAmountOfResults = data.totalAmountOfResults;
@@ -321,7 +309,7 @@ export default function CatalogPage(ctx: FreshContext) {
       case "grid9":
         return 9;
       case "grid4":
-        return 8;
+        return 4;
       default:
         return 20;
     }
@@ -329,19 +317,18 @@ export default function CatalogPage(ctx: FreshContext) {
 
   return (
     <div class="devices-page">
-      {
-        /* <SEO
-        title="Device Catalog"
-        description="Browse our catalog of retro gaming handhelds with specs."
-        url={`https://retroranker.site${url.pathname}`}
-        keywords="retro gaming handhelds, emulation devices, retro console comparison, handheld gaming systems, retro gaming devices catalog, Anbernic devices, Miyoo handhelds, retro gaming specs, portable emulation systems"
-      /> */
-      }
       <header style={{ textAlign: "center", marginBottom: "1.5rem" }}>
         <hgroup>
-          <h1>{TranslationPipe(translations, "devices.catalog.title")}</h1>
-          <p>
-            {TranslationPipe(translations, "devices.catalog.description")}
+          <h1>Device Catalog</h1>
+          <p
+            style={{
+              fontFamily: "var(--font-sans) !important",
+              letterSpacing: "0.03em",
+            }}
+          >
+            Browse our catalog of retro gaming handhelds with specs.
+            <br />Don't know where to start? Check out our{" "}
+            <a href="/articles/bang-for-your-buck">Best Value</a> article.
           </p>
         </hgroup>
       </header>
@@ -357,8 +344,14 @@ export default function CatalogPage(ctx: FreshContext) {
           </div>
           <div style={{ marginBottom: "2rem" }}>
             <TagTypeahead
-              allTags={allAvailableTags}
+              allTags={allTags}
               initialSelectedTags={selectedTags}
+            />
+          </div>
+          <div style={{ marginBottom: "2rem" }}>
+            <CollapsibleTagList
+              allTags={allTags}
+              selectedTags={selectedTags}
               baseUrl={url.origin}
               translations={translations}
             />
@@ -380,11 +373,10 @@ export default function CatalogPage(ctx: FreshContext) {
               <DeviceSearchForm
                 initialSearch={searchQuery}
                 initialCategory={searchCategory}
-                initialPage={pageNumber}
+                _initialPage={pageNumber}
                 initialSort={sortBy}
                 initialFilter={filter}
-                initialTags={selectedTags}
-                translations={translations}
+                _initialTags={selectedTags}
               />
             </div>
           </div>
@@ -410,11 +402,17 @@ export default function CatalogPage(ctx: FreshContext) {
                   marginTop: "1rem",
                 }}
               >
-                <p>{TranslationPipe(translations, "devices.noResults")}</p>
+                <p>
+                  No devices found matching your criteria. Try adjusting your
+                  filters or search terms.
+                </p>
               </div>
             )
             : (
-              <div class={getLayoutGrid(activeLayout)} f-client-nav={false}>
+              <div
+                class={`${getLayoutGrid(activeLayout)} device-search-grid`}
+                f-client-nav={false}
+              >
                 {pageResults.map((device) => (
                   <a
                     href={`/devices/${device.name.sanitized}`}
@@ -424,10 +422,6 @@ export default function CatalogPage(ctx: FreshContext) {
                       <DeviceCardMedium
                         device={device}
                         isActive={false}
-                        isLoggedIn={!!user}
-                        likes={likesCountMap[device.id] ?? 0}
-                        isLiked={userLikedMap[device.id] ?? false}
-                        isFavorited={userFavoritedMap[device.id] ?? false}
                       />
                     )}
                     {activeLayout === "grid4" && (

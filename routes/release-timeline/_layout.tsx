@@ -1,15 +1,10 @@
 import { PageProps } from "fresh";
 
-import { RouteConfig } from "fresh";
-
-export const config: RouteConfig = {
-  skipInheritedLayouts: true, // Skip already inherited layouts
-};
-
-export default function Layout({ Component }: PageProps) {
+export default function Layout(props: PageProps) {
+  const { Component } = props;
   // do something with state here
   return (
-    <div class="container">
+    <div class="container content">
       <Component />
     </div>
   );

@@ -1,15 +1,13 @@
-import { DeviceCardMedium } from "@components/cards/device-card-medium.tsx";
-import { SeeMoreCard } from "@components/cards/see-more-card.tsx";
-import { TagComponent } from "@components/shared/tag-component.tsx";
-import { Device } from "@data/frontend/contracts/device.model.ts";
-import { User } from "@data/frontend/contracts/user.contract.ts";
-import { TagModel } from "@data/frontend/models/tag.model.ts";
-import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
-import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
-import { createSuperUserPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
-import { tracer } from "@data/tracing/tracer.ts";
-import { CustomFreshState } from "@interfaces/state.ts";
-import { Hero } from "@islands/hero/hero.tsx";
+import { DeviceCardMedium } from "../components/cards/device-card-medium.tsx";
+import { SeeMoreCard } from "../components/cards/see-more-card.tsx";
+import { TagComponent } from "../components/shared/tag-component.tsx";
+import { Device } from "../data/frontend/contracts/device.model.ts";
+import { User } from "../data/frontend/contracts/user.contract.ts";
+import { TagModel } from "../data/frontend/models/tag.model.ts";
+import { DeviceService } from "../data/frontend/services/devices/device.service.ts";
+import { tracer } from "../data/tracing/tracer.ts";
+import { State } from "../utils.ts";
+import { Hero } from "../islands/hero/hero.tsx";
 import {
   PiCalendar,
   PiChartLine,
@@ -20,16 +18,19 @@ import {
   PiSparkle,
   PiUserCheck,
 } from "@preact-icons/pi";
-import { FreshContext, page } from "fresh";
+import { Context, page } from "fresh";
+import { OperatingSystemDistribution } from "../islands/charts/os-distribution.tsx";
+import { DevicesPerReleaseYearLineChart } from "../islands/charts/devices-per-release-year-line-chart.tsx";
 
 export const handler = {
-  async GET(ctx: FreshContext) {
-    (ctx.state as CustomFreshState).seo = {
-      title: "Retro Ranker - Home",
+  async GET(ctx: Context<State>) {
+    ctx.state.seo = {
+      title: "Retro Gaming Handheld Database & Reviews | Retro Ranker",
       description:
-        "Retro Ranker - Home to browse and compare retro gaming handhelds",
+        "Discover the ultimate retro gaming handheld database. Compare specs, read reviews, and find your perfect portable emulation device. Browse 400+ devices from Anbernic, Miyoo, Steam Deck, and more.",
       keywords:
-        "retro gaming, handheld consoles, emulation devices, retro handhelds, gaming comparison, Anbernic, Miyoo, retro game emulation, portable gaming systems, retro gaming comparison",
+        "retro gaming handhelds, emulation devices, portable gaming, retro console comparison, handheld reviews, Anbernic, Miyoo, Steam Deck, retro gaming database, handheld specs, emulation performance, retro gaming community",
+      url: `https://retroranker.site${ctx.url.pathname}`,
     };
 
     const deviceService = await DeviceService.getInstance();
@@ -62,68 +63,71 @@ export const handler = {
     ].filter((tag) => tag !== null) as TagModel[];
 
     // Likes and favorites data
-    const deviceIds = [
-      ...newArrivals,
-      ...personalPicks,
-      ...highlyRated,
-      ...upcoming,
-    ].map((d) => d.id);
-    const pb = await createSuperUserPocketBaseService(
-      Deno.env.get("POCKETBASE_SUPERUSER_EMAIL")!,
-      Deno.env.get("POCKETBASE_SUPERUSER_PASSWORD")!,
-      Deno.env.get("POCKETBASE_URL")!,
-    );
+    // const deviceIds = [
+    //   ...newArrivals,
+    //   ...personalPicks,
+    //   ...highlyRated,
+    //   ...upcoming,
+    // ].map((d) => d.id);
+    // const pb = await createSuperUserPocketBaseService(
+    //   Deno.env.get("POCKETBASE_SUPERUSER_EMAIL")!,
+    //   Deno.env.get("POCKETBASE_SUPERUSER_PASSWORD")!,
+    //   Deno.env.get("POCKETBASE_URL")!,
+    // );
 
-    const likesFilter = deviceIds.map((id) => `device="${id}"`).join(" || ");
-    const likeRecords = deviceIds.length > 0
-      ? await pb.getAll("device_likes", {
-        filter: likesFilter,
-        expand: "",
-        sort: "",
-      })
-      : [];
-    const likesCountMap: Record<string, number> = {};
-    const userLikedMap: Record<string, boolean> = {};
-    const currentUser = (ctx.state as CustomFreshState).user as User | null;
-    for (const r of likeRecords) {
-      likesCountMap[r.device] = (likesCountMap[r.device] || 0) + 1;
-      if (currentUser && r.user === currentUser.id) {
-        userLikedMap[r.device] = true;
-      }
-    }
+    // const likesFilter = deviceIds.map((id) => `device="${id}"`).join(" || ");
+    // const likeRecords = deviceIds.length > 0
+    //   ? await pb.getAll("device_likes", {
+    //     filter: likesFilter,
+    //     expand: "",
+    //     sort: "",
+    //   })
+    //   : [];
+    // const likesCountMap: Record<string, number> = {};
+    // const userLikedMap: Record<string, boolean> = {};
+    // const currentUser = ctx.state.user as User | null;
+    // for (const r of likeRecords) {
+    //   likesCountMap[r.device] = (likesCountMap[r.device] || 0) + 1;
+    //   if (currentUser && r.user === currentUser.id) {
+    //     userLikedMap[r.device] = true;
+    //   }
+    // }
 
-    const favoritesFilter = currentUser
-      ? `user="${currentUser.id}" && (` +
-        deviceIds.map((id) => `device="${id}"`).join(" || ") +
-        ")"
-      : "";
-    const favoriteRecords = currentUser && deviceIds.length > 0
-      ? await pb.getAll("device_favorites", {
-        filter: favoritesFilter,
-        expand: "",
-        sort: "",
-      })
-      : [];
-    const userFavoritedMap: Record<string, boolean> = {};
-    for (const r of favoriteRecords) {
-      userFavoritedMap[r.device] = true;
-    }
+    // const favoritesFilter = currentUser
+    //   ? `user="${currentUser.id}" && (` +
+    //     deviceIds.map((id) => `device="${id}"`).join(" || ") +
+    //     ")"
+    //   : "";
+    // const favoriteRecords = currentUser && deviceIds.length > 0
+    //   ? await pb.getAll("device_favorites", {
+    //     filter: favoritesFilter,
+    //     expand: "",
+    //     sort: "",
+    //   })
+    //   : [];
+    // const userFavoritedMap: Record<string, boolean> = {};
+    // for (const r of favoriteRecords) {
+    //   userFavoritedMap[r.device] = true;
+    // }
 
-    (ctx.state as CustomFreshState).data = {
+    const devices = await deviceService.getAllDevices();
+
+    ctx.state.data = {
+      devices,
       newArrivals,
       personalPicks,
       highlyRated,
       upcoming,
       defaultTags,
-      likesCountMap,
-      userLikedMap,
-      userFavoritedMap,
-      user: (ctx.state as CustomFreshState).user,
+      // likesCountMap,
+      // userLikedMap,
+      // userFavoritedMap,
+      // user: ctx.state.user,
     };
 
-    return await tracer.startActiveSpan("route:index", async (span) => {
+    return await tracer.startActiveSpan("route:index", async (span: any) => {
       try {
-        const user = (ctx.state as CustomFreshState)?.user as User | null;
+        const user = ctx.state?.user as User | null;
         span.setAttribute("user.authenticated", !!user);
         if (user && "email" in user) {
           span.setAttribute("user.email", user.email);
@@ -146,25 +150,24 @@ export const handler = {
 };
 
 export default function Home(
-  ctx: FreshContext,
+  ctx: Context<State>,
 ) {
-  const state = ctx.state as CustomFreshState;
+  const state = ctx.state;
   const data = state.data;
-  const translations = state.translations ?? {};
-
+  const devices = data.devices as Device[];
   const newArrivals = data.newArrivals as Device[];
   const personalPicks = data.personalPicks as Device[];
   const highlyRated = data.highlyRated as Device[];
   const upcoming = data.upcoming as Device[];
   const defaultTags = data.defaultTags as TagModel[];
-  const user = data.user as User | null;
-  const likesCountMap = data.likesCountMap as Record<string, number>;
-  const userLikedMap = data.userLikedMap as Record<string, boolean>;
-  const userFavoritedMap = data.userFavoritedMap as Record<string, boolean>;
+  // const user = data.user as User | null;
+  // const likesCountMap = data.likesCountMap as Record<string, number>;
+  // const userLikedMap = data.userLikedMap as Record<string, boolean>;
+  // const userFavoritedMap = data.userFavoritedMap as Record<string, boolean>;
 
   return (
     <div class="home-page">
-      <Hero translations={translations} />
+      <Hero />
       <div
         style={{
           display: "flex",
@@ -180,13 +183,18 @@ export default function Home(
                   marginBottom: "1rem",
                   fontSize: "1.2rem",
                   display: "flex",
+                  marginLeft: "auto",
+                  marginRight: "auto",
                   alignItems: "center",
                   justifyContent: "center",
                   gap: "0.5rem",
+                  backgroundColor: "var(--pico-card-background-color-darker)",
+                  padding: "0.5rem",
+                  maxWidth: "20em",
+                  borderRadius: "var(--pico-border-radius)",
                 }}
               >
-                <PiMagnifyingGlass />{" "}
-                {TranslationPipe(translations, "home.popularSearches")}
+                <PiMagnifyingGlass /> Popular Searches
               </h3>
 
               <div
@@ -210,140 +218,173 @@ export default function Home(
           <hr />
 
           {/* Upcoming Section */}
-          <section class="home-section">
-            <article class="home-section-content">
-              <h2 class="home-section-title">
-                <PiCalendar /> {TranslationPipe(translations, "home.upcoming")}
-              </h2>
-              <div class="device-row-grid">
-                {upcoming.map((device) => (
-                  <a
-                    href={`/devices/${device.name.sanitized}`}
-                    style={{ textDecoration: "none" }}
-                  >
-                    <DeviceCardMedium
-                      device={device}
-                      isActive={false}
-                      isLoggedIn={!!user}
-                      likes={likesCountMap[device.id] ?? 0}
-                      isLiked={userLikedMap[device.id] ?? false}
-                      isFavorited={userFavoritedMap[device.id] ?? false}
+          {upcoming.length > 0
+            ? (
+              <section class="home-section">
+                <article class="home-section-content">
+                  <h2 class="home-section-title">
+                    <PiCalendar /> Upcoming
+                  </h2>
+                  <div class="device-row-grid">
+                    {upcoming.map((device) => (
+                      <a
+                        href={`/devices/${device.name.sanitized}`}
+                        style={{ textDecoration: "none" }}
+                      >
+                        <DeviceCardMedium
+                          device={device}
+                          isActive={false}
+                        />
+                      </a>
+                    ))}
+                    <SeeMoreCard
+                      href="/devices?tags=upcoming"
+                      text="More Upcoming"
                     />
-                  </a>
-                ))}
-                <SeeMoreCard
-                  href="/devices?tags=upcoming"
-                  text={TranslationPipe(translations, "home.moreUpcoming")}
-                />
-              </div>
-            </article>
-          </section>
+                  </div>
+                </article>
+              </section>
+            )
+            : null}
 
-          <section class="home-section">
-            <article class="home-section-content">
-              <h2 class="home-section-title">
-                <PiSparkle />{" "}
-                {TranslationPipe(translations, "home.newArrivals")}
-              </h2>
-              <div class="device-row-grid">
-                {newArrivals.map((device) => (
-                  <a
-                    href={`/devices/${device.name.sanitized}`}
-                    style={{ textDecoration: "none" }}
-                  >
-                    <DeviceCardMedium
-                      device={device}
-                      isActive={false}
-                      isLoggedIn={!!user}
-                      likes={likesCountMap[device.id] ?? 0}
-                      isLiked={userLikedMap[device.id] ?? false}
-                      isFavorited={userFavoritedMap[device.id] ?? false}
+          {newArrivals.length > 0
+            ? (
+              <section class="home-section">
+                <article class="home-section-content">
+                  <h2 class="home-section-title">
+                    <PiSparkle /> New Arrivals
+                  </h2>
+                  <div class="device-row-grid">
+                    {newArrivals.map((device) => (
+                      <a
+                        href={`/devices/${device.name.sanitized}`}
+                        style={{ textDecoration: "none" }}
+                      >
+                        <DeviceCardMedium
+                          device={device}
+                          isActive={false}
+                        />
+                      </a>
+                    ))}
+                    <SeeMoreCard
+                      href="/devices?sort=new-arrivals"
+                      text="More New Arrivals"
                     />
-                  </a>
-                ))}
-                <SeeMoreCard
-                  href="/devices?sort=new-arrivals"
-                  text={TranslationPipe(translations, "home.moreNewArrivals")}
-                />
-              </div>
-            </article>
-          </section>
+                  </div>
+                </article>
+              </section>
+            )
+            : null}
 
           {/* Highly Rated Section */}
-          <section class="home-section">
-            <article class="home-section-content">
-              <h2 class="home-section-title">
-                <PiRanking />{" "}
-                {TranslationPipe(translations, "home.bangForBuck")}
-                <div
-                  style={{
-                    display: "flex",
-                    gap: "0.5rem",
-                    alignItems: "center",
-                  }}
-                >
-                  <span style={{ fontSize: "0.8rem" }}>
-                    ($$)
-                  </span>
-                </div>
-              </h2>
-              <div class="device-row-grid">
-                {highlyRated.map((device) => (
-                  <a
-                    href={`/devices/${device.name.sanitized}`}
-                    style={{ textDecoration: "none" }}
-                  >
-                    <DeviceCardMedium
-                      device={device}
-                      isActive={false}
-                      isLoggedIn={!!user}
-                      likes={likesCountMap[device.id] ?? 0}
-                      isLiked={userLikedMap[device.id] ?? false}
-                      isFavorited={userFavoritedMap[device.id] ?? false}
+          {highlyRated.length > 0
+            ? (
+              <section class="home-section">
+                <article class="home-section-content">
+                  <h2 class="home-section-title">
+                    <PiRanking /> Bang for your buck
+                    <div
+                      style={{
+                        display: "flex",
+                        gap: "0.5rem",
+                        alignItems: "center",
+                      }}
+                    >
+                      <span style={{ fontSize: "0.8rem" }}>
+                        ($$)
+                      </span>
+                    </div>
+                  </h2>
+                  <div class="device-row-grid">
+                    {highlyRated.map((device) => (
+                      <a
+                        href={`/devices/${device.name.sanitized}`}
+                        style={{ textDecoration: "none" }}
+                      >
+                        <DeviceCardMedium
+                          device={device}
+                          isActive={false}
+                        />
+                      </a>
+                    ))}
+                    <SeeMoreCard
+                      href="/devices?tags=mid&sort=highly-ranked"
+                      text="More Highly Ranked"
                     />
-                  </a>
-                ))}
-                <SeeMoreCard
-                  href="/devices?tags=mid&sort=highly-ranked"
-                  text={TranslationPipe(translations, "home.moreHighlyRanked")}
-                />
-              </div>
-            </article>
-          </section>
+                  </div>
+                </article>
+              </section>
+            )
+            : null}
 
           {/* personal Picks Section */}
-          <section class="home-section">
-            <article class="home-section-content">
-              <h2 class="home-section-title">
-                <PiUserCheck />{" "}
-                {TranslationPipe(translations, "home.personalPicks")}
-              </h2>
-              <div class="device-row-grid">
-                {personalPicks.map((device) => (
-                  <a
-                    href={`/devices/${device.name.sanitized}`}
-                    style={{ textDecoration: "none" }}
-                  >
-                    <DeviceCardMedium
-                      device={device}
-                      isActive={false}
-                      isLoggedIn={!!user}
-                      likes={likesCountMap[device.id] ?? 0}
-                      isLiked={userLikedMap[device.id] ?? false}
-                      isFavorited={userFavoritedMap[device.id] ?? false}
+          {personalPicks.length > 0
+            ? (
+              <section class="home-section">
+                <article class="home-section-content">
+                  <h2 class="home-section-title">
+                    <PiUserCheck /> Personal Picks
+                  </h2>
+                  <div class="device-row-grid">
+                    {personalPicks.map((device) => (
+                      <a
+                        href={`/devices/${device.name.sanitized}`}
+                        style={{ textDecoration: "none" }}
+                      >
+                        <DeviceCardMedium
+                          device={device}
+                          isActive={false}
+                        />
+                      </a>
+                    ))}
+                    <SeeMoreCard
+                      href="/devices?tags=personal-pick"
+                      text="More Personal Picks"
                     />
-                  </a>
-                ))}
-                <SeeMoreCard
-                  href="/devices?tags=personal-pick"
-                  text={TranslationPipe(translations, "home.morePersonalPicks")}
-                />
-              </div>
-            </article>
-          </section>
+                  </div>
+                </article>
+              </section>
+            )
+            : null}
 
           <hr />
-
+          <section class="site-charts-showcase">
+            <article class="site-charts-showcase-content">
+              <h2
+                style={{
+                  textAlign: "center",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "0.5rem",
+                }}
+              >
+                <PiChartLine /> Charts & Analytics
+              </h2>
+              <p>
+                This is a showcase of some of the charts about the current state
+                of devices. <br /> <a href="/charts">View all charts here.</a>
+              </p>
+              <hr />
+              {devices.length > 0
+                ? (
+                  <>
+                    <div class="chart-wrapper" style={{ marginBottom: "1rem" }}>
+                      <DevicesPerReleaseYearLineChart
+                        devices={devices}
+                      />
+                    </div>
+                    <div class="chart-wrapper" style={{ marginBottom: "1rem" }}>
+                      <OperatingSystemDistribution
+                        devices={devices}
+                      />
+                    </div>
+                  </>
+                )
+                : null}
+            </article>
+          </section>
+          <hr />
           <section class="site-introduction">
             <article class="site-introduction-content">
               <div class="site-introduction-text">
@@ -355,10 +396,10 @@ export default function Home(
                       textAlign: "center",
                     }}
                   >
-                    {TranslationPipe(translations, "home.handheldDatabase")}
+                    A Handheld Database
                   </h2>
                   <p style={{ textAlign: "center" }}>
-                    {TranslationPipe(translations, "home.poweredBy")}
+                    Powered by the Retro Handhelds community
                   </p>
                 </hgroup>
 
@@ -372,7 +413,11 @@ export default function Home(
                   <strong style={{ color: "var(--pico-primary)" }}>
                     Retro Ranker {" "}
                   </strong>
-                  {TranslationPipe(translations, "home.retroRankerDesc")}
+                  is a comprehensive database of retro gaming handhelds,
+                  designed to help you find the perfect device for your gaming
+                  needs. Whether you're a seasoned collector or just getting
+                  started, our platform provides detailed specifications,
+                  performance ratings, and user reviews to guide your decision.
                 </p>
                 <div class="index-buttons">
                   <a
@@ -387,7 +432,7 @@ export default function Home(
                       color: "var(--pico-contrast)",
                     }}
                   >
-                    <PiScroll /> {TranslationPipe(translations, "nav.devices")}
+                    <PiScroll /> Devices
                   </a>
                   <a
                     href="/compare"
@@ -401,7 +446,7 @@ export default function Home(
                       color: "var(--pico-contrast)",
                     }}
                   >
-                    <PiGitDiff /> {TranslationPipe(translations, "nav.compare")}
+                    <PiGitDiff /> Compare
                   </a>
 
                   <a
@@ -416,8 +461,7 @@ export default function Home(
                       color: "var(--pico-contrast)",
                     }}
                   >
-                    <PiCalendar />{" "}
-                    {TranslationPipe(translations, "nav.releases")}
+                    <PiCalendar /> Releases
                   </a>
 
                   <a
@@ -432,8 +476,7 @@ export default function Home(
                       color: "var(--pico-contrast)",
                     }}
                   >
-                    <PiChartLine />{" "}
-                    {TranslationPipe(translations, "nav.charts")}
+                    <PiChartLine /> Charts
                   </a>
                 </div>
               </div>

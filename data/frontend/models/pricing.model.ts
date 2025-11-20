@@ -1,13 +1,11 @@
-export interface PriceRange {
-  min: number | null;
-  max: number | null;
-}
-
 export interface DevicePricing {
-  raw: string | null;
-  discontinued: boolean | null;
+  category: string | null;
   average: number | null;
-  range: PriceRange;
   currency: string | null;
-  category: "low" | "mid" | "high" | null;
+  range: {
+    min: number | null;
+    max: number | null;
+  } | null;
+  discontinued: boolean | null;
+  raw: string | null;
 }

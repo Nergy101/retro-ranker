@@ -1,8 +1,8 @@
 import { PiPaperPlaneRight } from "@preact-icons/pi";
 import { useState } from "preact/hooks";
-import { ProfileImage } from "@components/auth/profile-image.tsx";
-import { Device } from "@data/frontend/contracts/device.model.ts";
-import { User } from "@data/frontend/contracts/user.contract.ts";
+import { ProfileImage } from "../../components/auth/profile-image.tsx";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
+import { User } from "../../data/frontend/contracts/user.contract.ts";
 
 const RATING_FIELDS = [
   { name: "performance_rating", label: "Performance" },
@@ -11,8 +11,9 @@ const RATING_FIELDS = [
   { name: "controls_rating", label: "Controls" },
   { name: "misc_rating", label: "Misc" },
   { name: "connectivity_rating", label: "Connectivity" },
-  { name: "overall_rating", label: "Overall" },
 ];
+
+const OVERALL_RATING_FIELD = { name: "overall_rating", label: "Overall" };
 
 export function AddDeviceReviewForm({
   device,
@@ -23,18 +24,30 @@ export function AddDeviceReviewForm({
 }) {
   const [review, setReview] = useState("");
   const [ratings, setRatings] = useState({
-    performance_rating: 5,
-    monitor_rating: 5,
-    audio_rating: 5,
-    controls_rating: 5,
-    misc_rating: 5,
-    connectivity_rating: 5,
-    overall_rating: 5,
+    performance_rating: 5.0,
+    monitor_rating: 5.0,
+    audio_rating: 5.0,
+    controls_rating: 5.0,
+    misc_rating: 5.0,
+    connectivity_rating: 5.0,
+    overall_rating: 5.0,
   });
 
+  function calculateOverallRating(ratings: any) {
+    const factorRatings = RATING_FIELDS.map((field) =>
+      ratings[field.name as keyof typeof ratings]
+    );
+    const sum = factorRatings.reduce((acc, rating) => acc + rating, 0);
+    const average = sum / factorRatings.length;
+    // Round to nearest 0.5
+    return Math.round(average * 2) / 2;
+  }
+
   function handleSliderChange(e: Event, field: string) {
-    const value = parseInt((e.target as HTMLInputElement).value, 10);
-    setRatings({ ...ratings, [field]: value });
+    const value = parseFloat((e.target as HTMLInputElement).value);
+    const newRatings = { ...ratings, [field]: value };
+    const overallRating = calculateOverallRating(newRatings);
+    setRatings({ ...newRatings, overall_rating: overallRating });
   }
 
   return (
@@ -57,80 +70,134 @@ export function AddDeviceReviewForm({
       >
         <input type="hidden" name="device" value={device.id} />
         <input type="hidden" name="user" value={user.id} />
+
         <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-          <ProfileImage name={user.nickname} size={32} />
+          <ProfileImage
+            name={user.nickname}
+            user={user}
+            size={32}
+          />
           <span style={{ fontWeight: "bold", whiteSpace: "nowrap" }}>
             {user.nickname}
           </span>
         </div>
-        <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
-          <textarea
-            placeholder="Write your review here..."
-            name="content"
-            value={review}
-            onInput={(
-              e,
-            ) => setReview((e.target as HTMLTextAreaElement).value)}
-            style={{
-              flex: 1,
-              padding: "0.5rem",
-              borderRadius: "0.25rem",
-              border: "1px solid var(--pico-muted-border-color)",
-              minHeight: "100px",
-              resize: "vertical",
-            }}
-          />
-        </div>
-        <div style={{ margin: "0.5em 0" }}>
-        </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: "1em" }}>
+
+        {/* Rating Fields */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+            gap: "1rem",
+          }}
+        >
           {RATING_FIELDS.map((field) => (
             <div
               key={field.name}
-              style={{ display: "flex", alignItems: "center", gap: "1em" }}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.25rem",
+              }}
             >
-              <label style={{ minWidth: "120px" }} htmlFor={field.name}>
-                {field.label}:
+              <label
+                htmlFor={field.name}
+                style={{ fontSize: "0.9rem", fontWeight: "bold" }}
+              >
+                {field.label}: {ratings[field.name as keyof typeof ratings]}/5
               </label>
               <input
                 type="range"
                 id={field.name}
                 name={field.name}
-                min="0"
-                max="10"
-                step="1"
+                min="1"
+                max="5"
+                step="0.5"
                 value={ratings[field.name as keyof typeof ratings]}
                 onInput={(e) => handleSliderChange(e, field.name)}
-                style={{ flex: 1 }}
+                style={{ width: "100%" }}
               />
-              <span style={{ width: "2em", textAlign: "center" }}>
-                {ratings[field.name as keyof typeof ratings]}
-              </span>
             </div>
           ))}
         </div>
-        <button
-          type="submit"
-          role="button"
-          class="primary"
+
+        {/* Overall Rating (Read-only) */}
+        <div
           style={{
-            padding: "0.5rem 1rem",
+            display: "flex",
+            flexDirection: "column",
+            gap: "0.25rem",
+            marginTop: "1rem",
+            padding: "1rem",
+            backgroundColor: "var(--pico-muted-background)",
             borderRadius: "0.25rem",
-            color: "var(--pico-color)",
-            width: "fit-content",
+            border: "1px solid var(--pico-border-color)",
           }}
         >
-          <span
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "0.25rem",
-              cursor: "pointer",
-            }}
+          <label
+            htmlFor={OVERALL_RATING_FIELD.name}
+            style={{ fontSize: "0.9rem", fontWeight: "bold" }}
           >
-            <PiPaperPlaneRight /> Add review
-          </span>
-        </button>
+            {OVERALL_RATING_FIELD.label}:{" "}
+            {ratings.overall_rating}/5 (Auto-calculated)
+          </label>
+          <input
+            type="range"
+            id={OVERALL_RATING_FIELD.name}
+            name={OVERALL_RATING_FIELD.name}
+            min="1"
+            max="5"
+            step="0.5"
+            value={ratings.overall_rating}
+            disabled
+            style={{
+              width: "100%",
+              opacity: 0.7,
+              cursor: "not-allowed",
+            }}
+          />
+        </div>
+
+        <div
+          style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}
+        >
+          <textarea
+            placeholder="Write your review here..."
+            name="content"
+            value={review}
+            onInput={(e) => setReview((e.target as HTMLTextAreaElement).value)}
+            style={{
+              width: "100%",
+              padding: "0.5rem",
+              border: "1px solid var(--pico-border-color)",
+              borderRadius: "0.25rem",
+              resize: "vertical",
+              minHeight: "100px",
+            }}
+            required
+          />
+          <div style={{ display: "flex", justifyContent: "flex-end" }}>
+            <button
+              type="submit"
+              style={{
+                padding: "0.5rem",
+                background: "var(--pico-primary)",
+                color: "var(--pico-primary-inverse)",
+                border: "none",
+                borderRadius: "0.25rem",
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                gap: "0.25rem",
+                whiteSpace: "nowrap",
+                width: "fit-content",
+              }}
+              disabled={!review.trim()}
+            >
+              <PiPaperPlaneRight size={16} />
+              Submit Review
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   );

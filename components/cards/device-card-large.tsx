@@ -1,10 +1,11 @@
 import { PiQuestion } from "@preact-icons/pi";
-import { Device } from "@data/frontend/contracts/device.model.ts";
-import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
+import { DeviceService as _DeviceService } from "../../data/frontend/services/devices/device.service.ts";
 import { EmulationPerformance } from "../devices/emulation-performance.tsx";
 import { StarRating } from "../ratings/star-rating.tsx";
 import { CurrencyIcon } from "../shared/currency-icon.tsx";
-import { DeviceCardActions } from "@islands/devices/device-card-actions.tsx";
+import { DeviceCardActions } from "../../islands/devices/device-card-actions.tsx";
+import { DeviceHelpers } from "../../data/frontend/helpers/device.helpers.ts";
 
 interface DeviceCardLargeProps {
   device: Device;
@@ -39,24 +40,61 @@ export function DeviceCardLarge(
     // if low its 1 dollar sign, if medium its 2 dollar signs, if high its 3 dollar signs
     if (device.pricing.category === "low") {
       return (
-        <span style={{ display: "flex", alignItems: "flex-end" }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            flexDirection: "column",
+          }}
+        >
           <CurrencyIcon currencyCode={device.pricing.currency} />
-        </span>
+          <span
+            style={{ fontSize: "0.6rem", color: "var(--pico-muted-color)" }}
+          >
+            {device.pricing.range?.min} - {device.pricing.range?.max}
+          </span>
+        </div>
       );
     } else if (device.pricing.category === "mid") {
       return (
-        <span style={{ display: "flex", alignItems: "flex-end" }}>
-          <CurrencyIcon currencyCode={device.pricing.currency} />
-          <CurrencyIcon currencyCode={device.pricing.currency} />
-        </span>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            flexDirection: "column",
+          }}
+        >
+          <span style={{ display: "flex", alignItems: "center" }}>
+            <CurrencyIcon currencyCode={device.pricing.currency} />
+            <CurrencyIcon currencyCode={device.pricing.currency} />
+          </span>
+          <span
+            style={{ fontSize: "0.6rem", color: "var(--pico-muted-color)" }}
+          >
+            {device.pricing.range?.min} - {device.pricing.range?.max}
+          </span>
+        </div>
       );
     } else if (device.pricing.category === "high") {
       return (
-        <span style={{ display: "flex", alignItems: "flex-end" }}>
-          <CurrencyIcon currencyCode={device.pricing.currency} />
-          <CurrencyIcon currencyCode={device.pricing.currency} />
-          <CurrencyIcon currencyCode={device.pricing.currency} />
-        </span>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            flexDirection: "column",
+          }}
+        >
+          <span style={{ display: "flex", alignItems: "center" }}>
+            <CurrencyIcon currencyCode={device.pricing.currency} />
+            <CurrencyIcon currencyCode={device.pricing.currency} />
+            <CurrencyIcon currencyCode={device.pricing.currency} />
+          </span>
+          <span
+            style={{ fontSize: "0.6rem", color: "var(--pico-muted-color)" }}
+          >
+            {device.pricing.range?.min} - {device.pricing.range?.max}
+          </span>
+        </div>
       );
     }
   };
@@ -115,38 +153,53 @@ export function DeviceCardLarge(
             <div class="device-card-price-container">
               {!device.pricing.discontinued && device.pricing.average
                 ? (
-                  <span
-                    style={{ display: "flex", fontSize: "1rem" }}
-                    data-tooltip={`${device.pricing.range.min}-${device.pricing.range.max} ${device.pricing.currency}`}
+                  <div
+                    class="device-card-price-indicator"
+                    data-tooltip={`${device.pricing.range?.min}-${device.pricing.range?.max} ${device.pricing.currency}`}
                   >
                     {getPriceIndicator()}
-                  </span>
+                  </div>
                 )
                 : (
-                  <span
-                    style={{ display: "flex", fontSize: "1rem" }}
+                  <div
+                    class="device-card-price-indicator"
                     data-tooltip="No pricing available"
                     aria-describedby="no-pricing-tooltip"
                   >
                     <CurrencyIcon currencyCode="USD" />
                     <PiQuestion aria-hidden="true" focusable="false" />
-                  </span>
+                  </div>
                 )}
             </div>
-            <span
+            <div
               class="device-card-os-icons"
               data-tooltip={device.os.list.join(", ") === "?"
                 ? "No OS information available"
                 : device.os.list.join(", ")}
               aria-describedby="os-icons-tooltip"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                flexDirection: "column",
+                justifyContent: "center",
+                height: "100%",
+              }}
             >
-              {device.os.icons.map((icon, idx) =>
-                // Decorative OS icons
-                <span key={idx} aria-hidden="true">
-                  {DeviceService.getOsIconComponent(icon)}
-                </span>
-              )}
-            </span>
+              {device.os.icons.map((icon, idx) => (
+                <div
+                  key={idx}
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                  }}
+                >
+                  <span aria-hidden="true">
+                    {DeviceHelpers.getOsIconComponent(icon)}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </hgroup>
       </header>
@@ -156,6 +209,7 @@ export function DeviceCardLarge(
           tooltipUseShortSystemName={true}
           useRatingDescription={false}
           hideLikeButton={true}
+          hideCommunityStats={true}
           user={null}
           likes={null}
           isLiked={false}

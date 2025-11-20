@@ -1,6 +1,12 @@
-import { Link } from "./link.ts";
-
 export interface DeviceReviews {
-  videoReviews: Link[];
-  writtenReviews: Link[];
+  count: number | null;
+  average: number | null;
+  videoReviews: Array<{
+    url: string;
+    name: string;
+  }>;
+  writtenReviews: Array<{
+    url: string;
+    name: string;
+  }>;
 }

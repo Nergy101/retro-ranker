@@ -165,6 +165,11 @@ export class RatingsService {
   }
 
   private rankDevicesByEmuPerformance(devices: Device[]): string[] {
+    // Handle single device case
+    if (devices.length === 1) {
+      return [devices[0].name.sanitized];
+    }
+
     const rankedDevices = devices
       .map((device) => ({
         name: device.name.sanitized,
@@ -205,6 +210,11 @@ export class RatingsService {
   }
 
   private rankDevicesByMonitor(devices: Device[]): string[] {
+    // Handle single device case
+    if (devices.length === 1) {
+      return [devices[0].name.sanitized];
+    }
+
     const rankedDevices = devices
       .map((device) => ({
         name: device.name.sanitized,
@@ -280,6 +290,11 @@ export class RatingsService {
   }
 
   private rankDevicesByDimensions(devices: Device[]): string[] {
+    // Handle single device case
+    if (devices.length === 1) {
+      return [devices[0].name.sanitized];
+    }
+
     const rankedDevices = devices
       .map((device) => ({
         name: device.name.sanitized,
@@ -323,6 +338,11 @@ export class RatingsService {
   }
 
   private rankDevicesByConnectivity(devices: Device[]): string[] {
+    // Handle single device case
+    if (devices.length === 1) {
+      return [devices[0].name.sanitized];
+    }
+
     const rankedDevices = devices
       .map((device) => ({
         name: device.name.sanitized,
@@ -364,6 +384,11 @@ export class RatingsService {
   }
 
   private rankDevicesByAudio(devices: Device[]): string[] {
+    // Handle single device case
+    if (devices.length === 1) {
+      return [devices[0].name.sanitized];
+    }
+
     const rankedDevices = devices
       .map((device) => ({
         name: device.name.sanitized,
@@ -396,6 +421,11 @@ export class RatingsService {
   }
 
   private rankDevicesByControls(devices: Device[]): string[] {
+    // Handle single device case
+    if (devices.length === 1) {
+      return [devices[0].name.sanitized];
+    }
+
     const rankedDevices = devices
       .map((device) => ({
         name: device.name.sanitized,
@@ -455,6 +485,11 @@ export class RatingsService {
   }
 
   private rankDevicesByMisc(devices: Device[]): string[] {
+    // Handle single device case
+    if (devices.length === 1) {
+      return [devices[0].name.sanitized];
+    }
+
     const rankedDevices = devices
       .map((device) => ({
         name: device.name.sanitized,
@@ -498,6 +533,11 @@ export class RatingsService {
   }
 
   private rankDevicesByAll(devices: Device[], ranking: Ranking): string[] {
+    // Handle single device case
+    if (devices.length === 1) {
+      return [devices[0].name.sanitized];
+    }
+
     const deviceScores = devices.map((device) => {
       const name = device.name.sanitized;
       let score = 0;

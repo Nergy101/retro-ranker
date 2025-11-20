@@ -2,8 +2,8 @@ import { ProfileImage } from "../auth/profile-image.tsx";
 
 interface DeviceReviewCardProps {
   review: {
-    expand: {
-      user: { id: string; nickname: string };
+    expand?: {
+      user?: { id: string; nickname: string };
     };
     content: string;
     performance_rating: number;
@@ -32,7 +32,61 @@ export function DeviceReviewCard({ review }: DeviceReviewCardProps) {
   const ratingValues = RATING_FIELDS.map((field) =>
     review[field.name as keyof typeof review] as number
   );
-  const average = ratingValues.reduce((a, b) => a + b, 0) / ratingValues.length;
+  const _average = ratingValues.reduce((a, b) => a + b, 0) /
+    ratingValues.length;
+
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString(undefined, {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
+  };
+
+  const renderStars = (rating: number) => {
+    // Round to nearest 0.5 for display
+    const roundedRating = Math.round(rating * 2) / 2;
+    const fullStars = Math.floor(roundedRating);
+    const hasHalfStar = roundedRating % 1 !== 0;
+
+    return (
+      <>
+        {/* Full stars */}
+        {Array.from({ length: fullStars }).map((_, i) => (
+          <span
+            key={`full-${i}`}
+            style={{ color: "var(--pico-primary)" }}
+          >
+            ★
+          </span>
+        ))}
+
+        {/* Half star */}
+        {hasHalfStar && (
+          <span
+            key="half"
+            style={{ color: "var(--pico-primary)" }}
+          >
+            ☆
+          </span>
+        )}
+
+        {/* Empty stars */}
+        {Array.from({ length: 5 - fullStars - (hasHalfStar ? 1 : 0) }).map((
+          _,
+          i,
+        ) => (
+          <span
+            key={`empty-${i}`}
+            style={{ color: "var(--pico-muted-color)" }}
+          >
+            ★
+          </span>
+        ))}
+      </>
+    );
+  };
 
   return (
     <div
@@ -48,82 +102,112 @@ export function DeviceReviewCard({ review }: DeviceReviewCardProps) {
         position: "relative",
       }}
     >
-      {/* Average Score in Top Right */}
-      <div
-        style={{
-          position: "absolute",
-          top: "1rem",
-          right: "1rem",
-          backgroundColor: "var(--pico-primary-background)",
-          color: "#fff",
-          borderRadius: "1em",
-          padding: "0.25em 0.75em",
-          fontWeight: "bold",
-          fontSize: "1.1em",
-          boxShadow: "0 1px 4px rgba(0,0,0,0.08)",
-        }}
-        title="Average score"
-      >
-        {average.toFixed(1)} / 10
-      </div>
-      <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-        <ProfileImage name={review.expand.user.nickname} size={32} />
-        <span style={{ fontWeight: "bold" }}>
-          {review.expand.user.nickname}
-        </span>
-        {review.created && (
-          <span style={{ fontSize: "0.9em", marginLeft: "0.5em" }}>
-            {new Date(review.created).toLocaleString()}
-          </span>
-        )}
-      </div>
-      <div
-        style={{
-          padding: "0.5rem",
-          color: "var(--pico-color)",
-          border: "1px solid var(--pico-muted-color)",
-          borderRadius: "var(--pico-border-radius)",
-          margin: "0.5rem 0",
-          backgroundColor: "var(--pico-background)",
-        }}
-      >
-        {review.content}
-      </div>
+      {/* Header */}
       <div
         style={{
           display: "flex",
-          flexDirection: "column",
-          gap: "0.5em",
-          padding: "0.5rem",
-          border: "1px solid var(--pico-muted-color)",
-          borderRadius: "var(--pico-border-radius)",
-          margin: "0.5rem 0",
-          backgroundColor: "var(--pico-background)",
+          alignItems: "center",
+          gap: "0.75rem",
+          marginBottom: "0.5rem",
         }}
       >
-        {RATING_FIELDS.map((field) => (
+        <ProfileImage
+          name={review.expand?.user?.nickname || "Anonymous"}
+          size={40}
+        />
+        <div style={{ flex: 1 }}>
           <div
-            key={field.name}
-            style={{ display: "flex", alignItems: "center", gap: "1em" }}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              marginBottom: "0.25rem",
+            }}
           >
-            <label style={{ minWidth: "120px" }}>{field.label}</label>
-            <input
-              type="range"
-              min="0"
-              max="10"
-              step="1"
-              value={review[field.name as keyof typeof review] as number}
-              readOnly
-              disabled
+            <strong style={{ color: "var(--pico-primary)" }}>
+              {review.expand?.user?.nickname || "Anonymous"}
+            </strong>
+            <span
               style={{
-                flex: 1,
+                fontSize: "0.8rem",
+                color: "var(--pico-muted-color)",
               }}
-            />
-            <span style={{ width: "2em", textAlign: "center" }}>
-              {review[field.name as keyof typeof review]}
+            >
+              {review.created ? formatDate(review.created) : ""}
             </span>
           </div>
-        ))}
+          <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+            <span style={{ fontSize: "0.9rem" }}>Overall:</span>
+            <div
+              style={{ display: "flex", alignItems: "center", gap: "0.25rem" }}
+            >
+              {renderStars(review.overall_rating)}
+              <span
+                style={{ fontSize: "0.8rem", color: "var(--pico-muted-color)" }}
+              >
+                ({review.overall_rating}/5)
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Content */}
+      {review.content && (
+        <div
+          style={{
+            lineHeight: "1.6",
+            color: "var(--pico-color)",
+            marginBottom: "0.5rem",
+          }}
+        >
+          {review.content}
+        </div>
+      )}
+
+      {/* Rating Breakdown */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))",
+          gap: "0.5rem",
+          marginTop: "0.5rem",
+        }}
+      >
+        {RATING_FIELDS.map((field) => {
+          const rating = review[field.name as keyof typeof review] as number;
+          return (
+            <div
+              key={field.name}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.25rem",
+              }}
+            >
+              <span style={{ fontSize: "0.8rem", fontWeight: "bold" }}>
+                {field.label}
+              </span>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.25rem",
+                }}
+              >
+                {renderStars(rating)}
+                <span
+                  style={{
+                    fontSize: "0.7rem",
+                    color: "var(--pico-muted-color)",
+                  }}
+                >
+                  {rating}/5
+                </span>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

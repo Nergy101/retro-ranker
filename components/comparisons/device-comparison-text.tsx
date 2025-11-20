@@ -1,5 +1,5 @@
 import { PiArticle } from "@preact-icons/pi";
-import { Device } from "@data/frontend/contracts/device.model.ts";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
 
 interface DeviceComparisonTextProps {
   devices: Device[];
@@ -141,15 +141,13 @@ export function DeviceComparisonText(
         <p>
           The <strong>{device1.brand.raw} {device1.name.raw}</strong> features a
           {" "}
-          <strong>{formatScreenSize(device1.screen?.size)}</strong> display,
-          {" "}
-          <strong>{formatRam(device1)}</strong> of RAM, and a{" "}
+          <strong>{formatScreenSize(device1.screen?.size ?? null)}</strong>{" "}
+          display, <strong>{formatRam(device1)}</strong> of RAM, and a{" "}
           <strong>{formatBattery(device1)}</strong> battery. In comparison, the
           {" "}
           <strong>{device2.brand.raw} {device2.name.raw}</strong> offers a{" "}
-          <strong>{formatScreenSize(device2.screen?.size)}</strong> display,
-          {" "}
-          <strong>{formatRam(device2)}</strong> of RAM, and a{"  "}
+          <strong>{formatScreenSize(device2.screen?.size ?? null)}</strong>{" "}
+          display, <strong>{formatRam(device2)}</strong> of RAM, and a{"  "}
           <strong>{formatBattery(device2)}</strong> battery.
         </p>
 

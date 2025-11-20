@@ -1,5 +1,5 @@
-import { ThumbsUp } from "@islands/buttons/thumbs-up.tsx";
-import { FavoriteButton } from "@islands/buttons/favorite-button.tsx";
+import { ThumbsUp } from "../../islands/buttons/thumbs-up.tsx";
+import { FavoriteButton } from "../../islands/buttons/favorite-button.tsx";
 
 interface DeviceCardActionsProps {
   deviceId: string;
@@ -29,7 +29,7 @@ export function DeviceCardActions(
           isLoggedIn={isLoggedIn}
         />
       )}
-      {showLikeButton && (
+      {showLikeButton && isLoggedIn && (
         <ThumbsUp
           deviceId={deviceId}
           initialLikes={likes}

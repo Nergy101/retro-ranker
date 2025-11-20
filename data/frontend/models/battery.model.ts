@@ -1,5 +1,8 @@
 export interface DeviceBattery {
-  raw: string | null;
   capacity: number | null;
-  unit: "mAh" | "Wh" | null;
+  unit: string | null;
+  type: string;
+  removable: boolean;
+  charging: string;
+  raw: string | null;
 }

@@ -2,13 +2,14 @@ import { PiGridNine, PiList, PiSquaresFour } from "@preact-icons/pi";
 import { useEffect, useState } from "preact/hooks";
 
 export function LayoutSelector(
-  { activeLayout, initialPageSize, defaultPageSize }: {
+  { activeLayout, initialPageSize, defaultPageSize: _defaultPageSize }: {
     activeLayout: string;
     initialPageSize: number;
     defaultPageSize: number;
   },
 ) {
   const [pageSize, setPageSize] = useState(initialPageSize);
+
   useEffect(() => {
     const layout = localStorage.getItem("preferredLayout");
     if (layout && layout !== activeLayout) {
@@ -21,14 +22,7 @@ export function LayoutSelector(
     setPageSize(newPageSize);
 
     const url = new URL(globalThis.location.href);
-    url.searchParams.set("pageSize", pageSize.toString());
-    globalThis.location.href = url.toString();
-  };
-
-  const handleSubmit = (e: Event) => {
-    e.preventDefault();
-    const url = new URL(globalThis.location.href);
-    url.searchParams.set("pageSize", pageSize.toString());
+    url.searchParams.set("pageSize", newPageSize.toString());
     globalThis.location.href = url.toString();
   };
 
@@ -36,95 +30,137 @@ export function LayoutSelector(
     const url = new URL(globalThis.location.href);
     url.searchParams.set("layout", layout);
     localStorage.setItem("preferredLayout", layout);
-    // Navigate to the updated URL
     globalThis.location.href = url.toString();
   };
 
-  const getStyle = (layout: string) =>
-    activeLayout === layout ? "var(--pico-primary)" : "var(--pico-text)";
+  const getActiveClass = (layout: string) =>
+    activeLayout === layout ? "layout-active" : "";
 
   return (
     <div
       style={{
         display: "flex",
         gap: "1rem",
-        justifyContent: "flex-end",
         alignItems: "center",
+        flexWrap: "wrap",
       }}
     >
-      <button
-        data-tooltip="List View"
-        data-placement="left"
-        type="button"
-        aria-label="List View"
-        class="outline no-border"
+      <div
         style={{
-          color: getStyle("list"),
-          cursor: "pointer",
-          margin: 0,
-          padding: 0,
+          flex: 1,
+          display: "flex",
+          gap: "0.5rem",
+          backgroundColor: "var(--pico-card-background-color-darker)",
+          borderRadius: "var(--pico-border-radius)",
+          padding: "0.5rem",
+          border: "1px solid var(--pico-muted-border-color)",
         }}
-        onClick={() => setActiveLayout("list")}
       >
-        <PiList class="text-3xl" />
-      </button>
-      <button
-        data-tooltip="Small View"
-        data-placement="left"
-        type="button"
-        aria-label="Small View"
-        class="outline no-border"
-        style={{
-          color: getStyle("grid9"),
-          cursor: "pointer",
-          margin: 0,
-          padding: 0,
-        }}
-        onClick={() => setActiveLayout("grid9")}
-      >
-        <PiGridNine class="text-3xl" />
-      </button>
-      <button
-        data-tooltip="Detailed View"
-        data-placement="left"
-        type="button"
-        aria-label="Detailed View"
-        class="outline no-border"
-        style={{
-          color: getStyle("grid4"),
-          cursor: "pointer",
-          margin: 0,
-          padding: 0,
-        }}
-        onClick={() => setActiveLayout("grid4")}
-      >
-        <PiSquaresFour class="text-3xl" />
-      </button>
+        <button
+          type="button"
+          onClick={() => setActiveLayout("grid9")}
+          className={getActiveClass("grid9")}
+          style={{
+            marginBottom: 0,
+            background: "transparent",
+            cursor: "pointer",
+            width: "5rem",
+            color: activeLayout === "grid9"
+              ? "var(--pico-primary)"
+              : "var(--pico-text)",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "0.5rem",
+            }}
+          >
+            <PiGridNine size={20} />
+            <span>Default</span>
+          </div>
+        </button>
+        <button
+          type="button"
+          onClick={() => setActiveLayout("grid4")}
+          className={getActiveClass("grid4")}
+          style={{
+            marginBottom: 0,
+            background: "transparent",
+            cursor: "pointer",
+            width: "5rem",
+            color: activeLayout === "grid4"
+              ? "var(--pico-primary)"
+              : "var(--pico-text)",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "0.5rem",
+            }}
+          >
+            <PiSquaresFour size={20} />
+            <span>Detailed</span>
+          </div>
+        </button>
+        <button
+          type="button"
+          onClick={() => setActiveLayout("list")}
+          className={getActiveClass("list")}
+          style={{
+            marginBottom: 0,
+            background: "transparent",
+            cursor: "pointer",
+            width: "5rem",
+            color: activeLayout === "list"
+              ? "var(--pico-primary)"
+              : "var(--pico-text)",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "0.5rem",
+              minWidth: "3rem",
+            }}
+          >
+            <PiList size={20} />
+            <span>List</span>
+          </div>
+        </button>
+      </div>
+
       <div
         style={{
           display: "flex",
-          flexDirection: "column",
-          gap: "0.5rem",
+          flexDirection: "row",
           alignItems: "center",
+          gap: "1rem",
+          flex: 1,
         }}
       >
-        <form onSubmit={handleSubmit}>
-          <select
-            style={{
-              textAlign: "center",
-              width: "auto",
-            }}
-            value={pageSize}
-            onChange={handlePageSizeChange}
-            name="pageSize"
-            aria-label="Page Size"
-          >
-            <option value={defaultPageSize}>{defaultPageSize}</option>
-            <option value={10}>10</option>
-            <option value={20}>20</option>
-            <option value={50}>50</option>
-          </select>
-        </form>
+        <label htmlFor="pageSize" style={{ flex: 2 }}>
+          Items per page:
+        </label>
+        <select
+          style={{ flex: 1, minWidth: "5rem" }}
+          id="pageSize"
+          value={pageSize}
+          onChange={handlePageSizeChange}
+        >
+          <option value={4}>4</option>
+          <option value={9}>9</option>
+          <option value={12}>12</option>
+          <option value={20}>20</option>
+          <option value={50}>50</option>
+        </select>
       </div>
     </div>
   );

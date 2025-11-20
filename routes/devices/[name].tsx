@@ -5,36 +5,37 @@ import {
   PiQuestion,
   PiStar,
 } from "@preact-icons/pi";
-import { FreshContext, page } from "fresh";
-import { DeviceCardMedium } from "@components/cards/device-card-medium.tsx";
-import { DeviceCommentCard } from "@components/cards/device-comment-card.tsx";
-import { DeviceReviewCard } from "@components/cards/device-review-card.tsx";
-import { DeviceLinks } from "@components/devices/device-links.tsx";
-import { EmulationPerformance } from "@components/devices/emulation-performance.tsx";
-import { StarRating } from "@components/ratings/star-rating.tsx";
-import { CurrencyIcon } from "@components/shared/currency-icon.tsx";
-import { TagComponent } from "@components/shared/tag-component.tsx";
-import { DeviceSpecs } from "@components/specifications/device-specs.tsx";
-import { SummaryTable } from "@components/specifications/tables/summary-table.tsx";
-import { CommentContract } from "@data/frontend/contracts/comment.contract.ts";
-import { Device } from "@data/frontend/contracts/device.model.ts";
-import { ReviewContract } from "@data/frontend/contracts/review.contract.ts";
-import { User } from "@data/frontend/contracts/user.contract.ts";
-import { BrandWebsites } from "@data/frontend/enums/brand-websites.ts";
-import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
-import { createSuperUserPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
-import { CustomFreshState } from "@interfaces/state.ts";
-import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
-import { BackButton } from "@islands/buttons/back-button.tsx";
-import { ClipboardButton } from "@islands/buttons/clipboard-button.tsx";
-import { CompareButton } from "@islands/buttons/compare-button.tsx";
-import { ShareButton } from "@islands/buttons/share-button.tsx";
-import { DevicesSimilarRadarChart } from "@islands/charts/devices-similar-radar-chart.tsx";
-import { AddDeviceCommentForm } from "@islands/forms/add-device-comment-form.tsx";
-import { AddDeviceReviewForm } from "@islands/forms/add-device-review-form.tsx";
+import { Context, page } from "fresh";
+import { DeviceCardMedium } from "../../components/cards/device-card-medium.tsx";
+import { DeviceReviewCard } from "../../components/cards/device-review-card.tsx";
+import { DeviceLinks } from "../../components/devices/device-links.tsx";
+import { EmulationPerformance } from "../../components/devices/emulation-performance.tsx";
+import { StarRating } from "../../components/ratings/star-rating.tsx";
+import { CurrencyIcon } from "../../components/shared/currency-icon.tsx";
+import { TagComponent } from "../../components/shared/tag-component.tsx";
+import { DeviceSpecs } from "../../components/specifications/device-specs.tsx";
+import { SummaryTable } from "../../components/specifications/tables/summary-table.tsx";
+import { CommentContract } from "../../data/frontend/contracts/comment.contract.ts";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
+import { ReviewContract } from "../../data/frontend/contracts/review.contract.ts";
+import { User } from "../../data/frontend/contracts/user.contract.ts";
+import { BrandWebsites } from "../../data/frontend/enums/brand-websites.ts";
+import { DeviceService } from "../../data/frontend/services/devices/device.service.ts";
+import { createSuperUserPocketBaseService } from "../../data/pocketbase/pocketbase.service.ts";
+import { CustomFreshState } from "../../interfaces/state.ts";
+import { BackButton } from "../../islands/buttons/back-button.tsx";
+import { ClipboardButton } from "../../islands/buttons/clipboard-button.tsx";
+import { CompareButton } from "../../islands/buttons/compare-button.tsx";
+import { ShareButton } from "../../islands/buttons/share-button.tsx";
+import { DevicesSimilarRadarChart } from "../../islands/charts/devices-similar-radar-chart.tsx";
+import { generateDeviceColors } from "../../data/frontend/services/utils/chart-colors.utils.ts";
+import { AddDeviceCommentForm } from "../../islands/forms/add-device-comment-form.tsx";
+import { AddDeviceReviewForm } from "../../islands/forms/add-device-review-form.tsx";
+import { CommentThread } from "../../islands/comments/comment-thread.tsx";
+import { DeviceHelpers } from "../../data/frontend/helpers/device.helpers.ts";
 
 export const handler = {
-  async GET(ctx: FreshContext) {
+  async GET(ctx: Context<CustomFreshState>) {
     const deviceId = ctx.params.name;
     const user = (ctx.state as CustomFreshState).user as User | null;
 
@@ -80,16 +81,62 @@ export const handler = {
       userFavorited = userFavorite.items.length > 0;
     }
 
-    const comments = (await pb.getList(
+    // Get top-level comments (no parent) with their user and reactions
+    const topLevelComments = (await pb.getList(
       "device_comments",
       1,
       100,
       {
-        filter: `device="${deviceId}"`,
+        filter: `device="${deviceId}" && parent_comment=""`,
         sort: "-created",
-        expand: "user",
+        expand: "user,reactions.user",
       },
     )).items;
+
+    // For each top-level comment, get its replies recursively
+    const comments = await Promise.all(
+      topLevelComments.map(async (comment) => {
+        const loadReplies = async (
+          parentId: string,
+          depth = 0,
+        ): Promise<any[]> => {
+          if (depth > 3) return []; // Prevent infinite recursion
+
+          const replies = (await pb.getList(
+            "device_comments",
+            1,
+            100,
+            {
+              filter: `parent_comment="${parentId}"`,
+              sort: "-created",
+              expand: "user,reactions.user",
+            },
+          )).items;
+
+          // Recursively load nested replies
+          const nestedReplies = await Promise.all(
+            replies.map(async (reply) => ({
+              ...reply,
+              expand: {
+                ...reply.expand,
+                replies: await loadReplies(reply.id, depth + 1),
+              },
+            })),
+          );
+
+          return nestedReplies;
+        };
+
+        const replies = await loadReplies(comment.id);
+        return {
+          ...comment,
+          expand: {
+            ...comment.expand,
+            replies,
+          },
+        };
+      }),
+    );
 
     const reviews = (await pb.getList(
       "device_reviews",
@@ -101,6 +148,16 @@ export const handler = {
         expand: "user",
       },
     )).items;
+
+    // Get total favorites count
+    const favorites = await pb.getAll(
+      "device_favorites",
+      {
+        filter: `device="${deviceId}"`,
+        expand: "",
+        sort: "",
+      },
+    );
 
     const jsonLdForDevice = (device: Device | null) => {
       if (!device) return "";
@@ -265,13 +322,14 @@ export const handler = {
       comments,
       reviews,
       releaseDate,
+      totalFavorites: favorites.length,
     };
 
     return page(ctx);
   },
 };
 
-export default function DeviceDetail(ctx: FreshContext) {
+export default function DeviceDetail(ctx: Context<CustomFreshState>) {
   const data = (ctx.state as CustomFreshState).data;
   const translations = (ctx.state as CustomFreshState).translations ?? {};
   const user = (ctx.state as CustomFreshState).user as User | null;
@@ -290,17 +348,15 @@ export default function DeviceDetail(ctx: FreshContext) {
         <article>
           <header>
             <h1>
-              {TranslationPipe(translations, "devices.notFound.title")}{" "}
-              "{ctx.params?.name}"
+              Device Not Found "{ctx.params?.name}"
             </h1>
           </header>
-          <p>{TranslationPipe(translations, "devices.notFound.description")}</p>
+          <p>
+            The device you're looking for doesn't exist or has been removed.
+          </p>
           <footer>
             <a href="/devices" role="button">
-              {TranslationPipe(
-                translations,
-                "devices.notFound.returnToDevices",
-              )}
+              Return to Devices
             </a>
           </footer>
         </article>
@@ -381,7 +437,7 @@ export default function DeviceDetail(ctx: FreshContext) {
                   width={100}
                   height={100}
                   alt={device.image?.alt ??
-                    TranslationPipe(translations, "devices.deviceImage")}
+                    "Device Image"}
                   style={{
                     width: "100%",
                     height: "100%",
@@ -391,20 +447,14 @@ export default function DeviceDetail(ctx: FreshContext) {
               )
               : (
                 <span
-                  data-tooltip={TranslationPipe(
-                    translations,
-                    "devices.noImageAvailable",
-                  )}
+                  data-tooltip="No image available"
                   data-placement="bottom"
                 >
                   <img
                     src="/images/placeholder-100x100.svg"
                     width={100}
                     height={100}
-                    alt={TranslationPipe(
-                      translations,
-                      "devices.placeholderImage",
-                    )}
+                    alt="Device Image"
                     style={{
                       width: "100px",
                       height: "100px",
@@ -458,10 +508,7 @@ export default function DeviceDetail(ctx: FreshContext) {
                 : (
                   <span
                     style={{ display: "flex" }}
-                    data-tooltip={TranslationPipe(
-                      translations,
-                      "devices.noPricingAvailable",
-                    )}
+                    data-tooltip="No pricing information available"
                   >
                     <CurrencyIcon currencyCode="USD" />
                     <PiQuestion />
@@ -476,11 +523,11 @@ export default function DeviceDetail(ctx: FreshContext) {
                   marginTop: "0.5rem",
                 }}
                 data-tooltip={device.os.list.join(", ") === "?"
-                  ? TranslationPipe(translations, "devices.noOsInfoAvailable")
+                  ? "No OS information available"
                   : device.os.list.join(", ")}
               >
                 {device.os.icons.map((icon) =>
-                  DeviceService.getOsIconComponent(icon)
+                  DeviceHelpers.getOsIconComponent(icon)
                 )}
               </span>
             </div>
@@ -496,9 +543,7 @@ export default function DeviceDetail(ctx: FreshContext) {
             >
               {releaseDate.icon()}
 
-              {releaseDate.expected
-                ? TranslationPipe(translations, "devices.expected")
-                : releaseDate.date}
+              {releaseDate.expected ? "Expected" : releaseDate.date}
             </span>
           </div>
         </div>
@@ -525,12 +570,59 @@ export default function DeviceDetail(ctx: FreshContext) {
       </div>
 
       <div class="device-detail-performance">
+        <h3
+          style={{
+            textAlign: "center",
+            padding: 0,
+            margin: "1rem 0",
+          }}
+        >
+          Tags
+        </h3>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "0.5rem",
+            justifyContent: "center",
+          }}
+        >
+          {device.tags.map((tag) => (
+            <TagComponent
+              key={tag.name}
+              tag={tag}
+            />
+          ))}
+        </div>
         <EmulationPerformance
           device={device}
           user={user}
           likes={likesCount}
           isLiked={userLiked}
           userFavorited={userFavorited}
+          totalComments={comments.reduce((total, comment) => {
+            const countReplies = (replies: any[]): number => {
+              return replies.reduce((replyTotal, reply) => {
+                const nestedReplies = reply.expand?.replies
+                  ? countReplies(reply.expand.replies)
+                  : 0;
+                return replyTotal + 1 + nestedReplies;
+              }, 0);
+            };
+            const nestedReplies = comment.expand?.replies
+              ? countReplies(comment.expand.replies)
+              : 0;
+            return total + 1 + nestedReplies;
+          }, 0)}
+          totalReviews={reviews.length}
+          averageReviewScore={reviews.length > 0
+            ? reviews.reduce(
+              (sum: any, review: { overall_rating: any }) =>
+                sum + (review.overall_rating || 0),
+              0,
+            ) / reviews.length
+            : null}
+          totalFavorites={data.totalFavorites || null}
         />
       </div>
 
@@ -553,7 +645,7 @@ export default function DeviceDetail(ctx: FreshContext) {
               }}
             >
               <strong style={{ color: "var(--pico-primary)" }}>
-                {TranslationPipe(translations, "devices.reviews.title")}
+                Reviews
               </strong>
               <span
                 style={{
@@ -562,7 +654,7 @@ export default function DeviceDetail(ctx: FreshContext) {
                   fontStyle: "italic",
                 }}
               >
-                {TranslationPipe(translations, "devices.reviews.description")}
+                Share your experience with this device
               </span>
             </summary>
             <section>
@@ -591,16 +683,10 @@ export default function DeviceDetail(ctx: FreshContext) {
                         style={{ color: "var(--pico-primary)" }}
                       />
                       <strong>
-                        {TranslationPipe(
-                          translations,
-                          "devices.reviews.noReviews",
-                        )}
+                        No reviews yet
                       </strong>
                       <span style={{ marginLeft: "0.5em" }}>
-                        {TranslationPipe(
-                          translations,
-                          "devices.reviews.beFirst",
-                        )}
+                        Be the first to review this device
                       </span>
                     </div>
                   )}
@@ -608,9 +694,9 @@ export default function DeviceDetail(ctx: FreshContext) {
               {user == null && (
                 <p style={{ textAlign: "center" }}>
                   <a href="/auth/sign-in">
-                    {TranslationPipe(translations, "auth.logIn")}
+                    Log In
                   </a>{" "}
-                  {TranslationPipe(translations, "devices.reviews.logInToAdd")}
+                  Log in to add a review
                 </p>
               )}
               {user && <AddDeviceReviewForm device={device} user={user} />}
@@ -645,7 +731,7 @@ export default function DeviceDetail(ctx: FreshContext) {
               }}
             >
               <strong style={{ color: "var(--pico-primary)" }}>
-                {TranslationPipe(translations, "devices.comments.title")}
+                Comments
               </strong>
               <span
                 style={{
@@ -654,7 +740,7 @@ export default function DeviceDetail(ctx: FreshContext) {
                   fontStyle: "italic",
                 }}
               >
-                {TranslationPipe(translations, "devices.comments.description")}
+                Discuss this device with the community
               </span>
             </summary>
             <section>
@@ -675,30 +761,17 @@ export default function DeviceDetail(ctx: FreshContext) {
                     ? (
                       <>
                         <strong>
-                          {TranslationPipe(
-                            translations,
-                            "devices.comments.noComments",
-                          )}
+                          No comments yet
                         </strong>
                         <span style={{ marginLeft: "0.5em" }}>
-                          {TranslationPipe(
-                            translations,
-                            "devices.comments.beFirst",
-                          )}
+                          Be the first to comment
                         </span>
                       </>
                     )
                     : (
                       <>
-                        <strong>{comments.length}</strong> {TranslationPipe(
-                          translations,
-                          comments.length === 1
-                            ? "devices.comments.comment"
-                            : "devices.comments.comments",
-                        )} {TranslationPipe(
-                          translations,
-                          "devices.comments.soFar",
-                        )}.
+                        <strong>{comments.length}</strong>{" "}
+                        {comments.length === 1 ? "comment" : "comments"} so far.
                       </>
                     )}
                 </span>
@@ -706,12 +779,9 @@ export default function DeviceDetail(ctx: FreshContext) {
               {user == null && (
                 <p style={{ textAlign: "center" }}>
                   <a href="/auth/sign-in">
-                    {TranslationPipe(translations, "auth.signIn")}
+                    Sign In
                   </a>{" "}
-                  {TranslationPipe(
-                    translations,
-                    "devices.comments.toAddYours",
-                  )}.
+                  to add yours.
                 </p>
               )}
 
@@ -719,13 +789,11 @@ export default function DeviceDetail(ctx: FreshContext) {
 
               {comments?.length > 0
                 ? (
-                  <>
-                    {comments.map((comment) => (
-                      <DeviceCommentCard
-                        comment={comment}
-                      />
-                    ))}
-                  </>
+                  <CommentThread
+                    comments={comments}
+                    user={user}
+                    deviceId={device.id}
+                  />
                 )
                 : (
                   <>
@@ -747,25 +815,36 @@ export default function DeviceDetail(ctx: FreshContext) {
 
       <div class="device-detail-similar-devices">
         <h2 style={{ textAlign: "center" }}>
-          {TranslationPipe(translations, "devices.findSimilarDevices")}
+          Find Similar Devices
         </h2>
 
         <div class="tags">
           {device.tags.map((tag) => <TagComponent key={tag.name} tag={tag} />)}
         </div>
         <div class="similar-devices-grid">
-          {similarDevices.map((deviceItem) => (
-            <a
-              href={`/devices/${deviceItem.name.sanitized}`}
-              style={{ textDecoration: "none" }}
-            >
-              <DeviceCardMedium
-                device={deviceItem}
-                isActive={false}
-                showLikeButton={false}
-              />
-            </a>
-          ))}
+          {(() => {
+            return similarDevices.map((deviceItem) => {
+              // Use index + 1 because index 0 is the main device
+              const borderColor = generateDeviceColors([
+                device,
+                ...similarDevices,
+              ])[deviceItem.name.sanitized];
+
+              return (
+                <a
+                  key={deviceItem.name.sanitized}
+                  href={`/devices/${deviceItem.name.sanitized}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <DeviceCardMedium
+                    device={deviceItem}
+                    isActive={false}
+                    borderColor={borderColor}
+                  />
+                </a>
+              );
+            });
+          })()}
         </div>
       </div>
       <div class="device-detail-specs">
@@ -786,10 +865,7 @@ export default function DeviceDetail(ctx: FreshContext) {
               }}
             >
               <strong style={{ color: "var(--pico-primary)" }}>
-                {TranslationPipe(
-                  translations,
-                  "devices.specifications.summary",
-                )}
+                Specifications Summary
               </strong>
               <span
                 style={{
@@ -798,10 +874,7 @@ export default function DeviceDetail(ctx: FreshContext) {
                   fontStyle: "italic",
                 }}
               >
-                {TranslationPipe(
-                  translations,
-                  "devices.specifications.summaryDescription",
-                )}
+                Key specifications and features at a glance
               </span>
             </summary>
             <section>
@@ -823,7 +896,7 @@ export default function DeviceDetail(ctx: FreshContext) {
               }}
             >
               <strong style={{ color: "var(--pico-primary)" }}>
-                {TranslationPipe(translations, "devices.specifications.full")}
+                Full Specifications
               </strong>
               <span
                 style={{
@@ -832,10 +905,7 @@ export default function DeviceDetail(ctx: FreshContext) {
                   fontStyle: "italic",
                 }}
               >
-                {TranslationPipe(
-                  translations,
-                  "devices.specifications.fullDescription",
-                )}
+                Complete technical specifications and detailed information
               </span>
             </summary>
             <DeviceSpecs device={device} />

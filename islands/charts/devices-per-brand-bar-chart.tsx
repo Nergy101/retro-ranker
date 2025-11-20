@@ -1,16 +1,12 @@
 import { useState } from "preact/hooks";
-import { Device } from "@data/frontend/contracts/device.model.ts";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { FreshChart } from "./fresh-chart.tsx";
-import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
 
 interface BarChartProps {
   devices: Device[];
-  translations?: Record<string, string>;
 }
 
-export function DevicesPerBrandBarChart(
-  { devices, translations = {} }: BarChartProps,
-) {
+export function DevicesPerBrandBarChart({ devices }: BarChartProps) {
   const [minAmountOfDevices, setMinAmountOfDevices] = useState(10);
 
   // Get unique brands from the devices array
@@ -62,7 +58,7 @@ export function DevicesPerBrandBarChart(
 
     const colorsForAllBrands = getColorsForAllBrands();
     return [{
-      label: TranslationPipe(translations, "charts.devicesPerBrand"),
+      label: "Devices per Brand",
       backgroundColor: colorsForAllBrands.map((c) => c[1]),
       borderColor: colorsForAllBrands.map((c) => c[0]),
       borderWidth: 1,
@@ -72,9 +68,7 @@ export function DevicesPerBrandBarChart(
         callbacks: {
           // deno-lint-ignore no-explicit-any
           label: (context: any) => {
-            return `${context.label}: ${context.raw} ${
-              TranslationPipe(translations, "charts.devicesPerBrandTooltip")
-            }`;
+            return `${context.label}: ${context.raw} devices`;
           },
         },
       },
@@ -99,15 +93,14 @@ export function DevicesPerBrandBarChart(
 
   return (
     <div>
-      <h2>{TranslationPipe(translations, "charts.devicesPerBrand")}</h2>
+      <h2>Devices per Brand</h2>
       <p>
-        {TranslationPipe(translations, "charts.minDevices")}{" "}
-        {minAmountOfDevices} {TranslationPipe(translations, "charts.devices")}
+        Minimum devices: {minAmountOfDevices} devices
       </p>
       <div style={{ display: "flex", alignItems: "baseline", gap: ".5rem" }}>
         <span>0</span>
         <input
-          aria-label={TranslationPipe(translations, "charts.minDevices")}
+          aria-label="Minimum devices"
           name="minAmountOfDevices"
           type="range"
           min="1"

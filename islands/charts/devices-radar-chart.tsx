@@ -1,9 +1,8 @@
-import { useEffect, useState } from "preact/hooks";
-import { Device } from "@data/frontend/contracts/device.model.ts";
-import { RatingsService } from "@data/frontend/services/devices/ratings.service.ts";
+import { useCallback, useEffect, useMemo, useState } from "preact/hooks";
+import { Device } from "../../data/frontend/contracts/device.model.ts";
+import { RatingsService } from "../../data/frontend/services/devices/ratings.service.ts";
 import { FreshChart } from "./fresh-chart.tsx";
-import { Ranking } from "@data/frontend/models/ranking.model.ts";
-import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
+import { Ranking } from "../../data/frontend/models/ranking.model.ts";
 
 interface RadarChartProps {
   devices: Device[];
@@ -12,22 +11,38 @@ interface RadarChartProps {
   translations?: Record<string, string>;
 }
 
-export function DevicesRadarChart(
-  { devices, showTitle = true, ranking, translations = {} }: RadarChartProps,
-) {
+export function DevicesRadarChart({
+  devices,
+  showTitle = true,
+  ranking,
+}: RadarChartProps) {
   // Create an instance of the ratings service.
   const ratingsService = RatingsService.getInstance();
-  const [viewportWidth, setViewportWidth] = useState(globalThis.innerWidth);
+  const [viewportWidth, setViewportWidth] = useState(1920); // Default to desktop width
   const [chartSize, setChartSize] = useState({
     width: "350px",
     height: "350px",
   });
 
+  const adjustChartSize = useCallback((): void => {
+    if (viewportWidth <= 425) {
+      setChartSize({ width: "250px", height: "250px" });
+    } else if (viewportWidth <= 768) {
+      setChartSize({ width: "350px", height: "350px" });
+    } else {
+      setChartSize({ width: "400px", height: "400px" });
+    }
+  }, [viewportWidth]);
+
   useEffect(() => {
     const handleResize = () => {
       setViewportWidth(globalThis.innerWidth);
-      adjustChartSize();
     };
+
+    // Initialize viewport width
+    if (typeof globalThis !== "undefined" && globalThis.innerWidth) {
+      setViewportWidth(globalThis.innerWidth);
+    }
 
     // Add event listener
     globalThis.addEventListener("resize", handleResize);
@@ -36,78 +51,75 @@ export function DevicesRadarChart(
     return () => {
       globalThis.removeEventListener("resize", handleResize);
     };
-  });
+  }, []);
 
-  const adjustChartSize = (): void => {
-    if (viewportWidth <= 425) {
-      setChartSize({ width: "250px", height: "250px" });
-    } else if (viewportWidth <= 768) {
-      setChartSize({ width: "350px", height: "350px" });
-    } else {
-      setChartSize({ width: "400px", height: "400px" });
-    }
-  };
+  useEffect(() => {
+    adjustChartSize();
+  }, [adjustChartSize]);
 
   // Define the axes for the radar chart.
-  const labels = [
-    TranslationPipe(translations, "compare.performance"),
-    TranslationPipe(translations, "compare.monitor"),
-    TranslationPipe(translations, "compare.dimensions"),
-    TranslationPipe(translations, "compare.connectivity"),
-    TranslationPipe(translations, "compare.audio"),
-    TranslationPipe(translations, "compare.controls"),
-    TranslationPipe(translations, "compare.misc"),
-  ];
+  const labels = useMemo(() => [
+    "Performance",
+    "Monitor",
+    "Dimensions",
+    "Connectivity",
+    "Audio",
+    "Controls",
+    "Misc",
+  ], []);
 
   // For each device, compute the scores and generate a distinct color.
-  const datasets = devices.map((device, index) => {
-    const performanceScore = ratingsService.calculatePerformanceScore(device);
-    const monitorScore = ratingsService.calculateMonitorScore(device);
-    const dimensionsScore = ratingsService.calculateDimensionScore(device);
-    const connectivityScore = ratingsService.calculateConnectivityScore(device);
-    const audioScore = ratingsService.calculateAudioScore(device);
-    const controlsScore = ratingsService.calculateControlsScore(device);
-    const miscScore = ratingsService.calculateMiscScore(device);
+  const datasets = useMemo(() => {
+    return devices.map((device, index) => {
+      const performanceScore = ratingsService.calculatePerformanceScore(device);
+      const monitorScore = ratingsService.calculateMonitorScore(device);
+      const dimensionsScore = ratingsService.calculateDimensionScore(device);
+      const connectivityScore = ratingsService.calculateConnectivityScore(
+        device,
+      );
+      const audioScore = ratingsService.calculateAudioScore(device);
+      const controlsScore = ratingsService.calculateControlsScore(device);
+      const miscScore = ratingsService.calculateMiscScore(device);
 
-    const data = [
-      performanceScore,
-      monitorScore,
-      dimensionsScore,
-      connectivityScore,
-      audioScore,
-      controlsScore,
-      miscScore,
-    ];
+      const data = [
+        performanceScore,
+        monitorScore,
+        dimensionsScore,
+        connectivityScore,
+        audioScore,
+        controlsScore,
+        miscScore,
+      ];
 
-    // Generate a distinct color for the device.
-    const hue = (index * 137.5) % 360;
-    let borderColor = `hsl(${hue}, 70%, 50%)`;
-    let backgroundColor = `hsla(${hue}, 70%, 50%, 0.3)`;
+      // Generate a distinct color for the device.
+      const hue = (index * 137.5) % 360;
+      let borderColor = `hsl(${hue}, 70%, 50%)`;
+      let backgroundColor = `hsla(${hue}, 70%, 50%, 0.3)`;
 
-    // If a ranking is provided, use the color of the best or worst device.
-
-    if (ranking) {
-      if (ranking?.all[0] !== "equal") {
-        borderColor = ranking?.all[0] === device.name.sanitized
-          ? "#16833e"
-          : "#ab0d0d";
-        backgroundColor = ranking?.all[0] === device.name.sanitized
-          ? "#16833e30"
-          : "#ab0d0d30";
+      // If a ranking is provided, use the color of the best or worst device.
+      if (ranking) {
+        if (ranking?.all[0] !== "equal") {
+          borderColor = ranking?.all[0] === device.name.sanitized
+            ? "#16833e"
+            : "#ab0d0d";
+          backgroundColor = ranking?.all[0] === device.name.sanitized
+            ? "#16833e30"
+            : "#ab0d0d30";
+        }
       }
-    }
 
-    return {
-      label: device.name.raw, // using the device's raw name for display
-      data,
-      borderColor,
-      backgroundColor,
-      pointBackgroundColor: borderColor,
-      borderWidth: 2,
-    };
-  });
+      return {
+        label: device.name.raw, // using the device's raw name for display
+        data,
+        borderColor,
+        backgroundColor,
+        pointBackgroundColor: borderColor,
+        borderWidth: 2,
+      };
+    });
+  }, [devices, ranking, ratingsService]);
 
-  const options = {
+  const options = useMemo(() => ({
     scales: {
       r: {
         min: 0,
@@ -136,7 +148,7 @@ export function DevicesRadarChart(
         enabled: true,
       },
     },
-  };
+  }), []);
 
   return (
     <div
@@ -151,7 +163,7 @@ export function DevicesRadarChart(
     >
       {showTitle && (
         <h2 style={{ textAlign: "center" }}>
-          {TranslationPipe(translations, "compare.showRankingChart")}
+          Show Ranking Chart
         </h2>
       )}
       <FreshChart

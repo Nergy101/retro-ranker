@@ -1,86 +1,79 @@
-name: 🧪 Playwright Tests
+name: 🎭 Playwright Tests
 
 on:
-  pull_request:
+  push:
     branches: [main, develop]
   workflow_dispatch:
-  workflow_run:
-    workflows: ["🚀 Deploy Fresh App"]
-    types:
-      - completed
-    branches:
-      - main
-
-concurrency:
-  group: playwright-tests-${{ github.ref }}
-  cancel-in-progress: true
 
 jobs:
   test:
-    name: Run Playwright Tests
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name != 'workflow_run' }}
+    timeout-minutes: 60
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        project:
+          [
+            chromium,
+            firefox,
+            webkit,
+            "Mobile Chrome",
+            "Mobile Chrome Small",
+            "Mobile Chrome Large",
+            "Tablet Chrome",
+            "Mobile Safari",
+            "Mobile Safari Small",
+            "Mobile Safari Large",
+            "Tablet Safari",
+          ]
+        exclude:
+          # macOS doesnt have to run chromium/firefox
+          - os: macos-latest
+            project: chromium
+          - os: macos-latest
+            project: firefox
+          - os: macos-latest
+            project: "Mobile Chrome"
+          - os: macos-latest
+            project: "Mobile Chrome Small"
+          - os: macos-latest
+            project: "Mobile Chrome Large"
+          - os: macos-latest
+            project: "Tablet Chrome"
+
+          # macOS runs the webkit / safari tests
+          - os: ubuntu-latest
+            project: webkit
+          - os: ubuntu-latest
+            project: "Mobile Safari"
+          - os: ubuntu-latest
+            project: "Mobile Safari Small"
+          - os: ubuntu-latest
+            project: "Mobile Safari Large"
+          - os: ubuntu-latest
+            project: "Tablet Safari"
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
         with:
-          node-version: "20"
-          cache: "npm"
-          cache-dependency-path: playwright/package-lock.json
+          deno-version: v2.5
 
-      - name: Cache Playwright browsers
-        uses: actions/cache@v4
-        id: cache-playwright
-        with:
-          path: |
-            ~/.cache/ms-playwright
-            playwright/.cache
-          key: ${{ runner.os }}-playwright-${{ hashFiles('playwright/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-playwright-
+      - name: Install Playwright Browsers
+        run: deno task test:install
 
-      - name: Install Playwright dependencies
-        working-directory: playwright
-        run: npm ci
-
-      - name: Install Playwright browsers
-        working-directory: playwright
-        run: npx playwright install --with-deps
-        if: steps.cache-playwright.outputs.cache-hit != 'true'
-
-      - name: Create screenshots directory
-        run: mkdir -p playwright/screenshots
+      - name: Install dependencies
+        run: deno cache --lock=deno.lock main.ts
 
       - name: Run Playwright tests
-        working-directory: playwright
-        run: npm run test:non-blocking
-        continue-on-error: true
-        env:
-          CI: true
-          TEST_USER_NICKNAME: ${{ secrets.TEST_USER_NICKNAME }}
-          TEST_USER_PASSWORD: ${{ secrets.TEST_USER_PASSWORD }}
-          TEST_USER_2_NICKNAME: ${{ secrets.TEST_USER_2_NICKNAME }}
-          TEST_USER_2_PASSWORD: ${{ secrets.TEST_USER_2_PASSWORD }}
+        run: deno task test --project="${{ matrix.project }}"
 
-      - name: Upload test results
+      - uses: actions/upload-artifact@v4
         if: always()
-        uses: actions/upload-artifact@v4
         with:
-          name: playwright-test-results-${{ github.run_number }}
-          path: |
-            playwright/test-results/
-            playwright/playwright-report/
-          retention-days: 30
-
-      - name: Upload screenshots
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: playwright-screenshots-${{ github.run_number }}
-          path: playwright/screenshots/
+          name: playwright-report-${{ matrix.os }}-${{ matrix.project }}
+          path: playwright-report/
           retention-days: 30

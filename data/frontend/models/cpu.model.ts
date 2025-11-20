@@ -1,13 +1,13 @@
-export interface ClockSpeed {
-  min: number | null;
-  max: number | null;
-  unit: "MHz" | "GHz" | null;
-}
-
 export interface DeviceCpu {
-  raw: string | null;
+  name?: string;
   names: string[];
   cores: number | null;
-  threads: number | null;
-  clockSpeed: ClockSpeed | null;
+  frequency?: number;
+  threads?: number | null;
+  raw: string;
+  clockSpeed?: {
+    max: number;
+    min?: number;
+    unit: string;
+  } | null;
 }

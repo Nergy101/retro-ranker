@@ -1,11 +1,10 @@
-import { TranslationPipe } from "@data/frontend/services/i18n/i18n.service.ts";
-import { CustomFreshState } from "@interfaces/state.ts";
-import { SignIn } from "@islands/auth/sign-in.tsx";
-import { FreshContext, page } from "fresh";
+// TranslationPipe removed - using simple text instead
+import { CustomFreshState } from "../../interfaces/state.ts";
+import { SignIn } from "../../islands/auth/sign-in.tsx";
+import { Context, page } from "fresh";
 import { createCsrfCookie, generateCsrfToken } from "../../utils.ts";
 
-export default function SignInPage(ctx: FreshContext) {
-  const translations = (ctx.state as CustomFreshState)?.translations ?? {};
+export default function SignInPage(ctx: Context<CustomFreshState>) {
   const csrfToken = (ctx.state as CustomFreshState)?.csrfToken ?? "";
   const searchParams = new URL(ctx.req.url).searchParams;
   const error = searchParams.get("error");
@@ -18,7 +17,6 @@ export default function SignInPage(ctx: FreshContext) {
           error={error}
           pleaseWait={!!loggedIn}
           csrfToken={csrfToken}
-          translations={translations}
         />
       </div>
     </>
@@ -26,7 +24,7 @@ export default function SignInPage(ctx: FreshContext) {
 }
 
 export const handler = {
-  GET(ctx: FreshContext) {
+  GET(ctx: Context<CustomFreshState>) {
     const state = ctx.state as CustomFreshState;
 
     // Ensure state is properly initialized
@@ -34,11 +32,10 @@ export const handler = {
       return new Response("Internal Server Error", { status: 500 });
     }
 
-    const translations = state.translations ?? {};
-
     state.seo = {
-      title: TranslationPipe(translations, "auth.signInPage.title"),
-      description: TranslationPipe(translations, "auth.signInPage.description"),
+      title: "Sign In - Retro Ranker",
+      description:
+        "Sign in to your Retro Ranker account to access personalized features and save your preferences.",
     };
 
     if (state.user) {

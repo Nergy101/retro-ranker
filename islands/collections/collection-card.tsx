@@ -1,7 +1,7 @@
 import { PiEye, PiPencil, PiTrash, PiX } from "@preact-icons/pi";
 import { useState } from "preact/hooks";
-import { DeviceCardMedium } from "@components/cards/device-card-medium.tsx";
-import { DeviceCollection } from "@data/frontend/contracts/device-collection.ts";
+import { DeviceCardMedium } from "../../components/cards/device-card-medium.tsx";
+import { DeviceCollection } from "../../data/frontend/contracts/device-collection.ts";
 import { ShareButton } from "../buttons/share-button.tsx";
 
 interface CollectionCardProps {
@@ -15,10 +15,10 @@ interface CollectionCardProps {
 export function CollectionCard(
   {
     collection,
-    isLoggedIn,
-    likesCountMap,
-    userLikedMap,
-    userFavoritedMap,
+    // isLoggedIn,
+    // likesCountMap,
+    // userLikedMap,
+    // userFavoritedMap,
   }: CollectionCardProps,
 ) {
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
@@ -30,11 +30,26 @@ export function CollectionCard(
   };
   const handleDelete = async () => {
     setIsDeleteDialogOpen(false);
-    // do delete call from frontend code
-    await fetch(`/api/collections/${collection.id}`, {
-      method: "DELETE",
-    });
-    globalThis.location.reload();
+    try {
+      const response = await fetch(`/api/collections/${collection.id}`, {
+        method: "DELETE",
+      });
+
+      if (response.ok) {
+        // Refresh the page after successful deletion
+        globalThis.location.reload();
+      } else {
+        console.error(
+          "Failed to delete collection:",
+          response.status,
+          response.statusText,
+        );
+        alert("Failed to delete collection. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error deleting collection:", error);
+      alert("Failed to delete collection. Please try again.");
+    }
   };
 
   return (
@@ -125,10 +140,6 @@ export function CollectionCard(
           <DeviceCardMedium
             device={device}
             key={device.id}
-            isLoggedIn={isLoggedIn}
-            likes={likesCountMap[device.id] ?? 0}
-            isLiked={userLikedMap[device.id] ?? false}
-            isFavorited={userFavoritedMap[device.id] ?? false}
           />
         ))}
 

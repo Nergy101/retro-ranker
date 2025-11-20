@@ -1,10 +1,12 @@
-import { User } from "@data/frontend/contracts/user.contract.ts";
-import { createSuperUserPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
-import { FreshContext } from "fresh";
-import { CustomFreshState } from "@interfaces/state.ts";
+import { User } from "../../../data/frontend/contracts/user.contract.ts";
+import { createSuperUserPocketBaseService } from "../../../data/pocketbase/pocketbase.service.ts";
+import { AchievementService } from "../../../data/frontend/services/achievement.service.ts";
+import { Context } from "fresh";
+import { CustomFreshState } from "../../../interfaces/state.ts";
+import { State } from "../../../utils.ts";
 
 export const handler = {
-  async POST(ctx: FreshContext) {
+  async POST(ctx: Context<State>) {
     const request = ctx.req;
     const pbService = await createSuperUserPocketBaseService(
       Deno.env.get("POCKETBASE_SUPERUSER_EMAIL")!,
@@ -52,6 +54,10 @@ export const handler = {
       type,
       order,
     });
+
+    // Check and unlock achievements
+    const achievementService = new AchievementService(pbService);
+    await achievementService.checkAndUnlockAchievements(user.id);
 
     return new Response(JSON.stringify(collection), {
       status: 302,

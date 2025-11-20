@@ -4,7 +4,7 @@ import {
   PiCaretLeftBold,
   PiCaretRightBold,
 } from "@preact-icons/pi";
-import { TagModel } from "@data/frontend/models/tag.model.ts";
+import { TagModel } from "../../data/frontend/models/tag.model.ts";
 
 interface PaginationNavProps {
   pageNumber: number;
@@ -81,7 +81,7 @@ export function PaginationNav({
           </div>
         )}
         <span>
-          Page: {pageNumber}
+          Page: {pageNumber}/{Math.ceil(totalResults / pageSize)}
         </span>
         <span
           style={{
@@ -94,8 +94,7 @@ export function PaginationNav({
           {(pageNumber - 1 == 0) ? 1 : ((pageNumber - 1) * pageSize) + 1}-
           {totalResults < pageNumber * pageSize
             ? totalResults
-            : pageNumber * pageSize} of {totalResults}
-          )
+            : pageNumber * pageSize} of {totalResults} devices )
         </span>
 
         {pageNumber < Math.ceil(totalResults / pageSize) && (

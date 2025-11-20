@@ -1,0 +1,48 @@
+name: 🛠️ Build Check
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.4.5
+
+      - name: Cache Deno dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/deno
+            .deno
+          key: ${{ runner.os }}-deno-${{ hashFiles('**/deno.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-deno-
+
+      - name: Check formatting
+        run: deno fmt --check
+
+      - name: Run linter
+        run: deno lint
+
+      - name: Type check
+        run: deno check main.ts
+
+      - name: Build check
+        run: deno task build

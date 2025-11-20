@@ -1,9 +1,10 @@
-import { ProblemDetail } from "@data/frontend/contracts/problem-detail.ts";
-import { createSuperUserPocketBaseService } from "@data/pocketbase/pocketbase.service.ts";
-import { FreshContext } from "fresh";
+import { ProblemDetail } from "../../../../data/frontend/contracts/problem-detail.ts";
+import { createSuperUserPocketBaseService } from "../../../../data/pocketbase/pocketbase.service.ts";
+import { Context } from "fresh";
+import { State } from "../../../../utils.ts";
 
 export const handler = {
-  async GET(ctx: FreshContext) {
+  async GET(ctx: Context<State>) {
     const req = ctx.req;
     const deviceId = ctx.params.id;
     const cookie = req.headers.get("cookie");

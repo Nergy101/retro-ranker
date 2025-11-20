@@ -1,6 +1,6 @@
-import { Device } from "@data/frontend/contracts/device.model.ts";
-import { ShellMaterial } from "@data/frontend/models/physical.model.ts";
-import { DeviceService } from "@data/frontend/services/devices/device.service.ts";
+import { Device } from "../../../data/frontend/contracts/device.model.ts";
+import { DeviceHelpers } from "../../../data/frontend/helpers/device.helpers.ts";
+import { ShellMaterial } from "../../../data/frontend/models/physical.model.ts";
 
 interface PhysicalSpecsTableProps {
   device: Device;
@@ -43,7 +43,7 @@ export function PhysicalSpecsTable({ device }: PhysicalSpecsTableProps) {
             <tr>
               <th>Weight</th>
               <td>
-                {DeviceService.getPropertyIconByCharacter(null)}
+                {DeviceHelpers.getPropertyIconByCharacter(null)}
               </td>
             </tr>
           )}
@@ -53,7 +53,7 @@ export function PhysicalSpecsTable({ device }: PhysicalSpecsTableProps) {
             <td>
               {device.battery.capacity
                 ? device.battery.capacity + " " + device.battery.unit
-                : DeviceService.getPropertyIconByCharacter(null)}
+                : DeviceHelpers.getPropertyIconByCharacter(null)}
             </td>
           </tr>
         )}
@@ -68,7 +68,7 @@ export function PhysicalSpecsTable({ device }: PhysicalSpecsTableProps) {
             <tr>
               <th>Shell Material</th>
               <td>
-                {DeviceService.getPropertyIconByCharacter(null)}
+                {DeviceHelpers.getPropertyIconByCharacter(null)}
               </td>
             </tr>
           )}

@@ -1,4 +1,5 @@
-import { Device } from "@data/frontend/contracts/device.model.ts";
+import { Device } from "../../../data/frontend/contracts/device.model.ts";
+import { DeviceHelpers } from "../../../data/frontend/helpers/device.helpers.ts";
 
 interface AudioTableProps {
   device: Device;
@@ -7,11 +8,11 @@ interface AudioTableProps {
 export function AudioTable({ device }: AudioTableProps) {
   const getDeviceAudioOutput = (device: Device) => {
     const audioOutputs = [];
-    if (device.outputs.audioOutput?.has35mmJack) audioOutputs.push("3.5mm");
-    if (device.outputs.audioOutput?.hasHeadphoneJack) {
+    if (device.outputs?.audioOutput?.has35mmJack) audioOutputs.push("3.5mm");
+    if (device.outputs?.audioOutput?.hasHeadphoneJack) {
       audioOutputs.push("Headphone");
     }
-    if (device.outputs.audioOutput?.hasUsbC) audioOutputs.push("USB-C");
+    if (device.outputs?.audioOutput?.hasUsbC) audioOutputs.push("USB-C");
     return audioOutputs.length > 0 ? audioOutputs.join(", ") : null;
   };
 
@@ -30,10 +31,12 @@ export function AudioTable({ device }: AudioTableProps) {
           : (
             <tr>
               <th>Audio Output</th>
-              <td>❌</td>
+              <td>
+                {DeviceHelpers.getPropertyIconByCharacter("❌")}
+              </td>
             </tr>
           )}
-        {device.outputs.speaker?.type
+        {device.outputs?.speaker?.type
           ? (
             <tr>
               <th>Speakers</th>
@@ -43,7 +46,9 @@ export function AudioTable({ device }: AudioTableProps) {
           : (
             <tr>
               <th>Speakers</th>
-              <td>❌</td>
+              <td>
+                {DeviceHelpers.getPropertyIconByCharacter("❌")}
+              </td>
             </tr>
           )}
       </tbody>
