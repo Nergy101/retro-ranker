@@ -59,15 +59,3 @@ jobs:
           else
             echo "No changes to commit"
           fi
-
-      - name: Trigger deploy workflow
-        if: success()
-        uses: actions/github-script@v8
-        with:
-          script: |
-            github.rest.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              workflow_id: 'deploy-app.yml',
-              ref: 'main'
-            })
