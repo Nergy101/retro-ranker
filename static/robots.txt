@@ -5,7 +5,8 @@ User-agent: Googlebot
 Allow: /
 
 User-agent: *
-Disallow: 
+Disallow: /devices/tags
+Disallow: /*tags=
 Crawl-delay: 120
 Disallow: /cgi-bin/
 Disallow: /wp-admin/

@@ -32,6 +32,7 @@ export const handler = {
       description: "Browse our catalog of retro gaming handhelds with specs.",
       keywords:
         "retro gaming handhelds, emulation devices, retro console comparison, handheld gaming systems, retro gaming devices catalog, Anbernic devices, Miyoo handhelds, retro gaming specs, portable emulation systems",
+      url: "https://retroranker.site/devices",
     };
 
     const deviceServiceStart = performance.now();
