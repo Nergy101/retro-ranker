@@ -46,11 +46,6 @@ console.info(chalk.green("Devices json saved to: ", filePath));
 // Clean up temporary files after processing
 console.info(chalk.blue("Cleaning up temporary files..."));
 try {
-  // Remove HTML files
-  await Deno.remove("./files/Handhelds.html");
-  await Deno.remove("./files/OEM.html");
-  console.info(chalk.green("Removed HTML files"));
-
   // Remove resources folder if it exists
   try {
     await Deno.remove("./files/resources", { recursive: true });

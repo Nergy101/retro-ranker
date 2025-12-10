@@ -6,15 +6,63 @@ console.info(chalk.blue(" --- Refreshing all data --- "));
 
 const denoCwd = Deno.cwd();
 
-const getNewSourcesCommand = new Deno.Command(Deno.execPath(), {
-  args: ["run", "--allow-all", `get-new-sources.ts`],
-  cwd: ".",
-});
+// Check if required source files already exist
+const filesPath = "../data/source/files";
+const requiredFiles = [
+  "Handhelds.html",
+  "OEM.html",
+];
 
-const getNewSourcesProcess = getNewSourcesCommand.spawn();
-const getNewSourcesStatus = await getNewSourcesProcess.status;
-if (!getNewSourcesStatus.success) {
-  Deno.exit(1);
+async function checkRequiredFilesExist(): Promise<boolean> {
+  try {
+    // Check if files directory exists
+    try {
+      await Deno.stat(filesPath);
+    } catch {
+      return false;
+    }
+
+    // Check if required files exist
+    for (const file of requiredFiles) {
+      try {
+        const filePath = `${filesPath}/${file}`;
+        const stat = await Deno.stat(filePath);
+        if (!stat.isFile) {
+          return false;
+        }
+      } catch {
+        return false;
+      }
+    }
+
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+const filesExist = await checkRequiredFilesExist();
+
+if (filesExist) {
+  console.info(
+    chalk.green(
+      "✓ Required source files found in data/source/files, skipping download",
+    ),
+  );
+} else {
+  console.info(
+    chalk.blue("Required source files not found, downloading sources..."),
+  );
+  const getNewSourcesCommand = new Deno.Command(Deno.execPath(), {
+    args: ["run", "--allow-all", `get-new-sources.ts`],
+    cwd: ".",
+  });
+
+  const getNewSourcesProcess = getNewSourcesCommand.spawn();
+  const getNewSourcesStatus = await getNewSourcesProcess.status;
+  if (!getNewSourcesStatus.success) {
+    Deno.exit(1);
+  }
 }
 
 console.info("");

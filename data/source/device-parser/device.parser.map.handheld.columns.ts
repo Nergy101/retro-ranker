@@ -51,14 +51,16 @@ export function mapHandheldsColumnToDevice(
       };
       break;
     }
-    case 3:
+    case 2:
+      // Brand column
       device.brand = {
         raw: unknownOrValue(rawValue),
         sanitized: unknownOrValue(slugify(rawValue)),
         normalized: unknownOrValue(rawValue.split("(")[0].trim()),
       };
       break;
-    case 4:
+    case 3:
+      // Released date column
       {
         // given the date format is <year> / <month>
         // we need to convert it to a date
@@ -77,8 +79,20 @@ export function mapHandheldsColumnToDevice(
         };
       }
       break;
-    case 5:
+    case 4:
+      // FormFactor column
       device.formFactor = value;
+      break;
+    case 5:
+      // OS column (handle both old structure where OS is in column 6, and new where it's in column 5)
+      if (!device.os.raw || device.os.raw === "") {
+        device.os = {
+          raw: rawValue,
+          icons: parseOsIcons(value),
+          list: rawValue.split(/, | \/ /),
+          customFirmwares: [],
+        };
+      }
       break;
     case 6:
       device.os = {

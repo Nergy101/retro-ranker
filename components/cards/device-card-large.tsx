@@ -102,7 +102,7 @@ export function DeviceCardLarge(
   return (
     <article class="device-search-card device-card">
       <header class="device-card-header device-card-header-row">
-        {device.image?.originalUrl
+        {device.image?.webpUrl
           ? (
             <img
               loading="lazy"

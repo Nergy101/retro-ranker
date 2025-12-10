@@ -131,7 +131,7 @@ export function DeviceCardMedium(
         </hgroup>
       </header>
       <div class="device-card-info">
-        {device.image?.originalUrl
+        {device.image?.webpUrl
           ? (
             <img
               loading="lazy"

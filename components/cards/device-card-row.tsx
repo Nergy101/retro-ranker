@@ -105,7 +105,7 @@ export function DeviceCardRow(
     <div class="device-card-row">
       {/* Image Section */}
       <div class="device-card-row-section device-card-row-image">
-        {device.image?.originalUrl
+        {device.image?.webpUrl
           ? (
             <img
               loading="lazy"

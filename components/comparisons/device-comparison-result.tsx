@@ -150,7 +150,7 @@ export function DeviceComparisonResult(
             </hgroup>
           </div>
           <div>
-            {device.image?.originalUrl
+            {device.image?.webpUrl
               ? (
                 <img
                   loading="lazy"

@@ -186,6 +186,41 @@ async function insertDevices(
     const deviceId = device.name.sanitized;
     const existingDevice = existingDevicesMap.get(deviceId);
 
+    // Debug logging for Odin 3
+    if (device.name.raw === "Odin 3" || device.name.sanitized === "odin-3") {
+      console.log(chalk.cyan(`\n🔍 DEBUG: Odin 3`));
+      console.log(chalk.dim(`  Device ID (sanitized): ${deviceId}`));
+      console.log(
+        chalk.dim(`  Existing device found: ${existingDevice ? "YES" : "NO"}`),
+      );
+      if (existingDevice) {
+        console.log(
+          chalk.dim(
+            `  Existing deviceData type: ${typeof existingDevice.deviceData}`,
+          ),
+        );
+        console.log(
+          chalk.dim(
+            `  Existing deviceData is string: ${
+              typeof existingDevice.deviceData === "string"
+            }`,
+          ),
+        );
+      }
+      console.log(
+        chalk.dim(
+          `  New device released: ${
+            device.released?.mentionedDate || "undefined"
+          }`,
+        ),
+      );
+      console.log(
+        chalk.dim(
+          `  New device image: ${device.image?.originalUrl || "undefined"}`,
+        ),
+      );
+    }
+
     // Skip incomplete devices
     if (device.brand.raw === "Unknown") {
       console.log(
@@ -242,9 +277,72 @@ async function insertDevices(
           performance: performanceId,
         };
 
+        // Parse existing deviceData if it's a string, otherwise use it directly
+        const existingDeviceDataParsed =
+          typeof existingDevice.deviceData === "string"
+            ? JSON.parse(existingDevice.deviceData)
+            : existingDevice.deviceData;
+
+        // Normalize both objects for comparison
+        // JSON.stringify should be consistent, but we'll do a simple comparison
+        // If there are issues, the debug logging will help identify them
+        const normalizeForComparison = (obj: any): string => {
+          return JSON.stringify(obj);
+        };
+
+        const newDeviceJson = normalizeForComparison(device);
+        const existingDeviceJson = normalizeForComparison(
+          existingDeviceDataParsed,
+        );
+
+        // Debug logging for Odin 3 comparison
         if (
-          JSON.stringify(device) == JSON.stringify(existingDevice.deviceData)
+          device.name.raw === "Odin 3" || device.name.sanitized === "odin-3"
         ) {
+          console.log(chalk.cyan(`🔍 DEBUG: Odin 3 Comparison`));
+          console.log(
+            chalk.dim(`  New device JSON length: ${newDeviceJson.length}`),
+          );
+          console.log(
+            chalk.dim(
+              `  Existing device JSON length: ${existingDeviceJson.length}`,
+            ),
+          );
+          console.log(
+            chalk.dim(
+              `  JSONs are equal: ${newDeviceJson === existingDeviceJson}`,
+            ),
+          );
+          if (newDeviceJson !== existingDeviceJson) {
+            // Find first difference
+            const minLength = Math.min(
+              newDeviceJson.length,
+              existingDeviceJson.length,
+            );
+            for (let i = 0; i < minLength; i++) {
+              if (newDeviceJson[i] !== existingDeviceJson[i]) {
+                console.log(chalk.dim(`  First difference at position ${i}`));
+                console.log(
+                  chalk.dim(
+                    `  New: ...${
+                      newDeviceJson.substring(Math.max(0, i - 50), i + 50)
+                    }...`,
+                  ),
+                );
+                console.log(
+                  chalk.dim(
+                    `  Old: ...${
+                      existingDeviceJson.substring(Math.max(0, i - 50), i + 50)
+                    }...`,
+                  ),
+                );
+                break;
+              }
+            }
+          }
+        }
+
+        if (newDeviceJson === existingDeviceJson) {
           console.log(chalk.yellow(
             `⏭️  Skipping device without changes: ${
               chalk.dim(device.name.raw || "Unknown")
