@@ -277,12 +277,6 @@ export class DeviceParser {
         device.outputs.audioOutput?.hasUsbC ||
         false;
 
-      // If no image was found in column 0, set originalUrl based on device name
-      // This ensures originalUrl is set even when the HTML doesn't have an image reference
-      if (!device.image.originalUrl && device.name.sanitized) {
-        device.image.originalUrl = `/devices/${device.name.sanitized}.jpg`;
-      }
-
       device.totalRating = Number(
         ScoreCalculatorService.calculateScore(device).toFixed(2),
       );
@@ -597,12 +591,6 @@ export class DeviceParser {
         device.outputs.videoOutput?.hasUsbC ||
         device.outputs.audioOutput?.hasUsbC ||
         false;
-
-      // If no image was found in column 0, set originalUrl based on device name
-      // This ensures originalUrl is set even when the HTML doesn't have an image reference
-      if (!device.image.originalUrl && device.name.sanitized) {
-        device.image.originalUrl = `/devices/${device.name.sanitized}.jpg`;
-      }
 
       device.totalRating = Number(
         ScoreCalculatorService.calculateScore(device).toFixed(2),

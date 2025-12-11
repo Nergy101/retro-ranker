@@ -62,54 +62,6 @@ export const handler = {
       await deviceService.getTagBySlug("personal-pick"),
     ].filter((tag) => tag !== null) as TagModel[];
 
-    // Likes and favorites data
-    // const deviceIds = [
-    //   ...newArrivals,
-    //   ...personalPicks,
-    //   ...highlyRated,
-    //   ...upcoming,
-    // ].map((d) => d.id);
-    // const pb = await createSuperUserPocketBaseService(
-    //   Deno.env.get("POCKETBASE_SUPERUSER_EMAIL")!,
-    //   Deno.env.get("POCKETBASE_SUPERUSER_PASSWORD")!,
-    //   Deno.env.get("POCKETBASE_URL")!,
-    // );
-
-    // const likesFilter = deviceIds.map((id) => `device="${id}"`).join(" || ");
-    // const likeRecords = deviceIds.length > 0
-    //   ? await pb.getAll("device_likes", {
-    //     filter: likesFilter,
-    //     expand: "",
-    //     sort: "",
-    //   })
-    //   : [];
-    // const likesCountMap: Record<string, number> = {};
-    // const userLikedMap: Record<string, boolean> = {};
-    // const currentUser = ctx.state.user as User | null;
-    // for (const r of likeRecords) {
-    //   likesCountMap[r.device] = (likesCountMap[r.device] || 0) + 1;
-    //   if (currentUser && r.user === currentUser.id) {
-    //     userLikedMap[r.device] = true;
-    //   }
-    // }
-
-    // const favoritesFilter = currentUser
-    //   ? `user="${currentUser.id}" && (` +
-    //     deviceIds.map((id) => `device="${id}"`).join(" || ") +
-    //     ")"
-    //   : "";
-    // const favoriteRecords = currentUser && deviceIds.length > 0
-    //   ? await pb.getAll("device_favorites", {
-    //     filter: favoritesFilter,
-    //     expand: "",
-    //     sort: "",
-    //   })
-    //   : [];
-    // const userFavoritedMap: Record<string, boolean> = {};
-    // for (const r of favoriteRecords) {
-    //   userFavoritedMap[r.device] = true;
-    // }
-
     const devices = await deviceService.getAllDevices();
 
     ctx.state.data = {
@@ -119,10 +71,6 @@ export const handler = {
       highlyRated,
       upcoming,
       defaultTags,
-      // likesCountMap,
-      // userLikedMap,
-      // userFavoritedMap,
-      // user: ctx.state.user,
     };
 
     return await tracer.startActiveSpan("route:index", async (span: any) => {
@@ -167,6 +115,22 @@ export default function Home(
 
   return (
     <div class="home-page">
+      <p
+        style={{
+          color: "#d32f2f",
+          textAlign: "center",
+          margin: "0.5rem auto",
+          fontSize: "0.95rem",
+          maxWidth: "600px",
+          border: "1px solid #d32f2f",
+          borderRadius: "var(--pico-border-radius)",
+          padding: "0.5rem",
+        }}
+      >
+        Our initial data pipeline isn't viable anymore, and I am working on new
+        ways to keep the data up to date. <br />{" "}
+        For now though, this means the data is up-to-date up to november '25.
+      </p>
       <Hero />
       <div
         style={{
