@@ -12,8 +12,8 @@ export function PerformanceVsPriceScatterPlot({ devices }: ScatterPlotProps) {
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 1000]);
   const [minRating, setMinRating] = useState(0);
   const [brandSelectionMode, setBrandSelectionMode] = useState<
-    "top8" | "manual"
-  >("top8");
+    "all" | "top8" | "manual"
+  >("all");
   const brandSearchTerm = useSignal("");
   const [showBrandDropdown, setShowBrandDropdown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -34,8 +34,42 @@ export function PerformanceVsPriceScatterPlot({ devices }: ScatterPlotProps) {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+  // Predefined distinct color palette for better visual separation
+  const distinctColors = [
+    "#FF6B6B", // Red
+    "#4ECDC4", // Teal
+    "#F7DC6F", // Yellow (changed from Blue for better contrast)
+    "#FFA07A", // Light Salmon
+    "#BB8FCE", // Purple
+    "#52BE80", // Green
+    "#F8B739", // Orange
+    "#5DADE2", // Light Blue
+    "#EC7063", // Coral
+    "#AF7AC5", // Lavender
+    "#76D7C4", // Turquoise
+    "#F1948A", // Pink
+    "#5499C7", // Steel Blue
+    "#F5B041", // Amber
+    "#58D68D", // Emerald
+    "#EB984E", // Burnt Orange
+    "#45B7D1", // Blue
+    "#98D8C8", // Mint
+    "#85C1E2", // Sky Blue
+    "#F4D03F", // Gold
+  ];
+
   // Generate stable colors for brands
-  const getBrandColor = (brand: string): string => {
+  const getBrandColor = (brand: string, brandIndex?: number): string => {
+    // If manually selecting brands, use distinct colors from palette
+    if (brandSelectionMode === "manual" && selectedBrands.length > 0) {
+      const index = selectedBrands.indexOf(brand);
+      if (index !== -1) {
+        // Use distinct colors from palette, cycling if needed
+        return distinctColors[index % distinctColors.length];
+      }
+    }
+    
+    // For other modes or fallback, use hash-based color
     let hash = 0;
     for (let i = 0; i < brand.length; i++) {
       hash = brand.charCodeAt(i) + ((hash << 5) - hash);
@@ -47,7 +81,7 @@ export function PerformanceVsPriceScatterPlot({ devices }: ScatterPlotProps) {
     return `hsl(${hue}, 70%, 50%)`;
   };
 
-  // Get available brands and their device counts
+  // Get available brands and their device counts (for manual selection)
   const availableBrands = useMemo(() => {
     const brandCounts: { [key: string]: number } = {};
     devices.forEach((device) => {
@@ -65,10 +99,28 @@ export function PerformanceVsPriceScatterPlot({ devices }: ScatterPlotProps) {
       .map(([brand, count]) => ({ brand, count }));
   }, [devices]);
 
-  // Get top brands (those with most devices)
+  // Get top brands based on filtered devices (respects minRating and priceRange)
   const topBrands = useMemo(() => {
-    return availableBrands.slice(0, 8).map((b) => b.brand);
-  }, [availableBrands]);
+    // Apply the same filters as scatterData to get accurate top brands
+    const filteredDevices = devices.filter((device) =>
+      device.totalRating >= minRating &&
+      device.pricing.average &&
+      device.pricing.average >= priceRange[0] &&
+      device.pricing.average <= priceRange[1] &&
+      !device.pricing.discontinued
+    );
+
+    const brandCounts: { [key: string]: number } = {};
+    filteredDevices.forEach((device) => {
+      const brand = device.brand.sanitized;
+      brandCounts[brand] = (brandCounts[brand] || 0) + 1;
+    });
+
+    return Object.entries(brandCounts)
+      .sort(([, a], [, b]) => b - a)
+      .slice(0, 8)
+      .map(([brand]) => brand);
+  }, [devices, minRating, priceRange]);
 
   // Filter brands based on search term
   const filteredBrands = useMemo(() => {
@@ -105,6 +157,9 @@ export function PerformanceVsPriceScatterPlot({ devices }: ScatterPlotProps) {
       validDevices = validDevices.filter((device) =>
         topBrands.includes(device.brand.sanitized)
       );
+    } else if (brandSelectionMode === "all") {
+      // Show all brands - no brand filtering applied
+      // validDevices already contains all devices that pass price/rating filters
     }
 
     // Group by brand for different colors, ensuring each device appears only once
@@ -138,15 +193,89 @@ export function PerformanceVsPriceScatterPlot({ devices }: ScatterPlotProps) {
       });
     });
 
+    // Apply jitter to overlapping points to make them all visible
+    const allPoints: any[] = [];
+    Object.values(brandGroups).forEach((points) => {
+      allPoints.push(...points);
+    });
+
+    // Group points by rounded coordinates to detect overlaps
+    const overlapGroups = new Map<string, any[]>();
+    allPoints.forEach((point) => {
+      // Round to detect near-overlaps (within 1% of price range and 0.1 rating)
+      const priceRangeSize = priceRange[1] - priceRange[0];
+      const roundedX = Math.round(point.x / (priceRangeSize * 0.01)) * (priceRangeSize * 0.01);
+      const roundedY = Math.round(point.y / 0.1) * 0.1;
+      const key = `${roundedX.toFixed(2)}_${roundedY.toFixed(2)}`;
+      
+      if (!overlapGroups.has(key)) {
+        overlapGroups.set(key, []);
+      }
+      overlapGroups.get(key)!.push(point);
+    });
+
+    // Apply jitter to overlapping points
+    overlapGroups.forEach((overlappingPoints) => {
+      if (overlappingPoints.length > 1) {
+        const priceRangeSize = priceRange[1] - priceRange[0];
+        const jitterAmountX = priceRangeSize * 0.015; // 1.5% of price range
+        const jitterAmountY = 0.2; // 0.2 rating units
+        
+        overlappingPoints.forEach((point, index) => {
+          // Store original coordinates for tooltips
+          point.originalX = point.x;
+          point.originalY = point.y;
+          
+          // Distribute points evenly in a circle around the original position
+          // Use golden angle for even distribution
+          const angle = (index * 137.508) % 360; // Golden angle in degrees
+          const angleRad = (angle * Math.PI) / 180;
+          
+          // Scale radius based on number of overlapping points
+          // More points = larger circle
+          const baseRadius = 0.4;
+          const radiusScale = Math.min(overlappingPoints.length / 2, 1.5);
+          const radius = baseRadius * radiusScale;
+          
+          const jitterX = Math.cos(angleRad) * jitterAmountX * radius;
+          const jitterY = Math.sin(angleRad) * jitterAmountY * radius;
+          
+          // Apply jitter
+          point.x = point.x + jitterX;
+          point.y = point.y + jitterY;
+        });
+      }
+    });
+
     // Convert to chart datasets
-    const datasets = Object.entries(brandGroups).map(([brand, points]) => ({
-      label: brand,
-      data: points,
-      backgroundColor: getBrandColor(brand),
-      borderColor: getBrandColor(brand),
-      pointRadius: 6,
-      pointHoverRadius: 8,
-    }));
+    // Sort brands by selection order when in manual mode to ensure consistent color assignment
+    const sortedBrandEntries = brandSelectionMode === "manual" && selectedBrands.length > 0
+      ? Object.entries(brandGroups).sort(([brandA], [brandB]) => {
+          const indexA = selectedBrands.indexOf(brandA);
+          const indexB = selectedBrands.indexOf(brandB);
+          // Selected brands first (in selection order), then others
+          if (indexA !== -1 && indexB !== -1) return indexA - indexB;
+          if (indexA !== -1) return -1;
+          if (indexB !== -1) return 1;
+          return 0;
+        })
+      : Object.entries(brandGroups);
+
+    const datasets = sortedBrandEntries.map(([brand, points], index) => {
+      const brandIndex = brandSelectionMode === "manual" && selectedBrands.length > 0
+        ? selectedBrands.indexOf(brand)
+        : index;
+      const color = getBrandColor(brand, brandIndex);
+      return {
+        label: brand,
+        data: points,
+        backgroundColor: color + "CC", // Add transparency (CC = ~80% opacity)
+        borderColor: color,
+        pointRadius: 6,
+        pointHoverRadius: 10,
+        pointBorderWidth: 2,
+      };
+    });
 
     return datasets;
   }, [
@@ -183,6 +312,7 @@ export function PerformanceVsPriceScatterPlot({ devices }: ScatterPlotProps) {
         topBrands.includes(device.brand.sanitized)
       );
     }
+    // When brandSelectionMode === "all", show all brands (no filtering)
 
     return validDevices
       .map((device) => ({
@@ -243,8 +373,11 @@ export function PerformanceVsPriceScatterPlot({ devices }: ScatterPlotProps) {
           },
           label: (context: any) => {
             const data = context.raw;
-            return `Brand: ${data.brand} | Price: $${data.price} | Rating: ${data.rating}/10 | Value: ${
-              (data.rating / (data.price / 100)).toFixed(2)
+            // Use original coordinates if jittered, otherwise use current values
+            const displayPrice = data.originalX !== undefined ? data.originalX : data.price;
+            const displayRating = data.originalY !== undefined ? data.originalY : data.rating;
+            return `Brand: ${data.brand} | Price: $${displayPrice.toFixed(2)} | Rating: ${displayRating.toFixed(2)}/10 | Value: ${
+              (displayRating / (displayPrice / 100)).toFixed(2)
             }/10 per $100`;
           },
         },
@@ -361,6 +494,21 @@ export function PerformanceVsPriceScatterPlot({ devices }: ScatterPlotProps) {
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+            <label
+              style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
+            >
+              <input
+                type="radio"
+                name="brandSelection"
+                value="all"
+                checked={brandSelectionMode === "all"}
+                onChange={(_e) => {
+                  setBrandSelectionMode("all");
+                  setSelectedBrands([]);
+                }}
+              />
+              Show all brands
+            </label>
             <label
               style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
             >
@@ -605,8 +753,20 @@ export function PerformanceVsPriceScatterPlot({ devices }: ScatterPlotProps) {
       </div>
 
       <div class="chart">
+        <p class="secondary" style={{ marginBottom: "1rem" }}>
+          Showing <strong>{scatterData.length}</strong>{" "}
+          {scatterData.length === 1 ? "brand" : "brands"} with{" "}
+          <strong>
+            {scatterData.reduce((sum, dataset) => sum + dataset.data.length, 0)}
+          </strong>{" "}
+          {scatterData.reduce((sum, dataset) => sum + dataset.data.length, 0) ===
+            1
+            ? "device"
+            : "devices"}
+        </p>
         <FreshChart
           type="scatter"
+          key={`scatter-${brandSelectionMode}-${scatterData.length}`}
           data={{
             datasets: scatterData,
           }}
