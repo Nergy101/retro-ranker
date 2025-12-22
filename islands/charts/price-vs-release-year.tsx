@@ -224,7 +224,7 @@ export function PriceVsReleaseYear({ devices }: LineChartProps) {
         </div>
       )}
 
-      <div>
+      <div class="price-vs-release-year-chart-container">
         <FreshChart
           type="line"
           data={{
@@ -254,7 +254,11 @@ export function PriceVsReleaseYear({ devices }: LineChartProps) {
                 : []),
             ],
           }}
-          options={options}
+          options={{
+            ...options,
+            maintainAspectRatio: false,
+            responsive: true,
+          }}
         />
       </div>
 

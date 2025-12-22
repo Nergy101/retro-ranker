@@ -288,11 +288,17 @@ export function DevicesPerReleaseYearLineChart(
           Show total devices
         </label>
       </div>
-      <FreshChart
-        type="line"
-        options={chartOptions as any}
-        data={chartData}
-      />
+      <div class="devices-per-year-chart-container">
+        <FreshChart
+          type="line"
+          options={{
+            ...chartOptions,
+            maintainAspectRatio: false,
+            responsive: true,
+          } as any}
+          data={chartData}
+        />
+      </div>
     </div>
   );
 }

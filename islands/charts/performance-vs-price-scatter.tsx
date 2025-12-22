@@ -331,92 +331,97 @@ export function PerformanceVsPriceScatterPlot({ devices }: ScatterPlotProps) {
   ]);
 
   const options = {
+    maintainAspectRatio: false,
+    responsive: true,
     plugins: {
       legend: {
         display: true,
         position: "top" as const,
       },
       tooltip: {
-        mode: "nearest" as const,
-        intersect: false,
-        usePointStyle: true,
-        backgroundColor: "rgba(0, 0, 0, 0.8)",
-        titleColor: "white",
-        bodyColor: "white",
-        borderColor: "rgba(255, 255, 255, 0.2)",
-        borderWidth: 1,
-        cornerRadius: 8,
-        displayColors: false,
-        filter: (tooltipItem: any) => {
-          // Only show tooltip for the first occurrence of each device
-          const deviceName = tooltipItem.raw.device;
-          const _currentIndex = tooltipItem.dataIndex;
+        enabled: false, // Disable default tooltip
+        external: (context: any) => {
+          const tooltip = document.getElementById("device-tooltip");
+          if (!tooltip) return;
+
+          // Hide tooltip if no active element
+          if (!context.tooltip.opacity || context.tooltip.opacity === 0) {
+            tooltip.style.display = "none";
+            return;
+          }
+
+          // Get the data point
+          const tooltipItem = context.tooltip.dataPoints[0];
+          if (!tooltipItem) {
+            tooltip.style.display = "none";
+            return;
+          }
+
+          const data = tooltipItem.raw;
           const datasetIndex = tooltipItem.datasetIndex;
 
-          // Find if this device appears in any previous datasets
+          // Check if this device appears in any previous datasets (duplicate check)
+          let isDuplicate = false;
+          const deviceName = data.device;
           for (let i = 0; i < datasetIndex; i++) {
-            const dataset = tooltipItem.chart.data.datasets[i];
+            const dataset = context.chart.data.datasets[i];
             if (dataset && dataset.data) {
               const foundIndex = dataset.data.findIndex((point: any) =>
                 point.device === deviceName
               );
               if (foundIndex !== -1) {
-                return false; // Don't show tooltip for this duplicate
+                isDuplicate = true;
+                break;
               }
             }
           }
-          return true; // Show tooltip for first occurrence
-        },
-        callbacks: {
-          title: (context: any) => {
-            return `${context[0].raw.device} - Click to view device page`;
-          },
-          label: (context: any) => {
-            const data = context.raw;
-            // Use original coordinates if jittered, otherwise use current values
-            const displayPrice = data.originalX !== undefined ? data.originalX : data.price;
-            const displayRating = data.originalY !== undefined ? data.originalY : data.rating;
-            return `Brand: ${data.brand} | Price: $${displayPrice.toFixed(2)} | Rating: ${displayRating.toFixed(2)}/10 | Value: ${
-              (displayRating / (displayPrice / 100)).toFixed(2)
-            }/10 per $100`;
-          },
-        },
-      },
-    },
-    onHover: (event: any, elements: any, chart: any) => {
-      const tooltip = document.getElementById("device-image-tooltip");
-      const content = document.getElementById("device-image-content");
 
-      if (elements.length > 0 && tooltip && content) {
-        const element = elements[0];
-        const data =
-          chart.data.datasets[element.datasetIndex].data[element.index];
+          if (isDuplicate) {
+            tooltip.style.display = "none";
+            return;
+          }
 
-        if (
-          data.image &&
-          (data.image.webpUrl || data.image.pngUrl || data.image.originalUrl)
-        ) {
-          const imageUrl = data.image.webpUrl || data.image.pngUrl ||
-            data.image.originalUrl;
+          // Use original coordinates if jittered, otherwise use current values
+          const displayPrice = data.originalX !== undefined ? data.originalX : data.price;
+          const displayRating = data.originalY !== undefined ? data.originalY : data.rating;
+          const valueScore = (displayRating / (displayPrice / 100)).toFixed(2);
 
-          content.innerHTML = `
-            <div style="text-align: center;">
-              <div style="font-weight: bold; margin-bottom: 8px; font-size: 14px;">${data.device}</div>
-              <img src="${imageUrl}" alt="${data.device}" style="max-width: 120px; max-height: 80px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.3);" />
+          // Build tooltip content
+          let imageHtml = "";
+          if (
+            data.image &&
+            (data.image.webpUrl || data.image.pngUrl || data.image.originalUrl)
+          ) {
+            const imageUrl = data.image.webpUrl || data.image.pngUrl ||
+              data.image.originalUrl;
+            imageHtml = `
+              <div style="text-align: center; margin-top: 12px;">
+                <img src="${imageUrl}" alt="${data.device}" style="max-width: 120px; max-height: 80px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.3);" />
+              </div>
+            `;
+          }
+
+          tooltip.innerHTML = `
+            <div style="font-weight: bold; margin-bottom: 8px; font-size: 14px;">
+              ${data.device} - Click to view device page
             </div>
+            <div style="font-size: 12px; line-height: 1.6;">
+              Brand: ${data.brand}<br/>
+              Price: $${displayPrice.toFixed(2)}<br/>
+              Rating: ${displayRating.toFixed(2)}/10<br/>
+              Value: ${valueScore}/10 per $100
+            </div>
+            ${imageHtml}
           `;
 
-          // Position tooltip near mouse - use absolute positioning relative to viewport
+          // Position tooltip
+          const position = context.chart.canvas.getBoundingClientRect();
           tooltip.style.position = "fixed";
-          tooltip.style.left = (event.native.clientX + 20) + "px";
-          tooltip.style.top = (event.native.clientY - 10) + "px";
+          tooltip.style.left = (position.left + context.tooltip.caretX + 20) + "px";
+          tooltip.style.top = (position.top + context.tooltip.caretY - 10) + "px";
           tooltip.style.display = "block";
-        } else {
-          tooltip.style.display = "none";
-        }
-      } else if (tooltip) {
-        tooltip.style.display = "none";
-      }
+        },
+      },
     },
     onClick: (_event: any, elements: any, chart: any) => {
       if (elements.length > 0) {
@@ -458,6 +463,7 @@ export function PerformanceVsPriceScatterPlot({ devices }: ScatterPlotProps) {
 
   return (
     <div>
+      <h2>Performance vs Price</h2>
       <p style={{ marginTop: "0", marginBottom: "1rem" }}>
         Use the interactive controls to filter by brand, minimum rating, and
         price range.
@@ -465,24 +471,23 @@ export function PerformanceVsPriceScatterPlot({ devices }: ScatterPlotProps) {
         the device page.
       </p>
 
-      {/* Device Image Tooltip */}
+      {/* Custom Tooltip */}
       <div
-        id="device-image-tooltip"
+        id="device-tooltip"
         style={{
           position: "fixed",
           zIndex: 1000,
-          backgroundColor: "rgba(0, 0, 0, 0.9)",
+          backgroundColor: "rgba(0, 0, 0, 0.8)",
           color: "white",
           padding: "12px",
           borderRadius: "8px",
           display: "none",
-          maxWidth: "200px",
+          maxWidth: "250px",
           pointerEvents: "none",
           boxShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
+          border: "1px solid rgba(255, 255, 255, 0.2)",
         }}
-      >
-        <div id="device-image-content"></div>
-      </div>
+      />
 
       <div class="card">
         <div
@@ -752,7 +757,7 @@ export function PerformanceVsPriceScatterPlot({ devices }: ScatterPlotProps) {
         )}
       </div>
 
-      <div class="chart">
+      <div class="chart performance-vs-price-chart">
         <p class="secondary" style={{ marginBottom: "1rem" }}>
           Showing <strong>{scatterData.length}</strong>{" "}
           {scatterData.length === 1 ? "brand" : "brands"} with{" "}
@@ -764,14 +769,16 @@ export function PerformanceVsPriceScatterPlot({ devices }: ScatterPlotProps) {
             ? "device"
             : "devices"}
         </p>
-        <FreshChart
-          type="scatter"
-          key={`scatter-${brandSelectionMode}-${scatterData.length}`}
-          data={{
-            datasets: scatterData,
-          }}
-          options={options}
-        />
+        <div class="performance-vs-price-chart-container">
+          <FreshChart
+            type="scatter"
+            key={`scatter-${brandSelectionMode}-${scatterData.length}`}
+            data={{
+              datasets: scatterData,
+            }}
+            options={options}
+          />
+        </div>
       </div>
 
       <p class="secondary" style={{ marginTop: "1rem" }}>

@@ -139,7 +139,7 @@ export function PriceRangeDistribution({ devices }: HistogramProps) {
         </div>
       )}
 
-      <div style={{ height: "400px", width: "100%" }}>
+      <div class="price-range-distribution-chart-container">
         <FreshChart
           type="bar"
           data={{
@@ -157,7 +157,11 @@ export function PriceRangeDistribution({ devices }: HistogramProps) {
               hoverBorderWidth: 3,
             }],
           }}
-          options={options}
+          options={{
+            ...options,
+            maintainAspectRatio: false,
+            responsive: true,
+          }}
         />
       </div>
 

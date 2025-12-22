@@ -1,12 +1,10 @@
 import { FreshContext, page } from "fresh";
 import { RecordModel } from "npm:pocketbase";
-import { DeviceCardMedium } from "../../../components/cards/device-card-medium.tsx";
 import { DeviceCollection } from "../../../data/frontend/contracts/device-collection.ts";
 import { Device } from "../../../data/frontend/contracts/device.model.ts";
 import { createSuperUserPocketBaseService } from "../../../data/pocketbase/pocketbase.service.ts";
 import { CustomFreshState } from "../../../interfaces/state.ts";
-import { PerformanceVsPriceScatterPlot } from "../../../islands/charts/performance-vs-price-scatter.tsx";
-import { OperatingSystemDistribution } from "../../../islands/charts/os-distribution.tsx";
+import { CollectionTabs } from "../../../islands/collections/collection-tabs.tsx";
 
 export const handler = {
   GET(ctx: FreshContext) {
@@ -57,14 +55,6 @@ export default async function CollectionView(ctx: FreshContext) {
   //   return `${collection.owner}'s`;
   // };
 
-  if (collection.type === "Ranked") {
-    collection.devices = collection.devices.sort((a, b) => {
-      const aOrder = collection.order?.find((o) => o[a.id])?.[a.id];
-      const bOrder = collection.order?.find((o) => o[b.id])?.[b.id];
-      return (aOrder ?? 0) - (bOrder ?? 0);
-    });
-  }
-
   return (
     <div>
       {
@@ -105,41 +95,11 @@ export default async function CollectionView(ctx: FreshContext) {
             </p>
           </hgroup>
         </header>
-        <div class="collection-devices-grid">
-          {collection.devices.map((device: Device) => (
-            <a href={`/devices/${device.id}`}>
-              <DeviceCardMedium device={device} key={device.id} />
-
-              {collection.type === "Ranked" && (
-                <p style={{ fontSize: "0.8rem", textAlign: "center" }}>
-                  # {collection.order?.find((o) =>
-                    o[device.id]
-                  )?.[device.id]}
-                </p>
-              )}
-            </a>
-          ))}
-        </div>
-        {collection.devices.length > 0 && (
-          <>
-            <hr style={{ marginTop: "3rem", marginBottom: "3rem" }} />
-            <section style={{ padding: "0 1rem" }}>
-              <hgroup style={{ textAlign: "center", marginBottom: "2rem" }}>
-                <h2>Collection Analytics</h2>
-                <p>
-                  Visual insights into the devices in this collection
-                </p>
-              </hgroup>
-              <div class="chart-wrapper" style={{ marginBottom: "3rem" }}>
-                <PerformanceVsPriceScatterPlot devices={collection.devices} />
-              </div>
-              <hr />
-              <div class="chart-wrapper" style={{ marginTop: "3rem" }}>
-                <OperatingSystemDistribution devices={collection.devices} />
-              </div>
-            </section>
-          </>
-        )}
+        <CollectionTabs
+          devices={collection.devices}
+          collectionType={collection.type}
+          collectionOrder={collection.order}
+        />
       </article>
     </div>
   );

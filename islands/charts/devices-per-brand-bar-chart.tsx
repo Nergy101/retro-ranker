@@ -113,33 +113,37 @@ export function DevicesPerBrandBarChart({ devices }: BarChartProps) {
         <span>{maxBarValue}</span>
       </div>
 
-      <FreshChart
-        type="bar"
-        options={{
-          plugins: {
-            legend: {
-              display: false,
-            },
-          },
-          scales: {
-            y: {
-              grid: {
-                color: "#898989",
-              },
-              min: 0,
-              max: maxBarValueForChart,
-              ticks: {
-                stepSize: 5,
+      <div class="devices-per-brand-chart-container">
+        <FreshChart
+          type="bar"
+          options={{
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+              legend: {
+                display: false,
               },
             },
-          },
-        }}
-        data={{
-          labels: getBarChartLabels(),
-          // deno-lint-ignore no-explicit-any
-          datasets: barChartData as any,
-        }}
-      />
+            scales: {
+              y: {
+                grid: {
+                  color: "#898989",
+                },
+                min: 0,
+                max: maxBarValueForChart,
+                ticks: {
+                  stepSize: 5,
+                },
+              },
+            },
+          }}
+          data={{
+            labels: getBarChartLabels(),
+            // deno-lint-ignore no-explicit-any
+            datasets: barChartData as any,
+          }}
+        />
+      </div>
     </div>
   );
 }

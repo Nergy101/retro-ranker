@@ -377,7 +377,7 @@ export function YearOverYearImprovement({ devices }: LineChartProps) {
         </div>
       </div>
 
-      <div style={{ height: "500px", width: "100%" }}>
+      <div class="year-over-year-chart-container">
         <FreshChart
           type="line"
           data={{
@@ -400,7 +400,11 @@ export function YearOverYearImprovement({ devices }: LineChartProps) {
               spanGaps: false, // Don't connect points across null values
             }],
           }}
-          options={options}
+          options={{
+            ...options,
+            maintainAspectRatio: false,
+            responsive: true,
+          }}
         />
       </div>
 

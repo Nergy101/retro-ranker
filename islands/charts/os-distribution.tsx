@@ -135,7 +135,7 @@ export function OperatingSystemDistribution({ devices }: PieChartProps) {
 
       <div class="os-distribution-container">
         <div class="chart-section">
-          <div style={{ height: "350px", width: "100%" }}>
+          <div class="os-distribution-chart-container">
             <FreshChart
               type="pie"
               data={{
@@ -147,7 +147,11 @@ export function OperatingSystemDistribution({ devices }: PieChartProps) {
                   borderWidth: 2,
                 }],
               }}
-              options={options}
+              options={{
+                ...options,
+                maintainAspectRatio: false,
+                responsive: true,
+              }}
             />
           </div>
         </div>
