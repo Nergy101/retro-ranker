@@ -108,29 +108,9 @@ export default function Home(
   const highlyRated = data.highlyRated as Device[];
   const upcoming = data.upcoming as Device[];
   const defaultTags = data.defaultTags as TagModel[];
-  // const user = data.user as User | null;
-  // const likesCountMap = data.likesCountMap as Record<string, number>;
-  // const userLikedMap = data.userLikedMap as Record<string, boolean>;
-  // const userFavoritedMap = data.userFavoritedMap as Record<string, boolean>;
 
   return (
     <div class="home-page">
-      <p
-        style={{
-          color: "#d32f2f",
-          textAlign: "center",
-          margin: "0.5rem auto",
-          fontSize: "0.95rem",
-          maxWidth: "600px",
-          border: "1px solid #d32f2f",
-          borderRadius: "var(--pico-border-radius)",
-          padding: "0.5rem",
-        }}
-      >
-        Our initial data pipeline isn't viable anymore, and I am working on new
-        ways to keep the data up to date. <br />{" "}
-        For now though, this means the data is up-to-date up to november '25.
-      </p>
       <Hero />
       <div
         style={{

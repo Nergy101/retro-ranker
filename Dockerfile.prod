@@ -24,7 +24,7 @@ EXPOSE 8000
 
 CMD ["deno", "task", "start"]
 
-# docker buildx build . -f Dockerfile.prod -t retro-ranker:latest
+# docker buildx build . -f Dockerfile.prod -t retro-ranker:latest --load
 # docker run -t -i -p 8000:8000 retro-ranker:latest
 
 # docker buildx build . -f Dockerfile.prod -t retro-ranker:latest && docker tag retro-ranker:latest nergy101/retro-ranker:latest && docker push nergy101/retro-ranker:latest
