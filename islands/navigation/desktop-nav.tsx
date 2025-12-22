@@ -75,7 +75,7 @@ export function DesktopNav({
     try {
       // Use the same API call that works for getting devices
       const res = await fetch(
-        "/api/devices?pageSize=100&category=all&sort=new-arrivals&filter=all",
+        "/api/devices?pageSize=1000&category=all&sort=new-arrivals&filter=all",
       );
       const data = await res.json();
       const devices: Device[] = Array.isArray(data) ? data : (data.page || []);
