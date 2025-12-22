@@ -38,18 +38,66 @@ export const handler = {
       .sort((a, b) => b.valueScore - a.valueScore);
 
     // Group devices by price ranges for analysis
-    const budgetDevices = devicesWithValue.filter((d) =>
-      d.pricing.average! <= 100
-    );
-    const range100to200 = devicesWithValue.filter((d) =>
-      d.pricing.average! > 100 && d.pricing.average! <= 200
-    );
-    const range200to500 = devicesWithValue.filter((d) =>
-      d.pricing.average! > 200 && d.pricing.average! <= 500
-    );
-    const range500plus = devicesWithValue.filter((d) =>
-      d.pricing.average! > 500
-    );
+    const budgetDevices = devicesWithValue
+      .filter((d) => d.pricing.average! <= 100)
+      .sort((a, b) => {
+        // Sort by totalRating descending, then by release date descending
+        if (b.totalRating !== a.totalRating) {
+          return b.totalRating - a.totalRating;
+        }
+        const dateA = a.released.mentionedDate
+          ? new Date(a.released.mentionedDate).getTime()
+          : 0;
+        const dateB = b.released.mentionedDate
+          ? new Date(b.released.mentionedDate).getTime()
+          : 0;
+        return dateB - dateA;
+      });
+    const range100to200 = devicesWithValue
+      .filter((d) => d.pricing.average! > 100 && d.pricing.average! <= 200)
+      .sort((a, b) => {
+        // Sort by totalRating descending, then by release date descending
+        if (b.totalRating !== a.totalRating) {
+          return b.totalRating - a.totalRating;
+        }
+        const dateA = a.released.mentionedDate
+          ? new Date(a.released.mentionedDate).getTime()
+          : 0;
+        const dateB = b.released.mentionedDate
+          ? new Date(b.released.mentionedDate).getTime()
+          : 0;
+        return dateB - dateA;
+      });
+    const range200to500 = devicesWithValue
+      .filter((d) => d.pricing.average! > 200 && d.pricing.average! <= 500)
+      .sort((a, b) => {
+        // Sort by totalRating descending, then by release date descending
+        if (b.totalRating !== a.totalRating) {
+          return b.totalRating - a.totalRating;
+        }
+        const dateA = a.released.mentionedDate
+          ? new Date(a.released.mentionedDate).getTime()
+          : 0;
+        const dateB = b.released.mentionedDate
+          ? new Date(b.released.mentionedDate).getTime()
+          : 0;
+        return dateB - dateA;
+      });
+    const range500plus = devicesWithValue
+      .filter((d) => d.pricing.average! > 500)
+      .sort((a, b) => {
+        // Sort by totalRating descending, then by release date descending
+        if (b.totalRating !== a.totalRating) {
+          return b.totalRating - a.totalRating;
+        }
+        const dateA = a.released.mentionedDate
+          ? new Date(a.released.mentionedDate).getTime()
+          : 0;
+        const dateB = b.released.mentionedDate
+          ? new Date(b.released.mentionedDate).getTime()
+          : 0;
+        return dateB - dateA;
+      });
 
     (ctx.state as CustomFreshState).data = {
       devices,
@@ -130,23 +178,19 @@ export default function BangForYourBuckPage(ctx: Context<State>) {
           <ul>
             <li>
               <strong>Budget Champions ($0-$100):</strong>{" "}
-              {budgetDevices.length}{" "}
-              devices analyzed - perfect for casual retro gaming
+              perfect for casual retro gaming
             </li>
             <li>
               <strong>Mid-Range Sweet Spot ($100-$200):</strong>{" "}
-              {range100to200.length}{" "}
-              devices analyzed - the optimal balance of performance and price
+              the optimal balance of performance and price
             </li>
             <li>
               <strong>High-End Performance ($200-$500):</strong>{" "}
-              {range200to500.length}{" "}
-              devices analyzed - enhanced features for enthusiasts
+              enhanced features for enthusiasts
             </li>
             <li>
-              <strong>Premium Tier ($500+):</strong> {range500plus.length}{" "}
-              devices analyzed - cutting-edge performance and premium build
-              quality
+              <strong>Premium Tier ($500+):</strong>{" "}
+              cutting-edge performance and premium build quality
             </li>
           </ul>
 

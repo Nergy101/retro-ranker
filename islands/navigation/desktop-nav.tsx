@@ -70,6 +70,22 @@ export function DesktopNav({
     };
   }, [isSearchOpen]);
 
+  // Global ESC handler to close search overlay
+  useEffect(() => {
+    if (!isSearchOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsSearchOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isSearchOpen]);
+
   const ensureDevicesLoaded = async () => {
     if (localAllDevices && localAllDevices.length > 0) return;
     try {

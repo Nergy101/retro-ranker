@@ -91,7 +91,7 @@ export function MobileNav({
       // Ensure body scroll is reset on unmount
       document.body.style.overflow = "";
     };
-  }, [isDrawerOpen]);
+  }, [isDrawerOpen, isSearchOpen]);
 
   useEffect(() => {
     // Lock body scroll when overlays open
