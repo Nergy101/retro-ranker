@@ -1,13 +1,61 @@
+# =============================================================================
+# BLOCKED BOTS - Known aggressive scrapers
+# =============================================================================
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: DataForSeoBot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
 User-agent: GPTBot
 Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+# =============================================================================
+# ALLOWED BOTS
+# =============================================================================
 
 User-agent: Googlebot
 Allow: /
 
+User-agent: Bingbot
+Allow: /
+
+# =============================================================================
+# DEFAULT RULES
+# =============================================================================
+
 User-agent: *
+Crawl-delay: 120
 Disallow: /devices/tags
 Disallow: /*tags=
-Crawl-delay: 120
 Disallow: /cgi-bin/
 Disallow: /wp-admin/
 Disallow: /wordpress/

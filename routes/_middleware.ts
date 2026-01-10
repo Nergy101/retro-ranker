@@ -5,6 +5,76 @@ import { logJson } from "../data/tracing/tracer.ts";
 import { CustomFreshState } from "../interfaces/state.ts";
 import { getCookies } from "@std/http/cookie";
 
+// =============================================================================
+// BOT PROTECTION
+// =============================================================================
+
+// Known aggressive/malicious bot user agents (partial matches)
+const BLOCKED_BOTS = [
+  "AhrefsBot",
+  "SemrushBot",
+  "DotBot",
+  "MJ12bot",
+  "BLEXBot",
+  "DataForSeoBot",
+  "PetalBot",
+  "Bytespider",
+  "GPTBot",
+  "CCBot",
+  "anthropic-ai",
+  "ClaudeBot",
+  "Scrapy",
+  "python-requests",
+  "Go-http-client",
+  "curl/",
+  "wget/",
+];
+
+function isBlockedBot(userAgent: string | null): boolean {
+  if (!userAgent) return false;
+  const ua = userAgent.toLowerCase();
+  return BLOCKED_BOTS.some((bot) => ua.includes(bot.toLowerCase()));
+}
+
+// =============================================================================
+// RATE LIMITING
+// =============================================================================
+
+// Simple in-memory rate limiter
+const requestCounts = new Map<string, { count: number; resetTime: number }>();
+const RATE_LIMIT = 60; // requests per window
+const RATE_WINDOW_MS = 60_000; // 1 minute
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const record = requestCounts.get(ip);
+
+  if (!record || now > record.resetTime) {
+    requestCounts.set(ip, { count: 1, resetTime: now + RATE_WINDOW_MS });
+    return false;
+  }
+
+  record.count++;
+  if (record.count > RATE_LIMIT) {
+    return true;
+  }
+  return false;
+}
+
+// Clean up old entries periodically (every 5 min)
+setInterval(() => {
+  const now = Date.now();
+  for (const [ip, record] of requestCounts.entries()) {
+    if (now > record.resetTime) {
+      requestCounts.delete(ip);
+    }
+  }
+}, 300_000);
+
+// =============================================================================
+// LOGGING CONFIGURATION
+// =============================================================================
+
 // List of file extensions to ignore for logging
 const IGNORED_EXTENSIONS = new Set([
   ".js",
@@ -55,6 +125,40 @@ export async function handler(ctx: any) {
   const req = ctx.req;
   const url = new URL(req.url);
   const path = url.pathname;
+
+  // ==========================================================================
+  // BOT BLOCKING - Block known bad bots immediately
+  // ==========================================================================
+  const userAgent = req.headers.get("user-agent");
+  if (isBlockedBot(userAgent)) {
+    logJson("info", "Blocked Bot", {
+      path,
+      userAgent,
+      ip: req.headers.get("x-forwarded-for") || req.headers.get("x-real-ip"),
+    });
+    return new Response("Forbidden", { status: 403 });
+  }
+
+  // ==========================================================================
+  // RATE LIMITING - Throttle aggressive IPs
+  // ==========================================================================
+  const ip =
+    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+    req.headers.get("x-real-ip") ||
+    "unknown";
+
+  if (isRateLimited(ip)) {
+    logJson("warn", "Rate Limited", {
+      path,
+      ip,
+      userAgent,
+    });
+    return new Response("Too Many Requests", {
+      status: 429,
+      headers: { "Retry-After": "60" },
+    });
+  }
+
   const cookies = getCookies(req.headers);
 
   // Handle devices/tags... redirect to devices?tags=... BEFORE any other processing
