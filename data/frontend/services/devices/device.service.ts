@@ -3,6 +3,7 @@ import {
   createSuperUserPocketBaseService,
   PocketBaseService,
 } from "../../../pocketbase/pocketbase.service.ts";
+import { logJson } from "../../../tracing/tracer.ts";
 import { Device } from "../../contracts/device.model.ts";
 import { personalPicks } from "../../enums/personal-picks.ts";
 import { TagModel } from "../../models/tag.model.ts";
@@ -42,7 +43,7 @@ export class DeviceService {
   public static async getInstance(): Promise<DeviceService> {
     const startTime = performance.now();
     if (!DeviceService.instance) {
-      console.info("Creating new DeviceService instance");
+      logJson("debug", "Creating new DeviceService instance");
 
       try {
         const pbServiceStart = performance.now();
@@ -56,7 +57,7 @@ export class DeviceService {
 
         DeviceService.instance = new DeviceService(pbService);
 
-        console.info("DeviceService Instance Created", {
+        logJson("debug", "DeviceService Instance Created", {
           pbServiceTime: `${(pbServiceEnd - pbServiceStart).toFixed(2)}ms`,
           totalTime: `${(performance.now() - startTime).toFixed(2)}ms`,
         });
@@ -70,7 +71,7 @@ export class DeviceService {
         );
       }
     } else {
-      console.info("DeviceService Instance Retrieved from Cache", {
+      logJson("debug", "DeviceService Instance Retrieved from Cache", {
         totalTime: `${(performance.now() - startTime).toFixed(2)}ms`,
       });
     }
@@ -84,7 +85,7 @@ export class DeviceService {
       !forceRefresh && this.devicesCache &&
       now - this.devicesCache.timestamp < this.cacheDurationMs
     ) {
-      console.info("getAllDevices - Cache Hit", {
+      logJson("debug", "getAllDevices - Cache Hit", {
         cacheAge: `${(now - this.devicesCache.timestamp).toFixed(2)}ms`,
         totalTime: `${(performance.now() - startTime).toFixed(2)}ms`,
         deviceCount: this.devicesCache.data.length,
@@ -92,7 +93,7 @@ export class DeviceService {
       return this.devicesCache.data;
     }
 
-    console.info("getAllDevices - Cache Miss, Fetching from DB", {
+    logJson("debug", "getAllDevices - Cache Miss, Fetching from DB", {
       forceRefresh,
       cacheAge: this.devicesCache
         ? `${(now - this.devicesCache.timestamp).toFixed(2)}ms`
@@ -108,7 +109,7 @@ export class DeviceService {
 
     this.devicesCache = { data, timestamp: now };
 
-    console.info("getAllDevices - Database Fetch Completed", {
+    logJson("debug", "getAllDevices - Database Fetch Completed", {
       dbTime: `${(dbEnd - dbStart).toFixed(2)}ms`,
       totalTime: `${(performance.now() - startTime).toFixed(2)}ms`,
       deviceCount: data.length,
@@ -124,7 +125,7 @@ export class DeviceService {
       !forceRefresh && this.tagsCache &&
       now - this.tagsCache.timestamp < this.cacheDurationMs
     ) {
-      console.info("getAllTags - Cache Hit", {
+      logJson("debug", "getAllTags - Cache Hit", {
         cacheAge: `${(now - this.tagsCache.timestamp).toFixed(2)}ms`,
         totalTime: `${(performance.now() - startTime).toFixed(2)}ms`,
         tagCount: this.tagsCache.data.length,
@@ -132,7 +133,7 @@ export class DeviceService {
       return this.tagsCache.data;
     }
 
-    console.info("getAllTags - Cache Miss, Fetching from DB", {
+    logJson("debug", "getAllTags - Cache Miss, Fetching from DB", {
       forceRefresh,
       cacheAge: this.tagsCache
         ? `${(now - this.tagsCache.timestamp).toFixed(2)}ms`
@@ -145,7 +146,7 @@ export class DeviceService {
 
     this.tagsCache = { data, timestamp: now };
 
-    console.info("getAllTags - Database Fetch Completed", {
+    logJson("debug", "getAllTags - Database Fetch Completed", {
       dbTime: `${(dbEnd - dbStart).toFixed(2)}ms`,
       totalTime: `${(performance.now() - startTime).toFixed(2)}ms`,
       tagCount: data.length,

@@ -146,6 +146,17 @@ export async function handler(ctx: any) {
     req.headers.get("x-real-ip") ||
     "unknown";
 
+  // Debug: Log headers for IP detection debugging
+  logJson("warn", "Request Headers", {
+    path,
+    "x-forwarded-for": req.headers.get("x-forwarded-for"),
+    "x-real-ip": req.headers.get("x-real-ip"),
+    "cf-connecting-ip": req.headers.get("cf-connecting-ip"),
+    host: req.headers.get("host"),
+    resolvedIp: ip,
+    userAgent,
+  });
+
   const rateCheck = isRateLimited(ip);
   if (rateCheck.limited) {
     logJson("warn", "Rate Limited", {

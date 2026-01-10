@@ -435,7 +435,7 @@ export async function createSuperUserPocketBaseService(
 
     // If token is still valid, use it directly
     if (pb.getPocketBaseClient().authStore.isValid) {
-      logJson("info", "createSuperUserPocketBaseService - Using cached auth", {
+      logJson("debug", "createSuperUserPocketBaseService - Using cached auth", {
         url,
       });
       return pb;
@@ -444,7 +444,7 @@ export async function createSuperUserPocketBaseService(
     // Token expired - try to refresh instead of re-authenticating
     try {
       logJson(
-        "info",
+        "debug",
         "createSuperUserPocketBaseService - Attempting token refresh",
         {
           url,
@@ -461,7 +461,7 @@ export async function createSuperUserPocketBaseService(
         record: refreshResult.record ?? null,
       });
 
-      logJson("info", "createSuperUserPocketBaseService - Token refreshed", {
+      logJson("debug", "createSuperUserPocketBaseService - Token refreshed", {
         refreshTime: `${(refreshEnd - refreshStart).toFixed(2)}ms`,
         totalTime: `${(performance.now() - startTime).toFixed(2)}ms`,
         url,
