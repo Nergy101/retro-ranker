@@ -45,20 +45,20 @@ const requestCounts = new Map<string, { count: number; resetTime: number }>();
 const RATE_LIMIT = 60; // requests per window
 const RATE_WINDOW_MS = 60_000; // 1 minute
 
-function isRateLimited(ip: string): boolean {
+function isRateLimited(ip: string): { limited: boolean; count: number } {
   const now = Date.now();
   const record = requestCounts.get(ip);
 
   if (!record || now > record.resetTime) {
     requestCounts.set(ip, { count: 1, resetTime: now + RATE_WINDOW_MS });
-    return false;
+    return { limited: false, count: 1 };
   }
 
   record.count++;
   if (record.count > RATE_LIMIT) {
-    return true;
+    return { limited: true, count: record.count };
   }
-  return false;
+  return { limited: false, count: record.count };
 }
 
 // Clean up old entries periodically (every 5 min)
@@ -142,16 +142,19 @@ export async function handler(ctx: any) {
   // ==========================================================================
   // RATE LIMITING - Throttle aggressive IPs
   // ==========================================================================
-  const ip =
-    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+  const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
     req.headers.get("x-real-ip") ||
     "unknown";
 
-  if (isRateLimited(ip)) {
+  const rateCheck = isRateLimited(ip);
+  if (rateCheck.limited) {
     logJson("warn", "Rate Limited", {
       path,
       ip,
       userAgent,
+      requestCount: rateCheck.count,
+      limit: RATE_LIMIT,
+      windowMs: RATE_WINDOW_MS,
     });
     return new Response("Too Many Requests", {
       status: 429,
