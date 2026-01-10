@@ -9,6 +9,13 @@ import PocketBase, {
 import { User } from "../frontend/contracts/user.contract.ts";
 import { logJson } from "../tracing/tracer.ts";
 
+type SuperUserAuthCacheEntry = {
+  token: string;
+  record: RecordModel | null;
+};
+
+const superUserAuthCache = new Map<string, SuperUserAuthCacheEntry>();
+
 /**
  * PocketBaseService - A service to interface with PocketBase in a Deno environment
  * Stateless implementation for server-side use
@@ -409,6 +416,7 @@ export async function createSuperUserPocketBaseService(
   url: string = "https://pocketbase.retroranker.site",
 ): Promise<PocketBaseService> {
   const startTime = performance.now();
+  const cacheKey = `${url}::${email}`;
 
   logJson("info", "createSuperUserPocketBaseService - Starting", {
     url,
@@ -417,9 +425,22 @@ export async function createSuperUserPocketBaseService(
   });
 
   const pb = new PocketBaseService(url);
+  const cachedAuth = superUserAuthCache.get(cacheKey);
+  if (cachedAuth) {
+    pb.getPocketBaseClient().authStore.save(
+      cachedAuth.token,
+      cachedAuth.record,
+    );
+    if (pb.getPocketBaseClient().authStore.isValid) {
+      logJson("info", "createSuperUserPocketBaseService - Using cached auth", {
+        url,
+      });
+      return pb;
+    }
+  }
 
   const authStart = performance.now();
-  await pb.getPocketBaseClient().collection("_superusers")
+  const authResult = await pb.getPocketBaseClient().collection("_superusers")
     .authWithPassword(
       email,
       password,
@@ -428,6 +449,11 @@ export async function createSuperUserPocketBaseService(
       },
     );
   const authEnd = performance.now();
+
+  superUserAuthCache.set(cacheKey, {
+    token: authResult.token,
+    record: authResult.record ?? null,
+  });
 
   const totalTime = performance.now() - startTime;
 
