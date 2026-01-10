@@ -96,6 +96,7 @@ export class DeviceParser {
           pngUrl: null,
           webpUrl: null,
           alt: null,
+          pocketbaseUrl: null,
         },
         released: {
           raw: null,
@@ -196,6 +197,7 @@ export class DeviceParser {
               pngUrl: null, // set later
               webpUrl: null, // set later
               alt: null, // set later
+              pocketbaseUrl: null, // set when uploaded to PocketBase
             };
           }
         }
@@ -287,6 +289,7 @@ export class DeviceParser {
     });
 
     // Copy all images from resources to static/devices folder
+    // These will be converted to WebP by optimizt and then uploaded to PocketBase
     for (const operation of imageCopyOperations) {
       try {
         // Find the corresponding device for this image
@@ -399,6 +402,7 @@ export class DeviceParser {
           pngUrl: null,
           webpUrl: null,
           alt: null,
+          pocketbaseUrl: null,
         },
         released: {
           raw: null,
@@ -498,6 +502,7 @@ export class DeviceParser {
               pngUrl: null, // set later
               webpUrl: null, // set later
               alt: null, // set later
+              pocketbaseUrl: null, // set when uploaded to PocketBase
             };
           }
         }
@@ -602,6 +607,7 @@ export class DeviceParser {
     });
 
     // Copy all images from resources to static/devices folder
+    // These will be converted to WebP by optimizt and then uploaded to PocketBase
     for (const operation of imageCopyOperations) {
       try {
         // Find the corresponding device for this image

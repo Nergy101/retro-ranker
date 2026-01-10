@@ -26,6 +26,9 @@ export interface DeviceEntity extends BaseEntity {
   deviceData: DeviceJson;
 
   tags: TagModel[];
+
+  // PocketBase image field - contains the actual filename stored by PocketBase
+  deviceMainImage?: string;
 }
 
 export type DeviceJson = string;

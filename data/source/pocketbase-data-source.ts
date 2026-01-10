@@ -10,6 +10,9 @@ import { SystemRating } from "../entities/system-rating.entity.ts";
 import { TagModel } from "../entities/tag.entity.ts";
 import { unknownOrValue } from "./device-parser/device.parser.helpers.ts";
 
+// Path to the static devices folder containing WebP images
+const STATIC_DEVICES_PATH = "../../static/devices";
+
 let env: Record<string, string> = {};
 
 try {
@@ -65,6 +68,52 @@ const pocketbaseClient = pb.getPocketBaseClient();
 const handhelds = JSON.parse(
   new TextDecoder().decode(await Deno.readFile("results/handhelds.json")),
 ) as DeviceContract[];
+
+/**
+ * Reads a WebP image file for a device and returns it as a File object for upload
+ * @param deviceSanitizedName The sanitized device name (used as filename)
+ * @returns File object if image exists, null otherwise
+ */
+async function getDeviceImageFile(
+  deviceSanitizedName: string,
+): Promise<File | null> {
+  const imagePath = `${STATIC_DEVICES_PATH}/${deviceSanitizedName}.webp`;
+
+  try {
+    const imageData = await Deno.readFile(imagePath);
+    const filename = `${deviceSanitizedName}.webp`;
+    const file = new File([imageData], filename, { type: "image/webp" });
+    return file;
+  } catch (_error) {
+    // Image doesn't exist, return null
+    return null;
+  }
+}
+
+/**
+ * Uploads an image to a device record in PocketBase
+ * @param deviceId The device record ID
+ * @param imageFile The image File object
+ * @returns true if upload succeeded, false otherwise
+ */
+async function uploadDeviceImage(
+  deviceId: string,
+  imageFile: File,
+): Promise<boolean> {
+  try {
+    const formData = new FormData();
+    formData.append("deviceMainImage", imageFile);
+
+    await pocketbaseClient.collection("devices").update(deviceId, formData);
+    return true;
+  } catch (error) {
+    console.warn(
+      chalk.yellow(`⚠️  Failed to upload image for ${deviceId}:`),
+      error,
+    );
+    return false;
+  }
+}
 
 // Modify insertTags
 async function getOrCreateTags(
@@ -177,6 +226,8 @@ async function insertDevices(
   let updatedCount = 0;
   let skipCount = 0;
   let errorCount = 0;
+  let imageUploadCount = 0;
+  let imageSkipCount = 0;
 
   const existingDevicesMap = new Map(
     existingDevices.map((device) => [device.id, device]),
@@ -357,6 +408,22 @@ async function insertDevices(
           updateData,
         );
 
+        // Upload image if device doesn't have one yet
+        if (!existingDevice.deviceMainImage) {
+          const imageFile = await getDeviceImageFile(device.name.sanitized);
+          if (imageFile) {
+            const uploaded = await uploadDeviceImage(deviceId, imageFile);
+            if (uploaded) {
+              imageUploadCount++;
+              console.log(
+                chalk.magenta(`📷 Uploaded image for ${device.name.sanitized}`),
+              );
+            }
+          } else {
+            imageSkipCount++;
+          }
+        }
+
         updatedCount++;
         console.log(
           chalk.blue(
@@ -399,6 +466,21 @@ async function insertDevices(
           pricing: pricingId,
           performance: performanceId,
         });
+
+        // Upload image for new device
+        const imageFile = await getDeviceImageFile(device.name.sanitized);
+        if (imageFile) {
+          const uploaded = await uploadDeviceImage(deviceId, imageFile);
+          if (uploaded) {
+            imageUploadCount++;
+            console.log(
+              chalk.magenta(`📷 Uploaded image for ${device.name.sanitized}`),
+            );
+          }
+        } else {
+          imageSkipCount++;
+        }
+
         createdCount++;
         console.log(
           chalk.green(
@@ -434,6 +516,10 @@ async function insertDevices(
     ),
   );
   if (errorCount > 0) console.log(chalk.red(`✕ Errors: ${errorCount}`));
+  console.log(chalk.magenta(`📷 Images uploaded: ${imageUploadCount}`));
+  if (imageSkipCount > 0) {
+    console.log(chalk.dim(`• Images not found: ${imageSkipCount}`));
+  }
   console.log(chalk.dim("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"));
 }
 

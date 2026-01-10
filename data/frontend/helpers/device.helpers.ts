@@ -31,6 +31,42 @@ import {
 import { Cooling } from "../models/cooling.model.ts";
 import { SystemRating } from "../models/system-rating.model.ts";
 
+// Default PocketBase URL - can be overridden by environment variable
+const POCKETBASE_URL = "https://pocketbase.retroranker.site";
+
+/**
+ * Constructs the full PocketBase file URL for a device image
+ * @param recordId The device record ID (same as nameSanitized)
+ * @param filename The image filename stored in deviceMainImage
+ * @returns Full URL to the image file in PocketBase
+ */
+export function getPocketBaseImageUrl(
+  recordId: string,
+  filename: string | null | undefined,
+): string | null {
+  if (!filename) return null;
+  return `${POCKETBASE_URL}/api/files/devices/${recordId}/${filename}`;
+}
+
+/**
+ * Gets the best available image URL for a device
+ * Prefers PocketBase URL, falls back to local webpUrl
+ * @param device The device object
+ * @returns The best available image URL or placeholder
+ */
+export function getDeviceImageUrl(device: Device): string {
+  // Prefer PocketBase URL if available
+  if (device.image?.pocketbaseUrl) {
+    return device.image.pocketbaseUrl;
+  }
+  // Fall back to local webpUrl
+  if (device.image?.webpUrl) {
+    return device.image.webpUrl;
+  }
+  // Default placeholder
+  return "/images/placeholder-100x100.svg";
+}
+
 export class DeviceHelpers {
   static getOsIconComponent(os: string) {
     switch (os) {

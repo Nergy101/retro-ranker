@@ -6,7 +6,10 @@ import {
 import { Device } from "../../contracts/device.model.ts";
 import { personalPicks } from "../../enums/personal-picks.ts";
 import { TagModel } from "../../models/tag.model.ts";
-import { DeviceHelpers } from "../../helpers/device.helpers.ts";
+import {
+  DeviceHelpers,
+  getPocketBaseImageUrl,
+} from "../../helpers/device.helpers.ts";
 import { RatingsService } from "./ratings.service.ts";
 
 export class DeviceService {
@@ -18,6 +21,22 @@ export class DeviceService {
 
   private constructor(pocketBaseService: PocketBaseService) {
     this.pocketBaseService = pocketBaseService;
+  }
+
+  /**
+   * Enhances a raw PocketBase device record with the PocketBase image URL
+   */
+  // deno-lint-ignore no-explicit-any
+  private enhanceDeviceWithImageUrl(rawDevice: any): Device {
+    const deviceData = rawDevice.deviceData as Device;
+    // Add PocketBase image URL if available
+    if (rawDevice.deviceMainImage && deviceData.image) {
+      deviceData.image.pocketbaseUrl = getPocketBaseImageUrl(
+        rawDevice.id,
+        rawDevice.deviceMainImage,
+      );
+    }
+    return deviceData;
   }
 
   public static async getInstance(): Promise<DeviceService> {
@@ -81,9 +100,10 @@ export class DeviceService {
     });
 
     const dbStart = performance.now();
-    const data = (await this.pocketBaseService.getAll("devices")).map((
-      device,
-    ) => device.deviceData);
+    const rawDevices = await this.pocketBaseService.getAll("devices");
+    const data = rawDevices.map((device) =>
+      this.enhanceDeviceWithImageUrl(device)
+    );
     const dbEnd = performance.now();
 
     this.devicesCache = { data, timestamp: now };
@@ -225,7 +245,9 @@ export class DeviceService {
     );
 
     return {
-      page: result.items.map((device) => device.deviceData),
+      page: result.items.map((device) =>
+        this.enhanceDeviceWithImageUrl(device)
+      ),
       totalAmountOfResults: result.totalItems,
     };
   }
@@ -245,15 +267,16 @@ export class DeviceService {
         expand: "",
       },
     );
-    const device = result.items[0]?.deviceData || null;
-    if (device) {
-      const now = Date.now();
-      // merge into cache if exists
-      const devices = cached.concat(device).filter((d, idx, arr) =>
-        arr.findIndex((e) => e.name.sanitized === d.name.sanitized) === idx
-      );
-      this.devicesCache = { data: devices, timestamp: now };
-    }
+    const rawDevice = result.items[0];
+    if (!rawDevice) return null;
+
+    const device = this.enhanceDeviceWithImageUrl(rawDevice);
+    const now = Date.now();
+    // merge into cache if exists
+    const devices = cached.concat(device).filter((d, idx, arr) =>
+      arr.findIndex((e) => e.name.sanitized === d.name.sanitized) === idx
+    );
+    this.devicesCache = { data: devices, timestamp: now };
     return device;
   }
 
@@ -291,7 +314,7 @@ export class DeviceService {
         expand: "",
       },
     );
-    return result.items.map((device) => device.deviceData);
+    return result.items.map((device) => this.enhanceDeviceWithImageUrl(device));
   }
 
   public async getNewArrivals(amount: number = 5): Promise<Device[]> {
@@ -306,7 +329,7 @@ export class DeviceService {
         expand: "",
       },
     );
-    return result.items.map((device) => device.deviceData);
+    return result.items.map((device) => this.enhanceDeviceWithImageUrl(device));
   }
 
   public async getUpcoming(amount: number = 5): Promise<Device[]> {
@@ -323,7 +346,7 @@ export class DeviceService {
     );
 
     const allUpcomingDevices = allUpcomingResult.items.map((device) =>
-      device.deviceData
+      this.enhanceDeviceWithImageUrl(device)
     );
 
     // Separate by device type
@@ -395,7 +418,36 @@ export class DeviceService {
         expand: "",
       },
     );
-    return result.items.map((device) => device.deviceData);
+    return result.items.map((device) => this.enhanceDeviceWithImageUrl(device));
+  }
+
+  /**
+   * Get top devices by price category for "Bang for your buck" section
+   * Returns: 3 sweet spot ($100-$200), 5 mid ($$) in order
+   */
+  public async getBangForYourBuck(): Promise<Device[]> {
+    const baseFilter =
+      `totalRating > 0 && deviceData.released.raw!~"upcoming" && deviceData.deviceType = "handheld"`;
+
+    const [sweetSpotResult, midResult] = await Promise.all([
+      this.pocketBaseService.getList("devices", 1, 3, {
+        filter:
+          `${baseFilter} && pricing.average >= 100 && pricing.average <= 200`,
+        sort: "-released,-totalRating",
+        expand: "",
+      }),
+      this.pocketBaseService.getList("devices", 1, 5, {
+        filter:
+          `${baseFilter} && pricing.average > 200 && pricing.average <= 500`,
+        sort: "-released,-totalRating",
+        expand: "",
+      }),
+    ]);
+
+    return [
+      ...sweetSpotResult.items.map((d) => this.enhanceDeviceWithImageUrl(d)),
+      ...midResult.items.map((d) => this.enhanceDeviceWithImageUrl(d)),
+    ];
   }
 
   public async getTagBySlug(tagSlug: string): Promise<TagModel | null> {

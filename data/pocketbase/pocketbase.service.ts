@@ -426,16 +426,60 @@ export async function createSuperUserPocketBaseService(
 
   const pb = new PocketBaseService(url);
   const cachedAuth = superUserAuthCache.get(cacheKey);
+
   if (cachedAuth) {
     pb.getPocketBaseClient().authStore.save(
       cachedAuth.token,
       cachedAuth.record,
     );
+
+    // If token is still valid, use it directly
     if (pb.getPocketBaseClient().authStore.isValid) {
       logJson("info", "createSuperUserPocketBaseService - Using cached auth", {
         url,
       });
       return pb;
+    }
+
+    // Token expired - try to refresh instead of re-authenticating
+    try {
+      logJson(
+        "info",
+        "createSuperUserPocketBaseService - Attempting token refresh",
+        {
+          url,
+        },
+      );
+      const refreshStart = performance.now();
+      const refreshResult = await pb.getPocketBaseClient().collection(
+        "_superusers",
+      ).authRefresh();
+      const refreshEnd = performance.now();
+
+      superUserAuthCache.set(cacheKey, {
+        token: refreshResult.token,
+        record: refreshResult.record ?? null,
+      });
+
+      logJson("info", "createSuperUserPocketBaseService - Token refreshed", {
+        refreshTime: `${(refreshEnd - refreshStart).toFixed(2)}ms`,
+        totalTime: `${(performance.now() - startTime).toFixed(2)}ms`,
+        url,
+      });
+
+      return pb;
+    } catch (refreshError) {
+      logJson(
+        "info",
+        "createSuperUserPocketBaseService - Refresh failed, will re-authenticate",
+        {
+          error: refreshError instanceof Error
+            ? refreshError.message
+            : String(refreshError),
+          url,
+        },
+      );
+      // Fall through to password auth
     }
   }
 

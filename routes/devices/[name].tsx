@@ -32,7 +32,7 @@ import { generateDeviceColors } from "../../data/frontend/services/utils/chart-c
 import { AddDeviceCommentForm } from "../../islands/forms/add-device-comment-form.tsx";
 import { AddDeviceReviewForm } from "../../islands/forms/add-device-review-form.tsx";
 import { CommentThread } from "../../islands/comments/comment-thread.tsx";
-import { DeviceHelpers } from "../../data/frontend/helpers/device.helpers.ts";
+import { DeviceHelpers, getDeviceImageUrl } from "../../data/frontend/helpers/device.helpers.ts";
 
 export const handler = {
   async GET(ctx: Context<CustomFreshState>) {
@@ -170,7 +170,7 @@ export const handler = {
           "@type": "Brand",
           "name": device.brand.raw,
         },
-        "image": device.image?.pngUrl ?? "/images/placeholder-100x100.svg",
+        "image": getDeviceImageUrl(device),
         "description":
           `${device.name.raw} is a ${device.brand.raw} retro gaming handheld device. This ${device.pricing.category} budget emulation device costs on average ${device.pricing.average} ${device.pricing.currency}. Features include ${
             device.ram?.sizes?.[0]
@@ -428,42 +428,18 @@ export default function DeviceDetail(ctx: Context<CustomFreshState>) {
             </span>
           </div>
           <div>
-            {device.image?.originalUrl
-              ? (
-                <img
-                  loading="lazy"
-                  src={device.image?.webpUrl ??
-                    "/images/placeholder-100x100.svg"}
-                  width={100}
-                  height={100}
-                  alt={device.image?.alt ??
-                    "Device Image"}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "contain",
-                  }}
-                />
-              )
-              : (
-                <span
-                  data-tooltip="No image available"
-                  data-placement="bottom"
-                >
-                  <img
-                    src="/images/placeholder-100x100.svg"
-                    width={100}
-                    height={100}
-                    alt="Device Image"
-                    style={{
-                      width: "100px",
-                      height: "100px",
-                      objectFit: "contain",
-                      borderRadius: "1em",
-                    }}
-                  />
-                </span>
-              )}
+            <img
+              loading="lazy"
+              src={getDeviceImageUrl(device)}
+              width={100}
+              height={100}
+              alt={device.image?.alt ?? "Device Image"}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "contain",
+              }}
+            />
           </div>
           <div
             style={{

@@ -1,6 +1,6 @@
 import { PiQuestion } from "@preact-icons/pi";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
-import { DeviceHelpers } from "../../data/frontend/helpers/device.helpers.ts";
+import { DeviceHelpers, getDeviceImageUrl } from "../../data/frontend/helpers/device.helpers.ts";
 import { RatingInfo } from "../../islands/devices/rating-info.tsx";
 import { CurrencyIcon } from "../shared/currency-icon.tsx";
 
@@ -131,28 +131,14 @@ export function DeviceCardMedium(
         </hgroup>
       </header>
       <div class="device-card-info">
-        {device.image?.webpUrl
-          ? (
-            <img
-              loading="lazy"
-              src={device.image?.webpUrl ?? "/images/placeholder-100x100.svg"}
-              width={100}
-              height={100}
-              alt={device.image?.alt ?? "A device image"}
-              class="device-card-image"
-            />
-          )
-          : (
-            <span>
-              <img
-                src="/images/placeholder-100x100.svg"
-                width={100}
-                height={100}
-                alt="A placeholder image"
-                class="device-card-image"
-              />
-            </span>
-          )}
+        <img
+          loading="lazy"
+          src={getDeviceImageUrl(device)}
+          width={100}
+          height={100}
+          alt={device.image?.alt ?? "A device image"}
+          class="device-card-image"
+        />
       </div>
       <div class="device-card-stats">
         <div class="device-card-data-row">

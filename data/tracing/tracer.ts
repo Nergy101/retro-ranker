@@ -20,6 +20,10 @@ function logJson(
   message: string,
   data: Record<string, unknown> = {},
 ) {
+  if (Deno.env.get("LOGGING") !== "true") {
+    return;
+  }
+
   const logEntry = {
     timestamp: new Date().toISOString(),
     level,
@@ -27,7 +31,6 @@ function logJson(
     ...data,
   };
 
-  // Use console.log for all levels to ensure logs are always captured
   console.log(JSON.stringify(logEntry, null, 2));
 }
 

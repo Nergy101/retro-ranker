@@ -36,7 +36,7 @@ export const handler = {
     const deviceService = await DeviceService.getInstance();
     const newArrivals = await deviceService.getNewArrivals();
     const personalPicks = await deviceService.getPersonalPicks();
-    const highlyRated = await deviceService.getHighlyRated();
+    const bangForYourBuck = await deviceService.getBangForYourBuck();
     const upcoming = await deviceService.getUpcoming();
 
     const defaultTags = [
@@ -68,7 +68,7 @@ export const handler = {
       devices,
       newArrivals,
       personalPicks,
-      highlyRated,
+      bangForYourBuck,
       upcoming,
       defaultTags,
     };
@@ -105,7 +105,7 @@ export default function Home(
   const devices = data.devices as Device[];
   const newArrivals = data.newArrivals as Device[];
   const personalPicks = data.personalPicks as Device[];
-  const highlyRated = data.highlyRated as Device[];
+  const bangForYourBuck = data.bangForYourBuck as Device[];
   const upcoming = data.upcoming as Device[];
   const defaultTags = data.defaultTags as TagModel[];
 
@@ -220,27 +220,16 @@ export default function Home(
             )
             : null}
 
-          {/* Highly Rated Section */}
-          {highlyRated.length > 0
+          {/* Bang for your buck Section */}
+          {bangForYourBuck.length > 0
             ? (
               <section class="home-section">
                 <article class="home-section-content">
                   <h2 class="home-section-title">
                     <PiRanking /> Bang for your buck
-                    <div
-                      style={{
-                        display: "flex",
-                        gap: "0.5rem",
-                        alignItems: "center",
-                      }}
-                    >
-                      <span style={{ fontSize: "0.8rem" }}>
-                        ($$)
-                      </span>
-                    </div>
                   </h2>
                   <div class="device-row-grid">
-                    {highlyRated.map((device) => (
+                    {bangForYourBuck.map((device) => (
                       <a
                         href={`/devices/${device.name.sanitized}`}
                         style={{ textDecoration: "none" }}
@@ -252,8 +241,8 @@ export default function Home(
                       </a>
                     ))}
                     <SeeMoreCard
-                      href="/devices?tags=mid&sort=highly-ranked"
-                      text="More Highly Ranked"
+                      href="/articles/bang-for-your-buck"
+                      text="Full Analysis"
                     />
                   </div>
                 </article>

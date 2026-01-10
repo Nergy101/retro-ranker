@@ -3,4 +3,5 @@ export interface DeviceImage {
   webpUrl: string | null;
   pngUrl: string | null;
   alt: string | null;
+  pocketbaseUrl: string | null; // Full URL to the image in PocketBase
 }
