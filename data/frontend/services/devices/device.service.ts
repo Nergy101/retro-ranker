@@ -319,13 +319,12 @@ export class DeviceService {
   }
 
   public async getNewArrivals(amount: number = 5): Promise<Device[]> {
-    const currentYear = new Date().getFullYear();
     const result = await this.pocketBaseService.getList(
       "devices",
       1,
       amount,
       {
-        filter: `deviceData.released.mentionedDate >= "${currentYear}-01-01"`,
+        filter: "",
         sort: "-deviceData.released.mentionedDate",
         expand: "",
       },
