@@ -65,7 +65,7 @@ export default function AppWrapper(props: AppWrapperProps) {
           // deno-lint-ignore react-no-danger
           dangerouslySetInnerHTML={{
             __html:
-              "(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}else if(globalThis.matchMedia&&globalThis.matchMedia('(prefers-color-scheme: dark)').matches){document.documentElement.setAttribute('data-theme','dark');}else{document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})();",
+              "(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}else{var prefersDark=globalThis.matchMedia&&globalThis.matchMedia('(prefers-color-scheme: dark)').matches;var defaultTheme=prefersDark?'dark':'light';localStorage.setItem('theme',defaultTheme);document.documentElement.setAttribute('data-theme',defaultTheme);}}catch(e){}})();",
           }}
         />
         <link rel="stylesheet" href="/styles.css" />
