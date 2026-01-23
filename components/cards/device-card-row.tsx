@@ -112,6 +112,11 @@ export function DeviceCardRow(
           height={100}
           alt={device.image?.alt ?? "A device image"}
           class="device-card-image"
+          style={{
+            viewTransitionName: `device-image-${device.name.sanitized}`,
+            objectFit: "contain",
+            objectPosition: "center",
+          }}
         />
       </div>
 

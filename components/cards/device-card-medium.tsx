@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "preact/hooks";
 import { PiQuestion } from "@preact-icons/pi";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { DeviceHelpers, getDeviceImageUrl } from "../../data/frontend/helpers/device.helpers.ts";
@@ -93,6 +94,16 @@ export function DeviceCardMedium(
   const upToSystemA = DeviceHelpers.getUptoSystemA(device);
   const upToSystemCOrLower = DeviceHelpers.getUptoSystemCOrLower(device);
 
+  const transitionName = `device-image-${device.name.sanitized}`;
+  const imageRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    if (imageRef.current) {
+      // Set view-transition-name using setProperty to ensure it works
+      imageRef.current.style.setProperty("view-transition-name", transitionName);
+    }
+  }, [transitionName]);
+
   return (
     <article
       class={`device-search-card device-card ${isActive ? "active" : ""}`}
@@ -132,12 +143,18 @@ export function DeviceCardMedium(
       </header>
       <div class="device-card-info">
         <img
+          ref={imageRef}
           loading="lazy"
           src={getDeviceImageUrl(device)}
           width={100}
           height={100}
           alt={device.image?.alt ?? "A device image"}
           class="device-card-image"
+          style={{
+            viewTransitionName: transitionName,
+            objectFit: "contain",
+            objectPosition: "center",
+          } as any}
         />
       </div>
       <div class="device-card-stats">

@@ -1,3 +1,8 @@
+/* Enable cross-document view transitions */
+@view-transition {
+  navigation: auto;
+}
+
 @font-face {
   font-family: "Relevance";
   src: url("/fonts/relevance/Relevance-trial-Regular.ttf") format("truetype");
@@ -88,8 +93,9 @@
 }
 
 :root {
-  --font-sans: "Relevance", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, Arial, sans-serif;
+  --font-sans:
+    "Relevance", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Arial, sans-serif;
   --font-runic: "Runic", var(--font-sans);
 }
 
@@ -125,12 +131,12 @@
   /* Shadow System */
   --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-md:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   --shadow-glow: 0 0 20px rgba(var(--pico-primary-rgb), 0.3);
 
@@ -681,6 +687,72 @@ body {
   animation: pageExit var(--timing-normal) var(--ease-in);
 }
 
+/* Device Image Transition Animations - Native View Transition API */
+@supports (view-transition-name: none) {
+  ::view-transition-group(device-image-*) {
+    animation-duration: 0.4s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+  }
+
+  ::view-transition-image-pair(device-image-*) {
+    isolation: isolate;
+  }
+
+  ::view-transition-old(device-image-*),
+  ::view-transition-new(device-image-*) {
+    animation-duration: 0.4s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Hide page content during transition, then fade in after image moves */
+  html:active-view-transition .device-detail-radar-chart,
+  html:active-view-transition .device-detail-performance,
+  html:active-view-transition .device-detail-reviews,
+  html:active-view-transition .device-detail-comments,
+  html:active-view-transition .device-detail-links,
+  html:active-view-transition .device-detail-similar-devices,
+  html:active-view-transition .device-detail-specs {
+    opacity: 0;
+    animation: fadeInContent 0.3s ease-out 0.4s forwards;
+  }
+
+  /* Hide header text content during transition, but keep image visible */
+  html:active-view-transition .device-detail-header h2,
+  html:active-view-transition .device-detail-header > div > div:first-child,
+  html:active-view-transition .device-detail-header > div > div:last-child,
+  html:active-view-transition .device-detail-header .device-detail-actions {
+    opacity: 0;
+    animation: fadeInContent 0.3s ease-out 0.4s forwards;
+  }
+
+  /* Keep the transitioning image visible */
+  html:active-view-transition .device-detail-header img {
+    opacity: 1 !important;
+    animation: none !important;
+  }
+}
+
+@keyframes fadeInContent {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*) {
+    animation: none !important;
+  }
+}
+
 /* Staggered Animations */
 @keyframes staggerIn {
   from {
@@ -729,7 +801,8 @@ body.paused-animation::before {
 }
 
 .transition-colors {
-  transition: background-color 200ms cubic-bezier(0.4, 0, 0.2, 1),
+  transition:
+    background-color 200ms cubic-bezier(0.4, 0, 0.2, 1),
     border-color 200ms cubic-bezier(0.4, 0, 0.2, 1),
     color 200ms cubic-bezier(0.4, 0, 0.2, 1),
     fill 200ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -784,7 +857,9 @@ body.paused-animation::before {
   border-radius: var(--pico-border-radius);
   padding: 1.2rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .hero-section {
@@ -844,7 +919,9 @@ body.paused-animation::before {
   border-radius: var(--pico-border-radius);
   box-shadow: 0 2px 12px 0 rgba(88, 101, 242, 0.18);
   text-decoration: none;
-  transition: background 0.2s, box-shadow 0.2s;
+  transition:
+    background 0.2s,
+    box-shadow 0.2s;
   margin-bottom: 1rem;
   display: inline-block;
 
@@ -1040,7 +1117,9 @@ body.paused-animation::before {
   background-color: rgba(254, 182, 112, 0.2);
   transform: translateY(-5px);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+  transition:
+    background-color 0.2s ease-in-out,
+    transform 0.2s ease-in-out;
 }
 
 .see-more-card {
@@ -2207,23 +2286,34 @@ body.paused-animation::before {
 
 .similar-devices-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1rem;
+  width: 100%;
+  max-width: 100%;
 
-  .device-card {
-    min-width: 10em;
+  > a {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .device-card,
+  .device-search-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
 
   @media (max-width: 1200px) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   @media (max-width: 820px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   @media (max-width: 320px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
@@ -2669,14 +2759,24 @@ body.paused-animation::before {
 .similar-devices-compare-grid {
   padding: 0.5rem;
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(8, minmax(0, 1fr));
   grid-template-rows: 1;
   gap: 0.5rem;
+  width: 100%;
+  max-width: 100%;
 
   overflow-x: auto;
   overflow-y: hidden;
 
+  > div {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
   .device-search-card {
+    width: 100%;
+    max-width: 100%;
     min-width: 15em;
   }
 }
@@ -4098,7 +4198,9 @@ select:focus,
 textarea:focus {
   outline: none;
   border-color: var(--pico-primary);
-  box-shadow: 0 0 0 3px var(--pico-primary-focus), var(--shadow-md);
+  box-shadow:
+    0 0 0 3px var(--pico-primary-focus),
+    var(--shadow-md);
   background-color: var(--pico-card-background-color-darker);
   transform: translateY(-1px);
 }
@@ -4107,7 +4209,9 @@ input:active,
 select:active,
 textarea:active {
   border-color: var(--pico-primary);
-  box-shadow: 0 0 0 3px var(--pico-primary-focus), var(--shadow-sm);
+  box-shadow:
+    0 0 0 3px var(--pico-primary-focus),
+    var(--shadow-sm);
   transform: translateY(0);
 }
 
@@ -4458,7 +4562,9 @@ textarea:focus:valid {
   /* border-bottom: none !important; */
   text-decoration: none !important;
 
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
   background: var(--rating-default-bg);
   color: var(--rating-default-color);
 }
@@ -4520,7 +4626,9 @@ textarea:focus:valid {
 }
 
 .collection-device-card {
-  transition: transform 1s cubic-bezier(0.4, 0.2, 0.2, 1), box-shadow 0.2s;
+  transition:
+    transform 1s cubic-bezier(0.4, 0.2, 0.2, 1),
+    box-shadow 0.2s;
   will-change: transform;
 }
 
@@ -5517,7 +5625,9 @@ textarea:focus:valid {
   flex-direction: column;
   gap: 0.75rem;
   min-height: 100%;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .achievement-card:hover {
@@ -5949,7 +6059,10 @@ article header {
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px);
-  transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease,
+    transform 0.2s ease;
 }
 
 .nav-item:hover .nav-dropdown {
@@ -5971,7 +6084,9 @@ article header {
   padding: 0.75rem 1rem;
   color: var(--pico-contrast);
   text-decoration: none;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .nav-dropdown-link:hover {
@@ -6005,7 +6120,9 @@ article header {
   padding: 0.75rem;
   color: var(--pico-contrast);
   text-decoration: none;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .drawer-link-button:hover {

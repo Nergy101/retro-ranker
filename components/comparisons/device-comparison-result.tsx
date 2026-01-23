@@ -152,13 +152,28 @@ export function DeviceComparisonResult(
               </p>
             </hgroup>
           </div>
-          <div>
+          <div
+            style={{
+              width: "200px",
+              height: "200px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
             <img
               loading="lazy"
               src={getDeviceImageUrl(device)}
-              width={100}
-              height={100}
+              width={200}
+              height={200}
               alt={device.image?.alt ?? "A device image"}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "contain",
+                objectPosition: "center",
+                viewTransitionName: `device-image-${device.name.sanitized}`,
+              }}
             />
           </div>
 
