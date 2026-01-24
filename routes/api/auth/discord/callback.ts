@@ -40,33 +40,70 @@ export const handler = {
           return new Response(null, { status: 400 });
         }
 
-        const codeVerifier = pkceSessionService.getFromSession(state, {
+        const sessionData = pkceSessionService.getSessionData(state, {
           remove: true,
         });
 
-        if (!codeVerifier) {
+        if (!sessionData || !sessionData.codeVerifier) {
           logJson(
-            "warn",
+            "error",
             "Missing or invalid codeVerifier in Discord callback",
-            { state },
+            { 
+              state,
+              hasSessionData: !!sessionData,
+              code: code ? "present" : "missing",
+              url: req.url,
+            },
           );
           span.setStatus({ code: 2, message: "Missing codeVerifier" });
-          return new Response(null, { status: 400 });
+          // Return a more helpful error page
+          return new Response(
+            `OAuth authentication failed: Session expired or invalid. Please try signing in again.`,
+            { 
+              status: 400,
+              headers: { "Content-Type": "text/plain" },
+            }
+          );
         }
 
+        const codeVerifier = sessionData.codeVerifier;
+        const redirectUri = sessionData.redirectUri;
+
         try {
+          // Use the same callback URL that was sent to Discord (based on request host)
+          // This ensures the redirect_uri matches what Discord expects
+          let protocol = url.protocol;
+          const hostname = url.hostname;
+          if (hostname === "retroranker.site") {
+            protocol = "https:";
+          }
+          const port = url.port;
+          const fullHost = port
+            ? `${protocol}//${hostname}:${port}`
+            : `${protocol}//${hostname}`;
+          const websiteCallbackUrl = `${fullHost}/api/auth/discord/callback`;
+          
           const pbService = await createPocketBaseService();
           const user = await pbService.authWithOAuth2Code(
             "discord",
             code,
             codeVerifier,
-            `${fullHost}/api/auth/discord/callback`,
+            websiteCallbackUrl,
             {},
           );
 
           setAuthCookie(headers, user.token, hostname);
 
-          headers.set("location", "/auth/sign-in?logged-in=true");
+          // Check if this is a mobile app redirect
+          if (redirectUri && redirectUri.startsWith("retroranker://")) {
+            // Mobile app redirect - include code and state in the deep link
+            const mobileRedirectUrl = `${redirectUri}?code=${encodeURIComponent(code)}&state=${encodeURIComponent(state)}`;
+            headers.set("location", mobileRedirectUrl);
+            logJson("info", "Redirecting to mobile app", { redirectUri: mobileRedirectUrl });
+          } else {
+            // Web redirect
+            headers.set("location", "/auth/sign-in?logged-in=true");
+          }
 
           logJson("info", "Discord OAuth2 callback successful", {
             userId: user?.record?.id,

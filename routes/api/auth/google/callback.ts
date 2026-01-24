@@ -45,11 +45,11 @@ export const handler = {
           return new Response(null, { status: 400 });
         }
 
-        const codeVerifier = pkceSessionService.getFromSession(state, {
+        const sessionData = pkceSessionService.getSessionData(state, {
           remove: true,
         });
 
-        if (!codeVerifier) {
+        if (!sessionData || !sessionData.codeVerifier) {
           logJson(
             "warn",
             "Missing or invalid codeVerifier in Google callback",
@@ -58,6 +58,9 @@ export const handler = {
           span.setStatus({ code: 2, message: "Missing codeVerifier" });
           return new Response(null, { status: 400 });
         }
+
+        const codeVerifier = sessionData.codeVerifier;
+        const redirectUri = sessionData.redirectUri;
 
         try {
           const numberDictionary = NumberDictionary.generate({
@@ -69,12 +72,25 @@ export const handler = {
             separator: "_",
           });
 
+          // Use the same callback URL that was sent to Google (based on request host)
+          // This ensures the redirect_uri matches what Google expects
+          let protocol = url.protocol;
+          const hostname = url.hostname;
+          if (hostname === "retroranker.site") {
+            protocol = "https:";
+          }
+          const port = url.port;
+          const fullHost = port
+            ? `${protocol}//${hostname}:${port}`
+            : `${protocol}//${hostname}`;
+          const websiteCallbackUrl = `${fullHost}/api/auth/google/callback`;
+          
           const pbService = await createPocketBaseService();
           const user = await pbService.authWithOAuth2Code(
             "google",
             code,
             codeVerifier,
-            `${fullHost}/api/auth/google/callback`,
+            websiteCallbackUrl,
             {
               nickname: randomName,
             },
@@ -86,7 +102,16 @@ export const handler = {
 
           setAuthCookie(headers, user.token, hostname);
 
-          headers.set("location", "/auth/sign-in?logged-in=true");
+          // Check if this is a mobile app redirect
+          if (redirectUri && redirectUri.startsWith("retroranker://")) {
+            // Mobile app redirect - include code and state in the deep link
+            const mobileRedirectUrl = `${redirectUri}?code=${encodeURIComponent(code)}&state=${encodeURIComponent(state)}`;
+            headers.set("location", mobileRedirectUrl);
+            logJson("info", "Redirecting to mobile app", { redirectUri: mobileRedirectUrl });
+          } else {
+            // Web redirect
+            headers.set("location", "/auth/sign-in?logged-in=true");
+          }
 
           span.setAttribute("Google.oauth2.state", state);
           span.setAttribute("user.id", user?.record?.id || "");

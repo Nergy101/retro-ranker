@@ -16,10 +16,22 @@ export const handler = {
         const codeChallenge = await generateCodeChallenge(codeVerifier);
         const randomId = crypto.randomUUID();
 
-        pkceSessionService.storeInSession(randomId, codeVerifier);
-
         // get host from ctx/req (+ port)
         const url = new URL(req.url);
+        
+        // Check if redirect_uri is provided (for mobile app final redirect)
+        const mobileRedirectUri = url.searchParams.get("redirect_uri");
+        pkceSessionService.storeInSession(randomId, codeVerifier, mobileRedirectUri || undefined);
+        
+        logJson("info", "Stored PKCE session", {
+          state: randomId,
+          hasCodeVerifier: !!codeVerifier,
+          hasMobileRedirect: !!mobileRedirectUri,
+        });
+        
+        // Determine callback URL based on request host
+        // For production, always use retroranker.site
+        // For local development, use localhost
         let protocol = url.protocol;
         const hostname = url.hostname;
         if (hostname === "retroranker.site") {
@@ -29,12 +41,11 @@ export const handler = {
         const fullHost = port
           ? `${protocol}//${hostname}:${port}`
           : `${protocol}//${hostname}`;
+        const websiteCallbackUrl = `${fullHost}/api/auth/discord/callback`;
 
         const discordUrl =
           "https://discord.com/oauth2/authorize?client_id=1371560910706966638&response_type=code&redirect_uri=" +
-          encodeURIComponent(
-            `${fullHost}/api/auth/discord/callback`,
-          ) +
+          encodeURIComponent(websiteCallbackUrl) +
           "&scope=identify" +
           `&code_challenge=${codeChallenge}` +
           `&code_challenge_method=S256` +
