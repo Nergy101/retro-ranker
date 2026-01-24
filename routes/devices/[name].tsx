@@ -32,7 +32,10 @@ import { generateDeviceColors } from "../../data/frontend/services/utils/chart-c
 import { AddDeviceCommentForm } from "../../islands/forms/add-device-comment-form.tsx";
 import { AddDeviceReviewForm } from "../../islands/forms/add-device-review-form.tsx";
 import { CommentThread } from "../../islands/comments/comment-thread.tsx";
-import { DeviceHelpers, getDeviceImageUrl } from "../../data/frontend/helpers/device.helpers.ts";
+import {
+  DeviceHelpers,
+  getDeviceImageUrl,
+} from "../../data/frontend/helpers/device.helpers.ts";
 
 export const handler = {
   async GET(ctx: Context<CustomFreshState>) {
@@ -863,7 +866,7 @@ export default function DeviceDetail(ctx: Context<CustomFreshState>) {
                 Key specifications and features at a glance
               </span>
             </summary>
-            <section>
+            <section style={{ margin: "0" }}>
               <div class="overflow-auto">
                 <SummaryTable device={device} />
               </div>

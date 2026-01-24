@@ -1,7 +1,10 @@
 import { useEffect, useRef } from "preact/hooks";
 import { PiQuestion } from "@preact-icons/pi";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
-import { DeviceHelpers, getDeviceImageUrl } from "../../data/frontend/helpers/device.helpers.ts";
+import {
+  DeviceHelpers,
+  getDeviceImageUrl,
+} from "../../data/frontend/helpers/device.helpers.ts";
 import { RatingInfo } from "../../islands/devices/rating-info.tsx";
 import { CurrencyIcon } from "../shared/currency-icon.tsx";
 
@@ -43,7 +46,9 @@ export function DeviceCardMedium(
           <span
             style={{ fontSize: "0.6rem", color: "var(--pico-muted-color)" }}
           >
-            {device.pricing.range?.min} - {device.pricing.range?.max}
+            {device.pricing.range?.min === device.pricing.range?.max
+              ? device.pricing.range?.min
+              : `${device.pricing.range?.min} - ${device.pricing.range?.max}`}
           </span>
         </div>
       );
@@ -63,7 +68,9 @@ export function DeviceCardMedium(
           <span
             style={{ fontSize: "0.6rem", color: "var(--pico-muted-color)" }}
           >
-            {device.pricing.range?.min} - {device.pricing.range?.max}
+            {device.pricing.range?.min === device.pricing.range?.max
+              ? device.pricing.range?.min
+              : `${device.pricing.range?.min} - ${device.pricing.range?.max}`}
           </span>
         </div>
       );
@@ -84,7 +91,9 @@ export function DeviceCardMedium(
           <span
             style={{ fontSize: "0.6rem", color: "var(--pico-muted-color)" }}
           >
-            {device.pricing.range?.min} - {device.pricing.range?.max}
+            {device.pricing.range?.min === device.pricing.range?.max
+              ? device.pricing.range?.min
+              : `${device.pricing.range?.min} - ${device.pricing.range?.max}`}
           </span>
         </div>
       );
@@ -100,7 +109,10 @@ export function DeviceCardMedium(
   useEffect(() => {
     if (imageRef.current) {
       // Set view-transition-name using setProperty to ensure it works
-      imageRef.current.style.setProperty("view-transition-name", transitionName);
+      imageRef.current.style.setProperty(
+        "view-transition-name",
+        transitionName,
+      );
     }
   }, [transitionName]);
 
@@ -166,7 +178,10 @@ export function DeviceCardMedium(
                 <div class="device-card-os-price-section">
                   <div
                     class="device-card-price-indicator"
-                    data-tooltip={`${device.pricing.range?.min}-${device.pricing.range?.max} ${device.pricing.currency}`}
+                    data-tooltip={device.pricing.range?.min ===
+                        device.pricing.range?.max
+                      ? `${device.pricing.range?.min} ${device.pricing.currency}`
+                      : `${device.pricing.range?.min}-${device.pricing.range?.max} ${device.pricing.currency}`}
                   >
                     {getPriceIndicator()}
                   </div>
@@ -201,11 +216,26 @@ export function DeviceCardMedium(
                 <div class="device-card-os-price-section">
                   <div
                     class="device-card-price-indicator"
-                    data-tooltip="No pricing available"
+                    data-tooltip="unavailable"
                     aria-describedby="no-pricing-tooltip"
                   >
-                    <CurrencyIcon currencyCode="USD" />
-                    <PiQuestion aria-hidden="true" focusable="false" />
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        flexDirection: "column",
+                      }}
+                    >
+                      <span style={{ display: "flex", alignItems: "center" }}>
+                        <CurrencyIcon currencyCode="USD" />
+                        <PiQuestion aria-hidden="true" focusable="false" />
+                      </span>
+                      <span
+                        style={{ fontSize: "0.6rem", color: "var(--pico-muted-color)" }}
+                      >
+                        {"\u00A0"}
+                      </span>
+                    </div>
                   </div>
                   <div
                     class="device-card-os-icons"
@@ -244,7 +274,7 @@ export function DeviceCardMedium(
       <span id="discontinued-tooltip" class="sr-only">
         Device is discontinued
       </span>
-      <span id="no-pricing-tooltip" class="sr-only">No pricing available</span>
+      <span id="no-pricing-tooltip" class="sr-only">unavailable</span>
       <span id="os-icons-tooltip" class="sr-only">Operating system icons</span>
     </article>
   );

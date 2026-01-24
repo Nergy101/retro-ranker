@@ -5,7 +5,10 @@ import { EmulationPerformance } from "../devices/emulation-performance.tsx";
 import { StarRating } from "../ratings/star-rating.tsx";
 import { CurrencyIcon } from "../shared/currency-icon.tsx";
 import { DeviceCardActions } from "../../islands/devices/device-card-actions.tsx";
-import { DeviceHelpers, getDeviceImageUrl } from "../../data/frontend/helpers/device.helpers.ts";
+import {
+  DeviceHelpers,
+  getDeviceImageUrl,
+} from "../../data/frontend/helpers/device.helpers.ts";
 
 interface DeviceCardLargeProps {
   device: Device;
@@ -51,7 +54,9 @@ export function DeviceCardLarge(
           <span
             style={{ fontSize: "0.6rem", color: "var(--pico-muted-color)" }}
           >
-            {device.pricing.range?.min} - {device.pricing.range?.max}
+            {device.pricing.range?.min === device.pricing.range?.max
+              ? device.pricing.range?.min
+              : `${device.pricing.range?.min} - ${device.pricing.range?.max}`}
           </span>
         </div>
       );
@@ -71,7 +76,9 @@ export function DeviceCardLarge(
           <span
             style={{ fontSize: "0.6rem", color: "var(--pico-muted-color)" }}
           >
-            {device.pricing.range?.min} - {device.pricing.range?.max}
+            {device.pricing.range?.min === device.pricing.range?.max
+              ? device.pricing.range?.min
+              : `${device.pricing.range?.min} - ${device.pricing.range?.max}`}
           </span>
         </div>
       );
@@ -92,7 +99,9 @@ export function DeviceCardLarge(
           <span
             style={{ fontSize: "0.6rem", color: "var(--pico-muted-color)" }}
           >
-            {device.pricing.range?.min} - {device.pricing.range?.max}
+            {device.pricing.range?.min === device.pricing.range?.max
+              ? device.pricing.range?.min
+              : `${device.pricing.range?.min} - ${device.pricing.range?.max}`}
           </span>
         </div>
       );
@@ -146,7 +155,10 @@ export function DeviceCardLarge(
                 ? (
                   <div
                     class="device-card-price-indicator"
-                    data-tooltip={`${device.pricing.range?.min}-${device.pricing.range?.max} ${device.pricing.currency}`}
+                    data-tooltip={device.pricing.range?.min ===
+                        device.pricing.range?.max
+                      ? `${device.pricing.range?.min} ${device.pricing.currency}`
+                      : `${device.pricing.range?.min}-${device.pricing.range?.max} ${device.pricing.currency}`}
                   >
                     {getPriceIndicator()}
                   </div>
@@ -154,11 +166,26 @@ export function DeviceCardLarge(
                 : (
                   <div
                     class="device-card-price-indicator"
-                    data-tooltip="No pricing available"
+                    data-tooltip="unavailable"
                     aria-describedby="no-pricing-tooltip"
                   >
-                    <CurrencyIcon currencyCode="USD" />
-                    <PiQuestion aria-hidden="true" focusable="false" />
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        flexDirection: "column",
+                      }}
+                    >
+                      <span style={{ display: "flex", alignItems: "center" }}>
+                        <CurrencyIcon currencyCode="USD" />
+                        <PiQuestion aria-hidden="true" focusable="false" />
+                      </span>
+                      <span
+                        style={{ fontSize: "0.6rem", color: "var(--pico-muted-color)" }}
+                      >
+                        {"\u00A0"}
+                      </span>
+                    </div>
                   </div>
                 )}
             </div>
@@ -219,7 +246,7 @@ export function DeviceCardLarge(
       <span id="discontinued-tooltip" class="sr-only">
         Device is discontinued
       </span>
-      <span id="no-pricing-tooltip" class="sr-only">No pricing available</span>
+      <span id="no-pricing-tooltip" class="sr-only">unavailable</span>
       <span id="os-icons-tooltip" class="sr-only">
         {device.os.list.join(", ") === "?"
           ? "No OS information available"

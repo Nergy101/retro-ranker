@@ -59,7 +59,7 @@ export function PerformanceVsPriceScatterPlot({ devices }: ScatterPlotProps) {
   ];
 
   // Generate stable colors for brands
-  const getBrandColor = (brand: string, brandIndex?: number): string => {
+  const getBrandColor = (brand: string, _brandIndex?: number): string => {
     // If manually selecting brands, use distinct colors from palette
     if (brandSelectionMode === "manual" && selectedBrands.length > 0) {
       const index = selectedBrands.indexOf(brand);
@@ -68,7 +68,7 @@ export function PerformanceVsPriceScatterPlot({ devices }: ScatterPlotProps) {
         return distinctColors[index % distinctColors.length];
       }
     }
-    
+
     // For other modes or fallback, use hash-based color
     let hash = 0;
     for (let i = 0; i < brand.length; i++) {
@@ -204,10 +204,11 @@ export function PerformanceVsPriceScatterPlot({ devices }: ScatterPlotProps) {
     allPoints.forEach((point) => {
       // Round to detect near-overlaps (within 1% of price range and 0.1 rating)
       const priceRangeSize = priceRange[1] - priceRange[0];
-      const roundedX = Math.round(point.x / (priceRangeSize * 0.01)) * (priceRangeSize * 0.01);
+      const roundedX = Math.round(point.x / (priceRangeSize * 0.01)) *
+        (priceRangeSize * 0.01);
       const roundedY = Math.round(point.y / 0.1) * 0.1;
       const key = `${roundedX.toFixed(2)}_${roundedY.toFixed(2)}`;
-      
+
       if (!overlapGroups.has(key)) {
         overlapGroups.set(key, []);
       }
@@ -220,26 +221,26 @@ export function PerformanceVsPriceScatterPlot({ devices }: ScatterPlotProps) {
         const priceRangeSize = priceRange[1] - priceRange[0];
         const jitterAmountX = priceRangeSize * 0.015; // 1.5% of price range
         const jitterAmountY = 0.2; // 0.2 rating units
-        
+
         overlappingPoints.forEach((point, index) => {
           // Store original coordinates for tooltips
           point.originalX = point.x;
           point.originalY = point.y;
-          
+
           // Distribute points evenly in a circle around the original position
           // Use golden angle for even distribution
           const angle = (index * 137.508) % 360; // Golden angle in degrees
           const angleRad = (angle * Math.PI) / 180;
-          
+
           // Scale radius based on number of overlapping points
           // More points = larger circle
           const baseRadius = 0.4;
           const radiusScale = Math.min(overlappingPoints.length / 2, 1.5);
           const radius = baseRadius * radiusScale;
-          
+
           const jitterX = Math.cos(angleRad) * jitterAmountX * radius;
           const jitterY = Math.sin(angleRad) * jitterAmountY * radius;
-          
+
           // Apply jitter
           point.x = point.x + jitterX;
           point.y = point.y + jitterY;
@@ -249,8 +250,9 @@ export function PerformanceVsPriceScatterPlot({ devices }: ScatterPlotProps) {
 
     // Convert to chart datasets
     // Sort brands by selection order when in manual mode to ensure consistent color assignment
-    const sortedBrandEntries = brandSelectionMode === "manual" && selectedBrands.length > 0
-      ? Object.entries(brandGroups).sort(([brandA], [brandB]) => {
+    const sortedBrandEntries =
+      brandSelectionMode === "manual" && selectedBrands.length > 0
+        ? Object.entries(brandGroups).sort(([brandA], [brandB]) => {
           const indexA = selectedBrands.indexOf(brandA);
           const indexB = selectedBrands.indexOf(brandB);
           // Selected brands first (in selection order), then others
@@ -259,12 +261,13 @@ export function PerformanceVsPriceScatterPlot({ devices }: ScatterPlotProps) {
           if (indexB !== -1) return 1;
           return 0;
         })
-      : Object.entries(brandGroups);
+        : Object.entries(brandGroups);
 
     const datasets = sortedBrandEntries.map(([brand, points], index) => {
-      const brandIndex = brandSelectionMode === "manual" && selectedBrands.length > 0
-        ? selectedBrands.indexOf(brand)
-        : index;
+      const brandIndex =
+        brandSelectionMode === "manual" && selectedBrands.length > 0
+          ? selectedBrands.indexOf(brand)
+          : index;
       const color = getBrandColor(brand, brandIndex);
       return {
         label: brand,
@@ -382,8 +385,12 @@ export function PerformanceVsPriceScatterPlot({ devices }: ScatterPlotProps) {
           }
 
           // Use original coordinates if jittered, otherwise use current values
-          const displayPrice = data.originalX !== undefined ? data.originalX : data.price;
-          const displayRating = data.originalY !== undefined ? data.originalY : data.rating;
+          const displayPrice = data.originalX !== undefined
+            ? data.originalX
+            : data.price;
+          const displayRating = data.originalY !== undefined
+            ? data.originalY
+            : data.rating;
           const valueScore = (displayRating / (displayPrice / 100)).toFixed(2);
 
           // Build tooltip content
@@ -417,8 +424,10 @@ export function PerformanceVsPriceScatterPlot({ devices }: ScatterPlotProps) {
           // Position tooltip
           const position = context.chart.canvas.getBoundingClientRect();
           tooltip.style.position = "fixed";
-          tooltip.style.left = (position.left + context.tooltip.caretX + 20) + "px";
-          tooltip.style.top = (position.top + context.tooltip.caretY - 10) + "px";
+          tooltip.style.left = (position.left + context.tooltip.caretX + 20) +
+            "px";
+          tooltip.style.top = (position.top + context.tooltip.caretY - 10) +
+            "px";
           tooltip.style.display = "block";
         },
       },
@@ -764,8 +773,11 @@ export function PerformanceVsPriceScatterPlot({ devices }: ScatterPlotProps) {
           <strong>
             {scatterData.reduce((sum, dataset) => sum + dataset.data.length, 0)}
           </strong>{" "}
-          {scatterData.reduce((sum, dataset) => sum + dataset.data.length, 0) ===
-            1
+          {scatterData.reduce(
+              (sum, dataset) => sum + dataset.data.length,
+              0,
+            ) ===
+              1
             ? "device"
             : "devices"}
         </p>

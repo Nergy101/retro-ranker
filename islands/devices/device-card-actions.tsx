@@ -21,7 +21,10 @@ export function DeviceCardActions(
   }: DeviceCardActionsProps,
 ) {
   return (
-    <div style={{ display: "flex", justifyContent: "center", gap: "0.5rem" }}>
+    <div
+      class="device-card-actions"
+      style={{ display: "flex", justifyContent: "center", gap: "0.5rem" }}
+    >
       {isLoggedIn && (
         <FavoriteButton
           deviceId={deviceId}

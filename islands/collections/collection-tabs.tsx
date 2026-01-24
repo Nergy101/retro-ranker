@@ -1,4 +1,4 @@
-import { useState, useEffect } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 import { Device } from "../../data/frontend/contracts/device.model.ts";
 import { DeviceCardMedium } from "../../components/cards/device-card-medium.tsx";
 import { PerformanceVsPriceScatterPlot } from "../charts/performance-vs-price-scatter.tsx";
@@ -19,23 +19,25 @@ export function CollectionTabs({
   // Get initial tab from URL or default to "devices"
   const getInitialTab = (): "devices" | "charts" => {
     if (typeof window === "undefined") return "devices";
-    const urlParams = new URLSearchParams(window.location.search);
+    const urlParams = new URLSearchParams(globalThis.location.search);
     const tab = urlParams.get("tab");
     return (tab === "charts" || tab === "devices") ? tab : "devices";
   };
 
-  const [activeTab, setActiveTab] = useState<"devices" | "charts">(getInitialTab);
+  const [activeTab, setActiveTab] = useState<"devices" | "charts">(
+    getInitialTab,
+  );
 
   // Update URL when tab changes
   useEffect(() => {
-    const url = new URL(window.location.href);
+    const url = new URL(globalThis.location.href);
     if (activeTab === "devices") {
       url.searchParams.delete("tab");
     } else {
       url.searchParams.set("tab", activeTab);
     }
     // Use replaceState to avoid adding to history
-    window.history.replaceState({}, "", url.toString());
+    globalThis.history.replaceState({}, "", url.toString());
   }, [activeTab]);
 
   const showTab = (tab: "devices" | "charts") => {
@@ -107,7 +109,10 @@ export function CollectionTabs({
               <PerformanceVsPriceScatterPlot devices={devices} />
             </div>
             <hr />
-            <div class="chart-wrapper" style={{ marginTop: "3rem", marginBottom: "3rem" }}>
+            <div
+              class="chart-wrapper"
+              style={{ marginTop: "3rem", marginBottom: "3rem" }}
+            >
               <OperatingSystemDistribution devices={devices} />
             </div>
             <hr />
@@ -120,4 +125,3 @@ export function CollectionTabs({
     </div>
   );
 }
-

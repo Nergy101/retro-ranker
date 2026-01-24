@@ -4,7 +4,10 @@ import { DeviceService as _DeviceService } from "../../data/frontend/services/de
 import { RatingInfo } from "../../islands/devices/rating-info.tsx";
 import { CurrencyIcon } from "../shared/currency-icon.tsx";
 import { DeviceCardActions } from "../../islands/devices/device-card-actions.tsx";
-import { DeviceHelpers, getDeviceImageUrl } from "../../data/frontend/helpers/device.helpers.ts";
+import {
+  DeviceHelpers,
+  getDeviceImageUrl,
+} from "../../data/frontend/helpers/device.helpers.ts";
 
 interface DeviceCardRowProps {
   device: Device;
@@ -50,7 +53,9 @@ export function DeviceCardRow(
           <span
             style={{ fontSize: "0.6rem", color: "var(--pico-muted-color)" }}
           >
-            {device.pricing.range?.min} - {device.pricing.range?.max}
+            {device.pricing.range?.min === device.pricing.range?.max
+              ? device.pricing.range?.min
+              : `${device.pricing.range?.min} - ${device.pricing.range?.max}`}
           </span>
         </div>
       );
@@ -70,7 +75,9 @@ export function DeviceCardRow(
           <span
             style={{ fontSize: "0.6rem", color: "var(--pico-muted-color)" }}
           >
-            {device.pricing.range?.min} - {device.pricing.range?.max}
+            {device.pricing.range?.min === device.pricing.range?.max
+              ? device.pricing.range?.min
+              : `${device.pricing.range?.min} - ${device.pricing.range?.max}`}
           </span>
         </div>
       );
@@ -91,7 +98,9 @@ export function DeviceCardRow(
           <span
             style={{ fontSize: "0.6rem", color: "var(--pico-muted-color)" }}
           >
-            {device.pricing.range?.min} - {device.pricing.range?.max}
+            {device.pricing.range?.min === device.pricing.range?.max
+              ? device.pricing.range?.min
+              : `${device.pricing.range?.min} - ${device.pricing.range?.max}`}
           </span>
         </div>
       );
@@ -139,95 +148,115 @@ export function DeviceCardRow(
       </div>
 
       {/* Combined Price/OS and Rating Section - 2x2 Grid */}
-      <div class="device-card-row-section-combined">
-        {/* Top row: Pricing and OS */}
-        <div class="device-card-combined-top-row">
-          {/* Price Indicator */}
-          {!device.pricing.discontinued && device.pricing.average
-            ? (
-              <div
-                class="device-card-price-indicator"
-                data-tooltip={`${device.pricing.range?.min}-${device.pricing.range?.max} ${device.pricing.currency}`}
-              >
-                {getPriceIndicator()}
-              </div>
-            )
-            : (
-              <div
-                class="device-card-price-indicator"
-                data-tooltip="No pricing available"
-                aria-describedby={`no-pricing-tooltip-${device.name.sanitized}`}
-              >
-                <CurrencyIcon currencyCode="USD" />
-                <PiQuestion aria-hidden="true" focusable="false" />
-              </div>
-            )}
+      <div class="device-card-row-info-wrapper">
+        <div class="device-card-row-section-combined">
+          {/* Top row: Pricing and OS */}
+          <div class="device-card-combined-top-row">
+            {/* Price Indicator */}
+            {!device.pricing.discontinued && device.pricing.average
+              ? (
+                <div
+                  class="device-card-price-indicator"
+                  data-tooltip={device.pricing.range?.min ===
+                      device.pricing.range?.max
+                    ? `${device.pricing.range?.min} ${device.pricing.currency}`
+                    : `${device.pricing.range?.min}-${device.pricing.range?.max} ${device.pricing.currency}`}
+                >
+                  {getPriceIndicator()}
+                </div>
+              )
+              : (
+                <div
+                  class="device-card-price-indicator"
+                  data-tooltip="unavailable"
+                  aria-describedby={`no-pricing-tooltip-${device.name.sanitized}`}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      flexDirection: "column",
+                    }}
+                  >
+                    <span style={{ display: "flex", alignItems: "center" }}>
+                      <CurrencyIcon currencyCode="USD" />
+                      <PiQuestion aria-hidden="true" focusable="false" />
+                    </span>
+                    <span
+                      style={{ fontSize: "0.6rem", color: "var(--pico-muted-color)" }}
+                    >
+                      {"\u00A0"}
+                    </span>
+                  </div>
+                </div>
+              )}
 
-          {/* OS Indicator */}
-          <div
-            class="device-card-os-icons"
-            data-tooltip={device.os.list.join(", ") === "?"
+            {/* OS Indicator */}
+            <div
+              class="device-card-os-icons"
+              data-tooltip={device.os.list.join(", ") === "?"
+                ? "No OS information available"
+                : device.os.list.join(", ")}
+              aria-describedby={`os-icons-tooltip-${device.name.sanitized}`}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                minHeight: "2rem",
+              }}
+            >
+              {device.os.icons.map((icon, idx) => (
+                <span key={idx} aria-hidden="true">
+                  {DeviceHelpers.getOsIconComponent(icon)}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Bottom row: Device ratings */}
+          <div class="device-card-combined-bottom-row">
+            {upToSystemA && (
+              <RatingInfo
+                rating={upToSystemA}
+                tooltipUseShortSystemName={true}
+                tooltipPosition="top"
+              />
+            )}
+            {upToSystemCOrLower && (
+              <RatingInfo
+                rating={upToSystemCOrLower}
+                tooltipUseShortSystemName={true}
+                tooltipPosition="top"
+              />
+            )}
+          </div>
+
+          {/* Accessibility tooltips */}
+          <span
+            id={`os-icons-tooltip-${device.name.sanitized}`}
+            class="sr-only"
+          >
+            {device.os.list.join(", ") === "?"
               ? "No OS information available"
               : device.os.list.join(", ")}
-            aria-describedby={`os-icons-tooltip-${device.name.sanitized}`}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              minHeight: "2rem",
-            }}
+          </span>
+          <span
+            id={`no-pricing-tooltip-${device.name.sanitized}`}
+            class="sr-only"
           >
-            {device.os.icons.map((icon, idx) => (
-              <span key={idx} aria-hidden="true">
-                {DeviceHelpers.getOsIconComponent(icon)}
-              </span>
-            ))}
-          </div>
+            unavailable
+          </span>
         </div>
 
-        {/* Bottom row: Device ratings */}
-        <div class="device-card-combined-bottom-row">
-          {upToSystemA && (
-            <RatingInfo
-              rating={upToSystemA}
-              tooltipUseShortSystemName={true}
-              tooltipPosition="top"
-            />
-          )}
-          {upToSystemCOrLower && (
-            <RatingInfo
-              rating={upToSystemCOrLower}
-              tooltipUseShortSystemName={true}
-              tooltipPosition="top"
-            />
-          )}
-        </div>
-
-        {/* Accessibility tooltips */}
-        <span
-          id={`os-icons-tooltip-${device.name.sanitized}`}
-          class="sr-only"
-        >
-          {device.os.list.join(", ") === "?"
-            ? "No OS information available"
-            : device.os.list.join(", ")}
-        </span>
-        <span
-          id={`no-pricing-tooltip-${device.name.sanitized}`}
-          class="sr-only"
-        >
-          No pricing available
-        </span>
+        <DeviceCardActions
+          deviceId={device.id}
+          isLoggedIn={isLoggedIn}
+          likes={likes}
+          isLiked={isLiked}
+          isFavorited={isFavorited}
+          showLikeButton={showLikeButton}
+        />
       </div>
-
-      <DeviceCardActions
-        deviceId={device.id}
-        isLoggedIn={isLoggedIn}
-        likes={likes}
-        isLiked={isLiked}
-        isFavorited={isFavorited}
-        showLikeButton={showLikeButton}
-      />
     </div>
   );
 }

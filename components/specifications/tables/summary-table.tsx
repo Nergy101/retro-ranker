@@ -17,157 +17,29 @@ interface SummaryTableProps {
 
 export function SummaryTable({ device }: SummaryTableProps) {
   return (
-    <div class="summary-table-container">
-      <table class="summary-table">
-        <thead>
-          <tr>
-            <th>
-              Category
-            </th>
-            <th>Details</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="category-cell">
-              <PiSquaresFour />
-              OS / CFW
-            </td>
-            <td class="details-cell">
-              <div class="detail-content">
-                {device.os.list.join(", ")}
-                {device.os.customFirmwares.length > 0 && (
-                  <span class="cfw-info">
-                    ({device.os.customFirmwares.join(", ")})
-                  </span>
-                )}
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="category-cell">
-              <PiCircuitry />
-              SOC
-            </td>
-            <td class="details-cell">
-              <div class="detail-content">
-                {device.cpus?.[0]?.names.join(", ") || "Unknown"}
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="category-cell">
-              <PiCpu />
-              CPU
-            </td>
-            <td class="details-cell">
-              <div class="detail-content">
-                {device.cpus?.[0]?.cores || "Unknown"} cores @{" "}
-                {device.cpus?.[0]?.clockSpeed?.max || "Unknown"}{" "}
-                {device.cpus?.[0]?.clockSpeed?.unit || "Unknown"}
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="category-cell">
-              <PiGraphicsCard />
-              GPU
-            </td>
-            <td class="details-cell">
-              <div class="detail-content">
-                {device.gpus?.[0]?.name || "Unknown"}
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="category-cell">
-              <PiBracketsSquare />
-              RAM
-            </td>
-            <td class="details-cell">
-              <div class="detail-content">
-                {device.ram?.sizes?.join(", ") || "Unknown"}{" "}
-                {device.ram?.unit || ""}
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="category-cell">
-              <PiMonitor />
-              Display
-            </td>
-            <td class="details-cell">
-              <div class="detail-content">
-                {device.screen?.size || "Unknown"}"{" "}
-                {device.screen?.resolution &&
-                    device.screen.resolution.length > 0
-                  ? device.screen.resolution.map((res) =>
-                    `${res.width}x${res.height}`
-                  ).join(", ")
-                  : "Unknown"} ({device.screen?.type?.type || "Unknown"})
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="category-cell">
-              <PiBatteryFull />
-              Battery
-            </td>
-            <td class="details-cell">
-              <div class="detail-content">
-                {device.battery?.capacity || "Unknown"}{" "}
-                {device.battery?.unit || ""}{" "}
-                ({device.battery?.type || "Unknown"})
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="category-cell">
-              <PiRuler />
-              Dimensions
-            </td>
-            <td class="details-cell">
-              <div class="detail-content">
-                {device.dimensions
-                  ? `${device.dimensions.length}x${device.dimensions.width}x${device.dimensions.height}`
-                  : "Unknown"}
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
+    <>
       <style>
         {`
-        .summary-table-container {
-          border-radius: 8px;
-          overflow: hidden;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-          border: 1px solid var(--pico-secondary);
+        /* Header rows - lightest background, ensure it overrides all other rules */
+        /* Use a unique class to avoid conflicts */
+        table.striped.summary-table thead th,
+        table.striped.summary-table thead tr th,
+        table.striped.summary-table thead tr:nth-child(odd) th,
+        table.striped.summary-table thead tr:nth-child(even) th,
+        table.striped.summary-table thead th.subheader {
+          background-color: var(--pico-card-background-color) !important;
+          color: var(--pico-primary) !important;
+          border-bottom: 2px solid var(--pico-primary-hover) !important;
+          font-weight: 600 !important;
         }
         
-        .summary-table {
-          width: 100%;
-          border-collapse: collapse;
+        /* Body rows - ensure proper alternating */
+        table.striped.summary-table tbody tr:nth-child(even) td {
+          background-color: var(--pico-background-color) !important;
         }
         
-        .summary-table th {
-          padding: 1rem;
-          text-align: left;
-          font-weight: 600;
-          font-size: 0.95rem;
-          border-bottom: 2px solid var(--pico-primary-hover);
-          background: var(--pico-card-background-color);
-        }
-        
-        .summary-table td {
-          padding: 1rem;
-          border-bottom: 1px solid var(--pico-muted-border-color);
-          vertical-align: top;
-        }
-        
-        .summary-table tr:last-child td {
-          border-bottom: none;
+        table.striped.summary-table tbody tr:nth-child(odd) td {
+          background-color: var(--pico-table-row-stripped-background-color) !important;
         }
         
         .category-cell {
@@ -179,14 +51,6 @@ export function SummaryTable({ device }: SummaryTableProps) {
           gap: 0.5rem;
         }
         
-        .details-cell {
-          color: var(--pico-color);
-        }
-        
-        .detail-content {
-          line-height: 1.5;
-        }
-        
         .cfw-info {
           color: var(--pico-muted-color);
           font-style: italic;
@@ -194,17 +58,105 @@ export function SummaryTable({ device }: SummaryTableProps) {
         }
         
         @media (max-width: 768px) {
-          .summary-table th,
-          .summary-table td {
-            padding: 0.75rem;
-          }
-          
           .category-cell {
             min-width: 120px;
           }
         }
       `}
       </style>
-    </div>
+
+      <table class="striped summary-table">
+        <tbody>
+          <tr>
+            <td class="category-cell">
+              <PiSquaresFour />
+              OS / CFW
+            </td>
+            <td>
+              {device.os.list.join(", ")}
+              {device.os.customFirmwares.length > 0 && (
+                <span class="cfw-info">
+                  ({device.os.customFirmwares.join(", ")})
+                </span>
+              )}
+            </td>
+          </tr>
+          <tr>
+            <td class="category-cell">
+              <PiCircuitry />
+              SOC
+            </td>
+            <td>
+              {device.cpus?.[0]?.names.join(", ") || "Unknown"}
+            </td>
+          </tr>
+          <tr>
+            <td class="category-cell">
+              <PiCpu />
+              CPU
+            </td>
+            <td>
+              {device.cpus?.[0]?.cores || "Unknown"} cores @{" "}
+              {device.cpus?.[0]?.clockSpeed?.max || "Unknown"}{" "}
+              {device.cpus?.[0]?.clockSpeed?.unit || "Unknown"}
+            </td>
+          </tr>
+          <tr>
+            <td class="category-cell">
+              <PiGraphicsCard />
+              GPU
+            </td>
+            <td>
+              {device.gpus?.[0]?.name || "Unknown"}
+            </td>
+          </tr>
+          <tr>
+            <td class="category-cell">
+              <PiBracketsSquare />
+              RAM
+            </td>
+            <td>
+              {device.ram?.sizes?.join(", ") || "Unknown"}{" "}
+              {device.ram?.unit || ""}
+            </td>
+          </tr>
+          <tr>
+            <td class="category-cell">
+              <PiMonitor />
+              Display
+            </td>
+            <td>
+              {device.screen?.size || "Unknown"}" {device.screen?.resolution &&
+                  device.screen.resolution.length > 0
+                ? device.screen.resolution.map((res) =>
+                  `${res.width}x${res.height}`
+                ).join(", ")
+                : "Unknown"} ({device.screen?.type?.type || "Unknown"})
+            </td>
+          </tr>
+          <tr>
+            <td class="category-cell">
+              <PiBatteryFull />
+              Battery
+            </td>
+            <td>
+              {device.battery?.capacity || "Unknown"}{" "}
+              {device.battery?.unit || ""} ({device.battery?.type || "Unknown"})
+            </td>
+          </tr>
+          <tr>
+            <td class="category-cell">
+              <PiRuler />
+              Dimensions
+            </td>
+            <td>
+              {device.dimensions
+                ? `${device.dimensions.length}x${device.dimensions.width}x${device.dimensions.height}`
+                : "Unknown"}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </>
   );
 }
