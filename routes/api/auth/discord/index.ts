@@ -12,24 +12,48 @@ export const handler = {
 
     return await tracer.startActiveSpan("discord-auth-start", async (span) => {
       try {
-        const codeVerifier = generateCodeVerifier();
-        const codeChallenge = await generateCodeChallenge(codeVerifier);
-        const randomId = crypto.randomUUID();
-
         // get host from ctx/req (+ port)
         const url = new URL(req.url);
 
         // Check if redirect_uri is provided (for mobile app final redirect)
         const mobileRedirectUri = url.searchParams.get("redirect_uri");
+        const requestedState = url.searchParams.get("state") || undefined;
+        const requestedCodeChallenge =
+          url.searchParams.get("code_challenge") || undefined;
+
+        // For mobile (app) login, the app generates PKCE verifier/challenge and we must
+        // reuse the app-provided state + code_challenge so the app can complete the flow.
+        // For web login, we generate PKCE server-side as before.
+        const isMobile = !!mobileRedirectUri;
+        const stateId = requestedState || crypto.randomUUID();
+
+        let codeVerifier: string;
+        let codeChallenge: string;
+        if (isMobile) {
+          if (!requestedState || !requestedCodeChallenge) {
+            logJson("warn", "Missing PKCE params for mobile Discord auth", {
+              hasState: !!requestedState,
+              hasCodeChallenge: !!requestedCodeChallenge,
+            });
+            return new Response("Missing PKCE parameters", { status: 400 });
+          }
+          // Store a placeholder verifier; mobile flow won't use it server-side.
+          codeVerifier = "mobile";
+          codeChallenge = requestedCodeChallenge;
+        } else {
+          codeVerifier = generateCodeVerifier();
+          codeChallenge = await generateCodeChallenge(codeVerifier);
+        }
+
         pkceSessionService.storeInSession(
-          randomId,
+          stateId,
           codeVerifier,
           mobileRedirectUri || undefined,
         );
 
         logJson("info", "Stored PKCE session", {
-          state: randomId,
-          hasCodeVerifier: !!codeVerifier,
+          state: stateId,
+          isMobile,
           hasMobileRedirect: !!mobileRedirectUri,
         });
 
@@ -53,13 +77,13 @@ export const handler = {
           "&scope=identify" +
           `&code_challenge=${codeChallenge}` +
           `&code_challenge_method=S256` +
-          `&state=${randomId}`;
+          `&state=${stateId}`;
 
         logJson("info", "Starting Discord OAuth2 flow", {
-          state: randomId,
+          state: stateId,
           url: discordUrl,
         });
-        span.setAttribute("discord.oauth2.state", randomId);
+        span.setAttribute("discord.oauth2.state", stateId);
         span.setAttribute("discord.oauth2.redirect_url", discordUrl);
 
         return Response.redirect(discordUrl, 302);

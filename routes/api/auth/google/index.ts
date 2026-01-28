@@ -13,17 +13,37 @@ export const handler = {
 
     return await tracer.startActiveSpan("google-auth-start", async (span) => {
       try {
-        const codeVerifier = generateCodeVerifier();
-        const codeChallenge = await generateCodeChallenge(codeVerifier);
-        const randomId = crypto.randomUUID();
-
         // get host from ctx/req (+ port)
         const url = new URL(req.url);
 
         // Check if redirect_uri is provided (for mobile app final redirect)
         const mobileRedirectUri = url.searchParams.get("redirect_uri");
+        const requestedState = url.searchParams.get("state") || undefined;
+        const requestedCodeChallenge =
+          url.searchParams.get("code_challenge") || undefined;
+
+        const isMobile = !!mobileRedirectUri;
+        const stateId = requestedState || crypto.randomUUID();
+
+        let codeVerifier: string;
+        let codeChallenge: string;
+        if (isMobile) {
+          if (!requestedState || !requestedCodeChallenge) {
+            logJson("warn", "Missing PKCE params for mobile Google auth", {
+              hasState: !!requestedState,
+              hasCodeChallenge: !!requestedCodeChallenge,
+            });
+            return new Response("Missing PKCE parameters", { status: 400 });
+          }
+          codeVerifier = "mobile";
+          codeChallenge = requestedCodeChallenge;
+        } else {
+          codeVerifier = generateCodeVerifier();
+          codeChallenge = await generateCodeChallenge(codeVerifier);
+        }
+
         pkceSessionService.storeInSession(
-          randomId,
+          stateId,
           codeVerifier,
           mobileRedirectUri || undefined,
         );
@@ -48,13 +68,13 @@ export const handler = {
           "&scope=https://www.googleapis.com/auth/plus.login" +
           `&code_challenge=${codeChallenge}` +
           `&code_challenge_method=S256` +
-          `&state=${randomId}`;
+          `&state=${stateId}`;
 
         logJson("info", "Starting Google OAuth2 flow", {
-          state: randomId,
+          state: stateId,
           url: googleUrl,
         });
-        span.setAttribute("google.oauth2.state", randomId);
+        span.setAttribute("google.oauth2.state", stateId);
         span.setAttribute("google.oauth2.redirect_url", googleUrl);
 
         return Response.redirect(googleUrl, 302);

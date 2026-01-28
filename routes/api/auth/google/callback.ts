@@ -9,6 +9,41 @@ import { createPocketBaseService } from "../../../../data/pocketbase/pocketbase.
 import { logJson, tracer } from "../../../../data/tracing/tracer.ts";
 import { setAuthCookie, State } from "../../../../utils.ts";
 
+function isAllowedMobileRedirect(redirectUri: string): boolean {
+  try {
+    const u = new URL(redirectUri);
+    const scheme = u.protocol.replace(":", "");
+    const allowedSchemes = new Set([
+      "retroranker",
+      "exp",
+      "exps",
+      "expo-development-client",
+    ]);
+    if (!allowedSchemes.has(scheme)) return false;
+
+    const path = u.pathname || "";
+    const host = u.host || "";
+
+    const expoStyleOk = path.includes("/auth/") && path.includes("/callback");
+    const standaloneStyleOk = host === "auth" && path.includes("/callback");
+
+    return expoStyleOk || standaloneStyleOk;
+  } catch {
+    return false;
+  }
+}
+
+function appendCodeAndState(
+  redirectUri: string,
+  code: string,
+  state: string,
+): string {
+  const u = new URL(redirectUri);
+  u.searchParams.set("code", code);
+  u.searchParams.set("state", state);
+  return u.toString();
+}
+
 export const handler = {
   async GET(ctx: Context<State>) {
     const req = ctx.req;
@@ -49,6 +84,20 @@ export const handler = {
           remove: true,
         });
 
+        const redirectUri = sessionData?.redirectUri;
+
+        // Mobile app redirect (Expo Go / dev build / prod build):
+        if (redirectUri && isAllowedMobileRedirect(redirectUri)) {
+          const mobileRedirectUrl = appendCodeAndState(redirectUri, code, state);
+          headers.set("location", mobileRedirectUrl);
+          logJson("info", "Redirecting to mobile app", {
+            redirectUri: mobileRedirectUrl,
+          });
+          span.setAttribute("google.oauth2.state", state);
+          span.setStatus({ code: 0 });
+          return new Response(null, { status: 303, headers });
+        }
+
         if (!sessionData || !sessionData.codeVerifier) {
           logJson(
             "warn",
@@ -60,7 +109,6 @@ export const handler = {
         }
 
         const codeVerifier = sessionData.codeVerifier;
-        const redirectUri = sessionData.redirectUri;
 
         try {
           const numberDictionary = NumberDictionary.generate({
@@ -102,20 +150,8 @@ export const handler = {
 
           setAuthCookie(headers, user.token, hostname);
 
-          // Check if this is a mobile app redirect
-          if (redirectUri && redirectUri.startsWith("retroranker://")) {
-            // Mobile app redirect - include code and state in the deep link
-            const mobileRedirectUrl = `${redirectUri}?code=${
-              encodeURIComponent(code)
-            }&state=${encodeURIComponent(state)}`;
-            headers.set("location", mobileRedirectUrl);
-            logJson("info", "Redirecting to mobile app", {
-              redirectUri: mobileRedirectUrl,
-            });
-          } else {
-            // Web redirect
-            headers.set("location", "/auth/sign-in?logged-in=true");
-          }
+          // Web redirect
+          headers.set("location", "/auth/sign-in?logged-in=true");
 
           span.setAttribute("Google.oauth2.state", state);
           span.setAttribute("user.id", user?.record?.id || "");
