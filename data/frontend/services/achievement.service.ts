@@ -202,7 +202,6 @@ export class AchievementService {
     pb: PocketBaseService,
   ): Promise<number> {
     try {
-      console.log(`Fetching review count for user: ${userId}`);
       const reviews = await pb.getList(
         "device_reviews",
         1,
@@ -214,7 +213,6 @@ export class AchievementService {
         },
       );
       const count = reviews.totalItems ?? reviews.items.length ?? 0;
-      console.log(`Found ${count} reviews for user ${userId}`);
       return count;
     } catch (error) {
       console.error("Failed to fetch user review count:", error);
