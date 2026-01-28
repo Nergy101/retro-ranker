@@ -84,7 +84,7 @@ export const handler = {
             ? `${protocol}//${hostname}:${port}`
             : `${protocol}//${hostname}`;
           const websiteCallbackUrl = `${fullHost}/api/auth/google/callback`;
-          
+
           const pbService = await createPocketBaseService();
           const user = await pbService.authWithOAuth2Code(
             "google",
@@ -105,9 +105,13 @@ export const handler = {
           // Check if this is a mobile app redirect
           if (redirectUri && redirectUri.startsWith("retroranker://")) {
             // Mobile app redirect - include code and state in the deep link
-            const mobileRedirectUrl = `${redirectUri}?code=${encodeURIComponent(code)}&state=${encodeURIComponent(state)}`;
+            const mobileRedirectUrl = `${redirectUri}?code=${
+              encodeURIComponent(code)
+            }&state=${encodeURIComponent(state)}`;
             headers.set("location", mobileRedirectUrl);
-            logJson("info", "Redirecting to mobile app", { redirectUri: mobileRedirectUrl });
+            logJson("info", "Redirecting to mobile app", {
+              redirectUri: mobileRedirectUrl,
+            });
           } else {
             // Web redirect
             headers.set("location", "/auth/sign-in?logged-in=true");

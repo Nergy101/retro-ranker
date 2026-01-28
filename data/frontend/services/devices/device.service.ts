@@ -29,7 +29,12 @@ export class DeviceService {
    */
   // deno-lint-ignore no-explicit-any
   private enhanceDeviceWithImageUrl(rawDevice: any): Device {
-    const deviceData = rawDevice.deviceData as Device;
+    const rawDeviceData = rawDevice.deviceData as Device;
+    // Remove archived from deviceData if present (for backward compatibility)
+    // archived should only exist at entity level, not in deviceData JSON
+    const { archived: _, ...deviceDataWithoutArchived } = rawDeviceData;
+    const deviceData = deviceDataWithoutArchived as Device;
+    
     // Add PocketBase image URL if available
     if (rawDevice.deviceMainImage && deviceData.image) {
       deviceData.image.pocketbaseUrl = getPocketBaseImageUrl(
@@ -37,6 +42,8 @@ export class DeviceService {
         rawDevice.deviceMainImage,
       );
     }
+    // Copy archived property from entity level to device data
+    deviceData.archived = rawDevice.archived ?? false;
     return deviceData;
   }
 
@@ -102,9 +109,9 @@ export class DeviceService {
 
     const dbStart = performance.now();
     const rawDevices = await this.pocketBaseService.getAll("devices");
-    const data = rawDevices.map((device) =>
-      this.enhanceDeviceWithImageUrl(device)
-    );
+    const data = rawDevices
+      .filter((device) => device.archived !== true)
+      .map((device) => this.enhanceDeviceWithImageUrl(device));
     const dbEnd = performance.now();
 
     this.devicesCache = { data, timestamp: now };
@@ -209,6 +216,10 @@ export class DeviceService {
       filterString += `(${tags.map((tag) => `tags~"${tag.id}"`).join(" && ")})`;
     }
 
+    // Add archived filter
+    if (filterString) filterString += " && ";
+    filterString += "archived != true";
+
     // Build sort string
     let sortString = "";
     switch (sortBy) {
@@ -263,7 +274,7 @@ export class DeviceService {
       1,
       1,
       {
-        filter: `deviceData.name.sanitized = "${sanitizedName}"`,
+        filter: `deviceData.name.sanitized = "${sanitizedName}" && archived != true`,
         sort: "",
         expand: "",
       },
@@ -292,7 +303,7 @@ export class DeviceService {
 
     const allDevices = await this.getAllDevices();
     return allDevices
-      .filter((device) => device.name.sanitized !== sanitizedName)
+      .filter((device) => device.name.sanitized !== sanitizedName && device.archived !== true)
       .sort((a, b) => {
         const scoreA = RatingsService.getSimilarityScore(a, currentDevice);
         const scoreB = RatingsService.getSimilarityScore(b, currentDevice);
@@ -310,7 +321,7 @@ export class DeviceService {
       1,
       amount,
       {
-        filter: `tags~"${personalPickTagId}"`,
+        filter: `tags~"${personalPickTagId}" && archived != true`,
         sort: "-deviceData.released.mentionedDate",
         expand: "",
       },
@@ -324,7 +335,7 @@ export class DeviceService {
       1,
       amount,
       {
-        filter: "",
+        filter: "archived != true",
         sort: "-deviceData.released.mentionedDate",
         expand: "",
       },
@@ -339,7 +350,7 @@ export class DeviceService {
       1,
       100, // Get a large number to ensure we have enough
       {
-        filter: `deviceData.released ~ 'upcoming'`,
+        filter: `deviceData.released ~ 'upcoming' && archived != true`,
         sort: "",
         expand: "",
       },
@@ -413,7 +424,7 @@ export class DeviceService {
       amount,
       {
         filter:
-          `totalRating > 0 && pricing.category = "mid" && deviceData.released.raw!~"upcoming"`,
+          `totalRating > 0 && pricing.category = "mid" && deviceData.released.raw!~"upcoming" && archived != true`,
         sort: "-totalRating,-released",
         expand: "",
       },
@@ -427,7 +438,7 @@ export class DeviceService {
    */
   public async getBangForYourBuck(): Promise<Device[]> {
     const baseFilter =
-      `totalRating > 0 && deviceData.released.raw!~"upcoming" && deviceData.deviceType = "handheld"`;
+      `totalRating > 0 && deviceData.released.raw!~"upcoming" && deviceData.deviceType = "handheld" && archived != true`;
 
     const [sweetSpotResult, midResult] = await Promise.all([
       this.pocketBaseService.getList("devices", 1, 3, {

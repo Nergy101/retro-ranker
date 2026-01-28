@@ -18,17 +18,21 @@ export const handler = {
 
         // get host from ctx/req (+ port)
         const url = new URL(req.url);
-        
+
         // Check if redirect_uri is provided (for mobile app final redirect)
         const mobileRedirectUri = url.searchParams.get("redirect_uri");
-        pkceSessionService.storeInSession(randomId, codeVerifier, mobileRedirectUri || undefined);
-        
+        pkceSessionService.storeInSession(
+          randomId,
+          codeVerifier,
+          mobileRedirectUri || undefined,
+        );
+
         logJson("info", "Stored PKCE session", {
           state: randomId,
           hasCodeVerifier: !!codeVerifier,
           hasMobileRedirect: !!mobileRedirectUri,
         });
-        
+
         // Determine callback URL based on request host
         // For production, always use retroranker.site
         // For local development, use localhost

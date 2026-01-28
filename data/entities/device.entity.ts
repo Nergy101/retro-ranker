@@ -24,6 +24,7 @@ export interface DeviceEntity extends BaseEntity {
   systemRatings: SystemRating[];
 
   deviceData: DeviceJson;
+  archived: boolean;
 
   tags: TagModel[];
 

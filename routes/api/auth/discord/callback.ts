@@ -48,7 +48,7 @@ export const handler = {
           logJson(
             "error",
             "Missing or invalid codeVerifier in Discord callback",
-            { 
+            {
               state,
               hasSessionData: !!sessionData,
               code: code ? "present" : "missing",
@@ -59,10 +59,10 @@ export const handler = {
           // Return a more helpful error page
           return new Response(
             `OAuth authentication failed: Session expired or invalid. Please try signing in again.`,
-            { 
+            {
               status: 400,
               headers: { "Content-Type": "text/plain" },
-            }
+            },
           );
         }
 
@@ -82,7 +82,7 @@ export const handler = {
             ? `${protocol}//${hostname}:${port}`
             : `${protocol}//${hostname}`;
           const websiteCallbackUrl = `${fullHost}/api/auth/discord/callback`;
-          
+
           const pbService = await createPocketBaseService();
           const user = await pbService.authWithOAuth2Code(
             "discord",
@@ -97,9 +97,13 @@ export const handler = {
           // Check if this is a mobile app redirect
           if (redirectUri && redirectUri.startsWith("retroranker://")) {
             // Mobile app redirect - include code and state in the deep link
-            const mobileRedirectUrl = `${redirectUri}?code=${encodeURIComponent(code)}&state=${encodeURIComponent(state)}`;
+            const mobileRedirectUrl = `${redirectUri}?code=${
+              encodeURIComponent(code)
+            }&state=${encodeURIComponent(state)}`;
             headers.set("location", mobileRedirectUrl);
-            logJson("info", "Redirecting to mobile app", { redirectUri: mobileRedirectUrl });
+            logJson("info", "Redirecting to mobile app", {
+              redirectUri: mobileRedirectUrl,
+            });
           } else {
             // Web redirect
             headers.set("location", "/auth/sign-in?logged-in=true");

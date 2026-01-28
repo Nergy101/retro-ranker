@@ -70,6 +70,15 @@ const handhelds = JSON.parse(
 ) as DeviceContract[];
 
 /**
+ * Serializes a Device to JSON, excluding the archived property
+ * (archived is stored at entity level, not in deviceData JSON)
+ */
+function serializeDeviceData(device: DeviceContract): string {
+  const { archived: _archived, ...deviceWithoutArchived } = device;
+  return JSON.stringify(deviceWithoutArchived);
+}
+
+/**
  * Reads a WebP image file for a device and returns it as a File object for upload
  * @param deviceSanitizedName The sanitized device name (used as filename)
  * @returns File object if image exists, null otherwise
@@ -326,6 +335,7 @@ async function insertDevices(
           ),
           pricing: pricingId,
           performance: performanceId,
+          archived: device.archived ?? false,
         };
 
         // Parse existing deviceData if it's a string, otherwise use it directly
@@ -456,7 +466,7 @@ async function insertDevices(
           totalRating: device.totalRating ?? 0,
           deviceType: device.deviceType,
           index: device.index,
-          deviceData: JSON.stringify(device),
+          deviceData: serializeDeviceData(device),
           systemRatings: device.systemRatings.map((rating) =>
             systemRatingsMap.get(`${rating.system}:${rating.ratingNumber}`)?.id
           ).filter(Boolean),
@@ -465,6 +475,7 @@ async function insertDevices(
           ),
           pricing: pricingId,
           performance: performanceId,
+          archived: device.archived ?? false,
         });
 
         // Upload image for new device

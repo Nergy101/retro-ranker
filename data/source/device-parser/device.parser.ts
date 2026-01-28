@@ -477,6 +477,7 @@ export class DeviceParser {
 
         vendorLinks: [],
         notes: [],
+        archived: false, // Set for TypeScript, but excluded from deviceData JSON serialization
       };
 
       $(row).find("td").each((colIndex, cell) => {
