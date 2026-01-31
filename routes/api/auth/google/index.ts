@@ -62,8 +62,19 @@ export const handler = {
           : `${protocol}//${hostname}`;
         const websiteCallbackUrl = `${fullHost}/api/auth/google/callback`;
 
+        const clientId = Deno.env.get("GOOGLE_OAUTH_CLIENT_ID");
+        if (!clientId) {
+          logJson("error", "GOOGLE_OAUTH_CLIENT_ID is not set");
+          span.setStatus({ code: 2, message: "Google OAuth not configured" });
+          return new Response("Google sign-in is not configured", {
+            status: 503,
+          });
+        }
+
         const googleUrl =
-          "https://accounts.google.com/o/oauth2/v2/auth?client_id=384634892886-g7mbiqpno7uo5mrtdop2mdk1pud7k0po.apps.googleusercontent.com&response_type=code&redirect_uri=" +
+          "https://accounts.google.com/o/oauth2/v2/auth?client_id=" +
+          encodeURIComponent(clientId) +
+          "&response_type=code&redirect_uri=" +
           encodeURIComponent(websiteCallbackUrl) +
           "&scope=https://www.googleapis.com/auth/plus.login" +
           `&code_challenge=${codeChallenge}` +
