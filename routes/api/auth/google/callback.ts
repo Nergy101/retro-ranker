@@ -144,8 +144,15 @@ export const handler = {
             },
           );
 
+          // Google OAuth doesn't always return a name; fallback to email local part
+          const email = user.record.email ?? "";
+          const nameFromOAuth = user.meta?.name;
+          const name =
+            nameFromOAuth?.trim() || (email ? email.split("@")[0] : randomName);
+          const cleanNickname = name.toLowerCase().replace(/\s+/g, "_");
+
           await pbService.update("users", user.record.id, {
-            nickname: user.meta.name,
+            nickname: cleanNickname,
           });
 
           setAuthCookie(headers, user.token, hostname);
