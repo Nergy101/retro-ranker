@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           persist-credentials: true
 
@@ -42,7 +42,7 @@ jobs:
           echo "POCKETBASE_URL=${{ secrets.POCKETBASE_URL }}" >> .env
 
       - name: Run refresh-all task
-        uses: nick-fields/retry@v3
+        uses: nick-fields/retry@v4
         with:
           timeout_minutes: 10
           max_attempts: 3
