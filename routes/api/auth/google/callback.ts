@@ -53,11 +53,7 @@ export const handler = {
       async (span) => {
         const headers = new Headers();
         const url = new URL(req.url);
-        let protocol = url.protocol;
         const hostname = url.hostname;
-        if (hostname === "retroranker.site") {
-          protocol = "https:";
-        }
 
         const code = url.searchParams.get("code");
         const state = url.searchParams.get("state");
