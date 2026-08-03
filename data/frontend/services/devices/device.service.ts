@@ -34,7 +34,7 @@ export class DeviceService {
     // archived should only exist at entity level, not in deviceData JSON
     const { archived: _, ...deviceDataWithoutArchived } = rawDeviceData;
     const deviceData = deviceDataWithoutArchived as Device;
-    
+
     // Add PocketBase image URL if available
     if (rawDevice.deviceMainImage && deviceData.image) {
       deviceData.image.pocketbaseUrl = getPocketBaseImageUrl(
@@ -274,7 +274,8 @@ export class DeviceService {
       1,
       1,
       {
-        filter: `deviceData.name.sanitized = "${sanitizedName}" && archived != true`,
+        filter:
+          `deviceData.name.sanitized = "${sanitizedName}" && archived != true`,
         sort: "",
         expand: "",
       },
@@ -303,7 +304,9 @@ export class DeviceService {
 
     const allDevices = await this.getAllDevices();
     return allDevices
-      .filter((device) => device.name.sanitized !== sanitizedName && device.archived !== true)
+      .filter((device) =>
+        device.name.sanitized !== sanitizedName && device.archived !== true
+      )
       .sort((a, b) => {
         const scoreA = RatingsService.getSimilarityScore(a, currentDevice);
         const scoreB = RatingsService.getSimilarityScore(b, currentDevice);

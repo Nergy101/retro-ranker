@@ -88,7 +88,11 @@ export const handler = {
 
         // Mobile app redirect (Expo Go / dev build / prod build):
         if (redirectUri && isAllowedMobileRedirect(redirectUri)) {
-          const mobileRedirectUrl = appendCodeAndState(redirectUri, code, state);
+          const mobileRedirectUrl = appendCodeAndState(
+            redirectUri,
+            code,
+            state,
+          );
           headers.set("location", mobileRedirectUrl);
           logJson("info", "Redirecting to mobile app", {
             redirectUri: mobileRedirectUrl,
@@ -147,8 +151,8 @@ export const handler = {
           // Google OAuth doesn't always return a name; fallback to email local part
           const email = user.record.email ?? "";
           const nameFromOAuth = user.meta?.name;
-          const name =
-            nameFromOAuth?.trim() || (email ? email.split("@")[0] : randomName);
+          const name = nameFromOAuth?.trim() ||
+            (email ? email.split("@")[0] : randomName);
           const cleanNickname = name.toLowerCase().replace(/\s+/g, "_");
 
           await pbService.update("users", user.record.id, {

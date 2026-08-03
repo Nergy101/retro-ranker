@@ -183,7 +183,10 @@ export function DeviceCardRow(
                       <PiQuestion aria-hidden="true" focusable="false" />
                     </span>
                     <span
-                      style={{ fontSize: "0.6rem", color: "var(--pico-muted-color)" }}
+                      style={{
+                        fontSize: "0.6rem",
+                        color: "var(--pico-muted-color)",
+                      }}
                     >
                       {"\u00A0"}
                     </span>

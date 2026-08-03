@@ -19,8 +19,8 @@ export const handler = {
         // Check if redirect_uri is provided (for mobile app final redirect)
         const mobileRedirectUri = url.searchParams.get("redirect_uri");
         const requestedState = url.searchParams.get("state") || undefined;
-        const requestedCodeChallenge =
-          url.searchParams.get("code_challenge") || undefined;
+        const requestedCodeChallenge = url.searchParams.get("code_challenge") ||
+          undefined;
 
         const isMobile = !!mobileRedirectUri;
         const stateId = requestedState || crypto.randomUUID();

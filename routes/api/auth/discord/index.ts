@@ -18,8 +18,8 @@ export const handler = {
         // Check if redirect_uri is provided (for mobile app final redirect)
         const mobileRedirectUri = url.searchParams.get("redirect_uri");
         const requestedState = url.searchParams.get("state") || undefined;
-        const requestedCodeChallenge =
-          url.searchParams.get("code_challenge") || undefined;
+        const requestedCodeChallenge = url.searchParams.get("code_challenge") ||
+          undefined;
 
         // For mobile (app) login, the app generates PKCE verifier/challenge and we must
         // reuse the app-provided state + code_challenge so the app can complete the flow.
