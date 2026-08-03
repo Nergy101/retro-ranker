@@ -57,10 +57,6 @@ export const handler = {
         if (hostname === "retroranker.site") {
           protocol = "https:";
         }
-        const port = url.port;
-        const fullHost = port
-          ? `${protocol}//${hostname}:${port}`
-          : `${protocol}//${hostname}`;
 
         const code = url.searchParams.get("code");
         const state = url.searchParams.get("state");
