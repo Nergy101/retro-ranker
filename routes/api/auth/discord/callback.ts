@@ -52,7 +52,6 @@ export const handler = {
       async (span) => {
         const headers = new Headers();
         const url = new URL(req.url);
-        const hostname = url.hostname;
 
         const code = url.searchParams.get("code");
         const state = url.searchParams.get("state");
