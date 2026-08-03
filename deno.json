@@ -56,6 +56,9 @@
     "**/data/source/results/*",
     "**/sitemap.xml"
   ],
+  "fmt": {
+    "exclude": ["**/*.svg"]
+  },
   "imports": {
     "fresh": "jsr:@fresh/core@^2.1.2",
     "@fresh/plugin-vite": "jsr:@fresh/plugin-vite@^1.0.5",
