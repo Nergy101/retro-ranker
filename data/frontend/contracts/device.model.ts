@@ -27,6 +27,7 @@ import { TagModel } from "../models/tag.model.ts";
 export interface Device {
   id: string; // the id of the device, this is the same as the name.sanitized
   index: number; // the index/order of the device in the source data
+  archived?: boolean; // whether the device is archived (hidden from listings)
   name: DeviceName;
   brand: DeviceBrand;
   totalRating: number; // the total rating of the device, scale of 0-10

@@ -60,13 +60,12 @@
     "exclude": ["**/*.svg", "**/*.min.css"]
   },
   "imports": {
-    "fresh": "jsr:@fresh/core@^2.1.2",
+    "fresh": "jsr:@fresh/core@^2.3.3",
     "@fresh/plugin-vite": "jsr:@fresh/plugin-vite@^1.0.5",
-    "vite": "npm:vite@^7.1.10",
-    "preact": "npm:preact@10.27.2",
-    "@preact/signals": "npm:@preact/signals@2.3.1",
-    "preact-render-to-string": "npm:preact-render-to-string@6.6.1",
-    "pocketbase": "npm:pocketbase@^0.26.2",
+    "vite": "npm:vite@^7.3.6",
+    "preact": "npm:preact@^10.29.1",
+    "@preact/signals": "npm:@preact/signals@^2.9.0",
+    "pocketbase": "npm:pocketbase@^0.27.0",
     "chart.js": "npm:chart.js@^4.5.1",
     "@std/dotenv": "jsr:@std/dotenv@^0.225.5",
     "@std/fs": "jsr:@std/fs@1.0.19",
@@ -77,36 +76,14 @@
     "@opentelemetry/api": "npm:@opentelemetry/api@^1.9.0",
     "unique-names-generator": "npm:unique-names-generator@^4.7.1",
     "$fresh_charts/": "https://deno.land/x/fresh_charts@0.3.1/",
-    "@playwright/test": "npm:@playwright/test@^1.56.1",
-    "playwright": "npm:playwright@^1.56.1"
+    "@playwright/test": "npm:@playwright/test@^1.62.1",
+    "playwright": "npm:playwright@^1.62.1"
   },
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.asynciterable",
-      "dom.iterable",
-      "deno.ns"
-    ],
+    "lib": ["dom", "dom.asynciterable", "dom.iterable", "deno.ns"],
     "jsx": "precompile",
     "jsxImportSource": "preact",
-    "jsxPrecompileSkipElements": [
-      "a",
-      "img",
-      "source",
-      "body",
-      "html",
-      "head",
-      "title",
-      "meta",
-      "script",
-      "link",
-      "style",
-      "base",
-      "noscript",
-      "template"
-    ],
-    "types": [
-      "vite/client"
-    ]
+    "jsxPrecompileSkipElements": ["a", "img", "source", "body", "html", "head", "title", "meta", "script", "link", "style", "base", "noscript", "template"],
+    "types": ["vite/client"]
   }
 }
