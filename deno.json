@@ -60,9 +60,9 @@
     "exclude": ["**/*.svg", "**/*.min.css"]
   },
   "imports": {
-    "fresh": "jsr:@fresh/core@^2.3.3",
-    "@fresh/plugin-vite": "jsr:@fresh/plugin-vite@^1.0.5",
-    "vite": "npm:vite@^7.3.6",
+    "fresh": "jsr:@fresh/core@2.1.2",
+    "@fresh/plugin-vite": "jsr:@fresh/plugin-vite@1.0.5",
+    "vite": "npm:vite@7.1.10",
     "preact": "npm:preact@^10.29.1",
     "@preact/signals": "npm:@preact/signals@^2.9.0",
     "pocketbase": "npm:pocketbase@^0.27.0",
@@ -77,7 +77,11 @@
     "unique-names-generator": "npm:unique-names-generator@^4.7.1",
     "$fresh_charts/": "https://deno.land/x/fresh_charts@0.3.1/",
     "@playwright/test": "npm:@playwright/test@^1.62.1",
-    "playwright": "npm:playwright@^1.62.1"
+    "playwright": "npm:playwright@^1.62.1",
+    "jsr:@fresh/core@2": "jsr:@fresh/core@2.1.2",
+    "jsr:@fresh/core@^2.1.2": "jsr:@fresh/core@2.1.2",
+    "jsr:@deno/loader@~0.3.2": "jsr:@deno/loader@0.3.7",
+    "jsr:@deno/loader@~0.3.3": "jsr:@deno/loader@0.3.7"
   },
   "compilerOptions": {
     "lib": ["dom", "dom.asynciterable", "dom.iterable", "deno.ns"],

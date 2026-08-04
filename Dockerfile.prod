@@ -8,9 +8,11 @@ WORKDIR /app
 # Copy dependency files first for better layer caching
 COPY deno.json deno.lock ./
 
-# NOTE: deliberately no `deno cache deno.json` here — it rewrites deno.lock
-# to a partial graph (drops jsr/redirects sections), which breaks the fresh
-# vite plugin's jsr:->https: resolution during `deno task build`.
+# Pre-populate the deno cache (top-level imports only). --no-lock is crucial:
+# plain `deno cache deno.json` rewrites deno.lock to a partial graph (drops
+# jsr/redirects sections), breaking fresh's jsr:->https: resolution during
+# `deno task build`.
+RUN deno cache --no-lock deno.json
 
 # Copy the rest of the application code
 COPY . .
