@@ -1,829 +1,7 @@
 [
   {
-    "id": "mangmi-air-y",
-    "index": 1,
-    "name": {
-      "raw": "Mangmi Air Y",
-      "sanitized": "mangmi-air-y",
-      "normalized": "Mangmi Air Y"
-    },
-    "brand": {
-      "raw": "Mangmi",
-      "sanitized": "Mangmi",
-      "normalized": "Mangmi"
-    },
-    "os": {
-      "raw": "Android 14",
-      "icons": [
-        "ph-android-logo"
-      ],
-      "list": [
-        "Android 14"
-      ],
-      "customFirmwares": []
-    },
-    "tags": [
-      {
-        "name": "Android",
-        "slug": "android",
-        "type": "os"
-      },
-      {
-        "name": "Mangmi",
-        "slug": "Mangmi",
-        "type": "brand"
-      },
-      {
-        "name": "$",
-        "slug": "low",
-        "type": "price"
-      },
-      {
-        "name": "Vertical",
-        "slug": "vertical",
-        "type": "formFactor"
-      },
-      {
-        "name": "IPS",
-        "slug": "ips",
-        "type": "screenType"
-      },
-      {
-        "name": "Upcoming",
-        "slug": "upcoming",
-        "type": "releaseDate"
-      },
-      {
-        "name": "Handheld",
-        "slug": "handheld",
-        "type": "deviceType"
-      }
-    ],
-    "totalRating": 3.15,
-    "lowBatteryIndicator": null,
-    "hackingGuides": [],
-    "systemOnChip": "Qualcomm Snapdragon 662",
-    "architecture": {
-      "type": "ARM"
-    },
-    "ram": {
-      "raw": "3 GB LPDDR4X",
-      "sizes": [
-        3
-      ],
-      "unit": "GB",
-      "type": "LPDDR4X"
-    },
-    "rumble": false,
-    "sensors": {
-      "raw": "?",
-      "hasMicrophone": false,
-      "hasAccelerometer": false,
-      "hasGyroscope": false,
-      "hasCompass": false,
-      "hasMagnetometer": false,
-      "hasBarometer": false,
-      "hasProximitySensor": false,
-      "hasAmbientLightSensor": false,
-      "hasFingerprintSensor": false,
-      "hasCamera": false,
-      "hasGravitySensor": false,
-      "hasPressureSensor": false,
-      "hasTemperatureSensor": false,
-      "hasHumiditySensor": false,
-      "hasHeartRateSensor": false,
-      "hasAntenna": false,
-      "screenClosure": false
-    },
-    "volumeControl": {
-      "type": "unknown"
-    },
-    "brightnessControl": {
-      "type": "wheel"
-    },
-    "powerControl": {
-      "type": "unknown"
-    },
-    "battery": {
-      "raw": "Tempered Glass(OCA Laminated)",
-      "capacity": null,
-      "unit": null,
-      "type": "Lithium-ion",
-      "removable": false,
-      "charging": "USB-C"
-    },
-    "chargePort": {
-      "raw": "Function button, Power",
-      "type": null,
-      "numberOfPorts": null
-    },
-    "storage": "usb-cbottom facing",
-    "dimensions": {
-      "length": null,
-      "width": null,
-      "height": null
-    },
-    "weight": 94.64,
-    "shellMaterial": {
-      "raw": "279 grams",
-      "isPlastic": false,
-      "isMetal": false,
-      "isAluminum": false,
-      "isMagnesiumAlloy": false,
-      "isOther": true
-    },
-    "colors": [
-      "Plastic"
-    ],
-    "image": {
-      "originalUrl": "resources/cellImage_0_18.jpg",
-      "pngUrl": "/devices/mangmi-air-y.png",
-      "webpUrl": "/devices/mangmi-air-y.webp",
-      "alt": "mangmi air y",
-      "pocketbaseUrl": null
-    },
-    "released": {
-      "raw": "Upcoming(August 12th)",
-      "mentionedDate": null
-    },
-    "formFactor": "vertical",
-    "systemRatings": [
-      {
-        "system": "PlayStation 1",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "PlayStation Portable",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "DS",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "N64",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "SNES",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "NES",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Game Boy Advance",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Game Boy",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Dreamcast",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Genesis",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Saturn",
-        "ratingMark": "B",
-        "ratingNumber": 4
-      },
-      {
-        "system": "Wii",
-        "ratingMark": "C",
-        "ratingNumber": 3
-      },
-      {
-        "system": "GameCube",
-        "ratingMark": "C",
-        "ratingNumber": 3
-      },
-      {
-        "system": "PlayStation 2",
-        "ratingMark": "D",
-        "ratingNumber": 2
-      },
-      {
-        "system": "3DS",
-        "ratingMark": "D",
-        "ratingNumber": 2
-      },
-      {
-        "system": "Switch",
-        "ratingMark": "F",
-        "ratingNumber": 1
-      },
-      {
-        "system": "PlayStation 3",
-        "ratingMark": "F",
-        "ratingNumber": 1
-      },
-      {
-        "system": "Wii U",
-        "ratingMark": "F",
-        "ratingNumber": 1
-      }
-    ],
-    "deviceType": "handheld",
-    "connectivity": {
-      "hasWifi": false,
-      "hasBluetooth": false,
-      "hasNfc": false,
-      "hasUsb": false,
-      "hasUsbC": false
-    },
-    "cpus": [
-      {
-        "raw": "Cortex-A73 / Cortex-A534x / 4x",
-        "names": [
-          "Cortex-A73 / Cortex-A534x / 4x"
-        ],
-        "cores": 8,
-        "threads": 8,
-        "clockSpeed": {
-          "min": 1.8,
-          "max": 1.8,
-          "unit": "GHZ"
-        }
-      }
-    ],
-    "gpus": [
-      {
-        "name": "Qualcomm Adreno 610",
-        "cores": 1,
-        "clockSpeed": {
-          "min": 1050,
-          "max": 1050,
-          "unit": "MHZ"
-        }
-      }
-    ],
-    "performance": {
-      "rating": 6,
-      "normalizedRating": 4,
-      "tier": "💥¾",
-      "maxEmulation": "Most DS/N64/PSP/DC all full speed, most Saturn playable",
-      "emulationLimit": ""
-    },
-    "screen": {
-      "size": 4.2,
-      "type": {
-        "raw": "IPS Touchscreen",
-        "isTouchscreen": true,
-        "isPenCapable": false,
-        "type": "IPS"
-      },
-      "resolution": [],
-      "ppi": [
-        1280
-      ],
-      "aspectRatio": "380.95 ppi",
-      "lens": "4:3"
-    },
-    "cooling": {
-      "raw": "5000 mAh",
-      "hasHeatsink": false,
-      "hasFan": false,
-      "hasHeatPipe": false,
-      "hasVentilationCutouts": false
-    },
-    "controls": {
-      "dPad": {
-        "raw": "HeatsinkFanVentilation cutouts",
-        "type": "d-pad"
-      },
-      "analogs": {
-        "raw": "CrossUpper placement",
-        "dual": false,
-        "single": false,
-        "L3": false,
-        "R3": false,
-        "isHallSensor": false,
-        "isThumbstick": false,
-        "isSlidepad": false
-      },
-      "numberOfFaceButtons": 3,
-      "shoulderButtons": {
-        "raw": "4 Buttons",
-        "L": false,
-        "L1": false,
-        "L2": false,
-        "L3": false,
-        "R": false,
-        "R1": false,
-        "R2": false,
-        "R3": false,
-        "M1": false,
-        "M2": false,
-        "LC": false,
-        "RC": false,
-        "ZL": false,
-        "ZRVertical": false,
-        "ZRHorizontal": false
-      },
-      "extraButtons": {
-        "raw": "L1, R1, L2, R2Horizontal, Shelf",
-        "power": false,
-        "reset": false,
-        "home": false,
-        "volumeUp": false,
-        "volumeDown": false,
-        "function": false,
-        "turbo": false,
-        "touchpad": false,
-        "fingerprint": false,
-        "mute": false,
-        "screenshot": false,
-        "programmableButtons": false
-      }
-    },
-    "outputs": {
-      "videoOutput": {
-        "raw": "WiFi 5, Bluetooth 5.0",
-        "hasUsbC": false,
-        "hasMicroHdmi": false,
-        "hasMiniHdmi": false,
-        "hasHdmi": false,
-        "hasDvi": false,
-        "hasVga": false,
-        "hasDisplayPort": false,
-        "OcuLink": false,
-        "AV": false
-      },
-      "audioOutput": {
-        "raw": "?",
-        "has35mmJack": false,
-        "hasHeadphoneJack": false,
-        "hasUsbC": false
-      },
-      "speaker": {
-        "type": "unknown"
-      }
-    },
-    "reviews": {
-      "count": null,
-      "average": null,
-      "videoReviews": [
-        {
-          "url": "https://www.youtube.com/watch?v=nd76qpQo-lw",
-          "name": "Mangmi"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=Jg7wzfQ-RfU",
-          "name": "Tech Dweeb"
-        }
-      ],
-      "writtenReviews": []
-    },
-    "pricing": {
-      "raw": "$90",
-      "average": 90,
-      "range": {
-        "min": 90,
-        "max": 90
-      },
-      "currency": "USD",
-      "category": "low",
-      "discontinued": null
-    },
-    "pros": [
-      "-"
-    ],
-    "cons": [],
-    "vendorLinks": [],
-    "notes": [
-      ""
-    ]
-  },
-  {
-    "id": "mangmi-air-y-pro",
-    "index": 2,
-    "name": {
-      "raw": "Mangmi Air Y Pro",
-      "sanitized": "mangmi-air-y-pro",
-      "normalized": "Mangmi Air Y Pro"
-    },
-    "brand": {
-      "raw": "Mangmi",
-      "sanitized": "Mangmi",
-      "normalized": "Mangmi"
-    },
-    "os": {
-      "raw": "Android 13",
-      "icons": [
-        "ph-android-logo"
-      ],
-      "list": [
-        "Android 13"
-      ],
-      "customFirmwares": []
-    },
-    "tags": [
-      {
-        "name": "Android",
-        "slug": "android",
-        "type": "os"
-      },
-      {
-        "name": "Mangmi",
-        "slug": "Mangmi",
-        "type": "brand"
-      },
-      {
-        "name": "$$",
-        "slug": "mid",
-        "type": "price"
-      },
-      {
-        "name": "Vertical",
-        "slug": "vertical",
-        "type": "formFactor"
-      },
-      {
-        "name": "IPS",
-        "slug": "ips",
-        "type": "screenType"
-      },
-      {
-        "name": "Upcoming",
-        "slug": "upcoming",
-        "type": "releaseDate"
-      },
-      {
-        "name": "Handheld",
-        "slug": "handheld",
-        "type": "deviceType"
-      }
-    ],
-    "totalRating": 4.54,
-    "lowBatteryIndicator": null,
-    "hackingGuides": [],
-    "systemOnChip": "Qualcomm Snapdragon 865",
-    "architecture": {
-      "type": "ARM"
-    },
-    "ram": {
-      "raw": "4 GB / 8 GB LPDDR4X",
-      "sizes": [
-        4
-      ],
-      "unit": "GB",
-      "type": "LPDDR4X"
-    },
-    "rumble": false,
-    "sensors": {
-      "raw": "?",
-      "hasMicrophone": false,
-      "hasAccelerometer": false,
-      "hasGyroscope": false,
-      "hasCompass": false,
-      "hasMagnetometer": false,
-      "hasBarometer": false,
-      "hasProximitySensor": false,
-      "hasAmbientLightSensor": false,
-      "hasFingerprintSensor": false,
-      "hasCamera": false,
-      "hasGravitySensor": false,
-      "hasPressureSensor": false,
-      "hasTemperatureSensor": false,
-      "hasHumiditySensor": false,
-      "hasHeartRateSensor": false,
-      "hasAntenna": false,
-      "screenClosure": false
-    },
-    "volumeControl": {
-      "type": "unknown"
-    },
-    "brightnessControl": {
-      "type": "wheel"
-    },
-    "powerControl": {
-      "type": "unknown"
-    },
-    "battery": {
-      "raw": "Tempered Glass(OCA Laminated)",
-      "capacity": null,
-      "unit": null,
-      "type": "Lithium-ion",
-      "removable": false,
-      "charging": "USB-C"
-    },
-    "chargePort": {
-      "raw": "Function button, Power",
-      "type": null,
-      "numberOfPorts": null
-    },
-    "storage": "usb-cbottom facing",
-    "dimensions": {
-      "length": null,
-      "width": null,
-      "height": null
-    },
-    "weight": 94.64,
-    "shellMaterial": {
-      "raw": "286 grams",
-      "isPlastic": false,
-      "isMetal": false,
-      "isAluminum": false,
-      "isMagnesiumAlloy": false,
-      "isOther": true
-    },
-    "colors": [
-      "Plastic"
-    ],
-    "image": {
-      "originalUrl": "resources/cellImage_0_19.jpg",
-      "pngUrl": "/devices/mangmi-air-y-pro.png",
-      "webpUrl": "/devices/mangmi-air-y-pro.webp",
-      "alt": "mangmi air y pro",
-      "pocketbaseUrl": null
-    },
-    "released": {
-      "raw": "Upcoming(August 12th)",
-      "mentionedDate": null
-    },
-    "formFactor": "vertical",
-    "systemRatings": [
-      {
-        "system": "PlayStation 2",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "PlayStation 1",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "PlayStation Portable",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Wii",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "GameCube",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "3DS",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "DS",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "N64",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "SNES",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "NES",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Game Boy Advance",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Game Boy",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Saturn",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Dreamcast",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Genesis",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Wii U",
-        "ratingMark": "C",
-        "ratingNumber": 3
-      },
-      {
-        "system": "Switch",
-        "ratingMark": "D",
-        "ratingNumber": 2
-      },
-      {
-        "system": "PlayStation 3",
-        "ratingMark": "D",
-        "ratingNumber": 2
-      }
-    ],
-    "deviceType": "handheld",
-    "connectivity": {
-      "hasWifi": false,
-      "hasBluetooth": false,
-      "hasNfc": false,
-      "hasUsb": false,
-      "hasUsbC": false
-    },
-    "cpus": [
-      {
-        "raw": "Cortex-A77 / Cortex-A554x / 4x",
-        "names": [
-          "Cortex-A77 / Cortex-A554x / 4x"
-        ],
-        "cores": 8,
-        "threads": 8,
-        "clockSpeed": {
-          "min": 1.8,
-          "max": 1.8,
-          "unit": "GHZ"
-        }
-      }
-    ],
-    "gpus": [
-      {
-        "name": "Qualcomm Adreno 650",
-        "cores": 1,
-        "clockSpeed": {
-          "min": 587,
-          "max": 587,
-          "unit": "MHZ"
-        }
-      }
-    ],
-    "performance": {
-      "rating": 9,
-      "normalizedRating": 6,
-      "tier": "💥💥💥💥½",
-      "maxEmulation": "GameCube mostly all full speed, most Wii/3DS playable, some PS2/Wii U playable",
-      "emulationLimit": ""
-    },
-    "screen": {
-      "size": 4.2,
-      "type": {
-        "raw": "IPS Touchscreen",
-        "isTouchscreen": true,
-        "isPenCapable": false,
-        "type": "IPS"
-      },
-      "resolution": [],
-      "ppi": [
-        1280
-      ],
-      "aspectRatio": "380.95 ppi",
-      "lens": "4:3"
-    },
-    "cooling": {
-      "raw": "5000 mAh",
-      "hasHeatsink": false,
-      "hasFan": false,
-      "hasHeatPipe": false,
-      "hasVentilationCutouts": false
-    },
-    "controls": {
-      "dPad": {
-        "raw": "HeatsinkFanVentilation cutouts",
-        "type": "d-pad"
-      },
-      "analogs": {
-        "raw": "CrossUpper placement",
-        "dual": false,
-        "single": false,
-        "L3": false,
-        "R3": false,
-        "isHallSensor": false,
-        "isThumbstick": false,
-        "isSlidepad": false
-      },
-      "numberOfFaceButtons": 3,
-      "shoulderButtons": {
-        "raw": "4 Buttons",
-        "L": false,
-        "L1": false,
-        "L2": false,
-        "L3": false,
-        "R": false,
-        "R1": false,
-        "R2": false,
-        "R3": false,
-        "M1": false,
-        "M2": false,
-        "LC": false,
-        "RC": false,
-        "ZL": false,
-        "ZRVertical": false,
-        "ZRHorizontal": false
-      },
-      "extraButtons": {
-        "raw": "L1, R1, L2, R2Horizontal, Shelf",
-        "power": false,
-        "reset": false,
-        "home": false,
-        "volumeUp": false,
-        "volumeDown": false,
-        "function": false,
-        "turbo": false,
-        "touchpad": false,
-        "fingerprint": false,
-        "mute": false,
-        "screenshot": false,
-        "programmableButtons": false
-      }
-    },
-    "outputs": {
-      "videoOutput": {
-        "raw": "WiFi 6, Bluetooth 5.1",
-        "hasUsbC": false,
-        "hasMicroHdmi": false,
-        "hasMiniHdmi": false,
-        "hasHdmi": false,
-        "hasDvi": false,
-        "hasVga": false,
-        "hasDisplayPort": false,
-        "OcuLink": false,
-        "AV": false
-      },
-      "audioOutput": {
-        "raw": "?",
-        "has35mmJack": false,
-        "hasHeadphoneJack": false,
-        "hasUsbC": false
-      },
-      "speaker": {
-        "type": "unknown"
-      }
-    },
-    "reviews": {
-      "count": null,
-      "average": null,
-      "videoReviews": [
-        {
-          "url": "https://www.youtube.com/watch?v=nd76qpQo-lw",
-          "name": "Mangmi"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=Jg7wzfQ-RfU",
-          "name": "Tech Dweeb"
-        }
-      ],
-      "writtenReviews": []
-    },
-    "pricing": {
-      "raw": "$146 (4 GB + 64 GB)$176 (8 GB + 128 GB)",
-      "average": 137,
-      "range": {
-        "min": 146,
-        "max": 128
-      },
-      "currency": "USD",
-      "category": "mid",
-      "discontinued": null
-    },
-    "pros": [
-      "-"
-    ],
-    "cons": [],
-    "vendorLinks": [],
-    "notes": [
-      ""
-    ]
-  },
-  {
     "id": "trimui-brick-hammer-pro-u",
-    "index": 3,
+    "index": 1,
     "name": {
       "raw": "TRIMUI Brick Hammer Pro U",
       "sanitized": "trimui-brick-hammer-pro-u",
@@ -958,7 +136,7 @@
       "Metal (Aluminum)"
     ],
     "image": {
-      "originalUrl": "resources/cellImage_0_20.jpg",
+      "originalUrl": "resources/cellImage_0_18.jpg",
       "pngUrl": "/devices/trimui-brick-hammer-pro-u.png",
       "webpUrl": "/devices/trimui-brick-hammer-pro-u.webp",
       "alt": "trimui brick hammer pro u",
@@ -1250,415 +428,8 @@
     ]
   },
   {
-    "id": "konkr-pocket-advance",
-    "index": 4,
-    "name": {
-      "raw": "KONKR Pocket Advance",
-      "sanitized": "konkr-pocket-advance",
-      "normalized": "KONKR Pocket Advance"
-    },
-    "brand": {
-      "raw": "KONKR(AYANEO)",
-      "sanitized": "KONKR(AYANEO)",
-      "normalized": "KONKR"
-    },
-    "os": {
-      "raw": "Android 12",
-      "icons": [
-        "ph-android-logo"
-      ],
-      "list": [
-        "Android 12"
-      ],
-      "customFirmwares": []
-    },
-    "tags": [
-      {
-        "name": "Android",
-        "slug": "android",
-        "type": "os"
-      },
-      {
-        "name": "KONKR(AYANEO)",
-        "slug": "KONKR(AYANEO)",
-        "type": "brand"
-      },
-      {
-        "name": "$",
-        "slug": "low",
-        "type": "price"
-      },
-      {
-        "name": "Horizontal",
-        "slug": "horizontal",
-        "type": "formFactor"
-      },
-      {
-        "name": "IPS",
-        "slug": "ips",
-        "type": "screenType"
-      },
-      {
-        "name": "Upcoming",
-        "slug": "upcoming",
-        "type": "releaseDate"
-      },
-      {
-        "name": "Handheld",
-        "slug": "handheld",
-        "type": "deviceType"
-      }
-    ],
-    "totalRating": 3.5,
-    "lowBatteryIndicator": null,
-    "hackingGuides": [],
-    "systemOnChip": "MediaTek Helio G90T",
-    "architecture": {
-      "type": "ARM"
-    },
-    "ram": {
-      "raw": "3 GB / 4 GB LPDDR4X",
-      "sizes": [
-        3
-      ],
-      "unit": "GB",
-      "type": "LPDDR4X"
-    },
-    "rumble": false,
-    "sensors": {
-      "raw": "✅",
-      "hasMicrophone": false,
-      "hasAccelerometer": false,
-      "hasGyroscope": false,
-      "hasCompass": false,
-      "hasMagnetometer": false,
-      "hasBarometer": false,
-      "hasProximitySensor": false,
-      "hasAmbientLightSensor": false,
-      "hasFingerprintSensor": false,
-      "hasCamera": false,
-      "hasGravitySensor": false,
-      "hasPressureSensor": false,
-      "hasTemperatureSensor": false,
-      "hasHumiditySensor": false,
-      "hasHeartRateSensor": false,
-      "hasAntenna": false,
-      "screenClosure": false
-    },
-    "volumeControl": {
-      "type": "unknown"
-    },
-    "brightnessControl": {
-      "type": "wheel"
-    },
-    "powerControl": {
-      "type": "unknown"
-    },
-    "battery": {
-      "raw": "Tempered Glass(OCA Laminated)",
-      "capacity": null,
-      "unit": null,
-      "type": "Lithium-ion",
-      "removable": false,
-      "charging": "USB-C"
-    },
-    "chargePort": {
-      "raw": "LC/RC Shoulder Buttons, Home, Back, Power",
-      "type": null,
-      "numberOfPorts": null
-    },
-    "storage": "usb-cbottom facing",
-    "dimensions": {
-      "length": null,
-      "width": null,
-      "height": null
-    },
-    "weight": 151.3,
-    "shellMaterial": {
-      "raw": "224 grams",
-      "isPlastic": false,
-      "isMetal": false,
-      "isAluminum": false,
-      "isMagnesiumAlloy": false,
-      "isOther": true
-    },
-    "colors": [
-      "Plastic"
-    ],
-    "image": {
-      "originalUrl": "resources/cellImage_0_21.jpg",
-      "pngUrl": "/devices/konkr-pocket-advance.png",
-      "webpUrl": "/devices/konkr-pocket-advance.webp",
-      "alt": "konkr pocket advance",
-      "pocketbaseUrl": null
-    },
-    "released": {
-      "raw": "Upcoming(Preorder live now, ships end of August)",
-      "mentionedDate": null
-    },
-    "formFactor": "horizontal",
-    "systemRatings": [
-      {
-        "system": "PlayStation 1",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "PlayStation Portable",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "DS",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "N64",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "SNES",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "NES",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Game Boy Advance",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Game Boy",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Saturn",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Dreamcast",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Genesis",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "GameCube",
-        "ratingMark": "B",
-        "ratingNumber": 4
-      },
-      {
-        "system": "3DS",
-        "ratingMark": "B",
-        "ratingNumber": 4
-      },
-      {
-        "system": "PlayStation 2",
-        "ratingMark": "C",
-        "ratingNumber": 3
-      },
-      {
-        "system": "Wii",
-        "ratingMark": "C",
-        "ratingNumber": 3
-      },
-      {
-        "system": "Wii U",
-        "ratingMark": "D",
-        "ratingNumber": 2
-      },
-      {
-        "system": "Switch",
-        "ratingMark": "F",
-        "ratingNumber": 1
-      },
-      {
-        "system": "PlayStation 3",
-        "ratingMark": "F",
-        "ratingNumber": 1
-      }
-    ],
-    "deviceType": "handheld",
-    "connectivity": {
-      "hasWifi": false,
-      "hasBluetooth": false,
-      "hasNfc": false,
-      "hasUsb": false,
-      "hasUsbC": false
-    },
-    "cpus": [
-      {
-        "raw": "Cortex-A76 / Cortex-A552x / 6x",
-        "names": [
-          "Cortex-A76 / Cortex-A552x / 6x"
-        ],
-        "cores": 8,
-        "threads": 8,
-        "clockSpeed": {
-          "min": 2.05,
-          "max": 2.05,
-          "unit": "GHZ"
-        }
-      }
-    ],
-    "gpus": [
-      {
-        "name": "Mali-G76 MP4",
-        "cores": 4,
-        "clockSpeed": {
-          "min": 800,
-          "max": 800,
-          "unit": "MHZ"
-        }
-      }
-    ],
-    "performance": {
-      "rating": 7,
-      "normalizedRating": 4.7,
-      "tier": "💥💥¼",
-      "maxEmulation": "DS/N64/PSP/DC/Saturn full speed, some GameCube playable",
-      "emulationLimit": ""
-    },
-    "screen": {
-      "size": 3.5,
-      "type": {
-        "raw": "IPSTouchscreen",
-        "isTouchscreen": true,
-        "isPenCapable": false,
-        "type": "IPS"
-      },
-      "resolution": [],
-      "ppi": [
-        960
-      ],
-      "aspectRatio": "329.65 ppi",
-      "lens": "3:2"
-    },
-    "cooling": {
-      "raw": "4000 mAh",
-      "hasHeatsink": false,
-      "hasFan": false,
-      "hasHeatPipe": false,
-      "hasVentilationCutouts": false
-    },
-    "controls": {
-      "dPad": {
-        "raw": "HeatsinkFanVentilation cutouts",
-        "type": "d-pad"
-      },
-      "analogs": {
-        "raw": "CrossUpper placement",
-        "dual": false,
-        "single": false,
-        "L3": false,
-        "R3": false,
-        "isHallSensor": false,
-        "isThumbstick": false,
-        "isSlidepad": false
-      },
-      "numberOfFaceButtons": null,
-      "shoulderButtons": {
-        "raw": "4 Buttons",
-        "L": false,
-        "L1": false,
-        "L2": false,
-        "L3": false,
-        "R": false,
-        "R1": false,
-        "R2": false,
-        "R3": false,
-        "M1": false,
-        "M2": false,
-        "LC": false,
-        "RC": false,
-        "ZL": false,
-        "ZRVertical": false,
-        "ZRHorizontal": false
-      },
-      "extraButtons": {
-        "raw": "L1, R1, L2, R2Horizontal",
-        "power": false,
-        "reset": false,
-        "home": false,
-        "volumeUp": false,
-        "volumeDown": false,
-        "function": false,
-        "turbo": false,
-        "touchpad": false,
-        "fingerprint": false,
-        "mute": false,
-        "screenshot": false,
-        "programmableButtons": false
-      }
-    },
-    "outputs": {
-      "videoOutput": {
-        "raw": "WiFi 5, Bluetooth 5.0",
-        "hasUsbC": false,
-        "hasMicroHdmi": false,
-        "hasMiniHdmi": false,
-        "hasHdmi": false,
-        "hasDvi": false,
-        "hasVga": false,
-        "hasDisplayPort": false,
-        "OcuLink": false,
-        "AV": false
-      },
-      "audioOutput": {
-        "raw": "❌",
-        "has35mmJack": false,
-        "hasHeadphoneJack": false,
-        "hasUsbC": false
-      },
-      "speaker": {
-        "type": "unknown"
-      }
-    },
-    "reviews": {
-      "count": null,
-      "average": null,
-      "videoReviews": [],
-      "writtenReviews": []
-    },
-    "pricing": {
-      "raw": "$89 (3 GB + 32 GB)$109 (4 GB + 64 GB)",
-      "average": 76.5,
-      "range": {
-        "min": 89,
-        "max": 64
-      },
-      "currency": "USD",
-      "category": "low",
-      "discontinued": null
-    },
-    "pros": [
-      "-"
-    ],
-    "cons": [],
-    "vendorLinks": [
-      {
-        "url": "https://shop.ayaneo.com/products/konkr-pocket-advance",
-        "name": "AYANEO"
-      }
-    ],
-    "notes": [
-      ""
-    ]
-  },
-  {
     "id": "konkr-pocket-block",
-    "index": 5,
+    "index": 2,
     "name": {
       "raw": "KONKR Pocket Block",
       "sanitized": "konkr-pocket-block",
@@ -1781,7 +552,7 @@
       "Plastic"
     ],
     "image": {
-      "originalUrl": "resources/cellImage_0_22.jpg",
+      "originalUrl": "resources/cellImage_0_19.jpg",
       "pngUrl": "/devices/konkr-pocket-block.png",
       "webpUrl": "/devices/konkr-pocket-block.webp",
       "alt": "konkr pocket block",
@@ -2057,7 +828,7 @@
   },
   {
     "id": "rg55g1",
-    "index": 6,
+    "index": 3,
     "name": {
       "raw": "RG55G1",
       "sanitized": "rg55g1",
@@ -2182,7 +953,7 @@
       "Plastic"
     ],
     "image": {
-      "originalUrl": "resources/cellImage_0_23.jpg",
+      "originalUrl": "resources/cellImage_0_20.jpg",
       "pngUrl": "/devices/rg55g1.png",
       "webpUrl": "/devices/rg55g1.webp",
       "alt": "rg55g1",
@@ -2456,6 +1227,1271 @@
     ],
     "cons": [],
     "vendorLinks": [],
+    "notes": [
+      ""
+    ]
+  },
+  {
+    "id": "konkr-pocket-advance",
+    "index": 4,
+    "name": {
+      "raw": "KONKR Pocket Advance",
+      "sanitized": "konkr-pocket-advance",
+      "normalized": "KONKR Pocket Advance"
+    },
+    "brand": {
+      "raw": "KONKR(AYANEO)",
+      "sanitized": "KONKR(AYANEO)",
+      "normalized": "KONKR"
+    },
+    "os": {
+      "raw": "Android 12",
+      "icons": [
+        "ph-android-logo"
+      ],
+      "list": [
+        "Android 12"
+      ],
+      "customFirmwares": []
+    },
+    "tags": [
+      {
+        "name": "Android",
+        "slug": "android",
+        "type": "os"
+      },
+      {
+        "name": "KONKR(AYANEO)",
+        "slug": "KONKR(AYANEO)",
+        "type": "brand"
+      },
+      {
+        "name": "$",
+        "slug": "low",
+        "type": "price"
+      },
+      {
+        "name": "Horizontal",
+        "slug": "horizontal",
+        "type": "formFactor"
+      },
+      {
+        "name": "IPS",
+        "slug": "ips",
+        "type": "screenType"
+      },
+      {
+        "name": "2026",
+        "slug": "year-2026",
+        "type": "releaseDate"
+      },
+      {
+        "name": "Handheld",
+        "slug": "handheld",
+        "type": "deviceType"
+      }
+    ],
+    "totalRating": 3.5,
+    "lowBatteryIndicator": null,
+    "hackingGuides": [],
+    "systemOnChip": "MediaTek Helio G90T",
+    "architecture": {
+      "type": "ARM"
+    },
+    "ram": {
+      "raw": "3 GB / 4 GB LPDDR4X",
+      "sizes": [
+        3
+      ],
+      "unit": "GB",
+      "type": "LPDDR4X"
+    },
+    "rumble": false,
+    "sensors": {
+      "raw": "✅",
+      "hasMicrophone": false,
+      "hasAccelerometer": false,
+      "hasGyroscope": false,
+      "hasCompass": false,
+      "hasMagnetometer": false,
+      "hasBarometer": false,
+      "hasProximitySensor": false,
+      "hasAmbientLightSensor": false,
+      "hasFingerprintSensor": false,
+      "hasCamera": false,
+      "hasGravitySensor": false,
+      "hasPressureSensor": false,
+      "hasTemperatureSensor": false,
+      "hasHumiditySensor": false,
+      "hasHeartRateSensor": false,
+      "hasAntenna": false,
+      "screenClosure": false
+    },
+    "volumeControl": {
+      "type": "unknown"
+    },
+    "brightnessControl": {
+      "type": "wheel"
+    },
+    "powerControl": {
+      "type": "unknown"
+    },
+    "battery": {
+      "raw": "Tempered Glass(OCA Laminated)",
+      "capacity": null,
+      "unit": null,
+      "type": "Lithium-ion",
+      "removable": false,
+      "charging": "USB-C"
+    },
+    "chargePort": {
+      "raw": "LC/RC Shoulder Buttons, Home, Back, Power",
+      "type": null,
+      "numberOfPorts": null
+    },
+    "storage": "usb-cbottom facing",
+    "dimensions": {
+      "length": null,
+      "width": null,
+      "height": null
+    },
+    "weight": 151.3,
+    "shellMaterial": {
+      "raw": "224 grams",
+      "isPlastic": false,
+      "isMetal": false,
+      "isAluminum": false,
+      "isMagnesiumAlloy": false,
+      "isOther": true
+    },
+    "colors": [
+      "Plastic"
+    ],
+    "image": {
+      "originalUrl": "resources/cellImage_0_21.jpg",
+      "pngUrl": "/devices/konkr-pocket-advance.png",
+      "webpUrl": "/devices/konkr-pocket-advance.webp",
+      "alt": "konkr pocket advance",
+      "pocketbaseUrl": null
+    },
+    "released": {
+      "raw": "2026 / 08",
+      "mentionedDate": "2026-08-01T00:00:00.000Z"
+    },
+    "formFactor": "horizontal",
+    "systemRatings": [
+      {
+        "system": "PlayStation 1",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "PlayStation Portable",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "DS",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "N64",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "SNES",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "NES",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Game Boy Advance",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Game Boy",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Saturn",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Dreamcast",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Genesis",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "GameCube",
+        "ratingMark": "B",
+        "ratingNumber": 4
+      },
+      {
+        "system": "3DS",
+        "ratingMark": "B",
+        "ratingNumber": 4
+      },
+      {
+        "system": "PlayStation 2",
+        "ratingMark": "C",
+        "ratingNumber": 3
+      },
+      {
+        "system": "Wii",
+        "ratingMark": "C",
+        "ratingNumber": 3
+      },
+      {
+        "system": "Wii U",
+        "ratingMark": "D",
+        "ratingNumber": 2
+      },
+      {
+        "system": "Switch",
+        "ratingMark": "F",
+        "ratingNumber": 1
+      },
+      {
+        "system": "PlayStation 3",
+        "ratingMark": "F",
+        "ratingNumber": 1
+      }
+    ],
+    "deviceType": "handheld",
+    "connectivity": {
+      "hasWifi": false,
+      "hasBluetooth": false,
+      "hasNfc": false,
+      "hasUsb": false,
+      "hasUsbC": false
+    },
+    "cpus": [
+      {
+        "raw": "Cortex-A76 / Cortex-A552x / 6x",
+        "names": [
+          "Cortex-A76 / Cortex-A552x / 6x"
+        ],
+        "cores": 8,
+        "threads": 8,
+        "clockSpeed": {
+          "min": 2.05,
+          "max": 2.05,
+          "unit": "GHZ"
+        }
+      }
+    ],
+    "gpus": [
+      {
+        "name": "Mali-G76 MP4",
+        "cores": 4,
+        "clockSpeed": {
+          "min": 800,
+          "max": 800,
+          "unit": "MHZ"
+        }
+      }
+    ],
+    "performance": {
+      "rating": 7,
+      "normalizedRating": 4.7,
+      "tier": "💥💥¼",
+      "maxEmulation": "DS/N64/PSP/DC/Saturn full speed, some GameCube playable",
+      "emulationLimit": ""
+    },
+    "screen": {
+      "size": 3.5,
+      "type": {
+        "raw": "IPSTouchscreen",
+        "isTouchscreen": true,
+        "isPenCapable": false,
+        "type": "IPS"
+      },
+      "resolution": [],
+      "ppi": [
+        960
+      ],
+      "aspectRatio": "329.65 ppi",
+      "lens": "3:2"
+    },
+    "cooling": {
+      "raw": "4000 mAh",
+      "hasHeatsink": false,
+      "hasFan": false,
+      "hasHeatPipe": false,
+      "hasVentilationCutouts": false
+    },
+    "controls": {
+      "dPad": {
+        "raw": "HeatsinkFanVentilation cutouts",
+        "type": "d-pad"
+      },
+      "analogs": {
+        "raw": "CrossUpper placement",
+        "dual": false,
+        "single": false,
+        "L3": false,
+        "R3": false,
+        "isHallSensor": false,
+        "isThumbstick": false,
+        "isSlidepad": false
+      },
+      "numberOfFaceButtons": null,
+      "shoulderButtons": {
+        "raw": "4 Buttons",
+        "L": false,
+        "L1": false,
+        "L2": false,
+        "L3": false,
+        "R": false,
+        "R1": false,
+        "R2": false,
+        "R3": false,
+        "M1": false,
+        "M2": false,
+        "LC": false,
+        "RC": false,
+        "ZL": false,
+        "ZRVertical": false,
+        "ZRHorizontal": false
+      },
+      "extraButtons": {
+        "raw": "L1, R1, L2, R2Horizontal",
+        "power": false,
+        "reset": false,
+        "home": false,
+        "volumeUp": false,
+        "volumeDown": false,
+        "function": false,
+        "turbo": false,
+        "touchpad": false,
+        "fingerprint": false,
+        "mute": false,
+        "screenshot": false,
+        "programmableButtons": false
+      }
+    },
+    "outputs": {
+      "videoOutput": {
+        "raw": "WiFi 5, Bluetooth 5.0",
+        "hasUsbC": false,
+        "hasMicroHdmi": false,
+        "hasMiniHdmi": false,
+        "hasHdmi": false,
+        "hasDvi": false,
+        "hasVga": false,
+        "hasDisplayPort": false,
+        "OcuLink": false,
+        "AV": false
+      },
+      "audioOutput": {
+        "raw": "❌",
+        "has35mmJack": false,
+        "hasHeadphoneJack": false,
+        "hasUsbC": false
+      },
+      "speaker": {
+        "type": "unknown"
+      }
+    },
+    "reviews": {
+      "count": null,
+      "average": null,
+      "videoReviews": [],
+      "writtenReviews": []
+    },
+    "pricing": {
+      "raw": "$89 (3 GB + 32 GB)$109 (4 GB + 64 GB)",
+      "average": 76.5,
+      "range": {
+        "min": 89,
+        "max": 64
+      },
+      "currency": "USD",
+      "category": "low",
+      "discontinued": null
+    },
+    "pros": [
+      "-"
+    ],
+    "cons": [],
+    "vendorLinks": [
+      {
+        "url": "https://shop.ayaneo.com/products/konkr-pocket-advance",
+        "name": "AYANEO"
+      }
+    ],
+    "notes": [
+      ""
+    ]
+  },
+  {
+    "id": "mangmi-air-y",
+    "index": 5,
+    "name": {
+      "raw": "Mangmi Air Y",
+      "sanitized": "mangmi-air-y",
+      "normalized": "Mangmi Air Y"
+    },
+    "brand": {
+      "raw": "Mangmi",
+      "sanitized": "Mangmi",
+      "normalized": "Mangmi"
+    },
+    "os": {
+      "raw": "Android 14",
+      "icons": [
+        "ph-android-logo"
+      ],
+      "list": [
+        "Android 14"
+      ],
+      "customFirmwares": []
+    },
+    "tags": [
+      {
+        "name": "Android",
+        "slug": "android",
+        "type": "os"
+      },
+      {
+        "name": "Mangmi",
+        "slug": "Mangmi",
+        "type": "brand"
+      },
+      {
+        "name": "$",
+        "slug": "low",
+        "type": "price"
+      },
+      {
+        "name": "Vertical",
+        "slug": "vertical",
+        "type": "formFactor"
+      },
+      {
+        "name": "IPS",
+        "slug": "ips",
+        "type": "screenType"
+      },
+      {
+        "name": "2026",
+        "slug": "year-2026",
+        "type": "releaseDate"
+      },
+      {
+        "name": "Handheld",
+        "slug": "handheld",
+        "type": "deviceType"
+      }
+    ],
+    "totalRating": 3.15,
+    "lowBatteryIndicator": null,
+    "hackingGuides": [],
+    "systemOnChip": "Qualcomm Snapdragon 662",
+    "architecture": {
+      "type": "ARM"
+    },
+    "ram": {
+      "raw": "3 GB LPDDR4X",
+      "sizes": [
+        3
+      ],
+      "unit": "GB",
+      "type": "LPDDR4X"
+    },
+    "rumble": false,
+    "sensors": {
+      "raw": "?",
+      "hasMicrophone": false,
+      "hasAccelerometer": false,
+      "hasGyroscope": false,
+      "hasCompass": false,
+      "hasMagnetometer": false,
+      "hasBarometer": false,
+      "hasProximitySensor": false,
+      "hasAmbientLightSensor": false,
+      "hasFingerprintSensor": false,
+      "hasCamera": false,
+      "hasGravitySensor": false,
+      "hasPressureSensor": false,
+      "hasTemperatureSensor": false,
+      "hasHumiditySensor": false,
+      "hasHeartRateSensor": false,
+      "hasAntenna": false,
+      "screenClosure": false
+    },
+    "volumeControl": {
+      "type": "unknown"
+    },
+    "brightnessControl": {
+      "type": "wheel"
+    },
+    "powerControl": {
+      "type": "unknown"
+    },
+    "battery": {
+      "raw": "Tempered Glass(OCA Laminated)",
+      "capacity": null,
+      "unit": null,
+      "type": "Lithium-ion",
+      "removable": false,
+      "charging": "USB-C"
+    },
+    "chargePort": {
+      "raw": "Function button, Power",
+      "type": null,
+      "numberOfPorts": null
+    },
+    "storage": "usb-cbottom facing",
+    "dimensions": {
+      "length": null,
+      "width": null,
+      "height": null
+    },
+    "weight": 94.64,
+    "shellMaterial": {
+      "raw": "279 grams",
+      "isPlastic": false,
+      "isMetal": false,
+      "isAluminum": false,
+      "isMagnesiumAlloy": false,
+      "isOther": true
+    },
+    "colors": [
+      "Plastic"
+    ],
+    "image": {
+      "originalUrl": "resources/cellImage_0_22.jpg",
+      "pngUrl": "/devices/mangmi-air-y.png",
+      "webpUrl": "/devices/mangmi-air-y.webp",
+      "alt": "mangmi air y",
+      "pocketbaseUrl": null
+    },
+    "released": {
+      "raw": "2026 / 08",
+      "mentionedDate": "2026-08-01T00:00:00.000Z"
+    },
+    "formFactor": "vertical",
+    "systemRatings": [
+      {
+        "system": "PlayStation 1",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "PlayStation Portable",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "DS",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "N64",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "SNES",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "NES",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Game Boy Advance",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Game Boy",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Dreamcast",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Genesis",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Saturn",
+        "ratingMark": "B",
+        "ratingNumber": 4
+      },
+      {
+        "system": "Wii",
+        "ratingMark": "C",
+        "ratingNumber": 3
+      },
+      {
+        "system": "GameCube",
+        "ratingMark": "C",
+        "ratingNumber": 3
+      },
+      {
+        "system": "PlayStation 2",
+        "ratingMark": "D",
+        "ratingNumber": 2
+      },
+      {
+        "system": "3DS",
+        "ratingMark": "D",
+        "ratingNumber": 2
+      },
+      {
+        "system": "Switch",
+        "ratingMark": "F",
+        "ratingNumber": 1
+      },
+      {
+        "system": "PlayStation 3",
+        "ratingMark": "F",
+        "ratingNumber": 1
+      },
+      {
+        "system": "Wii U",
+        "ratingMark": "F",
+        "ratingNumber": 1
+      }
+    ],
+    "deviceType": "handheld",
+    "connectivity": {
+      "hasWifi": false,
+      "hasBluetooth": false,
+      "hasNfc": false,
+      "hasUsb": false,
+      "hasUsbC": false
+    },
+    "cpus": [
+      {
+        "raw": "Cortex-A73 / Cortex-A534x / 4x",
+        "names": [
+          "Cortex-A73 / Cortex-A534x / 4x"
+        ],
+        "cores": 8,
+        "threads": 8,
+        "clockSpeed": {
+          "min": 1.8,
+          "max": 1.8,
+          "unit": "GHZ"
+        }
+      }
+    ],
+    "gpus": [
+      {
+        "name": "Qualcomm Adreno 610",
+        "cores": 1,
+        "clockSpeed": {
+          "min": 1050,
+          "max": 1050,
+          "unit": "MHZ"
+        }
+      }
+    ],
+    "performance": {
+      "rating": 6,
+      "normalizedRating": 4,
+      "tier": "💥¾",
+      "maxEmulation": "Most DS/N64/PSP/DC all full speed, most Saturn playable",
+      "emulationLimit": ""
+    },
+    "screen": {
+      "size": 4.2,
+      "type": {
+        "raw": "IPS Touchscreen",
+        "isTouchscreen": true,
+        "isPenCapable": false,
+        "type": "IPS"
+      },
+      "resolution": [],
+      "ppi": [
+        1280
+      ],
+      "aspectRatio": "380.95 ppi",
+      "lens": "4:3"
+    },
+    "cooling": {
+      "raw": "5000 mAh",
+      "hasHeatsink": false,
+      "hasFan": false,
+      "hasHeatPipe": false,
+      "hasVentilationCutouts": false
+    },
+    "controls": {
+      "dPad": {
+        "raw": "HeatsinkFanVentilation cutouts",
+        "type": "d-pad"
+      },
+      "analogs": {
+        "raw": "CrossUpper placement",
+        "dual": false,
+        "single": false,
+        "L3": false,
+        "R3": false,
+        "isHallSensor": false,
+        "isThumbstick": false,
+        "isSlidepad": false
+      },
+      "numberOfFaceButtons": 3,
+      "shoulderButtons": {
+        "raw": "4 Buttons",
+        "L": false,
+        "L1": false,
+        "L2": false,
+        "L3": false,
+        "R": false,
+        "R1": false,
+        "R2": false,
+        "R3": false,
+        "M1": false,
+        "M2": false,
+        "LC": false,
+        "RC": false,
+        "ZL": false,
+        "ZRVertical": false,
+        "ZRHorizontal": false
+      },
+      "extraButtons": {
+        "raw": "L1, R1, L2, R2Horizontal, Shelf",
+        "power": false,
+        "reset": false,
+        "home": false,
+        "volumeUp": false,
+        "volumeDown": false,
+        "function": false,
+        "turbo": false,
+        "touchpad": false,
+        "fingerprint": false,
+        "mute": false,
+        "screenshot": false,
+        "programmableButtons": false
+      }
+    },
+    "outputs": {
+      "videoOutput": {
+        "raw": "WiFi 5, Bluetooth 5.0",
+        "hasUsbC": false,
+        "hasMicroHdmi": false,
+        "hasMiniHdmi": false,
+        "hasHdmi": false,
+        "hasDvi": false,
+        "hasVga": false,
+        "hasDisplayPort": false,
+        "OcuLink": false,
+        "AV": false
+      },
+      "audioOutput": {
+        "raw": "?",
+        "has35mmJack": false,
+        "hasHeadphoneJack": false,
+        "hasUsbC": false
+      },
+      "speaker": {
+        "type": "unknown"
+      }
+    },
+    "reviews": {
+      "count": null,
+      "average": null,
+      "videoReviews": [
+        {
+          "url": "https://www.youtube.com/watch?v=wocVYbXuiho&pp=ygUMTWFuZ21pIEFpciBZ",
+          "name": "Retro Game Corps"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=Jg7wzfQ-RfU",
+          "name": "Tech Dweeb"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=sbLc1e_ETvI&pp=ygUMTWFuZ21pIEFpciBZ",
+          "name": "Retro Handhelds"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=RZuWlDOde-g&pp=ygUMTWFuZ21pIEFpciBZ",
+          "name": "Alex Blogoodf"
+        }
+      ],
+      "writtenReviews": [
+        {
+          "url": "https://www.youtube.com/watch?v=nd76qpQo-lw",
+          "name": "Mangmi"
+        }
+      ]
+    },
+    "pricing": {
+      "raw": "$95",
+      "average": 95,
+      "range": {
+        "min": 95,
+        "max": 95
+      },
+      "currency": "USD",
+      "category": "low",
+      "discontinued": null
+    },
+    "pros": [
+      "-"
+    ],
+    "cons": [],
+    "vendorLinks": [
+      {
+        "url": "https://mangmi.com/products/mangmi-air-y-air-y-pro",
+        "name": "Mangmi"
+      }
+    ],
+    "notes": [
+      ""
+    ]
+  },
+  {
+    "id": "mangmi-air-y-pro",
+    "index": 6,
+    "name": {
+      "raw": "Mangmi Air Y Pro",
+      "sanitized": "mangmi-air-y-pro",
+      "normalized": "Mangmi Air Y Pro"
+    },
+    "brand": {
+      "raw": "Mangmi",
+      "sanitized": "Mangmi",
+      "normalized": "Mangmi"
+    },
+    "os": {
+      "raw": "Android 13",
+      "icons": [
+        "ph-android-logo"
+      ],
+      "list": [
+        "Android 13"
+      ],
+      "customFirmwares": []
+    },
+    "tags": [
+      {
+        "name": "Android",
+        "slug": "android",
+        "type": "os"
+      },
+      {
+        "name": "Mangmi",
+        "slug": "Mangmi",
+        "type": "brand"
+      },
+      {
+        "name": "$$",
+        "slug": "mid",
+        "type": "price"
+      },
+      {
+        "name": "Vertical",
+        "slug": "vertical",
+        "type": "formFactor"
+      },
+      {
+        "name": "IPS",
+        "slug": "ips",
+        "type": "screenType"
+      },
+      {
+        "name": "2026",
+        "slug": "year-2026",
+        "type": "releaseDate"
+      },
+      {
+        "name": "Handheld",
+        "slug": "handheld",
+        "type": "deviceType"
+      }
+    ],
+    "totalRating": 4.54,
+    "lowBatteryIndicator": null,
+    "hackingGuides": [],
+    "systemOnChip": "Qualcomm Snapdragon 865",
+    "architecture": {
+      "type": "ARM"
+    },
+    "ram": {
+      "raw": "4 GB / 8 GB LPDDR4X",
+      "sizes": [
+        4
+      ],
+      "unit": "GB",
+      "type": "LPDDR4X"
+    },
+    "rumble": false,
+    "sensors": {
+      "raw": "?",
+      "hasMicrophone": false,
+      "hasAccelerometer": false,
+      "hasGyroscope": false,
+      "hasCompass": false,
+      "hasMagnetometer": false,
+      "hasBarometer": false,
+      "hasProximitySensor": false,
+      "hasAmbientLightSensor": false,
+      "hasFingerprintSensor": false,
+      "hasCamera": false,
+      "hasGravitySensor": false,
+      "hasPressureSensor": false,
+      "hasTemperatureSensor": false,
+      "hasHumiditySensor": false,
+      "hasHeartRateSensor": false,
+      "hasAntenna": false,
+      "screenClosure": false
+    },
+    "volumeControl": {
+      "type": "unknown"
+    },
+    "brightnessControl": {
+      "type": "wheel"
+    },
+    "powerControl": {
+      "type": "unknown"
+    },
+    "battery": {
+      "raw": "Tempered Glass(OCA Laminated)",
+      "capacity": null,
+      "unit": null,
+      "type": "Lithium-ion",
+      "removable": false,
+      "charging": "USB-C"
+    },
+    "chargePort": {
+      "raw": "Function button, Power",
+      "type": null,
+      "numberOfPorts": null
+    },
+    "storage": "usb-cbottom facing",
+    "dimensions": {
+      "length": null,
+      "width": null,
+      "height": null
+    },
+    "weight": 94.64,
+    "shellMaterial": {
+      "raw": "286 grams",
+      "isPlastic": false,
+      "isMetal": false,
+      "isAluminum": false,
+      "isMagnesiumAlloy": false,
+      "isOther": true
+    },
+    "colors": [
+      "Plastic"
+    ],
+    "image": {
+      "originalUrl": "resources/cellImage_0_23.jpg",
+      "pngUrl": "/devices/mangmi-air-y-pro.png",
+      "webpUrl": "/devices/mangmi-air-y-pro.webp",
+      "alt": "mangmi air y pro",
+      "pocketbaseUrl": null
+    },
+    "released": {
+      "raw": "2026 / 08",
+      "mentionedDate": "2026-08-01T00:00:00.000Z"
+    },
+    "formFactor": "vertical",
+    "systemRatings": [
+      {
+        "system": "PlayStation 2",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "PlayStation 1",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "PlayStation Portable",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Wii",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "GameCube",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "3DS",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "DS",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "N64",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "SNES",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "NES",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Game Boy Advance",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Game Boy",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Saturn",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Dreamcast",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Genesis",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Wii U",
+        "ratingMark": "C",
+        "ratingNumber": 3
+      },
+      {
+        "system": "Switch",
+        "ratingMark": "D",
+        "ratingNumber": 2
+      },
+      {
+        "system": "PlayStation 3",
+        "ratingMark": "D",
+        "ratingNumber": 2
+      }
+    ],
+    "deviceType": "handheld",
+    "connectivity": {
+      "hasWifi": false,
+      "hasBluetooth": false,
+      "hasNfc": false,
+      "hasUsb": false,
+      "hasUsbC": false
+    },
+    "cpus": [
+      {
+        "raw": "Cortex-A77 / Cortex-A554x / 4x",
+        "names": [
+          "Cortex-A77 / Cortex-A554x / 4x"
+        ],
+        "cores": 8,
+        "threads": 8,
+        "clockSpeed": {
+          "min": 1.8,
+          "max": 1.8,
+          "unit": "GHZ"
+        }
+      }
+    ],
+    "gpus": [
+      {
+        "name": "Qualcomm Adreno 650",
+        "cores": 1,
+        "clockSpeed": {
+          "min": 587,
+          "max": 587,
+          "unit": "MHZ"
+        }
+      }
+    ],
+    "performance": {
+      "rating": 9,
+      "normalizedRating": 6,
+      "tier": "💥💥💥💥½",
+      "maxEmulation": "GameCube mostly all full speed, most Wii/3DS playable, some PS2/Wii U playable",
+      "emulationLimit": ""
+    },
+    "screen": {
+      "size": 4.2,
+      "type": {
+        "raw": "IPS Touchscreen",
+        "isTouchscreen": true,
+        "isPenCapable": false,
+        "type": "IPS"
+      },
+      "resolution": [],
+      "ppi": [
+        1280
+      ],
+      "aspectRatio": "380.95 ppi",
+      "lens": "4:3"
+    },
+    "cooling": {
+      "raw": "5000 mAh",
+      "hasHeatsink": false,
+      "hasFan": false,
+      "hasHeatPipe": false,
+      "hasVentilationCutouts": false
+    },
+    "controls": {
+      "dPad": {
+        "raw": "HeatsinkFanVentilation cutouts",
+        "type": "d-pad"
+      },
+      "analogs": {
+        "raw": "CrossUpper placement",
+        "dual": false,
+        "single": false,
+        "L3": false,
+        "R3": false,
+        "isHallSensor": false,
+        "isThumbstick": false,
+        "isSlidepad": false
+      },
+      "numberOfFaceButtons": 3,
+      "shoulderButtons": {
+        "raw": "4 Buttons",
+        "L": false,
+        "L1": false,
+        "L2": false,
+        "L3": false,
+        "R": false,
+        "R1": false,
+        "R2": false,
+        "R3": false,
+        "M1": false,
+        "M2": false,
+        "LC": false,
+        "RC": false,
+        "ZL": false,
+        "ZRVertical": false,
+        "ZRHorizontal": false
+      },
+      "extraButtons": {
+        "raw": "L1, R1, L2, R2Horizontal, Shelf",
+        "power": false,
+        "reset": false,
+        "home": false,
+        "volumeUp": false,
+        "volumeDown": false,
+        "function": false,
+        "turbo": false,
+        "touchpad": false,
+        "fingerprint": false,
+        "mute": false,
+        "screenshot": false,
+        "programmableButtons": false
+      }
+    },
+    "outputs": {
+      "videoOutput": {
+        "raw": "WiFi 6, Bluetooth 5.1",
+        "hasUsbC": false,
+        "hasMicroHdmi": false,
+        "hasMiniHdmi": false,
+        "hasHdmi": false,
+        "hasDvi": false,
+        "hasVga": false,
+        "hasDisplayPort": false,
+        "OcuLink": false,
+        "AV": false
+      },
+      "audioOutput": {
+        "raw": "?",
+        "has35mmJack": false,
+        "hasHeadphoneJack": false,
+        "hasUsbC": false
+      },
+      "speaker": {
+        "type": "unknown"
+      }
+    },
+    "reviews": {
+      "count": null,
+      "average": null,
+      "videoReviews": [
+        {
+          "url": "https://www.youtube.com/watch?v=wocVYbXuiho&pp=ygUMTWFuZ21pIEFpciBZ",
+          "name": "Retro Game Corps"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=Jg7wzfQ-RfU",
+          "name": "Tech Dweeb"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=sbLc1e_ETvI&pp=ygUMTWFuZ21pIEFpciBZ",
+          "name": "Retro Handhelds"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=ICAcFIkAQEM&pp=ygUMTWFuZ21pIEFpciBZ",
+          "name": "Joey's Retro Handhelds"
+        }
+      ],
+      "writtenReviews": [
+        {
+          "url": "https://www.youtube.com/watch?v=xsJY6GZpQ-M&pp=ygUMTWFuZ21pIEFpciBZ",
+          "name": "EDI"
+        }
+      ]
+    },
+    "pricing": {
+      "raw": "$160 (4 GB + 64 GB)$190 (8 GB + 128 GB)",
+      "average": 144,
+      "range": {
+        "min": 160,
+        "max": 128
+      },
+      "currency": "USD",
+      "category": "mid",
+      "discontinued": null
+    },
+    "pros": [
+      "-"
+    ],
+    "cons": [],
+    "vendorLinks": [
+      {
+        "url": "https://mangmi.com/products/mangmi-air-y-air-y-pro",
+        "name": "Mangmi"
+      }
+    ],
     "notes": [
       ""
     ]
