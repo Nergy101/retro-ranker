@@ -1610,8 +1610,30 @@
     "reviews": {
       "count": null,
       "average": null,
-      "videoReviews": [],
-      "writtenReviews": []
+      "videoReviews": [
+        {
+          "url": "https://www.youtube.com/watch?v=oX8i7pYy-Gk&pp=ygUUS09OS1IgUG9ja2V0IEFkdmFuY2U%3D",
+          "name": "ETA Prime"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=SJy7QQ6yfeE&pp=ygUUS09OS1IgUG9ja2V0IEFkdmFuY2U%3D",
+          "name": "Tech Dweeb"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=xlhq36ARLqg&pp=ygUUS09OS1IgUG9ja2V0IEFkdmFuY2U%3D",
+          "name": "Joey's Retro Handhelds"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=G1k7Tc7-AcU&pp=ygUUS09OS1IgUG9ja2V0IEFkdmFuY2U%3D",
+          "name": "Retro Dodo"
+        }
+      ],
+      "writtenReviews": [
+        {
+          "url": "https://www.youtube.com/watch?v=8nlQP_wgD1k&pp=ygUUS09OS1IgUG9ja2V0IEFkdmFuY2U%3D",
+          "name": "What Obi Plays"
+        }
+      ]
     },
     "pricing": {
       "raw": "$89 (3 GB + 32 GB)$109 (4 GB + 64 GB)",
@@ -4196,6 +4218,10 @@
         {
           "url": "https://www.youtube.com/watch?v=QntymbB9a2Q",
           "name": "3"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=1lD4LYUrVgM",
+          "name": "4"
         },
         {
           "url": "https://www.youtube.com/watch?v=u3wQivWkpbI&pp=0gcJCaMLAYcqIYzv",
