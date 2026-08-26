@@ -143,7 +143,7 @@
       "pocketbaseUrl": null
     },
     "released": {
-      "raw": "Upcoming(Mid August)",
+      "raw": "Upcoming(August 31st)",
       "mentionedDate": null
     },
     "formFactor": "vertical",
@@ -391,11 +391,11 @@
       "writtenReviews": []
     },
     "pricing": {
-      "raw": "$290",
-      "average": 290,
+      "raw": "$295",
+      "average": 295,
       "range": {
-        "min": 290,
-        "max": 290
+        "min": 295,
+        "max": 295
       },
       "currency": "USD",
       "category": "mid",
@@ -559,7 +559,7 @@
       "pocketbaseUrl": null
     },
     "released": {
-      "raw": "Upcoming(End of August)",
+      "raw": "Upcoming(End of August?)",
       "mentionedDate": null
     },
     "formFactor": "vertical",
@@ -840,12 +840,12 @@
       "normalized": "Anbernic"
     },
     "os": {
-      "raw": "Android (#?)",
+      "raw": "Android 14",
       "icons": [
         "ph-android-logo"
       ],
       "list": [
-        "Android (#?)"
+        "Android 14"
       ],
       "customFirmwares": []
     },
@@ -866,6 +866,11 @@
         "type": "formFactor"
       },
       {
+        "name": "IPS",
+        "slug": "ips",
+        "type": "screenType"
+      },
+      {
         "name": "Upcoming",
         "slug": "upcoming",
         "type": "releaseDate"
@@ -876,15 +881,15 @@
         "type": "deviceType"
       }
     ],
-    "totalRating": 3.8,
+    "totalRating": 4.57,
     "lowBatteryIndicator": null,
     "hackingGuides": [],
-    "systemOnChip": "Qualcomm Snapdragon G1 Gen 2(Estimate)",
+    "systemOnChip": "Qualcomm Snapdragon G1 Gen 2",
     "architecture": {
       "type": "ARM"
     },
     "ram": {
-      "raw": "4 GB LPDDR4X(Estimate)",
+      "raw": "4 GB / 8 GB LPDDR4X",
       "sizes": [
         4
       ],
@@ -893,7 +898,7 @@
     },
     "rumble": false,
     "sensors": {
-      "raw": "?",
+      "raw": "✅",
       "hasMicrophone": false,
       "hasAccelerometer": false,
       "hasGyroscope": false,
@@ -922,7 +927,7 @@
       "type": "unknown"
     },
     "battery": {
-      "raw": "?",
+      "raw": "Tempered Glass(OCA Laminated)",
       "capacity": null,
       "unit": null,
       "type": "Lithium-ion",
@@ -940,9 +945,9 @@
       "width": null,
       "height": null
     },
-    "weight": null,
+    "weight": 208,
     "shellMaterial": {
-      "raw": "?",
+      "raw": "339 grams",
       "isPlastic": false,
       "isMetal": false,
       "isAluminum": false,
@@ -960,7 +965,7 @@
       "pocketbaseUrl": null
     },
     "released": {
-      "raw": "Upcoming(August?)",
+      "raw": "Upcoming(Likely early September)",
       "mentionedDate": null
     },
     "formFactor": "horizontal",
@@ -1093,27 +1098,27 @@
     "performance": {
       "rating": 8,
       "normalizedRating": 5.3,
-      "tier": "💥💥💥(estimate)",
+      "tier": "💥💥💥",
       "maxEmulation": "Most GameCube playable, some Wii/3DS playable",
       "emulationLimit": ""
     },
     "screen": {
       "size": 5.5,
       "type": {
-        "raw": "?",
-        "isTouchscreen": false,
+        "raw": "IPSTouchscreen",
+        "isTouchscreen": true,
         "isPenCapable": false,
-        "type": "Unknown"
+        "type": "IPS"
       },
       "resolution": [],
       "ppi": [
-        null
+        1920
       ],
-      "aspectRatio": "?",
-      "lens": "16:9(estimate)"
+      "aspectRatio": "400.53 ppi",
+      "lens": "16:9"
     },
     "cooling": {
-      "raw": "?",
+      "raw": "6000 mAh",
       "hasHeatsink": false,
       "hasFan": false,
       "hasHeatPipe": false,
@@ -1171,7 +1176,7 @@
     },
     "outputs": {
       "videoOutput": {
-        "raw": "?",
+        "raw": "WiFi 5, Bluetooth 5.0",
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": false,
@@ -1197,6 +1202,10 @@
       "average": null,
       "videoReviews": [
         {
+          "url": "https://www.youtube.com/watch?v=Kxv-l-QWdcI",
+          "name": "Retro Game Corps"
+        },
+        {
           "url": "https://www.youtube.com/watch?v=yHyCGRlgP78",
           "name": "1"
         },
@@ -1207,6 +1216,10 @@
         {
           "url": "https://www.youtube.com/watch?v=KX0LKid0xEw",
           "name": "3"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=OvH0pfgEEF4",
+          "name": "4"
         }
       ],
       "writtenReviews": []
@@ -122201,6 +122214,10 @@
         {
           "url": "https://www.youtube.com/watch?v=9GfP8aaQPAg",
           "name": "3"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=EgQpSaVxH2s",
+          "name": "4"
         },
         {
           "url": "https://www.youtube.com/watch?v=C8Ixok98dIU",
