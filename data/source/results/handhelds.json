@@ -1,7 +1,439 @@
 [
   {
-    "id": "trimui-brick-hammer-pro-u",
+    "id": "rg55g1",
     "index": 1,
+    "name": {
+      "raw": "RG55G1",
+      "sanitized": "rg55g1",
+      "normalized": "RG55G1"
+    },
+    "brand": {
+      "raw": "Anbernic",
+      "sanitized": "Anbernic",
+      "normalized": "Anbernic"
+    },
+    "os": {
+      "raw": "Android 14",
+      "icons": [
+        "ph-android-logo"
+      ],
+      "list": [
+        "Android 14"
+      ],
+      "customFirmwares": []
+    },
+    "tags": [
+      {
+        "name": "Android",
+        "slug": "android",
+        "type": "os"
+      },
+      {
+        "name": "Anbernic",
+        "slug": "Anbernic",
+        "type": "brand"
+      },
+      {
+        "name": "$$",
+        "slug": "mid",
+        "type": "price"
+      },
+      {
+        "name": "Horizontal",
+        "slug": "horizontal",
+        "type": "formFactor"
+      },
+      {
+        "name": "IPS",
+        "slug": "ips",
+        "type": "screenType"
+      },
+      {
+        "name": "Upcoming",
+        "slug": "upcoming",
+        "type": "releaseDate"
+      },
+      {
+        "name": "Handheld",
+        "slug": "handheld",
+        "type": "deviceType"
+      }
+    ],
+    "totalRating": 4.57,
+    "lowBatteryIndicator": null,
+    "hackingGuides": [],
+    "systemOnChip": "Qualcomm Snapdragon G1 Gen 2",
+    "architecture": {
+      "type": "ARM"
+    },
+    "ram": {
+      "raw": "4 GB / 8 GB LPDDR4X",
+      "sizes": [
+        4
+      ],
+      "unit": "GB",
+      "type": "LPDDR4X"
+    },
+    "rumble": false,
+    "sensors": {
+      "raw": "✅",
+      "hasMicrophone": false,
+      "hasAccelerometer": false,
+      "hasGyroscope": false,
+      "hasCompass": false,
+      "hasMagnetometer": false,
+      "hasBarometer": false,
+      "hasProximitySensor": false,
+      "hasAmbientLightSensor": false,
+      "hasFingerprintSensor": false,
+      "hasCamera": false,
+      "hasGravitySensor": false,
+      "hasPressureSensor": false,
+      "hasTemperatureSensor": false,
+      "hasHumiditySensor": false,
+      "hasHeartRateSensor": false,
+      "hasAntenna": false,
+      "screenClosure": false
+    },
+    "volumeControl": {
+      "type": "unknown"
+    },
+    "brightnessControl": {
+      "type": "dedicated-button"
+    },
+    "powerControl": {
+      "type": "unknown"
+    },
+    "battery": {
+      "raw": "Tempered Glass(OCA Laminated)",
+      "capacity": null,
+      "unit": null,
+      "type": "Lithium-ion",
+      "removable": false,
+      "charging": "USB-C"
+    },
+    "chargePort": {
+      "raw": "Power, Volume +-",
+      "type": null,
+      "numberOfPorts": null
+    },
+    "storage": "usb-cbottom facing",
+    "dimensions": {
+      "length": null,
+      "width": null,
+      "height": null
+    },
+    "weight": 208,
+    "shellMaterial": {
+      "raw": "339 grams",
+      "isPlastic": false,
+      "isMetal": false,
+      "isAluminum": false,
+      "isMagnesiumAlloy": false,
+      "isOther": true
+    },
+    "colors": [
+      "Plastic"
+    ],
+    "image": {
+      "originalUrl": "resources/cellImage_0_18.jpg",
+      "pngUrl": "/devices/rg55g1.png",
+      "webpUrl": "/devices/rg55g1.webp",
+      "alt": "rg55g1",
+      "pocketbaseUrl": null
+    },
+    "released": {
+      "raw": "Upcoming(August 31st at 6:00 AM EST)",
+      "mentionedDate": null
+    },
+    "formFactor": "horizontal",
+    "systemRatings": [
+      {
+        "system": "PlayStation 1",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "PlayStation Portable",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "DS",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "N64",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "SNES",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "NES",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Game Boy Advance",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Game Boy",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Saturn",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Dreamcast",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Genesis",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "PlayStation 2",
+        "ratingMark": "B",
+        "ratingNumber": 4
+      },
+      {
+        "system": "Wii",
+        "ratingMark": "B",
+        "ratingNumber": 4
+      },
+      {
+        "system": "GameCube",
+        "ratingMark": "B",
+        "ratingNumber": 4
+      },
+      {
+        "system": "3DS",
+        "ratingMark": "B",
+        "ratingNumber": 4
+      },
+      {
+        "system": "Switch",
+        "ratingMark": "D",
+        "ratingNumber": 2
+      },
+      {
+        "system": "Wii U",
+        "ratingMark": "D",
+        "ratingNumber": 2
+      },
+      {
+        "system": "PlayStation 3",
+        "ratingMark": "F",
+        "ratingNumber": 1
+      }
+    ],
+    "deviceType": "handheld",
+    "connectivity": {
+      "hasWifi": false,
+      "hasBluetooth": false,
+      "hasNfc": false,
+      "hasUsb": false,
+      "hasUsbC": false
+    },
+    "cpus": [
+      {
+        "raw": "Cortex-A78 / Cortex-A552x / 6x",
+        "names": [
+          "Cortex-A78 / Cortex-A552x / 6x"
+        ],
+        "cores": 8,
+        "threads": 8,
+        "clockSpeed": {
+          "min": 1.96,
+          "max": 1.96,
+          "unit": "GHZ"
+        }
+      }
+    ],
+    "gpus": [
+      {
+        "name": "Qualcomm Adreno A12",
+        "cores": 1,
+        "clockSpeed": {
+          "min": 1.01,
+          "max": 1.01,
+          "unit": "GHZ"
+        }
+      }
+    ],
+    "performance": {
+      "rating": 8,
+      "normalizedRating": 5.3,
+      "tier": "💥💥💥",
+      "maxEmulation": "Most GameCube playable, some Wii/3DS playable",
+      "emulationLimit": ""
+    },
+    "screen": {
+      "size": 5.5,
+      "type": {
+        "raw": "IPSTouchscreen",
+        "isTouchscreen": true,
+        "isPenCapable": false,
+        "type": "IPS"
+      },
+      "resolution": [],
+      "ppi": [
+        1920
+      ],
+      "aspectRatio": "400.53 ppi",
+      "lens": "16:9"
+    },
+    "cooling": {
+      "raw": "6000 mAh",
+      "hasHeatsink": false,
+      "hasFan": false,
+      "hasHeatPipe": false,
+      "hasVentilationCutouts": false
+    },
+    "controls": {
+      "dPad": {
+        "raw": "HeatsinkFanVentilation cutouts",
+        "type": "d-pad"
+      },
+      "analogs": {
+        "raw": "CrossUpper placement",
+        "dual": false,
+        "single": false,
+        "L3": false,
+        "R3": false,
+        "isHallSensor": false,
+        "isThumbstick": false,
+        "isSlidepad": false
+      },
+      "numberOfFaceButtons": 3,
+      "shoulderButtons": {
+        "raw": "4 Buttons",
+        "L": false,
+        "L1": false,
+        "L2": false,
+        "L3": false,
+        "R": false,
+        "R1": false,
+        "R2": false,
+        "R3": false,
+        "M1": false,
+        "M2": false,
+        "LC": false,
+        "RC": false,
+        "ZL": false,
+        "ZRVertical": false,
+        "ZRHorizontal": false
+      },
+      "extraButtons": {
+        "raw": "L1, R1, L2, R2VerticalAnalog Triggers",
+        "power": false,
+        "reset": false,
+        "home": false,
+        "volumeUp": false,
+        "volumeDown": false,
+        "function": false,
+        "turbo": false,
+        "touchpad": false,
+        "fingerprint": false,
+        "mute": false,
+        "screenshot": false,
+        "programmableButtons": false
+      }
+    },
+    "outputs": {
+      "videoOutput": {
+        "raw": "WiFi 5, Bluetooth 5.0",
+        "hasUsbC": false,
+        "hasMicroHdmi": false,
+        "hasMiniHdmi": false,
+        "hasHdmi": false,
+        "hasDvi": false,
+        "hasVga": false,
+        "hasDisplayPort": false,
+        "OcuLink": false,
+        "AV": false
+      },
+      "audioOutput": {
+        "raw": "?",
+        "has35mmJack": false,
+        "hasHeadphoneJack": false,
+        "hasUsbC": false
+      },
+      "speaker": {
+        "type": "unknown"
+      }
+    },
+    "reviews": {
+      "count": null,
+      "average": null,
+      "videoReviews": [
+        {
+          "url": "https://www.youtube.com/watch?v=Kxv-l-QWdcI",
+          "name": "Retro Game Corps"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=yHyCGRlgP78",
+          "name": "1"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=tj-aMb5munM",
+          "name": "2"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=KX0LKid0xEw",
+          "name": "3"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=OvH0pfgEEF4",
+          "name": "4"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=LrmTmJMUtFU",
+          "name": "Retro Handhelds"
+        }
+      ],
+      "writtenReviews": []
+    },
+    "pricing": {
+      "raw": "$140 (4 GB + 64 GB)$165 (8 GB + 128 GB)",
+      "average": 134,
+      "range": {
+        "min": 140,
+        "max": 128
+      },
+      "currency": "USD",
+      "category": "mid",
+      "discontinued": null
+    },
+    "pros": [
+      "-"
+    ],
+    "cons": [],
+    "vendorLinks": [
+      {
+        "url": "https://anbernic.com/products/rg-55g1",
+        "name": "Anbernic"
+      }
+    ],
+    "notes": [
+      ""
+    ]
+  },
+  {
+    "id": "trimui-brick-hammer-pro-u",
+    "index": 2,
     "name": {
       "raw": "TRIMUI Brick Hammer Pro U",
       "sanitized": "trimui-brick-hammer-pro-u",
@@ -136,7 +568,7 @@
       "Metal (Aluminum)"
     ],
     "image": {
-      "originalUrl": "resources/cellImage_0_18.jpg",
+      "originalUrl": "resources/cellImage_0_19.jpg",
       "pngUrl": "/devices/trimui-brick-hammer-pro-u.png",
       "webpUrl": "/devices/trimui-brick-hammer-pro-u.webp",
       "alt": "trimui brick hammer pro u",
@@ -429,7 +861,7 @@
   },
   {
     "id": "konkr-pocket-block",
-    "index": 2,
+    "index": 3,
     "name": {
       "raw": "KONKR Pocket Block",
       "sanitized": "konkr-pocket-block",
@@ -552,7 +984,7 @@
       "Plastic"
     ],
     "image": {
-      "originalUrl": "resources/cellImage_0_19.jpg",
+      "originalUrl": "resources/cellImage_0_20.jpg",
       "pngUrl": "/devices/konkr-pocket-block.png",
       "webpUrl": "/devices/konkr-pocket-block.webp",
       "alt": "konkr pocket block",
@@ -802,424 +1234,6 @@
         {
           "url": "https://retrohandhelds.gg/ayaneo-announces-konkr-pocket-block-pocket-air-mini-igs-and-teases-pocket-play/",
           "name": "Retro Handhelds"
-        }
-      ],
-      "writtenReviews": []
-    },
-    "pricing": {
-      "raw": "?",
-      "average": 0,
-      "range": {
-        "min": 0,
-        "max": 0
-      },
-      "currency": "?",
-      "category": "unknown",
-      "discontinued": null
-    },
-    "pros": [
-      "-"
-    ],
-    "cons": [],
-    "vendorLinks": [],
-    "notes": [
-      ""
-    ]
-  },
-  {
-    "id": "rg55g1",
-    "index": 3,
-    "name": {
-      "raw": "RG55G1",
-      "sanitized": "rg55g1",
-      "normalized": "RG55G1"
-    },
-    "brand": {
-      "raw": "Anbernic",
-      "sanitized": "Anbernic",
-      "normalized": "Anbernic"
-    },
-    "os": {
-      "raw": "Android 14",
-      "icons": [
-        "ph-android-logo"
-      ],
-      "list": [
-        "Android 14"
-      ],
-      "customFirmwares": []
-    },
-    "tags": [
-      {
-        "name": "Android",
-        "slug": "android",
-        "type": "os"
-      },
-      {
-        "name": "Anbernic",
-        "slug": "Anbernic",
-        "type": "brand"
-      },
-      {
-        "name": "Horizontal",
-        "slug": "horizontal",
-        "type": "formFactor"
-      },
-      {
-        "name": "IPS",
-        "slug": "ips",
-        "type": "screenType"
-      },
-      {
-        "name": "Upcoming",
-        "slug": "upcoming",
-        "type": "releaseDate"
-      },
-      {
-        "name": "Handheld",
-        "slug": "handheld",
-        "type": "deviceType"
-      }
-    ],
-    "totalRating": 4.57,
-    "lowBatteryIndicator": null,
-    "hackingGuides": [],
-    "systemOnChip": "Qualcomm Snapdragon G1 Gen 2",
-    "architecture": {
-      "type": "ARM"
-    },
-    "ram": {
-      "raw": "4 GB / 8 GB LPDDR4X",
-      "sizes": [
-        4
-      ],
-      "unit": "GB",
-      "type": "LPDDR4X"
-    },
-    "rumble": false,
-    "sensors": {
-      "raw": "✅",
-      "hasMicrophone": false,
-      "hasAccelerometer": false,
-      "hasGyroscope": false,
-      "hasCompass": false,
-      "hasMagnetometer": false,
-      "hasBarometer": false,
-      "hasProximitySensor": false,
-      "hasAmbientLightSensor": false,
-      "hasFingerprintSensor": false,
-      "hasCamera": false,
-      "hasGravitySensor": false,
-      "hasPressureSensor": false,
-      "hasTemperatureSensor": false,
-      "hasHumiditySensor": false,
-      "hasHeartRateSensor": false,
-      "hasAntenna": false,
-      "screenClosure": false
-    },
-    "volumeControl": {
-      "type": "unknown"
-    },
-    "brightnessControl": {
-      "type": "dedicated-button"
-    },
-    "powerControl": {
-      "type": "unknown"
-    },
-    "battery": {
-      "raw": "Tempered Glass(OCA Laminated)",
-      "capacity": null,
-      "unit": null,
-      "type": "Lithium-ion",
-      "removable": false,
-      "charging": "USB-C"
-    },
-    "chargePort": {
-      "raw": "Power, Volume +-",
-      "type": null,
-      "numberOfPorts": null
-    },
-    "storage": "usb-cbottom facing",
-    "dimensions": {
-      "length": null,
-      "width": null,
-      "height": null
-    },
-    "weight": 208,
-    "shellMaterial": {
-      "raw": "339 grams",
-      "isPlastic": false,
-      "isMetal": false,
-      "isAluminum": false,
-      "isMagnesiumAlloy": false,
-      "isOther": true
-    },
-    "colors": [
-      "Plastic"
-    ],
-    "image": {
-      "originalUrl": "resources/cellImage_0_20.jpg",
-      "pngUrl": "/devices/rg55g1.png",
-      "webpUrl": "/devices/rg55g1.webp",
-      "alt": "rg55g1",
-      "pocketbaseUrl": null
-    },
-    "released": {
-      "raw": "Upcoming(Likely early September)",
-      "mentionedDate": null
-    },
-    "formFactor": "horizontal",
-    "systemRatings": [
-      {
-        "system": "PlayStation 1",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "PlayStation Portable",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "DS",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "N64",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "SNES",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "NES",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Game Boy Advance",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Game Boy",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Saturn",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Dreamcast",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Genesis",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "PlayStation 2",
-        "ratingMark": "B",
-        "ratingNumber": 4
-      },
-      {
-        "system": "Wii",
-        "ratingMark": "B",
-        "ratingNumber": 4
-      },
-      {
-        "system": "GameCube",
-        "ratingMark": "B",
-        "ratingNumber": 4
-      },
-      {
-        "system": "3DS",
-        "ratingMark": "B",
-        "ratingNumber": 4
-      },
-      {
-        "system": "Switch",
-        "ratingMark": "D",
-        "ratingNumber": 2
-      },
-      {
-        "system": "Wii U",
-        "ratingMark": "D",
-        "ratingNumber": 2
-      },
-      {
-        "system": "PlayStation 3",
-        "ratingMark": "F",
-        "ratingNumber": 1
-      }
-    ],
-    "deviceType": "handheld",
-    "connectivity": {
-      "hasWifi": false,
-      "hasBluetooth": false,
-      "hasNfc": false,
-      "hasUsb": false,
-      "hasUsbC": false
-    },
-    "cpus": [
-      {
-        "raw": "Cortex-A78 / Cortex-A552x / 6x",
-        "names": [
-          "Cortex-A78 / Cortex-A552x / 6x"
-        ],
-        "cores": 8,
-        "threads": 8,
-        "clockSpeed": {
-          "min": 1.96,
-          "max": 1.96,
-          "unit": "GHZ"
-        }
-      }
-    ],
-    "gpus": [
-      {
-        "name": "Qualcomm Adreno A12",
-        "cores": 1,
-        "clockSpeed": {
-          "min": 1.01,
-          "max": 1.01,
-          "unit": "GHZ"
-        }
-      }
-    ],
-    "performance": {
-      "rating": 8,
-      "normalizedRating": 5.3,
-      "tier": "💥💥💥",
-      "maxEmulation": "Most GameCube playable, some Wii/3DS playable",
-      "emulationLimit": ""
-    },
-    "screen": {
-      "size": 5.5,
-      "type": {
-        "raw": "IPSTouchscreen",
-        "isTouchscreen": true,
-        "isPenCapable": false,
-        "type": "IPS"
-      },
-      "resolution": [],
-      "ppi": [
-        1920
-      ],
-      "aspectRatio": "400.53 ppi",
-      "lens": "16:9"
-    },
-    "cooling": {
-      "raw": "6000 mAh",
-      "hasHeatsink": false,
-      "hasFan": false,
-      "hasHeatPipe": false,
-      "hasVentilationCutouts": false
-    },
-    "controls": {
-      "dPad": {
-        "raw": "HeatsinkFanVentilation cutouts",
-        "type": "d-pad"
-      },
-      "analogs": {
-        "raw": "CrossUpper placement",
-        "dual": false,
-        "single": false,
-        "L3": false,
-        "R3": false,
-        "isHallSensor": false,
-        "isThumbstick": false,
-        "isSlidepad": false
-      },
-      "numberOfFaceButtons": 3,
-      "shoulderButtons": {
-        "raw": "4 Buttons",
-        "L": false,
-        "L1": false,
-        "L2": false,
-        "L3": false,
-        "R": false,
-        "R1": false,
-        "R2": false,
-        "R3": false,
-        "M1": false,
-        "M2": false,
-        "LC": false,
-        "RC": false,
-        "ZL": false,
-        "ZRVertical": false,
-        "ZRHorizontal": false
-      },
-      "extraButtons": {
-        "raw": "L1, R1, L2, R2VerticalAnalog Triggers",
-        "power": false,
-        "reset": false,
-        "home": false,
-        "volumeUp": false,
-        "volumeDown": false,
-        "function": false,
-        "turbo": false,
-        "touchpad": false,
-        "fingerprint": false,
-        "mute": false,
-        "screenshot": false,
-        "programmableButtons": false
-      }
-    },
-    "outputs": {
-      "videoOutput": {
-        "raw": "WiFi 5, Bluetooth 5.0",
-        "hasUsbC": false,
-        "hasMicroHdmi": false,
-        "hasMiniHdmi": false,
-        "hasHdmi": false,
-        "hasDvi": false,
-        "hasVga": false,
-        "hasDisplayPort": false,
-        "OcuLink": false,
-        "AV": false
-      },
-      "audioOutput": {
-        "raw": "?",
-        "has35mmJack": false,
-        "hasHeadphoneJack": false,
-        "hasUsbC": false
-      },
-      "speaker": {
-        "type": "unknown"
-      }
-    },
-    "reviews": {
-      "count": null,
-      "average": null,
-      "videoReviews": [
-        {
-          "url": "https://www.youtube.com/watch?v=Kxv-l-QWdcI",
-          "name": "Retro Game Corps"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=yHyCGRlgP78",
-          "name": "1"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=tj-aMb5munM",
-          "name": "2"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=KX0LKid0xEw",
-          "name": "3"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=OvH0pfgEEF4",
-          "name": "4"
         }
       ],
       "writtenReviews": []
