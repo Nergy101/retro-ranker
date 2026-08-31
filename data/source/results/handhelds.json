@@ -1639,6 +1639,10 @@
       "average": null,
       "videoReviews": [
         {
+          "url": "https://www.youtube.com/watch?v=SEoiD8NVvVw",
+          "name": "Retro Game Corps"
+        },
+        {
           "url": "https://www.youtube.com/watch?v=oX8i7pYy-Gk&pp=ygUUS09OS1IgUG9ja2V0IEFkdmFuY2U%3D",
           "name": "ETA Prime"
         },
@@ -1649,10 +1653,6 @@
         {
           "url": "https://www.youtube.com/watch?v=xlhq36ARLqg&pp=ygUUS09OS1IgUG9ja2V0IEFkdmFuY2U%3D",
           "name": "Joey's Retro Handhelds"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=G1k7Tc7-AcU&pp=ygUUS09OS1IgUG9ja2V0IEFkdmFuY2U%3D",
-          "name": "Retro Dodo"
         }
       ],
       "writtenReviews": [
