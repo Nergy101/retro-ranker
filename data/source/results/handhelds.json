@@ -1,24 +1,24 @@
 [
   {
-    "id": "rg55g1",
+    "id": "konkr-pocket-block",
     "index": 1,
     "name": {
-      "raw": "RG55G1",
-      "sanitized": "rg55g1",
-      "normalized": "RG55G1"
+      "raw": "KONKR Pocket Block",
+      "sanitized": "konkr-pocket-block",
+      "normalized": "KONKR Pocket Block"
     },
     "brand": {
-      "raw": "Anbernic",
-      "sanitized": "Anbernic",
-      "normalized": "Anbernic"
+      "raw": "KONKR(AYANEO)",
+      "sanitized": "KONKR(AYANEO)",
+      "normalized": "KONKR"
     },
     "os": {
-      "raw": "Android 14",
+      "raw": "Android (#?)",
       "icons": [
         "ph-android-logo"
       ],
       "list": [
-        "Android 14"
+        "Android (#?)"
       ],
       "customFirmwares": []
     },
@@ -29,24 +29,14 @@
         "type": "os"
       },
       {
-        "name": "Anbernic",
-        "slug": "Anbernic",
+        "name": "KONKR(AYANEO)",
+        "slug": "KONKR(AYANEO)",
         "type": "brand"
       },
       {
-        "name": "$$",
-        "slug": "mid",
-        "type": "price"
-      },
-      {
-        "name": "Horizontal",
-        "slug": "horizontal",
+        "name": "Vertical",
+        "slug": "vertical",
         "type": "formFactor"
-      },
-      {
-        "name": "IPS",
-        "slug": "ips",
-        "type": "screenType"
       },
       {
         "name": "Upcoming",
@@ -59,24 +49,22 @@
         "type": "deviceType"
       }
     ],
-    "totalRating": 4.57,
+    "totalRating": 2.38,
     "lowBatteryIndicator": null,
     "hackingGuides": [],
-    "systemOnChip": "Qualcomm Snapdragon G1 Gen 2",
+    "systemOnChip": "MediaTek MT8786V(Rumor)",
     "architecture": {
       "type": "ARM"
     },
     "ram": {
-      "raw": "4 GB / 8 GB LPDDR4X",
-      "sizes": [
-        4
-      ],
-      "unit": "GB",
-      "type": "LPDDR4X"
+      "raw": "?",
+      "sizes": null,
+      "unit": null,
+      "type": "other"
     },
     "rumble": false,
     "sensors": {
-      "raw": "✅",
+      "raw": "?",
       "hasMicrophone": false,
       "hasAccelerometer": false,
       "hasGyroscope": false,
@@ -113,9 +101,9 @@
       "charging": "USB-C"
     },
     "chargePort": {
-      "raw": "Power, Volume +-",
+      "raw": "2 function buttons, Power, Volume +-",
       "type": null,
-      "numberOfPorts": null
+      "numberOfPorts": 2
     },
     "storage": "usb-cbottom facing",
     "dimensions": {
@@ -123,9 +111,9 @@
       "width": null,
       "height": null
     },
-    "weight": 208,
+    "weight": 77,
     "shellMaterial": {
-      "raw": "339 grams",
+      "raw": "?",
       "isPlastic": false,
       "isMetal": false,
       "isAluminum": false,
@@ -137,24 +125,19 @@
     ],
     "image": {
       "originalUrl": "resources/cellImage_0_18.jpg",
-      "pngUrl": "/devices/rg55g1.png",
-      "webpUrl": "/devices/rg55g1.webp",
-      "alt": "rg55g1",
+      "pngUrl": "/devices/konkr-pocket-block.png",
+      "webpUrl": "/devices/konkr-pocket-block.webp",
+      "alt": "konkr pocket block",
       "pocketbaseUrl": null
     },
     "released": {
-      "raw": "Upcoming(August 31st at 6:00 AM EST)",
+      "raw": "Upcoming(End of August?)",
       "mentionedDate": null
     },
-    "formFactor": "horizontal",
+    "formFactor": "vertical",
     "systemRatings": [
       {
         "system": "PlayStation 1",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "PlayStation Portable",
         "ratingMark": "A",
         "ratingNumber": 5
       },
@@ -189,52 +172,57 @@
         "ratingNumber": 5
       },
       {
-        "system": "Saturn",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Dreamcast",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
         "system": "Genesis",
         "ratingMark": "A",
         "ratingNumber": 5
       },
       {
-        "system": "PlayStation 2",
+        "system": "PlayStation Portable",
+        "ratingMark": "B",
+        "ratingNumber": 4
+      },
+      {
+        "system": "Saturn",
+        "ratingMark": "B",
+        "ratingNumber": 4
+      },
+      {
+        "system": "Dreamcast",
         "ratingMark": "B",
         "ratingNumber": 4
       },
       {
         "system": "Wii",
-        "ratingMark": "B",
-        "ratingNumber": 4
+        "ratingMark": "C",
+        "ratingNumber": 3
       },
       {
         "system": "GameCube",
-        "ratingMark": "B",
-        "ratingNumber": 4
+        "ratingMark": "C",
+        "ratingNumber": 3
+      },
+      {
+        "system": "PlayStation 2",
+        "ratingMark": "D",
+        "ratingNumber": 2
       },
       {
         "system": "3DS",
-        "ratingMark": "B",
-        "ratingNumber": 4
+        "ratingMark": "D",
+        "ratingNumber": 2
       },
       {
         "system": "Switch",
-        "ratingMark": "D",
-        "ratingNumber": 2
-      },
-      {
-        "system": "Wii U",
-        "ratingMark": "D",
-        "ratingNumber": 2
+        "ratingMark": "F",
+        "ratingNumber": 1
       },
       {
         "system": "PlayStation 3",
+        "ratingMark": "F",
+        "ratingNumber": 1
+      },
+      {
+        "system": "Wii U",
         "ratingMark": "F",
         "ratingNumber": 1
       }
@@ -249,54 +237,54 @@
     },
     "cpus": [
       {
-        "raw": "Cortex-A78 / Cortex-A552x / 6x",
+        "raw": "Cortex-A75 / Cortex-A552x / 6x",
         "names": [
-          "Cortex-A78 / Cortex-A552x / 6x"
+          "Cortex-A75 / Cortex-A552x / 6x"
         ],
         "cores": 8,
         "threads": 8,
         "clockSpeed": {
-          "min": 1.96,
-          "max": 1.96,
+          "min": 1.8,
+          "max": 1.8,
           "unit": "GHZ"
         }
       }
     ],
     "gpus": [
       {
-        "name": "Qualcomm Adreno A12",
-        "cores": 1,
+        "name": "Mali-G52 MC2",
+        "cores": 2,
         "clockSpeed": {
-          "min": 1.01,
-          "max": 1.01,
-          "unit": "GHZ"
+          "min": 950,
+          "max": 950,
+          "unit": "MHZ"
         }
       }
     ],
     "performance": {
-      "rating": 8,
-      "normalizedRating": 5.3,
-      "tier": "💥💥💥",
-      "maxEmulation": "Most GameCube playable, some Wii/3DS playable",
+      "rating": 6,
+      "normalizedRating": 4,
+      "tier": "💥(estimate)",
+      "maxEmulation": "Most DS/N64/PSP/DC all full speed, most Saturn playable",
       "emulationLimit": ""
     },
     "screen": {
-      "size": 5.5,
+      "size": 3.2,
       "type": {
-        "raw": "IPSTouchscreen",
-        "isTouchscreen": true,
+        "raw": "?",
+        "isTouchscreen": false,
         "isPenCapable": false,
-        "type": "IPS"
+        "type": "Unknown"
       },
       "resolution": [],
       "ppi": [
-        1920
+        null
       ],
-      "aspectRatio": "400.53 ppi",
-      "lens": "16:9"
+      "aspectRatio": "?",
+      "lens": "4:3(estimate)"
     },
     "cooling": {
-      "raw": "6000 mAh",
+      "raw": "3500 mAh",
       "hasHeatsink": false,
       "hasFan": false,
       "hasHeatPipe": false,
@@ -304,7 +292,7 @@
     },
     "controls": {
       "dPad": {
-        "raw": "HeatsinkFanVentilation cutouts",
+        "raw": "Ventilation cutouts",
         "type": "d-pad"
       },
       "analogs": {
@@ -317,7 +305,7 @@
         "isThumbstick": false,
         "isSlidepad": false
       },
-      "numberOfFaceButtons": 3,
+      "numberOfFaceButtons": null,
       "shoulderButtons": {
         "raw": "4 Buttons",
         "L": false,
@@ -337,7 +325,7 @@
         "ZRHorizontal": false
       },
       "extraButtons": {
-        "raw": "L1, R1, L2, R2VerticalAnalog Triggers",
+        "raw": "L1, R1, L2, R2Horizontal, Shelf",
         "power": false,
         "reset": false,
         "home": false,
@@ -354,7 +342,7 @@
     },
     "outputs": {
       "videoOutput": {
-        "raw": "WiFi 5, Bluetooth 5.0",
+        "raw": "?",
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": false,
@@ -380,53 +368,32 @@
       "average": null,
       "videoReviews": [
         {
-          "url": "https://www.youtube.com/watch?v=Kxv-l-QWdcI",
-          "name": "Retro Game Corps"
+          "url": "https://youtube.com/watch?v=lkdVBeI_RaY",
+          "name": "AYANEO"
         },
         {
-          "url": "https://www.youtube.com/watch?v=yHyCGRlgP78",
-          "name": "1"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=tj-aMb5munM",
-          "name": "2"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=KX0LKid0xEw",
-          "name": "3"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=OvH0pfgEEF4",
-          "name": "4"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=LrmTmJMUtFU",
+          "url": "https://retrohandhelds.gg/ayaneo-announces-konkr-pocket-block-pocket-air-mini-igs-and-teases-pocket-play/",
           "name": "Retro Handhelds"
         }
       ],
       "writtenReviews": []
     },
     "pricing": {
-      "raw": "$140 (4 GB + 64 GB)$165 (8 GB + 128 GB)",
-      "average": 134,
+      "raw": "?",
+      "average": 0,
       "range": {
-        "min": 140,
-        "max": 128
+        "min": 0,
+        "max": 0
       },
-      "currency": "USD",
-      "category": "mid",
+      "currency": "?",
+      "category": "unknown",
       "discontinued": null
     },
     "pros": [
       "-"
     ],
     "cons": [],
-    "vendorLinks": [
-      {
-        "url": "https://anbernic.com/products/rg-55g1",
-        "name": "Anbernic"
-      }
-    ],
+    "vendorLinks": [],
     "notes": [
       ""
     ]
@@ -575,7 +542,7 @@
       "pocketbaseUrl": null
     },
     "released": {
-      "raw": "Upcoming(August 31st)",
+      "raw": "Upcoming(September 15th)",
       "mentionedDate": null
     },
     "formFactor": "vertical",
@@ -860,25 +827,25 @@
     ]
   },
   {
-    "id": "konkr-pocket-block",
+    "id": "rg55g1",
     "index": 3,
     "name": {
-      "raw": "KONKR Pocket Block",
-      "sanitized": "konkr-pocket-block",
-      "normalized": "KONKR Pocket Block"
+      "raw": "RG55G1",
+      "sanitized": "rg55g1",
+      "normalized": "RG55G1"
     },
     "brand": {
-      "raw": "KONKR(AYANEO)",
-      "sanitized": "KONKR(AYANEO)",
-      "normalized": "KONKR"
+      "raw": "Anbernic",
+      "sanitized": "Anbernic",
+      "normalized": "Anbernic"
     },
     "os": {
-      "raw": "Android (#?)",
+      "raw": "Android 14",
       "icons": [
         "ph-android-logo"
       ],
       "list": [
-        "Android (#?)"
+        "Android 14"
       ],
       "customFirmwares": []
     },
@@ -889,18 +856,28 @@
         "type": "os"
       },
       {
-        "name": "KONKR(AYANEO)",
-        "slug": "KONKR(AYANEO)",
+        "name": "Anbernic",
+        "slug": "Anbernic",
         "type": "brand"
       },
       {
-        "name": "Vertical",
-        "slug": "vertical",
+        "name": "$$",
+        "slug": "mid",
+        "type": "price"
+      },
+      {
+        "name": "Horizontal",
+        "slug": "horizontal",
         "type": "formFactor"
       },
       {
-        "name": "Upcoming",
-        "slug": "upcoming",
+        "name": "IPS",
+        "slug": "ips",
+        "type": "screenType"
+      },
+      {
+        "name": "2026",
+        "slug": "year-2026",
         "type": "releaseDate"
       },
       {
@@ -909,22 +886,24 @@
         "type": "deviceType"
       }
     ],
-    "totalRating": 2.38,
+    "totalRating": 4.57,
     "lowBatteryIndicator": null,
     "hackingGuides": [],
-    "systemOnChip": "MediaTek MT8786V(Rumor)",
+    "systemOnChip": "Qualcomm Snapdragon G1 Gen 2",
     "architecture": {
       "type": "ARM"
     },
     "ram": {
-      "raw": "?",
-      "sizes": null,
-      "unit": null,
-      "type": "other"
+      "raw": "4 GB / 8 GB LPDDR4X",
+      "sizes": [
+        4
+      ],
+      "unit": "GB",
+      "type": "LPDDR4X"
     },
     "rumble": false,
     "sensors": {
-      "raw": "?",
+      "raw": "✅",
       "hasMicrophone": false,
       "hasAccelerometer": false,
       "hasGyroscope": false,
@@ -961,9 +940,9 @@
       "charging": "USB-C"
     },
     "chargePort": {
-      "raw": "2 function buttons, Power, Volume +-",
+      "raw": "Power, Volume +-",
       "type": null,
-      "numberOfPorts": 2
+      "numberOfPorts": null
     },
     "storage": "usb-cbottom facing",
     "dimensions": {
@@ -971,9 +950,9 @@
       "width": null,
       "height": null
     },
-    "weight": 77,
+    "weight": 208,
     "shellMaterial": {
-      "raw": "?",
+      "raw": "339 grams",
       "isPlastic": false,
       "isMetal": false,
       "isAluminum": false,
@@ -985,19 +964,24 @@
     ],
     "image": {
       "originalUrl": "resources/cellImage_0_20.jpg",
-      "pngUrl": "/devices/konkr-pocket-block.png",
-      "webpUrl": "/devices/konkr-pocket-block.webp",
-      "alt": "konkr pocket block",
+      "pngUrl": "/devices/rg55g1.png",
+      "webpUrl": "/devices/rg55g1.webp",
+      "alt": "rg55g1",
       "pocketbaseUrl": null
     },
     "released": {
-      "raw": "Upcoming(End of August?)",
-      "mentionedDate": null
+      "raw": "2026 / 08",
+      "mentionedDate": "2026-08-01T00:00:00.000Z"
     },
-    "formFactor": "vertical",
+    "formFactor": "horizontal",
     "systemRatings": [
       {
         "system": "PlayStation 1",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "PlayStation Portable",
         "ratingMark": "A",
         "ratingNumber": 5
       },
@@ -1032,57 +1016,52 @@
         "ratingNumber": 5
       },
       {
+        "system": "Saturn",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Dreamcast",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
         "system": "Genesis",
         "ratingMark": "A",
         "ratingNumber": 5
       },
       {
-        "system": "PlayStation Portable",
-        "ratingMark": "B",
-        "ratingNumber": 4
-      },
-      {
-        "system": "Saturn",
-        "ratingMark": "B",
-        "ratingNumber": 4
-      },
-      {
-        "system": "Dreamcast",
+        "system": "PlayStation 2",
         "ratingMark": "B",
         "ratingNumber": 4
       },
       {
         "system": "Wii",
-        "ratingMark": "C",
-        "ratingNumber": 3
+        "ratingMark": "B",
+        "ratingNumber": 4
       },
       {
         "system": "GameCube",
-        "ratingMark": "C",
-        "ratingNumber": 3
-      },
-      {
-        "system": "PlayStation 2",
-        "ratingMark": "D",
-        "ratingNumber": 2
+        "ratingMark": "B",
+        "ratingNumber": 4
       },
       {
         "system": "3DS",
+        "ratingMark": "B",
+        "ratingNumber": 4
+      },
+      {
+        "system": "Switch",
         "ratingMark": "D",
         "ratingNumber": 2
       },
       {
-        "system": "Switch",
-        "ratingMark": "F",
-        "ratingNumber": 1
+        "system": "Wii U",
+        "ratingMark": "D",
+        "ratingNumber": 2
       },
       {
         "system": "PlayStation 3",
-        "ratingMark": "F",
-        "ratingNumber": 1
-      },
-      {
-        "system": "Wii U",
         "ratingMark": "F",
         "ratingNumber": 1
       }
@@ -1097,54 +1076,54 @@
     },
     "cpus": [
       {
-        "raw": "Cortex-A75 / Cortex-A552x / 6x",
+        "raw": "Cortex-A78 / Cortex-A552x / 6x",
         "names": [
-          "Cortex-A75 / Cortex-A552x / 6x"
+          "Cortex-A78 / Cortex-A552x / 6x"
         ],
         "cores": 8,
         "threads": 8,
         "clockSpeed": {
-          "min": 1.8,
-          "max": 1.8,
+          "min": 1.96,
+          "max": 1.96,
           "unit": "GHZ"
         }
       }
     ],
     "gpus": [
       {
-        "name": "Mali-G52 MC2",
-        "cores": 2,
+        "name": "Qualcomm Adreno A12",
+        "cores": 1,
         "clockSpeed": {
-          "min": 950,
-          "max": 950,
-          "unit": "MHZ"
+          "min": 1.01,
+          "max": 1.01,
+          "unit": "GHZ"
         }
       }
     ],
     "performance": {
-      "rating": 6,
-      "normalizedRating": 4,
-      "tier": "💥(estimate)",
-      "maxEmulation": "Most DS/N64/PSP/DC all full speed, most Saturn playable",
+      "rating": 8,
+      "normalizedRating": 5.3,
+      "tier": "💥💥💥",
+      "maxEmulation": "Most GameCube playable, some Wii/3DS playable",
       "emulationLimit": ""
     },
     "screen": {
-      "size": 3.2,
+      "size": 5.5,
       "type": {
-        "raw": "?",
-        "isTouchscreen": false,
+        "raw": "IPSTouchscreen",
+        "isTouchscreen": true,
         "isPenCapable": false,
-        "type": "Unknown"
+        "type": "IPS"
       },
       "resolution": [],
       "ppi": [
-        null
+        1920
       ],
-      "aspectRatio": "?",
-      "lens": "4:3(estimate)"
+      "aspectRatio": "400.53 ppi",
+      "lens": "16:9"
     },
     "cooling": {
-      "raw": "3500 mAh",
+      "raw": "6000 mAh",
       "hasHeatsink": false,
       "hasFan": false,
       "hasHeatPipe": false,
@@ -1152,7 +1131,7 @@
     },
     "controls": {
       "dPad": {
-        "raw": "Ventilation cutouts",
+        "raw": "HeatsinkFanVentilation cutouts",
         "type": "d-pad"
       },
       "analogs": {
@@ -1165,7 +1144,7 @@
         "isThumbstick": false,
         "isSlidepad": false
       },
-      "numberOfFaceButtons": null,
+      "numberOfFaceButtons": 3,
       "shoulderButtons": {
         "raw": "4 Buttons",
         "L": false,
@@ -1185,7 +1164,7 @@
         "ZRHorizontal": false
       },
       "extraButtons": {
-        "raw": "L1, R1, L2, R2Horizontal, Shelf",
+        "raw": "L1, R1, L2, R2VerticalAnalog Triggers",
         "power": false,
         "reset": false,
         "home": false,
@@ -1202,7 +1181,7 @@
     },
     "outputs": {
       "videoOutput": {
-        "raw": "?",
+        "raw": "WiFi 5, Bluetooth 5.0",
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": false,
@@ -1228,32 +1207,53 @@
       "average": null,
       "videoReviews": [
         {
-          "url": "https://youtube.com/watch?v=lkdVBeI_RaY",
-          "name": "AYANEO"
+          "url": "https://www.youtube.com/watch?v=Kxv-l-QWdcI",
+          "name": "Retro Game Corps"
         },
         {
-          "url": "https://retrohandhelds.gg/ayaneo-announces-konkr-pocket-block-pocket-air-mini-igs-and-teases-pocket-play/",
+          "url": "https://www.youtube.com/watch?v=yHyCGRlgP78",
+          "name": "1"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=tj-aMb5munM",
+          "name": "2"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=KX0LKid0xEw",
+          "name": "3"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=OvH0pfgEEF4",
+          "name": "4"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=LrmTmJMUtFU",
           "name": "Retro Handhelds"
         }
       ],
       "writtenReviews": []
     },
     "pricing": {
-      "raw": "?",
-      "average": 0,
+      "raw": "$150 (4 GB + 64 GB)$175 (8 GB + 128 GB)",
+      "average": 139,
       "range": {
-        "min": 0,
-        "max": 0
+        "min": 150,
+        "max": 128
       },
-      "currency": "?",
-      "category": "unknown",
+      "currency": "USD",
+      "category": "mid",
       "discontinued": null
     },
     "pros": [
       "-"
     ],
     "cons": [],
-    "vendorLinks": [],
+    "vendorLinks": [
+      {
+        "url": "https://anbernic.com/products/rg-55g1",
+        "name": "Anbernic"
+      }
+    ],
     "notes": [
       ""
     ]
