@@ -1208,8 +1208,26 @@
       "videoReviews": [
         {
           "url": "https://www.youtube.com/watch?v=Kxv-l-QWdcI",
-          "name": "Retro Game Corps"
+          "name": "1"
         },
+        {
+          "url": "https://www.youtube.com/watch?v=RAhvX0aUEjQ",
+          "name": "2"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=3eht-N6GVE0",
+          "name": "ETA Prime"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=LrmTmJMUtFU",
+          "name": "Retro Handhelds"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=CUw5-jDC8WM",
+          "name": "RG Handhelds"
+        }
+      ],
+      "writtenReviews": [
         {
           "url": "https://www.youtube.com/watch?v=yHyCGRlgP78",
           "name": "1"
@@ -1225,13 +1243,8 @@
         {
           "url": "https://www.youtube.com/watch?v=OvH0pfgEEF4",
           "name": "4"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=LrmTmJMUtFU",
-          "name": "Retro Handhelds"
         }
-      ],
-      "writtenReviews": []
+      ]
     },
     "pricing": {
       "raw": "$150 (4 GB + 64 GB)$175 (8 GB + 128 GB)",
