@@ -1,7 +1,427 @@
 [
   {
-    "id": "trimui-brick-hammer-pro-u",
+    "id": "rg-ds-plus",
     "index": 1,
+    "name": {
+      "raw": "RG DS Plus",
+      "sanitized": "rg-ds-plus",
+      "normalized": "RG DS Plus"
+    },
+    "brand": {
+      "raw": "Anbernic",
+      "sanitized": "Anbernic",
+      "normalized": "Anbernic"
+    },
+    "os": {
+      "raw": "Linux",
+      "icons": [
+        "ph-linux-logo"
+      ],
+      "list": [
+        "Linux"
+      ],
+      "customFirmwares": []
+    },
+    "tags": [
+      {
+        "name": "Linux",
+        "slug": "linux",
+        "type": "os"
+      },
+      {
+        "name": "Anbernic",
+        "slug": "Anbernic",
+        "type": "brand"
+      },
+      {
+        "name": "$",
+        "slug": "low",
+        "type": "price"
+      },
+      {
+        "name": "Clamshell",
+        "slug": "clamshell",
+        "type": "formFactor"
+      },
+      {
+        "name": "IPS",
+        "slug": "ips",
+        "type": "screenType"
+      },
+      {
+        "name": "Upcoming",
+        "slug": "upcoming",
+        "type": "releaseDate"
+      },
+      {
+        "name": "Handheld",
+        "slug": "handheld",
+        "type": "deviceType"
+      }
+    ],
+    "totalRating": 2.8,
+    "lowBatteryIndicator": null,
+    "hackingGuides": [],
+    "systemOnChip": "RockChip RK3568",
+    "architecture": {
+      "type": "ARM"
+    },
+    "ram": {
+      "raw": "1 GB",
+      "sizes": [
+        1
+      ],
+      "unit": "GB",
+      "type": "other"
+    },
+    "rumble": false,
+    "sensors": {
+      "raw": "✅",
+      "hasMicrophone": false,
+      "hasAccelerometer": false,
+      "hasGyroscope": false,
+      "hasCompass": false,
+      "hasMagnetometer": false,
+      "hasBarometer": false,
+      "hasProximitySensor": false,
+      "hasAmbientLightSensor": false,
+      "hasFingerprintSensor": false,
+      "hasCamera": false,
+      "hasGravitySensor": false,
+      "hasPressureSensor": false,
+      "hasTemperatureSensor": false,
+      "hasHumiditySensor": false,
+      "hasHeartRateSensor": false,
+      "hasAntenna": false,
+      "screenClosure": false
+    },
+    "volumeControl": {
+      "type": "unknown"
+    },
+    "brightnessControl": {
+      "type": "dedicated-button"
+    },
+    "powerControl": {
+      "type": "unknown"
+    },
+    "battery": {
+      "raw": "Tempered Glass(OCA Laminated)",
+      "capacity": null,
+      "unit": null,
+      "type": "Lithium-ion",
+      "removable": false,
+      "charging": "USB-C"
+    },
+    "chargePort": {
+      "raw": "Home, Back, Power, Reset, Volume +-",
+      "type": null,
+      "numberOfPorts": null
+    },
+    "storage": "usb-c x2top facing",
+    "dimensions": {
+      "length": null,
+      "width": null,
+      "height": null
+    },
+    "weight": 167,
+    "shellMaterial": {
+      "raw": "345 grams",
+      "isPlastic": false,
+      "isMetal": false,
+      "isAluminum": false,
+      "isMagnesiumAlloy": false,
+      "isOther": true
+    },
+    "colors": [
+      "Plastic"
+    ],
+    "image": {
+      "originalUrl": "resources/cellImage_0_18.jpg",
+      "pngUrl": "/devices/rg-ds-plus.png",
+      "webpUrl": "/devices/rg-ds-plus.webp",
+      "alt": "rg ds plus",
+      "pocketbaseUrl": null
+    },
+    "released": {
+      "raw": "Upcoming(September 15th at 6:00 AM EST)",
+      "mentionedDate": null
+    },
+    "formFactor": "clamshell",
+    "systemRatings": [
+      {
+        "system": "PlayStation 1",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "DS",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "SNES",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "NES",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Game Boy Advance",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Game Boy",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Genesis",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "PlayStation Portable",
+        "ratingMark": "B",
+        "ratingNumber": 4
+      },
+      {
+        "system": "N64",
+        "ratingMark": "B",
+        "ratingNumber": 4
+      },
+      {
+        "system": "Dreamcast",
+        "ratingMark": "B",
+        "ratingNumber": 4
+      },
+      {
+        "system": "Saturn",
+        "ratingMark": "C",
+        "ratingNumber": 3
+      },
+      {
+        "system": "PlayStation 2",
+        "ratingMark": "D",
+        "ratingNumber": 2
+      },
+      {
+        "system": "Wii",
+        "ratingMark": "D",
+        "ratingNumber": 2
+      },
+      {
+        "system": "GameCube",
+        "ratingMark": "D",
+        "ratingNumber": 2
+      },
+      {
+        "system": "Switch",
+        "ratingMark": "F",
+        "ratingNumber": 1
+      },
+      {
+        "system": "PlayStation 3",
+        "ratingMark": "F",
+        "ratingNumber": 1
+      },
+      {
+        "system": "Wii U",
+        "ratingMark": "F",
+        "ratingNumber": 1
+      },
+      {
+        "system": "3DS",
+        "ratingMark": "F",
+        "ratingNumber": 1
+      }
+    ],
+    "deviceType": "handheld",
+    "connectivity": {
+      "hasWifi": false,
+      "hasBluetooth": false,
+      "hasNfc": false,
+      "hasUsb": false,
+      "hasUsbC": false
+    },
+    "cpus": [
+      {
+        "raw": "Cortex-A55",
+        "names": [
+          "Cortex-A55"
+        ],
+        "cores": 4,
+        "threads": 4,
+        "clockSpeed": {
+          "min": 2,
+          "max": 2,
+          "unit": "GHZ"
+        }
+      }
+    ],
+    "gpus": [
+      {
+        "name": "Mali-G52 2EE",
+        "cores": 2,
+        "clockSpeed": null
+      }
+    ],
+    "performance": {
+      "rating": 5,
+      "normalizedRating": 3.3,
+      "tier": "⭐️⭐️⭐️⭐️⭐️¾",
+      "maxEmulation": "Most DS/N64/PSP/DC playable, some Saturn playable",
+      "emulationLimit": ""
+    },
+    "screen": {
+      "size": 4.3,
+      "type": {
+        "raw": "IPS Touchscreen",
+        "isTouchscreen": true,
+        "isPenCapable": false,
+        "type": "IPS"
+      },
+      "resolution": [],
+      "ppi": [
+        1024
+      ],
+      "aspectRatio": "297.67 ppi",
+      "lens": "4:3(x2)"
+    },
+    "cooling": {
+      "raw": "4000 mAh",
+      "hasHeatsink": false,
+      "hasFan": false,
+      "hasHeatPipe": false,
+      "hasVentilationCutouts": false
+    },
+    "controls": {
+      "dPad": {
+        "raw": "❌",
+        "type": "d-pad"
+      },
+      "analogs": {
+        "raw": "CrossUpper placement",
+        "dual": false,
+        "single": false,
+        "L3": false,
+        "R3": false,
+        "isHallSensor": false,
+        "isThumbstick": false,
+        "isSlidepad": false
+      },
+      "numberOfFaceButtons": 3,
+      "shoulderButtons": {
+        "raw": "4 Buttons",
+        "L": false,
+        "L1": false,
+        "L2": false,
+        "L3": false,
+        "R": false,
+        "R1": false,
+        "R2": false,
+        "R3": false,
+        "M1": false,
+        "M2": false,
+        "LC": false,
+        "RC": false,
+        "ZL": false,
+        "ZRVertical": false,
+        "ZRHorizontal": false
+      },
+      "extraButtons": {
+        "raw": "L1, R1, L2, R2Horizontal",
+        "power": false,
+        "reset": false,
+        "home": false,
+        "volumeUp": false,
+        "volumeDown": false,
+        "function": false,
+        "turbo": false,
+        "touchpad": false,
+        "fingerprint": false,
+        "mute": false,
+        "screenshot": false,
+        "programmableButtons": false
+      }
+    },
+    "outputs": {
+      "videoOutput": {
+        "raw": "WiFi 5, Bluetooth 4.2",
+        "hasUsbC": false,
+        "hasMicroHdmi": false,
+        "hasMiniHdmi": false,
+        "hasHdmi": false,
+        "hasDvi": false,
+        "hasVga": false,
+        "hasDisplayPort": false,
+        "OcuLink": false,
+        "AV": false
+      },
+      "audioOutput": {
+        "raw": "❌",
+        "has35mmJack": false,
+        "hasHeadphoneJack": false,
+        "hasUsbC": false
+      },
+      "speaker": {
+        "type": "unknown"
+      }
+    },
+    "reviews": {
+      "count": null,
+      "average": null,
+      "videoReviews": [
+        {
+          "url": "https://www.youtube.com/watch?v=hi-vycbhlXw",
+          "name": "Retro Game Corps"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=e_ZBKwptV5U",
+          "name": "1"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=imYCeIl0nNE",
+          "name": "2"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=wcFkR8AITH0",
+          "name": "3"
+        }
+      ],
+      "writtenReviews": []
+    },
+    "pricing": {
+      "raw": "$95",
+      "average": 95,
+      "range": {
+        "min": 95,
+        "max": 95
+      },
+      "currency": "USD",
+      "category": "low",
+      "discontinued": null
+    },
+    "pros": [
+      "-"
+    ],
+    "cons": [],
+    "vendorLinks": [
+      {
+        "url": "https://anbernic.com/products/rg-ds-plus",
+        "name": "Anbernic"
+      }
+    ],
+    "notes": [
+      ""
+    ]
+  },
+  {
+    "id": "trimui-brick-hammer-pro-u",
+    "index": 2,
     "name": {
       "raw": "TRIMUI Brick Hammer Pro U",
       "sanitized": "trimui-brick-hammer-pro-u",
@@ -136,7 +556,7 @@
       "Metal (Aluminum)"
     ],
     "image": {
-      "originalUrl": "resources/cellImage_0_18.jpg",
+      "originalUrl": "resources/cellImage_0_19.jpg",
       "pngUrl": "/devices/trimui-brick-hammer-pro-u.png",
       "webpUrl": "/devices/trimui-brick-hammer-pro-u.webp",
       "alt": "trimui brick hammer pro u",
@@ -428,8 +848,868 @@
     ]
   },
   {
+    "id": "retroid-pocket-duo-lite",
+    "index": 3,
+    "name": {
+      "raw": "Retroid Pocket Duo Lite",
+      "sanitized": "retroid-pocket-duo-lite",
+      "normalized": "Retroid Pocket Duo Lite"
+    },
+    "brand": {
+      "raw": "Retroid / Moorechip",
+      "sanitized": "Retroid-Moorechip",
+      "normalized": "Retroid / Moorechip"
+    },
+    "os": {
+      "raw": "Android 15",
+      "icons": [
+        "ph-android-logo"
+      ],
+      "list": [
+        "Android 15"
+      ],
+      "customFirmwares": []
+    },
+    "tags": [
+      {
+        "name": "Android",
+        "slug": "android",
+        "type": "os"
+      },
+      {
+        "name": "Retroid / Moorechip",
+        "slug": "Retroid-Moorechip",
+        "type": "brand"
+      },
+      {
+        "name": "$$",
+        "slug": "mid",
+        "type": "price"
+      },
+      {
+        "name": "Clamshell",
+        "slug": "clamshell",
+        "type": "formFactor"
+      },
+      {
+        "name": "TFT",
+        "slug": "tft",
+        "type": "screenType"
+      },
+      {
+        "name": "Upcoming",
+        "slug": "upcoming",
+        "type": "releaseDate"
+      },
+      {
+        "name": "Handheld",
+        "slug": "handheld",
+        "type": "deviceType"
+      }
+    ],
+    "totalRating": 3.15,
+    "lowBatteryIndicator": null,
+    "hackingGuides": [],
+    "systemOnChip": "Qualcomm Dragonwing QCS6125(Snapdragon 665)",
+    "architecture": {
+      "type": "ARM"
+    },
+    "ram": {
+      "raw": "4 GB / 6 GBLPDDR4X",
+      "sizes": [
+        4
+      ],
+      "unit": "GB",
+      "type": "LPDDR4X"
+    },
+    "rumble": false,
+    "sensors": {
+      "raw": "?",
+      "hasMicrophone": false,
+      "hasAccelerometer": false,
+      "hasGyroscope": false,
+      "hasCompass": false,
+      "hasMagnetometer": false,
+      "hasBarometer": false,
+      "hasProximitySensor": false,
+      "hasAmbientLightSensor": false,
+      "hasFingerprintSensor": false,
+      "hasCamera": false,
+      "hasGravitySensor": false,
+      "hasPressureSensor": false,
+      "hasTemperatureSensor": false,
+      "hasHumiditySensor": false,
+      "hasHeartRateSensor": false,
+      "hasAntenna": false,
+      "screenClosure": false
+    },
+    "volumeControl": {
+      "type": "unknown"
+    },
+    "brightnessControl": {
+      "type": "dedicated-button"
+    },
+    "powerControl": {
+      "type": "unknown"
+    },
+    "battery": {
+      "raw": "Tempered Glass(OCA Laminated)",
+      "capacity": null,
+      "unit": null,
+      "type": "Lithium-ion",
+      "removable": false,
+      "charging": "USB-C"
+    },
+    "chargePort": {
+      "raw": "Back, Home, Power, Volume +-",
+      "type": null,
+      "numberOfPorts": null
+    },
+    "storage": "usb-cbottom facing",
+    "dimensions": {
+      "length": null,
+      "width": null,
+      "height": null
+    },
+    "weight": 158,
+    "shellMaterial": {
+      "raw": "372 grams",
+      "isPlastic": false,
+      "isMetal": false,
+      "isAluminum": false,
+      "isMagnesiumAlloy": false,
+      "isOther": true
+    },
+    "colors": [
+      "Plastic"
+    ],
+    "image": {
+      "originalUrl": "resources/cellImage_0_20.jpg",
+      "pngUrl": "/devices/retroid-pocket-duo-lite.png",
+      "webpUrl": "/devices/retroid-pocket-duo-lite.webp",
+      "alt": "retroid pocket duo lite",
+      "pocketbaseUrl": null
+    },
+    "released": {
+      "raw": "Upcoming(On sale now, ships September 17th)",
+      "mentionedDate": null
+    },
+    "formFactor": "clamshell",
+    "systemRatings": [
+      {
+        "system": "PlayStation 1",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "PlayStation Portable",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "DS",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "N64",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "SNES",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "NES",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Game Boy Advance",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Game Boy",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Dreamcast",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Genesis",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Saturn",
+        "ratingMark": "B",
+        "ratingNumber": 4
+      },
+      {
+        "system": "Wii",
+        "ratingMark": "C",
+        "ratingNumber": 3
+      },
+      {
+        "system": "GameCube",
+        "ratingMark": "C",
+        "ratingNumber": 3
+      },
+      {
+        "system": "PlayStation 2",
+        "ratingMark": "D",
+        "ratingNumber": 2
+      },
+      {
+        "system": "3DS",
+        "ratingMark": "D",
+        "ratingNumber": 2
+      },
+      {
+        "system": "Switch",
+        "ratingMark": "F",
+        "ratingNumber": 1
+      },
+      {
+        "system": "PlayStation 3",
+        "ratingMark": "F",
+        "ratingNumber": 1
+      },
+      {
+        "system": "Wii U",
+        "ratingMark": "F",
+        "ratingNumber": 1
+      }
+    ],
+    "deviceType": "handheld",
+    "connectivity": {
+      "hasWifi": false,
+      "hasBluetooth": false,
+      "hasNfc": false,
+      "hasUsb": false,
+      "hasUsbC": false
+    },
+    "cpus": [
+      {
+        "raw": "Cortex-A73 / Cortex-A534x / 4x",
+        "names": [
+          "Cortex-A73 / Cortex-A534x / 4x"
+        ],
+        "cores": 8,
+        "threads": 8,
+        "clockSpeed": {
+          "min": 1.8,
+          "max": 1.8,
+          "unit": "GHZ"
+        }
+      }
+    ],
+    "gpus": [
+      {
+        "name": "Qualcomm Adreno 610",
+        "cores": 1,
+        "clockSpeed": {
+          "min": 950,
+          "max": 950,
+          "unit": "MHZ"
+        }
+      }
+    ],
+    "performance": {
+      "rating": 6,
+      "normalizedRating": 4,
+      "tier": "💥¾",
+      "maxEmulation": "Most DS/N64/PSP/DC all full speed, most Saturn playable",
+      "emulationLimit": ""
+    },
+    "screen": {
+      "size": 5.5,
+      "type": {
+        "raw": "TFT Touchscreen",
+        "isTouchscreen": true,
+        "isPenCapable": false,
+        "type": "TFT"
+      },
+      "resolution": [
+        {
+          "raw": "60 hz(x2)",
+          "width": 60,
+          "height": 2
+        }
+      ],
+      "ppi": [
+        null
+      ],
+      "aspectRatio": "primary: 400.53 ppisecondary: 380.95 ppi",
+      "lens": "primary: 16:9secondary: 4:3"
+    },
+    "cooling": {
+      "raw": "6000 mAh",
+      "hasHeatsink": false,
+      "hasFan": false,
+      "hasHeatPipe": false,
+      "hasVentilationCutouts": false
+    },
+    "controls": {
+      "dPad": {
+        "raw": "HeatsinkFanVentilation cutouts",
+        "type": "d-pad"
+      },
+      "analogs": {
+        "raw": "CrossUpper placement",
+        "dual": false,
+        "single": false,
+        "L3": false,
+        "R3": false,
+        "isHallSensor": false,
+        "isThumbstick": false,
+        "isSlidepad": false
+      },
+      "numberOfFaceButtons": 3,
+      "shoulderButtons": {
+        "raw": "4 Buttons",
+        "L": false,
+        "L1": false,
+        "L2": false,
+        "L3": false,
+        "R": false,
+        "R1": false,
+        "R2": false,
+        "R3": false,
+        "M1": false,
+        "M2": false,
+        "LC": false,
+        "RC": false,
+        "ZL": false,
+        "ZRVertical": false,
+        "ZRHorizontal": false
+      },
+      "extraButtons": {
+        "raw": "L1, R1, L2, R2Horizontal",
+        "power": false,
+        "reset": false,
+        "home": false,
+        "volumeUp": false,
+        "volumeDown": false,
+        "function": false,
+        "turbo": false,
+        "touchpad": false,
+        "fingerprint": false,
+        "mute": false,
+        "screenshot": false,
+        "programmableButtons": false
+      }
+    },
+    "outputs": {
+      "videoOutput": {
+        "raw": "WiFi 5, Bluetooth 5.0",
+        "hasUsbC": false,
+        "hasMicroHdmi": false,
+        "hasMiniHdmi": false,
+        "hasHdmi": false,
+        "hasDvi": false,
+        "hasVga": false,
+        "hasDisplayPort": false,
+        "OcuLink": false,
+        "AV": false
+      },
+      "audioOutput": {
+        "raw": "❌",
+        "has35mmJack": false,
+        "hasHeadphoneJack": false,
+        "hasUsbC": false
+      },
+      "speaker": {
+        "type": "unknown"
+      }
+    },
+    "reviews": {
+      "count": null,
+      "average": null,
+      "videoReviews": [
+        {
+          "url": "https://www.youtube.com/watch?v=pEeqgBc8LUw",
+          "name": "1"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=9l4WZYU9Cg8",
+          "name": "2"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=tDtGGd2LcSc",
+          "name": "3"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=rnmXBJ3KFP0",
+          "name": "Retro Game Corps"
+        }
+      ],
+      "writtenReviews": []
+    },
+    "pricing": {
+      "raw": "$135 - $169(Hover for detailed prices)",
+      "average": 152,
+      "range": {
+        "min": 135,
+        "max": 169
+      },
+      "currency": "USD",
+      "category": "mid",
+      "discontinued": null
+    },
+    "pros": [
+      "-"
+    ],
+    "cons": [],
+    "vendorLinks": [
+      {
+        "url": "https://www.goretroid.com/collections/frontpage/products/retroid-pocket-duo-lite-handheld",
+        "name": "GoRetroid.com"
+      }
+    ],
+    "notes": [
+      ""
+    ]
+  },
+  {
+    "id": "retroid-pocket-duo",
+    "index": 4,
+    "name": {
+      "raw": "Retroid Pocket Duo",
+      "sanitized": "retroid-pocket-duo",
+      "normalized": "Retroid Pocket Duo"
+    },
+    "brand": {
+      "raw": "Retroid / Moorechip",
+      "sanitized": "Retroid-Moorechip",
+      "normalized": "Retroid / Moorechip"
+    },
+    "os": {
+      "raw": "Android 16",
+      "icons": [
+        "ph-android-logo"
+      ],
+      "list": [
+        "Android 16"
+      ],
+      "customFirmwares": []
+    },
+    "tags": [
+      {
+        "name": "Android",
+        "slug": "android",
+        "type": "os"
+      },
+      {
+        "name": "Retroid / Moorechip",
+        "slug": "Retroid-Moorechip",
+        "type": "brand"
+      },
+      {
+        "name": "$$",
+        "slug": "mid",
+        "type": "price"
+      },
+      {
+        "name": "Clamshell",
+        "slug": "clamshell",
+        "type": "formFactor"
+      },
+      {
+        "name": "OLED",
+        "slug": "oled",
+        "type": "screenType"
+      },
+      {
+        "name": "Upcoming",
+        "slug": "upcoming",
+        "type": "releaseDate"
+      },
+      {
+        "name": "Handheld",
+        "slug": "handheld",
+        "type": "deviceType"
+      }
+    ],
+    "totalRating": 4.89,
+    "lowBatteryIndicator": null,
+    "hackingGuides": [],
+    "systemOnChip": "Qualcomm Dragonwing Q-7790(Snapdragon 7 Gen 4)",
+    "architecture": {
+      "type": "ARM"
+    },
+    "ram": {
+      "raw": "8 GB LPDDR4X",
+      "sizes": [
+        8
+      ],
+      "unit": "GB",
+      "type": "LPDDR4X"
+    },
+    "rumble": false,
+    "sensors": {
+      "raw": "?",
+      "hasMicrophone": false,
+      "hasAccelerometer": false,
+      "hasGyroscope": false,
+      "hasCompass": false,
+      "hasMagnetometer": false,
+      "hasBarometer": false,
+      "hasProximitySensor": false,
+      "hasAmbientLightSensor": false,
+      "hasFingerprintSensor": false,
+      "hasCamera": false,
+      "hasGravitySensor": false,
+      "hasPressureSensor": false,
+      "hasTemperatureSensor": false,
+      "hasHumiditySensor": false,
+      "hasHeartRateSensor": false,
+      "hasAntenna": false,
+      "screenClosure": false
+    },
+    "volumeControl": {
+      "type": "unknown"
+    },
+    "brightnessControl": {
+      "type": "dedicated-button"
+    },
+    "powerControl": {
+      "type": "unknown"
+    },
+    "battery": {
+      "raw": "Tempered Glass(OCA Laminated)",
+      "capacity": null,
+      "unit": null,
+      "type": "Lithium-ion",
+      "removable": false,
+      "charging": "USB-C"
+    },
+    "chargePort": {
+      "raw": "Back, Home, Power, Volume +-",
+      "type": null,
+      "numberOfPorts": null
+    },
+    "storage": "usb-cbottom facing",
+    "dimensions": {
+      "length": null,
+      "width": null,
+      "height": null
+    },
+    "weight": 162,
+    "shellMaterial": {
+      "raw": "350 grams",
+      "isPlastic": false,
+      "isMetal": false,
+      "isAluminum": false,
+      "isMagnesiumAlloy": false,
+      "isOther": true
+    },
+    "colors": [
+      "Plastic"
+    ],
+    "image": {
+      "originalUrl": "resources/cellImage_0_21.jpg",
+      "pngUrl": "/devices/retroid-pocket-duo.png",
+      "webpUrl": "/devices/retroid-pocket-duo.webp",
+      "alt": "retroid pocket duo",
+      "pocketbaseUrl": null
+    },
+    "released": {
+      "raw": "Upcoming(On sale now, ships mid October)",
+      "mentionedDate": null
+    },
+    "formFactor": "clamshell",
+    "systemRatings": [
+      {
+        "system": "PlayStation 2",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "PlayStation 1",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "PlayStation Portable",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Wii",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "GameCube",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "3DS",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "DS",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "N64",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "SNES",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "NES",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Game Boy Advance",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Game Boy",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Saturn",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Dreamcast",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Genesis",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Wii U",
+        "ratingMark": "C",
+        "ratingNumber": 3
+      },
+      {
+        "system": "Switch",
+        "ratingMark": "D",
+        "ratingNumber": 2
+      },
+      {
+        "system": "PlayStation 3",
+        "ratingMark": "F",
+        "ratingNumber": 1
+      }
+    ],
+    "deviceType": "handheld",
+    "connectivity": {
+      "hasWifi": false,
+      "hasBluetooth": false,
+      "hasNfc": false,
+      "hasUsb": false,
+      "hasUsbC": true
+    },
+    "cpus": [
+      {
+        "raw": "Cortex-A720 / Cortex-A5204x / 4x",
+        "names": [
+          "Cortex-A720 / Cortex-A5204x / 4x"
+        ],
+        "cores": 8,
+        "threads": 8,
+        "clockSpeed": {
+          "min": 1.8,
+          "max": 1.8,
+          "unit": "GHZ"
+        }
+      }
+    ],
+    "gpus": [
+      {
+        "name": "Qualcomm Adreno 722",
+        "cores": 1,
+        "clockSpeed": {
+          "min": 1.15,
+          "max": 1.15,
+          "unit": "GHZ"
+        }
+      }
+    ],
+    "performance": {
+      "rating": 10,
+      "normalizedRating": 6.7,
+      "tier": "💥💥💥💥💥(estimate)",
+      "maxEmulation": "GameCube/Wii all full speed, most 3DS/PS2 playable, some Wii U playable",
+      "emulationLimit": ""
+    },
+    "screen": {
+      "size": 5.5,
+      "type": {
+        "raw": "AMOLED Touchscreen",
+        "isTouchscreen": true,
+        "isPenCapable": false,
+        "type": "OLED"
+      },
+      "resolution": [
+        {
+          "raw": "120 hz(x2)",
+          "width": 120,
+          "height": 2
+        }
+      ],
+      "ppi": [
+        null
+      ],
+      "aspectRatio": "primary: 400.53 ppisecondary: 355.56 ppi",
+      "lens": "primary: 16:9secondary: 4:3"
+    },
+    "cooling": {
+      "raw": "6000 mAh",
+      "hasHeatsink": false,
+      "hasFan": false,
+      "hasHeatPipe": false,
+      "hasVentilationCutouts": false
+    },
+    "controls": {
+      "dPad": {
+        "raw": "HeatsinkFanVentilation cutouts",
+        "type": "d-pad"
+      },
+      "analogs": {
+        "raw": "CrossUpper placement",
+        "dual": false,
+        "single": false,
+        "L3": false,
+        "R3": false,
+        "isHallSensor": false,
+        "isThumbstick": false,
+        "isSlidepad": false
+      },
+      "numberOfFaceButtons": 3,
+      "shoulderButtons": {
+        "raw": "4 Buttons",
+        "L": false,
+        "L1": false,
+        "L2": false,
+        "L3": false,
+        "R": false,
+        "R1": false,
+        "R2": false,
+        "R3": false,
+        "M1": false,
+        "M2": false,
+        "LC": false,
+        "RC": false,
+        "ZL": false,
+        "ZRVertical": false,
+        "ZRHorizontal": false
+      },
+      "extraButtons": {
+        "raw": "L1, R1, L2, R2VerticalAnalog Triggers",
+        "power": false,
+        "reset": false,
+        "home": false,
+        "volumeUp": false,
+        "volumeDown": false,
+        "function": false,
+        "turbo": false,
+        "touchpad": false,
+        "fingerprint": false,
+        "mute": false,
+        "screenshot": false,
+        "programmableButtons": false
+      }
+    },
+    "outputs": {
+      "videoOutput": {
+        "raw": "WiFi 6E, Bluetooth 5.4",
+        "hasUsbC": false,
+        "hasMicroHdmi": false,
+        "hasMiniHdmi": false,
+        "hasHdmi": false,
+        "hasDvi": false,
+        "hasVga": false,
+        "hasDisplayPort": false,
+        "OcuLink": false,
+        "AV": false
+      },
+      "audioOutput": {
+        "raw": "USB-C video outBottom facing",
+        "has35mmJack": false,
+        "hasHeadphoneJack": false,
+        "hasUsbC": true
+      },
+      "speaker": {
+        "type": "unknown"
+      }
+    },
+    "reviews": {
+      "count": null,
+      "average": null,
+      "videoReviews": [
+        {
+          "url": "https://www.youtube.com/watch?v=pEeqgBc8LUw",
+          "name": "1"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=9l4WZYU9Cg8",
+          "name": "2"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=vzHqgipzFxc",
+          "name": "3"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=rnmXBJ3KFP0",
+          "name": "Retro Game Corps"
+        }
+      ],
+      "writtenReviews": []
+    },
+    "pricing": {
+      "raw": "$249 (Preorder)$269 (Retail)",
+      "average": 259,
+      "range": {
+        "min": 249,
+        "max": 269
+      },
+      "currency": "USD",
+      "category": "mid",
+      "discontinued": null
+    },
+    "pros": [
+      "-"
+    ],
+    "cons": [],
+    "vendorLinks": [
+      {
+        "url": "https://www.goretroid.com/collections/frontpage/products/retroid-pocket-duo-handheld",
+        "name": "GoRetroid.com"
+      }
+    ],
+    "notes": [
+      ""
+    ]
+  },
+  {
     "id": "konkr-pocket-block",
-    "index": 2,
+    "index": 5,
     "name": {
       "raw": "KONKR Pocket Block",
       "sanitized": "konkr-pocket-block",
@@ -552,7 +1832,7 @@
       "Plastic"
     ],
     "image": {
-      "originalUrl": "resources/cellImage_0_19.jpg",
+      "originalUrl": "resources/cellImage_0_22.jpg",
       "pngUrl": "/devices/konkr-pocket-block.png",
       "webpUrl": "/devices/konkr-pocket-block.webp",
       "alt": "konkr pocket block",
@@ -827,423 +2107,8 @@
     ]
   },
   {
-    "id": "rg-ds-plus",
-    "index": 3,
-    "name": {
-      "raw": "RG DS Plus",
-      "sanitized": "rg-ds-plus",
-      "normalized": "RG DS Plus"
-    },
-    "brand": {
-      "raw": "Anbernic",
-      "sanitized": "Anbernic",
-      "normalized": "Anbernic"
-    },
-    "os": {
-      "raw": "Linux",
-      "icons": [
-        "ph-linux-logo"
-      ],
-      "list": [
-        "Linux"
-      ],
-      "customFirmwares": []
-    },
-    "tags": [
-      {
-        "name": "Linux",
-        "slug": "linux",
-        "type": "os"
-      },
-      {
-        "name": "Anbernic",
-        "slug": "Anbernic",
-        "type": "brand"
-      },
-      {
-        "name": "$",
-        "slug": "low",
-        "type": "price"
-      },
-      {
-        "name": "Clamshell",
-        "slug": "clamshell",
-        "type": "formFactor"
-      },
-      {
-        "name": "IPS",
-        "slug": "ips",
-        "type": "screenType"
-      },
-      {
-        "name": "Upcoming",
-        "slug": "upcoming",
-        "type": "releaseDate"
-      },
-      {
-        "name": "Handheld",
-        "slug": "handheld",
-        "type": "deviceType"
-      }
-    ],
-    "totalRating": 2.8,
-    "lowBatteryIndicator": null,
-    "hackingGuides": [],
-    "systemOnChip": "RockChip RK3568",
-    "architecture": {
-      "type": "ARM"
-    },
-    "ram": {
-      "raw": "1 GB",
-      "sizes": [
-        1
-      ],
-      "unit": "GB",
-      "type": "other"
-    },
-    "rumble": false,
-    "sensors": {
-      "raw": "✅",
-      "hasMicrophone": false,
-      "hasAccelerometer": false,
-      "hasGyroscope": false,
-      "hasCompass": false,
-      "hasMagnetometer": false,
-      "hasBarometer": false,
-      "hasProximitySensor": false,
-      "hasAmbientLightSensor": false,
-      "hasFingerprintSensor": false,
-      "hasCamera": false,
-      "hasGravitySensor": false,
-      "hasPressureSensor": false,
-      "hasTemperatureSensor": false,
-      "hasHumiditySensor": false,
-      "hasHeartRateSensor": false,
-      "hasAntenna": false,
-      "screenClosure": false
-    },
-    "volumeControl": {
-      "type": "unknown"
-    },
-    "brightnessControl": {
-      "type": "dedicated-button"
-    },
-    "powerControl": {
-      "type": "unknown"
-    },
-    "battery": {
-      "raw": "Tempered Glass(OCA Laminated)",
-      "capacity": null,
-      "unit": null,
-      "type": "Lithium-ion",
-      "removable": false,
-      "charging": "USB-C"
-    },
-    "chargePort": {
-      "raw": "Home, Back, Power, Reset, Volume +-",
-      "type": null,
-      "numberOfPorts": null
-    },
-    "storage": "usb-c x2top facing",
-    "dimensions": {
-      "length": null,
-      "width": null,
-      "height": null
-    },
-    "weight": 167,
-    "shellMaterial": {
-      "raw": "345 grams",
-      "isPlastic": false,
-      "isMetal": false,
-      "isAluminum": false,
-      "isMagnesiumAlloy": false,
-      "isOther": true
-    },
-    "colors": [
-      "Plastic"
-    ],
-    "image": {
-      "originalUrl": "resources/cellImage_0_20.jpg",
-      "pngUrl": "/devices/rg-ds-plus.png",
-      "webpUrl": "/devices/rg-ds-plus.webp",
-      "alt": "rg ds plus",
-      "pocketbaseUrl": null
-    },
-    "released": {
-      "raw": "Upcoming(September?)",
-      "mentionedDate": null
-    },
-    "formFactor": "clamshell",
-    "systemRatings": [
-      {
-        "system": "PlayStation 1",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "DS",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "SNES",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "NES",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Game Boy Advance",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Game Boy",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Genesis",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "PlayStation Portable",
-        "ratingMark": "B",
-        "ratingNumber": 4
-      },
-      {
-        "system": "N64",
-        "ratingMark": "B",
-        "ratingNumber": 4
-      },
-      {
-        "system": "Dreamcast",
-        "ratingMark": "B",
-        "ratingNumber": 4
-      },
-      {
-        "system": "Saturn",
-        "ratingMark": "C",
-        "ratingNumber": 3
-      },
-      {
-        "system": "PlayStation 2",
-        "ratingMark": "D",
-        "ratingNumber": 2
-      },
-      {
-        "system": "Wii",
-        "ratingMark": "D",
-        "ratingNumber": 2
-      },
-      {
-        "system": "GameCube",
-        "ratingMark": "D",
-        "ratingNumber": 2
-      },
-      {
-        "system": "Switch",
-        "ratingMark": "F",
-        "ratingNumber": 1
-      },
-      {
-        "system": "PlayStation 3",
-        "ratingMark": "F",
-        "ratingNumber": 1
-      },
-      {
-        "system": "Wii U",
-        "ratingMark": "F",
-        "ratingNumber": 1
-      },
-      {
-        "system": "3DS",
-        "ratingMark": "F",
-        "ratingNumber": 1
-      }
-    ],
-    "deviceType": "handheld",
-    "connectivity": {
-      "hasWifi": false,
-      "hasBluetooth": false,
-      "hasNfc": false,
-      "hasUsb": false,
-      "hasUsbC": false
-    },
-    "cpus": [
-      {
-        "raw": "Cortex-A55",
-        "names": [
-          "Cortex-A55"
-        ],
-        "cores": 4,
-        "threads": 4,
-        "clockSpeed": {
-          "min": 2,
-          "max": 2,
-          "unit": "GHZ"
-        }
-      }
-    ],
-    "gpus": [
-      {
-        "name": "Mali-G52 2EE",
-        "cores": 2,
-        "clockSpeed": null
-      }
-    ],
-    "performance": {
-      "rating": 5,
-      "normalizedRating": 3.3,
-      "tier": "⭐️⭐️⭐️⭐️⭐️¾",
-      "maxEmulation": "Most DS/N64/PSP/DC playable, some Saturn playable",
-      "emulationLimit": ""
-    },
-    "screen": {
-      "size": 4.3,
-      "type": {
-        "raw": "IPS Touchscreen",
-        "isTouchscreen": true,
-        "isPenCapable": false,
-        "type": "IPS"
-      },
-      "resolution": [],
-      "ppi": [
-        1024
-      ],
-      "aspectRatio": "297.67 ppi",
-      "lens": "4:3(x2)"
-    },
-    "cooling": {
-      "raw": "4000 mAh",
-      "hasHeatsink": false,
-      "hasFan": false,
-      "hasHeatPipe": false,
-      "hasVentilationCutouts": false
-    },
-    "controls": {
-      "dPad": {
-        "raw": "❌",
-        "type": "d-pad"
-      },
-      "analogs": {
-        "raw": "CrossUpper placement",
-        "dual": false,
-        "single": false,
-        "L3": false,
-        "R3": false,
-        "isHallSensor": false,
-        "isThumbstick": false,
-        "isSlidepad": false
-      },
-      "numberOfFaceButtons": 3,
-      "shoulderButtons": {
-        "raw": "4 Buttons",
-        "L": false,
-        "L1": false,
-        "L2": false,
-        "L3": false,
-        "R": false,
-        "R1": false,
-        "R2": false,
-        "R3": false,
-        "M1": false,
-        "M2": false,
-        "LC": false,
-        "RC": false,
-        "ZL": false,
-        "ZRVertical": false,
-        "ZRHorizontal": false
-      },
-      "extraButtons": {
-        "raw": "L1, R1, L2, R2Horizontal",
-        "power": false,
-        "reset": false,
-        "home": false,
-        "volumeUp": false,
-        "volumeDown": false,
-        "function": false,
-        "turbo": false,
-        "touchpad": false,
-        "fingerprint": false,
-        "mute": false,
-        "screenshot": false,
-        "programmableButtons": false
-      }
-    },
-    "outputs": {
-      "videoOutput": {
-        "raw": "WiFi 5, Bluetooth 4.2",
-        "hasUsbC": false,
-        "hasMicroHdmi": false,
-        "hasMiniHdmi": false,
-        "hasHdmi": false,
-        "hasDvi": false,
-        "hasVga": false,
-        "hasDisplayPort": false,
-        "OcuLink": false,
-        "AV": false
-      },
-      "audioOutput": {
-        "raw": "❌",
-        "has35mmJack": false,
-        "hasHeadphoneJack": false,
-        "hasUsbC": false
-      },
-      "speaker": {
-        "type": "unknown"
-      }
-    },
-    "reviews": {
-      "count": null,
-      "average": null,
-      "videoReviews": [
-        {
-          "url": "https://www.youtube.com/watch?v=hi-vycbhlXw",
-          "name": "Retro Game Corps"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=e_ZBKwptV5U",
-          "name": "1"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=imYCeIl0nNE",
-          "name": "2"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=wcFkR8AITH0",
-          "name": "3"
-        }
-      ],
-      "writtenReviews": []
-    },
-    "pricing": {
-      "raw": "$95",
-      "average": 95,
-      "range": {
-        "min": 95,
-        "max": 95
-      },
-      "currency": "USD",
-      "category": "low",
-      "discontinued": null
-    },
-    "pros": [
-      "-"
-    ],
-    "cons": [],
-    "vendorLinks": [],
-    "notes": [
-      ""
-    ]
-  },
-  {
     "id": "gpd-win-max-3",
-    "index": 4,
+    "index": 6,
     "name": {
       "raw": "GPD Win Max 3",
       "sanitized": "gpd-win-max-3",
@@ -1378,7 +2243,7 @@
       "Metal (Magnesium Aluminum Alloy)"
     ],
     "image": {
-      "originalUrl": "resources/cellImage_0_21.jpg",
+      "originalUrl": "resources/cellImage_0_23.jpg",
       "pngUrl": "/devices/gpd-win-max-3.png",
       "webpUrl": "/devices/gpd-win-max-3.webp",
       "alt": "gpd win max 3",
@@ -1668,866 +2533,6 @@
       {
         "url": "https://www.indiegogo.com/en/projects/gpdhk/gpd-win-max-3-handheld-gaming-laptop",
         "name": "Indiegogo"
-      }
-    ],
-    "notes": [
-      ""
-    ]
-  },
-  {
-    "id": "retroid-pocket-duo",
-    "index": 5,
-    "name": {
-      "raw": "Retroid Pocket Duo",
-      "sanitized": "retroid-pocket-duo",
-      "normalized": "Retroid Pocket Duo"
-    },
-    "brand": {
-      "raw": "Retroid / Moorechip",
-      "sanitized": "Retroid-Moorechip",
-      "normalized": "Retroid / Moorechip"
-    },
-    "os": {
-      "raw": "Android 16",
-      "icons": [
-        "ph-android-logo"
-      ],
-      "list": [
-        "Android 16"
-      ],
-      "customFirmwares": []
-    },
-    "tags": [
-      {
-        "name": "Android",
-        "slug": "android",
-        "type": "os"
-      },
-      {
-        "name": "Retroid / Moorechip",
-        "slug": "Retroid-Moorechip",
-        "type": "brand"
-      },
-      {
-        "name": "$$",
-        "slug": "mid",
-        "type": "price"
-      },
-      {
-        "name": "Clamshell",
-        "slug": "clamshell",
-        "type": "formFactor"
-      },
-      {
-        "name": "OLED",
-        "slug": "oled",
-        "type": "screenType"
-      },
-      {
-        "name": "Upcoming",
-        "slug": "upcoming",
-        "type": "releaseDate"
-      },
-      {
-        "name": "Handheld",
-        "slug": "handheld",
-        "type": "deviceType"
-      }
-    ],
-    "totalRating": 4.89,
-    "lowBatteryIndicator": null,
-    "hackingGuides": [],
-    "systemOnChip": "Qualcomm Dragonwing Q-7790(Snapdragon 7 Gen 4)",
-    "architecture": {
-      "type": "ARM"
-    },
-    "ram": {
-      "raw": "8 GB (LPDDR5X?)",
-      "sizes": [
-        8
-      ],
-      "unit": "GB",
-      "type": "LPDDR5X"
-    },
-    "rumble": false,
-    "sensors": {
-      "raw": "?",
-      "hasMicrophone": false,
-      "hasAccelerometer": false,
-      "hasGyroscope": false,
-      "hasCompass": false,
-      "hasMagnetometer": false,
-      "hasBarometer": false,
-      "hasProximitySensor": false,
-      "hasAmbientLightSensor": false,
-      "hasFingerprintSensor": false,
-      "hasCamera": false,
-      "hasGravitySensor": false,
-      "hasPressureSensor": false,
-      "hasTemperatureSensor": false,
-      "hasHumiditySensor": false,
-      "hasHeartRateSensor": false,
-      "hasAntenna": false,
-      "screenClosure": false
-    },
-    "volumeControl": {
-      "type": "unknown"
-    },
-    "brightnessControl": {
-      "type": "dedicated-button"
-    },
-    "powerControl": {
-      "type": "unknown"
-    },
-    "battery": {
-      "raw": "Tempered Glass(OCA Laminated)",
-      "capacity": null,
-      "unit": null,
-      "type": "Lithium-ion",
-      "removable": false,
-      "charging": "USB-C"
-    },
-    "chargePort": {
-      "raw": "Back, Home, Power, Volume +-",
-      "type": null,
-      "numberOfPorts": null
-    },
-    "storage": "usb-cbottom facing",
-    "dimensions": {
-      "length": null,
-      "width": null,
-      "height": null
-    },
-    "weight": 162,
-    "shellMaterial": {
-      "raw": "350 grams",
-      "isPlastic": false,
-      "isMetal": false,
-      "isAluminum": false,
-      "isMagnesiumAlloy": false,
-      "isOther": true
-    },
-    "colors": [
-      "Plastic"
-    ],
-    "image": {
-      "originalUrl": "resources/cellImage_0_22.jpg",
-      "pngUrl": "/devices/retroid-pocket-duo.png",
-      "webpUrl": "/devices/retroid-pocket-duo.webp",
-      "alt": "retroid pocket duo",
-      "pocketbaseUrl": null
-    },
-    "released": {
-      "raw": "Upcoming(September?)",
-      "mentionedDate": null
-    },
-    "formFactor": "clamshell",
-    "systemRatings": [
-      {
-        "system": "PlayStation 2",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "PlayStation 1",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "PlayStation Portable",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Wii",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "GameCube",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "3DS",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "DS",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "N64",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "SNES",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "NES",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Game Boy Advance",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Game Boy",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Saturn",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Dreamcast",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Genesis",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Wii U",
-        "ratingMark": "C",
-        "ratingNumber": 3
-      },
-      {
-        "system": "Switch",
-        "ratingMark": "D",
-        "ratingNumber": 2
-      },
-      {
-        "system": "PlayStation 3",
-        "ratingMark": "F",
-        "ratingNumber": 1
-      }
-    ],
-    "deviceType": "handheld",
-    "connectivity": {
-      "hasWifi": false,
-      "hasBluetooth": false,
-      "hasNfc": false,
-      "hasUsb": false,
-      "hasUsbC": true
-    },
-    "cpus": [
-      {
-        "raw": "Cortex-A720 / Cortex-A5204x / 4x",
-        "names": [
-          "Cortex-A720 / Cortex-A5204x / 4x"
-        ],
-        "cores": 8,
-        "threads": 8,
-        "clockSpeed": {
-          "min": 1.8,
-          "max": 1.8,
-          "unit": "GHZ"
-        }
-      }
-    ],
-    "gpus": [
-      {
-        "name": "Qualcomm Adreno 722",
-        "cores": 1,
-        "clockSpeed": {
-          "min": 1.15,
-          "max": 1.15,
-          "unit": "GHZ"
-        }
-      }
-    ],
-    "performance": {
-      "rating": 10,
-      "normalizedRating": 6.7,
-      "tier": "💥💥💥💥💥(estimate)",
-      "maxEmulation": "GameCube/Wii all full speed, most 3DS/PS2 playable, some Wii U playable",
-      "emulationLimit": ""
-    },
-    "screen": {
-      "size": 5.5,
-      "type": {
-        "raw": "AMOLED Touchscreen",
-        "isTouchscreen": true,
-        "isPenCapable": false,
-        "type": "OLED"
-      },
-      "resolution": [
-        {
-          "raw": "120 hz(x2)",
-          "width": 120,
-          "height": 2
-        }
-      ],
-      "ppi": [
-        null
-      ],
-      "aspectRatio": "primary: 400.53 ppisecondary: 355.56 ppi",
-      "lens": "primary: 16:9secondary: 4:3"
-    },
-    "cooling": {
-      "raw": "6000 mAh",
-      "hasHeatsink": false,
-      "hasFan": false,
-      "hasHeatPipe": false,
-      "hasVentilationCutouts": false
-    },
-    "controls": {
-      "dPad": {
-        "raw": "HeatsinkFanVentilation cutouts",
-        "type": "d-pad"
-      },
-      "analogs": {
-        "raw": "CrossUpper placement",
-        "dual": false,
-        "single": false,
-        "L3": false,
-        "R3": false,
-        "isHallSensor": false,
-        "isThumbstick": false,
-        "isSlidepad": false
-      },
-      "numberOfFaceButtons": 3,
-      "shoulderButtons": {
-        "raw": "4 Buttons",
-        "L": false,
-        "L1": false,
-        "L2": false,
-        "L3": false,
-        "R": false,
-        "R1": false,
-        "R2": false,
-        "R3": false,
-        "M1": false,
-        "M2": false,
-        "LC": false,
-        "RC": false,
-        "ZL": false,
-        "ZRVertical": false,
-        "ZRHorizontal": false
-      },
-      "extraButtons": {
-        "raw": "L1, R1, L2, R2VerticalAnalog Triggers",
-        "power": false,
-        "reset": false,
-        "home": false,
-        "volumeUp": false,
-        "volumeDown": false,
-        "function": false,
-        "turbo": false,
-        "touchpad": false,
-        "fingerprint": false,
-        "mute": false,
-        "screenshot": false,
-        "programmableButtons": false
-      }
-    },
-    "outputs": {
-      "videoOutput": {
-        "raw": "WiFi 6E, Bluetooth 5.4",
-        "hasUsbC": false,
-        "hasMicroHdmi": false,
-        "hasMiniHdmi": false,
-        "hasHdmi": false,
-        "hasDvi": false,
-        "hasVga": false,
-        "hasDisplayPort": false,
-        "OcuLink": false,
-        "AV": false
-      },
-      "audioOutput": {
-        "raw": "USB-C video outBottom facing",
-        "has35mmJack": false,
-        "hasHeadphoneJack": false,
-        "hasUsbC": true
-      },
-      "speaker": {
-        "type": "unknown"
-      }
-    },
-    "reviews": {
-      "count": null,
-      "average": null,
-      "videoReviews": [
-        {
-          "url": "https://www.youtube.com/watch?v=pEeqgBc8LUw",
-          "name": "1"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=9l4WZYU9Cg8",
-          "name": "2"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=vzHqgipzFxc",
-          "name": "3"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=rnmXBJ3KFP0",
-          "name": "Retro Game Corps"
-        }
-      ],
-      "writtenReviews": []
-    },
-    "pricing": {
-      "raw": "$249 (Preorder)$269 (Retail)",
-      "average": 259,
-      "range": {
-        "min": 249,
-        "max": 269
-      },
-      "currency": "USD",
-      "category": "mid",
-      "discontinued": null
-    },
-    "pros": [
-      "-"
-    ],
-    "cons": [],
-    "vendorLinks": [
-      {
-        "url": "https://www.goretroid.com/collections/frontpage/products/retroid-pocket-duo-handheld",
-        "name": "GoRetroid.com"
-      }
-    ],
-    "notes": [
-      ""
-    ]
-  },
-  {
-    "id": "retroid-pocket-duo-lite",
-    "index": 6,
-    "name": {
-      "raw": "Retroid Pocket Duo Lite",
-      "sanitized": "retroid-pocket-duo-lite",
-      "normalized": "Retroid Pocket Duo Lite"
-    },
-    "brand": {
-      "raw": "Retroid / Moorechip",
-      "sanitized": "Retroid-Moorechip",
-      "normalized": "Retroid / Moorechip"
-    },
-    "os": {
-      "raw": "Android 15",
-      "icons": [
-        "ph-android-logo"
-      ],
-      "list": [
-        "Android 15"
-      ],
-      "customFirmwares": []
-    },
-    "tags": [
-      {
-        "name": "Android",
-        "slug": "android",
-        "type": "os"
-      },
-      {
-        "name": "Retroid / Moorechip",
-        "slug": "Retroid-Moorechip",
-        "type": "brand"
-      },
-      {
-        "name": "$$",
-        "slug": "mid",
-        "type": "price"
-      },
-      {
-        "name": "Clamshell",
-        "slug": "clamshell",
-        "type": "formFactor"
-      },
-      {
-        "name": "TFT",
-        "slug": "tft",
-        "type": "screenType"
-      },
-      {
-        "name": "Upcoming",
-        "slug": "upcoming",
-        "type": "releaseDate"
-      },
-      {
-        "name": "Handheld",
-        "slug": "handheld",
-        "type": "deviceType"
-      }
-    ],
-    "totalRating": 3.15,
-    "lowBatteryIndicator": null,
-    "hackingGuides": [],
-    "systemOnChip": "Qualcomm Dragonwing QCS6125(Snapdragon 665)",
-    "architecture": {
-      "type": "ARM"
-    },
-    "ram": {
-      "raw": "4 GB / 6 GB(LPDDR5X?)",
-      "sizes": [
-        4
-      ],
-      "unit": "GB",
-      "type": "LPDDR5X"
-    },
-    "rumble": false,
-    "sensors": {
-      "raw": "?",
-      "hasMicrophone": false,
-      "hasAccelerometer": false,
-      "hasGyroscope": false,
-      "hasCompass": false,
-      "hasMagnetometer": false,
-      "hasBarometer": false,
-      "hasProximitySensor": false,
-      "hasAmbientLightSensor": false,
-      "hasFingerprintSensor": false,
-      "hasCamera": false,
-      "hasGravitySensor": false,
-      "hasPressureSensor": false,
-      "hasTemperatureSensor": false,
-      "hasHumiditySensor": false,
-      "hasHeartRateSensor": false,
-      "hasAntenna": false,
-      "screenClosure": false
-    },
-    "volumeControl": {
-      "type": "unknown"
-    },
-    "brightnessControl": {
-      "type": "dedicated-button"
-    },
-    "powerControl": {
-      "type": "unknown"
-    },
-    "battery": {
-      "raw": "Tempered Glass(OCA Laminated)",
-      "capacity": null,
-      "unit": null,
-      "type": "Lithium-ion",
-      "removable": false,
-      "charging": "USB-C"
-    },
-    "chargePort": {
-      "raw": "Back, Home, Power, Volume +-",
-      "type": null,
-      "numberOfPorts": null
-    },
-    "storage": "usb-cbottom facing",
-    "dimensions": {
-      "length": null,
-      "width": null,
-      "height": null
-    },
-    "weight": 158,
-    "shellMaterial": {
-      "raw": "372 grams",
-      "isPlastic": false,
-      "isMetal": false,
-      "isAluminum": false,
-      "isMagnesiumAlloy": false,
-      "isOther": true
-    },
-    "colors": [
-      "Plastic"
-    ],
-    "image": {
-      "originalUrl": "resources/cellImage_0_23.jpg",
-      "pngUrl": "/devices/retroid-pocket-duo-lite.png",
-      "webpUrl": "/devices/retroid-pocket-duo-lite.webp",
-      "alt": "retroid pocket duo lite",
-      "pocketbaseUrl": null
-    },
-    "released": {
-      "raw": "Upcoming(September?)",
-      "mentionedDate": null
-    },
-    "formFactor": "clamshell",
-    "systemRatings": [
-      {
-        "system": "PlayStation 1",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "PlayStation Portable",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "DS",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "N64",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "SNES",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "NES",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Game Boy Advance",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Game Boy",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Dreamcast",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Genesis",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Saturn",
-        "ratingMark": "B",
-        "ratingNumber": 4
-      },
-      {
-        "system": "Wii",
-        "ratingMark": "C",
-        "ratingNumber": 3
-      },
-      {
-        "system": "GameCube",
-        "ratingMark": "C",
-        "ratingNumber": 3
-      },
-      {
-        "system": "PlayStation 2",
-        "ratingMark": "D",
-        "ratingNumber": 2
-      },
-      {
-        "system": "3DS",
-        "ratingMark": "D",
-        "ratingNumber": 2
-      },
-      {
-        "system": "Switch",
-        "ratingMark": "F",
-        "ratingNumber": 1
-      },
-      {
-        "system": "PlayStation 3",
-        "ratingMark": "F",
-        "ratingNumber": 1
-      },
-      {
-        "system": "Wii U",
-        "ratingMark": "F",
-        "ratingNumber": 1
-      }
-    ],
-    "deviceType": "handheld",
-    "connectivity": {
-      "hasWifi": false,
-      "hasBluetooth": false,
-      "hasNfc": false,
-      "hasUsb": false,
-      "hasUsbC": false
-    },
-    "cpus": [
-      {
-        "raw": "Cortex-A73 / Cortex-A534x / 4x",
-        "names": [
-          "Cortex-A73 / Cortex-A534x / 4x"
-        ],
-        "cores": 8,
-        "threads": 8,
-        "clockSpeed": {
-          "min": 1.8,
-          "max": 1.8,
-          "unit": "GHZ"
-        }
-      }
-    ],
-    "gpus": [
-      {
-        "name": "Qualcomm Adreno 610",
-        "cores": 1,
-        "clockSpeed": {
-          "min": 950,
-          "max": 950,
-          "unit": "MHZ"
-        }
-      }
-    ],
-    "performance": {
-      "rating": 6,
-      "normalizedRating": 4,
-      "tier": "💥¾",
-      "maxEmulation": "Most DS/N64/PSP/DC all full speed, most Saturn playable",
-      "emulationLimit": ""
-    },
-    "screen": {
-      "size": 5.5,
-      "type": {
-        "raw": "TFT Touchscreen",
-        "isTouchscreen": true,
-        "isPenCapable": false,
-        "type": "TFT"
-      },
-      "resolution": [
-        {
-          "raw": "60 hz(x2)",
-          "width": 60,
-          "height": 2
-        }
-      ],
-      "ppi": [
-        null
-      ],
-      "aspectRatio": "primary: 400.53 ppisecondary: 380.95 ppi",
-      "lens": "primary: 16:9secondary: 4:3"
-    },
-    "cooling": {
-      "raw": "6000 mAh",
-      "hasHeatsink": false,
-      "hasFan": false,
-      "hasHeatPipe": false,
-      "hasVentilationCutouts": false
-    },
-    "controls": {
-      "dPad": {
-        "raw": "HeatsinkFanVentilation cutouts",
-        "type": "d-pad"
-      },
-      "analogs": {
-        "raw": "CrossUpper placement",
-        "dual": false,
-        "single": false,
-        "L3": false,
-        "R3": false,
-        "isHallSensor": false,
-        "isThumbstick": false,
-        "isSlidepad": false
-      },
-      "numberOfFaceButtons": 3,
-      "shoulderButtons": {
-        "raw": "4 Buttons",
-        "L": false,
-        "L1": false,
-        "L2": false,
-        "L3": false,
-        "R": false,
-        "R1": false,
-        "R2": false,
-        "R3": false,
-        "M1": false,
-        "M2": false,
-        "LC": false,
-        "RC": false,
-        "ZL": false,
-        "ZRVertical": false,
-        "ZRHorizontal": false
-      },
-      "extraButtons": {
-        "raw": "L1, R1, L2, R2Horizontal",
-        "power": false,
-        "reset": false,
-        "home": false,
-        "volumeUp": false,
-        "volumeDown": false,
-        "function": false,
-        "turbo": false,
-        "touchpad": false,
-        "fingerprint": false,
-        "mute": false,
-        "screenshot": false,
-        "programmableButtons": false
-      }
-    },
-    "outputs": {
-      "videoOutput": {
-        "raw": "WiFi 5, Bluetooth 5.0",
-        "hasUsbC": false,
-        "hasMicroHdmi": false,
-        "hasMiniHdmi": false,
-        "hasHdmi": false,
-        "hasDvi": false,
-        "hasVga": false,
-        "hasDisplayPort": false,
-        "OcuLink": false,
-        "AV": false
-      },
-      "audioOutput": {
-        "raw": "❌",
-        "has35mmJack": false,
-        "hasHeadphoneJack": false,
-        "hasUsbC": false
-      },
-      "speaker": {
-        "type": "unknown"
-      }
-    },
-    "reviews": {
-      "count": null,
-      "average": null,
-      "videoReviews": [
-        {
-          "url": "https://www.youtube.com/watch?v=pEeqgBc8LUw",
-          "name": "1"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=9l4WZYU9Cg8",
-          "name": "2"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=tDtGGd2LcSc",
-          "name": "3"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=rnmXBJ3KFP0",
-          "name": "Retro Game Corps"
-        }
-      ],
-      "writtenReviews": []
-    },
-    "pricing": {
-      "raw": "$135 - $169(Hover for detailed prices)",
-      "average": 152,
-      "range": {
-        "min": 135,
-        "max": 169
-      },
-      "currency": "USD",
-      "category": "mid",
-      "discontinued": null
-    },
-    "pros": [
-      "-"
-    ],
-    "cons": [],
-    "vendorLinks": [
-      {
-        "url": "https://www.goretroid.com/collections/frontpage/products/retroid-pocket-duo-lite-handheld",
-        "name": "GoRetroid.com"
       }
     ],
     "notes": [
