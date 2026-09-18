@@ -32,10 +32,6 @@
         </url>
         
         <url>
-            <loc>https://retroranker.site/devices/retroid-pocket-duo-lite</loc>
-        </url>
-        
-        <url>
             <loc>https://retroranker.site/devices/retroid-pocket-duo</loc>
         </url>
         
@@ -45,6 +41,10 @@
         
         <url>
             <loc>https://retroranker.site/devices/gpd-win-max-3</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/retroid-pocket-duo-lite</loc>
         </url>
         
         <url>
