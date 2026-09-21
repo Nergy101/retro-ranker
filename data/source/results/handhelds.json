@@ -1262,8 +1262,438 @@
     ]
   },
   {
-    "id": "retroid-pocket-duo-lite",
+    "id": "retroid-pocket-duo-lite-plus",
     "index": 4,
+    "name": {
+      "raw": "Retroid Pocket Duo Lite Plus",
+      "sanitized": "retroid-pocket-duo-lite-plus",
+      "normalized": "Retroid Pocket Duo Lite Plus"
+    },
+    "brand": {
+      "raw": "Retroid / Moorechip",
+      "sanitized": "Retroid-Moorechip",
+      "normalized": "Retroid / Moorechip"
+    },
+    "os": {
+      "raw": "Android 16",
+      "icons": [
+        "ph-android-logo"
+      ],
+      "list": [
+        "Android 16"
+      ],
+      "customFirmwares": []
+    },
+    "tags": [
+      {
+        "name": "Android",
+        "slug": "android",
+        "type": "os"
+      },
+      {
+        "name": "Retroid / Moorechip",
+        "slug": "Retroid-Moorechip",
+        "type": "brand"
+      },
+      {
+        "name": "$$",
+        "slug": "mid",
+        "type": "price"
+      },
+      {
+        "name": "Clamshell",
+        "slug": "clamshell",
+        "type": "formFactor"
+      },
+      {
+        "name": "TFT",
+        "slug": "tft",
+        "type": "screenType"
+      },
+      {
+        "name": "Upcoming",
+        "slug": "upcoming",
+        "type": "releaseDate"
+      },
+      {
+        "name": "Handheld",
+        "slug": "handheld",
+        "type": "deviceType"
+      }
+    ],
+    "totalRating": 4.5,
+    "lowBatteryIndicator": null,
+    "hackingGuides": [],
+    "systemOnChip": "Qualcomm Dragonwing Q-7790(Snapdragon 7 Gen 4)",
+    "architecture": {
+      "type": "ARM"
+    },
+    "ram": {
+      "raw": "8 GB LPDDR4X",
+      "sizes": [
+        8
+      ],
+      "unit": "GB",
+      "type": "LPDDR4X"
+    },
+    "rumble": false,
+    "sensors": {
+      "raw": "?",
+      "hasMicrophone": false,
+      "hasAccelerometer": false,
+      "hasGyroscope": false,
+      "hasCompass": false,
+      "hasMagnetometer": false,
+      "hasBarometer": false,
+      "hasProximitySensor": false,
+      "hasAmbientLightSensor": false,
+      "hasFingerprintSensor": false,
+      "hasCamera": false,
+      "hasGravitySensor": false,
+      "hasPressureSensor": false,
+      "hasTemperatureSensor": false,
+      "hasHumiditySensor": false,
+      "hasHeartRateSensor": false,
+      "hasAntenna": false,
+      "screenClosure": false
+    },
+    "volumeControl": {
+      "type": "unknown"
+    },
+    "brightnessControl": {
+      "type": "dedicated-button"
+    },
+    "powerControl": {
+      "type": "unknown"
+    },
+    "battery": {
+      "raw": "Tempered Glass(OCA Laminated)",
+      "capacity": null,
+      "unit": null,
+      "type": "Lithium-ion",
+      "removable": false,
+      "charging": "USB-C"
+    },
+    "chargePort": {
+      "raw": "Back, Home, Power, Volume +-",
+      "type": null,
+      "numberOfPorts": null
+    },
+    "storage": "usb-cbottom facing",
+    "dimensions": {
+      "length": null,
+      "width": null,
+      "height": null
+    },
+    "weight": 158,
+    "shellMaterial": {
+      "raw": "372 grams",
+      "isPlastic": false,
+      "isMetal": false,
+      "isAluminum": false,
+      "isMagnesiumAlloy": false,
+      "isOther": true
+    },
+    "colors": [
+      "Plastic"
+    ],
+    "image": {
+      "originalUrl": "resources/cellImage_0_21.jpg",
+      "pngUrl": "/devices/retroid-pocket-duo-lite-plus.png",
+      "webpUrl": "/devices/retroid-pocket-duo-lite-plus.webp",
+      "alt": "retroid pocket duo lite plus",
+      "pocketbaseUrl": null
+    },
+    "released": {
+      "raw": "Upcoming(On sale now, ships mid November)",
+      "mentionedDate": null
+    },
+    "formFactor": "clamshell",
+    "systemRatings": [
+      {
+        "system": "PlayStation 2",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "PlayStation 1",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "PlayStation Portable",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Wii",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "GameCube",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "3DS",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "DS",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "N64",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "SNES",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "NES",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Game Boy Advance",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Game Boy",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Saturn",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Dreamcast",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Genesis",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Wii U",
+        "ratingMark": "C",
+        "ratingNumber": 3
+      },
+      {
+        "system": "Switch",
+        "ratingMark": "D",
+        "ratingNumber": 2
+      },
+      {
+        "system": "PlayStation 3",
+        "ratingMark": "F",
+        "ratingNumber": 1
+      }
+    ],
+    "deviceType": "handheld",
+    "connectivity": {
+      "hasWifi": false,
+      "hasBluetooth": false,
+      "hasNfc": false,
+      "hasUsb": false,
+      "hasUsbC": true
+    },
+    "cpus": [
+      {
+        "raw": "Cortex-A720 / Cortex-A5204x / 4x",
+        "names": [
+          "Cortex-A720 / Cortex-A5204x / 4x"
+        ],
+        "cores": 8,
+        "threads": 8,
+        "clockSpeed": {
+          "min": 1.8,
+          "max": 1.8,
+          "unit": "GHZ"
+        }
+      }
+    ],
+    "gpus": [
+      {
+        "name": "Qualcomm Adreno 722",
+        "cores": 1,
+        "clockSpeed": {
+          "min": 1.15,
+          "max": 1.15,
+          "unit": "GHZ"
+        }
+      }
+    ],
+    "performance": {
+      "rating": 10,
+      "normalizedRating": 6.7,
+      "tier": "💥💥💥💥💥(estimate)",
+      "maxEmulation": "GameCube/Wii all full speed, most 3DS/PS2 playable, some Wii U playable",
+      "emulationLimit": ""
+    },
+    "screen": {
+      "size": 5.5,
+      "type": {
+        "raw": "TFT Touchscreen",
+        "isTouchscreen": true,
+        "isPenCapable": false,
+        "type": "TFT"
+      },
+      "resolution": [
+        {
+          "raw": "60 hz(x2)",
+          "width": 60,
+          "height": 2
+        }
+      ],
+      "ppi": [
+        null
+      ],
+      "aspectRatio": "primary: 400.53 ppisecondary: 380.95 ppi",
+      "lens": "primary: 16:9secondary: 4:3"
+    },
+    "cooling": {
+      "raw": "6000 mAh",
+      "hasHeatsink": false,
+      "hasFan": false,
+      "hasHeatPipe": false,
+      "hasVentilationCutouts": false
+    },
+    "controls": {
+      "dPad": {
+        "raw": "HeatsinkFanVentilation cutouts",
+        "type": "d-pad"
+      },
+      "analogs": {
+        "raw": "CrossUpper placement",
+        "dual": false,
+        "single": false,
+        "L3": false,
+        "R3": false,
+        "isHallSensor": false,
+        "isThumbstick": false,
+        "isSlidepad": false
+      },
+      "numberOfFaceButtons": 3,
+      "shoulderButtons": {
+        "raw": "4 Buttons",
+        "L": false,
+        "L1": false,
+        "L2": false,
+        "L3": false,
+        "R": false,
+        "R1": false,
+        "R2": false,
+        "R3": false,
+        "M1": false,
+        "M2": false,
+        "LC": false,
+        "RC": false,
+        "ZL": false,
+        "ZRVertical": false,
+        "ZRHorizontal": false
+      },
+      "extraButtons": {
+        "raw": "L1, R1, L2, R2Horizontal",
+        "power": false,
+        "reset": false,
+        "home": false,
+        "volumeUp": false,
+        "volumeDown": false,
+        "function": false,
+        "turbo": false,
+        "touchpad": false,
+        "fingerprint": false,
+        "mute": false,
+        "screenshot": false,
+        "programmableButtons": false
+      }
+    },
+    "outputs": {
+      "videoOutput": {
+        "raw": "WiFi 6E, Bluetooth 5.4",
+        "hasUsbC": false,
+        "hasMicroHdmi": false,
+        "hasMiniHdmi": false,
+        "hasHdmi": false,
+        "hasDvi": false,
+        "hasVga": false,
+        "hasDisplayPort": false,
+        "OcuLink": false,
+        "AV": false
+      },
+      "audioOutput": {
+        "raw": "USB-C video outBottom facing",
+        "has35mmJack": false,
+        "hasHeadphoneJack": false,
+        "hasUsbC": true
+      },
+      "speaker": {
+        "type": "unknown"
+      }
+    },
+    "reviews": {
+      "count": null,
+      "average": null,
+      "videoReviews": [
+        {
+          "url": "https://www.youtube.com/watch?v=pEeqgBc8LUw",
+          "name": "1"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=9l4WZYU9Cg8",
+          "name": "2"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=tDtGGd2LcSc",
+          "name": "3"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=rnmXBJ3KFP0",
+          "name": "Retro Game Corps"
+        }
+      ],
+      "writtenReviews": []
+    },
+    "pricing": {
+      "raw": "$219",
+      "average": 219,
+      "range": {
+        "min": 219,
+        "max": 219
+      },
+      "currency": "USD",
+      "category": "mid",
+      "discontinued": null
+    },
+    "pros": [
+      "-"
+    ],
+    "cons": [],
+    "vendorLinks": [
+      {
+        "url": "https://www.goretroid.com/collections/frontpage/products/retroid-pocket-duo-lite-handheld?variant=55011240116448",
+        "name": "GoRetroid.com"
+      }
+    ],
+    "notes": [
+      ""
+    ]
+  },
+  {
+    "id": "retroid-pocket-duo-lite",
+    "index": 5,
     "name": {
       "raw": "Retroid Pocket Duo Lite",
       "sanitized": "retroid-pocket-duo-lite",
@@ -1398,7 +1828,7 @@
       "Plastic"
     ],
     "image": {
-      "originalUrl": "resources/cellImage_0_21.jpg",
+      "originalUrl": "resources/cellImage_0_22.jpg",
       "pngUrl": "/devices/retroid-pocket-duo-lite.png",
       "webpUrl": "/devices/retroid-pocket-duo-lite.webp",
       "alt": "retroid pocket duo lite",
@@ -1693,7 +2123,7 @@
   },
   {
     "id": "rg-ds-plus",
-    "index": 5,
+    "index": 6,
     "name": {
       "raw": "RG DS Plus",
       "sanitized": "rg-ds-plus",
@@ -2122,7 +2552,7 @@
   },
   {
     "id": "trimui-brick-hammer-pro-u",
-    "index": 6,
+    "index": 7,
     "name": {
       "raw": "TRIMUI Brick Hammer Pro U",
       "sanitized": "trimui-brick-hammer-pro-u",
@@ -2550,7 +2980,7 @@
   },
   {
     "id": "rg35",
-    "index": 7,
+    "index": 8,
     "name": {
       "raw": "RG35",
       "sanitized": "rg35",
@@ -2993,7 +3423,7 @@
   },
   {
     "id": "rg55g1",
-    "index": 8,
+    "index": 9,
     "name": {
       "raw": "RG55G1",
       "sanitized": "rg55g1",
@@ -3438,7 +3868,7 @@
   },
   {
     "id": "konkr-pocket-advance",
-    "index": 9,
+    "index": 10,
     "name": {
       "raw": "KONKR Pocket Advance",
       "sanitized": "konkr-pocket-advance",
@@ -3867,7 +4297,7 @@
   },
   {
     "id": "mangmi-air-y",
-    "index": 10,
+    "index": 11,
     "name": {
       "raw": "Mangmi Air Y",
       "sanitized": "mangmi-air-y",
@@ -4296,7 +4726,7 @@
   },
   {
     "id": "mangmi-air-y-pro",
-    "index": 11,
+    "index": 12,
     "name": {
       "raw": "Mangmi Air Y Pro",
       "sanitized": "mangmi-air-y-pro",
@@ -4725,7 +5155,7 @@
   },
   {
     "id": "rg-sp",
-    "index": 12,
+    "index": 13,
     "name": {
       "raw": "RG SP",
       "sanitized": "rg-sp",
@@ -5154,7 +5584,7 @@
   },
   {
     "id": "onexplayer-3",
-    "index": 13,
+    "index": 14,
     "name": {
       "raw": "OneXPlayer 3",
       "sanitized": "onexplayer-3",
@@ -5589,7 +6019,7 @@
   },
   {
     "id": "gkd-350h-ultra",
-    "index": 14,
+    "index": 15,
     "name": {
       "raw": "GKD 350H Ultra",
       "sanitized": "gkd-350h-ultra",
@@ -6034,7 +6464,7 @@
   },
   {
     "id": "retroid-pocket-nova",
-    "index": 15,
+    "index": 16,
     "name": {
       "raw": "Retroid Pocket Nova",
       "sanitized": "retroid-pocket-nova",
@@ -6483,7 +6913,7 @@
   },
   {
     "id": "ayaneo-next-2",
-    "index": 16,
+    "index": 17,
     "name": {
       "raw": "AYANEO Next 2",
       "sanitized": "ayaneo-next-2",
@@ -6899,7 +7329,7 @@
   },
   {
     "id": "pocket-micro-2",
-    "index": 17,
+    "index": 18,
     "name": {
       "raw": "Pocket Micro 2",
       "sanitized": "pocket-micro-2",
@@ -7332,7 +7762,7 @@
   },
   {
     "id": "trimui-brick-pro",
-    "index": 18,
+    "index": 19,
     "name": {
       "raw": "TRIMUI Brick Pro",
       "sanitized": "trimui-brick-pro",
@@ -7781,7 +8211,7 @@
   },
   {
     "id": "msi-claw-8-ex-ai-plus-",
-    "index": 19,
+    "index": 20,
     "name": {
       "raw": "MSI Claw 8 EX AI+",
       "sanitized": "msi-claw-8-ex-ai-plus-",
@@ -8203,7 +8633,7 @@
   },
   {
     "id": "konkr-fit",
-    "index": 20,
+    "index": 21,
     "name": {
       "raw": "KONKR Fit",
       "sanitized": "konkr-fit",
@@ -8623,7 +9053,7 @@
   },
   {
     "id": "rg-rotate",
-    "index": 21,
+    "index": 22,
     "name": {
       "raw": "RG Rotate",
       "sanitized": "rg-rotate",
@@ -9063,7 +9493,7 @@
   },
   {
     "id": "kt-r2",
-    "index": 22,
+    "index": 23,
     "name": {
       "raw": "KT-R2",
       "sanitized": "kt-r2",
@@ -9503,7 +9933,7 @@
   },
   {
     "id": "rg-vita",
-    "index": 23,
+    "index": 24,
     "name": {
       "raw": "RG Vita",
       "sanitized": "rg-vita",
@@ -9932,7 +10362,7 @@
   },
   {
     "id": "rg-vita-pro",
-    "index": 24,
+    "index": 25,
     "name": {
       "raw": "RG Vita Pro",
       "sanitized": "rg-vita-pro",
@@ -10376,7 +10806,7 @@
   },
   {
     "id": "gamemt-ex8",
-    "index": 25,
+    "index": 26,
     "name": {
       "raw": "GAMEMT EX8",
       "sanitized": "gamemt-ex8",
@@ -10811,7 +11241,7 @@
   },
   {
     "id": "gamemt-psk5000-ex5",
-    "index": 26,
+    "index": 27,
     "name": {
       "raw": "GAMEMT PSK5000 / EX5",
       "sanitized": "gamemt-psk5000-ex5",
@@ -11232,7 +11662,7 @@
   },
   {
     "id": "k59",
-    "index": 27,
+    "index": 28,
     "name": {
       "raw": "K59",
       "sanitized": "k59",
@@ -11664,7 +12094,7 @@
   },
   {
     "id": "onexfly-apex",
-    "index": 28,
+    "index": 29,
     "name": {
       "raw": "OneXFly Apex",
       "sanitized": "onexfly-apex",
@@ -12113,7 +12543,7 @@
   },
   {
     "id": "pocket-s-mini",
-    "index": 29,
+    "index": 30,
     "name": {
       "raw": "Pocket S Mini",
       "sanitized": "pocket-s-mini",
@@ -12538,7 +12968,7 @@
   },
   {
     "id": "mangmi-pocket-max",
-    "index": 30,
+    "index": 31,
     "name": {
       "raw": "Mangmi Pocket Max",
       "sanitized": "mangmi-pocket-max",
@@ -12970,7 +13400,7 @@
   },
   {
     "id": "msi-claw-a8",
-    "index": 31,
+    "index": 32,
     "name": {
       "raw": "MSI Claw A8",
       "sanitized": "msi-claw-a8",
@@ -13411,7 +13841,7 @@
   },
   {
     "id": "pocket-vert",
-    "index": 32,
+    "index": 33,
     "name": {
       "raw": "Pocket Vert",
       "sanitized": "pocket-vert",
@@ -13840,7 +14270,7 @@
   },
   {
     "id": "miniloong-pocket-1",
-    "index": 33,
+    "index": 34,
     "name": {
       "raw": "MINILOONG Pocket 1",
       "sanitized": "miniloong-pocket-1",
@@ -14291,7 +14721,7 @@
   },
   {
     "id": "retroid-pocket-6",
-    "index": 34,
+    "index": 35,
     "name": {
       "raw": "Retroid Pocket 6",
       "sanitized": "retroid-pocket-6",
@@ -14736,7 +15166,7 @@
   },
   {
     "id": "one-35",
-    "index": 35,
+    "index": 36,
     "name": {
       "raw": "One 35",
       "sanitized": "one-35",
@@ -15166,7 +15596,7 @@
   },
   {
     "id": "rg477v",
-    "index": 36,
+    "index": 37,
     "name": {
       "raw": "RG477V",
       "sanitized": "rg477v",
@@ -15609,7 +16039,7 @@
   },
   {
     "id": "odin-3",
-    "index": 37,
+    "index": 38,
     "name": {
       "raw": "Odin 3",
       "sanitized": "odin-3",
@@ -16059,7 +16489,7 @@
   },
   {
     "id": "rg-ds",
-    "index": 38,
+    "index": 39,
     "name": {
       "raw": "RG DS",
       "sanitized": "rg-ds",
@@ -16508,7 +16938,7 @@
   },
   {
     "id": "trimui-smart-pro-s",
-    "index": 39,
+    "index": 40,
     "name": {
       "raw": "TRIMUI Smart Pro S",
       "sanitized": "trimui-smart-pro-s",
@@ -16948,7 +17378,7 @@
   },
   {
     "id": "gpd-win-5",
-    "index": 40,
+    "index": 41,
     "name": {
       "raw": "GPD Win 5",
       "sanitized": "gpd-win-5",
@@ -17409,7 +17839,7 @@
   },
   {
     "id": "pocket-air-mini",
-    "index": 41,
+    "index": 42,
     "name": {
       "raw": "Pocket Air Mini",
       "sanitized": "pocket-air-mini",
@@ -17850,7 +18280,7 @@
   },
   {
     "id": "konkr-pocket-fit",
-    "index": 42,
+    "index": 43,
     "name": {
       "raw": "KONKR Pocket Fit",
       "sanitized": "konkr-pocket-fit",
@@ -18285,7 +18715,7 @@
   },
   {
     "id": "legion-go-gen-2",
-    "index": 43,
+    "index": 44,
     "name": {
       "raw": "Legion Go Gen 2",
       "sanitized": "legion-go-gen-2",
@@ -18738,7 +19168,7 @@
   },
   {
     "id": "retroid-pocket-g2",
-    "index": 44,
+    "index": 45,
     "name": {
       "raw": "Retroid Pocket G2",
       "sanitized": "retroid-pocket-g2",
@@ -19170,7 +19600,7 @@
   },
   {
     "id": "pocket-ds",
-    "index": 45,
+    "index": 46,
     "name": {
       "raw": "Pocket DS",
       "sanitized": "pocket-ds",
@@ -19611,7 +20041,7 @@
   },
   {
     "id": "miyoo-mini-flip",
-    "index": 46,
+    "index": 47,
     "name": {
       "raw": "Miyoo Mini Flip",
       "sanitized": "miyoo-mini-flip",
@@ -20041,7 +20471,7 @@
   },
   {
     "id": "rog-xbox-ally",
-    "index": 47,
+    "index": 48,
     "name": {
       "raw": "ROG Xbox Ally",
       "sanitized": "rog-xbox-ally",
@@ -20482,7 +20912,7 @@
   },
   {
     "id": "rog-xbox-ally-x",
-    "index": 48,
+    "index": 49,
     "name": {
       "raw": "ROG Xbox Ally X",
       "sanitized": "rog-xbox-ally-x",
@@ -20939,7 +21369,7 @@
   },
   {
     "id": "mangmi-air-x",
-    "index": 49,
+    "index": 50,
     "name": {
       "raw": "Mangmi Air X",
       "sanitized": "mangmi-air-x",
@@ -21382,7 +21812,7 @@
   },
   {
     "id": "thor",
-    "index": 50,
+    "index": 51,
     "name": {
       "raw": "Thor",
       "sanitized": "thor",
@@ -21876,7 +22306,7 @@
   },
   {
     "id": "onexsugar-sugar-1",
-    "index": 51,
+    "index": 52,
     "name": {
       "raw": "ONEXSUGAR SUGAR 1",
       "sanitized": "onexsugar-sugar-1",
@@ -22305,7 +22735,7 @@
   },
   {
     "id": "rg476h",
-    "index": 52,
+    "index": 53,
     "name": {
       "raw": "RG476H",
       "sanitized": "rg476h",
@@ -22758,7 +23188,7 @@
   },
   {
     "id": "flip-1s-ds",
-    "index": 53,
+    "index": 54,
     "name": {
       "raw": "Flip 1S DS",
       "sanitized": "flip-1s-ds",
@@ -23187,7 +23617,7 @@
   },
   {
     "id": "xu20-v32",
-    "index": 54,
+    "index": 55,
     "name": {
       "raw": "XU20 V32",
       "sanitized": "xu20-v32",
@@ -23608,7 +24038,7 @@
   },
   {
     "id": "rg477m",
-    "index": 55,
+    "index": 56,
     "name": {
       "raw": "RG477M",
       "sanitized": "rg477m",
@@ -24055,7 +24485,7 @@
   },
   {
     "id": "pocket-s2",
-    "index": 56,
+    "index": 57,
     "name": {
       "raw": "Pocket S2",
       "sanitized": "pocket-s2",
@@ -24497,7 +24927,7 @@
   },
   {
     "id": "action-pi-",
-    "index": 57,
+    "index": 58,
     "name": {
       "raw": "Action Pi 兀",
       "sanitized": "action-pi-",
@@ -24938,7 +25368,7 @@
   },
   {
     "id": "zero-40",
-    "index": 58,
+    "index": 59,
     "name": {
       "raw": "Zero 40",
       "sanitized": "zero-40",
@@ -25391,7 +25821,7 @@
   },
   {
     "id": "rg-slide",
-    "index": 59,
+    "index": 60,
     "name": {
       "raw": "RG Slide",
       "sanitized": "rg-slide",
@@ -25851,7 +26281,7 @@
   },
   {
     "id": "rg35xx-pro",
-    "index": 60,
+    "index": 61,
     "name": {
       "raw": "RG35XX Pro",
       "sanitized": "rg35xx-pro",
@@ -26291,7 +26721,7 @@
   },
   {
     "id": "aokzoe-a1x",
-    "index": 61,
+    "index": 62,
     "name": {
       "raw": "AOKZOE A1X",
       "sanitized": "aokzoe-a1x",
@@ -26741,7 +27171,7 @@
   },
   {
     "id": "abxylute-one-pro",
-    "index": 62,
+    "index": 63,
     "name": {
       "raw": "Abxylute One Pro",
       "sanitized": "abxylute-one-pro",
@@ -27175,7 +27605,7 @@
   },
   {
     "id": "pocket-ace",
-    "index": 63,
+    "index": 64,
     "name": {
       "raw": "Pocket ACE",
       "sanitized": "pocket-ace",
@@ -27617,7 +28047,7 @@
   },
   {
     "id": "v90s",
-    "index": 64,
+    "index": 65,
     "name": {
       "raw": "V90S",
       "sanitized": "v90s",
@@ -28065,7 +28495,7 @@
   },
   {
     "id": "rg34xxsp",
-    "index": 65,
+    "index": 66,
     "name": {
       "raw": "RG34XXSP",
       "sanitized": "rg34xxsp",
@@ -28517,7 +28947,7 @@
   },
   {
     "id": "retroid-pocket-mini-v2",
-    "index": 66,
+    "index": 67,
     "name": {
       "raw": "Retroid Pocket Mini V2",
       "sanitized": "retroid-pocket-mini-v2",
@@ -28944,7 +29374,7 @@
   },
   {
     "id": "ayaneo-3",
-    "index": 67,
+    "index": 68,
     "name": {
       "raw": "AYANEO 3",
       "sanitized": "ayaneo-3",
@@ -29386,7 +29816,7 @@
   },
   {
     "id": "rg557",
-    "index": 68,
+    "index": 69,
     "name": {
       "raw": "RG557",
       "sanitized": "rg557",
@@ -29854,7 +30284,7 @@
   },
   {
     "id": "retroid-pocket-classic",
-    "index": 69,
+    "index": 70,
     "name": {
       "raw": "Retroid Pocket Classic",
       "sanitized": "retroid-pocket-classic",
@@ -30314,7 +30744,7 @@
   },
   {
     "id": "k56",
-    "index": 70,
+    "index": 71,
     "name": {
       "raw": "K56",
       "sanitized": "k56",
@@ -30759,7 +31189,7 @@
   },
   {
     "id": "retroid-pocket-flip-2",
-    "index": 71,
+    "index": 72,
     "name": {
       "raw": "Retroid Pocket Flip 2",
       "sanitized": "retroid-pocket-flip-2",
@@ -31232,7 +31662,7 @@
   },
   {
     "id": "ayaneo-pocket-micro-classic",
-    "index": 72,
+    "index": 73,
     "name": {
       "raw": "AYANEO Pocket Micro Classic",
       "sanitized": "ayaneo-pocket-micro-classic",
@@ -31674,7 +32104,7 @@
   },
   {
     "id": "onexplayer-g1",
-    "index": 73,
+    "index": 74,
     "name": {
       "raw": "OneXPlayer G1",
       "sanitized": "onexplayer-g1",
@@ -32112,7 +32542,7 @@
   },
   {
     "id": "my-mini",
-    "index": 74,
+    "index": 75,
     "name": {
       "raw": "My Mini",
       "sanitized": "my-mini",
@@ -32538,7 +32968,7 @@
   },
   {
     "id": "gamemt-e6-max",
-    "index": 75,
+    "index": 76,
     "name": {
       "raw": "GAMEMT E6 Max",
       "sanitized": "gamemt-e6-max",
@@ -32959,7 +33389,7 @@
   },
   {
     "id": "u8",
-    "index": 76,
+    "index": 77,
     "name": {
       "raw": "U8",
       "sanitized": "u8",
@@ -33381,7 +33811,7 @@
   },
   {
     "id": "qrd-vortex-f5",
-    "index": 77,
+    "index": 78,
     "name": {
       "raw": "QRD Vortex F5",
       "sanitized": "qrd-vortex-f5",
@@ -33802,7 +34232,7 @@
   },
   {
     "id": "batlexp-g350",
-    "index": 78,
+    "index": 79,
     "name": {
       "raw": "BATLEXP G350",
       "sanitized": "batlexp-g350",
@@ -34257,7 +34687,7 @@
   },
   {
     "id": "gpd-win-mini-2025",
-    "index": 79,
+    "index": 80,
     "name": {
       "raw": "GPD Win Mini 2025",
       "sanitized": "gpd-win-mini-2025",
@@ -34691,7 +35121,7 @@
   },
   {
     "id": "v20",
-    "index": 80,
+    "index": 81,
     "name": {
       "raw": "V20",
       "sanitized": "v20",
@@ -35108,7 +35538,7 @@
   },
   {
     "id": "rx6h",
-    "index": 81,
+    "index": 82,
     "name": {
       "raw": "RX6H",
       "sanitized": "rx6h",
@@ -35537,7 +35967,7 @@
   },
   {
     "id": "legion-go-s",
-    "index": 82,
+    "index": 83,
     "name": {
       "raw": "Legion Go S",
       "sanitized": "legion-go-s",
@@ -36016,7 +36446,7 @@
   },
   {
     "id": "gkd-pixel-2",
-    "index": 83,
+    "index": 84,
     "name": {
       "raw": "GKD Pixel 2",
       "sanitized": "gkd-pixel-2",
@@ -36477,7 +36907,7 @@
   },
   {
     "id": "msi-claw-8-ai-plus-",
-    "index": 84,
+    "index": 85,
     "name": {
       "raw": "MSI Claw 8 AI+",
       "sanitized": "msi-claw-8-ai-plus-",
@@ -36945,7 +37375,7 @@
   },
   {
     "id": "msi-claw-7-ai-plus-",
-    "index": 85,
+    "index": 86,
     "name": {
       "raw": "MSI Claw 7 AI+",
       "sanitized": "msi-claw-7-ai-plus-",
@@ -37380,7 +37810,7 @@
   },
   {
     "id": "z35s-hg3506",
-    "index": 86,
+    "index": 87,
     "name": {
       "raw": "Z35S / HG3506",
       "sanitized": "z35s-hg3506",
@@ -37803,7 +38233,7 @@
   },
   {
     "id": "onexplayer-x1-pro",
-    "index": 87,
+    "index": 88,
     "name": {
       "raw": "OneXPlayer X1 Pro",
       "sanitized": "onexplayer-x1-pro",
@@ -38226,7 +38656,7 @@
   },
   {
     "id": "mini-zero-28",
-    "index": 88,
+    "index": 89,
     "name": {
       "raw": "Mini Zero 28",
       "sanitized": "mini-zero-28",
@@ -38671,7 +39101,7 @@
   },
   {
     "id": "odin-2-portal",
-    "index": 89,
+    "index": 90,
     "name": {
       "raw": "Odin 2 Portal",
       "sanitized": "odin-2-portal",
@@ -39128,7 +39558,7 @@
   },
   {
     "id": "x35h",
-    "index": 90,
+    "index": 91,
     "name": {
       "raw": "X35H",
       "sanitized": "x35h",
@@ -39549,7 +39979,7 @@
   },
   {
     "id": "r36h",
-    "index": 91,
+    "index": 92,
     "name": {
       "raw": "R36H",
       "sanitized": "r36h",
@@ -39972,7 +40402,7 @@
   },
   {
     "id": "miyoo-flip",
-    "index": 92,
+    "index": 93,
     "name": {
       "raw": "Miyoo Flip",
       "sanitized": "miyoo-flip",
@@ -40440,7 +40870,7 @@
   },
   {
     "id": "gpd-win-4-2025",
-    "index": 93,
+    "index": 94,
     "name": {
       "raw": "GPD Win 4 2025",
       "sanitized": "gpd-win-4-2025",
@@ -40857,7 +41287,7 @@
   },
   {
     "id": "gpd-win-max-2-2025",
-    "index": 94,
+    "index": 95,
     "name": {
       "raw": "GPD Win Max 2 2025",
       "sanitized": "gpd-win-max-2-2025",
@@ -41274,7 +41704,7 @@
   },
   {
     "id": "rg34xx",
-    "index": 95,
+    "index": 96,
     "name": {
       "raw": "RG34XX",
       "sanitized": "rg34xx",
@@ -41730,7 +42160,7 @@
   },
   {
     "id": "g28",
-    "index": 96,
+    "index": 97,
     "name": {
       "raw": "G28",
       "sanitized": "g28",
@@ -42138,7 +42568,7 @@
   },
   {
     "id": "r36-max",
-    "index": 97,
+    "index": 98,
     "name": {
       "raw": "R36 Max",
       "sanitized": "r36-max",
@@ -42556,7 +42986,7 @@
   },
   {
     "id": "onexfly-f1-pro",
-    "index": 98,
+    "index": 99,
     "name": {
       "raw": "OneXFly F1 Pro",
       "sanitized": "onexfly-f1-pro",
@@ -43018,7 +43448,7 @@
   },
   {
     "id": "ayaneo-pocket-dmg",
-    "index": 99,
+    "index": 100,
     "name": {
       "raw": "AYANEO Pocket DMG",
       "sanitized": "ayaneo-pocket-dmg",
@@ -43460,7 +43890,7 @@
   },
   {
     "id": "ayaneo-pocket-evo",
-    "index": 100,
+    "index": 101,
     "name": {
       "raw": "AYANEO Pocket EVO",
       "sanitized": "ayaneo-pocket-evo",
@@ -43898,7 +44328,7 @@
   },
   {
     "id": "rg406h",
-    "index": 101,
+    "index": 102,
     "name": {
       "raw": "RG406H",
       "sanitized": "rg406h",
@@ -44344,7 +44774,7 @@
   },
   {
     "id": "retroid-pocket-5",
-    "index": 102,
+    "index": 103,
     "name": {
       "raw": "Retroid Pocket 5",
       "sanitized": "retroid-pocket-5",
@@ -44820,7 +45250,7 @@
   },
   {
     "id": "trimui-smart-brick",
-    "index": 103,
+    "index": 104,
     "name": {
       "raw": "TRIMUI Smart Brick",
       "sanitized": "trimui-smart-brick",
@@ -45304,7 +45734,7 @@
   },
   {
     "id": "m22-pro",
-    "index": 104,
+    "index": 105,
     "name": {
       "raw": "M22 Pro",
       "sanitized": "m22-pro",
@@ -45728,7 +46158,7 @@
   },
   {
     "id": "sf3000",
-    "index": 105,
+    "index": 106,
     "name": {
       "raw": "SF3000",
       "sanitized": "sf3000",
@@ -46144,7 +46574,7 @@
   },
   {
     "id": "r39s",
-    "index": 106,
+    "index": 107,
     "name": {
       "raw": "R39S",
       "sanitized": "r39s",
@@ -46566,7 +46996,7 @@
   },
   {
     "id": "rg-cube-xx",
-    "index": 107,
+    "index": 108,
     "name": {
       "raw": "RG Cube XX",
       "sanitized": "rg-cube-xx",
@@ -47018,7 +47448,7 @@
   },
   {
     "id": "rgb20-pro",
-    "index": 108,
+    "index": 109,
     "name": {
       "raw": "RGB20 Pro",
       "sanitized": "rgb20-pro",
@@ -47456,7 +47886,7 @@
   },
   {
     "id": "zotac-zone",
-    "index": 109,
+    "index": 110,
     "name": {
       "raw": "Zotac Zone",
       "sanitized": "zotac-zone",
@@ -47922,7 +48352,7 @@
   },
   {
     "id": "gkd-bubble",
-    "index": 110,
+    "index": 111,
     "name": {
       "raw": "GKD Bubble",
       "sanitized": "gkd-bubble",
@@ -48360,7 +48790,7 @@
   },
   {
     "id": "retroid-pocket-mini",
-    "index": 111,
+    "index": 112,
     "name": {
       "raw": "Retroid Pocket Mini",
       "sanitized": "retroid-pocket-mini",
@@ -48828,7 +49258,7 @@
   },
   {
     "id": "ayaneo-pocket-micro-antech-core-micro",
-    "index": 112,
+    "index": 113,
     "name": {
       "raw": "AYANEO Pocket Micro / Antech Core Micro",
       "sanitized": "ayaneo-pocket-micro-antech-core-micro",
@@ -49272,7 +49702,7 @@
   },
   {
     "id": "rg406v",
-    "index": 113,
+    "index": 114,
     "name": {
       "raw": "RG406V",
       "sanitized": "rg406v",
@@ -49722,7 +50152,7 @@
   },
   {
     "id": "rgb10x",
-    "index": 114,
+    "index": 115,
     "name": {
       "raw": "RGB10X",
       "sanitized": "rgb10x",
@@ -50169,7 +50599,7 @@
   },
   {
     "id": "r46s",
-    "index": 116,
+    "index": 117,
     "name": {
       "raw": "R46S",
       "sanitized": "r46s",
@@ -50582,7 +51012,7 @@
   },
   {
     "id": "rg40xxv",
-    "index": 117,
+    "index": 118,
     "name": {
       "raw": "RG40XXV",
       "sanitized": "rg40xxv",
@@ -51022,7 +51452,7 @@
   },
   {
     "id": "tjd-t80",
-    "index": 118,
+    "index": 119,
     "name": {
       "raw": "TJD T80",
       "sanitized": "tjd-t80",
@@ -51450,7 +51880,7 @@
   },
   {
     "id": "zpg-a1-unicorn",
-    "index": 119,
+    "index": 120,
     "name": {
       "raw": "ZPG A1 Unicorn",
       "sanitized": "zpg-a1-unicorn",
@@ -51898,7 +52328,7 @@
   },
   {
     "id": "k36",
-    "index": 120,
+    "index": 121,
     "name": {
       "raw": "K36",
       "sanitized": "k36",
@@ -52316,7 +52746,7 @@
   },
   {
     "id": "x35s",
-    "index": 121,
+    "index": 122,
     "name": {
       "raw": "X35S",
       "sanitized": "x35s",
@@ -52729,7 +53159,7 @@
   },
   {
     "id": "xu-mini-m",
-    "index": 122,
+    "index": 123,
     "name": {
       "raw": "XU Mini M",
       "sanitized": "xu-mini-m",
@@ -53167,7 +53597,7 @@
   },
   {
     "id": "rog-ally-x",
-    "index": 123,
+    "index": 124,
     "name": {
       "raw": "ROG Ally X",
       "sanitized": "rog-ally-x",
@@ -53651,7 +54081,7 @@
   },
   {
     "id": "rg40xxh",
-    "index": 124,
+    "index": 125,
     "name": {
       "raw": "RG40XXH",
       "sanitized": "rg40xxh",
@@ -54095,7 +54525,7 @@
   },
   {
     "id": "onexplayer-x1-mini",
-    "index": 125,
+    "index": 126,
     "name": {
       "raw": "OneXPlayer X1 Mini",
       "sanitized": "onexplayer-x1-mini",
@@ -54533,7 +54963,7 @@
   },
   {
     "id": "gamemt-e5",
-    "index": 126,
+    "index": 127,
     "name": {
       "raw": "GAMEMT E5",
       "sanitized": "gamemt-e5",
@@ -54971,7 +55401,7 @@
   },
   {
     "id": "m21",
-    "index": 127,
+    "index": 128,
     "name": {
       "raw": "M21",
       "sanitized": "m21",
@@ -55387,7 +55817,7 @@
   },
   {
     "id": "odin-2-mini",
-    "index": 128,
+    "index": 129,
     "name": {
       "raw": "Odin 2 Mini",
       "sanitized": "odin-2-mini",
@@ -55840,7 +56270,7 @@
   },
   {
     "id": "v10",
-    "index": 129,
+    "index": 130,
     "name": {
       "raw": "V10",
       "sanitized": "v10",
@@ -56279,7 +56709,7 @@
   },
   {
     "id": "gamemt-e6-plus",
-    "index": 130,
+    "index": 131,
     "name": {
       "raw": "GAMEMT E6 Plus",
       "sanitized": "gamemt-e6-plus",
@@ -56721,7 +57151,7 @@
   },
   {
     "id": "rg-cube",
-    "index": 131,
+    "index": 132,
     "name": {
       "raw": "RG Cube",
       "sanitized": "rg-cube",
@@ -57167,7 +57597,7 @@
   },
   {
     "id": "gpd-win-max-2-(2024)",
-    "index": 132,
+    "index": 133,
     "name": {
       "raw": "GPD Win Max 2 (2024)",
       "sanitized": "gpd-win-max-2-(2024)",
@@ -57597,7 +58027,7 @@
   },
   {
     "id": "ayaneo-pocket-s",
-    "index": 133,
+    "index": 134,
     "name": {
       "raw": "AYANEO Pocket S",
       "sanitized": "ayaneo-pocket-s",
@@ -58063,7 +58493,7 @@
   },
   {
     "id": "r40s",
-    "index": 134,
+    "index": 135,
     "name": {
       "raw": "R40S",
       "sanitized": "r40s",
@@ -58492,7 +58922,7 @@
   },
   {
     "id": "rg35xx-sp",
-    "index": 135,
+    "index": 136,
     "name": {
       "raw": "RG35XX SP",
       "sanitized": "rg35xx-sp",
@@ -58952,7 +59382,7 @@
   },
   {
     "id": "miyoo-a30-282",
-    "index": 136,
+    "index": 137,
     "name": {
       "raw": "Miyoo A30 / 282",
       "sanitized": "miyoo-a30-282",
@@ -59404,7 +59834,7 @@
   },
   {
     "id": "m19",
-    "index": 137,
+    "index": 138,
     "name": {
       "raw": "M19",
       "sanitized": "m19",
@@ -59829,7 +60259,7 @@
   },
   {
     "id": "gpd-win-mini-2024",
-    "index": 138,
+    "index": 139,
     "name": {
       "raw": "GPD Win Mini 2024",
       "sanitized": "gpd-win-mini-2024",
@@ -60270,7 +60700,7 @@
   },
   {
     "id": "rg28xx",
-    "index": 139,
+    "index": 140,
     "name": {
       "raw": "RG28XX",
       "sanitized": "rg28xx",
@@ -60722,7 +61152,7 @@
   },
   {
     "id": "rgb20sx",
-    "index": 140,
+    "index": 141,
     "name": {
       "raw": "RGB20SX",
       "sanitized": "rgb20sx",
@@ -61156,7 +61586,7 @@
   },
   {
     "id": "d-r35s-plus",
-    "index": 141,
+    "index": 142,
     "name": {
       "raw": "D-R35S Plus",
       "sanitized": "d-r35s-plus",
@@ -61577,7 +62007,7 @@
   },
   {
     "id": "ayaneo-flip-ds",
-    "index": 142,
+    "index": 143,
     "name": {
       "raw": "AYANEO Flip DS",
       "sanitized": "ayaneo-flip-ds",
@@ -62015,7 +62445,7 @@
   },
   {
     "id": "ayaneo-flip-kb",
-    "index": 143,
+    "index": 144,
     "name": {
       "raw": "AYANEO Flip KB",
       "sanitized": "ayaneo-flip-kb",
@@ -62461,7 +62891,7 @@
   },
   {
     "id": "rg35xx-2024",
-    "index": 144,
+    "index": 145,
     "name": {
       "raw": "RG35XX 2024",
       "sanitized": "rg35xx-2024",
@@ -62901,7 +63331,7 @@
   },
   {
     "id": "r50s",
-    "index": 145,
+    "index": 146,
     "name": {
       "raw": "R50S",
       "sanitized": "r50s",
@@ -63315,7 +63745,7 @@
   },
   {
     "id": "msi-claw-a1m",
-    "index": 146,
+    "index": 147,
     "name": {
       "raw": "MSI Claw A1M",
       "sanitized": "msi-claw-a1m",
@@ -63802,7 +64232,7 @@
   },
   {
     "id": "rg556",
-    "index": 147,
+    "index": 148,
     "name": {
       "raw": "RG556",
       "sanitized": "rg556",
@@ -64260,7 +64690,7 @@
   },
   {
     "id": "rgb10max3",
-    "index": 148,
+    "index": 149,
     "name": {
       "raw": "RGB10MAX3",
       "sanitized": "rgb10max3",
@@ -64694,7 +65124,7 @@
   },
   {
     "id": "gameforce-ace",
-    "index": 149,
+    "index": 150,
     "name": {
       "raw": "Gameforce ACE",
       "sanitized": "gameforce-ace",
@@ -65126,7 +65556,7 @@
   },
   {
     "id": "aokzoe-a2",
-    "index": 150,
+    "index": 151,
     "name": {
       "raw": "AOKZOE A2",
       "sanitized": "aokzoe-a2",
@@ -65608,7 +66038,7 @@
   },
   {
     "id": "ayaneo-next-lite",
-    "index": 151,
+    "index": 152,
     "name": {
       "raw": "AYANEO Next Lite",
       "sanitized": "ayaneo-next-lite",
@@ -66041,7 +66471,7 @@
   },
   {
     "id": "onexplayer-x1",
-    "index": 152,
+    "index": 153,
     "name": {
       "raw": "OneXPlayer X1",
       "sanitized": "onexplayer-x1",
@@ -66484,7 +66914,7 @@
   },
   {
     "id": "retroid-pocket-4",
-    "index": 153,
+    "index": 154,
     "name": {
       "raw": "Retroid Pocket 4",
       "sanitized": "retroid-pocket-4",
@@ -66925,7 +67355,7 @@
   },
   {
     "id": "tjd-t101",
-    "index": 154,
+    "index": 155,
     "name": {
       "raw": "TJD T101",
       "sanitized": "tjd-t101",
@@ -67376,7 +67806,7 @@
   },
   {
     "id": "gkd-pixel",
-    "index": 155,
+    "index": 156,
     "name": {
       "raw": "GKD Pixel",
       "sanitized": "gkd-pixel",
@@ -67821,7 +68251,7 @@
   },
   {
     "id": "retroid-pocket-4-pro",
-    "index": 156,
+    "index": 157,
     "name": {
       "raw": "Retroid Pocket 4 Pro",
       "sanitized": "retroid-pocket-4-pro",
@@ -68293,7 +68723,7 @@
   },
   {
     "id": "rg35xxh",
-    "index": 157,
+    "index": 158,
     "name": {
       "raw": "RG35XXH",
       "sanitized": "rg35xxh",
@@ -68753,7 +69183,7 @@
   },
   {
     "id": "m18-r43-pro",
-    "index": 158,
+    "index": 159,
     "name": {
       "raw": "M18 / R43 Pro",
       "sanitized": "m18-r43-pro",
@@ -69203,7 +69633,7 @@
   },
   {
     "id": "r33s",
-    "index": 159,
+    "index": 160,
     "name": {
       "raw": "R33S",
       "sanitized": "r33s",
@@ -69638,7 +70068,7 @@
   },
   {
     "id": "gb300",
-    "index": 160,
+    "index": 161,
     "name": {
       "raw": "GB300",
       "sanitized": "gb300",
@@ -70068,7 +70498,7 @@
   },
   {
     "id": "ayaneo-slide-antech-core-hs",
-    "index": 161,
+    "index": 162,
     "name": {
       "raw": "AYANEO Slide /Antech Core HS",
       "sanitized": "ayaneo-slide-antech-core-hs",
@@ -70523,7 +70953,7 @@
   },
   {
     "id": "gamemt-e6",
-    "index": 162,
+    "index": 163,
     "name": {
       "raw": "GAMEMT E6",
       "sanitized": "gamemt-e6",
@@ -70958,7 +71388,7 @@
   },
   {
     "id": "gpd-win-mini",
-    "index": 163,
+    "index": 164,
     "name": {
       "raw": "GPD Win Mini",
       "sanitized": "gpd-win-mini",
@@ -71427,7 +71857,7 @@
   },
   {
     "id": "rg35xx-plus",
-    "index": 164,
+    "index": 165,
     "name": {
       "raw": "RG35XX Plus",
       "sanitized": "rg35xx-plus",
@@ -71879,7 +72309,7 @@
   },
   {
     "id": "rg-arc-d",
-    "index": 165,
+    "index": 166,
     "name": {
       "raw": "RG ARC-D",
       "sanitized": "rg-arc-d",
@@ -72327,7 +72757,7 @@
   },
   {
     "id": "rg-arc-s",
-    "index": 166,
+    "index": 167,
     "name": {
       "raw": "RG ARC-S",
       "sanitized": "rg-arc-s",
@@ -72768,7 +73198,7 @@
   },
   {
     "id": "steam-deck-oled",
-    "index": 167,
+    "index": 168,
     "name": {
       "raw": "Steam Deck OLED",
       "sanitized": "steam-deck-oled",
@@ -73286,7 +73716,7 @@
   },
   {
     "id": "xu10",
-    "index": 168,
+    "index": 169,
     "name": {
       "raw": "XU10",
       "sanitized": "xu10",
@@ -73733,7 +74163,7 @@
   },
   {
     "id": "trimui-smart-pro",
-    "index": 169,
+    "index": 170,
     "name": {
       "raw": "TRIMUI Smart Pro",
       "sanitized": "trimui-smart-pro",
@@ -74212,7 +74642,7 @@
   },
   {
     "id": "r36s",
-    "index": 170,
+    "index": 171,
     "name": {
       "raw": "R36S",
       "sanitized": "r36s",
@@ -74666,7 +75096,7 @@
   },
   {
     "id": "lenovo-legion-go",
-    "index": 171,
+    "index": 172,
     "name": {
       "raw": "Lenovo Legion Go",
       "sanitized": "lenovo-legion-go",
@@ -75154,7 +75584,7 @@
   },
   {
     "id": "odin-2",
-    "index": 172,
+    "index": 173,
     "name": {
       "raw": "Odin 2",
       "sanitized": "odin-2",
@@ -75656,7 +76086,7 @@
   },
   {
     "id": "ayaneo-kun",
-    "index": 173,
+    "index": 174,
     "name": {
       "raw": "AYANEO Kun",
       "sanitized": "ayaneo-kun",
@@ -76111,7 +76541,7 @@
   },
   {
     "id": "m17",
-    "index": 174,
+    "index": 175,
     "name": {
       "raw": "M17",
       "sanitized": "m17",
@@ -76555,7 +76985,7 @@
   },
   {
     "id": "ayaneo-pocket-air",
-    "index": 175,
+    "index": 176,
     "name": {
       "raw": "AYANEO Pocket Air",
       "sanitized": "ayaneo-pocket-air",
@@ -76998,7 +77428,7 @@
   },
   {
     "id": "loki-mini-pro",
-    "index": 176,
+    "index": 177,
     "name": {
       "raw": "Loki Mini Pro",
       "sanitized": "loki-mini-pro",
@@ -77437,7 +77867,7 @@
   },
   {
     "id": "onexfly",
-    "index": 177,
+    "index": 178,
     "name": {
       "raw": "OneXFly",
       "sanitized": "onexfly",
@@ -77885,7 +78315,7 @@
   },
   {
     "id": "gpd-win-4(7640u-7840u)",
-    "index": 178,
+    "index": 179,
     "name": {
       "raw": "GPD Win 4(7640U / 7840U)",
       "sanitized": "gpd-win-4(7640u-7840u)",
@@ -78311,7 +78741,7 @@
   },
   {
     "id": "rg405v",
-    "index": 179,
+    "index": 180,
     "name": {
       "raw": "RG405V",
       "sanitized": "rg405v",
@@ -78754,7 +79184,7 @@
   },
   {
     "id": "powkiddy-rgb30",
-    "index": 180,
+    "index": 181,
     "name": {
       "raw": "PowKiddy RGB30",
       "sanitized": "powkiddy-rgb30",
@@ -79197,7 +79627,7 @@
   },
   {
     "id": "loki-zero",
-    "index": 181,
+    "index": 182,
     "name": {
       "raw": "Loki Zero",
       "sanitized": "loki-zero",
@@ -79656,7 +80086,7 @@
   },
   {
     "id": "retroid-pocket-2s",
-    "index": 182,
+    "index": 183,
     "name": {
       "raw": "Retroid Pocket 2S",
       "sanitized": "retroid-pocket-2s",
@@ -80123,7 +80553,7 @@
   },
   {
     "id": "gpd-win-max-2(7640u-7840u)",
-    "index": 183,
+    "index": 184,
     "name": {
       "raw": "GPD Win Max 2(7640U / 7840U)",
       "sanitized": "gpd-win-max-2(7640u-7840u)",
@@ -80583,7 +81013,7 @@
   },
   {
     "id": "ayaneo-air-1s",
-    "index": 184,
+    "index": 185,
     "name": {
       "raw": "AYANEO Air 1S",
       "sanitized": "ayaneo-air-1s",
@@ -81030,7 +81460,7 @@
   },
   {
     "id": "ayaneo-geek-1s",
-    "index": 185,
+    "index": 186,
     "name": {
       "raw": "AYANEO Geek 1S",
       "sanitized": "ayaneo-geek-1s",
@@ -81453,7 +81883,7 @@
   },
   {
     "id": "abxylute-cloud-gaming-handheld",
-    "index": 186,
+    "index": 187,
     "name": {
       "raw": "Abxylute Cloud Gaming Handheld",
       "sanitized": "abxylute-cloud-gaming-handheld",
@@ -81900,7 +82330,7 @@
   },
   {
     "id": "kt-r1",
-    "index": 187,
+    "index": 188,
     "name": {
       "raw": "KT-R1",
       "sanitized": "kt-r1",
@@ -82348,7 +82778,7 @@
   },
   {
     "id": "r35s",
-    "index": 188,
+    "index": 189,
     "name": {
       "raw": "R35S",
       "sanitized": "r35s",
@@ -82792,7 +83222,7 @@
   },
   {
     "id": "powkiddy-rgb10-max-3-pro",
-    "index": 189,
+    "index": 190,
     "name": {
       "raw": "PowKiddy RGB10 Max 3 Pro",
       "sanitized": "powkiddy-rgb10-max-3-pro",
@@ -83246,7 +83676,7 @@
   },
   {
     "id": "x6",
-    "index": 190,
+    "index": 191,
     "name": {
       "raw": "X6",
       "sanitized": "x6",
@@ -83669,7 +84099,7 @@
   },
   {
     "id": "uconsole",
-    "index": 191,
+    "index": 192,
     "name": {
       "raw": "uConsole",
       "sanitized": "uconsole",
@@ -84090,7 +84520,7 @@
   },
   {
     "id": "aokzoe-a1-pro",
-    "index": 192,
+    "index": 193,
     "name": {
       "raw": "AOKZOE A1 PRO",
       "sanitized": "aokzoe-a1-pro",
@@ -84546,7 +84976,7 @@
   },
   {
     "id": "ayaneo-2s",
-    "index": 193,
+    "index": 194,
     "name": {
       "raw": "AYANEO 2S",
       "sanitized": "ayaneo-2s",
@@ -84986,7 +85416,7 @@
   },
   {
     "id": "ayaneo-air-plus",
-    "index": 194,
+    "index": 195,
     "name": {
       "raw": "AYANEO Air Plus",
       "sanitized": "ayaneo-air-plus",
@@ -85458,7 +85888,7 @@
   },
   {
     "id": "rg-nano",
-    "index": 195,
+    "index": 196,
     "name": {
       "raw": "RG NANO",
       "sanitized": "rg-nano",
@@ -85929,7 +86359,7 @@
   },
   {
     "id": "rog-ally",
-    "index": 196,
+    "index": 197,
     "name": {
       "raw": "ROG Ally",
       "sanitized": "rog-ally",
@@ -86605,7 +87035,7 @@
   },
   {
     "id": "loki",
-    "index": 197,
+    "index": 198,
     "name": {
       "raw": "Loki",
       "sanitized": "loki",
@@ -87082,7 +87512,7 @@
   },
   {
     "id": "loki-max",
-    "index": 198,
+    "index": 199,
     "name": {
       "raw": "Loki Max",
       "sanitized": "loki-max",
@@ -87551,7 +87981,7 @@
   },
   {
     "id": "rk2023(wifi-model)",
-    "index": 199,
+    "index": 200,
     "name": {
       "raw": "RK2023(WiFi model)",
       "sanitized": "rk2023(wifi-model)",
@@ -87994,7 +88424,7 @@
   },
   {
     "id": "pimax-portal",
-    "index": 200,
+    "index": 201,
     "name": {
       "raw": "Pimax Portal",
       "sanitized": "pimax-portal",
@@ -88448,7 +88878,7 @@
   },
   {
     "id": "retro-pixel-pocket",
-    "index": 201,
+    "index": 202,
     "name": {
       "raw": "Retro Pixel Pocket",
       "sanitized": "retro-pixel-pocket",
@@ -88886,7 +89316,7 @@
   },
   {
     "id": "d-007",
-    "index": 202,
+    "index": 203,
     "name": {
       "raw": "D-007",
       "sanitized": "d-007",
@@ -89316,7 +89746,7 @@
   },
   {
     "id": "powkiddy-x28",
-    "index": 203,
+    "index": 204,
     "name": {
       "raw": "PowKiddy X28",
       "sanitized": "powkiddy-x28",
@@ -89767,7 +90197,7 @@
   },
   {
     "id": "rg353ps",
-    "index": 204,
+    "index": 205,
     "name": {
       "raw": "RG353PS",
       "sanitized": "rg353ps",
@@ -90217,7 +90647,7 @@
   },
   {
     "id": "powkiddy-x55",
-    "index": 205,
+    "index": 206,
     "name": {
       "raw": "PowKiddy X55",
       "sanitized": "powkiddy-x55",
@@ -90676,7 +91106,7 @@
   },
   {
     "id": "ayaneo-air-plus-amd-6800u",
-    "index": 206,
+    "index": 207,
     "name": {
       "raw": "AYANEO Air Plus AMD 6800U",
       "sanitized": "ayaneo-air-plus-amd-6800u",
@@ -91131,7 +91561,7 @@
   },
   {
     "id": "retroid-pocket-flip",
-    "index": 207,
+    "index": 208,
     "name": {
       "raw": "Retroid Pocket Flip",
       "sanitized": "retroid-pocket-flip",
@@ -91586,7 +92016,7 @@
   },
   {
     "id": "data-frog-sf2000",
-    "index": 208,
+    "index": 209,
     "name": {
       "raw": "Data Frog SF2000",
       "sanitized": "data-frog-sf2000",
@@ -92022,7 +92452,7 @@
   },
   {
     "id": "rg405m",
-    "index": 209,
+    "index": 210,
     "name": {
       "raw": "RG405M",
       "sanitized": "rg405m",
@@ -92499,7 +92929,7 @@
   },
   {
     "id": "gpd-win-4",
-    "index": 210,
+    "index": 211,
     "name": {
       "raw": "GPD Win 4",
       "sanitized": "gpd-win-4",
@@ -93042,7 +93472,7 @@
   },
   {
     "id": "rk2023",
-    "index": 211,
+    "index": 212,
     "name": {
       "raw": "RK2023",
       "sanitized": "rk2023",
@@ -93489,7 +93919,7 @@
   },
   {
     "id": "miyoo-mini-plus",
-    "index": 212,
+    "index": 213,
     "name": {
       "raw": "Miyoo Mini Plus",
       "sanitized": "miyoo-mini-plus",
@@ -93955,7 +94385,7 @@
   },
   {
     "id": "onexplayer-2",
-    "index": 213,
+    "index": 214,
     "name": {
       "raw": "OneXPlayer 2",
       "sanitized": "onexplayer-2",
@@ -94407,7 +94837,7 @@
   },
   {
     "id": "razer-edge-5g",
-    "index": 214,
+    "index": 215,
     "name": {
       "raw": "Razer Edge 5G",
       "sanitized": "razer-edge-5g",
@@ -94851,7 +95281,7 @@
   },
   {
     "id": "gkd-mini-plus-classic",
-    "index": 215,
+    "index": 216,
     "name": {
       "raw": "GKD Mini Plus Classic",
       "sanitized": "gkd-mini-plus-classic",
@@ -95292,7 +95722,7 @@
   },
   {
     "id": "gkd-mini-plus",
-    "index": 216,
+    "index": 217,
     "name": {
       "raw": "GKD Mini Plus",
       "sanitized": "gkd-mini-plus",
@@ -95737,7 +96167,7 @@
   },
   {
     "id": "ayaneo-2",
-    "index": 218,
+    "index": 219,
     "name": {
       "raw": "AYANEO 2",
       "sanitized": "ayaneo-2",
@@ -96247,7 +96677,7 @@
   },
   {
     "id": "rg35xx",
-    "index": 219,
+    "index": 220,
     "name": {
       "raw": "RG35XX",
       "sanitized": "rg35xx",
@@ -96758,7 +97188,7 @@
   },
   {
     "id": "gpi-case-2w",
-    "index": 220,
+    "index": 221,
     "name": {
       "raw": "GPi Case 2W",
       "sanitized": "gpi-case-2w",
@@ -97176,7 +97606,7 @@
   },
   {
     "id": "pocketstar",
-    "index": 221,
+    "index": 222,
     "name": {
       "raw": "PocketStar",
       "sanitized": "pocketstar",
@@ -97588,7 +98018,7 @@
   },
   {
     "id": "rg505",
-    "index": 222,
+    "index": 223,
     "name": {
       "raw": "RG505",
       "sanitized": "rg505",
@@ -98051,7 +98481,7 @@
   },
   {
     "id": "retroid-pocket-3-plus",
-    "index": 223,
+    "index": 224,
     "name": {
       "raw": "Retroid Pocket 3 Plus",
       "sanitized": "retroid-pocket-3-plus",
@@ -98526,7 +98956,7 @@
   },
   {
     "id": "one-xplayer-mini-pro",
-    "index": 224,
+    "index": 225,
     "name": {
       "raw": "One XPlayer Mini Pro",
       "sanitized": "one-xplayer-mini-pro",
@@ -98997,7 +99427,7 @@
   },
   {
     "id": "rg353m",
-    "index": 225,
+    "index": 226,
     "name": {
       "raw": "RG353M",
       "sanitized": "rg353m",
@@ -99439,7 +99869,7 @@
   },
   {
     "id": "logitech-g-cloud",
-    "index": 226,
+    "index": 227,
     "name": {
       "raw": "Logitech G CLOUD",
       "sanitized": "logitech-g-cloud",
@@ -99892,7 +100322,7 @@
   },
   {
     "id": "gpd-win-max-2",
-    "index": 227,
+    "index": 228,
     "name": {
       "raw": "GPD Win Max 2",
       "sanitized": "gpd-win-max-2",
@@ -100392,7 +100822,7 @@
   },
   {
     "id": "odroid-go-ultra",
-    "index": 228,
+    "index": 229,
     "name": {
       "raw": "Odroid Go Ultra",
       "sanitized": "odroid-go-ultra",
@@ -100838,7 +101268,7 @@
   },
   {
     "id": "aokzoe-a1",
-    "index": 229,
+    "index": 230,
     "name": {
       "raw": "AOKZOE A1",
       "sanitized": "aokzoe-a1",
@@ -101295,7 +101725,7 @@
   },
   {
     "id": "ayaneo-air-pro",
-    "index": 230,
+    "index": 231,
     "name": {
       "raw": "AYANEO Air Pro",
       "sanitized": "ayaneo-air-pro",
@@ -101778,7 +102208,7 @@
   },
   {
     "id": "rg353v",
-    "index": 231,
+    "index": 232,
     "name": {
       "raw": "RG353V",
       "sanitized": "rg353v",
@@ -102228,7 +102658,7 @@
   },
   {
     "id": "rg353vs",
-    "index": 232,
+    "index": 233,
     "name": {
       "raw": "RG353VS",
       "sanitized": "rg353vs",
@@ -102671,7 +103101,7 @@
   },
   {
     "id": "piboy-xrs",
-    "index": 233,
+    "index": 234,
     "name": {
       "raw": "PiBoy XRS",
       "sanitized": "piboy-xrs",
@@ -103101,7 +103531,7 @@
   },
   {
     "id": "ayaneo-air",
-    "index": 234,
+    "index": 235,
     "name": {
       "raw": "AYANEO Air",
       "sanitized": "ayaneo-air",
@@ -103580,7 +104010,7 @@
   },
   {
     "id": "retroid-pocket-3",
-    "index": 235,
+    "index": 236,
     "name": {
       "raw": "Retroid Pocket 3",
       "sanitized": "retroid-pocket-3",
@@ -104050,7 +104480,7 @@
   },
   {
     "id": "trimui-smart",
-    "index": 236,
+    "index": 237,
     "name": {
       "raw": "TRIMUI Smart",
       "sanitized": "trimui-smart",
@@ -104491,7 +104921,7 @@
   },
   {
     "id": "gpd-xp-plus",
-    "index": 237,
+    "index": 238,
     "name": {
       "raw": "GPD XP Plus",
       "sanitized": "gpd-xp-plus",
@@ -104922,7 +105352,7 @@
   },
   {
     "id": "win600",
-    "index": 238,
+    "index": 239,
     "name": {
       "raw": "Win600",
       "sanitized": "win600",
@@ -105399,7 +105829,7 @@
   },
   {
     "id": "odin-lite",
-    "index": 239,
+    "index": 240,
     "name": {
       "raw": "Odin Lite",
       "sanitized": "odin-lite",
@@ -105898,7 +106328,7 @@
   },
   {
     "id": "rg353p",
-    "index": 240,
+    "index": 241,
     "name": {
       "raw": "RG353P",
       "sanitized": "rg353p",
@@ -106357,7 +106787,7 @@
   },
   {
     "id": "powkiddy-rgb20s",
-    "index": 241,
+    "index": 242,
     "name": {
       "raw": "PowKiddy RGB20S",
       "sanitized": "powkiddy-rgb20s",
@@ -106817,7 +107247,7 @@
   },
   {
     "id": "rg503",
-    "index": 242,
+    "index": 243,
     "name": {
       "raw": "RG503",
       "sanitized": "rg503",
@@ -107299,7 +107729,7 @@
   },
   {
     "id": "ayaneo-next",
-    "index": 243,
+    "index": 244,
     "name": {
       "raw": "AYANEO Next",
       "sanitized": "ayaneo-next",
@@ -107763,7 +108193,7 @@
   },
   {
     "id": "pip",
-    "index": 244,
+    "index": 245,
     "name": {
       "raw": "PIP",
       "sanitized": "pip",
@@ -108186,7 +108616,7 @@
   },
   {
     "id": "powkiddy-rgb10s",
-    "index": 245,
+    "index": 246,
     "name": {
       "raw": "PowKiddy RGB10S",
       "sanitized": "powkiddy-rgb10s",
@@ -108670,7 +109100,7 @@
   },
   {
     "id": "steam-deck",
-    "index": 246,
+    "index": 247,
     "name": {
       "raw": "Steam Deck",
       "sanitized": "steam-deck",
@@ -109603,7 +110033,7 @@
   },
   {
     "id": "powkiddy-x39",
-    "index": 247,
+    "index": 248,
     "name": {
       "raw": "PowKiddy X39",
       "sanitized": "powkiddy-x39",
@@ -110040,7 +110470,7 @@
   },
   {
     "id": "thumby",
-    "index": 248,
+    "index": 249,
     "name": {
       "raw": "Thumby",
       "sanitized": "thumby",
@@ -110469,7 +110899,7 @@
   },
   {
     "id": "odin",
-    "index": 249,
+    "index": 250,
     "name": {
       "raw": "Odin",
       "sanitized": "odin",
@@ -111103,7 +111533,7 @@
   },
   {
     "id": "one-xplayer-mini",
-    "index": 250,
+    "index": 251,
     "name": {
       "raw": "One XPlayer Mini",
       "sanitized": "one-xplayer-mini",
@@ -111633,7 +112063,7 @@
   },
   {
     "id": "digi-dock-2",
-    "index": 251,
+    "index": 252,
     "name": {
       "raw": "Digi Dock 2",
       "sanitized": "digi-dock-2",
@@ -112051,7 +112481,7 @@
   },
   {
     "id": "retro-dreamer(game-4-all-cm4)",
-    "index": 252,
+    "index": 253,
     "name": {
       "raw": "Retro Dreamer(Game 4 All CM4)",
       "sanitized": "retro-dreamer(game-4-all-cm4)",
@@ -112517,7 +112947,7 @@
   },
   {
     "id": "gpi-case-2",
-    "index": 253,
+    "index": 254,
     "name": {
       "raw": "GPi Case 2",
       "sanitized": "gpi-case-2",
@@ -112952,7 +113382,7 @@
   },
   {
     "id": "retroid-pocket-2-plus-(rp2-pcb-upgrade)",
-    "index": 254,
+    "index": 255,
     "name": {
       "raw": "Retroid Pocket 2+(RP2 PCB Upgrade)",
       "sanitized": "retroid-pocket-2-plus-(rp2-pcb-upgrade)",
@@ -113550,7 +113980,7 @@
   },
   {
     "id": "powkiddy-q36-mini",
-    "index": 255,
+    "index": 256,
     "name": {
       "raw": "PowKiddy Q36 Mini",
       "sanitized": "powkiddy-q36-mini",
@@ -113983,7 +114413,7 @@
   },
   {
     "id": "analogue-pocket",
-    "index": 256,
+    "index": 257,
     "name": {
       "raw": "Analogue Pocket",
       "sanitized": "analogue-pocket",
@@ -114435,7 +114865,7 @@
   },
   {
     "id": "rg552",
-    "index": 257,
+    "index": 258,
     "name": {
       "raw": "RG552",
       "sanitized": "rg552",
@@ -114942,7 +115372,7 @@
   },
   {
     "id": "miyoo-mini",
-    "index": 258,
+    "index": 259,
     "name": {
       "raw": "Miyoo Mini",
       "sanitized": "miyoo-mini",
@@ -115464,7 +115894,7 @@
   },
   {
     "id": "powkiddy-a20",
-    "index": 259,
+    "index": 260,
     "name": {
       "raw": "PowKiddy A20",
       "sanitized": "powkiddy-a20",
@@ -115918,7 +116348,7 @@
   },
   {
     "id": "powkiddy-a30",
-    "index": 260,
+    "index": 261,
     "name": {
       "raw": "PowKiddy A30",
       "sanitized": "powkiddy-a30",
@@ -116356,7 +116786,7 @@
   },
   {
     "id": "one-xplayer-amd",
-    "index": 261,
+    "index": 262,
     "name": {
       "raw": "One XPlayer AMD",
       "sanitized": "one-xplayer-amd",
@@ -116863,7 +117293,7 @@
   },
   {
     "id": "ayaneo-pro(retro-power)",
-    "index": 262,
+    "index": 263,
     "name": {
       "raw": "AYANEO Pro(Retro Power)",
       "sanitized": "ayaneo-pro(retro-power)",
@@ -117314,7 +117744,7 @@
   },
   {
     "id": "gpd-xp",
-    "index": 263,
+    "index": 264,
     "name": {
       "raw": "GPD XP",
       "sanitized": "gpd-xp",
@@ -117781,7 +118211,7 @@
   },
   {
     "id": "powkiddy-rgb10-max-2",
-    "index": 264,
+    "index": 265,
     "name": {
       "raw": "PowKiddy RGB10 Max 2",
       "sanitized": "powkiddy-rgb10-max-2",
@@ -118273,7 +118703,7 @@
   },
   {
     "id": "one-xplayer-1s",
-    "index": 265,
+    "index": 266,
     "name": {
       "raw": "One XPlayer 1S",
       "sanitized": "one-xplayer-1s",
@@ -118735,7 +119165,7 @@
   },
   {
     "id": "gpm280-cm4",
-    "index": 266,
+    "index": 267,
     "name": {
       "raw": "GPM280 CM4",
       "sanitized": "gpm280-cm4",
@@ -119165,7 +119595,7 @@
   },
   {
     "id": "powkiddy-x18s",
-    "index": 267,
+    "index": 268,
     "name": {
       "raw": "PowKiddy X18S",
       "sanitized": "powkiddy-x18s",
@@ -119692,7 +120122,7 @@
   },
   {
     "id": "gpd-win-max-2021",
-    "index": 268,
+    "index": 269,
     "name": {
       "raw": "GPD Win Max 2021",
       "sanitized": "gpd-win-max-2021",
@@ -120159,7 +120589,7 @@
   },
   {
     "id": "rg351mp",
-    "index": 269,
+    "index": 270,
     "name": {
       "raw": "RG351MP",
       "sanitized": "rg351mp",
@@ -120660,7 +121090,7 @@
   },
   {
     "id": "a380-gamemax",
-    "index": 270,
+    "index": 271,
     "name": {
       "raw": "A380 / GameMax",
       "sanitized": "a380-gamemax",
@@ -121122,7 +121552,7 @@
   },
   {
     "id": "devterm",
-    "index": 271,
+    "index": 272,
     "name": {
       "raw": "DevTerm",
       "sanitized": "devterm",
@@ -121548,7 +121978,7 @@
   },
   {
     "id": "rg300x",
-    "index": 272,
+    "index": 273,
     "name": {
       "raw": "RG300X",
       "sanitized": "rg300x",
@@ -121993,7 +122423,7 @@
   },
   {
     "id": "microbyte",
-    "index": 273,
+    "index": 274,
     "name": {
       "raw": "microByte",
       "sanitized": "microbyte",
@@ -122415,7 +122845,7 @@
   },
   {
     "id": "powkiddy-q20-mini",
-    "index": 274,
+    "index": 275,
     "name": {
       "raw": "PowKiddy Q20 Mini",
       "sanitized": "powkiddy-q20-mini",
@@ -122877,7 +123307,7 @@
   },
   {
     "id": "powkiddy-x17",
-    "index": 275,
+    "index": 276,
     "name": {
       "raw": "PowKiddy X17",
       "sanitized": "powkiddy-x17",
@@ -123328,7 +123758,7 @@
   },
   {
     "id": "one-xplayer",
-    "index": 276,
+    "index": 277,
     "name": {
       "raw": "One XPlayer",
       "sanitized": "one-xplayer",
@@ -123889,7 +124319,7 @@
   },
   {
     "id": "ayaneo",
-    "index": 277,
+    "index": 278,
     "name": {
       "raw": "AYANEO",
       "sanitized": "ayaneo",
@@ -124616,7 +125046,7 @@
   },
   {
     "id": "gameboy-esp32",
-    "index": 278,
+    "index": 279,
     "name": {
       "raw": "GameBoy ESP32",
       "sanitized": "gameboy-esp32",
@@ -125037,7 +125467,7 @@
   },
   {
     "id": "gameforce",
-    "index": 279,
+    "index": 280,
     "name": {
       "raw": "GameForce",
       "sanitized": "gameforce",
@@ -125484,7 +125914,7 @@
   },
   {
     "id": "gpd-win-3",
-    "index": 280,
+    "index": 281,
     "name": {
       "raw": "GPD Win 3",
       "sanitized": "gpd-win-3",
@@ -126095,7 +126525,7 @@
   },
   {
     "id": "lcl-cm4-boy",
-    "index": 281,
+    "index": 282,
     "name": {
       "raw": "LCL CM4 Boy",
       "sanitized": "lcl-cm4-boy",
@@ -126566,7 +126996,7 @@
   },
   {
     "id": "powkiddy-rgb10-max",
-    "index": 282,
+    "index": 283,
     "name": {
       "raw": "PowKiddy RGB10 Max",
       "sanitized": "powkiddy-rgb10-max",
@@ -127077,7 +127507,7 @@
   },
   {
     "id": "trdr-pocket",
-    "index": 283,
+    "index": 284,
     "name": {
       "raw": "TRDR Pocket",
       "sanitized": "trdr-pocket",
@@ -127511,7 +127941,7 @@
   },
   {
     "id": "rg351v",
-    "index": 284,
+    "index": 285,
     "name": {
       "raw": "RG351V",
       "sanitized": "rg351v",
@@ -128003,7 +128433,7 @@
   },
   {
     "id": "gkd-mini",
-    "index": 285,
+    "index": 286,
     "name": {
       "raw": "GKD Mini",
       "sanitized": "gkd-mini",
@@ -128442,7 +128872,7 @@
   },
   {
     "id": "retro-pixel-dmg",
-    "index": 286,
+    "index": 287,
     "name": {
       "raw": "Retro Pixel DMG",
       "sanitized": "retro-pixel-dmg",
@@ -128863,7 +129293,7 @@
   },
   {
     "id": "funkey-s",
-    "index": 287,
+    "index": 288,
     "name": {
       "raw": "FunKey S",
       "sanitized": "funkey-s",
@@ -129292,7 +129722,7 @@
   },
   {
     "id": "odroid-go-super",
-    "index": 288,
+    "index": 289,
     "name": {
       "raw": "Odroid Go Super",
       "sanitized": "odroid-go-super",
@@ -129831,7 +130261,7 @@
   },
   {
     "id": "rg351m",
-    "index": 289,
+    "index": 290,
     "name": {
       "raw": "RG351M",
       "sanitized": "rg351m",
@@ -130324,7 +130754,7 @@
   },
   {
     "id": "dragonbox-pyra",
-    "index": 290,
+    "index": 291,
     "name": {
       "raw": "DragonBox Pyra",
       "sanitized": "dragonbox-pyra",
@@ -130755,7 +131185,7 @@
   },
   {
     "id": "gamebox-mini",
-    "index": 291,
+    "index": 292,
     "name": {
       "raw": "GameBox Mini",
       "sanitized": "gamebox-mini",
@@ -131193,7 +131623,7 @@
   },
   {
     "id": "game-case-gba-cm3",
-    "index": 292,
+    "index": 293,
     "name": {
       "raw": "Game Case GBA CM3",
       "sanitized": "game-case-gba-cm3",
@@ -131619,7 +132049,7 @@
   },
   {
     "id": "onegx1-pro",
-    "index": 293,
+    "index": 294,
     "name": {
       "raw": "OneGx1 Pro",
       "sanitized": "onegx1-pro",
@@ -132090,7 +132520,7 @@
   },
   {
     "id": "gpm280-cm3",
-    "index": 294,
+    "index": 295,
     "name": {
       "raw": "GPM280 CM3",
       "sanitized": "gpm280-cm3",
@@ -132539,7 +132969,7 @@
   },
   {
     "id": "pocket-go-s30",
-    "index": 295,
+    "index": 296,
     "name": {
       "raw": "Pocket Go S30",
       "sanitized": "pocket-go-s30",
@@ -132990,7 +133420,7 @@
   },
   {
     "id": "trimui-model-s-powkiddy-a66",
-    "index": 296,
+    "index": 297,
     "name": {
       "raw": "TRIMUI Model S / PowKiddy A66",
       "sanitized": "trimui-model-s-powkiddy-a66",
@@ -133436,7 +133866,7 @@
   },
   {
     "id": "rg280v",
-    "index": 297,
+    "index": 298,
     "name": {
       "raw": "RG280V",
       "sanitized": "rg280v",
@@ -133885,7 +134315,7 @@
   },
   {
     "id": "powkiddy-rgb20",
-    "index": 298,
+    "index": 299,
     "name": {
       "raw": "PowKiddy RGB20",
       "sanitized": "powkiddy-rgb20",
@@ -134367,7 +134797,7 @@
   },
   {
     "id": "powkiddy-x20",
-    "index": 299,
+    "index": 300,
     "name": {
       "raw": "PowKiddy X20",
       "sanitized": "powkiddy-x20",
@@ -134811,7 +135241,7 @@
   },
   {
     "id": "q500-ps5000-lintian-lt-8203",
-    "index": 300,
+    "index": 301,
     "name": {
       "raw": "Q500 / PS5000 / Lintian LT-8203",
       "sanitized": "q500-ps5000-lintian-lt-8203",
@@ -135245,7 +135675,7 @@
   },
   {
     "id": "rg351p",
-    "index": 301,
+    "index": 302,
     "name": {
       "raw": "RG351P",
       "sanitized": "rg351p",
@@ -135746,7 +136176,7 @@
   },
   {
     "id": "gpd-win-max",
-    "index": 302,
+    "index": 303,
     "name": {
       "raw": "GPD Win Max",
       "sanitized": "gpd-win-max",
@@ -136204,7 +136634,7 @@
   },
   {
     "id": "coolbaby-rs-63-rs3128",
-    "index": 303,
+    "index": 304,
     "name": {
       "raw": "CoolBaby RS-63 / RS3128",
       "sanitized": "coolbaby-rs-63-rs3128",
@@ -136650,7 +137080,7 @@
   },
   {
     "id": "z-pocket-game-pro",
-    "index": 304,
+    "index": 305,
     "name": {
       "raw": "Z-Pocket Game Pro",
       "sanitized": "z-pocket-game-pro",
@@ -137097,7 +137527,7 @@
   },
   {
     "id": "super-pocketgo-cm3",
-    "index": 305,
+    "index": 306,
     "name": {
       "raw": "Super PocketGo CM3",
       "sanitized": "super-pocketgo-cm3",
@@ -137534,7 +137964,7 @@
   },
   {
     "id": "piboy-dmg",
-    "index": 306,
+    "index": 307,
     "name": {
       "raw": "PiBoy DMG",
       "sanitized": "piboy-dmg",
@@ -137973,7 +138403,7 @@
   },
   {
     "id": "retro-gp430",
-    "index": 307,
+    "index": 308,
     "name": {
       "raw": "Retro GP430",
       "sanitized": "retro-gp430",
@@ -138420,7 +138850,7 @@
   },
   {
     "id": "onegx1",
-    "index": 308,
+    "index": 309,
     "name": {
       "raw": "OneGx1",
       "sanitized": "onegx1",
@@ -138862,7 +139292,7 @@
   },
   {
     "id": "retroid-pocket-2",
-    "index": 309,
+    "index": 310,
     "name": {
       "raw": "Retroid Pocket 2",
       "sanitized": "retroid-pocket-2",
@@ -139379,7 +139809,7 @@
   },
   {
     "id": "rgfc520",
-    "index": 310,
+    "index": 311,
     "name": {
       "raw": "RGFC520",
       "sanitized": "rgfc520",
@@ -139790,7 +140220,7 @@
   },
   {
     "id": "powkiddy-rgb10",
-    "index": 311,
+    "index": 312,
     "name": {
       "raw": "PowKiddy RGB10",
       "sanitized": "powkiddy-rgb10",
@@ -140316,7 +140746,7 @@
   },
   {
     "id": "rg350p",
-    "index": 312,
+    "index": 313,
     "name": {
       "raw": "RG350P",
       "sanitized": "rg350p",
@@ -140757,7 +141187,7 @@
   },
   {
     "id": "powkiddy-j6",
-    "index": 313,
+    "index": 314,
     "name": {
       "raw": "PowKiddy J6",
       "sanitized": "powkiddy-j6",
@@ -141172,7 +141602,7 @@
   },
   {
     "id": "rg280m",
-    "index": 314,
+    "index": 315,
     "name": {
       "raw": "RG280M",
       "sanitized": "rg280m",
@@ -141617,7 +142047,7 @@
   },
   {
     "id": "powkiddy-v90",
-    "index": 315,
+    "index": 316,
     "name": {
       "raw": "PowKiddy V90",
       "sanitized": "powkiddy-v90",
@@ -142059,7 +142489,7 @@
   },
   {
     "id": "q900-ps7000",
-    "index": 316,
+    "index": 317,
     "name": {
       "raw": "Q900 / PS7000",
       "sanitized": "q900-ps7000",
@@ -142497,7 +142927,7 @@
   },
   {
     "id": "rk2020",
-    "index": 317,
+    "index": 318,
     "name": {
       "raw": "RK2020",
       "sanitized": "rk2020",
@@ -142936,7 +143366,7 @@
   },
   {
     "id": "q400",
-    "index": 318,
+    "index": 319,
     "name": {
       "raw": "Q400",
       "sanitized": "q400",
@@ -143376,7 +143806,7 @@
   },
   {
     "id": "odroid-go-advance-black-edition",
-    "index": 319,
+    "index": 320,
     "name": {
       "raw": "Odroid Go Advance - Black Edition",
       "sanitized": "odroid-go-advance-black-edition",
@@ -143834,7 +144264,7 @@
   },
   {
     "id": "arduboy-fx",
-    "index": 320,
+    "index": 321,
     "name": {
       "raw": "Arduboy FX",
       "sanitized": "arduboy-fx",
@@ -144269,7 +144699,7 @@
   },
   {
     "id": "powkiddy-x2",
-    "index": 321,
+    "index": 322,
     "name": {
       "raw": "PowKiddy X2",
       "sanitized": "powkiddy-x2",
@@ -144711,7 +145141,7 @@
   },
   {
     "id": "rg350m",
-    "index": 322,
+    "index": 323,
     "name": {
       "raw": "RG350M",
       "sanitized": "rg350m",
@@ -145168,7 +145598,7 @@
   },
   {
     "id": "retroid-pocket",
-    "index": 323,
+    "index": 324,
     "name": {
       "raw": "Retroid Pocket",
       "sanitized": "retroid-pocket",
@@ -145613,7 +146043,7 @@
   },
   {
     "id": "odroid-go-advance",
-    "index": 324,
+    "index": 325,
     "name": {
       "raw": "Odroid Go Advance",
       "sanitized": "odroid-go-advance",
@@ -146067,7 +146497,7 @@
   },
   {
     "id": "cartboy",
-    "index": 325,
+    "index": 326,
     "name": {
       "raw": "Cartboy",
       "sanitized": "cartboy",
@@ -146487,7 +146917,7 @@
   },
   {
     "id": "gkd-350h",
-    "index": 326,
+    "index": 327,
     "name": {
       "raw": "GKD-350H",
       "sanitized": "gkd-350h",
@@ -146929,7 +147359,7 @@
   },
   {
     "id": "lyra",
-    "index": 327,
+    "index": 328,
     "name": {
       "raw": "Lyra",
       "sanitized": "lyra",
@@ -147367,7 +147797,7 @@
   },
   {
     "id": "new-pocketgo-playgo-miyoo-max",
-    "index": 328,
+    "index": 329,
     "name": {
       "raw": "New PocketGo / PlayGo / Miyoo Max",
       "sanitized": "new-pocketgo-playgo-miyoo-max",
@@ -147817,7 +148247,7 @@
   },
   {
     "id": "powkiddy-q90",
-    "index": 329,
+    "index": 330,
     "name": {
       "raw": "PowKiddy Q90",
       "sanitized": "powkiddy-q90",
@@ -148247,7 +148677,7 @@
   },
   {
     "id": "retrostone-2",
-    "index": 330,
+    "index": 331,
     "name": {
       "raw": "Retrostone 2",
       "sanitized": "retrostone-2",
@@ -148695,7 +149125,7 @@
   },
   {
     "id": "17pocket-system",
-    "index": 331,
+    "index": 332,
     "name": {
       "raw": "17Pocket System",
       "sanitized": "17pocket-system",
@@ -149106,7 +149536,7 @@
   },
   {
     "id": "digi-dock",
-    "index": 332,
+    "index": 333,
     "name": {
       "raw": "Digi Dock",
       "sanitized": "digi-dock",
@@ -149538,7 +149968,7 @@
   },
   {
     "id": "powkiddy-x15",
-    "index": 333,
+    "index": 334,
     "name": {
       "raw": "PowKiddy X15",
       "sanitized": "powkiddy-x15",
@@ -149973,7 +150403,7 @@
   },
   {
     "id": "powkiddy-x19",
-    "index": 334,
+    "index": 335,
     "name": {
       "raw": "PowKiddy X19",
       "sanitized": "powkiddy-x19",
@@ -150402,7 +150832,7 @@
   },
   {
     "id": "z-pocket-game",
-    "index": 335,
+    "index": 336,
     "name": {
       "raw": "Z-Pocket Game",
       "sanitized": "z-pocket-game",
@@ -150851,7 +151281,7 @@
   },
   {
     "id": "rg350",
-    "index": 336,
+    "index": 337,
     "name": {
       "raw": "RG350",
       "sanitized": "rg350",
@@ -151311,7 +151741,7 @@
   },
   {
     "id": "gamepi20",
-    "index": 337,
+    "index": 338,
     "name": {
       "raw": "GamePi20",
       "sanitized": "gamepi20",
@@ -151756,7 +152186,7 @@
   },
   {
     "id": "gamepi43",
-    "index": 338,
+    "index": 339,
     "name": {
       "raw": "GamePi43",
       "sanitized": "gamepi43",
@@ -152203,7 +152633,7 @@
   },
   {
     "id": "retro-carnival-cm3",
-    "index": 339,
+    "index": 340,
     "name": {
       "raw": "Retro Carnival CM3",
       "sanitized": "retro-carnival-cm3",
@@ -152636,7 +153066,7 @@
   },
   {
     "id": "gpd-win-2(2019-model)",
-    "index": 340,
+    "index": 341,
     "name": {
       "raw": "GPD Win 2(2019 Model)",
       "sanitized": "gpd-win-2(2019-model)",
@@ -153074,7 +153504,7 @@
   },
   {
     "id": "retro-cm3",
-    "index": 341,
+    "index": 342,
     "name": {
       "raw": "Retro CM3",
       "sanitized": "retro-cm3",
@@ -153515,7 +153945,7 @@
   },
   {
     "id": "32blit",
-    "index": 342,
+    "index": 343,
     "name": {
       "raw": "32blit",
       "sanitized": "32blit",
@@ -153940,7 +154370,7 @@
   },
   {
     "id": "gpi-case",
-    "index": 343,
+    "index": 344,
     "name": {
       "raw": "GPi Case",
       "sanitized": "gpi-case",
@@ -154397,7 +154827,7 @@
   },
   {
     "id": "ldk-landscape",
-    "index": 344,
+    "index": 345,
     "name": {
       "raw": "LDK Landscape",
       "sanitized": "ldk-landscape",
@@ -154834,7 +155264,7 @@
   },
   {
     "id": "pocketgo",
-    "index": 345,
+    "index": 346,
     "name": {
       "raw": "PocketGo",
       "sanitized": "pocketgo",
@@ -155270,7 +155700,7 @@
   },
   {
     "id": "retrogame-rs-97(anniversary-edition-ips-screen-model)",
-    "index": 346,
+    "index": 347,
     "name": {
       "raw": "RetroGame RS-97(Anniversary Edition / IPS Screen Model)",
       "sanitized": "retrogame-rs-97(anniversary-edition-ips-screen-model)",
@@ -155714,7 +156144,7 @@
   },
   {
     "id": "rg300",
-    "index": 347,
+    "index": 348,
     "name": {
       "raw": "RG300",
       "sanitized": "rg300",
@@ -156154,7 +156584,7 @@
   },
   {
     "id": "moqi-i7s",
-    "index": 348,
+    "index": 349,
     "name": {
       "raw": "MOQI i7S",
       "sanitized": "moqi-i7s",
@@ -156602,7 +157032,7 @@
   },
   {
     "id": "tiny-gamepi15",
-    "index": 349,
+    "index": 350,
     "name": {
       "raw": "Tiny GamePi15",
       "sanitized": "tiny-gamepi15",
@@ -157047,7 +157477,7 @@
   },
   {
     "id": "bittboy-v3",
-    "index": 350,
+    "index": 351,
     "name": {
       "raw": "Bittboy V3",
       "sanitized": "bittboy-v3",
@@ -157488,7 +157918,7 @@
   },
   {
     "id": "ldk-game",
-    "index": 351,
+    "index": 352,
     "name": {
       "raw": "LDK Game",
       "sanitized": "ldk-game",
@@ -157924,7 +158354,7 @@
   },
   {
     "id": "1up-pi-boy-xl",
-    "index": 352,
+    "index": 353,
     "name": {
       "raw": "1UP Pi-Boy XL",
       "sanitized": "1up-pi-boy-xl",
@@ -158386,7 +158816,7 @@
   },
   {
     "id": "powkiddy-x18",
-    "index": 353,
+    "index": 354,
     "name": {
       "raw": "PowKiddy X18",
       "sanitized": "powkiddy-x18",
@@ -158831,7 +159261,7 @@
   },
   {
     "id": "digi-retroboy",
-    "index": 355,
+    "index": 356,
     "name": {
       "raw": "Digi RetroBoy",
       "sanitized": "digi-retroboy",
@@ -159263,7 +159693,7 @@
   },
   {
     "id": "game-hat",
-    "index": 356,
+    "index": 357,
     "name": {
       "raw": "Game Hat",
       "sanitized": "game-hat",
@@ -159692,7 +160122,7 @@
   },
   {
     "id": "gameshell",
-    "index": 357,
+    "index": 358,
     "name": {
       "raw": "GameShell",
       "sanitized": "gameshell",
@@ -160123,7 +160553,7 @@
   },
   {
     "id": "gpd-xd-plus-",
-    "index": 358,
+    "index": 359,
     "name": {
       "raw": "GPD XD+",
       "sanitized": "gpd-xd-plus-",
@@ -160558,7 +160988,7 @@
   },
   {
     "id": "mgsp",
-    "index": 359,
+    "index": 360,
     "name": {
       "raw": "MGSP",
       "sanitized": "mgsp",
@@ -160981,7 +161411,7 @@
   },
   {
     "id": "odroid-go",
-    "index": 360,
+    "index": 361,
     "name": {
       "raw": "Odroid Go",
       "sanitized": "odroid-go",
@@ -161416,7 +161846,7 @@
   },
   {
     "id": "powkiddy-x16",
-    "index": 361,
+    "index": 362,
     "name": {
       "raw": "PowKiddy X16",
       "sanitized": "powkiddy-x16",
@@ -161850,7 +162280,7 @@
   },
   {
     "id": "retrogame-rs-97-plus",
-    "index": 362,
+    "index": 363,
     "name": {
       "raw": "RetroGame RS-97 Plus",
       "sanitized": "retrogame-rs-97-plus",
@@ -162279,7 +162709,7 @@
   },
   {
     "id": "retrostone-1",
-    "index": 363,
+    "index": 364,
     "name": {
       "raw": "Retrostone 1",
       "sanitized": "retrostone-1",
@@ -162713,7 +163143,7 @@
   },
   {
     "id": "1up-pi-boy-micro",
-    "index": 364,
+    "index": 365,
     "name": {
       "raw": "1UP Pi-Boy Micro",
       "sanitized": "1up-pi-boy-micro",
@@ -163150,7 +163580,7 @@
   },
   {
     "id": "1up-pix-portable",
-    "index": 365,
+    "index": 366,
     "name": {
       "raw": "1UP PiX Portable",
       "sanitized": "1up-pix-portable",
@@ -163575,7 +164005,7 @@
   },
   {
     "id": "pap-gameta-ii",
-    "index": 366,
+    "index": 367,
     "name": {
       "raw": "PAP Gameta II",
       "sanitized": "pap-gameta-ii",
@@ -163984,7 +164414,7 @@
   },
   {
     "id": "freeplay-cm3-zero",
-    "index": 367,
+    "index": 368,
     "name": {
       "raw": "Freeplay CM3 / Zero",
       "sanitized": "freeplay-cm3-zero",
@@ -164421,7 +164851,7 @@
   },
   {
     "id": "gopher-2",
-    "index": 368,
+    "index": 369,
     "name": {
       "raw": "Gopher 2",
       "sanitized": "gopher-2",
@@ -164845,7 +165275,7 @@
   },
   {
     "id": "lcl-pi-gameboy",
-    "index": 369,
+    "index": 370,
     "name": {
       "raw": "LCL Pi Gameboy",
       "sanitized": "lcl-pi-gameboy",
@@ -165279,7 +165709,7 @@
   },
   {
     "id": "moqi-i7",
-    "index": 370,
+    "index": 371,
     "name": {
       "raw": "MOQI i7",
       "sanitized": "moqi-i7",
@@ -165710,7 +166140,7 @@
   },
   {
     "id": "retrogame-rs-97",
-    "index": 371,
+    "index": 372,
     "name": {
       "raw": "RetroGame RS-97",
       "sanitized": "retrogame-rs-97",
@@ -166135,7 +166565,7 @@
   },
   {
     "id": "retromini-rs-90",
-    "index": 372,
+    "index": 373,
     "name": {
       "raw": "RetroMini RS-90",
       "sanitized": "retromini-rs-90",
@@ -166557,7 +166987,7 @@
   },
   {
     "id": "gpd-win",
-    "index": 373,
+    "index": 374,
     "name": {
       "raw": "GPD Win",
       "sanitized": "gpd-win",
@@ -166978,7 +167408,7 @@
   },
   {
     "id": "pap-kiii-plus",
-    "index": 374,
+    "index": 375,
     "name": {
       "raw": "PAP KIII Plus",
       "sanitized": "pap-kiii-plus",
@@ -167403,7 +167833,7 @@
   },
   {
     "id": "gpd-xd",
-    "index": 375,
+    "index": 376,
     "name": {
       "raw": "GPD XD",
       "sanitized": "gpd-xd",
@@ -167835,7 +168265,7 @@
   },
   {
     "id": "gpd-g5a",
-    "index": 376,
+    "index": 377,
     "name": {
       "raw": "GPD G5A",
       "sanitized": "gpd-g5a",
@@ -168261,7 +168691,7 @@
   },
   {
     "id": "much-w1-78p01",
-    "index": 377,
+    "index": 378,
     "name": {
       "raw": "Much W1 / 78P01",
       "sanitized": "much-w1-78p01",
@@ -168683,7 +169113,7 @@
   },
   {
     "id": "gpd-q9",
-    "index": 378,
+    "index": 379,
     "name": {
       "raw": "GPD Q9",
       "sanitized": "gpd-q9",
@@ -169103,7 +169533,7 @@
   },
   {
     "id": "gpd-g58",
-    "index": 379,
+    "index": 380,
     "name": {
       "raw": "GPD G58",
       "sanitized": "gpd-g58",
@@ -169525,7 +169955,7 @@
   },
   {
     "id": "joyou-a320-plus-",
-    "index": 380,
+    "index": 381,
     "name": {
       "raw": "Joyou A320+",
       "sanitized": "joyou-a320-plus-",
@@ -169929,7 +170359,7 @@
   },
   {
     "id": "jxd-s7800b",
-    "index": 381,
+    "index": 382,
     "name": {
       "raw": "JXD S7800B",
       "sanitized": "jxd-s7800b",
@@ -170346,7 +170776,7 @@
   },
   {
     "id": "tlex-ulike",
-    "index": 382,
+    "index": 383,
     "name": {
       "raw": "Tlex Ulike",
       "sanitized": "tlex-ulike",
@@ -170757,7 +171187,7 @@
   },
   {
     "id": "gcw-zero",
-    "index": 383,
+    "index": 384,
     "name": {
       "raw": "GCW Zero",
       "sanitized": "gcw-zero",
@@ -171176,7 +171606,7 @@
   },
   {
     "id": "iben-l1-x",
-    "index": 384,
+    "index": 385,
     "name": {
       "raw": "iBen L1 / X",
       "sanitized": "iben-l1-x",
@@ -171596,7 +172026,7 @@
   },
   {
     "id": "shield-portable",
-    "index": 385,
+    "index": 386,
     "name": {
       "raw": "Shield Portable",
       "sanitized": "shield-portable",
@@ -172021,7 +172451,7 @@
   },
   {
     "id": "yinlips-ydpg19",
-    "index": 386,
+    "index": 387,
     "name": {
       "raw": "Yinlips YDPG19",
       "sanitized": "yinlips-ydpg19",
@@ -172440,7 +172870,7 @@
   },
   {
     "id": "yinlips-ydpg17",
-    "index": 387,
+    "index": 388,
     "name": {
       "raw": "Yinlips YDPG17",
       "sanitized": "yinlips-ydpg17",
@@ -172848,7 +173278,7 @@
   },
   {
     "id": "gamegadget",
-    "index": 388,
+    "index": 389,
     "name": {
       "raw": "GameGadget",
       "sanitized": "gamegadget",
@@ -173267,7 +173697,7 @@
   },
   {
     "id": "k101-plus",
-    "index": 389,
+    "index": 390,
     "name": {
       "raw": "K101 Plus",
       "sanitized": "k101-plus",
@@ -173697,7 +174127,7 @@
   },
   {
     "id": "gemei-x760-plus-le",
-    "index": 390,
+    "index": 391,
     "name": {
       "raw": "Gemei X760+ LE",
       "sanitized": "gemei-x760-plus-le",
@@ -174102,7 +174532,7 @@
   },
   {
     "id": "dingoo-a380",
-    "index": 391,
+    "index": 392,
     "name": {
       "raw": "Dingoo A380",
       "sanitized": "dingoo-a380",
@@ -174518,7 +174948,7 @@
   },
   {
     "id": "ritmix-rzx-50",
-    "index": 392,
+    "index": 393,
     "name": {
       "raw": "Ritmix RZX-50",
       "sanitized": "ritmix-rzx-50",
@@ -174934,7 +175364,7 @@
   },
   {
     "id": "dingoo-a330",
-    "index": 393,
+    "index": 394,
     "name": {
       "raw": "Dingoo A330",
       "sanitized": "dingoo-a330",
@@ -175352,7 +175782,7 @@
   },
   {
     "id": "gemei-a330",
-    "index": 394,
+    "index": 395,
     "name": {
       "raw": "Gemei A330",
       "sanitized": "gemei-a330",
@@ -175769,7 +176199,7 @@
   },
   {
     "id": "gp2x-caanoo",
-    "index": 395,
+    "index": 396,
     "name": {
       "raw": "GP2X Caanoo",
       "sanitized": "gp2x-caanoo",
@@ -176187,7 +176617,7 @@
   },
   {
     "id": "letcool-n350jp-defender-multimix-magic-mishark64",
-    "index": 396,
+    "index": 397,
     "name": {
       "raw": "Letcool N350JP /Defender MultiMix Magic /MiShark64",
       "sanitized": "letcool-n350jp-defender-multimix-magic-mishark64",
@@ -176606,7 +177036,7 @@
   },
   {
     "id": "openpandora",
-    "index": 397,
+    "index": 398,
     "name": {
       "raw": "OpenPandora",
       "sanitized": "openpandora",
@@ -177029,7 +177459,7 @@
   },
   {
     "id": "dingoo-a320",
-    "index": 398,
+    "index": 399,
     "name": {
       "raw": "Dingoo A320",
       "sanitized": "dingoo-a320",
@@ -177450,7 +177880,7 @@
   },
   {
     "id": "gemei-x760-plus-",
-    "index": 399,
+    "index": 400,
     "name": {
       "raw": "Gemei X760+",
       "sanitized": "gemei-x760-plus-",
@@ -177868,7 +178298,7 @@
   },
   {
     "id": "gp2x-wiz",
-    "index": 400,
+    "index": 401,
     "name": {
       "raw": "GP2X Wiz",
       "sanitized": "gp2x-wiz",
@@ -178284,7 +178714,7 @@
   },
   {
     "id": "gp2x-f-200",
-    "index": 401,
+    "index": 402,
     "name": {
       "raw": "GP2X F-200",
       "sanitized": "gp2x-f-200",
@@ -178700,7 +179130,7 @@
   },
   {
     "id": "sega-gopher",
-    "index": 402,
+    "index": 403,
     "name": {
       "raw": "Sega Gopher",
       "sanitized": "sega-gopher",
@@ -179119,7 +179549,7 @@
   },
   {
     "id": "gizmondo",
-    "index": 403,
+    "index": 404,
     "name": {
       "raw": "Gizmondo",
       "sanitized": "gizmondo",
@@ -179535,7 +179965,7 @@
   },
   {
     "id": "gp2x",
-    "index": 404,
+    "index": 405,
     "name": {
       "raw": "GP2X",
       "sanitized": "gp2x",
@@ -179951,7 +180381,7 @@
   },
   {
     "id": "tapwave-zodiac",
-    "index": 405,
+    "index": 406,
     "name": {
       "raw": "Tapwave Zodiac",
       "sanitized": "tapwave-zodiac",
@@ -180369,7 +180799,7 @@
   },
   {
     "id": "gp32",
-    "index": 406,
+    "index": 407,
     "name": {
       "raw": "GP32",
       "sanitized": "gp32",
@@ -180787,7 +181217,7 @@
   },
   {
     "id": "gpd-q88-plus-",
-    "index": 407,
+    "index": 408,
     "name": {
       "raw": "GPD Q88+",
       "sanitized": "gpd-q88-plus-",
@@ -181190,7 +181620,7 @@
   },
   {
     "id": "pocket-sprite",
-    "index": 408,
+    "index": 409,
     "name": {
       "raw": "Pocket Sprite",
       "sanitized": "pocket-sprite",
@@ -181580,7 +182010,7 @@
   },
   {
     "id": "coolbaby-rs-11",
-    "index": 409,
+    "index": 410,
     "name": {
       "raw": "CoolBaby RS-11",
       "sanitized": "coolbaby-rs-11",
@@ -181975,7 +182405,7 @@
   },
   {
     "id": "jxd-300",
-    "index": 410,
+    "index": 411,
     "name": {
       "raw": "JXD 300",
       "sanitized": "jxd-300",
@@ -182339,7 +182769,7 @@
   },
   {
     "id": "gameboy-null",
-    "index": 413,
+    "index": 414,
     "name": {
       "raw": "GameBoy Null",
       "sanitized": "gameboy-null",
@@ -182691,7 +183121,7 @@
   },
   {
     "id": "joyou-g500",
-    "index": 416,
+    "index": 417,
     "name": {
       "raw": "Joyou G500",
       "sanitized": "joyou-g500",
@@ -183048,7 +183478,7 @@
   },
   {
     "id": "gpd-g7",
-    "index": 417,
+    "index": 418,
     "name": {
       "raw": "GPD G7",
       "sanitized": "gpd-g7",
@@ -183424,7 +183854,7 @@
   },
   {
     "id": "gpd-g7a",
-    "index": 418,
+    "index": 419,
     "name": {
       "raw": "GPD G7A",
       "sanitized": "gpd-g7a",
@@ -183776,7 +184206,7 @@
   },
   {
     "id": "gpd-g5",
-    "index": 419,
+    "index": 420,
     "name": {
       "raw": "GPD G5",
       "sanitized": "gpd-g5",
@@ -184128,7 +184558,7 @@
   },
   {
     "id": "gpd-q89",
-    "index": 420,
+    "index": 421,
     "name": {
       "raw": "GPD Q89",
       "sanitized": "gpd-q89",
@@ -184492,7 +184922,7 @@
   },
   {
     "id": "gpd-5005",
-    "index": 421,
+    "index": 422,
     "name": {
       "raw": "GPD 5005",
       "sanitized": "gpd-5005",
@@ -184844,7 +185274,7 @@
   },
   {
     "id": "gpd-7018",
-    "index": 422,
+    "index": 423,
     "name": {
       "raw": "GPD 7018",
       "sanitized": "gpd-7018",
@@ -185196,7 +185626,7 @@
   },
   {
     "id": "tinypi-pro",
-    "index": 425,
+    "index": 426,
     "name": {
       "raw": "TinyPi Pro",
       "sanitized": "tinypi-pro",
@@ -185609,7 +186039,7 @@
   },
   {
     "id": "jxd-200",
-    "index": 426,
+    "index": 427,
     "name": {
       "raw": "JXD 200",
       "sanitized": "jxd-200",
@@ -185971,7 +186401,7 @@
   },
   {
     "id": "jxd-3000",
-    "index": 427,
+    "index": 428,
     "name": {
       "raw": "JXD 3000",
       "sanitized": "jxd-3000",
@@ -186337,7 +186767,7 @@
   },
   {
     "id": "jxd-s5110b",
-    "index": 428,
+    "index": 429,
     "name": {
       "raw": "JXD S5110B",
       "sanitized": "jxd-s5110b",
@@ -186707,7 +187137,7 @@
   },
   {
     "id": "jxd-s7300c",
-    "index": 429,
+    "index": 430,
     "name": {
       "raw": "JXD S7300C",
       "sanitized": "jxd-s7300c",
@@ -187081,7 +187511,7 @@
   },
   {
     "id": "jxd-s192k-double-quote-singularity-double-quote-",
-    "index": 430,
+    "index": 431,
     "name": {
       "raw": "JXD S192K \"Singularity\"",
       "sanitized": "jxd-s192k-double-quote-singularity-double-quote-",
@@ -187493,7 +187923,7 @@
   },
   {
     "id": "jxd-s192-double-quote-singularity-double-quote-",
-    "index": 431,
+    "index": 432,
     "name": {
       "raw": "JXD S192 \"Singularity\"",
       "sanitized": "jxd-s192-double-quote-singularity-double-quote-",
@@ -187879,7 +188309,7 @@
   },
   {
     "id": "jxd-s5100",
-    "index": 432,
+    "index": 433,
     "name": {
       "raw": "JXD S5100",
       "sanitized": "jxd-s5100",
@@ -188253,7 +188683,7 @@
   },
   {
     "id": "jxd-s5600a",
-    "index": 433,
+    "index": 434,
     "name": {
       "raw": "JXD S5600A",
       "sanitized": "jxd-s5600a",
@@ -188610,7 +189040,7 @@
   },
   {
     "id": "jxd-s5800",
-    "index": 434,
+    "index": 435,
     "name": {
       "raw": "JXD S5800",
       "sanitized": "jxd-s5800",
@@ -189009,7 +189439,7 @@
   },
   {
     "id": "jxd-s601",
-    "index": 435,
+    "index": 436,
     "name": {
       "raw": "JXD S601",
       "sanitized": "jxd-s601",
@@ -189399,7 +189829,7 @@
   },
   {
     "id": "jxd-s602",
-    "index": 436,
+    "index": 437,
     "name": {
       "raw": "JXD S602",
       "sanitized": "jxd-s602",
@@ -189765,7 +190195,7 @@
   },
   {
     "id": "jxd-s7100",
-    "index": 437,
+    "index": 438,
     "name": {
       "raw": "JXD S7100",
       "sanitized": "jxd-s7100",
@@ -190127,7 +190557,7 @@
   },
   {
     "id": "jxd-v5200",
-    "index": 438,
+    "index": 439,
     "name": {
       "raw": "JXD V5200",
       "sanitized": "jxd-v5200",
@@ -190493,7 +190923,7 @@
   },
   {
     "id": "jxd-s5110",
-    "index": 439,
+    "index": 440,
     "name": {
       "raw": "JXD S5110",
       "sanitized": "jxd-s5110",
@@ -190891,7 +191321,7 @@
   },
   {
     "id": "jxd-s603",
-    "index": 440,
+    "index": 441,
     "name": {
       "raw": "JXD S603",
       "sanitized": "jxd-s603",
@@ -191248,7 +191678,7 @@
   },
   {
     "id": "jxd-300b",
-    "index": 441,
+    "index": 442,
     "name": {
       "raw": "JXD 300B",
       "sanitized": "jxd-300b",
@@ -191605,7 +192035,7 @@
   },
   {
     "id": "jxd-s5300",
-    "index": 442,
+    "index": 443,
     "name": {
       "raw": "JXD S5300",
       "sanitized": "jxd-s5300",
@@ -191971,7 +192401,7 @@
   },
   {
     "id": "jxd-s602b",
-    "index": 443,
+    "index": 444,
     "name": {
       "raw": "JXD S602B",
       "sanitized": "jxd-s602b",
@@ -192333,7 +192763,7 @@
   },
   {
     "id": "jxd-s7800a",
-    "index": 444,
+    "index": 445,
     "name": {
       "raw": "JXD S7800A",
       "sanitized": "jxd-s7800a",
@@ -192709,7 +193139,7 @@
   },
   {
     "id": "lotiyo-l-1000",
-    "index": 453,
+    "index": 454,
     "name": {
       "raw": "Lotiyo L-1000",
       "sanitized": "lotiyo-l-1000",
@@ -193079,7 +193509,7 @@
   },
   {
     "id": "coolbaby-rs-08",
-    "index": 460,
+    "index": 461,
     "name": {
       "raw": "CoolBaby RS-08",
       "sanitized": "coolbaby-rs-08",
@@ -193453,7 +193883,7 @@
   },
   {
     "id": "pocket-battlefield",
-    "index": 469,
+    "index": 470,
     "name": {
       "raw": "Pocket Battlefield",
       "sanitized": "pocket-battlefield",
@@ -193814,7 +194244,7 @@
   },
   {
     "id": "coolbaby-rs18",
-    "index": 471,
+    "index": 472,
     "name": {
       "raw": "CoolBaby RS18",
       "sanitized": "coolbaby-rs18",
@@ -194198,7 +194628,7 @@
   },
   {
     "id": "retroid-boy-se",
-    "index": 473,
+    "index": 474,
     "name": {
       "raw": "Retroid Boy SE",
       "sanitized": "retroid-boy-se",
@@ -194559,7 +194989,7 @@
   },
   {
     "id": "coolbaby-x20",
-    "index": 474,
+    "index": 475,
     "name": {
       "raw": "CoolBaby X20",
       "sanitized": "coolbaby-x20",
@@ -194911,7 +195341,7 @@
   },
   {
     "id": "egp-1000",
-    "index": 477,
+    "index": 478,
     "name": {
       "raw": "EGP 1000",
       "sanitized": "egp-1000",
@@ -195297,7 +195727,7 @@
   },
   {
     "id": "odroid-s",
-    "index": 480,
+    "index": 481,
     "name": {
       "raw": "ODROID S",
       "sanitized": "odroid-s",
@@ -195687,7 +196117,7 @@
   },
   {
     "id": "yinlips-ydpg16",
-    "index": 481,
+    "index": 482,
     "name": {
       "raw": "Yinlips YDPG16",
       "sanitized": "yinlips-ydpg16",
@@ -196047,7 +196477,7 @@
   },
   {
     "id": "yinlips-ydpg18a",
-    "index": 482,
+    "index": 483,
     "name": {
       "raw": "Yinlips YDPG18A",
       "sanitized": "yinlips-ydpg18a",
@@ -196406,7 +196836,7 @@
   },
   {
     "id": "gameking-i",
-    "index": 484,
+    "index": 485,
     "name": {
       "raw": "GameKing I",
       "sanitized": "gameking-i",
@@ -196758,7 +197188,7 @@
   },
   {
     "id": "picosystem",
-    "index": 487,
+    "index": 488,
     "name": {
       "raw": "PicoSystem",
       "sanitized": "picosystem",
@@ -197165,7 +197595,7 @@
   },
   {
     "id": "powkiddy-x21",
-    "index": 488,
+    "index": 489,
     "name": {
       "raw": "PowKiddy X21",
       "sanitized": "powkiddy-x21",
@@ -197548,7 +197978,7 @@
   },
   {
     "id": "pocket-battlefield-2",
-    "index": 489,
+    "index": 490,
     "name": {
       "raw": "Pocket Battlefield 2",
       "sanitized": "pocket-battlefield-2",
@@ -197905,7 +198335,7 @@
   },
   {
     "id": "retro-arcade-for-education",
-    "index": 493,
+    "index": 494,
     "name": {
       "raw": "Retro Arcade For Education",
       "sanitized": "retro-arcade-for-education",
@@ -198262,7 +198692,7 @@
   },
   {
     "id": "pocket-arcade",
-    "index": 495,
+    "index": 496,
     "name": {
       "raw": "Pocket Arcade",
       "sanitized": "pocket-arcade",
@@ -198619,7 +199049,7 @@
   },
   {
     "id": "odroid-android-handheld",
-    "index": 497,
+    "index": 498,
     "name": {
       "raw": "Odroid Android handheld",
       "sanitized": "odroid-android-handheld",
@@ -198971,7 +199401,7 @@
   },
   {
     "id": "powkiddy-v2",
-    "index": 498,
+    "index": 499,
     "name": {
       "raw": "PowKiddy V2",
       "sanitized": "powkiddy-v2",
@@ -199349,7 +199779,7 @@
   },
   {
     "id": "d008",
-    "index": 502,
+    "index": 503,
     "name": {
       "raw": "D008",
       "sanitized": "d008",
@@ -199701,7 +200131,7 @@
   },
   {
     "id": "d-28s",
-    "index": 503,
+    "index": 504,
     "name": {
       "raw": "D-28S",
       "sanitized": "d-28s",
@@ -200053,7 +200483,7 @@
   },
   {
     "id": "d50-plus",
-    "index": 504,
+    "index": 505,
     "name": {
       "raw": "D50 Plus",
       "sanitized": "d50-plus",
@@ -200405,7 +200835,7 @@
   },
   {
     "id": "nitro-blaze-8",
-    "index": 505,
+    "index": 506,
     "name": {
       "raw": "Nitro Blaze 8",
       "sanitized": "nitro-blaze-8",
@@ -200797,7 +201227,7 @@
   },
   {
     "id": "nitro-blaze-11",
-    "index": 506,
+    "index": 507,
     "name": {
       "raw": "Nitro Blaze 11",
       "sanitized": "nitro-blaze-11",
@@ -201189,7 +201619,7 @@
   },
   {
     "id": "sunday-dragon-3d-one",
-    "index": 507,
+    "index": 508,
     "name": {
       "raw": "Sunday Dragon 3D One",
       "sanitized": "sunday-dragon-3d-one",
@@ -201546,7 +201976,7 @@
   },
   {
     "id": "m20",
-    "index": 510,
+    "index": 511,
     "name": {
       "raw": "M20",
       "sanitized": "m20",
@@ -201898,7 +202328,7 @@
   },
   {
     "id": "coolbaby-rg19",
-    "index": 514,
+    "index": 515,
     "name": {
       "raw": "CoolBaby RG19",
       "sanitized": "coolbaby-rg19",
@@ -202284,7 +202714,7 @@
   },
   {
     "id": "jxd-683",
-    "index": 524,
+    "index": 525,
     "name": {
       "raw": "JXD 683",
       "sanitized": "jxd-683",
@@ -202657,7 +203087,7 @@
   },
   {
     "id": "jxd-100",
-    "index": 525,
+    "index": 526,
     "name": {
       "raw": "JXD 100",
       "sanitized": "jxd-100",
@@ -203021,7 +203451,7 @@
   },
   {
     "id": "jxd-a1000",
-    "index": 526,
+    "index": 527,
     "name": {
       "raw": "JXD A1000",
       "sanitized": "jxd-a1000",
@@ -203378,7 +203808,7 @@
   },
   {
     "id": "jxd-f3000",
-    "index": 527,
+    "index": 528,
     "name": {
       "raw": "JXD F3000",
       "sanitized": "jxd-f3000",
@@ -203735,7 +204165,7 @@
   },
   {
     "id": "jxd-s7300b",
-    "index": 528,
+    "index": 529,
     "name": {
       "raw": "JXD S7300B",
       "sanitized": "jxd-s7300b",
@@ -204142,7 +204572,7 @@
   },
   {
     "id": "jxd-s7300a",
-    "index": 529,
+    "index": 530,
     "name": {
       "raw": "JXD S7300A",
       "sanitized": "jxd-s7300a",
@@ -204532,7 +204962,7 @@
   },
   {
     "id": "jxd-s5600b",
-    "index": 530,
+    "index": 531,
     "name": {
       "raw": "JXD S5600B",
       "sanitized": "jxd-s5600b",
@@ -204904,7 +205334,7 @@
   },
   {
     "id": "gamemt-e5-plus",
-    "index": 531,
+    "index": 532,
     "name": {
       "raw": "GAMEMT E5 Plus",
       "sanitized": "gamemt-e5-plus",
@@ -205291,7 +205721,7 @@
   },
   {
     "id": "gamemt-e5-ultra",
-    "index": 532,
+    "index": 533,
     "name": {
       "raw": "GAMEMT E5 Ultra",
       "sanitized": "gamemt-e5-ultra",
@@ -205701,7 +206131,7 @@
   },
   {
     "id": "gameking-ii",
-    "index": 537,
+    "index": 538,
     "name": {
       "raw": "GameKing II",
       "sanitized": "gameking-ii",
@@ -206053,7 +206483,7 @@
   },
   {
     "id": "gameking-iii",
-    "index": 538,
+    "index": 539,
     "name": {
       "raw": "GameKing III",
       "sanitized": "gameking-iii",
@@ -206405,7 +206835,7 @@
   },
   {
     "id": "r36xx",
-    "index": 541,
+    "index": 542,
     "name": {
       "raw": "R36XX",
       "sanitized": "r36xx",
@@ -206767,7 +207197,7 @@
   },
   {
     "id": "m27",
-    "index": 545,
+    "index": 546,
     "name": {
       "raw": "M27",
       "sanitized": "m27",
@@ -207119,7 +207549,7 @@
   },
   {
     "id": "xf35h",
-    "index": 546,
+    "index": 547,
     "name": {
       "raw": "XF35H",
       "sanitized": "xf35h",
@@ -207526,7 +207956,7 @@
   },
   {
     "id": "xf40h",
-    "index": 547,
+    "index": 548,
     "name": {
       "raw": "XF40H",
       "sanitized": "xf40h",
@@ -207943,7 +208373,7 @@
   },
   {
     "id": "ans01a",
-    "index": 553,
+    "index": 554,
     "name": {
       "raw": "ANS01A",
       "sanitized": "ans01a",
@@ -208295,7 +208725,7 @@
   },
   {
     "id": "ans13",
-    "index": 554,
+    "index": 555,
     "name": {
       "raw": "ANS13",
       "sanitized": "ans13",
@@ -208647,7 +209077,7 @@
   },
   {
     "id": "m37-pro",
-    "index": 561,
+    "index": 562,
     "name": {
       "raw": "M37 PRO",
       "sanitized": "m37-pro",
@@ -209009,7 +209439,7 @@
   },
   {
     "id": "r40xx",
-    "index": 568,
+    "index": 569,
     "name": {
       "raw": "R40XX",
       "sanitized": "r40xx",
@@ -209397,7 +209827,7 @@
   },
   {
     "id": "r40xx-pro",
-    "index": 569,
+    "index": 570,
     "name": {
       "raw": "R40XX Pro",
       "sanitized": "r40xx-pro",
