@@ -146,7 +146,7 @@
       "raw": "Upcoming(On sale now, ships mid October)",
       "mentionedDate": null
     },
-    "formFactor": "clamshell",
+    "formFactor": "clamshell(dual screen)",
     "systemRatings": [
       {
         "system": "PlayStation 2",
@@ -1454,7 +1454,7 @@
       "raw": "Upcoming(On sale now, ships mid November)",
       "mentionedDate": null
     },
-    "formFactor": "clamshell",
+    "formFactor": "clamshell(dual screen)",
     "systemRatings": [
       {
         "system": "PlayStation 2",
@@ -1884,7 +1884,7 @@
       "raw": "2026 / 09",
       "mentionedDate": "2026-09-01T00:00:00.000Z"
     },
-    "formFactor": "clamshell",
+    "formFactor": "clamshell(dual screen)",
     "systemRatings": [
       {
         "system": "PlayStation 1",
@@ -37107,7 +37107,7 @@
       "raw": "2025 / 02",
       "mentionedDate": "2025-02-01T00:00:00.000Z"
     },
-    "formFactor": "microvertical",
+    "formFactor": "micro vertical",
     "systemRatings": [
       {
         "system": "PlayStation 1",
@@ -39314,7 +39314,7 @@
       "raw": "2025 / 01",
       "mentionedDate": "2025-01-01T00:00:00.000Z"
     },
-    "formFactor": "microhorizontal",
+    "formFactor": "micro horizontal",
     "systemRatings": [
       {
         "system": "PlayStation 1",
@@ -53810,7 +53810,7 @@
       "raw": "2024 / 07",
       "mentionedDate": "2024-07-01T00:00:00.000Z"
     },
-    "formFactor": "microhorizontal",
+    "formFactor": "micro horizontal",
     "systemRatings": [
       {
         "system": "PlayStation 1",
@@ -68457,7 +68457,7 @@
       "raw": "2024 / 01",
       "mentionedDate": "2024-01-01T00:00:00.000Z"
     },
-    "formFactor": "microvertical",
+    "formFactor": "micro vertical",
     "systemRatings": [
       {
         "system": "PlayStation 1",
@@ -86557,7 +86557,7 @@
       "raw": "2023 / 06",
       "mentionedDate": "2023-06-01T00:00:00.000Z"
     },
-    "formFactor": "microvertical",
+    "formFactor": "micro vertical",
     "systemRatings": [
       {
         "system": "NES",
@@ -98257,7 +98257,7 @@
       "raw": "2022 / 11",
       "mentionedDate": "2022-11-01T00:00:00.000Z"
     },
-    "formFactor": "microvertical",
+    "formFactor": "micro vertical",
     "systemRatings": [
       {
         "system": "NES",
@@ -105131,7 +105131,7 @@
       "raw": "2022 / 08",
       "mentionedDate": "2022-08-01T00:00:00.000Z"
     },
-    "formFactor": "microhorizontal",
+    "formFactor": "micro horizontal",
     "systemRatings": [
       {
         "system": "PlayStation 1",
@@ -111121,7 +111121,7 @@
       "raw": "2022 / 01",
       "mentionedDate": "2022-01-01T00:00:00.000Z"
     },
-    "formFactor": "microvertical",
+    "formFactor": "micro vertical",
     "systemRatings": [
       {
         "system": "Switch",
@@ -114631,7 +114631,7 @@
       "raw": "2021 / 12",
       "mentionedDate": "2021-12-01T00:00:00.000Z"
     },
-    "formFactor": "microhorizontal",
+    "formFactor": "micro horizontal",
     "systemRatings": [
       {
         "system": "NES",
@@ -129944,7 +129944,7 @@
       "raw": "2021 / 01",
       "mentionedDate": "2021-01-01T00:00:00.000Z"
     },
-    "formFactor": "microclamshell",
+    "formFactor": "micro clamshell",
     "systemRatings": [
       {
         "system": "NES",
@@ -131836,7 +131836,7 @@
       "raw": "2020 / 12",
       "mentionedDate": "2020-12-01T00:00:00.000Z"
     },
-    "formFactor": "microhorizontal",
+    "formFactor": "micro horizontal",
     "systemRatings": [
       {
         "system": "NES",
@@ -134071,7 +134071,7 @@
       "raw": "2020 / 11",
       "mentionedDate": "2020-11-01T00:00:00.000Z"
     },
-    "formFactor": "microhorizontal",
+    "formFactor": "micro horizontal",
     "systemRatings": [
       {
         "system": "NES",
@@ -144915,7 +144915,7 @@
       "raw": "2020 / 04",
       "mentionedDate": "2020-04-01T00:00:00.000Z"
     },
-    "formFactor": "microvertical",
+    "formFactor": "micro vertical",
     "systemRatings": [
       {
         "system": "Switch",
@@ -147153,7 +147153,7 @@
       "raw": "2020 / 01",
       "mentionedDate": "2020-01-01T00:00:00.000Z"
     },
-    "formFactor": "microvertical",
+    "formFactor": "micro vertical",
     "systemRatings": [
       {
         "system": "NES",
@@ -157688,7 +157688,7 @@
       "raw": "2019 / 05",
       "mentionedDate": "2019-05-01T00:00:00.000Z"
     },
-    "formFactor": "microhorizontal",
+    "formFactor": "micro horizontal",
     "systemRatings": [
       {
         "system": "NES",
