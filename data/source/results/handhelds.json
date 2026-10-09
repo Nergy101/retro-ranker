@@ -1247,6 +1247,10 @@
       "average": null,
       "videoReviews": [
         {
+          "url": "https://www.youtube.com/watch?v=bQJS4JYZd18",
+          "name": "Tech Dweeb"
+        },
+        {
           "url": "https://youtube.com/watch?v=lkdVBeI_RaY",
           "name": "1"
         },
@@ -1265,16 +1269,12 @@
         {
           "url": "https://www.youtube.com/watch?v=9lRq_cgIkFA&pp=ygUSS09OS1IgUG9ja2V0IEJsb2Nr",
           "name": "Leafbracer"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=_yV3Ch3YId8&pp=ygUSS09OS1IgUG9ja2V0IEJsb2Nr",
-          "name": "Laplanet"
         }
       ],
       "writtenReviews": [
         {
-          "url": "https://www.youtube.com/watch?v=dusYQszYVmc&pp=ygUSS09OS1IgUG9ja2V0IEJsb2Nr",
-          "name": "Casualties Of Gaming"
+          "url": "https://www.youtube.com/watch?v=_yV3Ch3YId8&pp=ygUSS09OS1IgUG9ja2V0IEJsb2Nr",
+          "name": "Laplanet"
         }
       ]
     },
