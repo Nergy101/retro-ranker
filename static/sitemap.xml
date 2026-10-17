@@ -32,15 +32,7 @@
         </url>
         
         <url>
-            <loc>https://retroranker.site/devices/rg-dds</loc>
-        </url>
-        
-        <url>
             <loc>https://retroranker.site/devices/retroid-pocket-duo</loc>
-        </url>
-        
-        <url>
-            <loc>https://retroranker.site/devices/gpd-win-max-3</loc>
         </url>
         
         <url>
@@ -52,7 +44,15 @@
         </url>
         
         <url>
+            <loc>https://retroranker.site/devices/rg-dds</loc>
+        </url>
+        
+        <url>
             <loc>https://retroranker.site/devices/odin-3-portal</loc>
+        </url>
+        
+        <url>
+            <loc>https://retroranker.site/devices/gpd-win-max-3</loc>
         </url>
         
         <url>

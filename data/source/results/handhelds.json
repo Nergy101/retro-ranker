@@ -1,433 +1,7 @@
 [
   {
-    "id": "rg-dds",
-    "index": 1,
-    "name": {
-      "raw": "RG DDS",
-      "sanitized": "rg-dds",
-      "normalized": "RG DDS"
-    },
-    "brand": {
-      "raw": "Anbernic",
-      "sanitized": "Anbernic",
-      "normalized": "Anbernic"
-    },
-    "os": {
-      "raw": "Android 16",
-      "icons": [
-        "ph-android-logo"
-      ],
-      "list": [
-        "Android 16"
-      ],
-      "customFirmwares": []
-    },
-    "tags": [
-      {
-        "name": "Android",
-        "slug": "android",
-        "type": "os"
-      },
-      {
-        "name": "Anbernic",
-        "slug": "Anbernic",
-        "type": "brand"
-      },
-      {
-        "name": "$$",
-        "slug": "mid",
-        "type": "price"
-      },
-      {
-        "name": "Clamshell",
-        "slug": "clamshell",
-        "type": "formFactor"
-      },
-      {
-        "name": "IPS",
-        "slug": "ips",
-        "type": "screenType"
-      },
-      {
-        "name": "Upcoming",
-        "slug": "upcoming",
-        "type": "releaseDate"
-      },
-      {
-        "name": "Handheld",
-        "slug": "handheld",
-        "type": "deviceType"
-      }
-    ],
-    "totalRating": 5.15,
-    "lowBatteryIndicator": null,
-    "hackingGuides": [],
-    "systemOnChip": "Qualcomm Snapdragon G2 Gen 2",
-    "architecture": {
-      "type": "ARM"
-    },
-    "ram": {
-      "raw": "8 GB / 12 GB(LPDDR4X?)",
-      "sizes": [
-        8
-      ],
-      "unit": "GB",
-      "type": "LPDDR4X"
-    },
-    "rumble": false,
-    "sensors": {
-      "raw": "✅",
-      "hasMicrophone": false,
-      "hasAccelerometer": false,
-      "hasGyroscope": false,
-      "hasCompass": false,
-      "hasMagnetometer": false,
-      "hasBarometer": false,
-      "hasProximitySensor": false,
-      "hasAmbientLightSensor": false,
-      "hasFingerprintSensor": false,
-      "hasCamera": false,
-      "hasGravitySensor": false,
-      "hasPressureSensor": false,
-      "hasTemperatureSensor": false,
-      "hasHumiditySensor": false,
-      "hasHeartRateSensor": false,
-      "hasAntenna": false,
-      "screenClosure": false
-    },
-    "volumeControl": {
-      "type": "unknown"
-    },
-    "brightnessControl": {
-      "type": "dedicated-button"
-    },
-    "powerControl": {
-      "type": "unknown"
-    },
-    "battery": {
-      "raw": "Tempered Glass(OCA Laminated)",
-      "capacity": null,
-      "unit": null,
-      "type": "Lithium-ion",
-      "removable": false,
-      "charging": "USB-C"
-    },
-    "chargePort": {
-      "raw": "Home, Launcher, Menu, AI, Power, Volume +-",
-      "type": null,
-      "numberOfPorts": null
-    },
-    "storage": "usb-cbottom facing",
-    "dimensions": {
-      "length": null,
-      "width": null,
-      "height": null
-    },
-    "weight": 166,
-    "shellMaterial": {
-      "raw": "?",
-      "isPlastic": false,
-      "isMetal": false,
-      "isAluminum": false,
-      "isMagnesiumAlloy": false,
-      "isOther": true
-    },
-    "colors": [
-      "Plastic"
-    ],
-    "image": {
-      "originalUrl": "resources/cellImage_0_18.jpg",
-      "pngUrl": "/devices/rg-dds.png",
-      "webpUrl": "/devices/rg-dds.webp",
-      "alt": "rg dds",
-      "pocketbaseUrl": null
-    },
-    "released": {
-      "raw": "Upcoming(On sale October 16th at 6:00 AM EST, ships December 10th)",
-      "mentionedDate": null
-    },
-    "formFactor": "clamshell(dual screen)",
-    "systemRatings": [
-      {
-        "system": "PlayStation 2",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "PlayStation 1",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "PlayStation Portable",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Wii",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "GameCube",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "3DS",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "DS",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "N64",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "SNES",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "NES",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Game Boy Advance",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Game Boy",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Saturn",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Dreamcast",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Genesis",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Wii U",
-        "ratingMark": "B",
-        "ratingNumber": 4
-      },
-      {
-        "system": "Switch",
-        "ratingMark": "D",
-        "ratingNumber": 2
-      },
-      {
-        "system": "PlayStation 3",
-        "ratingMark": "D",
-        "ratingNumber": 2
-      }
-    ],
-    "deviceType": "handheld",
-    "connectivity": {
-      "hasWifi": false,
-      "hasBluetooth": false,
-      "hasNfc": false,
-      "hasUsb": false,
-      "hasUsbC": true
-    },
-    "cpus": [
-      {
-        "raw": "Qualcomm Kryo1x Gold Plus / 4x Gold / 3x Silver",
-        "names": [
-          "Qualcomm Kryo1x Gold Plus / 4x Gold / 3x Silver"
-        ],
-        "cores": 8,
-        "threads": 8,
-        "clockSpeed": {
-          "min": 1.9,
-          "max": 1.9,
-          "unit": "GHZ"
-        }
-      }
-    ],
-    "gpus": [
-      {
-        "name": "Qualcomm Adreno A22",
-        "cores": 1,
-        "clockSpeed": null
-      }
-    ],
-    "performance": {
-      "rating": 12,
-      "normalizedRating": 8,
-      "tier": "🔥🔥",
-      "maxEmulation": "Most Switch playable, some PS3 playable",
-      "emulationLimit": ""
-    },
-    "screen": {
-      "size": 4.7,
-      "type": {
-        "raw": "IPS Touchscreen",
-        "isTouchscreen": true,
-        "isPenCapable": false,
-        "type": "IPS"
-      },
-      "resolution": [
-        {
-          "raw": "60 hz(x2)",
-          "width": 60,
-          "height": 2
-        }
-      ],
-      "ppi": [
-        null
-      ],
-      "aspectRatio": "primary: 297.75 ppisecondary: 300 ppi",
-      "lens": "primary: 5:3secondary: 4:3"
-    },
-    "cooling": {
-      "raw": "6000 mAh",
-      "hasHeatsink": false,
-      "hasFan": false,
-      "hasHeatPipe": false,
-      "hasVentilationCutouts": false
-    },
-    "controls": {
-      "dPad": {
-        "raw": "HeatsinkFanVentilation cutouts",
-        "type": "d-pad"
-      },
-      "analogs": {
-        "raw": "CrossLower placement",
-        "dual": false,
-        "single": false,
-        "L3": false,
-        "R3": false,
-        "isHallSensor": false,
-        "isThumbstick": false,
-        "isSlidepad": false
-      },
-      "numberOfFaceButtons": 3,
-      "shoulderButtons": {
-        "raw": "4 Buttons",
-        "L": false,
-        "L1": false,
-        "L2": false,
-        "L3": false,
-        "R": false,
-        "R1": false,
-        "R2": false,
-        "R3": false,
-        "M1": false,
-        "M2": false,
-        "LC": false,
-        "RC": false,
-        "ZL": false,
-        "ZRVertical": false,
-        "ZRHorizontal": false
-      },
-      "extraButtons": {
-        "raw": "L1, R1, L2, R2Horizontal",
-        "power": false,
-        "reset": false,
-        "home": false,
-        "volumeUp": false,
-        "volumeDown": false,
-        "function": false,
-        "turbo": false,
-        "touchpad": false,
-        "fingerprint": false,
-        "mute": false,
-        "screenshot": false,
-        "programmableButtons": false
-      }
-    },
-    "outputs": {
-      "videoOutput": {
-        "raw": "WiFi 6, Bluetooth 5.4",
-        "hasUsbC": false,
-        "hasMicroHdmi": false,
-        "hasMiniHdmi": false,
-        "hasHdmi": false,
-        "hasDvi": false,
-        "hasVga": false,
-        "hasDisplayPort": false,
-        "OcuLink": false,
-        "AV": false
-      },
-      "audioOutput": {
-        "raw": "USB-C video outBottom facing",
-        "has35mmJack": false,
-        "hasHeadphoneJack": false,
-        "hasUsbC": true
-      },
-      "speaker": {
-        "type": "unknown"
-      }
-    },
-    "reviews": {
-      "count": null,
-      "average": null,
-      "videoReviews": [
-        {
-          "url": "https://www.youtube.com/watch?v=J-RIMA10yU4",
-          "name": "Retro Game Corps"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=YfnYDISeZIE",
-          "name": "1"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=wpayow6_6Rg",
-          "name": "2"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=Ipq1EeDKpK4",
-          "name": "Retro Handhelds"
-        }
-      ],
-      "writtenReviews": []
-    },
-    "pricing": {
-      "raw": "$300 (8GB+128GB)$365 (12GB+256GB)+ shipping",
-      "average": 278,
-      "range": {
-        "min": 300,
-        "max": 256
-      },
-      "currency": "USD",
-      "category": "mid",
-      "discontinued": null
-    },
-    "pros": [
-      "-"
-    ],
-    "cons": [],
-    "vendorLinks": [
-      {
-        "url": "https://www.aliexpress.us/item/3256812971333986.html",
-        "name": "Aliexpress"
-      }
-    ],
-    "notes": [
-      ""
-    ]
-  },
-  {
     "id": "retroid-pocket-duo",
-    "index": 2,
+    "index": 1,
     "name": {
       "raw": "Retroid Pocket Duo",
       "sanitized": "retroid-pocket-duo",
@@ -562,7 +136,7 @@
       "Plastic"
     ],
     "image": {
-      "originalUrl": "resources/cellImage_0_19.jpg",
+      "originalUrl": "resources/cellImage_0_18.jpg",
       "pngUrl": "/devices/retroid-pocket-duo.png",
       "webpUrl": "/devices/retroid-pocket-duo.webp",
       "alt": "retroid pocket duo",
@@ -860,445 +434,8 @@
     ]
   },
   {
-    "id": "gpd-win-max-3",
-    "index": 3,
-    "name": {
-      "raw": "GPD Win Max 3",
-      "sanitized": "gpd-win-max-3",
-      "normalized": "GPD Win Max 3"
-    },
-    "brand": {
-      "raw": "Game Pad Digital",
-      "sanitized": "Game-Pad-Digital",
-      "normalized": "Game Pad Digital"
-    },
-    "os": {
-      "raw": "Windows 11",
-      "icons": [
-        "ph-windows-logo"
-      ],
-      "list": [
-        "Windows 11"
-      ],
-      "customFirmwares": []
-    },
-    "tags": [
-      {
-        "name": "Windows 11",
-        "slug": "windows-11",
-        "type": "os"
-      },
-      {
-        "name": "Game Pad Digital",
-        "slug": "Game-Pad-Digital",
-        "type": "brand"
-      },
-      {
-        "name": "$$$",
-        "slug": "high",
-        "type": "price"
-      },
-      {
-        "name": "Clamshell",
-        "slug": "clamshell",
-        "type": "formFactor"
-      },
-      {
-        "name": "OLED",
-        "slug": "oled",
-        "type": "screenType"
-      },
-      {
-        "name": "Upcoming",
-        "slug": "upcoming",
-        "type": "releaseDate"
-      },
-      {
-        "name": "Handheld",
-        "slug": "handheld",
-        "type": "deviceType"
-      }
-    ],
-    "totalRating": 6.92,
-    "lowBatteryIndicator": null,
-    "hackingGuides": [],
-    "systemOnChip": "AMD Ryzen AI Max+ 395",
-    "architecture": {
-      "type": "x86-64"
-    },
-    "ram": {
-      "raw": "32 GB / 64 GB / 128 GB LPDDR5X(8000 MT/s)",
-      "sizes": [
-        32
-      ],
-      "unit": "GB",
-      "type": "LPDDR5X"
-    },
-    "rumble": false,
-    "sensors": {
-      "raw": "✅",
-      "hasMicrophone": false,
-      "hasAccelerometer": false,
-      "hasGyroscope": false,
-      "hasCompass": false,
-      "hasMagnetometer": false,
-      "hasBarometer": false,
-      "hasProximitySensor": false,
-      "hasAmbientLightSensor": false,
-      "hasFingerprintSensor": false,
-      "hasCamera": false,
-      "hasGravitySensor": false,
-      "hasPressureSensor": false,
-      "hasTemperatureSensor": false,
-      "hasHumiditySensor": false,
-      "hasHeartRateSensor": false,
-      "hasAntenna": false,
-      "screenClosure": false
-    },
-    "volumeControl": {
-      "type": "unknown"
-    },
-    "brightnessControl": {
-      "type": "dedicated-button"
-    },
-    "powerControl": {
-      "type": "button"
-    },
-    "battery": {
-      "raw": "Corning Gorilla Glass(OCA Laminated)",
-      "capacity": null,
-      "unit": null,
-      "type": "Lithium-ion",
-      "removable": false,
-      "charging": "USB-C"
-    },
-    "chargePort": {
-      "raw": "Full QWERTY keyboard (backlit), L4/R4, Menu, Power/Fingerprint reader, Reset, Gamepad/Mouse switch",
-      "type": null,
-      "numberOfPorts": 4
-    },
-    "storage": "usb-c x2top & side facingdc jack",
-    "dimensions": {
-      "length": null,
-      "width": null,
-      "height": null
-    },
-    "weight": 207,
-    "shellMaterial": {
-      "raw": "1220 grams",
-      "isPlastic": false,
-      "isMetal": false,
-      "isAluminum": false,
-      "isMagnesiumAlloy": false,
-      "isOther": true
-    },
-    "colors": [
-      "Metal (Magnesium Aluminum Alloy)"
-    ],
-    "image": {
-      "originalUrl": "resources/cellImage_0_20.jpg",
-      "pngUrl": "/devices/gpd-win-max-3.png",
-      "webpUrl": "/devices/gpd-win-max-3.webp",
-      "alt": "gpd win max 3",
-      "pocketbaseUrl": null
-    },
-    "released": {
-      "raw": "Upcoming(Indiegogo live now, ships October 15th)",
-      "mentionedDate": null
-    },
-    "formFactor": "clamshell",
-    "systemRatings": [
-      {
-        "system": "Switch",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "PlayStation 3",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "PlayStation 2",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "PlayStation 1",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "PlayStation Portable",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Wii U",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Wii",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "GameCube",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "3DS",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "DS",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "N64",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "SNES",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "NES",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Game Boy Advance",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Game Boy",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Saturn",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Dreamcast",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Genesis",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      }
-    ],
-    "deviceType": "handheld",
-    "connectivity": {
-      "hasWifi": false,
-      "hasBluetooth": false,
-      "hasNfc": false,
-      "hasUsb": false,
-      "hasUsbC": false
-    },
-    "cpus": [
-      {
-        "raw": "AMD Zen 5",
-        "names": [
-          "AMD Zen 5"
-        ],
-        "cores": 16,
-        "threads": 32,
-        "clockSpeed": {
-          "min": 3,
-          "max": 3,
-          "unit": "GHZ"
-        }
-      }
-    ],
-    "gpus": [
-      {
-        "name": "AMD Radeon 8060S",
-        "cores": 40,
-        "clockSpeed": {
-          "min": 2.9,
-          "max": 2.9,
-          "unit": "GHZ"
-        }
-      }
-    ],
-    "performance": {
-      "rating": 15,
-      "normalizedRating": 10,
-      "tier": "🔥🔥🔥🔥🔥",
-      "maxEmulation": "Limits unknown",
-      "emulationLimit": ""
-    },
-    "screen": {
-      "size": 9.06,
-      "type": {
-        "raw": "AMOLED Touchscreen",
-        "isTouchscreen": true,
-        "isPenCapable": false,
-        "type": "OLED"
-      },
-      "resolution": [],
-      "ppi": [
-        2400
-      ],
-      "aspectRatio": "312.62 ppi",
-      "lens": "16:10"
-    },
-    "cooling": {
-      "raw": "97.53 Wh(Swappable)",
-      "hasHeatsink": false,
-      "hasFan": false,
-      "hasHeatPipe": false,
-      "hasVentilationCutouts": false
-    },
-    "controls": {
-      "dPad": {
-        "raw": "Quad Heat PipesDual FansVentilation cutouts",
-        "type": "d-pad"
-      },
-      "analogs": {
-        "raw": "Separated Cross (PS Vita)Upper, inner placement",
-        "dual": false,
-        "single": false,
-        "L3": false,
-        "R3": false,
-        "isHallSensor": false,
-        "isThumbstick": false,
-        "isSlidepad": false
-      },
-      "numberOfFaceButtons": 3,
-      "shoulderButtons": {
-        "raw": "4 Buttons",
-        "L": false,
-        "L1": false,
-        "L2": false,
-        "L3": false,
-        "R": false,
-        "R1": false,
-        "R2": false,
-        "R3": false,
-        "M1": false,
-        "M2": false,
-        "LC": false,
-        "RC": false,
-        "ZL": false,
-        "ZRVertical": false,
-        "ZRHorizontal": false
-      },
-      "extraButtons": {
-        "raw": "L1, R1, L2, R2VerticalAnalog Triggers",
-        "power": false,
-        "reset": false,
-        "home": false,
-        "volumeUp": false,
-        "volumeDown": false,
-        "function": false,
-        "turbo": false,
-        "touchpad": false,
-        "fingerprint": false,
-        "mute": false,
-        "screenshot": false,
-        "programmableButtons": false
-      }
-    },
-    "outputs": {
-      "videoOutput": {
-        "raw": "WiFi 6E, Bluetooth 5.3, 2x USB-A 3.2",
-        "hasUsbC": false,
-        "hasMicroHdmi": false,
-        "hasMiniHdmi": false,
-        "hasHdmi": false,
-        "hasDvi": false,
-        "hasVga": false,
-        "hasDisplayPort": false,
-        "OcuLink": false,
-        "AV": false
-      },
-      "audioOutput": {
-        "raw": "HDMI 2.1Side facing",
-        "has35mmJack": false,
-        "hasHeadphoneJack": false,
-        "hasUsbC": false
-      },
-      "speaker": {
-        "type": "unknown"
-      }
-    },
-    "reviews": {
-      "count": null,
-      "average": null,
-      "videoReviews": [
-        {
-          "url": "https://www.youtube.com/watch?v=sdhfLAh23Zk",
-          "name": "Retro Game Corps"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=nnVPgAwxFLw",
-          "name": "1"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=2dbPiX4Gbx0",
-          "name": "2"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=otHXE14zSNk",
-          "name": "3"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=18h8V346-bA&pp=ugUHEgVlbi1VUw%3D%3D",
-          "name": "The Phawx"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=rLChn8LnuCA",
-          "name": "DroiX"
-        }
-      ],
-      "writtenReviews": [
-        {
-          "url": "https://www.youtube.com/watch?v=bZ61JXjm1L8&pp=ygUNR1BEIFdpbiBNYXggM9IHCQkbDAGHKiGM7w%3D%3D",
-          "name": "Kingmi Mobile"
-        }
-      ]
-    },
-    "pricing": {
-      "raw": "$1800 - $3600",
-      "average": 2700,
-      "range": {
-        "min": 1800,
-        "max": 3600
-      },
-      "currency": "USD",
-      "category": "high",
-      "discontinued": null
-    },
-    "pros": [
-      "-"
-    ],
-    "cons": [],
-    "vendorLinks": [
-      {
-        "url": "https://www.indiegogo.com/en/projects/gpdhk/gpd-win-max-3-handheld-gaming-laptop",
-        "name": "Indiegogo"
-      }
-    ],
-    "notes": [
-      ""
-    ]
-  },
-  {
     "id": "konkr-pocket-block",
-    "index": 4,
+    "index": 2,
     "name": {
       "raw": "KONKR Pocket Block",
       "sanitized": "konkr-pocket-block",
@@ -1433,7 +570,7 @@
       "Plastic"
     ],
     "image": {
-      "originalUrl": "resources/cellImage_0_21.jpg",
+      "originalUrl": "resources/cellImage_0_19.jpg",
       "pngUrl": "/devices/konkr-pocket-block.png",
       "webpUrl": "/devices/konkr-pocket-block.webp",
       "alt": "konkr pocket block",
@@ -1739,7 +876,7 @@
   },
   {
     "id": "retroid-pocket-duo-lite-plus",
-    "index": 5,
+    "index": 3,
     "name": {
       "raw": "Retroid Pocket Duo Lite Plus",
       "sanitized": "retroid-pocket-duo-lite-plus",
@@ -1874,7 +1011,7 @@
       "Plastic"
     ],
     "image": {
-      "originalUrl": "resources/cellImage_0_22.jpg",
+      "originalUrl": "resources/cellImage_0_20.jpg",
       "pngUrl": "/devices/retroid-pocket-duo-lite-plus.png",
       "webpUrl": "/devices/retroid-pocket-duo-lite-plus.webp",
       "alt": "retroid pocket duo lite plus",
@@ -2168,8 +1305,450 @@
     ]
   },
   {
+    "id": "rg-dds",
+    "index": 4,
+    "name": {
+      "raw": "RG DDS",
+      "sanitized": "rg-dds",
+      "normalized": "RG DDS"
+    },
+    "brand": {
+      "raw": "Anbernic",
+      "sanitized": "Anbernic",
+      "normalized": "Anbernic"
+    },
+    "os": {
+      "raw": "Android 16",
+      "icons": [
+        "ph-android-logo"
+      ],
+      "list": [
+        "Android 16"
+      ],
+      "customFirmwares": []
+    },
+    "tags": [
+      {
+        "name": "Android",
+        "slug": "android",
+        "type": "os"
+      },
+      {
+        "name": "Anbernic",
+        "slug": "Anbernic",
+        "type": "brand"
+      },
+      {
+        "name": "$$",
+        "slug": "mid",
+        "type": "price"
+      },
+      {
+        "name": "Clamshell",
+        "slug": "clamshell",
+        "type": "formFactor"
+      },
+      {
+        "name": "IPS",
+        "slug": "ips",
+        "type": "screenType"
+      },
+      {
+        "name": "Upcoming",
+        "slug": "upcoming",
+        "type": "releaseDate"
+      },
+      {
+        "name": "Handheld",
+        "slug": "handheld",
+        "type": "deviceType"
+      }
+    ],
+    "totalRating": 5.15,
+    "lowBatteryIndicator": null,
+    "hackingGuides": [],
+    "systemOnChip": "Qualcomm Snapdragon G2 Gen 2",
+    "architecture": {
+      "type": "ARM"
+    },
+    "ram": {
+      "raw": "8 GB / 12 GB(LPDDR4X?)",
+      "sizes": [
+        8
+      ],
+      "unit": "GB",
+      "type": "LPDDR4X"
+    },
+    "rumble": false,
+    "sensors": {
+      "raw": "✅",
+      "hasMicrophone": false,
+      "hasAccelerometer": false,
+      "hasGyroscope": false,
+      "hasCompass": false,
+      "hasMagnetometer": false,
+      "hasBarometer": false,
+      "hasProximitySensor": false,
+      "hasAmbientLightSensor": false,
+      "hasFingerprintSensor": false,
+      "hasCamera": false,
+      "hasGravitySensor": false,
+      "hasPressureSensor": false,
+      "hasTemperatureSensor": false,
+      "hasHumiditySensor": false,
+      "hasHeartRateSensor": false,
+      "hasAntenna": false,
+      "screenClosure": false
+    },
+    "volumeControl": {
+      "type": "unknown"
+    },
+    "brightnessControl": {
+      "type": "dedicated-button"
+    },
+    "powerControl": {
+      "type": "unknown"
+    },
+    "battery": {
+      "raw": "Tempered Glass(OCA Laminated)",
+      "capacity": null,
+      "unit": null,
+      "type": "Lithium-ion",
+      "removable": false,
+      "charging": "USB-C"
+    },
+    "chargePort": {
+      "raw": "Home, Launcher, Menu, AI, Power, Volume +-",
+      "type": null,
+      "numberOfPorts": null
+    },
+    "storage": "usb-cbottom facing",
+    "dimensions": {
+      "length": null,
+      "width": null,
+      "height": null
+    },
+    "weight": 166,
+    "shellMaterial": {
+      "raw": "434 grams",
+      "isPlastic": false,
+      "isMetal": false,
+      "isAluminum": false,
+      "isMagnesiumAlloy": false,
+      "isOther": true
+    },
+    "colors": [
+      "Plastic"
+    ],
+    "image": {
+      "originalUrl": "resources/cellImage_0_21.jpg",
+      "pngUrl": "/devices/rg-dds.png",
+      "webpUrl": "/devices/rg-dds.webp",
+      "alt": "rg dds",
+      "pocketbaseUrl": null
+    },
+    "released": {
+      "raw": "Upcoming(On sale now, ships December 10th)",
+      "mentionedDate": null
+    },
+    "formFactor": "clamshell(dual screen)",
+    "systemRatings": [
+      {
+        "system": "PlayStation 2",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "PlayStation 1",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "PlayStation Portable",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Wii",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "GameCube",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "3DS",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "DS",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "N64",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "SNES",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "NES",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Game Boy Advance",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Game Boy",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Saturn",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Dreamcast",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Genesis",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Wii U",
+        "ratingMark": "B",
+        "ratingNumber": 4
+      },
+      {
+        "system": "Switch",
+        "ratingMark": "D",
+        "ratingNumber": 2
+      },
+      {
+        "system": "PlayStation 3",
+        "ratingMark": "D",
+        "ratingNumber": 2
+      }
+    ],
+    "deviceType": "handheld",
+    "connectivity": {
+      "hasWifi": false,
+      "hasBluetooth": false,
+      "hasNfc": false,
+      "hasUsb": false,
+      "hasUsbC": true
+    },
+    "cpus": [
+      {
+        "raw": "Qualcomm Kryo1x Gold Plus / 4x Gold / 3x Silver",
+        "names": [
+          "Qualcomm Kryo1x Gold Plus / 4x Gold / 3x Silver"
+        ],
+        "cores": 8,
+        "threads": 8,
+        "clockSpeed": {
+          "min": 1.9,
+          "max": 1.9,
+          "unit": "GHZ"
+        }
+      }
+    ],
+    "gpus": [
+      {
+        "name": "Qualcomm Adreno A22",
+        "cores": 1,
+        "clockSpeed": null
+      }
+    ],
+    "performance": {
+      "rating": 12,
+      "normalizedRating": 8,
+      "tier": "🔥🔥",
+      "maxEmulation": "Most Switch playable, some PS3 playable",
+      "emulationLimit": ""
+    },
+    "screen": {
+      "size": 4.7,
+      "type": {
+        "raw": "IPS Touchscreen",
+        "isTouchscreen": true,
+        "isPenCapable": false,
+        "type": "IPS"
+      },
+      "resolution": [
+        {
+          "raw": "60 hz(x2)",
+          "width": 60,
+          "height": 2
+        }
+      ],
+      "ppi": [
+        null
+      ],
+      "aspectRatio": "primary: 297.75 ppisecondary: 300 ppi",
+      "lens": "primary: 5:3secondary: 4:3"
+    },
+    "cooling": {
+      "raw": "6000 mAh",
+      "hasHeatsink": false,
+      "hasFan": false,
+      "hasHeatPipe": false,
+      "hasVentilationCutouts": false
+    },
+    "controls": {
+      "dPad": {
+        "raw": "HeatsinkFanVentilation cutouts",
+        "type": "d-pad"
+      },
+      "analogs": {
+        "raw": "CrossLower placement",
+        "dual": false,
+        "single": false,
+        "L3": false,
+        "R3": false,
+        "isHallSensor": false,
+        "isThumbstick": false,
+        "isSlidepad": false
+      },
+      "numberOfFaceButtons": 3,
+      "shoulderButtons": {
+        "raw": "4 Buttons",
+        "L": false,
+        "L1": false,
+        "L2": false,
+        "L3": false,
+        "R": false,
+        "R1": false,
+        "R2": false,
+        "R3": false,
+        "M1": false,
+        "M2": false,
+        "LC": false,
+        "RC": false,
+        "ZL": false,
+        "ZRVertical": false,
+        "ZRHorizontal": false
+      },
+      "extraButtons": {
+        "raw": "L1, R1, L2, R2Horizontal",
+        "power": false,
+        "reset": false,
+        "home": false,
+        "volumeUp": false,
+        "volumeDown": false,
+        "function": false,
+        "turbo": false,
+        "touchpad": false,
+        "fingerprint": false,
+        "mute": false,
+        "screenshot": false,
+        "programmableButtons": false
+      }
+    },
+    "outputs": {
+      "videoOutput": {
+        "raw": "WiFi 6, Bluetooth 5.4",
+        "hasUsbC": false,
+        "hasMicroHdmi": false,
+        "hasMiniHdmi": false,
+        "hasHdmi": false,
+        "hasDvi": false,
+        "hasVga": false,
+        "hasDisplayPort": false,
+        "OcuLink": false,
+        "AV": false
+      },
+      "audioOutput": {
+        "raw": "USB-C video outBottom facing",
+        "has35mmJack": false,
+        "hasHeadphoneJack": false,
+        "hasUsbC": true
+      },
+      "speaker": {
+        "type": "unknown"
+      }
+    },
+    "reviews": {
+      "count": null,
+      "average": null,
+      "videoReviews": [
+        {
+          "url": "https://www.youtube.com/watch?v=J-RIMA10yU4",
+          "name": "Retro Game Corps"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=YfnYDISeZIE",
+          "name": "1"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=wpayow6_6Rg",
+          "name": "2"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=Ipq1EeDKpK4",
+          "name": "Retro Handhelds"
+        }
+      ],
+      "writtenReviews": []
+    },
+    "pricing": {
+      "raw": "$300 (8GB+128GB)$365 (12GB+256GB)+ shipping",
+      "average": 278,
+      "range": {
+        "min": 300,
+        "max": 256
+      },
+      "currency": "USD",
+      "category": "mid",
+      "discontinued": null
+    },
+    "pros": [
+      "-"
+    ],
+    "cons": [],
+    "vendorLinks": [
+      {
+        "url": "https://anbernic.com/products/rg-dds",
+        "name": "Anbernic"
+      },
+      {
+        "url": "https://www.aliexpress.us/item/3256809091307627.html",
+        "name": "1"
+      },
+      {
+        "url": "https://www.aliexpress.us/item/3256813223511681.html",
+        "name": "2"
+      },
+      {
+        "url": "https://www.aliexpress.us/item/3256807726406188.html",
+        "name": "3"
+      },
+      {
+        "url": "https://www.aliexpress.us/item/3256813216173767.html",
+        "name": "4"
+      }
+    ],
+    "notes": [
+      ""
+    ]
+  },
+  {
     "id": "odin-3-portal",
-    "index": 6,
+    "index": 5,
     "name": {
       "raw": "Odin 3 Portal",
       "sanitized": "odin-3-portal",
@@ -2297,7 +1876,7 @@
       "Plastic"
     ],
     "image": {
-      "originalUrl": "resources/cellImage_0_23.jpg",
+      "originalUrl": "resources/cellImage_0_22.jpg",
       "pngUrl": "/devices/odin-3-portal.png",
       "webpUrl": "/devices/odin-3-portal.webp",
       "alt": "odin 3 portal",
@@ -2552,6 +2131,443 @@
     "pros": [],
     "cons": [],
     "vendorLinks": [],
+    "notes": [
+      ""
+    ]
+  },
+  {
+    "id": "gpd-win-max-3",
+    "index": 6,
+    "name": {
+      "raw": "GPD Win Max 3",
+      "sanitized": "gpd-win-max-3",
+      "normalized": "GPD Win Max 3"
+    },
+    "brand": {
+      "raw": "Game Pad Digital",
+      "sanitized": "Game-Pad-Digital",
+      "normalized": "Game Pad Digital"
+    },
+    "os": {
+      "raw": "Windows 11",
+      "icons": [
+        "ph-windows-logo"
+      ],
+      "list": [
+        "Windows 11"
+      ],
+      "customFirmwares": []
+    },
+    "tags": [
+      {
+        "name": "Windows 11",
+        "slug": "windows-11",
+        "type": "os"
+      },
+      {
+        "name": "Game Pad Digital",
+        "slug": "Game-Pad-Digital",
+        "type": "brand"
+      },
+      {
+        "name": "$$$",
+        "slug": "high",
+        "type": "price"
+      },
+      {
+        "name": "Clamshell",
+        "slug": "clamshell",
+        "type": "formFactor"
+      },
+      {
+        "name": "OLED",
+        "slug": "oled",
+        "type": "screenType"
+      },
+      {
+        "name": "2026",
+        "slug": "year-2026",
+        "type": "releaseDate"
+      },
+      {
+        "name": "Handheld",
+        "slug": "handheld",
+        "type": "deviceType"
+      }
+    ],
+    "totalRating": 6.92,
+    "lowBatteryIndicator": null,
+    "hackingGuides": [],
+    "systemOnChip": "AMD Ryzen AI Max+ 395",
+    "architecture": {
+      "type": "x86-64"
+    },
+    "ram": {
+      "raw": "32 GB / 64 GB / 128 GB LPDDR5X(8000 MT/s)",
+      "sizes": [
+        32
+      ],
+      "unit": "GB",
+      "type": "LPDDR5X"
+    },
+    "rumble": false,
+    "sensors": {
+      "raw": "✅",
+      "hasMicrophone": false,
+      "hasAccelerometer": false,
+      "hasGyroscope": false,
+      "hasCompass": false,
+      "hasMagnetometer": false,
+      "hasBarometer": false,
+      "hasProximitySensor": false,
+      "hasAmbientLightSensor": false,
+      "hasFingerprintSensor": false,
+      "hasCamera": false,
+      "hasGravitySensor": false,
+      "hasPressureSensor": false,
+      "hasTemperatureSensor": false,
+      "hasHumiditySensor": false,
+      "hasHeartRateSensor": false,
+      "hasAntenna": false,
+      "screenClosure": false
+    },
+    "volumeControl": {
+      "type": "unknown"
+    },
+    "brightnessControl": {
+      "type": "dedicated-button"
+    },
+    "powerControl": {
+      "type": "button"
+    },
+    "battery": {
+      "raw": "Corning Gorilla Glass(OCA Laminated)",
+      "capacity": null,
+      "unit": null,
+      "type": "Lithium-ion",
+      "removable": false,
+      "charging": "USB-C"
+    },
+    "chargePort": {
+      "raw": "Full QWERTY keyboard (backlit), L4/R4, Menu, Power/Fingerprint reader, Reset, Gamepad/Mouse switch",
+      "type": null,
+      "numberOfPorts": 4
+    },
+    "storage": "usb-c x2top & side facingdc jack",
+    "dimensions": {
+      "length": null,
+      "width": null,
+      "height": null
+    },
+    "weight": 207,
+    "shellMaterial": {
+      "raw": "1220 grams",
+      "isPlastic": false,
+      "isMetal": false,
+      "isAluminum": false,
+      "isMagnesiumAlloy": false,
+      "isOther": true
+    },
+    "colors": [
+      "Metal (Magnesium Aluminum Alloy)"
+    ],
+    "image": {
+      "originalUrl": "resources/cellImage_0_23.jpg",
+      "pngUrl": "/devices/gpd-win-max-3.png",
+      "webpUrl": "/devices/gpd-win-max-3.webp",
+      "alt": "gpd win max 3",
+      "pocketbaseUrl": null
+    },
+    "released": {
+      "raw": "2026 / 10",
+      "mentionedDate": "2026-10-01T00:00:00.000Z"
+    },
+    "formFactor": "clamshell",
+    "systemRatings": [
+      {
+        "system": "Switch",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "PlayStation 3",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "PlayStation 2",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "PlayStation 1",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "PlayStation Portable",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Wii U",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Wii",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "GameCube",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "3DS",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "DS",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "N64",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "SNES",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "NES",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Game Boy Advance",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Game Boy",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Saturn",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Dreamcast",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Genesis",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      }
+    ],
+    "deviceType": "handheld",
+    "connectivity": {
+      "hasWifi": false,
+      "hasBluetooth": false,
+      "hasNfc": false,
+      "hasUsb": false,
+      "hasUsbC": false
+    },
+    "cpus": [
+      {
+        "raw": "AMD Zen 5",
+        "names": [
+          "AMD Zen 5"
+        ],
+        "cores": 16,
+        "threads": 32,
+        "clockSpeed": {
+          "min": 3,
+          "max": 3,
+          "unit": "GHZ"
+        }
+      }
+    ],
+    "gpus": [
+      {
+        "name": "AMD Radeon 8060S",
+        "cores": 40,
+        "clockSpeed": {
+          "min": 2.9,
+          "max": 2.9,
+          "unit": "GHZ"
+        }
+      }
+    ],
+    "performance": {
+      "rating": 15,
+      "normalizedRating": 10,
+      "tier": "🔥🔥🔥🔥🔥",
+      "maxEmulation": "Limits unknown",
+      "emulationLimit": ""
+    },
+    "screen": {
+      "size": 9.06,
+      "type": {
+        "raw": "AMOLED Touchscreen",
+        "isTouchscreen": true,
+        "isPenCapable": false,
+        "type": "OLED"
+      },
+      "resolution": [],
+      "ppi": [
+        2400
+      ],
+      "aspectRatio": "312.62 ppi",
+      "lens": "16:10"
+    },
+    "cooling": {
+      "raw": "97.53 Wh(Swappable)",
+      "hasHeatsink": false,
+      "hasFan": false,
+      "hasHeatPipe": false,
+      "hasVentilationCutouts": false
+    },
+    "controls": {
+      "dPad": {
+        "raw": "Quad Heat PipesDual FansVentilation cutouts",
+        "type": "d-pad"
+      },
+      "analogs": {
+        "raw": "Separated Cross (PS Vita)Upper, inner placement",
+        "dual": false,
+        "single": false,
+        "L3": false,
+        "R3": false,
+        "isHallSensor": false,
+        "isThumbstick": false,
+        "isSlidepad": false
+      },
+      "numberOfFaceButtons": 3,
+      "shoulderButtons": {
+        "raw": "4 Buttons",
+        "L": false,
+        "L1": false,
+        "L2": false,
+        "L3": false,
+        "R": false,
+        "R1": false,
+        "R2": false,
+        "R3": false,
+        "M1": false,
+        "M2": false,
+        "LC": false,
+        "RC": false,
+        "ZL": false,
+        "ZRVertical": false,
+        "ZRHorizontal": false
+      },
+      "extraButtons": {
+        "raw": "L1, R1, L2, R2VerticalAnalog Triggers",
+        "power": false,
+        "reset": false,
+        "home": false,
+        "volumeUp": false,
+        "volumeDown": false,
+        "function": false,
+        "turbo": false,
+        "touchpad": false,
+        "fingerprint": false,
+        "mute": false,
+        "screenshot": false,
+        "programmableButtons": false
+      }
+    },
+    "outputs": {
+      "videoOutput": {
+        "raw": "WiFi 6E, Bluetooth 5.3, 2x USB-A 3.2",
+        "hasUsbC": false,
+        "hasMicroHdmi": false,
+        "hasMiniHdmi": false,
+        "hasHdmi": false,
+        "hasDvi": false,
+        "hasVga": false,
+        "hasDisplayPort": false,
+        "OcuLink": false,
+        "AV": false
+      },
+      "audioOutput": {
+        "raw": "HDMI 2.1Side facing",
+        "has35mmJack": false,
+        "hasHeadphoneJack": false,
+        "hasUsbC": false
+      },
+      "speaker": {
+        "type": "unknown"
+      }
+    },
+    "reviews": {
+      "count": null,
+      "average": null,
+      "videoReviews": [
+        {
+          "url": "https://www.youtube.com/watch?v=sdhfLAh23Zk",
+          "name": "Retro Game Corps"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=nnVPgAwxFLw",
+          "name": "1"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=2dbPiX4Gbx0",
+          "name": "2"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=otHXE14zSNk",
+          "name": "3"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=18h8V346-bA&pp=ugUHEgVlbi1VUw%3D%3D",
+          "name": "The Phawx"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=rLChn8LnuCA",
+          "name": "DroiX"
+        }
+      ],
+      "writtenReviews": [
+        {
+          "url": "https://www.youtube.com/watch?v=bZ61JXjm1L8&pp=ygUNR1BEIFdpbiBNYXggM9IHCQkbDAGHKiGM7w%3D%3D",
+          "name": "Kingmi Mobile"
+        }
+      ]
+    },
+    "pricing": {
+      "raw": "$1800 - $3600",
+      "average": 2700,
+      "range": {
+        "min": 1800,
+        "max": 3600
+      },
+      "currency": "USD",
+      "category": "high",
+      "discontinued": null
+    },
+    "pros": [
+      "-"
+    ],
+    "cons": [],
+    "vendorLinks": [
+      {
+        "url": "https://www.indiegogo.com/en/projects/gpdhk/gpd-win-max-3-handheld-gaming-laptop",
+        "name": "Indiegogo"
+      }
+    ],
     "notes": [
       ""
     ]
@@ -3386,6 +3402,10 @@
         {
           "url": "https://www.youtube.com/watch?v=Fx4pWNG3bhw",
           "name": "2"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=yW6LavgyhL4&pp=ugUHEgVlbi1VU9IHCQlHDAGHKiGM7w%3D%3D",
+          "name": "3"
         },
         {
           "url": "https://www.youtube.com/watch?v=hT5ypKQE7RY",
