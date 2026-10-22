@@ -1,24 +1,24 @@
 [
   {
-    "id": "retroid-pocket-duo",
+    "id": "odin-3-portal",
     "index": 1,
     "name": {
-      "raw": "Retroid Pocket Duo",
-      "sanitized": "retroid-pocket-duo",
-      "normalized": "Retroid Pocket Duo"
+      "raw": "Odin 3 Portal",
+      "sanitized": "odin-3-portal",
+      "normalized": "Odin 3 Portal"
     },
     "brand": {
-      "raw": "Retroid / Moorechip",
-      "sanitized": "Retroid-Moorechip",
-      "normalized": "Retroid / Moorechip"
+      "raw": "AYN Technologies",
+      "sanitized": "AYN-Technologies",
+      "normalized": "AYN Technologies"
     },
     "os": {
-      "raw": "Android 16",
+      "raw": "Android 15",
       "icons": [
         "ph-android-logo"
       ],
       "list": [
-        "Android 16"
+        "Android 15"
       ],
       "customFirmwares": []
     },
@@ -29,18 +29,18 @@
         "type": "os"
       },
       {
-        "name": "Retroid / Moorechip",
-        "slug": "Retroid-Moorechip",
+        "name": "AYN Technologies",
+        "slug": "AYN-Technologies",
         "type": "brand"
       },
       {
-        "name": "$$",
-        "slug": "mid",
+        "name": "$$$",
+        "slug": "high",
         "type": "price"
       },
       {
-        "name": "Clamshell",
-        "slug": "clamshell",
+        "name": "Horizontal",
+        "slug": "horizontal",
         "type": "formFactor"
       },
       {
@@ -59,17 +59,17 @@
         "type": "deviceType"
       }
     ],
-    "totalRating": 4.89,
+    "totalRating": 6.27,
     "lowBatteryIndicator": null,
     "hackingGuides": [],
-    "systemOnChip": "Qualcomm Dragonwing Q-7790(Snapdragon 7 Gen 4)",
+    "systemOnChip": "Qualcomm Dragonwing Q8(Snapdragon 8 Elite)",
     "architecture": {
       "type": "ARM"
     },
     "ram": {
-      "raw": "8 GB LPDDR4X",
+      "raw": "12 GB / 16 GB(LPDDR4X?)",
       "sizes": [
-        8
+        12
       ],
       "unit": "GB",
       "type": "LPDDR4X"
@@ -113,9 +113,9 @@
       "charging": "USB-C"
     },
     "chargePort": {
-      "raw": "Back, Home, Power, Volume +-",
+      "raw": "Home, Back, Power, Volume +-, 2 rear programmable buttons",
       "type": null,
-      "numberOfPorts": null
+      "numberOfPorts": 2
     },
     "storage": "usb-cbottom facing",
     "dimensions": {
@@ -123,9 +123,9 @@
       "width": null,
       "height": null
     },
-    "weight": 162,
+    "weight": 257,
     "shellMaterial": {
-      "raw": "350 grams",
+      "raw": "450 grams",
       "isPlastic": false,
       "isMetal": false,
       "isAluminum": false,
@@ -137,16 +137,16 @@
     ],
     "image": {
       "originalUrl": "resources/cellImage_0_18.jpg",
-      "pngUrl": "/devices/retroid-pocket-duo.png",
-      "webpUrl": "/devices/retroid-pocket-duo.webp",
-      "alt": "retroid pocket duo",
+      "pngUrl": "/devices/odin-3-portal.png",
+      "webpUrl": "/devices/odin-3-portal.webp",
+      "alt": "odin 3 portal",
       "pocketbaseUrl": null
     },
     "released": {
-      "raw": "Upcoming(On sale now, ships October 21st)",
+      "raw": "Upcoming(On sale October 22nd at 9:30 PM EST, ships early November)",
       "mentionedDate": null
     },
-    "formFactor": "clamshell(dual screen)",
+    "formFactor": "horizontal",
     "systemRatings": [
       {
         "system": "PlayStation 2",
@@ -160,6 +160,11 @@
       },
       {
         "system": "PlayStation Portable",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Wii U",
         "ratingMark": "A",
         "ratingNumber": 5
       },
@@ -224,19 +229,14 @@
         "ratingNumber": 5
       },
       {
-        "system": "Wii U",
-        "ratingMark": "C",
-        "ratingNumber": 3
-      },
-      {
         "system": "Switch",
-        "ratingMark": "D",
-        "ratingNumber": 2
+        "ratingMark": "B",
+        "ratingNumber": 4
       },
       {
         "system": "PlayStation 3",
-        "ratingMark": "F",
-        "ratingNumber": 1
+        "ratingMark": "C",
+        "ratingNumber": 3
       }
     ],
     "deviceType": "handheld",
@@ -249,60 +249,50 @@
     },
     "cpus": [
       {
-        "raw": "Cortex-A720 / Cortex-A5204x / 4x",
+        "raw": "Qualcomm Oryon2x Prime / 6x Efficiency",
         "names": [
-          "Cortex-A720 / Cortex-A5204x / 4x"
+          "Qualcomm Oryon2x Prime / 6x Efficiency"
         ],
         "cores": 8,
         "threads": 8,
         "clockSpeed": {
-          "min": 1.8,
-          "max": 1.8,
+          "min": 3.53,
+          "max": 3.53,
           "unit": "GHZ"
         }
       }
     ],
     "gpus": [
       {
-        "name": "Qualcomm Adreno 722",
+        "name": "Qualcomm Adreno 830",
         "cores": 1,
-        "clockSpeed": {
-          "min": 1.15,
-          "max": 1.15,
-          "unit": "GHZ"
-        }
+        "clockSpeed": null
       }
     ],
     "performance": {
-      "rating": 10,
-      "normalizedRating": 6.7,
-      "tier": "💥💥💥💥💥(estimate)",
-      "maxEmulation": "GameCube/Wii all full speed, most 3DS/PS2 playable, some Wii U playable",
+      "rating": 13,
+      "normalizedRating": 8.7,
+      "tier": "🔥🔥🔥½",
+      "maxEmulation": "All Switch playable, most PS3 playable",
       "emulationLimit": ""
     },
     "screen": {
-      "size": 5.5,
+      "size": 7,
       "type": {
-        "raw": "AMOLED Touchscreen",
+        "raw": "AMOLEDTouchscreen",
         "isTouchscreen": true,
         "isPenCapable": false,
         "type": "OLED"
       },
-      "resolution": [
-        {
-          "raw": "120 hz(x2)",
-          "width": 120,
-          "height": 2
-        }
-      ],
+      "resolution": [],
       "ppi": [
-        null
+        1920
       ],
-      "aspectRatio": "primary: 400.53 ppisecondary: 355.56 ppi",
-      "lens": "primary: 16:9secondary: 4:3"
+      "aspectRatio": "314.7 ppi",
+      "lens": "16:9"
     },
     "cooling": {
-      "raw": "6000 mAh",
+      "raw": "9000 mAh",
       "hasHeatsink": false,
       "hasFan": false,
       "hasHeatPipe": false,
@@ -314,7 +304,7 @@
         "type": "d-pad"
       },
       "analogs": {
-        "raw": "CrossUpper placement",
+        "raw": "CrossLower placement",
         "dual": false,
         "single": false,
         "L3": false,
@@ -360,7 +350,7 @@
     },
     "outputs": {
       "videoOutput": {
-        "raw": "WiFi 6E, Bluetooth 5.4",
+        "raw": "WiFi 7, Bluetooth 6.0",
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": false,
@@ -386,41 +376,25 @@
       "average": null,
       "videoReviews": [
         {
-          "url": "https://www.youtube.com/watch?v=pEeqgBc8LUw",
+          "url": "https://www.youtube.com/watch?v=KVsih273dxY",
           "name": "1"
         },
         {
-          "url": "https://www.youtube.com/watch?v=9l4WZYU9Cg8",
+          "url": "https://www.youtube.com/watch?v=ER5tupXHjPE",
           "name": "2"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=vzHqgipzFxc",
-          "name": "3"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=rnmXBJ3KFP0",
-          "name": "1"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=ETq7F9KvuQg&pp=ugUHEgVlbi1VUw%3D%3D",
-          "name": "2"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=WRn5lZtQ280",
-          "name": "Retro Handhelds"
         }
       ],
       "writtenReviews": []
     },
     "pricing": {
-      "raw": "$249 (Preorder)$269 (Retail)",
-      "average": 259,
+      "raw": "$399 (12 GB + 128 GB)$479 (12 GB + 256 GB)$549 (16 GB + 512 GB)",
+      "average": 455.5,
       "range": {
-        "min": 249,
-        "max": 269
+        "min": 399,
+        "max": 512
       },
       "currency": "USD",
-      "category": "mid",
+      "category": "high",
       "discontinued": null
     },
     "pros": [
@@ -429,8 +403,8 @@
     "cons": [],
     "vendorLinks": [
       {
-        "url": "https://www.goretroid.com/collections/frontpage/products/retroid-pocket-duo-handheld",
-        "name": "GoRetroid.com"
+        "url": "https://www.ayntec.com/products/odin3-portal",
+        "name": "AYN"
       }
     ],
     "notes": [
@@ -892,12 +866,14 @@
       "normalized": "Retroid / Moorechip"
     },
     "os": {
-      "raw": "Android 16",
+      "raw": "Android 16, Linux",
       "icons": [
-        "ph-android-logo"
+        "ph-android-logo",
+        "ph-linux-logo"
       ],
       "list": [
-        "Android 16"
+        "Android 16",
+        "Linux"
       ],
       "customFirmwares": []
     },
@@ -905,6 +881,11 @@
       {
         "name": "Android",
         "slug": "android",
+        "type": "os"
+      },
+      {
+        "name": "Linux",
+        "slug": "linux",
         "type": "os"
       },
       {
@@ -1751,25 +1732,27 @@
     ]
   },
   {
-    "id": "odin-3-portal",
+    "id": "retroid-pocket-duo",
     "index": 5,
     "name": {
-      "raw": "Odin 3 Portal",
-      "sanitized": "odin-3-portal",
-      "normalized": "Odin 3 Portal"
+      "raw": "Retroid Pocket Duo",
+      "sanitized": "retroid-pocket-duo",
+      "normalized": "Retroid Pocket Duo"
     },
     "brand": {
-      "raw": "AYN Technologies",
-      "sanitized": "AYN-Technologies",
-      "normalized": "AYN Technologies"
+      "raw": "Retroid / Moorechip",
+      "sanitized": "Retroid-Moorechip",
+      "normalized": "Retroid / Moorechip"
     },
     "os": {
-      "raw": "Android 15",
+      "raw": "Android 16, Linux",
       "icons": [
-        "ph-android-logo"
+        "ph-android-logo",
+        "ph-linux-logo"
       ],
       "list": [
-        "Android 15"
+        "Android 16",
+        "Linux"
       ],
       "customFirmwares": []
     },
@@ -1780,13 +1763,23 @@
         "type": "os"
       },
       {
-        "name": "AYN Technologies",
-        "slug": "AYN-Technologies",
+        "name": "Linux",
+        "slug": "linux",
+        "type": "os"
+      },
+      {
+        "name": "Retroid / Moorechip",
+        "slug": "Retroid-Moorechip",
         "type": "brand"
       },
       {
-        "name": "Horizontal",
-        "slug": "horizontal",
+        "name": "$$",
+        "slug": "mid",
+        "type": "price"
+      },
+      {
+        "name": "Clamshell",
+        "slug": "clamshell",
         "type": "formFactor"
       },
       {
@@ -1795,8 +1788,8 @@
         "type": "screenType"
       },
       {
-        "name": "Upcoming",
-        "slug": "upcoming",
+        "name": "2026",
+        "slug": "year-2026",
         "type": "releaseDate"
       },
       {
@@ -1805,18 +1798,20 @@
         "type": "deviceType"
       }
     ],
-    "totalRating": 5.89,
+    "totalRating": 4.89,
     "lowBatteryIndicator": null,
     "hackingGuides": [],
-    "systemOnChip": "Qualcomm Dragonwing Q8(Snapdragon 8 Elite)",
+    "systemOnChip": "Qualcomm Dragonwing Q-7790(Snapdragon 7 Gen 4)",
     "architecture": {
       "type": "ARM"
     },
     "ram": {
-      "raw": "?",
-      "sizes": null,
-      "unit": null,
-      "type": "other"
+      "raw": "8 GB LPDDR4X",
+      "sizes": [
+        8
+      ],
+      "unit": "GB",
+      "type": "LPDDR4X"
     },
     "rumble": false,
     "sensors": {
@@ -1857,9 +1852,9 @@
       "charging": "USB-C"
     },
     "chargePort": {
-      "raw": "Home, Back, Power, Volume +-, 2 rear programmable buttons",
+      "raw": "Back, Home, Power, Volume +-",
       "type": null,
-      "numberOfPorts": 2
+      "numberOfPorts": null
     },
     "storage": "usb-cbottom facing",
     "dimensions": {
@@ -1867,9 +1862,9 @@
       "width": null,
       "height": null
     },
-    "weight": 257,
+    "weight": 162,
     "shellMaterial": {
-      "raw": "450 grams",
+      "raw": "350 grams",
       "isPlastic": false,
       "isMetal": false,
       "isAluminum": false,
@@ -1881,16 +1876,16 @@
     ],
     "image": {
       "originalUrl": "resources/cellImage_0_22.jpg",
-      "pngUrl": "/devices/odin-3-portal.png",
-      "webpUrl": "/devices/odin-3-portal.webp",
-      "alt": "odin 3 portal",
+      "pngUrl": "/devices/retroid-pocket-duo.png",
+      "webpUrl": "/devices/retroid-pocket-duo.webp",
+      "alt": "retroid pocket duo",
       "pocketbaseUrl": null
     },
     "released": {
-      "raw": "Upcoming(?)",
-      "mentionedDate": null
+      "raw": "2026 / 10",
+      "mentionedDate": "2026-10-01T00:00:00.000Z"
     },
-    "formFactor": "horizontal",
+    "formFactor": "clamshell(dual screen)",
     "systemRatings": [
       {
         "system": "PlayStation 2",
@@ -1904,11 +1899,6 @@
       },
       {
         "system": "PlayStation Portable",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Wii U",
         "ratingMark": "A",
         "ratingNumber": 5
       },
@@ -1973,14 +1963,19 @@
         "ratingNumber": 5
       },
       {
+        "system": "Wii U",
+        "ratingMark": "C",
+        "ratingNumber": 3
+      },
+      {
         "system": "Switch",
-        "ratingMark": "B",
-        "ratingNumber": 4
+        "ratingMark": "D",
+        "ratingNumber": 2
       },
       {
         "system": "PlayStation 3",
-        "ratingMark": "C",
-        "ratingNumber": 3
+        "ratingMark": "F",
+        "ratingNumber": 1
       }
     ],
     "deviceType": "handheld",
@@ -1993,50 +1988,60 @@
     },
     "cpus": [
       {
-        "raw": "Qualcomm Oryon2x Prime / 6x Efficiency",
+        "raw": "Cortex-A720 / Cortex-A5204x / 4x",
         "names": [
-          "Qualcomm Oryon2x Prime / 6x Efficiency"
+          "Cortex-A720 / Cortex-A5204x / 4x"
         ],
         "cores": 8,
         "threads": 8,
         "clockSpeed": {
-          "min": 3.53,
-          "max": 3.53,
+          "min": 1.8,
+          "max": 1.8,
           "unit": "GHZ"
         }
       }
     ],
     "gpus": [
       {
-        "name": "Qualcomm Adreno 830",
-        "cores": null,
-        "clockSpeed": null
+        "name": "Qualcomm Adreno 722",
+        "cores": 1,
+        "clockSpeed": {
+          "min": 1.15,
+          "max": 1.15,
+          "unit": "GHZ"
+        }
       }
     ],
     "performance": {
-      "rating": 13,
-      "normalizedRating": 8.7,
-      "tier": "🔥🔥🔥½",
-      "maxEmulation": "All Switch playable, most PS3 playable",
+      "rating": 10,
+      "normalizedRating": 6.7,
+      "tier": "💥💥💥💥💥(estimate)",
+      "maxEmulation": "GameCube/Wii all full speed, most 3DS/PS2 playable, some Wii U playable",
       "emulationLimit": ""
     },
     "screen": {
-      "size": 7,
+      "size": 5.5,
       "type": {
-        "raw": "AMOLEDTouchscreen",
+        "raw": "AMOLED Touchscreen",
         "isTouchscreen": true,
         "isPenCapable": false,
         "type": "OLED"
       },
-      "resolution": [],
-      "ppi": [
-        1920
+      "resolution": [
+        {
+          "raw": "120 hz(x2)",
+          "width": 120,
+          "height": 2
+        }
       ],
-      "aspectRatio": "314.7 ppi",
-      "lens": "16:9"
+      "ppi": [
+        null
+      ],
+      "aspectRatio": "primary: 400.53 ppisecondary: 355.56 ppi",
+      "lens": "primary: 16:9secondary: 4:3"
     },
     "cooling": {
-      "raw": "9000 mAh",
+      "raw": "6000 mAh",
       "hasHeatsink": false,
       "hasFan": false,
       "hasHeatPipe": false,
@@ -2048,7 +2053,7 @@
         "type": "d-pad"
       },
       "analogs": {
-        "raw": "CrossLower placement",
+        "raw": "CrossUpper placement",
         "dual": false,
         "single": false,
         "L3": false,
@@ -2094,7 +2099,7 @@
     },
     "outputs": {
       "videoOutput": {
-        "raw": "WiFi 7, Bluetooth 5.3",
+        "raw": "WiFi 6E, Bluetooth 5.4",
         "hasUsbC": false,
         "hasMicroHdmi": false,
         "hasMiniHdmi": false,
@@ -2120,30 +2125,57 @@
       "average": null,
       "videoReviews": [
         {
-          "url": "https://www.youtube.com/watch?v=KVsih273dxY",
+          "url": "https://www.youtube.com/watch?v=pEeqgBc8LUw",
           "name": "1"
         },
         {
-          "url": "https://www.youtube.com/watch?v=ER5tupXHjPE",
+          "url": "https://www.youtube.com/watch?v=9l4WZYU9Cg8",
           "name": "2"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=vzHqgipzFxc",
+          "name": "3"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=rnmXBJ3KFP0",
+          "name": "1"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=ETq7F9KvuQg&pp=ugUHEgVlbi1VUw%3D%3D",
+          "name": "2"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=MNgp2582dWA",
+          "name": "3"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=WRn5lZtQ280",
+          "name": "Retro Handhelds"
         }
       ],
       "writtenReviews": []
     },
     "pricing": {
-      "raw": "?",
-      "average": 0,
+      "raw": "$249 (Preorder)$269 (Retail)",
+      "average": 259,
       "range": {
-        "min": 0,
-        "max": 0
+        "min": 249,
+        "max": 269
       },
-      "currency": "?",
-      "category": "unknown",
+      "currency": "USD",
+      "category": "mid",
       "discontinued": null
     },
-    "pros": [],
+    "pros": [
+      "-"
+    ],
     "cons": [],
-    "vendorLinks": [],
+    "vendorLinks": [
+      {
+        "url": "https://www.goretroid.com/collections/frontpage/products/retroid-pocket-duo-handheld",
+        "name": "GoRetroid.com"
+      }
+    ],
     "notes": [
       ""
     ]
@@ -2538,7 +2570,11 @@
         },
         {
           "url": "https://www.youtube.com/watch?v=XMhP0HHKRTk",
-          "name": "ETA Prime"
+          "name": "1"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=1rCIkrpA9MA",
+          "name": "2"
         },
         {
           "url": "https://www.youtube.com/watch?v=-ttpJ3ilju8",
@@ -3612,7 +3648,7 @@
       "raw": "2026 / 09",
       "mentionedDate": "2026-09-01T00:00:00.000Z"
     },
-    "formFactor": "clamshell",
+    "formFactor": "clamshell(dual screen)",
     "systemRatings": [
       {
         "system": "PlayStation 1",
@@ -7828,12 +7864,14 @@
       "normalized": "Retroid / Moorechip"
     },
     "os": {
-      "raw": "Android 13",
+      "raw": "Android 13, Linux",
       "icons": [
-        "ph-android-logo"
+        "ph-android-logo",
+        "ph-linux-logo"
       ],
       "list": [
-        "Android 13"
+        "Android 13",
+        "Linux"
       ],
       "customFirmwares": []
     },
@@ -7841,6 +7879,11 @@
       {
         "name": "Android",
         "slug": "android",
+        "type": "os"
+      },
+      {
+        "name": "Linux",
+        "slug": "linux",
         "type": "os"
       },
       {
@@ -16089,12 +16132,14 @@
       "normalized": "Retroid / Moorechip"
     },
     "os": {
-      "raw": "Android 13",
+      "raw": "Android 13, Linux",
       "icons": [
-        "ph-android-logo"
+        "ph-android-logo",
+        "ph-linux-logo"
       ],
       "list": [
-        "Android 13"
+        "Android 13",
+        "Linux"
       ],
       "customFirmwares": []
     },
@@ -16102,6 +16147,11 @@
       {
         "name": "Android",
         "slug": "android",
+        "type": "os"
+      },
+      {
+        "name": "Linux",
+        "slug": "linux",
         "type": "os"
       },
       {
