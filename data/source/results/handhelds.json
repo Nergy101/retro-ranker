@@ -1684,6 +1684,10 @@
           "name": "2"
         },
         {
+          "url": "https://www.youtube.com/watch?v=EL7xy9Q99iw",
+          "name": "3"
+        },
+        {
           "url": "https://www.youtube.com/watch?v=Ipq1EeDKpK4",
           "name": "Retro Handhelds"
         }
@@ -2125,18 +2129,6 @@
       "average": null,
       "videoReviews": [
         {
-          "url": "https://www.youtube.com/watch?v=pEeqgBc8LUw",
-          "name": "1"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=9l4WZYU9Cg8",
-          "name": "2"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=vzHqgipzFxc",
-          "name": "3"
-        },
-        {
           "url": "https://www.youtube.com/watch?v=rnmXBJ3KFP0",
           "name": "1"
         },
@@ -2150,7 +2142,31 @@
         },
         {
           "url": "https://www.youtube.com/watch?v=WRn5lZtQ280",
-          "name": "Retro Handhelds"
+          "name": "1"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=dW9JtaBSblY",
+          "name": "2"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=lF5whZi9eiw",
+          "name": "Tech Dweeb"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=pEeqgBc8LUw",
+          "name": "1"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=9l4WZYU9Cg8",
+          "name": "2"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=vzHqgipzFxc",
+          "name": "3"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=OCgVK4Ym4to",
+          "name": "4"
         }
       ],
       "writtenReviews": []
@@ -2567,6 +2583,10 @@
         {
           "url": "https://www.youtube.com/watch?v=hZWGXGVixfE",
           "name": "2"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=i_xj_LUx-Kw",
+          "name": "3"
         },
         {
           "url": "https://www.youtube.com/watch?v=XMhP0HHKRTk",
