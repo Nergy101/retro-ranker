@@ -143,7 +143,7 @@
       "pocketbaseUrl": null
     },
     "released": {
-      "raw": "Upcoming(On sale October 22nd at 9:30 PM EST, ships early November)",
+      "raw": "Upcoming(On sale now, ships early November)",
       "mentionedDate": null
     },
     "formFactor": "horizontal",
@@ -412,449 +412,8 @@
     ]
   },
   {
-    "id": "konkr-pocket-block",
-    "index": 2,
-    "name": {
-      "raw": "KONKR Pocket Block",
-      "sanitized": "konkr-pocket-block",
-      "normalized": "KONKR Pocket Block"
-    },
-    "brand": {
-      "raw": "KONKR(AYANEO)",
-      "sanitized": "KONKR(AYANEO)",
-      "normalized": "KONKR"
-    },
-    "os": {
-      "raw": "Android 12",
-      "icons": [
-        "ph-android-logo"
-      ],
-      "list": [
-        "Android 12"
-      ],
-      "customFirmwares": []
-    },
-    "tags": [
-      {
-        "name": "Android",
-        "slug": "android",
-        "type": "os"
-      },
-      {
-        "name": "KONKR(AYANEO)",
-        "slug": "KONKR(AYANEO)",
-        "type": "brand"
-      },
-      {
-        "name": "$",
-        "slug": "low",
-        "type": "price"
-      },
-      {
-        "name": "Vertical",
-        "slug": "vertical",
-        "type": "formFactor"
-      },
-      {
-        "name": "LCD",
-        "slug": "lcd",
-        "type": "screenType"
-      },
-      {
-        "name": "Upcoming",
-        "slug": "upcoming",
-        "type": "releaseDate"
-      },
-      {
-        "name": "Handheld",
-        "slug": "handheld",
-        "type": "deviceType"
-      }
-    ],
-    "totalRating": 3.12,
-    "lowBatteryIndicator": null,
-    "hackingGuides": [],
-    "systemOnChip": "MediaTek Helio G85",
-    "architecture": {
-      "type": "ARM"
-    },
-    "ram": {
-      "raw": "2 GB / 3 GB LPDDR4X",
-      "sizes": [
-        2
-      ],
-      "unit": "GB",
-      "type": "LPDDR4X"
-    },
-    "rumble": false,
-    "sensors": {
-      "raw": "✅",
-      "hasMicrophone": false,
-      "hasAccelerometer": false,
-      "hasGyroscope": false,
-      "hasCompass": false,
-      "hasMagnetometer": false,
-      "hasBarometer": false,
-      "hasProximitySensor": false,
-      "hasAmbientLightSensor": false,
-      "hasFingerprintSensor": false,
-      "hasCamera": false,
-      "hasGravitySensor": false,
-      "hasPressureSensor": false,
-      "hasTemperatureSensor": false,
-      "hasHumiditySensor": false,
-      "hasHeartRateSensor": false,
-      "hasAntenna": false,
-      "screenClosure": false
-    },
-    "volumeControl": {
-      "type": "unknown"
-    },
-    "brightnessControl": {
-      "type": "dedicated-button"
-    },
-    "powerControl": {
-      "type": "unknown"
-    },
-    "battery": {
-      "raw": "Tempered Glass(OCA Laminated)",
-      "capacity": null,
-      "unit": null,
-      "type": "Lithium-ion",
-      "removable": false,
-      "charging": "USB-C"
-    },
-    "chargePort": {
-      "raw": "2 function buttons, AYA Space, Menu, Power, Volume +-",
-      "type": null,
-      "numberOfPorts": 2
-    },
-    "storage": "usb-cbottom facing",
-    "dimensions": {
-      "length": null,
-      "width": null,
-      "height": null
-    },
-    "weight": 77.4,
-    "shellMaterial": {
-      "raw": "165 grams",
-      "isPlastic": false,
-      "isMetal": false,
-      "isAluminum": false,
-      "isMagnesiumAlloy": false,
-      "isOther": true
-    },
-    "colors": [
-      "Plastic"
-    ],
-    "image": {
-      "originalUrl": "resources/cellImage_0_19.jpg",
-      "pngUrl": "/devices/konkr-pocket-block.png",
-      "webpUrl": "/devices/konkr-pocket-block.webp",
-      "alt": "konkr pocket block",
-      "pocketbaseUrl": null
-    },
-    "released": {
-      "raw": "Upcoming(Preorder available now, ships end of October)",
-      "mentionedDate": null
-    },
-    "formFactor": "vertical",
-    "systemRatings": [
-      {
-        "system": "PlayStation 1",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "PlayStation Portable",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "DS",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "N64",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "SNES",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "NES",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Game Boy Advance",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Game Boy",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Dreamcast",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Genesis",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Saturn",
-        "ratingMark": "B",
-        "ratingNumber": 4
-      },
-      {
-        "system": "PlayStation 2",
-        "ratingMark": "C",
-        "ratingNumber": 3
-      },
-      {
-        "system": "Wii",
-        "ratingMark": "C",
-        "ratingNumber": 3
-      },
-      {
-        "system": "GameCube",
-        "ratingMark": "C",
-        "ratingNumber": 3
-      },
-      {
-        "system": "3DS",
-        "ratingMark": "C",
-        "ratingNumber": 3
-      },
-      {
-        "system": "Switch",
-        "ratingMark": "F",
-        "ratingNumber": 1
-      },
-      {
-        "system": "PlayStation 3",
-        "ratingMark": "F",
-        "ratingNumber": 1
-      },
-      {
-        "system": "Wii U",
-        "ratingMark": "F",
-        "ratingNumber": 1
-      }
-    ],
-    "deviceType": "handheld",
-    "connectivity": {
-      "hasWifi": false,
-      "hasBluetooth": false,
-      "hasNfc": false,
-      "hasUsb": false,
-      "hasUsbC": false
-    },
-    "cpus": [
-      {
-        "raw": "Cortex-A75 / Cortex-A552x / 6x",
-        "names": [
-          "Cortex-A75 / Cortex-A552x / 6x"
-        ],
-        "cores": 8,
-        "threads": 8,
-        "clockSpeed": {
-          "min": 1.8,
-          "max": 1.8,
-          "unit": "GHZ"
-        }
-      }
-    ],
-    "gpus": [
-      {
-        "name": "Mali-G52 MP2",
-        "cores": 2,
-        "clockSpeed": {
-          "min": 1,
-          "max": 1,
-          "unit": "GHZ"
-        }
-      }
-    ],
-    "performance": {
-      "rating": 7,
-      "normalizedRating": 4.7,
-      "tier": "💥💥",
-      "maxEmulation": "DS/N64/PSP/DC/Saturn full speed, some GameCube playable",
-      "emulationLimit": ""
-    },
-    "screen": {
-      "size": 3.3,
-      "type": {
-        "raw": "LCD Touchscreen",
-        "isTouchscreen": true,
-        "isPenCapable": false,
-        "type": "LCD"
-      },
-      "resolution": [],
-      "ppi": [
-        960
-      ],
-      "aspectRatio": "363.64 ppi",
-      "lens": "4:3"
-    },
-    "cooling": {
-      "raw": "3500 mAh",
-      "hasHeatsink": false,
-      "hasFan": false,
-      "hasHeatPipe": false,
-      "hasVentilationCutouts": false
-    },
-    "controls": {
-      "dPad": {
-        "raw": "Heat spreaderVentilation cutouts",
-        "type": "d-pad"
-      },
-      "analogs": {
-        "raw": "CrossUpper placement",
-        "dual": false,
-        "single": false,
-        "L3": false,
-        "R3": false,
-        "isHallSensor": false,
-        "isThumbstick": false,
-        "isSlidepad": false
-      },
-      "numberOfFaceButtons": null,
-      "shoulderButtons": {
-        "raw": "4 Buttons",
-        "L": false,
-        "L1": false,
-        "L2": false,
-        "L3": false,
-        "R": false,
-        "R1": false,
-        "R2": false,
-        "R3": false,
-        "M1": false,
-        "M2": false,
-        "LC": false,
-        "RC": false,
-        "ZL": false,
-        "ZRVertical": false,
-        "ZRHorizontal": false
-      },
-      "extraButtons": {
-        "raw": "L1, R1, L2, R2Horizontal, Shelf",
-        "power": false,
-        "reset": false,
-        "home": false,
-        "volumeUp": false,
-        "volumeDown": false,
-        "function": false,
-        "turbo": false,
-        "touchpad": false,
-        "fingerprint": false,
-        "mute": false,
-        "screenshot": false,
-        "programmableButtons": false
-      }
-    },
-    "outputs": {
-      "videoOutput": {
-        "raw": "WiFi 5, Bluetooth 5.0",
-        "hasUsbC": false,
-        "hasMicroHdmi": false,
-        "hasMiniHdmi": false,
-        "hasHdmi": false,
-        "hasDvi": false,
-        "hasVga": false,
-        "hasDisplayPort": false,
-        "OcuLink": false,
-        "AV": false
-      },
-      "audioOutput": {
-        "raw": "❌",
-        "has35mmJack": false,
-        "hasHeadphoneJack": false,
-        "hasUsbC": false
-      },
-      "speaker": {
-        "type": "unknown"
-      }
-    },
-    "reviews": {
-      "count": null,
-      "average": null,
-      "videoReviews": [
-        {
-          "url": "https://www.youtube.com/watch?v=bQJS4JYZd18",
-          "name": "Tech Dweeb"
-        },
-        {
-          "url": "https://youtube.com/watch?v=lkdVBeI_RaY",
-          "name": "1"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=ollx_wr8Hck&pp=ygUSS09OS1IgUG9ja2V0IEJsb2Nr",
-          "name": "2"
-        },
-        {
-          "url": "https://retrohandhelds.gg/ayaneo-announces-konkr-pocket-block-pocket-air-mini-igs-and-teases-pocket-play/",
-          "name": "1"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=j69wT9fiVBI&pp=ygUSS09OS1IgUG9ja2V0IEJsb2Nr",
-          "name": "2"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=9lRq_cgIkFA&pp=ygUSS09OS1IgUG9ja2V0IEJsb2Nr",
-          "name": "Leafbracer"
-        }
-      ],
-      "writtenReviews": [
-        {
-          "url": "https://www.youtube.com/watch?v=_yV3Ch3YId8&pp=ygUSS09OS1IgUG9ja2V0IEJsb2Nr",
-          "name": "Laplanet"
-        }
-      ]
-    },
-    "pricing": {
-      "raw": "$79 (2 GB + 32 GB)$99 (3 GB + 64 GB)",
-      "average": 71.5,
-      "range": {
-        "min": 79,
-        "max": 64
-      },
-      "currency": "USD",
-      "category": "low",
-      "discontinued": null
-    },
-    "pros": [
-      "-"
-    ],
-    "cons": [],
-    "vendorLinks": [
-      {
-        "url": "https://www.ayaneo.com/goods/15395243524341",
-        "name": "AYANEO"
-      },
-      {
-        "url": "https://shop.ayaneo.com/products/konkr-pocket-block?variant=67587303014645",
-        "name": "AYANEO 2"
-      }
-    ],
-    "notes": [
-      ""
-    ]
-  },
-  {
     "id": "retroid-pocket-duo-lite-plus",
-    "index": 3,
+    "index": 2,
     "name": {
       "raw": "Retroid Pocket Duo Lite Plus",
       "sanitized": "retroid-pocket-duo-lite-plus",
@@ -996,7 +555,7 @@
       "Plastic"
     ],
     "image": {
-      "originalUrl": "resources/cellImage_0_20.jpg",
+      "originalUrl": "resources/cellImage_0_19.jpg",
       "pngUrl": "/devices/retroid-pocket-duo-lite-plus.png",
       "webpUrl": "/devices/retroid-pocket-duo-lite-plus.webp",
       "alt": "retroid pocket duo lite plus",
@@ -1291,7 +850,7 @@
   },
   {
     "id": "rg-dds",
-    "index": 4,
+    "index": 3,
     "name": {
       "raw": "RG DDS",
       "sanitized": "rg-dds",
@@ -1426,7 +985,7 @@
       "Plastic"
     ],
     "image": {
-      "originalUrl": "resources/cellImage_0_21.jpg",
+      "originalUrl": "resources/cellImage_0_20.jpg",
       "pngUrl": "/devices/rg-dds.png",
       "webpUrl": "/devices/rg-dds.webp",
       "alt": "rg dds",
@@ -1729,6 +1288,447 @@
       {
         "url": "https://www.aliexpress.us/item/3256813216173767.html",
         "name": "4"
+      }
+    ],
+    "notes": [
+      ""
+    ]
+  },
+  {
+    "id": "konkr-pocket-block",
+    "index": 4,
+    "name": {
+      "raw": "KONKR Pocket Block",
+      "sanitized": "konkr-pocket-block",
+      "normalized": "KONKR Pocket Block"
+    },
+    "brand": {
+      "raw": "KONKR(AYANEO)",
+      "sanitized": "KONKR(AYANEO)",
+      "normalized": "KONKR"
+    },
+    "os": {
+      "raw": "Android 12",
+      "icons": [
+        "ph-android-logo"
+      ],
+      "list": [
+        "Android 12"
+      ],
+      "customFirmwares": []
+    },
+    "tags": [
+      {
+        "name": "Android",
+        "slug": "android",
+        "type": "os"
+      },
+      {
+        "name": "KONKR(AYANEO)",
+        "slug": "KONKR(AYANEO)",
+        "type": "brand"
+      },
+      {
+        "name": "$",
+        "slug": "low",
+        "type": "price"
+      },
+      {
+        "name": "Vertical",
+        "slug": "vertical",
+        "type": "formFactor"
+      },
+      {
+        "name": "LCD",
+        "slug": "lcd",
+        "type": "screenType"
+      },
+      {
+        "name": "2026",
+        "slug": "year-2026",
+        "type": "releaseDate"
+      },
+      {
+        "name": "Handheld",
+        "slug": "handheld",
+        "type": "deviceType"
+      }
+    ],
+    "totalRating": 3.12,
+    "lowBatteryIndicator": null,
+    "hackingGuides": [],
+    "systemOnChip": "MediaTek Helio G85",
+    "architecture": {
+      "type": "ARM"
+    },
+    "ram": {
+      "raw": "2 GB / 3 GB LPDDR4X",
+      "sizes": [
+        2
+      ],
+      "unit": "GB",
+      "type": "LPDDR4X"
+    },
+    "rumble": false,
+    "sensors": {
+      "raw": "✅",
+      "hasMicrophone": false,
+      "hasAccelerometer": false,
+      "hasGyroscope": false,
+      "hasCompass": false,
+      "hasMagnetometer": false,
+      "hasBarometer": false,
+      "hasProximitySensor": false,
+      "hasAmbientLightSensor": false,
+      "hasFingerprintSensor": false,
+      "hasCamera": false,
+      "hasGravitySensor": false,
+      "hasPressureSensor": false,
+      "hasTemperatureSensor": false,
+      "hasHumiditySensor": false,
+      "hasHeartRateSensor": false,
+      "hasAntenna": false,
+      "screenClosure": false
+    },
+    "volumeControl": {
+      "type": "unknown"
+    },
+    "brightnessControl": {
+      "type": "dedicated-button"
+    },
+    "powerControl": {
+      "type": "unknown"
+    },
+    "battery": {
+      "raw": "Tempered Glass(OCA Laminated)",
+      "capacity": null,
+      "unit": null,
+      "type": "Lithium-ion",
+      "removable": false,
+      "charging": "USB-C"
+    },
+    "chargePort": {
+      "raw": "2 function buttons, AYA Space, Menu, Power, Volume +-",
+      "type": null,
+      "numberOfPorts": 2
+    },
+    "storage": "usb-cbottom facing",
+    "dimensions": {
+      "length": null,
+      "width": null,
+      "height": null
+    },
+    "weight": 77.4,
+    "shellMaterial": {
+      "raw": "165 grams",
+      "isPlastic": false,
+      "isMetal": false,
+      "isAluminum": false,
+      "isMagnesiumAlloy": false,
+      "isOther": true
+    },
+    "colors": [
+      "Plastic"
+    ],
+    "image": {
+      "originalUrl": "resources/cellImage_0_21.jpg",
+      "pngUrl": "/devices/konkr-pocket-block.png",
+      "webpUrl": "/devices/konkr-pocket-block.webp",
+      "alt": "konkr pocket block",
+      "pocketbaseUrl": null
+    },
+    "released": {
+      "raw": "2026 / 10",
+      "mentionedDate": "2026-10-01T00:00:00.000Z"
+    },
+    "formFactor": "vertical",
+    "systemRatings": [
+      {
+        "system": "PlayStation 1",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "PlayStation Portable",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "DS",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "N64",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "SNES",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "NES",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Game Boy Advance",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Game Boy",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Dreamcast",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Genesis",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Saturn",
+        "ratingMark": "B",
+        "ratingNumber": 4
+      },
+      {
+        "system": "PlayStation 2",
+        "ratingMark": "C",
+        "ratingNumber": 3
+      },
+      {
+        "system": "Wii",
+        "ratingMark": "C",
+        "ratingNumber": 3
+      },
+      {
+        "system": "GameCube",
+        "ratingMark": "C",
+        "ratingNumber": 3
+      },
+      {
+        "system": "3DS",
+        "ratingMark": "C",
+        "ratingNumber": 3
+      },
+      {
+        "system": "Switch",
+        "ratingMark": "F",
+        "ratingNumber": 1
+      },
+      {
+        "system": "PlayStation 3",
+        "ratingMark": "F",
+        "ratingNumber": 1
+      },
+      {
+        "system": "Wii U",
+        "ratingMark": "F",
+        "ratingNumber": 1
+      }
+    ],
+    "deviceType": "handheld",
+    "connectivity": {
+      "hasWifi": false,
+      "hasBluetooth": false,
+      "hasNfc": false,
+      "hasUsb": false,
+      "hasUsbC": false
+    },
+    "cpus": [
+      {
+        "raw": "Cortex-A75 / Cortex-A552x / 6x",
+        "names": [
+          "Cortex-A75 / Cortex-A552x / 6x"
+        ],
+        "cores": 8,
+        "threads": 8,
+        "clockSpeed": {
+          "min": 1.8,
+          "max": 1.8,
+          "unit": "GHZ"
+        }
+      }
+    ],
+    "gpus": [
+      {
+        "name": "Mali-G52 MP2",
+        "cores": 2,
+        "clockSpeed": {
+          "min": 1,
+          "max": 1,
+          "unit": "GHZ"
+        }
+      }
+    ],
+    "performance": {
+      "rating": 7,
+      "normalizedRating": 4.7,
+      "tier": "💥💥",
+      "maxEmulation": "DS/N64/PSP/DC/Saturn full speed, some GameCube playable",
+      "emulationLimit": ""
+    },
+    "screen": {
+      "size": 3.3,
+      "type": {
+        "raw": "LCD Touchscreen",
+        "isTouchscreen": true,
+        "isPenCapable": false,
+        "type": "LCD"
+      },
+      "resolution": [],
+      "ppi": [
+        960
+      ],
+      "aspectRatio": "363.64 ppi",
+      "lens": "4:3"
+    },
+    "cooling": {
+      "raw": "3500 mAh",
+      "hasHeatsink": false,
+      "hasFan": false,
+      "hasHeatPipe": false,
+      "hasVentilationCutouts": false
+    },
+    "controls": {
+      "dPad": {
+        "raw": "Heat spreaderVentilation cutouts",
+        "type": "d-pad"
+      },
+      "analogs": {
+        "raw": "CrossUpper placement",
+        "dual": false,
+        "single": false,
+        "L3": false,
+        "R3": false,
+        "isHallSensor": false,
+        "isThumbstick": false,
+        "isSlidepad": false
+      },
+      "numberOfFaceButtons": null,
+      "shoulderButtons": {
+        "raw": "4 Buttons",
+        "L": false,
+        "L1": false,
+        "L2": false,
+        "L3": false,
+        "R": false,
+        "R1": false,
+        "R2": false,
+        "R3": false,
+        "M1": false,
+        "M2": false,
+        "LC": false,
+        "RC": false,
+        "ZL": false,
+        "ZRVertical": false,
+        "ZRHorizontal": false
+      },
+      "extraButtons": {
+        "raw": "L1, R1, L2, R2Horizontal, Shelf",
+        "power": false,
+        "reset": false,
+        "home": false,
+        "volumeUp": false,
+        "volumeDown": false,
+        "function": false,
+        "turbo": false,
+        "touchpad": false,
+        "fingerprint": false,
+        "mute": false,
+        "screenshot": false,
+        "programmableButtons": false
+      }
+    },
+    "outputs": {
+      "videoOutput": {
+        "raw": "WiFi 5, Bluetooth 5.0",
+        "hasUsbC": false,
+        "hasMicroHdmi": false,
+        "hasMiniHdmi": false,
+        "hasHdmi": false,
+        "hasDvi": false,
+        "hasVga": false,
+        "hasDisplayPort": false,
+        "OcuLink": false,
+        "AV": false
+      },
+      "audioOutput": {
+        "raw": "❌",
+        "has35mmJack": false,
+        "hasHeadphoneJack": false,
+        "hasUsbC": false
+      },
+      "speaker": {
+        "type": "unknown"
+      }
+    },
+    "reviews": {
+      "count": null,
+      "average": null,
+      "videoReviews": [
+        {
+          "url": "https://www.youtube.com/watch?v=bQJS4JYZd18",
+          "name": "Tech Dweeb"
+        },
+        {
+          "url": "https://youtube.com/watch?v=lkdVBeI_RaY",
+          "name": "1"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=ollx_wr8Hck&pp=ygUSS09OS1IgUG9ja2V0IEJsb2Nr",
+          "name": "2"
+        },
+        {
+          "url": "https://retrohandhelds.gg/ayaneo-announces-konkr-pocket-block-pocket-air-mini-igs-and-teases-pocket-play/",
+          "name": "1"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=j69wT9fiVBI&pp=ygUSS09OS1IgUG9ja2V0IEJsb2Nr",
+          "name": "2"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=ih7cy_aXbAo",
+          "name": "RG Handhelds"
+        }
+      ],
+      "writtenReviews": [
+        {
+          "url": "https://www.youtube.com/watch?v=_yV3Ch3YId8&pp=ygUSS09OS1IgUG9ja2V0IEJsb2Nr",
+          "name": "Laplanet"
+        }
+      ]
+    },
+    "pricing": {
+      "raw": "$79 (2 GB + 32 GB)$99 (3 GB + 64 GB)",
+      "average": 71.5,
+      "range": {
+        "min": 79,
+        "max": 64
+      },
+      "currency": "USD",
+      "category": "low",
+      "discontinued": null
+    },
+    "pros": [
+      "-"
+    ],
+    "cons": [],
+    "vendorLinks": [
+      {
+        "url": "https://www.ayaneo.com/goods/15395243524341",
+        "name": "AYANEO"
+      },
+      {
+        "url": "https://shop.ayaneo.com/products/konkr-pocket-block?variant=67587303014645",
+        "name": "AYANEO 2"
       }
     ],
     "notes": [
