@@ -1,419 +1,7 @@
 [
   {
-    "id": "odin-3-portal",
-    "index": 1,
-    "name": {
-      "raw": "Odin 3 Portal",
-      "sanitized": "odin-3-portal",
-      "normalized": "Odin 3 Portal"
-    },
-    "brand": {
-      "raw": "AYN Technologies",
-      "sanitized": "AYN-Technologies",
-      "normalized": "AYN Technologies"
-    },
-    "os": {
-      "raw": "Android 15",
-      "icons": [
-        "ph-android-logo"
-      ],
-      "list": [
-        "Android 15"
-      ],
-      "customFirmwares": []
-    },
-    "tags": [
-      {
-        "name": "Android",
-        "slug": "android",
-        "type": "os"
-      },
-      {
-        "name": "AYN Technologies",
-        "slug": "AYN-Technologies",
-        "type": "brand"
-      },
-      {
-        "name": "$$$",
-        "slug": "high",
-        "type": "price"
-      },
-      {
-        "name": "Horizontal",
-        "slug": "horizontal",
-        "type": "formFactor"
-      },
-      {
-        "name": "OLED",
-        "slug": "oled",
-        "type": "screenType"
-      },
-      {
-        "name": "Upcoming",
-        "slug": "upcoming",
-        "type": "releaseDate"
-      },
-      {
-        "name": "Handheld",
-        "slug": "handheld",
-        "type": "deviceType"
-      }
-    ],
-    "totalRating": 6.27,
-    "lowBatteryIndicator": null,
-    "hackingGuides": [],
-    "systemOnChip": "Qualcomm Dragonwing Q8(Snapdragon 8 Elite)",
-    "architecture": {
-      "type": "ARM"
-    },
-    "ram": {
-      "raw": "12 GB / 16 GB(LPDDR4X?)",
-      "sizes": [
-        12
-      ],
-      "unit": "GB",
-      "type": "LPDDR4X"
-    },
-    "rumble": false,
-    "sensors": {
-      "raw": "?",
-      "hasMicrophone": false,
-      "hasAccelerometer": false,
-      "hasGyroscope": false,
-      "hasCompass": false,
-      "hasMagnetometer": false,
-      "hasBarometer": false,
-      "hasProximitySensor": false,
-      "hasAmbientLightSensor": false,
-      "hasFingerprintSensor": false,
-      "hasCamera": false,
-      "hasGravitySensor": false,
-      "hasPressureSensor": false,
-      "hasTemperatureSensor": false,
-      "hasHumiditySensor": false,
-      "hasHeartRateSensor": false,
-      "hasAntenna": false,
-      "screenClosure": false
-    },
-    "volumeControl": {
-      "type": "unknown"
-    },
-    "brightnessControl": {
-      "type": "dedicated-button"
-    },
-    "powerControl": {
-      "type": "unknown"
-    },
-    "battery": {
-      "raw": "Tempered Glass(OCA Laminated)",
-      "capacity": null,
-      "unit": null,
-      "type": "Lithium-ion",
-      "removable": false,
-      "charging": "USB-C"
-    },
-    "chargePort": {
-      "raw": "Home, Back, Power, Volume +-, 2 rear programmable buttons",
-      "type": null,
-      "numberOfPorts": 2
-    },
-    "storage": "usb-cbottom facing",
-    "dimensions": {
-      "length": null,
-      "width": null,
-      "height": null
-    },
-    "weight": 257,
-    "shellMaterial": {
-      "raw": "450 grams",
-      "isPlastic": false,
-      "isMetal": false,
-      "isAluminum": false,
-      "isMagnesiumAlloy": false,
-      "isOther": true
-    },
-    "colors": [
-      "Plastic"
-    ],
-    "image": {
-      "originalUrl": "resources/cellImage_0_18.jpg",
-      "pngUrl": "/devices/odin-3-portal.png",
-      "webpUrl": "/devices/odin-3-portal.webp",
-      "alt": "odin 3 portal",
-      "pocketbaseUrl": null
-    },
-    "released": {
-      "raw": "Upcoming(On sale now, ships early November)",
-      "mentionedDate": null
-    },
-    "formFactor": "horizontal",
-    "systemRatings": [
-      {
-        "system": "PlayStation 2",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "PlayStation 1",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "PlayStation Portable",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Wii U",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Wii",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "GameCube",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "3DS",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "DS",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "N64",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "SNES",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "NES",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Game Boy Advance",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Game Boy",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Saturn",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Dreamcast",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Genesis",
-        "ratingMark": "A",
-        "ratingNumber": 5
-      },
-      {
-        "system": "Switch",
-        "ratingMark": "B",
-        "ratingNumber": 4
-      },
-      {
-        "system": "PlayStation 3",
-        "ratingMark": "C",
-        "ratingNumber": 3
-      }
-    ],
-    "deviceType": "handheld",
-    "connectivity": {
-      "hasWifi": false,
-      "hasBluetooth": false,
-      "hasNfc": false,
-      "hasUsb": false,
-      "hasUsbC": true
-    },
-    "cpus": [
-      {
-        "raw": "Qualcomm Oryon2x Prime / 6x Efficiency",
-        "names": [
-          "Qualcomm Oryon2x Prime / 6x Efficiency"
-        ],
-        "cores": 8,
-        "threads": 8,
-        "clockSpeed": {
-          "min": 3.53,
-          "max": 3.53,
-          "unit": "GHZ"
-        }
-      }
-    ],
-    "gpus": [
-      {
-        "name": "Qualcomm Adreno 830",
-        "cores": 1,
-        "clockSpeed": null
-      }
-    ],
-    "performance": {
-      "rating": 13,
-      "normalizedRating": 8.7,
-      "tier": "🔥🔥🔥½",
-      "maxEmulation": "All Switch playable, most PS3 playable",
-      "emulationLimit": ""
-    },
-    "screen": {
-      "size": 7,
-      "type": {
-        "raw": "AMOLEDTouchscreen",
-        "isTouchscreen": true,
-        "isPenCapable": false,
-        "type": "OLED"
-      },
-      "resolution": [],
-      "ppi": [
-        1920
-      ],
-      "aspectRatio": "314.7 ppi",
-      "lens": "16:9"
-    },
-    "cooling": {
-      "raw": "9000 mAh",
-      "hasHeatsink": false,
-      "hasFan": false,
-      "hasHeatPipe": false,
-      "hasVentilationCutouts": false
-    },
-    "controls": {
-      "dPad": {
-        "raw": "HeatsinkFanVentilation cutouts",
-        "type": "d-pad"
-      },
-      "analogs": {
-        "raw": "CrossLower placement",
-        "dual": false,
-        "single": false,
-        "L3": false,
-        "R3": false,
-        "isHallSensor": false,
-        "isThumbstick": false,
-        "isSlidepad": false
-      },
-      "numberOfFaceButtons": 3,
-      "shoulderButtons": {
-        "raw": "4 Buttons",
-        "L": false,
-        "L1": false,
-        "L2": false,
-        "L3": false,
-        "R": false,
-        "R1": false,
-        "R2": false,
-        "R3": false,
-        "M1": false,
-        "M2": false,
-        "LC": false,
-        "RC": false,
-        "ZL": false,
-        "ZRVertical": false,
-        "ZRHorizontal": false
-      },
-      "extraButtons": {
-        "raw": "L1, R1, L2, R2VerticalAnalog Triggers",
-        "power": false,
-        "reset": false,
-        "home": false,
-        "volumeUp": false,
-        "volumeDown": false,
-        "function": false,
-        "turbo": false,
-        "touchpad": false,
-        "fingerprint": false,
-        "mute": false,
-        "screenshot": false,
-        "programmableButtons": false
-      }
-    },
-    "outputs": {
-      "videoOutput": {
-        "raw": "WiFi 7, Bluetooth 6.0",
-        "hasUsbC": false,
-        "hasMicroHdmi": false,
-        "hasMiniHdmi": false,
-        "hasHdmi": false,
-        "hasDvi": false,
-        "hasVga": false,
-        "hasDisplayPort": false,
-        "OcuLink": false,
-        "AV": false
-      },
-      "audioOutput": {
-        "raw": "USB-C video outBottom facing",
-        "has35mmJack": false,
-        "hasHeadphoneJack": false,
-        "hasUsbC": true
-      },
-      "speaker": {
-        "type": "unknown"
-      }
-    },
-    "reviews": {
-      "count": null,
-      "average": null,
-      "videoReviews": [
-        {
-          "url": "https://www.youtube.com/watch?v=KVsih273dxY",
-          "name": "1"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=ER5tupXHjPE",
-          "name": "2"
-        }
-      ],
-      "writtenReviews": []
-    },
-    "pricing": {
-      "raw": "$399 (12 GB + 128 GB)$479 (12 GB + 256 GB)$549 (16 GB + 512 GB)",
-      "average": 455.5,
-      "range": {
-        "min": 399,
-        "max": 512
-      },
-      "currency": "USD",
-      "category": "high",
-      "discontinued": null
-    },
-    "pros": [
-      "-"
-    ],
-    "cons": [],
-    "vendorLinks": [
-      {
-        "url": "https://www.ayntec.com/products/odin3-portal",
-        "name": "AYN"
-      }
-    ],
-    "notes": [
-      ""
-    ]
-  },
-  {
     "id": "retroid-pocket-duo-lite-plus",
-    "index": 2,
+    "index": 1,
     "name": {
       "raw": "Retroid Pocket Duo Lite Plus",
       "sanitized": "retroid-pocket-duo-lite-plus",
@@ -555,7 +143,7 @@
       "Plastic"
     ],
     "image": {
-      "originalUrl": "resources/cellImage_0_19.jpg",
+      "originalUrl": "resources/cellImage_0_18.jpg",
       "pngUrl": "/devices/retroid-pocket-duo-lite-plus.png",
       "webpUrl": "/devices/retroid-pocket-duo-lite-plus.webp",
       "alt": "retroid pocket duo lite plus",
@@ -850,7 +438,7 @@
   },
   {
     "id": "rg-dds",
-    "index": 3,
+    "index": 2,
     "name": {
       "raw": "RG DDS",
       "sanitized": "rg-dds",
@@ -985,7 +573,7 @@
       "Plastic"
     ],
     "image": {
-      "originalUrl": "resources/cellImage_0_20.jpg",
+      "originalUrl": "resources/cellImage_0_19.jpg",
       "pngUrl": "/devices/rg-dds.png",
       "webpUrl": "/devices/rg-dds.webp",
       "alt": "rg dds",
@@ -1288,6 +876,418 @@
       {
         "url": "https://www.aliexpress.us/item/3256813216173767.html",
         "name": "4"
+      }
+    ],
+    "notes": [
+      ""
+    ]
+  },
+  {
+    "id": "odin-3-portal",
+    "index": 3,
+    "name": {
+      "raw": "Odin 3 Portal",
+      "sanitized": "odin-3-portal",
+      "normalized": "Odin 3 Portal"
+    },
+    "brand": {
+      "raw": "AYN Technologies",
+      "sanitized": "AYN-Technologies",
+      "normalized": "AYN Technologies"
+    },
+    "os": {
+      "raw": "Android 15",
+      "icons": [
+        "ph-android-logo"
+      ],
+      "list": [
+        "Android 15"
+      ],
+      "customFirmwares": []
+    },
+    "tags": [
+      {
+        "name": "Android",
+        "slug": "android",
+        "type": "os"
+      },
+      {
+        "name": "AYN Technologies",
+        "slug": "AYN-Technologies",
+        "type": "brand"
+      },
+      {
+        "name": "$$$",
+        "slug": "high",
+        "type": "price"
+      },
+      {
+        "name": "Horizontal",
+        "slug": "horizontal",
+        "type": "formFactor"
+      },
+      {
+        "name": "OLED",
+        "slug": "oled",
+        "type": "screenType"
+      },
+      {
+        "name": "2026",
+        "slug": "year-2026",
+        "type": "releaseDate"
+      },
+      {
+        "name": "Handheld",
+        "slug": "handheld",
+        "type": "deviceType"
+      }
+    ],
+    "totalRating": 6.27,
+    "lowBatteryIndicator": null,
+    "hackingGuides": [],
+    "systemOnChip": "Qualcomm Dragonwing Q8(Snapdragon 8 Elite)",
+    "architecture": {
+      "type": "ARM"
+    },
+    "ram": {
+      "raw": "12 GB / 16 GB(LPDDR4X?)",
+      "sizes": [
+        12
+      ],
+      "unit": "GB",
+      "type": "LPDDR4X"
+    },
+    "rumble": false,
+    "sensors": {
+      "raw": "?",
+      "hasMicrophone": false,
+      "hasAccelerometer": false,
+      "hasGyroscope": false,
+      "hasCompass": false,
+      "hasMagnetometer": false,
+      "hasBarometer": false,
+      "hasProximitySensor": false,
+      "hasAmbientLightSensor": false,
+      "hasFingerprintSensor": false,
+      "hasCamera": false,
+      "hasGravitySensor": false,
+      "hasPressureSensor": false,
+      "hasTemperatureSensor": false,
+      "hasHumiditySensor": false,
+      "hasHeartRateSensor": false,
+      "hasAntenna": false,
+      "screenClosure": false
+    },
+    "volumeControl": {
+      "type": "unknown"
+    },
+    "brightnessControl": {
+      "type": "dedicated-button"
+    },
+    "powerControl": {
+      "type": "unknown"
+    },
+    "battery": {
+      "raw": "Tempered Glass(OCA Laminated)",
+      "capacity": null,
+      "unit": null,
+      "type": "Lithium-ion",
+      "removable": false,
+      "charging": "USB-C"
+    },
+    "chargePort": {
+      "raw": "Home, Back, Power, Volume +-, 2 rear programmable buttons",
+      "type": null,
+      "numberOfPorts": 2
+    },
+    "storage": "usb-cbottom facing",
+    "dimensions": {
+      "length": null,
+      "width": null,
+      "height": null
+    },
+    "weight": 257,
+    "shellMaterial": {
+      "raw": "450 grams",
+      "isPlastic": false,
+      "isMetal": false,
+      "isAluminum": false,
+      "isMagnesiumAlloy": false,
+      "isOther": true
+    },
+    "colors": [
+      "Plastic"
+    ],
+    "image": {
+      "originalUrl": "resources/cellImage_0_20.jpg",
+      "pngUrl": "/devices/odin-3-portal.png",
+      "webpUrl": "/devices/odin-3-portal.webp",
+      "alt": "odin 3 portal",
+      "pocketbaseUrl": null
+    },
+    "released": {
+      "raw": "2026 / 11",
+      "mentionedDate": "2026-11-01T00:00:00.000Z"
+    },
+    "formFactor": "horizontal",
+    "systemRatings": [
+      {
+        "system": "PlayStation 2",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "PlayStation 1",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "PlayStation Portable",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Wii U",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Wii",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "GameCube",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "3DS",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "DS",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "N64",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "SNES",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "NES",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Game Boy Advance",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Game Boy",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Saturn",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Dreamcast",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Genesis",
+        "ratingMark": "A",
+        "ratingNumber": 5
+      },
+      {
+        "system": "Switch",
+        "ratingMark": "B",
+        "ratingNumber": 4
+      },
+      {
+        "system": "PlayStation 3",
+        "ratingMark": "C",
+        "ratingNumber": 3
+      }
+    ],
+    "deviceType": "handheld",
+    "connectivity": {
+      "hasWifi": false,
+      "hasBluetooth": false,
+      "hasNfc": false,
+      "hasUsb": false,
+      "hasUsbC": true
+    },
+    "cpus": [
+      {
+        "raw": "Qualcomm Oryon2x Prime / 6x Efficiency",
+        "names": [
+          "Qualcomm Oryon2x Prime / 6x Efficiency"
+        ],
+        "cores": 8,
+        "threads": 8,
+        "clockSpeed": {
+          "min": 3.53,
+          "max": 3.53,
+          "unit": "GHZ"
+        }
+      }
+    ],
+    "gpus": [
+      {
+        "name": "Qualcomm Adreno 830",
+        "cores": 1,
+        "clockSpeed": null
+      }
+    ],
+    "performance": {
+      "rating": 13,
+      "normalizedRating": 8.7,
+      "tier": "🔥🔥🔥½",
+      "maxEmulation": "All Switch playable, most PS3 playable",
+      "emulationLimit": ""
+    },
+    "screen": {
+      "size": 7,
+      "type": {
+        "raw": "AMOLEDTouchscreen",
+        "isTouchscreen": true,
+        "isPenCapable": false,
+        "type": "OLED"
+      },
+      "resolution": [],
+      "ppi": [
+        1920
+      ],
+      "aspectRatio": "314.7 ppi",
+      "lens": "16:9"
+    },
+    "cooling": {
+      "raw": "9000 mAh",
+      "hasHeatsink": false,
+      "hasFan": false,
+      "hasHeatPipe": false,
+      "hasVentilationCutouts": false
+    },
+    "controls": {
+      "dPad": {
+        "raw": "HeatsinkFanVentilation cutouts",
+        "type": "d-pad"
+      },
+      "analogs": {
+        "raw": "CrossLower placement",
+        "dual": false,
+        "single": false,
+        "L3": false,
+        "R3": false,
+        "isHallSensor": false,
+        "isThumbstick": false,
+        "isSlidepad": false
+      },
+      "numberOfFaceButtons": 3,
+      "shoulderButtons": {
+        "raw": "4 Buttons",
+        "L": false,
+        "L1": false,
+        "L2": false,
+        "L3": false,
+        "R": false,
+        "R1": false,
+        "R2": false,
+        "R3": false,
+        "M1": false,
+        "M2": false,
+        "LC": false,
+        "RC": false,
+        "ZL": false,
+        "ZRVertical": false,
+        "ZRHorizontal": false
+      },
+      "extraButtons": {
+        "raw": "L1, R1, L2, R2VerticalAnalog Triggers",
+        "power": false,
+        "reset": false,
+        "home": false,
+        "volumeUp": false,
+        "volumeDown": false,
+        "function": false,
+        "turbo": false,
+        "touchpad": false,
+        "fingerprint": false,
+        "mute": false,
+        "screenshot": false,
+        "programmableButtons": false
+      }
+    },
+    "outputs": {
+      "videoOutput": {
+        "raw": "WiFi 7, Bluetooth 6.0",
+        "hasUsbC": false,
+        "hasMicroHdmi": false,
+        "hasMiniHdmi": false,
+        "hasHdmi": false,
+        "hasDvi": false,
+        "hasVga": false,
+        "hasDisplayPort": false,
+        "OcuLink": false,
+        "AV": false
+      },
+      "audioOutput": {
+        "raw": "USB-C video outBottom facing",
+        "has35mmJack": false,
+        "hasHeadphoneJack": false,
+        "hasUsbC": true
+      },
+      "speaker": {
+        "type": "unknown"
+      }
+    },
+    "reviews": {
+      "count": null,
+      "average": null,
+      "videoReviews": [
+        {
+          "url": "https://www.youtube.com/watch?v=KVsih273dxY",
+          "name": "1"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=ER5tupXHjPE",
+          "name": "2"
+        }
+      ],
+      "writtenReviews": []
+    },
+    "pricing": {
+      "raw": "$399 (12 GB + 128 GB)$479 (12 GB + 256 GB)$549 (16 GB + 512 GB)",
+      "average": 455.5,
+      "range": {
+        "min": 399,
+        "max": 512
+      },
+      "currency": "USD",
+      "category": "high",
+      "discontinued": null
+    },
+    "pros": [
+      "-"
+    ],
+    "cons": [],
+    "vendorLinks": [
+      {
+        "url": "https://www.ayntec.com/products/odin3-portal",
+        "name": "AYN"
       }
     ],
     "notes": [
