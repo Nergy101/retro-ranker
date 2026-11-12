@@ -1,29 +1,53 @@
-FROM denoland/deno:2.9.2
-
-ARG GIT_REVISION
-ENV DENO_DEPLOYMENT_ID=${GIT_REVISION}
+# Multi-stage build: the build stage runs on the builder's native platform
+# ($BUILDPLATFORM) because Deno/V8 crashes under QEMU emulation when CI builds
+# the arm64 image on an amd64 runner. Everything it produces (_fresh/, the
+# module cache and the pure-JS node_modules) is platform-independent; only the
+# runtime stage is really arm64.
+FROM --platform=$BUILDPLATFORM denoland/deno:alpine-2.9.8 AS build
 
 WORKDIR /app
 
-# Copy dependency files first for better layer caching
+# Dependency layer first so it stays cached while sources change.
 COPY deno.json deno.lock ./
+RUN deno install
 
-# Pre-populate the deno cache (top-level imports only). --no-lock is crucial:
-# plain `deno cache deno.json` rewrites deno.lock to a partial graph (drops
-# jsr/redirects sections), breaking fresh's jsr:->https: resolution during
-# `deno task build`.
-RUN deno cache --no-lock deno.json
-
-# Copy the rest of the application code
 COPY . .
 
-# Build the application
-RUN deno task build
+# Build the app and warm the module cache for the server entry point.
+RUN deno task build && deno cache _fresh/server.js
 
-# Cache the server entry point
-RUN deno cache _fresh/server.js
+# ---- Runtime stage ----
+FROM denoland/deno:alpine-2.9.8
+
+# Pull latest alpine security patches (base image tags lag the repos by days)
+RUN apk upgrade --no-cache
+
+WORKDIR /app
+
+# Module cache and node_modules from the build stage (nodeModulesDir: "auto").
+COPY --from=build /deno-dir /deno-dir
+COPY --from=build /app/node_modules ./node_modules
+
+# The built app plus the source files _fresh/server.js loads at startup.
+COPY --from=build /app/_fresh ./_fresh
+COPY --from=build /app/main.ts ./main.ts
+COPY --from=build /app/utils.ts ./utils.ts
+COPY --from=build /app/client.ts ./client.ts
+COPY --from=build /app/deno.json /app/deno.lock ./
+COPY --from=build /app/routes ./routes
+COPY --from=build /app/components ./components
+COPY --from=build /app/islands ./islands
+COPY --from=build /app/interfaces ./interfaces
+COPY --from=build /app/data ./data
+COPY --from=build /app/static ./static
+
+ENV DENO_DIR=/deno-dir \
+    PORT=8000
 
 EXPOSE 8000
+
+ARG GIT_REVISION
+ENV DENO_DEPLOYMENT_ID=${GIT_REVISION}
 
 CMD ["deno", "task", "start"]
 
